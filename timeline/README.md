@@ -28,3 +28,5 @@ TODO: download the other 2 tar files.
 10/24/2023 1:01 PM: TODO: spawn vehicle: choose vehicle to spawn: Tesla Model 3.  
 10/24/2023 1:06 PM: TODO: decide if vehicle should be spawned through API or through manual_control.py window.  
 10/24/2023 1:17 PM: TODO: get waypoint locations on map.  
+10/24/2023 4:29 PM: TODO: review basic_agent.py to find waypoints.  
+10/24/2023 4:31 PM: TODO: spawn vehicle through manual_control.py window.  
