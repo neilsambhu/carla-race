@@ -30,3 +30,5 @@ TODO: download the other 2 tar files.
 10/24/2023 1:17 PM: TODO: get waypoint locations on map.  
 10/24/2023 4:29 PM: TODO: review basic_agent.py to find waypoints.  
 10/24/2023 4:31 PM: TODO: spawn vehicle through manual_control.py window.  
+10/24/2023 5:23 PM: I changed the settings for asynchronous mode to synchronous mode. manual_control.py still reads asynchronous mode.  
+10/24/2023 5:42 PM: I need to choose between (1) getting synchronous mode working and (2) understanding waypoints. I will reduce the rendering quality to get CARLA working and move on to the Autopilot waypoints.  
