@@ -25,3 +25,5 @@ Segmentation fault (core dumped)
 TODO: download the other 2 tar files.  
 10/24/2023 12:21:53 PM: CARLA 0.9.14 installed.  
 10/24/2023 12:22:25 PM: TODO: configure CARLA 0.9.14 Town04.  
+10/24/2023 1:01 PM: TODO: spawn vehicle: choose vehicle to spawn: Tesla Model 3.  
+10/24/2023 1:06 PM: TODO: decide if vehicle should be spawned through API or through manual_control.py window.  
