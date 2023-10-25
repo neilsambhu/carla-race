@@ -32,3 +32,12 @@ TODO: download the other 2 tar files.
 10/24/2023 4:31 PM: TODO: spawn vehicle through manual_control.py window.  
 10/24/2023 5:23 PM: I changed the settings for asynchronous mode to synchronous mode. manual_control.py still reads asynchronous mode.  
 10/24/2023 5:42 PM: I need to choose between (1) getting synchronous mode working and (2) understanding waypoints. I will reduce the rendering quality to get CARLA working and move on to the Autopilot waypoints.  
+10/24/2023 7:53 PM: in the manual_control.py, find out how autopilot works.  
+10/25/2023 10:38 PM: TODO: set synchronous mode as a parameter in manual_control.py.  
+```
+python manual_control.py --autopilot --filter "vehicle.tesla.model3" --sync
+```
+10/25/2023 10:41 PM: CARLA run
+```
+./CarlaUE4.sh -quality-level=Low -RenderOffScreen
+```

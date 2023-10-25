@@ -14,11 +14,11 @@ def main():
 	# # Set synchronous mode
 	# settings = world.get_settings()
 	# settings.synchronous_mode = True # Enables synchronous mode
-	# settings.fixed_delta_seconds = 0.05
+	# # settings.fixed_delta_seconds = 0.05
 	# world.apply_settings(settings)
 
-	# client.reload_world(False) # reload map keeping the world settings
-	# # client.reload_world() # reload map keeping the world settings
+	# # client.reload_world(False) # reload map keeping the world settings
+	# # # client.reload_world() # reload map keeping the world settings
 
 	# # Simulation loop
 	# while True:
