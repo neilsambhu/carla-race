@@ -33,11 +33,44 @@ TODO: download the other 2 tar files.
 10/24/2023 5:23 PM: I changed the settings for asynchronous mode to synchronous mode. manual_control.py still reads asynchronous mode.  
 10/24/2023 5:42 PM: I need to choose between (1) getting synchronous mode working and (2) understanding waypoints. I will reduce the rendering quality to get CARLA working and move on to the Autopilot waypoints.  
 10/24/2023 7:53 PM: in the manual_control.py, find out how autopilot works.  
-10/25/2023 10:38 PM: TODO: set synchronous mode as a parameter in manual_control.py.  
+10/25/2023 10:38 AM: TODO: set synchronous mode as a parameter in manual_control.py.  
 ```
 python manual_control.py --autopilot --filter "vehicle.tesla.model3" --sync
 ```
-10/25/2023 10:41 PM: CARLA run
+10/25/2023 10:41 AM: CARLA run
 ```
 ./CarlaUE4.sh -quality-level=Low -RenderOffScreen
 ```
+10/25/2023 10:44 AM: reminder to myself: even though sync settings are set in manual_control.py, I will have to configure the waypoints manually. For example, I can modify the manual_control.py script myself.  
+10/25/2023 10:53 AM: synchronous_mode and fixed_delta_seconds are set accurately.  
+```
+Python 3.7.13 (default, Mar 29 2022, 02:18:16) 
+[GCC 7.5.0] :: Anaconda, Inc. on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import carla
+>>> client = carla.Client('localhost', 2000)
+>>> client.set_timeout(20.0)
+>>> world = client.get_world()
+>>> world.get_settings()
+<carla.libcarla.WorldSettings object at 0x7f4db4cf4ae0>
+>>> world.get_settings().synchronous_mode
+True
+>>> world.get_settings().fixed_delta_seconds
+0.05
+>>> 
+```
+10/25/2023 11:00 AM: TODO: find waypoints in manual_control.py. There might be a call from manual_control.py to basic_agent.py.  
+10/25/2023 11:18 AM: TODO: find how autopilot navigates in manal_control.py.  
+10/25/2023 11:23 AM: I cannot find where the autopilot calls low-level functions from manual_control.py.  
+10/25/2023 1:03 PM: `manual_control.py` > autopilot start
+```
+controller = KeyboardControl(world, args.autopilot)
+```
+10/25/2023 3:06 PM: `manual_control.py` > class KeyboardControl
+```
+if controller.parse_events(client, world, clock, args.sync):
+                return
+```
+10/25/2023 3:34 PM: fine-grained Autopilot settings are probably not in the KeyboardControl class.  
+10/25/2023 3:44 PM: fine-grained Autopilot settings might be in the World class.  
+10/25/2023 4:25 PM: read traffic manager: "The Traffic Manager (TM) is the module that controls vehicles in autopilot mode in a simulation."  
