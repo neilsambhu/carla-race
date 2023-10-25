@@ -74,3 +74,17 @@ if controller.parse_events(client, world, clock, args.sync):
 10/25/2023 3:34 PM: fine-grained Autopilot settings are probably not in the KeyboardControl class.  
 10/25/2023 3:44 PM: fine-grained Autopilot settings might be in the World class.  
 10/25/2023 4:25 PM: read traffic manager: "The Traffic Manager (TM) is the module that controls vehicles in autopilot mode in a simulation."  
+10/25/2023 7:23 PM: manual_control.py > game_loop(args)
+```
+traffic_manager = client.get_trafficmanager()
+traffic_manager.set_synchronous_mode(True)
+```
+10/25/2023 7:27 PM: autopilot settings might be in world class. 
+```
+world.player.set_autopilot(self._autopilot_enabled)
+```
+10/25/2023 7:30 PM: player location
+```
+self.player = self.world.try_spawn_actor(blueprint, spawn_point)
+```
+10/25/2023 7:42 PM: the search for the autopilot waypoints is not obviously in the traffic_manager nor world.player.  
