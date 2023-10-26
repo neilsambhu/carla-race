@@ -88,3 +88,4 @@ world.player.set_autopilot(self._autopilot_enabled)
 self.player = self.world.try_spawn_actor(blueprint, spawn_point)
 ```
 10/25/2023 7:42 PM: the search for the autopilot waypoints is not obviously in the traffic_manager nor world.player.  
+10/26/2023 11:17 AM: read more about traffic manager.  
