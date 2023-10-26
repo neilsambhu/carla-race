@@ -89,3 +89,36 @@ self.player = self.world.try_spawn_actor(blueprint, spawn_point)
 ```
 10/25/2023 7:42 PM: the search for the autopilot waypoints is not obviously in the traffic_manager nor world.player.  
 10/26/2023 11:17 AM: read more about traffic manager.  
+10/26/2023 11:37 AM: find "waypoint"
+```
+grep -r -e "waypoint" |& tee ~/github/carla-race/outgrep.txt
+```
+results are from no_rendering_mode.py and synchronous_mode.py.  
+10/26/2023 12:00 PM: I think I will need to modify the car spawn script to collect my own data. Steps: (1) spawn car; (2) collect RGB data; (3) implement basic agent.  
+10/26/2023 12:04 PM: BasicAgent search in examples.
+```
+(carla-race) nsambhu@CSE001022:/opt/carla-simulator/PythonAPI/examples$ grep -r -e "BasicAgent" |& tee ~/github/carla-race/outgrep.txt
+automatic_control.py:from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
+automatic_control.py:            agent = BasicAgent(world.player, 30)
+```
+10/26/2023 5:22 PM: automatic_control.py works like manual_control.py with autopilot enabled by default. automatic_control.py calls basic_agent.py. Important function in basic_agent.py:
+```
+def set_global_plan(self, plan, stop_waypoint_creation=True, clean_queue=True):
+    """
+    Adds a specific plan to the agent.
+
+        :param plan: list of [carla.Waypoint, RoadOption] representing the route to be followed
+        :param stop_waypoint_creation: stops the automatic random creation of waypoints
+        :param clean_queue: resets the current agent's plan
+    """
+    self._local_planner.set_global_plan(
+        plan,
+        stop_waypoint_creation=stop_waypoint_creation,
+        clean_queue=clean_queue
+    )
+```
+10/26/2023 7:12 PM: automatic_control paramaters
+```
+python automatic_control.py --filter "vehicle.tesla.model3" --sync
+```
+10/26/2023 7:19 PM: find waypoints or landmarks in Town04.  

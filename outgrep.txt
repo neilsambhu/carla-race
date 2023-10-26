@@ -1,0 +1,2 @@
+automatic_control.py:from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
+automatic_control.py:            agent = BasicAgent(world.player, 30)
