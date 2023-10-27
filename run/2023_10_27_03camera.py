@@ -1,8 +1,11 @@
-import carla, time, queue
+import carla, time, queue, shutil, os
 
 def main():
     '''Make sure CARLA Simulator 0.9.14 is running'''
     actor_list = []
+
+    if os.path.exists('_out'):
+        shutil.rmtree('_out')
     
     try:
         # Connect to the CARLA Simulator
@@ -46,7 +49,7 @@ def main():
 
         # Let's add now a "depth" camera attached to the vehicle. Note that the
         # transform we give here is now relative to the vehicle.
-        camera_bp = blueprint_library.find('sensor.camera.depth')
+        camera_bp = blueprint_library.find('sensor.camera.rgb')
         camera_transform = carla.Transform(carla.Location(x=1.5, z=2.4))
         camera = world.spawn_actor(camera_bp, camera_transform, attach_to=vehicle)
         actor_list.append(camera)
@@ -55,18 +58,13 @@ def main():
         # Now we register the function that will be called each time the sensor
         # receives an image. In this example we are saving the image to disk
         # converting the pixels to gray-scale.
-        cc = carla.ColorConverter.LogarithmicDepth
+        # cc = carla.ColorConverter.LogarithmicDepth
         # camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
-        camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
+        camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame))
 
-        # time.sleep(5)
-        # image_queue = queue.Queue()
-        # camera.listen(image_queue.put)
-
-        for i in range(100):
+        for i in range(1):
             world.tick()
-            # image = image_queue.get()
-            # camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
+            time.sleep(1)
 
     finally:
         print('destroying actors')
