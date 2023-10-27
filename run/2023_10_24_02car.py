@@ -15,5 +15,10 @@ def main():
 	blueprint_library = world.get_blueprint_library()
 	vehicle_bp = blueprint_library.find('vehicle.tesla.model3')
 
+	# Now we need to give an initial transform to the vehicle. We choose a
+	# random transform from the list of recommended spawn points of the map.
+	print(world.get_map().get_spawn_points())
+	# transform = random.choice(world.get_map().get_spawn_points())
+
 if __name__ == '__main__':
     main()

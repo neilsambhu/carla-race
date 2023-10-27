@@ -125,3 +125,9 @@ python automatic_control.py --filter "vehicle.tesla.model3" --sync
 10/27/2023 12:08 PM: must not use autopilot for movement through Town04: autopilot is built into CARLA. 
 10/27/2023 12:14 PM: how do I define the navigation through Town04 for my own agent?
 10/27/2023 12:31 PM: the agent can hit custom waypoints. How do I find waypoints? Try to spawn a vehicle at specific waypoints in Town04.  
+10/27/2023 12:46 PM: commands before reboot:
+```
+(carla-race) nsambhu@CSE001022:/opt/carla-simulator$ ./CarlaUE4.sh 
+(carla-race) nsambhu@CSE001022:~/github/carla-race$ python run/2023_10_24_02car.py 
+```
+TODO: get RGB data from car.  
