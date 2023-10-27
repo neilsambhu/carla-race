@@ -136,3 +136,4 @@ TODO: get RGB data from car.
 10/27/2023 2:22 PM: 2023_10_24_02car.py cannot exist as synchronous mode and saving images to hard disk. Make a copy to 2023_10_27_03camera.py.  
 10/27/2023 2:31 PM: What is the next step in getting the sensor data stored to hard disk? 
 10/27/2023 7:43 PM: successfully saved RGB image from one waypoint.  
+10/27/2023 7:56 PM: I have the waypoints. I have the RGB visual of the waypoints. I need to create an agent that can drive through waypoints.  

@@ -1,4 +1,830 @@
 len(world.get_map().get_spawn_points()): 372
-created sensor.camera.depth
+created vehicle.tesla.model3
+created sensor.camera.rgb
 destroying actors
 done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
+created sensor.camera.rgb
+destroying actors
+done.
+created vehicle.tesla.model3
