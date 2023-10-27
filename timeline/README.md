@@ -131,3 +131,7 @@ python automatic_control.py --filter "vehicle.tesla.model3" --sync
 (carla-race) nsambhu@CSE001022:~/github/carla-race$ python run/2023_10_24_02car.py 
 ```
 TODO: get RGB data from car.  
+10/27/2023 2:00 PM: problem: I cannot set synchronous mode and have images saved to hard disk simulataneously. I probably need to configure a tick to have images saved.  
+10/27/2023 2:18 PM: TODO: read examples/sensor_synchronization.py.  
+10/27/2023 2:22 PM: 2023_10_24_02car.py cannot exist as synchronous mode and saving images to hard disk. Make a copy to 2023_10_27_03camera.py.  
+10/27/2023 2:31 PM: What is the next step in getting the sensor data stored to hard disk? 
