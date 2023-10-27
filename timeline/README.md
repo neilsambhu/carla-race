@@ -122,3 +122,6 @@ def set_global_plan(self, plan, stop_waypoint_creation=True, clean_queue=True):
 python automatic_control.py --filter "vehicle.tesla.model3" --sync
 ```
 10/26/2023 7:19 PM: find waypoints or landmarks in Town04.  
+10/27/2023 12:08 PM: must not use autopilot for movement through Town04: autopilot is built into CARLA. 
+10/27/2023 12:14 PM: how do I define the navigation through Town04 for my own agent?
+10/27/2023 12:31 PM: the agent can hit custom waypoints. How do I find waypoints? Try to spawn a vehicle at specific waypoints in Town04.  
