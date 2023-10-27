@@ -57,14 +57,16 @@ def main():
         # converting the pixels to gray-scale.
         cc = carla.ColorConverter.LogarithmicDepth
         # camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
+        camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
 
         # time.sleep(5)
-        image_queue = queue.Queue()
-        camera.listen(image_queue.put)
+        # image_queue = queue.Queue()
+        # camera.listen(image_queue.put)
 
         for i in range(100):
             world.tick()
-            image = image_queue.get()
+            # image = image_queue.get()
+            # camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
 
     finally:
         print('destroying actors')
