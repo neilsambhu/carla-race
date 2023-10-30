@@ -137,3 +137,15 @@ TODO: get RGB data from car.
 10/27/2023 2:31 PM: What is the next step in getting the sensor data stored to hard disk? 
 10/27/2023 7:43 PM: successfully saved RGB image from one waypoint.  
 10/27/2023 7:56 PM: I have the waypoints. I have the RGB visual of the waypoints. I need to create an agent that can drive through waypoints.  
+10/29/2023 3:42 PM: TODO: get full insight on CARLA Autopilot to see how it's driving.  
+10/29/2023 3:58 PM: manual_control.py does not call any of the scripts in navigation/.  
+10/29/2023 4:01 PM: find "set_autopilot"
+```
+grep -r -e "set_autopilot" |& tee ~/github/carla-race/outgrep.txt
+```
+There are only function calls and not function definitions.  
+10/29/2023 4:06 PM: set_autopilot is part of the carla.Vehicle class.  
+```
+grep -r -e "Vehicle" |& tee ~/github/carla-race/outgrep.txt
+```
+10/30/2023 4:41 PM: grep cuts off printing. SAMBHU23 needs to be rebooted.  
