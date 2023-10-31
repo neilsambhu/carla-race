@@ -36,4 +36,7 @@ PythonAPI/examples/manual_control_gbuffer.py:                        world.playe
 PythonAPI/examples/manual_control_gbuffer.py:                    world.player.set_autopilot(self._autopilot_enabled)
 PythonAPI/examples/manual_control_gbuffer.py:                        world.player.set_autopilot(self._autopilot_enabled)
 PythonAPI/examples/open3d_lidar.py:        vehicle.set_autopilot(arg.no_autopilot)
-Plugins/carlaviz/examp
+Plugins/carlaviz/examples/example.py:        ego_vehicle.set_autopilot(True)
+Plugins/telecarla/telecarla_manual_control/src/telecarla_manual_control_ctrl.py:        self.set_autopilot(self._autopilot_enabled)
+Plugins/telecarla/telecarla_manual_control/src/telecarla_manual_control_ctrl.py:    def set_autopilot(self, enable):
+Plugins/telecarla/telecarla_manual_control/src/telecarla_manual_control_ctrl.py:                    self.set_autopilot(self._autopilot_enabled)

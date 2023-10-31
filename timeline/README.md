@@ -149,3 +149,11 @@ There are only function calls and not function definitions.
 grep -r -e "Vehicle" |& tee ~/github/carla-race/outgrep.txt
 ```
 10/30/2023 4:41 PM: grep cuts off printing. SAMBHU23 needs to be rebooted.  
+10/31/2023 11:29 AM: the carla.Vehicle class is part of the Python API. I will go through the Python API directory structure to see where autpilot exists.  
+10/31/2023 11:30 AM: the PythonAPI directory:  
+PythonAPI  
+    carla  
+    examples  
+    util  
+Search order for autopilot code: carla, util, examples.  
+10/31/2023 11:51 AM: the autopilot code is part of C++ code.  
