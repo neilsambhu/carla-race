@@ -159,3 +159,25 @@ PythonAPI
 ```
 Search order for autopilot code: carla, util, examples.  
 10/31/2023 11:51 AM: the autopilot code is part of C++ code.  
+10/31/2023 2:37 PM: search for "set_autopilot" in the following directories:  
+```
+CarlaUE4
+Co-Simulation
+Engine
+HDMaps
+Import
+Plugins
+PythonAPI
+Tools
+```
+10/31/2023 2:38 PM: searching in CarlaUE4 for "set_autopilot"  
+10/31/2023 2:44 PM: look for Autopilot in GitHub: https://github.com/carla-simulator/carla/issues?q=autopilot+sort%3Acreated-asc  
+11/3/2023 4:39 PM: TODO: try to run basic_agent.py. Small step: search for calls to "basic_agent" in PythonAPI.  
+```
+grep -r -e "basic_agent" |& tee ~/github/carla-race/outgrep.txt
+```
+11/3/2023 4:41 PM: answer:
+```
+(carla-race) nsambhu@CSE001022:/opt/carla-simulator/PythonAPI/examples$ grep -r -e "basic_agent" |& tee ~/github/carla-race/outgrep.txt
+automatic_control.py:from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
+```
