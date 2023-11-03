@@ -181,3 +181,8 @@ grep -r -e "basic_agent" |& tee ~/github/carla-race/outgrep.txt
 (carla-race) nsambhu@CSE001022:/opt/carla-simulator/PythonAPI/examples$ grep -r -e "basic_agent" |& tee ~/github/carla-race/outgrep.txt
 automatic_control.py:from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
 ```
+11/3/2023 7:32 PM: automatic_control.py parmaters
+```
+python automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
+```
+11/3/2023 7:41 PM: CARLA is not working properly. I will reboot SAMBHU23 as a sanity check. Items to verify: (1) print of 'a' stops and (2) vehicle drives.  
