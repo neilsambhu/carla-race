@@ -186,3 +186,8 @@ automatic_control.py:from agents.navigation.basic_agent import BasicAgent  # pyl
 python automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 ```
 11/3/2023 7:41 PM: CARLA is not working properly. I will reboot SAMBHU23 as a sanity check. Items to verify: (1) print of 'a' stops and (2) vehicle drives.  
+11/3/2023 7:43 PM: commands before reboot:
+```
+(carla-race) nsambhu@CSE001022:/opt/carla-simulator$ ./CarlaUE4.sh 
+(carla-race) nsambhu@CSE001022:/opt/carla-simulator/PythonAPI/examples$ python automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
+```
