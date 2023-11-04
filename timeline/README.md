@@ -191,3 +191,4 @@ python automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 (carla-race) nsambhu@CSE001022:/opt/carla-simulator$ ./CarlaUE4.sh 
 (carla-race) nsambhu@CSE001022:/opt/carla-simulator/PythonAPI/examples$ python automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 ```
+11/3/2023 8:07 PM: Neil TODO: read (1) automatic_control.py and (2) basic_agent.py.  
