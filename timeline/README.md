@@ -192,3 +192,6 @@ python automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 (carla-race) nsambhu@CSE001022:/opt/carla-simulator/PythonAPI/examples$ python automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 ```
 11/3/2023 8:07 PM: Neil TODO: read (1) automatic_control.py and (2) basic_agent.py.  
+11/3/2023 10:14 PM: automatic_control.py: got to CollisionSensor.  
+11/6/2023 2:00 PM: finished reading basic_agent.py.  
+11/6/2023 2:06 PM: finished reading local_planner.py.  
