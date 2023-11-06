@@ -25,7 +25,7 @@ def main():
 	# 	# Your code
 	# 	world.tick()
 
-	print(carla.Landmark)
+	# print(carla.Landmark)
 
 if __name__ == '__main__':
     main()
