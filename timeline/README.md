@@ -195,3 +195,7 @@ python automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 11/3/2023 10:14 PM: automatic_control.py: got to CollisionSensor.  
 11/6/2023 2:00 PM: finished reading basic_agent.py.  
 11/6/2023 2:06 PM: finished reading local_planner.py.  
+11/6/2023 2:36 PM: copy API. New command for automatic_control.py
+```
+python run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
+```
