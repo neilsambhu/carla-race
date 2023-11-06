@@ -199,3 +199,10 @@ python automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 ```
 python run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 ```
+11/6/2023 2:47 PM: TODO: (1) turn off red lights and (2) print waypoints between 2 locations.  
+11/6/2023 2:57 PM: ignore traffic lights set.  
+11/6/2023 3:03 PM: reboot SAMBHU23 as a sanity check. Commands before reboot:
+```
+(carla-race) nsambhu@CSE001022:/opt/carla-simulator$ ./CarlaUE4.sh 
+(carla-race) nsambhu@CSE001022:~/github/carla-race$ python run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
+```

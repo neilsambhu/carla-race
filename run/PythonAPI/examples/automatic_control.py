@@ -737,6 +737,9 @@ def game_loop(args):
         if args.agent == "Basic":
             agent = BasicAgent(world.player, 30)
             agent.follow_speed_limits(True)
+            # 11/9/2023 2:56 PM: Neil modification: start
+            agent.ignore_traffic_lights(True)
+            # 11/9/2023 2:56 PM: Neil modification: end
         elif args.agent == "Constant":
             agent = ConstantVelocityAgent(world.player, 30)
             ground_loc = world.world.ground_projection(world.player.get_location(), 5)
