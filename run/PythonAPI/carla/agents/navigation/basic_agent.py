@@ -160,8 +160,8 @@ class BasicAgent(object):
         end_waypoint = self._map.get_waypoint(end_location)
 
         if bVerbose:
-            print(f'start_location: {start_location}\tstart_waypoint: {start_waypoint}')
-            print(f'end_location: {end_location}\tend_waypoint: {end_waypoint}')
+            print(f'start_location: {start_location}')
+            print(f'end_location: {end_location}')
 
         route_trace = self.trace_route(start_waypoint, end_waypoint)
         self._local_planner.set_global_plan(route_trace, clean_queue=clean_queue)

@@ -206,3 +206,4 @@ python run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesl
 (carla-race) nsambhu@CSE001022:/opt/carla-simulator$ ./CarlaUE4.sh 
 (carla-race) nsambhu@CSE001022:~/github/carla-race$ python run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 ```
+11/6/2023 4:39 PM: throttle modulation is choppy regardless of fixed_delta_seconds value.  
