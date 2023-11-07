@@ -207,3 +207,6 @@ python run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesl
 (carla-race) nsambhu@CSE001022:~/github/carla-race$ python run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 ```
 11/6/2023 4:39 PM: throttle modulation is choppy regardless of fixed_delta_seconds value.  
+11/7/2023 9:50 AM: vehicle navigation between 2 nearby locations successfully completed.  
+11/7/2023 10:22 AM: find low-level vehicle controls. Look for VehicleControl.  
+11/7/2023 4:10 PM: there are no references to VehicleControl in basic_agent.py. I will check locations for low-level vehicle control.  
