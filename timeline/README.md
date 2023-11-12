@@ -210,3 +210,43 @@ python run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesl
 11/7/2023 9:50 AM: vehicle navigation between 2 nearby locations successfully completed.  
 11/7/2023 10:22 AM: find low-level vehicle controls. Look for VehicleControl.  
 11/7/2023 4:10 PM: there are no references to VehicleControl in basic_agent.py. I will check locations for low-level vehicle control.  
+11/7/2023 5:49 PM: TODO: (1) find VehicleControl using grep and (2) create my own Autopilot by either (2.1) using basic_agent.py iteratively to navigate between waypoints or (2.2) controlling the low-level controls of the vehicle.  
+```
+grep -r -e "VehicleControl" --exclude=*.md --exclude=outgrep.txt|& tee ~/github/carla-race/outgrep.txt
+```
+11/9/2023 7:33 PM: find "brake"
+```
+grep -r -e "brake" --exclude=*.md --exclude=outgrep.txt|& tee ~/github/carla-race/outgrep.txt
+```
+11/10/2023 1:24 PM: TODO: look at controller.py.  
+11/10/2023 4:41 PM: TODO: make ego vehicle drive between two waypoints.  
+11/10/2023 4:49 PM: there is a pathway from basic_agent.py to controller.py.  
+basic_agent.py
+```
+def __init__(self, vehicle, target_speed=20, opt_dict={}, map_inst=None, grp_inst=None):
+```
+```
+self._local_planner = LocalPlanner(self._vehicle, opt_dict=opt_dict, map_inst=self._map)
+```
+local_planner.py
+```
+def _init_controller(self):
+```
+```
+self._vehicle_controller = VehiclePIDController(self._vehicle,
+                                                args_lateral=self._args_lateral_dict,
+                                                args_longitudinal=self._args_longitudinal_dict,
+                                                offset=self._offset,
+                                                max_throttle=self._max_throt,
+                                                max_brake=self._max_brake,
+                                                max_steering=self._max_steer)
+```
+controller.py
+```
+def run_step(self, target_speed, waypoint):
+```
+11/11/2023 6:59 PM: spawn command
+```
+python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic |& tee out.txt
+```
+11/11/2023 7:07 PM: I was trying to set max_throttle to 1.0. I'm seeing where target_speed is referenced.  

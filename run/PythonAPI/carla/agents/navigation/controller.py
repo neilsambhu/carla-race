@@ -11,6 +11,7 @@ import numpy as np
 import carla
 from agents.tools.misc import get_speed
 
+bVerbose = True
 
 class VehiclePIDController():
     """
@@ -89,6 +90,9 @@ class VehiclePIDController():
         control.manual_gear_shift = False
         self.past_steering = steering
 
+        if bVerbose:
+            print(f'control: {control}')
+            
         return control
 
 

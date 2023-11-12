@@ -738,7 +738,10 @@ def game_loop(args):
         world = World(client.get_world(), hud, args)
         controller = KeyboardControl(world)
         if args.agent == "Basic":
-            agent = BasicAgent(world.player, 30)
+            # agent = BasicAgent(world.player, 30) # 11/11/2023 7:12 PM: Neil commented out
+            # 11/11/2023 7:12 PM: Neil custom call to BasicAgent: start
+            agent = BasicAgent(world.player, 30, {'target_speed'})
+            # 11/11/2023 7:12 PM: Neil custom call to BasicAgent: end
             agent.follow_speed_limits(True)
             # 11/9/2023 2:56 PM: Neil modification: start
             agent.ignore_traffic_lights(True)

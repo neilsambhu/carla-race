@@ -1,1 +1,119 @@
-automatic_control.py:from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
+Binary file run/PythonAPI/carla/agents/navigation/__pycache__/basic_agent.cpython-37.pyc matches
+Binary file run/PythonAPI/carla/agents/navigation/__pycache__/behavior_agent.cpython-37.pyc matches
+Binary file run/PythonAPI/carla/agents/navigation/__pycache__/local_planner.cpython-37.pyc matches
+Binary file run/PythonAPI/carla/agents/navigation/__pycache__/controller.cpython-37.pyc matches
+run/PythonAPI/carla/agents/navigation/basic_agent.py:        self._max_brake = 0.5
+run/PythonAPI/carla/agents/navigation/basic_agent.py:        if 'max_brake' in opt_dict:
+run/PythonAPI/carla/agents/navigation/basic_agent.py:            self._max_brake = opt_dict['max_brake']
+run/PythonAPI/carla/agents/navigation/basic_agent.py:        Overwrites the throttle a brake values of a control to perform an emergency stop.
+run/PythonAPI/carla/agents/navigation/basic_agent.py:        control.brake = self._max_brake
+run/PythonAPI/carla/agents/navigation/basic_agent.py:        control.hand_brake = False
+run/PythonAPI/carla/agents/navigation/behavior_agent.py:            # Emergency brake if the car is very close.
+run/PythonAPI/carla/agents/navigation/behavior_agent.py:            # Emergency brake if the car is very close.
+run/PythonAPI/carla/agents/navigation/behavior_agent.py:        Overwrites the throttle a brake values of a control to perform an emergency stop.
+run/PythonAPI/carla/agents/navigation/behavior_agent.py:        control.brake = self._max_brake
+run/PythonAPI/carla/agents/navigation/behavior_agent.py:        control.hand_brake = False
+run/PythonAPI/carla/agents/navigation/controller.py:    def __init__(self, vehicle, args_lateral, args_longitudinal, offset=0, max_throttle=0.75, max_brake=0.3,
+run/PythonAPI/carla/agents/navigation/controller.py:        self.max_brake = max_brake
+run/PythonAPI/carla/agents/navigation/controller.py:            control.brake = 0.0
+run/PythonAPI/carla/agents/navigation/controller.py:            control.brake = min(abs(acceleration), self.max_brake)
+run/PythonAPI/carla/agents/navigation/controller.py:        control.hand_brake = False
+run/PythonAPI/carla/agents/navigation/controller.py:        Estimate the throttle/brake of the vehicle based on the PID equations
+run/PythonAPI/carla/agents/navigation/controller.py:            :return: throttle/brake control
+run/PythonAPI/carla/agents/navigation/local_planner.py:            max_brake: maximum brake applied to the vehicle
+run/PythonAPI/carla/agents/navigation/local_planner.py:        self._max_brake = 0.3
+run/PythonAPI/carla/agents/navigation/local_planner.py:            if 'max_brake' in opt_dict:
+run/PythonAPI/carla/agents/navigation/local_planner.py:                self._max_brake = opt_dict['max_brake']
+run/PythonAPI/carla/agents/navigation/local_planner.py:                                                        max_brake=self._max_brake,
+run/PythonAPI/carla/agents/navigation/local_planner.py:            control.brake = 1.0
+run/PythonAPI/carla/agents/navigation/local_planner.py:            control.hand_brake = False
+run/PythonAPI/util/vehicle_physics_tester.py:    Basics scenearios (acceleration, brake, u-turn):
+run/PythonAPI/util/vehicle_physics_tester.py:def brake_scenario(world, bp_veh, speed):
+run/PythonAPI/util/vehicle_physics_tester.py:        (1000, carla.VehicleControl(brake=1.0), VehicleControlStop(speed_min=0.1))]
+run/PythonAPI/util/vehicle_physics_tester.py:        (200, carla.VehicleControl(brake=1), VehicleControlStop())]
+run/PythonAPI/util/vehicle_physics_tester.py:            if args.brake or args.all:
+run/PythonAPI/util/vehicle_physics_tester.py:                brake_scenario(world, bp_veh, 80)
+run/PythonAPI/util/vehicle_physics_tester.py:                brake_scenario(world, bp_veh, 100)
+run/PythonAPI/util/vehicle_physics_tester.py:    argparser.set_defaults(brake=False)
+run/PythonAPI/util/vehicle_physics_tester.py:        '--brake',
+run/PythonAPI/util/vehicle_physics_tester.py:        dest='brake',
+run/PythonAPI/util/vehicle_physics_tester.py:        help='Execute brake scenarios')
+run/PythonAPI/util/vehicle_physics_tester.py:        help='Execute brake scenarios')
+run/PythonAPI/util/vehicle_physics_tester.py:    if args.accel or args.brake or args.uturn or args.turn:
+run/PythonAPI/examples/no_rendering_mode.py:    S            : brake
+run/PythonAPI/examples/no_rendering_mode.py:    Space        : hand-brake
+run/PythonAPI/examples/no_rendering_mode.py:        self.control.brake = 1.0 if keys[K_DOWN] or keys[K_s] else 0.0
+run/PythonAPI/examples/no_rendering_mode.py:        self.control.hand_brake = keys[K_SPACE]
+run/PythonAPI/examples/rss/manual_control_rss.py:    S            : brake
+run/PythonAPI/examples/rss/manual_control_rss.py:    Space        : hand-brake
+run/PythonAPI/examples/rss/manual_control_rss.py:            if vehicle_control.brake:
+run/PythonAPI/examples/rss/manual_control_rss.py:            self._control.brake = min(self._control.brake + 0.2, 1)
+run/PythonAPI/examples/rss/manual_control_rss.py:            self._control.brake = max(self._control.brake - 0.2, 0)
+run/PythonAPI/examples/rss/manual_control_rss.py:        self._control.hand_brake = keys[K_SPACE]
+run/PythonAPI/examples/rss/manual_control_rss.py:            self._control.brake = 0.0
+run/PythonAPI/examples/rss/manual_control_rss.py:            self._control.brake = longitudinal / max_val
+run/PythonAPI/examples/rss/manual_control_rss.py:                ('Brake:', orig_control.brake, 0.0, 1.0, restricted_control.brake)]
+run/PythonAPI/examples/rss/rss_visualization.py:            rss_state_snapshot.unstructuredSceneEgoInformation.brakeTrajectorySet), camera_transform, calibration), (255, 0, 0)))
+run/PythonAPI/examples/rss/rss_visualization.py:            if state.unstructuredSceneState.rssStateInformation.brakeTrajectorySet:
+run/PythonAPI/examples/rss/rss_visualization.py:                    state.unstructuredSceneState.rssStateInformation.brakeTrajectorySet), camera_transform, calibration), (255, 0, 0)))
+run/PythonAPI/examples/rss/rss_sensor.py:        ego_dynamics.alphaLon.brakeMax = -8
+run/PythonAPI/examples/rss/rss_sensor.py:        ego_dynamics.alphaLon.brakeMin = -4
+run/PythonAPI/examples/rss/rss_sensor.py:        ego_dynamics.alphaLon.brakeMinCorrect = -3
+run/PythonAPI/examples/rss/rss_sensor.py:        ego_dynamics.alphaLat.brakeMin = -0.8
+run/PythonAPI/examples/rss/rss_sensor.py:        pedestrian_dynamics.alphaLon.brakeMax = -2.0
+run/PythonAPI/examples/rss/rss_sensor.py:        pedestrian_dynamics.alphaLon.brakeMin = -2.0
+run/PythonAPI/examples/rss/rss_sensor.py:        pedestrian_dynamics.alphaLon.brakeMinCorrect = -2.0
+run/PythonAPI/examples/rss/rss_sensor.py:        pedestrian_dynamics.alphaLat.brakeMin = -0.001
+run/PythonAPI/examples/automatic_control.py:                ('Brake:', control.brake, 0.0, 1.0),
+run/PythonAPI/examples/automatic_control.py:                ('Hand brake:', control.hand_brake),
+run/PythonAPI/examples/manual_control_carsim.py:    S            : brake
+run/PythonAPI/examples/manual_control_carsim.py:    Space        : hand-brake
+run/PythonAPI/examples/manual_control_carsim.py:                if self._control.brake:
+run/PythonAPI/examples/manual_control_carsim.py:            self._control.brake = min(self._control.brake + 0.2, 1)
+run/PythonAPI/examples/manual_control_carsim.py:            self._control.brake = 0
+run/PythonAPI/examples/manual_control_carsim.py:        self._control.hand_brake = keys[K_SPACE]
+run/PythonAPI/examples/manual_control_carsim.py:                ('Brake:', c.brake, 0.0, 1.0),
+run/PythonAPI/examples/manual_control_carsim.py:                ('Hand brake:', c.hand_brake),
+run/PythonAPI/examples/manual_control_steeringwheel.py:To drive start by preshing the brake pedal.
+run/PythonAPI/examples/manual_control_steeringwheel.py:        self._brake_idx = int(self._parser.get('G29 Racing Wheel', 'brake'))
+run/PythonAPI/examples/manual_control_steeringwheel.py:        self._handbrake_idx = int(
+run/PythonAPI/examples/manual_control_steeringwheel.py:            self._parser.get('G29 Racing Wheel', 'handbrake'))
+run/PythonAPI/examples/manual_control_steeringwheel.py:        self._control.brake = 1.0 if keys[K_DOWN] or keys[K_s] else 0.0
+run/PythonAPI/examples/manual_control_steeringwheel.py:        self._control.hand_brake = keys[K_SPACE]
+run/PythonAPI/examples/manual_control_steeringwheel.py:        brakeCmd = 1.6 + (2.05 * math.log10(
+run/PythonAPI/examples/manual_control_steeringwheel.py:            -0.7 * jsInputs[self._brake_idx] + 1.4) - 1.2) / 0.92
+run/PythonAPI/examples/manual_control_steeringwheel.py:        if brakeCmd <= 0:
+run/PythonAPI/examples/manual_control_steeringwheel.py:            brakeCmd = 0
+run/PythonAPI/examples/manual_control_steeringwheel.py:        elif brakeCmd > 1:
+run/PythonAPI/examples/manual_control_steeringwheel.py:            brakeCmd = 1
+run/PythonAPI/examples/manual_control_steeringwheel.py:        self._control.brake = brakeCmd
+run/PythonAPI/examples/manual_control_steeringwheel.py:        self._control.hand_brake = bool(jsButtons[self._handbrake_idx])
+run/PythonAPI/examples/manual_control_steeringwheel.py:                ('Brake:', c.brake, 0.0, 1.0),
+run/PythonAPI/examples/manual_control_steeringwheel.py:                ('Hand brake:', c.hand_brake),
+run/PythonAPI/examples/manual_control.py:    S            : brake
+run/PythonAPI/examples/manual_control.py:    Space        : hand-brake
+run/PythonAPI/examples/manual_control.py:                if self._control.brake:
+run/PythonAPI/examples/manual_control.py:                self._control.brake = min(self._control.brake + 0.2, 1)
+run/PythonAPI/examples/manual_control.py:                self._control.brake = 0
+run/PythonAPI/examples/manual_control.py:            self._control.hand_brake = keys[K_SPACE]
+run/PythonAPI/examples/manual_control.py:                ('Brake:', c.brake, 0.0, 1.0),
+run/PythonAPI/examples/manual_control.py:                ('Hand brake:', c.hand_brake),
+run/PythonAPI/examples/manual_control_chrono.py:    S            : brake
+run/PythonAPI/examples/manual_control_chrono.py:    Space        : hand-brake
+run/PythonAPI/examples/manual_control_chrono.py:                if self._control.brake:
+run/PythonAPI/examples/manual_control_chrono.py:            self._control.brake = min(self._control.brake + 0.2, 1)
+run/PythonAPI/examples/manual_control_chrono.py:            self._control.brake = 0
+run/PythonAPI/examples/manual_control_chrono.py:        self._control.hand_brake = keys[K_SPACE]
+run/PythonAPI/examples/manual_control_chrono.py:                ('Brake:', c.brake, 0.0, 1.0),
+run/PythonAPI/examples/manual_control_chrono.py:                ('Hand brake:', c.hand_brake),
+run/PythonAPI/examples/client_bounding_boxes.py:    S            : brake
+run/PythonAPI/examples/client_bounding_boxes.py:    Space        : hand-brake
+run/PythonAPI/examples/client_bounding_boxes.py:        control.hand_brake = keys[K_SPACE]
+run/PythonAPI/examples/manual_control_gbuffer.py:    S            : brake
+run/PythonAPI/examples/manual_control_gbuffer.py:    Space        : hand-brake
+run/PythonAPI/examples/manual_control_gbuffer.py:                if self._control.brake:
+run/PythonAPI/examples/manual_control_gbuffer.py:                self._control.brake = min(self._control.brake + 0.2, 1)
+run/PythonAPI/examples/manual_control_gbuffer.py:                self._control.brake = 0
+run/PythonAPI/examples/manual_control_gbuffer.py:            self._control.hand_brake = keys[K_SPACE]
+run/PythonAPI/examples/manual_control_gbuffer.py:                ('Brake:', c.brake, 0.0, 1.0),
+run/PythonAPI/examples/manual_control_gbuffer.py:                ('Hand brake:', c.hand_brake),
