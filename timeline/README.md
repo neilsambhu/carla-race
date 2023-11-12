@@ -250,3 +250,14 @@ def run_step(self, target_speed, waypoint):
 python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic |& tee out.txt
 ```
 11/11/2023 7:07 PM: I was trying to set max_throttle to 1.0. I'm seeing where target_speed is referenced.  
+11/12/2023 5:45 PM: I will find the choice of waypoints in the global_route_planner between the source and destination waypoints.  
+11/12/2023 5:49 PM: GlobalRoutePlanner > trace_route  
+11/12/2023 5:56 PM: macroscopic view: (1) waypoint navigation is more important to understand first than (2) maximizing speed.  
+11/12/2023 6:26 PM: debug route
+```
+route = self._path_search(origin, destination)
+```
+```
+route: [25, 239, 240, 180]
+```
+11/12/2023 6:33 PM: TODO: understand how `_path_search` works.  

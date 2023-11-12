@@ -16,6 +16,8 @@ import carla
 from agents.navigation.local_planner import RoadOption
 from agents.tools.misc import vector
 
+bVerbose = True
+
 class GlobalRoutePlanner(object):
     """
     This class provides a very high level route plan.
@@ -45,6 +47,8 @@ class GlobalRoutePlanner(object):
         """
         route_trace = []
         route = self._path_search(origin, destination)
+        if bVerbose:
+            print(f'route: {route}')
         current_waypoint = self._wmap.get_waypoint(origin)
         destination_waypoint = self._wmap.get_waypoint(destination)
 

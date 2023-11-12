@@ -11,7 +11,7 @@ import numpy as np
 import carla
 from agents.tools.misc import get_speed
 
-bVerbose = True
+bVerbose = False
 
 class VehiclePIDController():
     """
@@ -92,7 +92,7 @@ class VehiclePIDController():
 
         if bVerbose:
             print(f'control: {control}')
-            
+
         return control
 
 
