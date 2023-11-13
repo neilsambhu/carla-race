@@ -272,3 +272,7 @@ route: [25, 239, 240, 180]
 ```
 self._map = self._world.get_map()
 ```
+11/12/2023 10:06 PM: TODO: read documentation about maps.
+```
+BasicAgent self._map: Map(name=Carla/Maps/Town04_Opt)
+```

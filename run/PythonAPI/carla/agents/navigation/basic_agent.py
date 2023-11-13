@@ -50,6 +50,8 @@ class BasicAgent(object):
                 self._map = self._world.get_map()
         else:
             self._map = self._world.get_map()
+            if bVerbose:
+                print(f'BasicAgent self._map: {self._map}')
         self._last_traffic_light = None
 
         # Base parameters
