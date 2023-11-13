@@ -26,7 +26,7 @@ class GlobalRoutePlanner(object):
     def __init__(self, wmap, sampling_resolution):
         # if bVerbose:
         #     print(f'wmap: {wmap}')
-        #     print(f'wmap.get_topology(): {wmap.get_topology()}')
+            # print(f'wmap.get_topology(): {wmap.get_topology()}')
         self._sampling_resolution = sampling_resolution
         self._wmap = wmap
         self._topology = None
@@ -108,20 +108,25 @@ class GlobalRoutePlanner(object):
             # Rounding off to avoid floating point imprecision
             x1, y1, z1, x2, y2, z2 = np.round([l1.x, l1.y, l1.z, l2.x, l2.y, l2.z], 0)
             wp1.transform.location, wp2.transform.location = l1, l2
-            seg_dict = dict()
-            seg_dict['entry'], seg_dict['exit'] = wp1, wp2
-            seg_dict['entryxyz'], seg_dict['exitxyz'] = (x1, y1, z1), (x2, y2, z2)
-            seg_dict['path'] = []
-            endloc = wp2.transform.location
-            if wp1.transform.location.distance(endloc) > self._sampling_resolution:
-                w = wp1.next(self._sampling_resolution)[0]
-                while w.transform.location.distance(endloc) > self._sampling_resolution:
-                    seg_dict['path'].append(w)
+            seg_dict = dict() # 11/13/2023 10:21 AM: Neil comment: allocate memory for dictionary
+            seg_dict['entry'], seg_dict['exit'] = wp1, wp2 # 11/13/2023 10:22 AM: Neil comment: label waypoints with source and destination
+            seg_dict['entryxyz'], seg_dict['exitxyz'] = (x1, y1, z1), (x2, y2, z2) # 11/13/2023 10:23 AM: Neil comment: label XYZ locations
+            seg_dict['path'] = [] # 11/13/2023 10:23 AM: allocate memory for path label between adjacent waypoints in CARLA Town04 topology
+            endloc = wp2.transform.location # 11/13/2023 10:29 AM: label end waypoint
+            if wp1.transform.location.distance(endloc) > self._sampling_resolution: # 11/13/2023 12:14 PM: Neil comment: large edge
+                if bVerbose:
+                    print(f'wp1: {wp1}')
+                    # print(f'len(wp1.next(self._sampling_resolution): {len(wp1.next(self._sampling_resolution))}')
+                    wp2_Neil = wp1.next(self._sampling_resolution)[0]
+                    print(f'wp2_Neil: {wp2_Neil}')
+                w = wp1.next(self._sampling_resolution)[0] # 11/13/2023 11:45 AM: see what the next() method returns
+                while w.transform.location.distance(endloc) > self._sampling_resolution: # 11/13/2023 12:02 PM: extrapolate a path
+                    seg_dict['path'].append(w) # 11/13/2023 12:11 PM: Neil comment: add extrapolated node to path 
                     next_ws = w.next(self._sampling_resolution)
                     if len(next_ws) == 0:
                         break
                     w = next_ws[0]
-            else:
+            else: # 11/13/2023 12:14 PM: Neil comment: small edge
                 next_wps = wp1.next(self._sampling_resolution)
                 if len(next_wps) == 0:
                     continue

@@ -284,3 +284,21 @@ for segment in self._wmap.get_topology():
 11/12/2023 11:07 PM: The `get_topology()` method of wmap returns a list of CARLA Waypoints.  
 11/12/2023 11:18 PM: TODO: find out what `get_topology()` adds to the CARLA Waypoints.  
 11/12/2023 11:25 PM: TODO: (1) read global_route_planner.py > `_build_topology()`.  
+11/13/2023 10:07 AM: start research.  
+11/13/2023 10:08 AM: Q1: what is the transform of the waypoint?  
+11/13/2023 10:09 AM: A1: Transform contains location and rotation information.  
+11/13/2023 10:10 AM: Location: line 110.  
+11/13/2023 10:12 AM: Location: GlobalRoutePlanner > `_build_topology` creates a topology list by sequentially adding instances of `seg_dict`.  
+11/13/2023 10:19 AM: Question: what is the purpose of `seg_dict`? What does `seg_dict` represent?  
+11/13/2023 10:30 AM: GlobalRoutePlanner > `_build_topology()` > `_sampling_resolution`. TODO: print `sampling_resolution` to console.  
+11/13/2023 10:39 AM: GlobalRoutePlanner has a sampling_resolution of 2.0. I don't know what this sampling resolution signifies.  
+```self._sampling_resolution = 2.0```
+11/13/2023 10:46 AM: see what CARLA 0.9.15 includes.  
+11/13/2023 11:24 AM: sampling_resolution is unknown.  
+11/13/2023 11:32 AM: `_sampling_resolution` is in the same units as the GPS coordinates.  
+11/13/2023 11:36 AM: TODO: continue understanding how `_build_topology()`uses `seg_dict`.  
+11/13/2023 11:42 AM: TODO: understand next method of waypoint.  
+11/13/2023 11:56 AM: Summary: waypoint next method returns an array of one waypoint.  
+11/13/2023 12:52 PM: Correction: The `get_topology()` method of wmap returns a list of paired CARLA Waypoints.  
+11/13/2023 12:58 PM: Correction: find out what `get_topology()` adds to the topology list.  
+11/13/2023 2:42 PM: `for segment in self._wmap.get_topology():`, find out what `seg_dict['path']` represents.  
