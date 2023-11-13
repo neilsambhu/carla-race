@@ -16,7 +16,7 @@ import carla
 from agents.navigation.local_planner import RoadOption
 from agents.tools.misc import vector
 
-bVerbose = False
+bVerbose = True
 
 class GlobalRoutePlanner(object):
     """
@@ -24,6 +24,9 @@ class GlobalRoutePlanner(object):
     """
 
     def __init__(self, wmap, sampling_resolution):
+        # if bVerbose:
+        #     print(f'wmap: {wmap}')
+        #     print(f'wmap.get_topology(): {wmap.get_topology()}')
         self._sampling_resolution = sampling_resolution
         self._wmap = wmap
         self._topology = None

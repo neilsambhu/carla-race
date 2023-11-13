@@ -18,7 +18,7 @@ from agents.tools.misc import (get_speed, is_within_distance,
                                get_trafficlight_trigger_location,
                                compute_distance)
 
-bVerbose = True
+bVerbose = False
 
 class BasicAgent(object):
     """

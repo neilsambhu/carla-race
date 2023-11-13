@@ -276,3 +276,11 @@ self._map = self._world.get_map()
 ```
 BasicAgent self._map: Map(name=Carla/Maps/Town04_Opt)
 ```
+11/12/2023 10:53 PM: see how `_build_topology` in global_route_planner.py references `self._wmap`.  
+11/12/2023 10:56 PM: `_build_topology` calls the `get_topology()` method of wmap.
+```
+for segment in self._wmap.get_topology():
+```
+11/12/2023 11:07 PM: The `get_topology()` method of wmap returns a list of CARLA Waypoints.  
+11/12/2023 11:18 PM: TODO: find out what `get_topology()` adds to the CARLA Waypoints.  
+11/12/2023 11:25 PM: TODO: (1) read global_route_planner.py > `_build_topology()`.  
