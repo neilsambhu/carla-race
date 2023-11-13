@@ -261,3 +261,14 @@ route = self._path_search(origin, destination)
 route: [25, 239, 240, 180]
 ```
 11/12/2023 6:33 PM: TODO: understand how `_path_search` works.  
+11/12/2023 6:36 PM: `_path_search` returns int ids in graph `self._graph`.  
+11/12/2023 6:38 PM: TODO: dnderstand initialization of `self._graph` in global_route_planner.py.  
+11/12/2023 9:27 PM: `_build_graph` in global_route_planner.py builds the graph.  
+11/12/2023 9:32 PM: `_build_graph` uses `self._topology`.  
+11/12/2023 9:35 PM: TODO: find where `self._topology` is created.  
+11/12/2023 9:36 PM: `_build_topology` creates `self._topology` using `self._wmap`.  
+11/12/2023 9:44 PM: `self._wmap` is initialized in the GlobalRoutePlanner constructor. TODO: find the wmap object passed into the GlobalRoutePlanner constructor.  
+11/12/2023 9:48 PM: basic_agent.py uses
+```
+self._map = self._world.get_map()
+```
