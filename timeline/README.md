@@ -302,3 +302,7 @@ for segment in self._wmap.get_topology():
 11/13/2023 12:52 PM: Correction: The `get_topology()` method of wmap returns a list of paired CARLA Waypoints.  
 11/13/2023 12:58 PM: Correction: find out what `get_topology()` adds to the topology list.  
 11/13/2023 2:42 PM: `for segment in self._wmap.get_topology():`, find out what `seg_dict['path']` represents.  
+11/13/2023 2:58 PM: `seg_dict['path']` represents the extrapolated path from the first node in the segment.  
+11/13/2023 3:03 PM: find what `seg_dict` represents: for each waypoint pair, the path is extrapolated from the source until the path is close enough to the destination.  
+11/13/2023 7:19 PM: find what `_tolopology` represents: list of `seg_dict` values.  
+11/13/2023 7:27 PM: TODO: understand how `_build_graph` uses `_topology`.  
