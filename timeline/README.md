@@ -292,7 +292,9 @@ for segment in self._wmap.get_topology():
 11/13/2023 10:19 AM: Question: what is the purpose of `seg_dict`? What does `seg_dict` represent?  
 11/13/2023 10:30 AM: GlobalRoutePlanner > `_build_topology()` > `_sampling_resolution`. TODO: print `sampling_resolution` to console.  
 11/13/2023 10:39 AM: GlobalRoutePlanner has a sampling_resolution of 2.0. I don't know what this sampling resolution signifies.  
-```self._sampling_resolution = 2.0```
+```
+self._sampling_resolution = 2.0
+```
 11/13/2023 10:46 AM: see what CARLA 0.9.15 includes.  
 11/13/2023 11:24 AM: sampling_resolution is unknown.  
 11/13/2023 11:32 AM: `_sampling_resolution` is in the same units as the GPS coordinates.  
@@ -312,3 +314,7 @@ for each waypoint pair, the path is extrapolated from the source until the path 
 11/14/2023 12:36 PM: TODO: start understanding `_build_graph`. Later, understand the relevance of the graph. Later TODO: what does the graph represent in English words?  
 11/14/2023 12:39 PM: Assumption: `_build_graph` will likely use `_topology`.  
 11/14/2023 12:43 PM: TODO: find the English words representation of `_topology`: lookback.  
+11/14/2023 12:47 PM: there is a limiting factor: 
+```
+the `next()` function of the waypoint automatically returns the correct path to the destination waypoint.  
+```
