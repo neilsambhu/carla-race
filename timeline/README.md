@@ -318,3 +318,7 @@ for each waypoint pair, the path is extrapolated from the source until the path 
 ```
 the `next()` function of the waypoint automatically returns the correct path to the destination waypoint.  
 ```
+11/14/2023 7:21 PM: `build_graph` creates a graph that represents:
+```
+a more detailed representation of what exists in the topology
+```
