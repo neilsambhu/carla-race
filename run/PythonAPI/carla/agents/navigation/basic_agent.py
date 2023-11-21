@@ -18,7 +18,7 @@ from agents.tools.misc import (get_speed, is_within_distance,
                                get_trafficlight_trigger_location,
                                compute_distance)
 
-bVerbose = False
+bVerbose = True
 
 class BasicAgent(object):
     """
@@ -166,6 +166,8 @@ class BasicAgent(object):
             print(f'end_location: {end_location}')
 
         route_trace = self.trace_route(start_waypoint, end_waypoint)
+        # if bVerbose:
+        #     print(f'route_trace: {route_trace}')
         self._local_planner.set_global_plan(route_trace, clean_queue=clean_queue)
 
     def set_global_plan(self, plan, stop_waypoint_creation=True, clean_queue=True):
@@ -214,7 +216,8 @@ class BasicAgent(object):
         if affected_by_tlight:
             hazard_detected = True
 
-        control = self._local_planner.run_step()
+        # control = self._local_planner.run_step() # 11/18/2023 7:58 PM: Neil commented out
+        control = self._local_planner.run_step(debug=False) # 11/18/2023 7:58 PM: Neil added
         if hazard_detected:
             control = self.add_emergency_stop(control)
 

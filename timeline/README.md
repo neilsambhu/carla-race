@@ -322,3 +322,6 @@ the `next()` function of the waypoint automatically returns the correct path to 
 ```
 a more detailed representation of what exists in the topology
 ```
+11/18/2023 2:58 PM: print driving instructions and waypoint updates between source and destination.  
+11/18/2023 7:46 PM: I have the list of waypoints in a route. I need to print the upcoming waypoints.  
+11/20/2023 8:05 PM: Neil TODO: lookup table to replicate CARLA AP. Katkoori: waypoint and target speed. Katkoori: next loop, play with speed.  

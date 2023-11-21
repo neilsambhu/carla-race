@@ -168,8 +168,13 @@ class World(object):
             spawn_points = self.map.get_spawn_points()
             spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
             # 11/7/2023: Neil modify spawn point: start
-            spawn_point = spawn_points[16]
+            # spawn_point = spawn_points[16] # 11/18/2023 8:15 PM: Neill commented out
             # 11/7/2023: Neil modify spawn point: start
+            # 11/18/2023: Neil modify spawn point: start
+            # spawn_point = spawn_points[1] 
+            spawn_point = spawn_points[3] 
+            # spawn_point = spawn_points[0] 
+            # 11/18/2023: Neil modify spawn point: start
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
             self.modify_vehicle_physics(self.player)
 
@@ -760,8 +765,11 @@ def game_loop(args):
         destination = random.choice(spawn_points).location
         # agent.set_destination(destination) # 11/7/2023 9:53 PM: Neil commented
         # 11/6/2023 8:21 PM: set_destination: start
-        agent.set_destination(spawn_points[0].location)
+        # agent.set_destination(spawn_points[0].location) # 11/18/2023: Neil commented out
         # 11/6/2023 8:21 PM: set_destination: end
+        # 11/18/2023 8:18 PM: set_destination: start
+        agent.set_destination(spawn_points[16].location)
+        # 11/18/2023 8:18 PM: set_destination: end
 
         clock = pygame.time.Clock()
 

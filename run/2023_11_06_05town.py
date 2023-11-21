@@ -16,6 +16,7 @@ def main():
         # settings = world.get_settings()
         # settings.synchronous_mode = True # Enables synchronous mode
         # # settings.fixed_delta_seconds = 0.05
+        # settings.fixed_delta_seconds = 0.1
         # # settings.fixed_delta_seconds = 0.01
         # # settings.fixed_delta_seconds = 0.001
         # world.apply_settings(settings)

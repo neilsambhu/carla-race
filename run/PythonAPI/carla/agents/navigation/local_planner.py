@@ -13,6 +13,7 @@ import carla
 from agents.navigation.controller import VehiclePIDController
 from agents.tools.misc import draw_waypoints, get_speed
 
+bVerbose = True
 
 class RoadOption(IntEnum):
     """
@@ -173,6 +174,9 @@ class LocalPlanner(object):
             last_waypoint = self._waypoints_queue[-1][0]
             next_waypoints = list(last_waypoint.next(self._sampling_radius))
 
+            # if bVerbose:
+            #     print(f'next_waypoints: {next_waypoints}')
+
             if len(next_waypoints) == 0:
                 break
             elif len(next_waypoints) == 1:
@@ -263,6 +267,8 @@ class LocalPlanner(object):
             control.manual_gear_shift = False
         else:
             self.target_waypoint, self.target_road_option = self._waypoints_queue[0]
+            if bVerbose:
+                print(f'self.target_waypoint: {self.target_waypoint}\tself.target_road_option: {self.target_road_option}')
             control = self._vehicle_controller.run_step(self._target_speed, self.target_waypoint)
 
         if debug:

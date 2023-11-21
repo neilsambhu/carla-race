@@ -16,7 +16,7 @@ import carla
 from agents.navigation.local_planner import RoadOption
 from agents.tools.misc import vector
 
-bVerbose = True
+bVerbose = False
 
 class GlobalRoutePlanner(object):
     """
