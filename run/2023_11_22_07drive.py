@@ -52,34 +52,38 @@ def main():
         actor_list.append(camera)
         print('created %s' % camera.type_id)
 
+        # # delay for vehicle to spawn
+        # for i in range(10):
+        #     world.tick()
+        #     time.sleep(1)
+        # time.sleep(5)
+        
         # Now we register the function that will be called each time the sensor
         # receives an image. In this example we are saving the image to disk.
         # camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
         camera.listen(lambda image: image.save_to_disk('_out_04drive/%06d.png' % image.frame))
 
-                
-        throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=0.1,0.5,0.0,False,False,False,0
-        # with open('_out_control/control.txt', 'r') as file:
-        #     throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear = file.read().split()
-        #     world.tick()
-        #     time.sleep(1)
-        control = carla.VehicleControl(
-            throttle=float(throttle),
-            steer=float(steer),
-            brake=float(brake),
-            hand_brake=hand_brake=='True',
-            reverse=reverse=='True',
-            manual_gear_shift=manual_gear_shift=='True',
-            gear=int(gear))
-        vehicle.apply_control(control)
-
-        for i in range(100):
-            world.tick()
-            time.sleep(1)
+        throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=0.5,0.0,0.0,False,False,False,0
+        with open('_out_control/control.txt','r') as file:
+            for line in file.readlines():
+                lineStripped = line.strip()
+                # print(lineStripped.split())
+                throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear = lineStripped.split()
+                control = carla.VehicleControl(
+                    throttle=float(throttle),
+                    steer=float(steer),
+                    brake=float(brake),
+                    hand_brake=hand_brake=='True',
+                    reverse=reverse=='True',
+                    manual_gear_shift=manual_gear_shift=='True',
+                    gear=int(gear))
+                vehicle.apply_control(control)
+                world.tick()
+                time.sleep(1)
 
     finally:
         print('destroying actors')
-        # camera.destroy()
+        camera.destroy()
         client.apply_batch([carla.command.DestroyActor(x) for x in actor_list])
         print('done.')
 
