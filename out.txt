@@ -2,3 +2,4 @@ pygame 2.5.1 (SDL 2.28.2, Python 3.7.13)
 Hello from the pygame community. https://www.pygame.org/contribute.html
 INFO: listening to server 127.0.0.1:2000
 Example of automatic vehicle control from client side.
+The target has been reached, stopping the simulation

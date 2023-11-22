@@ -273,8 +273,8 @@ class LocalPlanner(object):
             if bVerbose and False:
                 print(f'control: {control}')
             # 11/22/2023 10:48 AM: save control signal: start
-            with open('_out_control/control.txt', 'w') as file:
-                file.write('{} {} {} {} {} {} {}'.format(
+            with open('_out_control/control.txt', 'a') as file:
+                file.write('{} {} {} {} {} {} {}\n'.format(
                     control.throttle,
                     control.steer,
                     control.brake,
@@ -284,34 +284,19 @@ class LocalPlanner(object):
                     control.gear))
             # 11/22/2023 10:48 AM: save control signal: end
             # 11/22/2023 11:17 AM: read control signal: start
-            # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear;
-            throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=1.0,0.5,0.0,False,False,False,0
-            with open('_out_control/control.txt', 'r') as file:
-                throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear = file.read().split()
-                # print(q,w,e,r,t,y,u);quit()
+            # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=1.0,0.5,0.0,False,False,False,0
+            # with open('_out_control/control.txt', 'r') as file:
+                # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear = file.read().split()
             # 11/22/2023 11:17 AM: read control signal: end
             # 11/22/2023 11:08 AM: output control signal: start
-            '''
-            control = carla.VehicleControl(
-                throttle=1.0,
-                steer=0.5,
-                brake=0.0,
-                hand_brake=False,
-                reverse=False,
-                manual_gear_shift=False,
-                gear=0)
-            # print(throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear)
-            # print(hand_brake)
-            # print(hand_brake=='False');quit()
-            '''
-            control = carla.VehicleControl(
-                throttle=float(throttle),
-                steer=float(steer),
-                brake=float(brake),
-                hand_brake=hand_brake=='True',
-                reverse=reverse=='True',
-                manual_gear_shift=manual_gear_shift=='True',
-                gear=int(gear))
+            # control = carla.VehicleControl(
+                # throttle=float(throttle),
+                # steer=float(steer),
+                # brake=float(brake),
+                # hand_brake=hand_brake=='True',
+                # reverse=reverse=='True',
+                # manual_gear_shift=manual_gear_shift=='True',
+                # gear=int(gear))
             # 11/22/2023 11:08 AM: output control signal: end
 
 
