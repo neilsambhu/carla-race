@@ -2,3 +2,19 @@ pygame 2.5.1 (SDL 2.28.2, Python 3.7.13)
 Hello from the pygame community. https://www.pygame.org/contribute.html
 INFO: listening to server 127.0.0.1:2000
 Example of automatic vehicle control from client side.
+Traceback (most recent call last):
+  File "run/PythonAPI/examples/automatic_control.py", line 901, in <module>
+    main()
+  File "run/PythonAPI/examples/automatic_control.py", line 894, in main
+    game_loop(args)
+  File "run/PythonAPI/examples/automatic_control.py", line 798, in game_loop
+    control = agent.run_step()
+  File "/home/nsambhu/github/carla-race/run/PythonAPI/carla/agents/navigation/basic_agent.py", line 220, in run_step
+    control = self._local_planner.run_step(debug=False) # 11/18/2023 7:58 PM: Neil added
+  File "/home/nsambhu/github/carla-race/run/PythonAPI/carla/agents/navigation/local_planner.py", line 308, in run_step
+    gear=gear)
+Boost.Python.ArgumentError: Python argument types in
+    VehicleControl.__init__(VehicleControl)
+did not match C++ signature:
+    __init__(_object*, float throttle=0.0, float steer=0.0, float brake=0.0, bool hand_brake=False, bool reverse=False, bool manual_gear_shift=False, int gear=0)
+    __init__(_object*)

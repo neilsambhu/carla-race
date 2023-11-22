@@ -272,31 +272,6 @@ class LocalPlanner(object):
             control = self._vehicle_controller.run_step(self._target_speed, self.target_waypoint)
             if bVerbose and False:
                 print(f'control: {control}')
-            '''
-            # # 11/21/2023 10:45 PM: save control signal: start
-            # import json
-            # # temporary: save one control signal value: start
-            # def serialize_vehicle_control(vehicle_control):
-            #     return {
-            #         'throttle': vehicle_control.throttle,
-            #         'steer': vehicle_control.steer,
-            #         'brake': vehicle_control.brake,
-            #         'hand_brake': vehicle_control.hand_brake,
-            #         'reverse': vehicle_control.reverse,
-            #         'manual_gear_shift': vehicle_control.manual_gear_shift,
-            #         'gear': vehicle_control.gear,
-            #     }
-            # control_data = serialize_vehicle_control(control)
-            # with open('out_controlPickles/control.pkl', 'wb') as file:
-            #     json.dump(control_data, file)
-            # # temporary: save one control signal value: end
-            # # 11/21/2023 10:45 PM: save control signal: end
-            # # 11/22/2023 10:38 AM: save control signal: start: https://stackoverflow.com/a/25119089
-            # import dill
-            # with open('_out_control/control.pkl', 'wb') as file:
-            #     dill.dump(control, file)
-            # # 11/22/2023 10:38 AM: save control signal: end            
-            '''
             # 11/22/2023 10:48 AM: save control signal: start
             with open('_out_control/control.txt', 'w') as file:
                 file.write('{} {} {} {} {} {} {}'.format(
@@ -308,6 +283,12 @@ class LocalPlanner(object):
                     control.manual_gear_shift,
                     control.gear))
             # 11/22/2023 10:48 AM: save control signal: end
+            # 11/22/2023 11:17 AM: read control signal: start
+            # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear;
+            with open('_out_control/control.txt', 'r') as file:
+                throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear = file.read().split()
+                # print(q,w,e,r,t,y,u);quit()
+            # 11/22/2023 11:17 AM: read control signal: end
             # 11/22/2023 11:08 AM: output control signal: start
             control = carla.VehicleControl(
                 throttle=1.0,
@@ -317,6 +298,22 @@ class LocalPlanner(object):
                 reverse=False,
                 manual_gear_shift=False,
                 gear=0)
+            control = carla.VehicleControl(
+                throttle=throttle,
+                steer=0.5,
+                brake=0.0,
+                hand_brake=False,
+                reverse=False,
+                manual_gear_shift=False,
+                gear=0)
+            # control = carla.VehicleControl(
+            #     throttle=throttle,
+            #     steer=steer,
+            #     brake=brake,
+            #     hand_brake=hand_brake,
+            #     reverse=reverse,
+            #     manual_gear_shift=manual_gear_shift,
+            #     gear=gear)
             # 11/22/2023 11:08 AM: output control signal: end
 
 

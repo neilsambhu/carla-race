@@ -325,3 +325,10 @@ a more detailed representation of what exists in the topology
 11/18/2023 2:58 PM: print driving instructions and waypoint updates between source and destination.  
 11/18/2023 7:46 PM: I have the list of waypoints in a route. I need to print the upcoming waypoints.  
 11/20/2023 8:05 PM: Neil TODO: lookup table to replicate CARLA AP. Katkoori: waypoint and target speed. Katkoori: next loop, play with speed. Katkoori: see if there is RL package to import.  
+11/22/2023 11:41 AM: computer is slow and needs to reboot.  
+```
+(carla-race) nsambhu@CSE001022:/opt/carla-simulator$ ./CarlaUE4.sh -RenderOffScreen
+```
+```
+(carla-race) nsambhu@CSE001022:~/github/carla-race$ python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic |& tee out.txt
+```
