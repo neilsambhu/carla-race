@@ -299,7 +299,7 @@ class LocalPlanner(object):
                 manual_gear_shift=False,
                 gear=0)
             control = carla.VehicleControl(
-                throttle=throttle,
+                throttle=float(throttle),
                 steer=0.5,
                 brake=0.0,
                 hand_brake=False,

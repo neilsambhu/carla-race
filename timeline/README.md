@@ -332,3 +332,7 @@ a more detailed representation of what exists in the topology
 ```
 (carla-race) nsambhu@CSE001022:~/github/carla-race$ python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic |& tee out.txt
 ```
+11/22/2023 12:17 PM: error from control signal
+```
+__init__(_object*, float throttle=0.0, float steer=0.0, float brake=0.0, bool hand_brake=False, bool reverse=False, bool manual_gear_shift=False, int gear=0)
+```
