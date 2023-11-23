@@ -65,6 +65,7 @@ def main():
 
         throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=0.5,0.0,0.0,False,False,False,0
         with open('_out_control/control.txt','r') as file:
+            time.sleep(10)
             for line in file.readlines():
                 lineStripped = line.strip()
                 # print(lineStripped.split())
