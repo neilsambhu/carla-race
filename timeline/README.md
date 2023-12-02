@@ -336,4 +336,8 @@ a more detailed representation of what exists in the topology
 ```
 __init__(_object*, float throttle=0.0, float steer=0.0, float brake=0.0, bool hand_brake=False, bool reverse=False, bool manual_gear_shift=False, int gear=0)
 ```
-12/1/2023 7:20 PM: Katkoori: collect GPS data to create overview of path of vehicle graphically. See if Omkar's dissertation includes this. Katkoori: find simple pedagogical RL problem (e.g., tic-tac-toe). Katkoori: high-level overview: location-aware controls. Later, RL will give values.  
+12/1/2023 7:20 PM:  
+Katkoori: Neil TODO: collect GPS data to create overview of path of vehicle graphically. See if Omkar's dissertation includes this.  
+Katkoori: Neil TODO: find simple pedagogical RL problem (e.g., tic-tac-toe).  
+Katkoori: high-level overview: location-aware controls. Later, RL will give values.  
+Katkoori: how can we define a basic loss function penalty of the car going off track?  
