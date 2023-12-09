@@ -341,3 +341,4 @@ Katkoori: Neil TODO: collect GPS data to create overview of path of vehicle grap
 Katkoori: Neil TODO: find simple pedagogical RL problem (e.g., tic-tac-toe).  
 Katkoori: high-level overview: location-aware controls. Later, RL will give values.  
 Katkoori: how can we define a basic loss function penalty of the car going off track?  
+12/9/2023 4:35 PM: TODO: (1) update Anaconda; (2) update CARLA from 0.9.14 to 0.9.15.  
