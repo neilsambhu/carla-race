@@ -344,3 +344,16 @@ Katkoori: how can we define a basic loss function penalty of the car going off t
 12/9/2023 4:35 PM: TODO: (1) update Anaconda; (2) update CARLA from 0.9.14 to 0.9.15.  
 12/9/2023 4:37 PM: backup carla environment.  
 12/9/2023 5:22 PM: Anaconda updated; CARLA 0.9.14 environment backed up. TODO: install CARLA 0.9.15 build from source.  
+12/9/2023 6:31 PM: add to `~/.bashrc` default conda environment.  
+```
+# 2023 12 09 6:30 PM: initialize default conda environment
+conda activate carla_0.9.15
+```
+12/9/2023 6:49 PM: install sandbox
+```
+sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main" &&
+sudo apt-get update &&
+sudo apt-get install build-essential clang-8 lld-8 g++-7 cmake ninja-build libvulkan1 python python-pip python-dev python3-dev python3-pip libpng-dev libtiff5-dev libjpeg-dev tzdata sed curl unzip autoconf libtool rsync libxml2-dev git &&
+sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/lib/llvm-8/bin/clang++ 180 &&
+sudo update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-8/bin/clang 180
+```
