@@ -343,3 +343,4 @@ Katkoori: high-level overview: location-aware controls. Later, RL will give valu
 Katkoori: how can we define a basic loss function penalty of the car going off track?  
 12/9/2023 4:35 PM: TODO: (1) update Anaconda; (2) update CARLA from 0.9.14 to 0.9.15.  
 12/9/2023 4:37 PM: backup carla environment.  
+12/9/2023 5:22 PM: Anaconda updated; CARLA 0.9.14 environment backed up. TODO: install CARLA 0.9.15 build from source.  
