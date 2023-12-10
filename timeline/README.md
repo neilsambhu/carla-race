@@ -515,3 +515,8 @@ To github.com:neilsambhu/carla.git
 ```
 (carla_0.9.14_compiled) nsambhu@CSE001022:~/github/carla-race$ python -u run/2023_11_22_06spawn_check.py |& tee out.txt
 ```
+12/10/2023 3:42 PM: CLI command for collecting GPS data 
+```
+python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic |& tee out.txt
+```
+12/10/2023 3:50 PM: adding a delay to the ticks does not improve the smoothness of the drive.  

@@ -778,6 +778,9 @@ def game_loop(args):
             clock.tick()
             if args.sync:
                 world.world.tick()
+                # 12/10/2023 3:46 PM: add delay: start
+                # import time;time.sleep(1)
+                # 12/10/2023 3:46 PM: add delay: end
             else:
                 world.world.wait_for_tick()
             if controller.parse_events():
