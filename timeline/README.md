@@ -357,3 +357,144 @@ sudo apt-get install build-essential clang-8 lld-8 g++-7 cmake ninja-build libvu
 sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/lib/llvm-8/bin/clang++ 180 &&
 sudo update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-8/bin/clang 180
 ```
+12/9/2023 7:45 PM: rename branch for carla for NeilBranch
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git remote -v
+origin  git@github.com:neilsambhu/carla.git (fetch)
+origin  git@github.com:neilsambhu/carla.git (push)
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git remote rename origin custom
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git remote -v
+custom  git@github.com:neilsambhu/carla.git (fetch)
+custom  git@github.com:neilsambhu/carla.git (push)
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git remote add origin git@github.com:carla-simulator/carla.git
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git remote -v
+custom  git@github.com:neilsambhu/carla.git (fetch)
+custom  git@github.com:neilsambhu/carla.git (push)
+origin  git@github.com:carla-simulator/carla.git (fetch)
+origin  git@github.com:carla-simulator/carla.git (push)
+```
+12/9/2023 7:50 PM: git fetch from carla-simulator github
+```
+git fetch origin
+```
+```
+ * [new tag]             0.9.15                                         -> 0.9.15
+```
+12/9/2023 7:56 PM: git transfer needs to be tag and not branch.  
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git tag
+0.9.15
+```
+12/9/2023 7:58 PM: git checkout
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git checkout 0.9.15
+Checking out files: 100% (2149/2149), done.
+Note: checking out '0.9.15'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at d7b45c1e1 Merge branch 'dev'
+```
+12/9/2023 8:10 PM: a tag is a specific type of branch without updates to history.  
+12/9/2023 8:41 PM: git pull
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git pull origin master
+From github.com:carla-simulator/carla
+ * branch                master     -> FETCH_HEAD
+Already up to date.
+```
+12/9/2023 8:47 PM: look for tag
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git tag -l "0.9.15*"
+0.9.15
+0.9.15-dev
+```
+12/9/2023 8:54 PM: switch to master branch
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git branch
+* (HEAD detached at d7b45c1e1)
+  NeilBranch0.9.13
+  master
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git branch
+  NeilBranch0.9.13
+* master
+```
+12/9/2023 8:56 PM: I'm already on CARLA 0.9.15 repository. I need to push this to my own branch.  
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ head -10 CHANGELOG.md 
+## CARLA 0.9.15
+```
+12/9/2023 9:02 PM: get new branch pushed to my GitHub
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git branch NeilBranch0.9.15
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git remote -v
+custom  git@github.com:neilsambhu/carla.git (fetch)
+custom  git@github.com:neilsambhu/carla.git (push)
+origin  git@github.com:carla-simulator/carla.git (fetch)
+origin  git@github.com:carla-simulator/carla.git (push)
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+    Unreal/CarlaUE4/.ignore
+    outgrep.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git push custom
+Counting objects: 7578, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3455/3455), done.
+Writing objects: 100% (7578/7578), 990.99 MiB | 18.60 MiB/s, done.
+Total 7578 (delta 4463), reused 6598 (delta 3509)
+remote: Resolving deltas: 100% (4463/4463), completed with 408 local objects.
+remote: warning: See https://gh.io/lfs for more information.
+remote: warning: File Docs/img/tuto_content_authoring_vehicles/manual_control.gif is 52.17 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/neilsambhu/carla/pull/new/master
+remote: 
+To github.com:neilsambhu/carla.git
+ * [new branch]          master -> master
+```
+12/9/2023 9:03 PM: new branch is called master and not NeilBranch0.9.15.  
+12/9/2023 9:04 PM: TODO: (1) remove master branch from my carla GitHub; (2) push NeilBranch0.9.15 to my GitHub.  
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git branch
+  NeilBranch0.9.13
+  NeilBranch0.9.15
+* master
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git checkout NeilBranch0.9.15
+Switched to branch 'NeilBranch0.9.15'
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ git push custom
+Counting objects: 7578, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3455/3455), done.
+Writing objects: 100% (7578/7578), 991.03 MiB | 18.58 MiB/s, done.
+Total 7578 (delta 4461), reused 6599 (delta 3509)
+remote: Resolving deltas: 100% (4461/4461), completed with 408 local objects.
+remote: warning: See https://gh.io/lfs for more information.
+remote: warning: File Docs/img/tuto_content_authoring_vehicles/manual_control.gif is 52.17 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+remote: 
+remote: Create a pull request for 'NeilBranch0.9.15' on GitHub by visiting:
+remote:      https://github.com/neilsambhu/carla/pull/new/NeilBranch0.9.15
+remote: 
+To github.com:neilsambhu/carla.git
+ * [new branch]          NeilBranch0.9.15 -> NeilBranch0.9.15
+```
+12/9/2023 9:24 PM: paused build at `https://carla.readthedocs.io/en/0.9.15/build_linux/` > Get assets  
+12/9/2023 9:57 PM: message: `Content updated successfully.`
