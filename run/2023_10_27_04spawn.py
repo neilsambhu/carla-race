@@ -32,7 +32,7 @@ def main():
 
         # Now we need to give an initial transform to the vehicle. We choose a
         # random transform from the list of recommended spawn points of the map.
-        print(f'len(world.get_map().get_spawn_points()): {len(world.get_map().get_spawn_points())}')
+        # print(f'len(world.get_map().get_spawn_points()): {len(world.get_map().get_spawn_points())}')
         for idx_spawn_point, spawn_point in enumerate(world.get_map().get_spawn_points()):
             # print(f'spawn_point.location: {spawn_point.location}\tspawn_point.rotation: {spawn_point.rotation}')
             transform = world.get_map().get_spawn_points()[idx_spawn_point]

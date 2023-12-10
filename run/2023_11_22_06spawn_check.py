@@ -4,8 +4,8 @@ def main():
     '''Make sure CARLA Simulator 0.9.14 is running'''
     actor_list = []
 
-    if os.path.exists('_out_temp'):
-        shutil.rmtree('_out_temp')
+    if os.path.exists('_out_06spawn_check'):
+        shutil.rmtree('_out_06spawn_check')
     
     try:
         # Connect to the CARLA Simulator
