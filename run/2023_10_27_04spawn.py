@@ -4,8 +4,8 @@ def main():
     '''Make sure CARLA Simulator 0.9.14 is running'''
     actor_list = []
 
-    if os.path.exists('_out'):
-        shutil.rmtree('_out')
+    if os.path.exists('_out_04spawn2'):
+        shutil.rmtree('_out_04spawn2')
     
     try:
         # Connect to the CARLA Simulator
@@ -29,7 +29,7 @@ def main():
         # Now we need to give an initial transform to the vehicle. We choose a
         # random transform from the list of recommended spawn points of the map.
         print(f'len(world.get_map().get_spawn_points()): {len(world.get_map().get_spawn_points())}')
-        for idx_spawn_point, spawn_point in enumerate(world.get_map().get_spawn_points()):
+        for idx_spawn_point, spawn_point in enumerate(world.get_map().get_spawn_points()[:5]):
             # print(f'spawn_point.location: {spawn_point.location}\tspawn_point.rotation: {spawn_point.rotation}')
             transform = world.get_map().get_spawn_points()[idx_spawn_point]
 
@@ -58,19 +58,23 @@ def main():
             # Now we register the function that will be called each time the sensor
             # receives an image. In this example we are saving the image to disk.
             # camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
-            camera.listen(lambda image: image.save_to_disk('_out/%03d_%06d.png' % (idx_spawn_point, image.frame)))
+            camera.listen(lambda image: image.save_to_disk('_out_04spawn2/%03d_%06d.png' % (idx_spawn_point, image.frame)))
 
             for i in range(1):
                 world.tick()
                 time.sleep(1)
                 print('destroying actors')
-                camera.destroy()
-                client.apply_batch([carla.command.DestroyActor(x) for x in actor_list])
+                # camera.destroy()
+                # client.apply_batch([carla.command.DestroyActor(x) for x in actor_list])
+                # client.apply_batch([x.destroy() for x in actor_list])
+                a = [x.destroy() for x in actor_list]
+                actor_list = []
+                print(a)
                 print('done.')
 
     finally:
         print('destroying actors')
-        camera.destroy()
+        # camera.destroy()
         client.apply_batch([carla.command.DestroyActor(x) for x in actor_list])
         print('done.')
 

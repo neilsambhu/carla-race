@@ -504,3 +504,9 @@ To github.com:neilsambhu/carla.git
 ```
 12/10/2023 1:51 PM: move UE4_ROOT farther down in `.bashrc`.  
 12/10/2023 1:53 PM: make is still not working. Downgrade to CARLA 0.9.14.  
+12/10/2023 2:02 PM: TODO: collect GPS data.  
+12/10/2023 2:06 PM: TODO: get spawn data cleaned.  
+12/10/2023 2:19 PM: spawn points in Town04 command
+```
+(carla_0.9.14_compiled) nsambhu@CSE001022:~/github/carla-race$ python -u run/2023_10_27_04spawn.py |& tee out.txt
+```
