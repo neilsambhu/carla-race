@@ -520,3 +520,4 @@ To github.com:neilsambhu/carla.git
 python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic |& tee out.txt
 ```
 12/10/2023 3:50 PM: adding a delay to the ticks does not improve the smoothness of the drive.  
+12/10/2023 3:56 PM: write components of vehicle location to text file.  

@@ -238,8 +238,13 @@ class LocalPlanner(object):
         # Purge the queue of obsolete waypoints
         veh_location = self._vehicle.get_location()
         # 12/10/2023 3:38 PM: vehicle location: start
-        if bVerbose and False:
-            print(f'veh_location: {veh_location}')
+        # if bVerbose and False:
+        #     print(f'veh_location: {veh_location}')
+        # if bVerbose and True:
+        #     print(f'veh_location.x: {veh_location.x}')
+        # if bVerbose and True:
+        #     location_created = carla.Location(veh_location.x,veh_location.y,veh_location.z)
+        #     print(f'created location: {location_created}')
         # 12/10/2023 3:38 PM: vehicle location: end
         vehicle_speed = get_speed(self._vehicle) / 3.6
         self._min_distance = self._base_min_distance + self._distance_ratio * vehicle_speed
