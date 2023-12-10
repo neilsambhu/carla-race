@@ -63,20 +63,11 @@ def main():
             for i in range(1):
                 world.tick()
                 time.sleep(1)
-                print('destroying actors')
-                # camera.destroy()
-                # client.apply_batch([carla.command.DestroyActor(x) for x in actor_list])
-                # client.apply_batch([x.destroy() for x in actor_list])
-                a = [x.destroy() for x in actor_list]
+                [x.destroy() for x in actor_list]
                 actor_list = []
-                print(a)
-                print('done.')
 
     finally:
-        print('destroying actors')
-        # camera.destroy()
-        client.apply_batch([carla.command.DestroyActor(x) for x in actor_list])
-        print('done.')
+        print('done')
 
 if __name__ == '__main__':
     main()

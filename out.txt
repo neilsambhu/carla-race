@@ -1,28 +1,12 @@
 len(world.get_map().get_spawn_points()): 372
 created vehicle.tesla.model3
 created sensor.camera.rgb
-destroying actors
-[True, True]
-done.
 created vehicle.tesla.model3
 created sensor.camera.rgb
-destroying actors
-[True, True]
-done.
 created vehicle.tesla.model3
 created sensor.camera.rgb
-destroying actors
-[True, True]
-done.
 created vehicle.tesla.model3
 created sensor.camera.rgb
-destroying actors
-[True, True]
-done.
 created vehicle.tesla.model3
 created sensor.camera.rgb
-destroying actors
-[True, True]
-done.
-destroying actors
-done.
+done
