@@ -8,8 +8,8 @@ def main():
     '''Make sure CARLA Simulator 0.9.14 is running'''
     actor_list = []
 
-    if os.path.exists('_out_04drive'):
-        shutil.rmtree('_out_04drive')
+    if os.path.exists('_out_11train_rl'):
+        shutil.rmtree('_out_11train_rl')
     
     try:
         # Connect to the CARLA Simulator
@@ -32,7 +32,7 @@ def main():
 
         # Now we need to give an initial transform to the vehicle. We choose a
         # random transform from the list of recommended spawn points of the map.
-        transform = world.get_map().get_spawn_points()[3]
+        transform = world.get_map().get_spawn_points()[0]
 
         # So let's tell the world to spawn the vehicle.
         vehicle = world.spawn_actor(vehicle_bp, transform)
@@ -43,7 +43,6 @@ def main():
         # For that reason, we are storing all the actors we create so we can
         # destroy them afterwards.
         actor_list.append(vehicle)
-        print('created %s' % vehicle.type_id)
 
         # Let's put the vehicle to drive around.
         vehicle.set_autopilot(False)
@@ -54,7 +53,6 @@ def main():
         camera_transform = carla.Transform(carla.Location(x=1.5, z=2.4))
         camera = world.spawn_actor(camera_bp, camera_transform, attach_to=vehicle)
         actor_list.append(camera)
-        print('created %s' % camera.type_id)
 
         # # delay for vehicle to spawn
         # for i in range(10):
@@ -65,27 +63,21 @@ def main():
         # Now we register the function that will be called each time the sensor
         # receives an image. In this example we are saving the image to disk.
         # camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
-        camera.listen(lambda image: image.save_to_disk('_out_04drive/%06d.png' % image.frame))
+        camera.listen(lambda image: image.save_to_disk('_out_11train_rl/%06d.png' % image.frame))
 
-        throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=0.5,0.0,0.0,False,False,False,0
-        with open('_out_control/control.txt','r') as file:
-            # time.sleep(10)
-            time.sleep(1)
+        x_groundTruth,y_groundTruth,z_groundTruth=0.0,0.0,0.0
+        x_train,y_train,z_train=0.0,0.0,0.0
+        with open('_out_07vehicle_location_AP/Town04_0_335.txt','r') as file:
             for line in file.readlines():
-                lineStripped = line.strip()
-                # print(lineStripped.split())
-                throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear = lineStripped.split()
-                control = carla.VehicleControl(
-                    throttle=float(throttle),
-                    steer=float(steer),
-                    brake=float(brake),
-                    hand_brake=hand_brake=='True',
-                    reverse=reverse=='True',
-                    manual_gear_shift=manual_gear_shift=='True',
-                    gear=int(gear))
-                vehicle.apply_control(control)
                 world.tick()
-                time.sleep(1)
+                lineStripped = line.strip()
+                x_groundTruth,y_groundTruth,z_groundTruth = lineStripped.split()
+                location_groundTruth = carla.Location(float(x_groundTruth),float(y_groundTruth),float(z_groundTruth))
+                location_train = vehicle.get_location()
+                # print(f'location_groundTruth: {location_groundTruth}\tlocation_train: {location_train}')
+                distance = location_train.distance(location_groundTruth)
+                print(f'distance: {distance}')
+                
 
     finally:
         actor_list_destroy(actor_list)
