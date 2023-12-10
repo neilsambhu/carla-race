@@ -1,5 +1,9 @@
 import carla, time, queue, shutil, os
 
+def actor_list_destroy(actor_list):
+    [x.destroy() for x in actor_list]
+    return []
+
 def main():
     '''Make sure CARLA Simulator 0.9.14 is running'''
     actor_list = []
@@ -30,7 +34,7 @@ def main():
         # random transform from the list of recommended spawn points of the map.
         print(f'len(world.get_map().get_spawn_points()): {len(world.get_map().get_spawn_points())}')
         print(f'type(world.get_map().get_spawn_points()): {type(world.get_map().get_spawn_points())}')
-        for idx_spawn_point in [3,16]:
+        for idx_spawn_point in [0,335]:
             transform = world.get_map().get_spawn_points()[idx_spawn_point]
 
             # So let's tell the world to spawn the vehicle.
@@ -42,7 +46,7 @@ def main():
             # For that reason, we are storing all the actors we create so we can
             # destroy them afterwards.
             actor_list.append(vehicle)
-            print('created %s' % vehicle.type_id)
+            # print('created %s' % vehicle.type_id)
 
             # Let's put the vehicle to drive around.
             vehicle.set_autopilot(True)
@@ -53,26 +57,21 @@ def main():
             camera_transform = carla.Transform(carla.Location(x=1.5, z=2.4))
             camera = world.spawn_actor(camera_bp, camera_transform, attach_to=vehicle)
             actor_list.append(camera)
-            print('created %s' % camera.type_id)
+            # print('created %s' % camera.type_id)
 
             # Now we register the function that will be called each time the sensor
             # receives an image. In this example we are saving the image to disk.
             # camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
-            camera.listen(lambda image: image.save_to_disk('_out_temp/%03d_%06d.png' % (idx_spawn_point, image.frame)))
+            camera.listen(lambda image: image.save_to_disk('_out_06spawn_check/%03d_%06d.png' % (idx_spawn_point, image.frame)))
 
-            for i in range(1):
-                world.tick()
-                time.sleep(1)
-                print('destroying actors')
-                camera.destroy()
-                client.apply_batch([carla.command.DestroyActor(x) for x in actor_list])
-                print('done.')
+            world.tick()
+            time.sleep(5e-1)
+            actor_list = actor_list_destroy(actor_list)
+            print(f'spawned {idx_spawn_point+1} of {len(world.get_map().get_spawn_points())}')
 
     finally:
-        print('destroying actors')
-        # camera.destroy()
-        client.apply_batch([carla.command.DestroyActor(x) for x in actor_list])
-        print('done.')
+        actor_list_destroy(actor_list)
+        print('done')
 
 if __name__ == '__main__':
     main()

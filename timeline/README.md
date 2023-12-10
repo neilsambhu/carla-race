@@ -511,3 +511,7 @@ To github.com:neilsambhu/carla.git
 (carla_0.9.14_compiled) nsambhu@CSE001022:~/github/carla-race$ python -u run/2023_10_27_04spawn.py |& tee out.txt
 ```
 12/10/2023 2:48 PM: spawn takes places in the air while car is coming down. Spawn points are a generaly indicator.  
+12/10/2023 3:19 PM: spawn at index 335 is a good ending location for Town04. Index 0 is good for start.  
+```
+(carla_0.9.14_compiled) nsambhu@CSE001022:~/github/carla-race$ python -u run/2023_11_22_06spawn_check.py |& tee out.txt
+```
