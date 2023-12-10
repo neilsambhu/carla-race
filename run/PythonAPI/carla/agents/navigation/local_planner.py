@@ -238,7 +238,7 @@ class LocalPlanner(object):
         # Purge the queue of obsolete waypoints
         veh_location = self._vehicle.get_location()
         # 12/10/2023 3:38 PM: vehicle location: start
-        if bVerbose and True:
+        if bVerbose and False:
             print(f'veh_location: {veh_location}')
         # 12/10/2023 3:38 PM: vehicle location: end
         vehicle_speed = get_speed(self._vehicle) / 3.6
@@ -302,8 +302,6 @@ class LocalPlanner(object):
                 # manual_gear_shift=manual_gear_shift=='True',
                 # gear=int(gear))
             # 11/22/2023 11:08 AM: output control signal: end
-
-
         if debug:
             draw_waypoints(self._vehicle.get_world(), [self.target_waypoint], 1.0)
 
