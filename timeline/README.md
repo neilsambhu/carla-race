@@ -498,3 +498,9 @@ To github.com:neilsambhu/carla.git
 ```
 12/9/2023 9:24 PM: paused build at `https://carla.readthedocs.io/en/0.9.15/build_linux/` > Get assets  
 12/9/2023 9:57 PM: message: `Content updated successfully.`
+12/10/2023 1:38 PM: make is giving errors. `https://carla.readthedocs.io/en/0.9.15/build_linux/` > 1. Compile the Python API client. CLI bookmark
+```
+(carla_0.9.15) nsambhu@CSE001022:~/github/carla$ 
+```
+12/10/2023 1:51 PM: move UE4_ROOT farther down in `.bashrc`.  
+12/10/2023 1:53 PM: make is still not working. Downgrade to CARLA 0.9.14.  
