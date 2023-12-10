@@ -902,4 +902,15 @@ def main():
 
 
 if __name__ == '__main__':
+    import time
+    start_time = time.time()
     main()
+    end_time = time.time()
+    # Calculate elapsed time
+    elapsed_time_seconds = end_time - start_time
+    # Convert seconds to hours, minutes, and seconds
+    hours = int(elapsed_time_seconds // 3600)
+    minutes = int((elapsed_time_seconds % 3600) // 60)
+    seconds = int(elapsed_time_seconds % 60)
+    # Display elapsed time in HH:MM:SS format
+    print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
