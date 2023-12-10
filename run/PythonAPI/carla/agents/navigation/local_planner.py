@@ -237,6 +237,10 @@ class LocalPlanner(object):
 
         # Purge the queue of obsolete waypoints
         veh_location = self._vehicle.get_location()
+        # 12/10/2023 3:38 PM: vehicle location: start
+        if bVerbose and True:
+            print(f'veh_location: {veh_location}')
+        # 12/10/2023 3:38 PM: vehicle location: end
         vehicle_speed = get_speed(self._vehicle) / 3.6
         self._min_distance = self._base_min_distance + self._distance_ratio * vehicle_speed
 
@@ -273,19 +277,19 @@ class LocalPlanner(object):
             if bVerbose and False:
                 print(f'control: {control}')
             # 11/22/2023 10:48 AM: save control signal: start
-            with open('_out_control/control.txt', 'a') as file:
-                file.write('{} {} {} {} {} {} {}\n'.format(
-                    control.throttle,
-                    control.steer,
-                    control.brake,
-                    control.hand_brake,
-                    control.reverse,
-                    control.manual_gear_shift,
-                    control.gear))
+            # with open('_out_07vehicle_control_AP/control.txt', 'a') as file:
+            #     file.write('{} {} {} {} {} {} {}\n'.format(
+            #         control.throttle,
+            #         control.steer,
+            #         control.brake,
+            #         control.hand_brake,
+            #         control.reverse,
+            #         control.manual_gear_shift,
+            #         control.gear))
             # 11/22/2023 10:48 AM: save control signal: end
             # 11/22/2023 11:17 AM: read control signal: start
             # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=1.0,0.5,0.0,False,False,False,0
-            # with open('_out_control/control.txt', 'r') as file:
+            # with open('_out_07vehicle_control_AP/control.txt', 'r') as file:
                 # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear = file.read().split()
             # 11/22/2023 11:17 AM: read control signal: end
             # 11/22/2023 11:08 AM: output control signal: start
