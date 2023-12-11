@@ -1,5 +1,12 @@
 import carla, time, queue, shutil, os
 
+import gym
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from collections import deque
+
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
     return []
