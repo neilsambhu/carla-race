@@ -522,3 +522,4 @@ python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_co
 12/10/2023 3:50 PM: adding a delay to the ticks does not improve the smoothness of the drive.  
 12/10/2023 3:56 PM: write components of vehicle location to text file.  
 12/10/2023 5:10 PM: the delay to spawn the vehicle does work to prevent visuals of the vehicle falling immediately after spawning in the air.  
+12/10/2023 8:39 PM: TODO: follow pytorch reinforcement learning DQN tutorial: `https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html`  
