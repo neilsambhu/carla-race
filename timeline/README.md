@@ -530,3 +530,15 @@ python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_co
 ```
 12/12/2023 2:28 PM: for `run/2023_12_11_12tutorial.py`, there in a synchronization issue with showing the image.  
 12/12/2023 3:30 PM: create second tutorial file.  
+12/12/2023 10:44 PM: install cv2 and tensorflow
+```
+pip install opencv-python
+```
+```
+pip install tensorflow-gpu==1.13.1
+```
+12/12/2023 10:46 PM: install Keras
+```
+pip install --upgrade keras
+```
+12/12/2023 10:50 PM: TODO: need to install CUDA Toolkit 10.0 and cudnn v7.5.0.  

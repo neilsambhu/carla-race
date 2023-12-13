@@ -12,6 +12,13 @@ from keras.layers import Dense, GlobalAveragePooling2D
 from keras.optimizers import Adam
 from keras.models import Model
 
+import tensorflow as tf
+import keras.backend.tensorflow_backend as backend
+from threading import Thread
+from keras.callbacks import TensorBoard
+
+from tqdm import tqdm
+
 
 try:
     sys.path.append(glob.glob('../carla/dist/carla-*%d.%d-%s.egg' % (
@@ -48,9 +55,37 @@ MIN_EPSILON = 0.001
 AGGREGATE_STATS_EVERY = 10
 
 
+# Own Tensorboard class
+class ModifiedTensorBoard(TensorBoard):
 
+    # Overriding init to set initial step and writer (we want one log file for all .fit() calls)
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.step = 1
+        self.writer = tf.summary.FileWriter(self.log_dir)
 
+    # Overriding this method to stop creating default log writer
+    def set_model(self, model):
+        pass
 
+    # Overrided, saves logs with our step number
+    # (otherwise every .fit() will start writing from 0th step)
+    def on_epoch_end(self, epoch, logs=None):
+        self.update_stats(**logs)
+
+    # Overrided
+    # We train for one batch only, no need to save anything at epoch end
+    def on_batch_end(self, batch, logs=None):
+        pass
+
+    # Overrided, so won't close writer
+    def on_train_end(self, _):
+        pass
+
+    # Custom method for saving own metrics
+    # Creates writer, writes custom metrics and closes writer
+    def update_stats(self, **stats):
+        self._write_logs(stats, self.step)
 
 class CarEnv:
     SHOW_CAM = SHOW_PREVIEW
@@ -64,7 +99,7 @@ class CarEnv:
         self.client.set_timeout(2.0)
         self.world = self.client.get_world()
         self.blueprint_library = self.world.get_blueprint_library()
-        self.model_3 = blueprint_library.filter("model3")[0]
+        self.model_3 = self.blueprint_library.filter("model3")[0]
 
     def reset(self):
         self.collision_hist = []
@@ -157,7 +192,7 @@ class DQNAgent:
         self.training_initialized = False
 
     def create_model():
-        base_model = Xception(weights=None, include_top=False, input_shape(IM_HEIGHT, IM_WIDTH, 3))
+        base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
 
         x = base_model.output
         x = GlobalAveragePooling2D()(x)
@@ -233,3 +268,80 @@ class DQNAgent:
                 return
             self.train()
             time.sleep(0.01)
+
+
+if __name__ == "__main__":
+    FPS = 60
+    ep_rewards = [-200]
+
+    random.seed(1)
+    np.random.seed(1)
+    tf.set_random_seed(1)
+
+    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)
+    backend.set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))
+
+    if not os.path.isdir("models"):
+        os.makedirs("models")
+
+    agent = DQNAgent()
+    env = CarEnv()
+
+    trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
+    trainer_thread.start()
+
+    while not agent.training_initialized:
+        time.sleep(0.01)
+
+    agent.get_qs(np.ones((env.IM_HEIGHT, env.IM_WIDTH, 3)))
+
+    for episode in tqdm(range(1, EPISODES+1), ascii=True, unit="episodes"):
+        env.collision_hist = []
+        agent.tensorboard.step = episode
+        episode_reward = 0
+        step = 1
+        current_state = env.reset()
+        done = False
+        episode_start = time.time()
+
+        while True:
+            if np.random.random() > epsilon:
+                action = np.argmax(agent.get_qs(current_state))
+            else:
+                action = np.random.randint(0, 3)
+                time.sleep(1/FPS)
+
+            new_state, reward, done, _ = env.step(action)
+            episode_reward += reward
+            agent.update_replay_memory((current_state, action, reward, new_state, done))
+            step += 1
+
+            if done:
+                break
+
+        for actor in env.actor_list:
+            actor.destory()
+
+
+        # Append episode reward to a list and log stats (every given number of episodes)
+        ep_rewards.append(episode_reward)
+        if not episode % AGGREGATE_STATS_EVERY or episode == 1:
+            average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
+            min_reward = min(ep_rewards[-AGGREGATE_STATS_EVERY:])
+            max_reward = max(ep_rewards[-AGGREGATE_STATS_EVERY:])
+            agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
+
+            # Save model, but only when min reward is greater or equal a set value
+            if min_reward >= MIN_REWARD:
+                agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
+
+        # Decay epsilon
+        if epsilon > MIN_EPSILON:
+            epsilon *= EPSILON_DECAY
+            epsilon = max(MIN_EPSILON, epsilon)
+
+
+
+    agent.terminate = True
+    trainer_thread.join()
+    agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
