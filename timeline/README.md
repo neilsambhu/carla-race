@@ -541,4 +541,5 @@ pip install tensorflow-gpu==1.13.1
 ```
 pip install --upgrade keras
 ```
-12/12/2023 10:50 PM: TODO: need to install CUDA Toolkit 10.0 and cudnn v7.5.0.  
+12/12/2023 10:50 PM: TODO: need to install CUDA Toolkit 10.0 and cudnn v7.5.0.
+12/13/2023 1:10 AM: I need to install tensorflow 1.14.    

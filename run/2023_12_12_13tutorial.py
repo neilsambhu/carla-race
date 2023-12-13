@@ -87,6 +87,7 @@ class ModifiedTensorBoard(TensorBoard):
     def update_stats(self, **stats):
         self._write_logs(stats, self.step)
 
+
 class CarEnv:
     SHOW_CAM = SHOW_PREVIEW
     STEER_AMT = 1.0
@@ -253,7 +254,7 @@ class DQNAgent:
             self.target_update_counter = 0
 
     def get_qs(self, state):
-        return self.model.predict(np.array(state).reshape(-1 *state.shape)/255)[0]
+        return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
 
     def train_in_loop(self):
         X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
@@ -293,7 +294,7 @@ if __name__ == "__main__":
     while not agent.training_initialized:
         time.sleep(0.01)
 
-    agent.get_qs(np.ones((env.IM_HEIGHT, env.IM_WIDTH, 3)))
+    agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
 
     for episode in tqdm(range(1, EPISODES+1), ascii=True, unit="episodes"):
         env.collision_hist = []
