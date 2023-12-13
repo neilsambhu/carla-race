@@ -524,3 +524,9 @@ python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_co
 12/10/2023 5:10 PM: the delay to spawn the vehicle does work to prevent visuals of the vehicle falling immediately after spawning in the air.  
 12/10/2023 8:39 PM: TODO: follow pytorch reinforcement learning DQN tutorial: `https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html`  
 12/11/2023 3:24 PM: TODO: start RL model.  
+12/12/2023 2:20 PM: YouTube source: `https://www.youtube.com/playlist?list=PLQVvvaa0QuDeI12McNQdnTlWz9XlCa0uo`
+```
+(carla_0.9.14_compiled) nsambhu@CSE001022:~/github/carla-race$ python run/2023_12_11_12tutorial.py 
+```
+12/12/2023 2:28 PM: for `run/2023_12_11_12tutorial.py`, there in a synchronization issue with showing the image.  
+12/12/2023 3:30 PM: create second tutorial file.  

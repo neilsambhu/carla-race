@@ -22,7 +22,7 @@ IM_HEIGHT = 480
 
 def process_img(image):
     i = np.array(image.raw_data)
-    print(i.shape)
+    # print(i.shape)
     i2 = i.reshape((IM_HEIGHT, IM_WIDTH, 4))
     i3 = i2[:, :, :3]
     cv2.imshow("", i3)
