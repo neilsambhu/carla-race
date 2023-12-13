@@ -13,7 +13,7 @@ from keras.optimizers import Adam
 from keras.models import Model
 
 import tensorflow as tf
-import keras.backend.tensorflow_backend as backend
+import tensorflow.keras.backend as backend # Neil modified `import keras.backend.tensorflow_backend as backend`
 from threading import Thread
 from keras.callbacks import TensorBoard
 
@@ -277,9 +277,9 @@ if __name__ == "__main__":
 
     random.seed(1)
     np.random.seed(1)
-    tf.set_random_seed(1)
+    tf.random.set_seed(1) # Neil modified `tf.set_random_seed(1)`
 
-    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)
+    print(tf.config.experimental.list_physical_devices('GPU'));tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True) # Neil modified `gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)`
     backend.set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))
 
     if not os.path.isdir("models"):

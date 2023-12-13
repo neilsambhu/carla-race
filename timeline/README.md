@@ -542,4 +542,18 @@ pip install tensorflow-gpu==1.13.1
 pip install --upgrade keras
 ```
 12/12/2023 10:50 PM: TODO: need to install CUDA Toolkit 10.0 and cudnn v7.5.0.
-12/13/2023 1:10 AM: I need to install tensorflow 1.14.    
+12/13/2023 1:10 AM: I need to install tensorflow 1.14.  
+12/13/2023 2:33 AM: I need to install TensorFlow 1.9.0, before Keras became integrated into TensorFlow.  
+12/13/2023 2:40 AM: TensorFlow 1.9.0 supports Python 3.6 at maximum.  
+12/12/2023 3:10 AM: TODO: need to install CUDA Toolkit 11.0.  
+12/13/2023 6:19 PM: need TensorFlow GPU. Remove nvida with purge command. 
+```
+sudo apt-get purge --auto-remove nvidia-cuda-toolkit
+```
+12/13/2023 6:21 PM: nvidia purge command
+```
+(carla_0.9.14_compiled) nsambhu@CSE001022:~/github/carla-race$ sudo apt-get purge --auto-remove nvidia-cuda-toolkit
+[sudo] password for nsambhu: 
+E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
+```
