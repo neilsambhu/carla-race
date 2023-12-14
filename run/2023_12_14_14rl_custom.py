@@ -30,7 +30,7 @@ except IndexError:
 import carla
 
 
-SHOW_PREVIEW = False
+SHOW_PREVIEW = True
 IM_WIDTH = 600
 IM_HEIGHT = 480
 SECONDS_PER_EPISODE = 10
@@ -101,6 +101,11 @@ class CarEnv:
         self.world = self.client.get_world()
         self.blueprint_library = self.world.get_blueprint_library()
         self.model_3 = self.blueprint_library.filter("model3")[0]
+        # Set synchronous mode 
+        settings = self.world.get_settings()
+        settings.synchronous_mode = True # Enables synchronous mode
+        settings.fixed_delta_seconds = 0.05
+        self.world.apply_settings(settings)
 
     def reset(self):
         self.collision_hist = []

@@ -557,3 +557,35 @@ sudo apt-get purge --auto-remove nvidia-cuda-toolkit
 E: Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)
 E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
 ```
+12/13/2023 7:37 PM: (1) reboot, (2) uninstall cuDNN runtime and developer libraries, (3) uninstall CUDA 11.0, (4) install CUDA 12.1.  
+12/14/2023 1:48 AM: tensorflow-cpu is installed. Error report:
+```
+(1152000,)
+Traceback (most recent call last):
+  File "run/2023_12_12_13tutorial.py", line 121, in <lambda>
+    self.sensor.listen(lambda data: self.process_img(data))
+  File "run/2023_12_12_13tutorial.py", line 145, in process_img
+    i2 = i.reshape((self.im_height, self.im_width, 4))
+ValueError: cannot reshape array of size 1152000 into shape (480,640,4)
+```
+line: `self.sensor.listen(lambda data: self.process_img(data))`
+function:
+```
+def process_img(self, image):
+    i = np.array(image.raw_data)
+    print(i.shape)
+    i2 = i.reshape((self.im_height, self.im_width, 4))
+    i3 = i2[:, :, :3]
+    if self.SHOW_CAM:
+        cv2.imshow("", i3)
+        cv2.waitKey(1)
+    self.front_camera = i3
+```
+12/14/2023 2:19 AM: adjust image width from 640 to 600. The printout is accurate; CARLA.Image must be outputting the values switched.  
+```
+image.height: 600 image.width: 480
+```
+12/14/2023 3:07 AM: 16 minutes, 47 seconds to train for 100 episodes of 10 seconds, each. Base code is finished and runs.  
+12/14/2023 3:14 AM: collect data of drives from base model.  
+12/14/2023 3:23 AM: Offshoot: get NVIDIA drivers installed. No need to start trying to install CUDA Toolkit or cuDNN. Make sure the CUDA Toolkit version is compatible with Tensorflow 2.11.0.  
+12/14/2023 4:08 AM: TODO: setup synchronous mode on script 14.  
