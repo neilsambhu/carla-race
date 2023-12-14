@@ -589,3 +589,4 @@ image.height: 600 image.width: 480
 12/14/2023 3:14 AM: collect data of drives from base model.  
 12/14/2023 3:23 AM: Offshoot: get NVIDIA drivers installed. No need to start trying to install CUDA Toolkit or cuDNN. Make sure the CUDA Toolkit version is compatible with Tensorflow 2.11.0.  
 12/14/2023 4:08 AM: TODO: setup synchronous mode on script 14.  
+12/14/2023 5:07 AM: Nvidia drivers are installed.  
