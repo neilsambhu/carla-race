@@ -763,13 +763,13 @@ def game_loop(args):
         # Set the agent destination
         spawn_points = world.map.get_spawn_points()
         destination = random.choice(spawn_points).location
-        # agent.set_destination(destination) # 11/7/2023 9:53 PM: Neil commented
+        agent.set_destination(destination) # 11/7/2023 9:53 PM: Neil commented
         # 11/6/2023 8:21 PM: set_destination: start
         # agent.set_destination(spawn_points[0].location) # 11/18/2023: Neil commented out
         # 11/6/2023 8:21 PM: set_destination: end
         # 11/18/2023 8:18 PM: set_destination: start
         # agent.set_destination(spawn_points[16].location)
-        agent.set_destination(spawn_points[335].location)
+        # agent.set_destination(spawn_points[335].location)
         # 11/18/2023 8:18 PM: set_destination: end
 
         clock = pygame.time.Clock()

@@ -59,7 +59,7 @@ if os.path.exists(directory):
     [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
 else:
     print("Directory does not exist or is already removed.")
-bSync = True
+bSync = False
 
 
 # Own Tensorboard class
@@ -104,8 +104,10 @@ class CarEnv:
 
     def __init__(self):
         self.client = carla.Client("localhost", 2000)
-        self.client.set_timeout(2.0)
-        self.world = self.client.get_world()
+        # self.client.set_timeout(2.0)
+        self.client.set_timeout(60)
+        # self.world = self.client.get_world()
+        self.world = self.client.load_world('Town04_Opt')
         self.blueprint_library = self.world.get_blueprint_library()
         self.model_3 = self.blueprint_library.filter("model3")[0]
         if bSync:
@@ -123,9 +125,12 @@ class CarEnv:
         self.collision_hist = []
         self.actor_list = []
 
-        self.transform = random.choice(self.world.get_map().get_spawn_points())
+        # self.transform = random.choice(self.world.get_map().get_spawn_points())
+        self.transform = self.world.get_map().get_spawn_points()[0]
         self.vehicle = self.world.spawn_actor(self.model_3, self.transform)
         self.actor_list.append(self.vehicle)
+        if bSync:
+            self.world.tick()
 
         self.rgb_cam = self.blueprint_library.find('sensor.camera.rgb')
         self.rgb_cam.set_attribute("image_size_x", f"{self.im_width}")
@@ -181,7 +186,8 @@ class CarEnv:
         elif action == 2:
             self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=1*self.STEER_AMT))
 
-        # self.world.tick() # Neil added
+        # if bSync:
+        #     self.world.tick() # Neil added
 
         v = self.vehicle.get_velocity()
         kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
@@ -313,8 +319,8 @@ def main():
 
     agent = DQNAgent()
     env = CarEnv()
-    while bSync: #if bSync:
-        env.world.tick()
+    # if bSync:
+    #     env.world.tick()
 
     trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
     trainer_thread.start()
@@ -330,12 +336,14 @@ def main():
         episode_reward = 0
         step = 1
         current_state = env.reset()
-        if bSync:
-            env.world.tick()
+        # while bSync:
+        #     print('tick 1');env.world.tick()
         done = False
         episode_start = time.time()
 
         while True:
+            if bSync:
+                env.world.tick();
             if np.random.random() > epsilon:
                 action = np.argmax(agent.get_qs(current_state))
             else:
@@ -343,9 +351,7 @@ def main():
                 if not bSync:
                     time.sleep(1/FPS)
 
-            new_state, reward, done, _ = env.step(action)
-            if bSync:
-                env.world.tick()
+            new_state, reward, done, _ = env.step(action)            
             episode_reward += reward
             agent.update_replay_memory((current_state, action, reward, new_state, done))
             step += 1
