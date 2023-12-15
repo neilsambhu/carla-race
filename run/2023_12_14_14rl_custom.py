@@ -30,9 +30,9 @@ except IndexError:
 import carla
 
 
-SHOW_PREVIEW = True
+SHOW_PREVIEW = False
 IM_WIDTH = 600
-IM_HEIGHT = 480
+IM_HEIGHT = 600
 SECONDS_PER_EPISODE = 10
 REPLAY_MEMORY_SIZE = 5_000
 MIN_REPLAY_MEMORY_SIZE = 1_000
@@ -53,6 +53,13 @@ EPSILON_DECAY = 0.95
 MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
+
+directory = '_out_14rl_custom'
+if os.path.exists(directory):
+    [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
+else:
+    print("Directory does not exist or is already removed.")
+bSync = True
 
 
 # Own Tensorboard class
@@ -101,11 +108,16 @@ class CarEnv:
         self.world = self.client.get_world()
         self.blueprint_library = self.world.get_blueprint_library()
         self.model_3 = self.blueprint_library.filter("model3")[0]
-        # Set synchronous mode 
-        settings = self.world.get_settings()
-        settings.synchronous_mode = True # Enables synchronous mode
-        settings.fixed_delta_seconds = 0.05
-        self.world.apply_settings(settings)
+        if bSync:
+            # Set synchronous mode 
+            settings = self.world.get_settings()
+            settings.synchronous_mode = True # Enables synchronous mode
+            settings.fixed_delta_seconds = 0.05
+            self.world.apply_settings(settings)
+            traffic_manager = self.client.get_trafficmanager()
+            traffic_manager.set_synchronous_mode(True)
+            # Reload world
+            # self.client.reload_world()
 
     def reset(self):
         self.collision_hist = []
@@ -126,7 +138,8 @@ class CarEnv:
         self.sensor.listen(lambda data: self.process_img(data))
 
         self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
-        time.sleep(4)
+        if not bSync:
+            time.sleep(4)
 
         colsensor = self.blueprint_library.find("sensor.other.collision")
         self.colsensor = self.world.spawn_actor(colsensor, transform, attach_to=self.vehicle)
@@ -145,14 +158,20 @@ class CarEnv:
         self.collision_hist.append(event)
 
     def process_img(self, image):
+        # print(image.height, image.width)
         i = np.array(image.raw_data)
         # print(i.shape)
         i2 = i.reshape((self.im_height, self.im_width, 4))
-        i3 = i2[:, :, :3]
+        # i3 = i2[:, :, :3]
+        i3 = cv2.cvtColor(i2, cv2.COLOR_BGRA2RGB)
+        # print('type(i3)',type(i3))
         if self.SHOW_CAM:
             cv2.imshow("", i3)
             cv2.waitKey(1)
         self.front_camera = i3
+        from PIL import Image
+        i4 = Image.fromarray(i3)
+        i4.save('_out_14rl_custom/%06d.png' % image.frame)
 
     def step(self, action):
         if action == 0:
@@ -161,6 +180,8 @@ class CarEnv:
             self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer= 0))
         elif action == 2:
             self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=1*self.STEER_AMT))
+
+        # self.world.tick() # Neil added
 
         v = self.vehicle.get_velocity()
         kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
@@ -220,11 +241,11 @@ class DQNAgent:
 
         current_states = np.array([transition[0] for transition in minibatch])/255
         # Neil commented `with self.graph.as_default():`
-        current_qs_list = self.model.predit(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
+        current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
 
         new_current_states = np.array([transition[3] for transition in minibatch])/255
         # Neil commented `with self.graph.as_default():`
-        future_qs_list = self.target_model.predit(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
+        future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
 
         X = []
         y = []
@@ -273,10 +294,10 @@ class DQNAgent:
             if self.terminate:
                 return
             self.train()
-            time.sleep(0.01)
+            if not bSync:
+                time.sleep(0.01)
 
-
-if __name__ == "__main__":
+def main():
     FPS = 60
     ep_rewards = [-200]
 
@@ -292,6 +313,8 @@ if __name__ == "__main__":
 
     agent = DQNAgent()
     env = CarEnv()
+    if bSync:
+        env.world.tick()
 
     trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
     trainer_thread.start()
@@ -307,6 +330,8 @@ if __name__ == "__main__":
         episode_reward = 0
         step = 1
         current_state = env.reset()
+        if bSync:
+            env.world.tick()
         done = False
         episode_start = time.time()
 
@@ -315,9 +340,12 @@ if __name__ == "__main__":
                 action = np.argmax(agent.get_qs(current_state))
             else:
                 action = np.random.randint(0, 3)
-                time.sleep(1/FPS)
+                if not bSync:
+                    time.sleep(1/FPS)
 
             new_state, reward, done, _ = env.step(action)
+            if bSync:
+                env.world.tick()
             episode_reward += reward
             agent.update_replay_memory((current_state, action, reward, new_state, done))
             step += 1
@@ -351,3 +379,6 @@ if __name__ == "__main__":
     agent.terminate = True
     trainer_thread.join()
     agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
+
+if __name__ == "__main__":
+    main()

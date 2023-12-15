@@ -590,3 +590,13 @@ image.height: 600 image.width: 480
 12/14/2023 3:23 AM: Offshoot: get NVIDIA drivers installed. No need to start trying to install CUDA Toolkit or cuDNN. Make sure the CUDA Toolkit version is compatible with Tensorflow 2.11.0.  
 12/14/2023 4:08 AM: TODO: setup synchronous mode on script 14.  
 12/14/2023 5:07 AM: Nvidia drivers are installed.  
+12/14/2023 1:44 PM: synchronous mode on CARLA may or may not be working.  
+12/14/2023 1:57 PM: TODO: remove threading.  
+12/14/2023 1:59 PM: no need to remove threading. Threading is for the ML model.  
+12/14/2023 2:11 PM: TODO: (1) pause synchronous mode and (2) save images to drive.  
+12/14/2023 3:15 PM: images are saved to disk and grainy. Time delay is needed for write to hard disk. 
+12/14/2023 3:20 PM: image is still grainy with delay. TODO: save carla image instead or processing raw data.  
+12/14/2023 4:35 PM: TODO: switch height and width to match carla values.  
+12/14/2023 7:12 PM: model is training. TODO: (1) spawn at 0 through 335 of Town 04; (2) modify reward function; (3) remove cap from episode length in units time.  
+12/14/2023 7:30 PM: model converges on turning in a left circle.  
+12/14/2023 7:50 PM: sync does not work on script 14. Changes in script 15 are (1) change town to Town04 and (2) set timeout to 60 seconds.  
