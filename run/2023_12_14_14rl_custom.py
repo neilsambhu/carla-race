@@ -313,7 +313,7 @@ def main():
 
     agent = DQNAgent()
     env = CarEnv()
-    if bSync:
+    while bSync: #if bSync:
         env.world.tick()
 
     trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
