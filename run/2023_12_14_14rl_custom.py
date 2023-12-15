@@ -48,7 +48,7 @@ MIN_REWARD = -200
 EPISODES = 100
 
 DISCOUNT = 0.99
-epsilon = 1
+epsilon = 1.0
 EPSILON_DECAY = 0.95
 MIN_EPSILON = 0.001
 
@@ -322,8 +322,8 @@ def main():
     # if bSync:
     #     env.world.tick()
 
-    trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
-    trainer_thread.start()
+    # trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
+    # trainer_thread.start()
 
     while not agent.training_initialized:
         time.sleep(0.01)
@@ -383,7 +383,7 @@ def main():
 
 
     agent.terminate = True
-    trainer_thread.join()
+    # trainer_thread.join()
     agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
 
 if __name__ == "__main__":

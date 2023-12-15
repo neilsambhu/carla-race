@@ -602,3 +602,5 @@ image.height: 600 image.width: 480
 12/14/2023 7:50 PM: sync does not work on script 14. Changes in script 15 are (1) change town to Town04 and (2) set timeout to 60 seconds.  
 12/14/2023 8:30 PM: code in script 14 is geting stuck and not able to proceed with tick.  
 12/15/2023 12:59 AM: abandon sync for now. TODO: spawn Town04.  
+12/15/2023 1:24 AM: sync not working is going to be a problem for obtaining the reward. Solution: I will collect the ground truth data without using sync.  
+12/15/2023 1:46 AM: I need to get the code running without epsilon not being initialized.  

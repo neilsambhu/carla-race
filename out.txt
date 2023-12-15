@@ -1,25 +1,0 @@
-1/1 [==============================] - ETA: 0s1/1 [==============================] - 2s 2s/step
-  0%|          | 0/100 [00:00<?, ?episodes/s]  0%|          | 0/100 [00:04<?, ?episodes/s]
-Traceback (most recent call last):
-  File "run/2023_12_14_14rl_custom.py", line 390, in <module>
-    main()
-  File "run/2023_12_14_14rl_custom.py", line 347, in main
-    if np.random.random() > epsilon:
-UnboundLocalError: local variable 'epsilon' referenced before assignment
-Fatal Python error: This thread state must be current when releasing
-
-Current thread 0x00007fa5a6bfd700 (most recent call first):
-  File "/home/nsambhu/anaconda3/envs/carla_0.9.14_compiled/lib/python3.7/site-packages/PIL/ImageFile.py", line 538 in _encode_tile
-  File "/home/nsambhu/anaconda3/envs/carla_0.9.14_compiled/lib/python3.7/site-packages/PIL/ImageFile.py", line 519 in _save
-  File "/home/nsambhu/anaconda3/envs/carla_0.9.14_compiled/lib/python3.7/site-packages/PIL/PngImagePlugin.py", line 1407 in _save
-  File "/home/nsambhu/anaconda3/envs/carla_0.9.14_compiled/lib/python3.7/site-packages/PIL/Image.py", line 2432 in save
-  File "run/2023_12_14_14rl_custom.py", line 179 in process_img
-  File "run/2023_12_14_14rl_custom.py", line 143 in <lambda>
-
-Thread 0x00007fa5a4bf9700 (most recent call first):
-  File "run/2023_12_14_14rl_custom.py", line 304 in train_in_loop
-  File "/home/nsambhu/anaconda3/envs/carla_0.9.14_compiled/lib/python3.7/threading.py", line 870 in run
-  File "/home/nsambhu/anaconda3/envs/carla_0.9.14_compiled/lib/python3.7/threading.py", line 926 in _bootstrap_inner
-  File "/home/nsambhu/anaconda3/envs/carla_0.9.14_compiled/lib/python3.7/threading.py", line 890 in _bootstrap
-
-Thread 0x00007fa645dfb0c0 (most recent call first):
