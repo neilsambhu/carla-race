@@ -604,3 +604,6 @@ image.height: 600 image.width: 480
 12/15/2023 12:59 AM: abandon sync for now. TODO: spawn Town04.  
 12/15/2023 1:24 AM: sync not working is going to be a problem for obtaining the reward. Solution: I will collect the ground truth data without using sync.  
 12/15/2023 1:46 AM: I need to get the code running without epsilon not being initialized.  
+12/15/2023 3:21 PM: take main() code out to script file instead of within method.  
+12/15/2023 3:27 PM: sync still doesn't work.  
+12/15/2023 3:55 PM: CARLA crashes on episode 21.  
