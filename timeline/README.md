@@ -632,3 +632,22 @@ Or to minimize the number of packages updated during conda update use
      conda install conda=23.11.0
 ```
 12/16/2023 2:55 PM: convolution error persists. TODO: reboot.  
+12/16/2023 3:10 PM: convolution error persists.  
+12/16/2023 4:06 PM: code completes through 100 episodes.  
+12/16/2023 4:11 PM: drive converges on turning in a left circle. TODO: modify DQN network to train for more than 3 basic output control signals.  
+12/16/2023 5:32 PM: fail at episode 33.  
+12/16/2023 5:37 PM: small step for TODO of more than 3 basic output control signals: 5 predictions.  
+12/16/2023 5:47 PM: added actions 3 and 4
+```
+    def step(self, action):
+        if action == 0:
+            self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=-1*self.STEER_AMT))
+        elif action == 1:
+            self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer= 0))
+        elif action == 2:
+            self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=1*self.STEER_AMT))
+        elif action == 3:
+            self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=1.0))
+        elif action == 4:
+            self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=0.0, hand_brake=False, reverse=True))
+```

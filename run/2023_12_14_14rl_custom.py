@@ -48,7 +48,8 @@ EPISODES = 100
 
 DISCOUNT = 0.99
 epsilon = 1.0
-EPSILON_DECAY = 0.95
+# EPSILON_DECAY = 0.95
+EPSILON_DECAY = 0.99
 MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
@@ -179,7 +180,7 @@ class CarEnv:
         self.front_camera = i3
         from PIL import Image
         i4 = Image.fromarray(i3)
-        i4.save('_out_14rl_custom/%03d_%06d.png' % (self.episode, image.frame))
+        i4.save('%s/%03d_%06d.png' % (directory, self.episode, image.frame))
 
     def step(self, action):
         if action == 0:
@@ -188,6 +189,10 @@ class CarEnv:
             self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer= 0))
         elif action == 2:
             self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=1*self.STEER_AMT))
+        elif action == 3:
+            self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=1.0))
+        elif action == 4:
+            self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=0.0, hand_brake=False, reverse=True))
 
         # if bSync:
         #     self.world.tick() # Neil added
@@ -233,7 +238,8 @@ class DQNAgent:
         x = base_model.output
         x = GlobalAveragePooling2D()(x)
 
-        predictions = Dense(3, activation="linear")(x)
+        # predictions = Dense(3, activation="linear")(x)
+        predictions = Dense(5, activation="linear")(x)
         model = Model(inputs = base_model.input, outputs=predictions)
         model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
         return model
@@ -293,7 +299,8 @@ class DQNAgent:
 
     def train_in_loop(self):
         X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
-        y = np.random.uniform(size=(1, 3)).astype(np.float32)
+        # y = np.random.uniform(size=(1, 3)).astype(np.float32)
+        y = np.random.uniform(size=(1, 5)).astype(np.float32)
         # Neil commented `with self.graph.as_default():`
         self.model.fit(X,y, verbose=False, batch_size=1) # Neil left tabbed 1
 

@@ -1,9 +1,25 @@
-2023-12-16 14:54:16.615393: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 45163008 exceeds 10% of free system memory.
-2023-12-16 14:54:16.636012: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 45163008 exceeds 10% of free system memory.
-2023-12-16 14:54:16.684938: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 45163008 exceeds 10% of free system memory.
-2023-12-16 14:54:16.706284: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 45163008 exceeds 10% of free system memory.
-2023-12-16 14:54:16.737108: W tensorflow/tsl/framework/cpu_allocator_impl.cc:82] Allocation of 45163008 exceeds 10% of free system memory.
 1/1 [==============================] - ETA: 0s1/1 [==============================] - 2s 2s/step
   0%|          | 0/100 [00:00<?, ?episodes/s]WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 41). These functions will not be directly callable after loading.
-  1%|1         | 1/100 [00:28<47:20, 28.69s/episodes]1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+  1%|1         | 1/100 [00:27<46:09, 27.97s/episodes]1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
 WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 41). These functions will not be directly callable after loading.
+  2%|2         | 2/100 [00:56<46:15, 28.32s/episodes]1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 41). These functions will not be directly callable after loading.
+  3%|3         | 3/100 [01:24<45:14, 27.98s/episodes]1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 41). These functions will not be directly callable after loading.
+  4%|4         | 4/100 [01:52<44:49, 28.01s/episodes]1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 979ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 41). These functions will not be directly callable after loading.
+  5%|5         | 5/100 [02:21<45:07, 28.50s/episodes]1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 41). These functions will not be directly callable after loading.
+  6%|6         | 6/100 [02:49<44:10, 28.20s/episodes]1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 41). These functions will not be directly callable after loading.
+  7%|7         | 7/100 [03:17<43:54, 28.33s/episodes]1/1 [==============================] - ETA: 0s1/1 [==============================] - 1s 1s/step
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 41). These functions will not be directly callable after loading.
+  8%|8         | 8/100 [03:43<42:10, 27.51s/episodes]
