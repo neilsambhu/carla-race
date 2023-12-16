@@ -29,7 +29,6 @@ except IndexError:
     pass
 import carla
 
-
 SHOW_PREVIEW = False
 IM_WIDTH = 600
 IM_HEIGHT = 600
@@ -106,7 +105,8 @@ class CarEnv:
     def __init__(self):
         self.client = carla.Client("localhost", 2000)
         # self.client.set_timeout(2.0)
-        self.client.set_timeout(60)
+        # self.client.set_timeout(60)
+        self.client.set_timeout(600)
         # self.world = self.client.get_world()
         self.world = self.client.load_world('Town04_Opt')
         self.blueprint_library = self.world.get_blueprint_library()
@@ -307,87 +307,82 @@ class DQNAgent:
                 time.sleep(0.01)
 
 if __name__ == "__main__":
-    try:
-        FPS = 60
-        ep_rewards = [-200]
+    FPS = 60
+    ep_rewards = [-200]
 
-        random.seed(1)
-        np.random.seed(1)
-        tf.random.set_seed(1) # Neil modified `tf.set_random_seed(1)`
+    random.seed(1)
+    np.random.seed(1)
+    tf.random.set_seed(1) # Neil modified `tf.set_random_seed(1)`
 
-        # Neil commented out for CPU `tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)` # Neil modified `gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)`
-        pass # Neil modified `backend.set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))`
+    # Neil commented out for CPU `tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)` # Neil modified `gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)`
+    pass # Neil modified `backend.set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))`
 
-        if not os.path.isdir("models"):
-            os.makedirs("models")
+    if not os.path.isdir("models"):
+        os.makedirs("models")
 
-        agent = DQNAgent()
-        env = CarEnv()
-        # if bSync:
-        #     env.world.tick()
+    agent = DQNAgent()
+    env = CarEnv()
+    # if bSync:
+    #     env.world.tick()
 
-        trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
-        trainer_thread.start()
+    trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
+    trainer_thread.start()
 
-        while not agent.training_initialized:
-            time.sleep(0.01)
+    while not agent.training_initialized:
+        time.sleep(0.01)
 
-        agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
+    agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
+    
+    for episode in tqdm(range(1, EPISODES+1), ascii=True, unit="episodes"):
+        env.collision_hist = []
+        agent.tensorboard.step = episode
+        env.episode = episode
+        episode_reward = 0
+        step = 1
+        current_state = env.reset()
+        # while bSync:
+        #     print('tick 1');env.world.tick()
+        done = False
+        episode_start = time.time()
 
-        for episode in tqdm(range(1, EPISODES+1), ascii=True, unit="episodes"):
-            env.collision_hist = []
-            agent.tensorboard.step = episode
-            env.episode = episode
-            episode_reward = 0
-            step = 1
-            current_state = env.reset()
-            # while bSync:
-            #     print('tick 1');env.world.tick()
-            done = False
-            episode_start = time.time()
+        while True:
+            if bSync:
+                env.world.tick();
+            if np.random.random() > epsilon:
+                action = np.argmax(agent.get_qs(current_state))
+            else:
+                action = np.random.randint(0, 3)
+                if not bSync:
+                    time.sleep(1/FPS)
 
-            while True:
-                if bSync:
-                    env.world.tick();
-                if np.random.random() > epsilon:
-                    action = np.argmax(agent.get_qs(current_state))
-                else:
-                    action = np.random.randint(0, 3)
-                    if not bSync:
-                        time.sleep(1/FPS)
+            new_state, reward, done, _ = env.step(action)            
+            episode_reward += reward
+            agent.update_replay_memory((current_state, action, reward, new_state, done))
+            step += 1
 
-                new_state, reward, done, _ = env.step(action)            
-                episode_reward += reward
-                agent.update_replay_memory((current_state, action, reward, new_state, done))
-                step += 1
+            if done:
+                break
 
-                if done:
-                    break
+        for actor in env.actor_list:
+            actor.destroy()
 
-            for actor in env.actor_list:
-                actor.destroy()
+        # Append episode reward to a list and log stats (every given number of episodes)
+        ep_rewards.append(episode_reward)
+        if not episode % AGGREGATE_STATS_EVERY or episode == 1:
+            average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
+            min_reward = min(ep_rewards[-AGGREGATE_STATS_EVERY:])
+            max_reward = max(ep_rewards[-AGGREGATE_STATS_EVERY:])
+            agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
 
+            # Save model, but only when min reward is greater or equal a set value
+            if min_reward >= MIN_REWARD:
+                agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
 
-            # Append episode reward to a list and log stats (every given number of episodes)
-            ep_rewards.append(episode_reward)
-            if not episode % AGGREGATE_STATS_EVERY or episode == 1:
-                average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
-                min_reward = min(ep_rewards[-AGGREGATE_STATS_EVERY:])
-                max_reward = max(ep_rewards[-AGGREGATE_STATS_EVERY:])
-                agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
-
-                # Save model, but only when min reward is greater or equal a set value
-                if min_reward >= MIN_REWARD:
-                    agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
-
-            # Decay epsilon
-            if epsilon > MIN_EPSILON:
-                epsilon *= EPSILON_DECAY
-                epsilon = max(MIN_EPSILON, epsilon)
+        # Decay epsilon
+        if epsilon > MIN_EPSILON:
+            epsilon *= EPSILON_DECAY
+            epsilon = max(MIN_EPSILON, epsilon)
 
         agent.terminate = True
         trainer_thread.join()
         agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
-
-    except RuntimeError as e:
-        print(f"An error occurred: {e}")

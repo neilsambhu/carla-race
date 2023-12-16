@@ -607,3 +607,28 @@ image.height: 600 image.width: 480
 12/15/2023 3:21 PM: take main() code out to script file instead of within method.  
 12/15/2023 3:27 PM: sync still doesn't work.  
 12/15/2023 3:55 PM: CARLA crashes on episode 21.  
+12/15/2023 4:00 PM: set timeout to 10 minutes.  
+12/15/2023 4:20 PM: TODO: modify DQN network to train for more than 3 basic output control signals.  
+12/15/2023 4:21 PM: CARLA crashed at episode 60.  
+12/16/2023 2:03 PM: make large run() method.  
+12/16/2023 2:06 PM: run() works. TODO: (1) save episode number for run; (2) start CARLA from command line.  
+12/16/2023 2:17 PM: move try-except block to innermost function to see if I can catch the error and omit saving the variable state. I will print the episode number in the except block.  
+12/16/2023 2:31 PM: try-except is not working. TODO: (1) remove try-except and (2) try to spawn CARLA programatically.  
+12/16/2023 2:34 PM: try-except removed. Test error still appears (i.e., training should not reach 100 of 100 episodes).  
+12/16/2023 2:39 PM: remove run() method.  
+12/16/2023 2:43 PM: convolution error persists, where each step takes 1 second. TODO: reinstall Anaconda environment.  
+12/16/2023 2:49 PM: Anaconda warning
+```
+==> WARNING: A newer version of conda exists. <==
+  current version: 23.7.4
+  latest version: 23.11.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+Or to minimize the number of packages updated during conda update use
+
+     conda install conda=23.11.0
+```
+12/16/2023 2:55 PM: convolution error persists. TODO: reboot.  
