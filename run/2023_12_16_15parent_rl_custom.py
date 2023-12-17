@@ -29,12 +29,12 @@ while len(glob.glob('models/final.model')) == 0:
     except Exception as e:
         print(f'Run errored at count {run}')
         print(f'Parent error message: {e}')
-        run += 1
         print(f'Continue to next attempt for run at count {run}')
         continue
     else:
-        print(f'No exception occurred for run at count {run}.')
+        print(f'(Allegedly) no exception occurred for run at count {run}. CARLA Simulator may have crashed.')
     finally:
+        run += 1
         carla.terminate()
         rl_custom.terminate()
 print('done')

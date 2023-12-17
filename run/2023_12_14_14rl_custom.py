@@ -369,8 +369,9 @@ if __name__ == "__main__":
     import glob
     matching_files = glob.glob(os.path.join('tmp/', '*.model'))
     if len(matching_files) > 0:
+        print(f'Load model {matching_files[-1]}')
         agent.model = tf.keras.models.load_model(matching_files[-1])
-        idx_episode_start = int(matching_files[-1].split('/')[1].split('.')[0])
+        idx_episode_start = int(matching_files[-1].split('/')[1].split('.')[0]) + 1
 
     env = CarEnv()
     # if bSync:
@@ -383,7 +384,7 @@ if __name__ == "__main__":
         time.sleep(0.01)
 
     agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
-    
+    bTrainingComplete = False
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episodes"):
             print(f'Started episode {episode} of {EPISODES}')
@@ -453,14 +454,17 @@ if __name__ == "__main__":
                 epsilon = max(MIN_EPSILON, epsilon)
 
             print(f'Finished episode {episode} of {EPISODES}')
+            if episode == EPISODES:
+                bTrainingComplete = True
 
     except Exception as e:
         print(f'Error message: {e}')
         # save episode
         print(f'env.episode: {env.episode}')
-        agent.model.save(f'tmp/{env.episode}.model')
+        agent.model.save(f'tmp/{env.episode-1}.model')
     
     agent.terminate = True
     trainer_thread.join()
     # agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
-    agent.model.save(f'models/final.model')
+    if bTrainingComplete:
+        agent.model.save(f'models/final.model')
