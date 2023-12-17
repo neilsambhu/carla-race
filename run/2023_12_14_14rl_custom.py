@@ -8,7 +8,7 @@ import cv2
 import math
 from collections import deque
 from tensorflow.keras.applications.xception import Xception # Neil modified `from keras.applications.xception import Xception`
-from tensorflow.keras.layers import Dense, GlobalAveragePooling2D # Neil modified `from keras.layers import Dense, GlobalAveragePooling2D`
+from tensorflow.keras.layers import Concatenate, Dense, GlobalAveragePooling2D # Neil modified `from keras.layers import Dense, GlobalAveragePooling2D`
 from tensorflow.keras.optimizers import Adam # Neil modified `from keras.optimizers import Adam`
 from tensorflow.keras.models import Model # Neil modified `from keras.models import Model`
 
@@ -60,6 +60,7 @@ if os.path.exists(directory):
 else:
     print("Directory does not exist or is already removed.")
 bSync = False
+bVerbose = True
 
 
 # Own Tensorboard class
@@ -183,16 +184,23 @@ class CarEnv:
         i4.save('%s/%03d_%06d.png' % (directory, self.episode, image.frame))
 
     def step(self, action):
-        if action == 0:
-            self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=-1*self.STEER_AMT))
-        elif action == 1:
-            self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer= 0))
-        elif action == 2:
-            self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=1*self.STEER_AMT))
-        elif action == 3:
-            self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=1.0))
-        elif action == 4:
-            self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=0.0, hand_brake=False, reverse=True))
+        if bVerbose and False:
+            print(f'action: {action}')
+            print(f'action[0]: {action[0]}')
+            print(f'type(action[0]): {type(action[0])}')
+        # if action == 0:
+        #     self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=-1*self.STEER_AMT))
+        # elif action == 1:
+        #     self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer= 0))
+        # elif action == 2:
+        #     self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=1*self.STEER_AMT))
+        # elif action == 3:
+        #     self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=1.0))
+        # elif action == 4:
+        #     self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=0.0, hand_brake=False, reverse=True))
+        # self.vehicle.apply_control(carla.VehicleControl(throttle=action[0], steer=action[1], brake=action[2]))
+        throttle, steer, brake = action
+        self.vehicle.apply_control(carla.VehicleControl(throttle=float(throttle), steer=float(steer), brake=float(brake)))
 
         # if bSync:
         #     self.world.tick() # Neil added
@@ -238,8 +246,13 @@ class DQNAgent:
         x = base_model.output
         x = GlobalAveragePooling2D()(x)
 
+        throttle = Dense(1, activation="linear", name="throttle")(x)
+        steering = Dense(1, activation="linear", name="steering")(x)
+        brake = Dense(1, activation="linear", name="brake")(x)
+
         # predictions = Dense(3, activation="linear")(x)
-        predictions = Dense(5, activation="linear")(x)
+        # predictions = Dense(5, activation="linear")(x)
+        predictions = Concatenate(name="predictions")([throttle, steering, brake])
         model = Model(inputs = base_model.input, outputs=predictions)
         model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
         return model
@@ -263,7 +276,10 @@ class DQNAgent:
         future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
 
         X = []
-        y = []
+        # y = []
+        throttle = []
+        steering = []
+        brake = []
 
         for index, (current_state, action, reward, new_state, done) in enumerate(minibatch):
             if not done:
@@ -276,7 +292,10 @@ class DQNAgent:
             current_qs[action] = new_q
 
             X.append(current_state)
-            y.append(current_qs)
+            # y.append(current_qs)
+            throttle.append(current_qs[0])
+            steering.append(current_qs[1])
+            brake.append(current_qs[2])
 
         log_this_step = False
         if self.tensorboard.step > self.last_logged_episode:
@@ -284,7 +303,15 @@ class DQNAgent:
             self.last_log_episode = self.tensorboard.step
 
         # Neil commented `with self.graph.as_default():`
-        self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
+        # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
+        self.model.fit(
+            np.array(X) / 255,
+            {"throttle": np.array(throttle), "steering": np.array(steering), "brake": np.array(brake)},
+            batch_size=TRAINING_BATCH_SIZE,
+            verbose=0,
+            shuffle=False,
+            callbacks=[self.tensorboard] if log_this_step else None
+        )
 
 
         if log_this_step:
@@ -299,8 +326,8 @@ class DQNAgent:
 
     def train_in_loop(self):
         X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
-        # y = np.random.uniform(size=(1, 3)).astype(np.float32)
-        y = np.random.uniform(size=(1, 5)).astype(np.float32)
+        y = np.random.uniform(size=(1, 3)).astype(np.float32)
+        # y = np.random.uniform(size=(1, 5)).astype(np.float32)
         # Neil commented `with self.graph.as_default():`
         self.model.fit(X,y, verbose=False, batch_size=1) # Neil left tabbed 1
 
@@ -356,9 +383,15 @@ if __name__ == "__main__":
             if bSync:
                 env.world.tick();
             if np.random.random() > epsilon:
-                action = np.argmax(agent.get_qs(current_state))
+                # action = np.argmax(agent.get_qs(current_state))
+                action = agent.get_qs(current_state)
             else:
-                action = np.random.randint(0, 3)
+                # action = np.random.randint(0, 3)
+                throttle = np.random.uniform(low=0.0, high=1.0)  # Random throttle value between 0 and 1
+                steer = np.random.uniform(low=-1.0, high=1.0)  # Random steering value between -1 and 1
+                brake = np.random.uniform(low=0.0, high=1.0)  # Random brake value between 0 and 1
+                # action = np.array([[throttle], [steer], [brake]])
+                action = np.array([throttle, steer, brake])
                 if not bSync:
                     time.sleep(1/FPS)
 
