@@ -39,26 +39,28 @@ MINIBATCH_SIZE = 16
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 UPDATE_TARGET_EVERY = 5
-MODEL_NAME = "Xception"
+# MODEL_NAME = "Xception"
+MODEL_NAME = "Neil_SDC_2023"
 
 MEMORY_FRACTION = 0.8
 MIN_REWARD = -200
 
-EPISODES = 100
+# EPISODES = 100
+EPISODES = 5
 
 DISCOUNT = 0.99
 epsilon = 1.0
-# EPSILON_DECAY = 0.95
-EPSILON_DECAY = 0.99
+EPSILON_DECAY = 0.95
+# EPSILON_DECAY = 0.99
 MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
-directory = '_out_14rl_custom'
-if os.path.exists(directory):
-    [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
-else:
-    print("Directory does not exist or is already removed.")
+# directory = '_out_14rl_custom'
+# if os.path.exists(directory):
+#     [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
+# else:
+#     print("Directory does not exist or is already removed.")
 bSync = False
 bVerbose = True
 
@@ -241,10 +243,17 @@ class DQNAgent:
         self.training_initialized = False
 
     def create_model(self):
-        base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
+        # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
+        from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten
+        base_model = tf.keras.Sequential()
+        # base_model.add(Conv2D(4, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
+        base_model.add(Flatten())
 
         x = base_model.output
-        x = GlobalAveragePooling2D()(x)
+        # x = GlobalAveragePooling2D()(x)
 
         throttle = Dense(1, activation="linear", name="throttle")(x)
         steering = Dense(1, activation="linear", name="steering")(x)
@@ -355,6 +364,14 @@ if __name__ == "__main__":
         os.makedirs("models")
 
     agent = DQNAgent()
+    idx_episode_start = 1
+    # if tmp/{episode}.model exists, load model
+    import glob
+    matching_files = glob.glob(os.path.join('tmp/', '*.model'))
+    if len(matching_files) > 0:
+        agent.model = tf.keras.models.load_model(matching_files[-1])
+        idx_episode_start = int(matching_files[-1].split('/')[1].split('.')[0])
+
     env = CarEnv()
     # if bSync:
     #     env.world.tick()
@@ -367,72 +384,83 @@ if __name__ == "__main__":
 
     agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
     
-    for episode in tqdm(range(1, EPISODES+1), ascii=True, unit="episodes"):
-        # import subprocess
-        # process = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True)
-        # time.sleep(10)
+    try:
+        for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episodes"):
+            print('Started episode {episode} of {EPISODES}')
+            # import subprocess
+            # process = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True)
+            # time.sleep(10)
 
-        env = CarEnv()
-        agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
+            # env = CarEnv()
+            # agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
 
-        env.collision_hist = []
-        agent.tensorboard.step = episode
-        env.episode = episode
-        episode_reward = 0
-        step = 1
-        current_state = env.reset()
-        # while bSync:
-        #     print('tick 1');env.world.tick()
-        done = False
-        episode_start = time.time()
+            env.collision_hist = []
+            agent.tensorboard.step = episode
+            env.episode = episode
+            episode_reward = 0
+            step = 1
+            current_state = env.reset()
+            # while bSync:
+            #     print('tick 1');env.world.tick()
+            done = False
+            episode_start = time.time()
 
-        while True:
-            if bSync:
-                env.world.tick();
-            if np.random.random() > epsilon:
-                # action = np.argmax(agent.get_qs(current_state))
-                action = agent.get_qs(current_state)
-            else:
-                # action = np.random.randint(0, 3)
-                throttle = np.random.uniform(low=0.0, high=1.0)  # Random throttle value between 0 and 1
-                steer = np.random.uniform(low=-1.0, high=1.0)  # Random steering value between -1 and 1
-                # brake = np.random.uniform(low=0.0, high=1.0)  # Random brake value between 0 and 1
-                brake = np.random.uniform(low=0.0, high=0.0)
-                # action = np.array([[throttle], [steer], [brake]])
-                action = np.array([throttle, steer, brake])
-                if not bSync:
-                    time.sleep(1/FPS)
+            while True:
+                if bSync:
+                    env.world.tick();
+                if np.random.random() > epsilon:
+                    # action = np.argmax(agent.get_qs(current_state))
+                    action = agent.get_qs(current_state)
+                else:
+                    # action = np.random.randint(0, 3)
+                    throttle = np.random.uniform(low=0.0, high=1.0)  # Random throttle value between 0 and 1
+                    steer = np.random.uniform(low=-1.0, high=1.0)  # Random steering value between -1 and 1
+                    # brake = np.random.uniform(low=0.0, high=1.0)  # Random brake value between 0 and 1
+                    brake = np.random.uniform(low=0.0, high=0.0)
+                    # action = np.array([[throttle], [steer], [brake]])
+                    action = np.array([throttle, steer, brake])
+                    if not bSync:
+                        time.sleep(1/FPS)
 
-            new_state, reward, done, _ = env.step(action)            
-            episode_reward += reward
-            agent.update_replay_memory((current_state, action, reward, new_state, done))
-            step += 1
+                new_state, reward, done, _ = env.step(action)            
+                episode_reward += reward
+                agent.update_replay_memory((current_state, action, reward, new_state, done))
+                step += 1
 
-            if done:
-                break
+                if done:
+                    break
 
-        for actor in env.actor_list:
-            actor.destroy()
-        # process.terminate()
-        time.sleep(5)
+            for actor in env.actor_list:
+                actor.destroy()
+            # process.terminate()
 
-        # Append episode reward to a list and log stats (every given number of episodes)
-        ep_rewards.append(episode_reward)
-        if not episode % AGGREGATE_STATS_EVERY or episode == 1:
-            average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
-            min_reward = min(ep_rewards[-AGGREGATE_STATS_EVERY:])
-            max_reward = max(ep_rewards[-AGGREGATE_STATS_EVERY:])
-            agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
+            # Append episode reward to a list and log stats (every given number of episodes)
+            ep_rewards.append(episode_reward)
+            if not episode % AGGREGATE_STATS_EVERY or episode == 1:
+                average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
+                min_reward = min(ep_rewards[-AGGREGATE_STATS_EVERY:])
+                max_reward = max(ep_rewards[-AGGREGATE_STATS_EVERY:])
+                agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
 
-            # Save model, but only when min reward is greater or equal a set value
-            if min_reward >= MIN_REWARD:
-                agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
+                # Save model, but only when min reward is greater or equal a set value
+                if min_reward >= MIN_REWARD:
+                    agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
 
-        # Decay epsilon
-        if epsilon > MIN_EPSILON:
-            epsilon *= EPSILON_DECAY
-            epsilon = max(MIN_EPSILON, epsilon)
 
-        agent.terminate = True
-        trainer_thread.join()
-        agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
+            # Decay epsilon
+            if epsilon > MIN_EPSILON:
+                epsilon *= EPSILON_DECAY
+                epsilon = max(MIN_EPSILON, epsilon)
+
+            print('Finished episode {episode} of {EPISODES}')
+
+    except Exception as e:
+        print(f'Error message: {e}')
+        # save episode
+        print(f'env.episode: {env.episode}')
+        agent.model.save(f'tmp/{env.episode}.model')
+    
+    agent.terminate = True
+    trainer_thread.join()
+    # agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
+    agent.model.save(f'models/final.model')
