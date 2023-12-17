@@ -21,9 +21,9 @@ while len(glob.glob('models/final.model')) == 0:
     try:
         carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
         if run == 1:
-            rl_custom = subprocess.Popen('python -u run/2023_12_14_14rl_custom.py > out.txt', shell=True)
+            rl_custom = subprocess.Popen('python -u run/2023_12_14_14rl_custom.py 2>&1 | tee out.txt', shell=True)
         elif run > 1:
-            rl_custom = subprocess.Popen('python -u run/2023_12_14_14rl_custom.py >> out.txt', shell=True)
+            rl_custom = subprocess.Popen('python -u run/2023_12_14_14rl_custom.py 2>&1 | tee -a out.txt', shell=True)
         carla.wait()
         rl_custom.wait()
     except Exception as e:

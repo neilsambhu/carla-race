@@ -291,13 +291,19 @@ class DQNAgent:
         brake = []
 
         for index, (current_state, action, reward, new_state, done) in enumerate(minibatch):
+            if bVerbose:
+                print(f'action: {action}')
             if not done:
                 max_future_q = np.max(future_qs_list[index])
                 new_q = reward + DISCOUNT * max_future_q
             else:
                 new_q = reward
 
+            if bVerbose:
+                print(f'current_qs_list: {current_qs_list}')
+                print(f'new_q: {new_q}')
             current_qs = current_qs_list[index]
+            # current_qs[action] = new_q
             current_qs[action] = new_q
 
             X.append(current_state)
@@ -460,7 +466,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(f'Error message: {e}')
         # save episode
-        print(f'env.episode: {env.episode}')
+        print(f'Error during episode {env.episode}')
         agent.model.save(f'tmp/{env.episode-1}.model')
     
     agent.terminate = True
