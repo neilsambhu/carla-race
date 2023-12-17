@@ -656,3 +656,10 @@ Or to minimize the number of packages updated during conda update use
 12/16/2023 8:57 PM: TODO: get tensorflow-gpu working.
 12/16/2023 9:00 PM: reboot computer to see if carla simulator will stop erroring.  
 12/16/2023 9:34 PM: TODO: need to get code to work from saved data.  
+12/16/2023 11:34 PM: warning prevents code execution now
+```
+(carla_0.9.14_compiled) nsambhu@CSE001022:~/github/carla-race$ python -u run/2023_12_14_14rl_custom.py |& tee out.txt
+1/1 [==============================] - 0s 122ms/step
+0episodes [00:00, ?episodes/s]
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _update_step_xla while saving (showing 2 of 2). These functions will not be directly callable after loading.
+```
