@@ -413,7 +413,8 @@ if __name__ == "__main__":
 
         for actor in env.actor_list:
             actor.destroy()
-        process.terminate()
+        # process.terminate()
+        time.sleep(5)
 
         # Append episode reward to a list and log stats (every given number of episodes)
         ep_rewards.append(episode_reward)

@@ -653,3 +653,5 @@ Or to minimize the number of packages updated during conda update use
 ```
 12/16/2023 7:18 PM: training works on 3 float values. Set brake to 0 for initial training.  
 12/16/2023 8:23 PM: programmatically start and stop the simulator for each run.  
+12/16/2023 8:57 PM: TODO: get tensorflow-gpu working.
+12/16/2023 9:00 PM: reboot computer to see if carla simulator will stop erroring.  
