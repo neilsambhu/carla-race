@@ -107,8 +107,8 @@ class CarEnv:
     def __init__(self):
         self.client = carla.Client("localhost", 2000)
         # self.client.set_timeout(2.0)
-        # self.client.set_timeout(60)
-        self.client.set_timeout(600)
+        self.client.set_timeout(60)
+        # self.client.set_timeout(600)
         # self.world = self.client.get_world()
         self.world = self.client.load_world('Town04_Opt')
         self.blueprint_library = self.world.get_blueprint_library()
@@ -368,6 +368,13 @@ if __name__ == "__main__":
     agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
     
     for episode in tqdm(range(1, EPISODES+1), ascii=True, unit="episodes"):
+        # import subprocess
+        # process = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True)
+        # time.sleep(10)
+
+        env = CarEnv()
+        agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
+
         env.collision_hist = []
         agent.tensorboard.step = episode
         env.episode = episode
@@ -389,7 +396,8 @@ if __name__ == "__main__":
                 # action = np.random.randint(0, 3)
                 throttle = np.random.uniform(low=0.0, high=1.0)  # Random throttle value between 0 and 1
                 steer = np.random.uniform(low=-1.0, high=1.0)  # Random steering value between -1 and 1
-                brake = np.random.uniform(low=0.0, high=1.0)  # Random brake value between 0 and 1
+                # brake = np.random.uniform(low=0.0, high=1.0)  # Random brake value between 0 and 1
+                brake = np.random.uniform(low=0.0, high=0.0)
                 # action = np.array([[throttle], [steer], [brake]])
                 action = np.array([throttle, steer, brake])
                 if not bSync:
@@ -405,6 +413,7 @@ if __name__ == "__main__":
 
         for actor in env.actor_list:
             actor.destroy()
+        process.terminate()
 
         # Append episode reward to a list and log stats (every given number of episodes)
         ep_rewards.append(episode_reward)

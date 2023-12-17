@@ -652,3 +652,4 @@ Or to minimize the number of packages updated during conda update use
             self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=0.0, hand_brake=False, reverse=True))
 ```
 12/16/2023 7:18 PM: training works on 3 float values. Set brake to 0 for initial training.  
+12/16/2023 8:23 PM: programmatically start and stop the simulator for each run.  
