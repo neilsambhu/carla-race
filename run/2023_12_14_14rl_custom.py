@@ -45,8 +45,8 @@ MODEL_NAME = "Neil_SDC_2023"
 MEMORY_FRACTION = 0.8
 MIN_REWARD = -200
 
-# EPISODES = 100
-EPISODES = 5
+EPISODES = 100
+# EPISODES = 5
 
 DISCOUNT = 0.99
 epsilon = 1.0
@@ -56,7 +56,7 @@ MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
-# directory = '_out_14rl_custom'
+directory = '_out_14rl_custom'
 # if os.path.exists(directory):
 #     [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
 # else:
@@ -386,7 +386,7 @@ if __name__ == "__main__":
     
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episodes"):
-            print('Started episode {episode} of {EPISODES}')
+            print(f'Started episode {episode} of {EPISODES}')
             # import subprocess
             # process = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True)
             # time.sleep(10)
@@ -452,7 +452,7 @@ if __name__ == "__main__":
                 epsilon *= EPSILON_DECAY
                 epsilon = max(MIN_EPSILON, epsilon)
 
-            print('Finished episode {episode} of {EPISODES}')
+            print(f'Finished episode {episode} of {EPISODES}')
 
     except Exception as e:
         print(f'Error message: {e}')

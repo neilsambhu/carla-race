@@ -1,5 +1,3 @@
-_out/
-_out_control/
-_out_temp/
-_out_04drive/
-_out_*
+_out_14rl_custom/*
+tmp/*
+models/*

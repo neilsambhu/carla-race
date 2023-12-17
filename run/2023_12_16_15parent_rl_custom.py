@@ -1,34 +1,40 @@
-import time
+import time, os, shutil, subprocess, glob
+
 # delete files from previous run
-def delete_files(directory):
-    import os
-    if os.path.exists(directory):
-        [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
-    else:
-        print("Directory does not exist or is already removed.")
-delete_files(directory='_out_14rl_custom')
-delete_files(directory='tmp')
-delete_files(directory='models')
+def clean_directory(directory):
+    [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
+    [shutil.rmtree(os.path.join(directory, dir)) for dir in os.listdir(directory) if os.path.isdir(os.path.join(directory, dir))]
+clean_directory(directory='_out_14rl_custom')
+clean_directory(directory='tmp')
+clean_directory(directory='models')
+
+def kill_carla():
+    kill_process = subprocess.Popen('killall -9 -r CarlaUE4-Linux', shell=True)
+    kill_process.wait()
 
 # check if saved final model exists
-import glob
 run = 1
 while len(glob.glob('models/final.model')) == 0:
-    import subprocess
-    carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True)
-    time.sleep(10)
+    kill_carla()
+    carla = None
+    rl_custom = None
     try:
-        rl_custom = subprocess.Popen('python -u run/2023_12_14_14rl_custom.py > out.txt', shell=True)
-        time.sleep(10)
+        carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
+        if run == 1:
+            rl_custom = subprocess.Popen('python -u run/2023_12_14_14rl_custom.py > out.txt', shell=True)
+        elif run > 1:
+            rl_custom = subprocess.Popen('python -u run/2023_12_14_14rl_custom.py >> out.txt', shell=True)
+        carla.wait()
+        rl_custom.wait()
     except Exception as e:
         print(f'Run errored at count {run}')
         print(f'Parent error message: {e}')
-        print(f'Continue to next attempt')
         run += 1
+        print(f'Continue to next attempt for run at count {run}')
         continue
     else:
         print(f'No exception occurred for run at count {run}.')
     finally:
         carla.terminate()
         rl_custom.terminate()
-    time.sleep(10)
+print('done')
