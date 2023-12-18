@@ -764,3 +764,24 @@ for episode in range(EPISODES):
             agent.replay(batch_size)
 ```
 12/18/2023 4:02 AM: TODO: discretize the values of throttle, steer, and brake.  
+12/18/2023 4:46 AM: found mistake in image_size_x for setting the camera attribute.  
+12/18/2023 5:05 AM: useful code for mapping
+```
+class CarEnv:
+    # Existing code...
+
+    num_actions = 24  # Total number of actions
+
+    def step(self, action):
+        throttle_action = action // 12  # Values in range [0, 1]
+        steer_action = (action % 12) // 4  # Values in range [0, 2]
+        brake_action = action % 4  # Values in range [0, 3]
+
+        throttle_value = self.action_space['throttle'][throttle_action]
+        steer_value = self.action_space['steer'][steer_action]
+        brake_value = self.action_space['brake'][brake_action]
+
+        self.vehicle.apply_control(carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value)))
+
+        # Rest of your code...
+```

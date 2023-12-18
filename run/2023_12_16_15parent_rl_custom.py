@@ -4,7 +4,7 @@ import time, os, shutil, subprocess, glob
 def clean_directory(directory):
     [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
     [shutil.rmtree(os.path.join(directory, dir)) for dir in os.listdir(directory) if os.path.isdir(os.path.join(directory, dir))]
-clean_directory(directory='_out_14rl_custom')
+clean_directory(directory='_out_16rl_custom2')
 clean_directory(directory='tmp')
 clean_directory(directory='models')
 
@@ -21,9 +21,9 @@ while len(glob.glob('models/final.model')) == 0:
     try:
         carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
         if run == 1:
-            rl_custom = subprocess.Popen('python -u run/2023_12_14_14rl_custom.py 2>&1 | tee out.txt', shell=True)
+            rl_custom = subprocess.Popen('python -u run/2023_12_16_15rl_custom.py 2>&1 | tee out.txt', shell=True)
         elif run > 1:
-            rl_custom = subprocess.Popen('python -u run/2023_12_14_14rl_custom.py 2>&1 | tee -a out.txt', shell=True)
+            rl_custom = subprocess.Popen('python -u run/2023_12_16_15rl_custom.py 2>&1 | tee -a out.txt', shell=True)
         carla.wait()
         rl_custom.wait()
     except Exception as e:

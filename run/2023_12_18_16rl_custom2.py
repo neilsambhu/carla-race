@@ -64,6 +64,12 @@ directory = '_out_16rl_custom2'
 bSync = False
 bVerbose = True
 
+# Define action space
+action_space = {'throttle': np.linspace(0.0, 1.0, num=10),
+                'steer': np.linspace(-1.0, 1.0, num=20),
+                # 'brake': np.linspace(0.0, 1.0, num=10)}
+                'brake': np.linspace(0.0, 0.0, num=1)}
+action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 
 # Own Tensorboard class
 class ModifiedTensorBoard(TensorBoard):
@@ -139,7 +145,7 @@ class CarEnv:
 
         self.rgb_cam = self.blueprint_library.find('sensor.camera.rgb')
         self.rgb_cam.set_attribute("image_size_x", f"{self.im_width}")
-        self.rgb_cam.set_attribute("image_size_x", f"{self.im_height}")
+        self.rgb_cam.set_attribute("image_size_y", f"{self.im_height}")
         self.rgb_cam.set_attribute("fov", f"110")
 
         # transform = carla.Transform(carla.Location(x=2.5, z=0.7)) 
@@ -190,19 +196,17 @@ class CarEnv:
             print(f'action: {action}')
             print(f'action[0]: {action[0]}')
             print(f'type(action[0]): {type(action[0])}')
-        # if action == 0:
-        #     self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=-1*self.STEER_AMT))
-        # elif action == 1:
-        #     self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer= 0))
-        # elif action == 2:
-        #     self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=1*self.STEER_AMT))
-        # elif action == 3:
-        #     self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=1.0))
-        # elif action == 4:
-        #     self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, steer=0.0, brake=0.0, hand_brake=False, reverse=True))
-        # self.vehicle.apply_control(carla.VehicleControl(throttle=action[0], steer=action[1], brake=action[2]))
-        throttle, steer, brake = action
-        self.vehicle.apply_control(carla.VehicleControl(throttle=float(throttle), steer=float(steer), brake=float(brake)))
+        throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+        steer_action = (action % (len(action_space['steer'])*len(action_space['brake']))) // len(action_space['brake'])
+        brake_action = action % len(action_space['brake'])
+
+        throttle_value = self.action_space['throttle'][throttle_action]
+        steer_value = self.action_space['steer'][steer_action]
+        brake_value = self.action_space['brake'][brake_action]
+
+        self.vehicle.apply_control(
+            carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
+        )
 
         # if bSync:
         #     self.world.tick() # Neil added
@@ -253,15 +257,10 @@ class DQNAgent:
         base_model.add(Flatten())
 
         x = base_model.output
-        # x = GlobalAveragePooling2D()(x)
-
-        throttle = Dense(1, activation="linear", name="throttle")(x)
-        steering = Dense(1, activation="linear", name="steering")(x)
-        brake = Dense(1, activation="linear", name="brake")(x)
+        x = GlobalAveragePooling2D()(x)
 
         # predictions = Dense(3, activation="linear")(x)
-        # predictions = Dense(5, activation="linear")(x)
-        predictions = Concatenate(name="predictions")([throttle, steering, brake])
+        predictions = Dense(action_size, activation="linear")(x)
         model = Model(inputs = base_model.input, outputs=predictions)
         model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
         return model
@@ -303,16 +302,10 @@ class DQNAgent:
                 print(f'current_qs_list: {current_qs_list}')
                 print(f'new_q: {new_q}')
             current_qs = current_qs_list[index]
-            # current_qs[action] = new_q
-            current_qs[0] = throttle[index]
-            current_qs[1] = steer[index]
-            current_qs[2] = brake[index]
+            current_qs[action] = new_q
 
             X.append(current_state)
-            # y.append(current_qs)
-            throttle.append(current_qs[0])
-            steer.append(current_qs[1])
-            brake.append(current_qs[2])
+            y.append(current_qs)
 
         log_this_step = False
         if self.tensorboard.step > self.last_logged_episode:
@@ -323,7 +316,7 @@ class DQNAgent:
         # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
         self.model.fit(
             np.array(X) / 255,
-            {"throttle": np.array(throttle), "steering": np.array(steering), "brake": np.array(brake)},
+            np.array(y),
             batch_size=TRAINING_BATCH_SIZE,
             verbose=0,
             shuffle=False,
@@ -342,9 +335,10 @@ class DQNAgent:
         return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
 
     def train_in_loop(self):
-        X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
-        y = np.random.uniform(size=(1, 3)).astype(np.float32)
-        # y = np.random.uniform(size=(1, 5)).astype(np.float32)
+        # X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
+        X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
+        # y = np.random.uniform(size=(1, action_size)).astype(np.float32)
+        y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
         # Neil commented `with self.graph.as_default():`
         self.model.fit(X,y, verbose=False, batch_size=1) # Neil left tabbed 1
 
@@ -418,16 +412,10 @@ if __name__ == "__main__":
                 if bSync:
                     env.world.tick();
                 if np.random.random() > epsilon:
-                    # action = np.argmax(agent.get_qs(current_state))
-                    action = agent.get_qs(current_state)
+                    action = np.argmax(agent.get_qs(current_state))
                 else:
                     # action = np.random.randint(0, 3)
-                    throttle = np.random.uniform(low=0.0, high=1.0)  # Random throttle value between 0 and 1
-                    steer = np.random.uniform(low=-1.0, high=1.0)  # Random steering value between -1 and 1
-                    # brake = np.random.uniform(low=0.0, high=1.0)  # Random brake value between 0 and 1
-                    brake = np.random.uniform(low=0.0, high=0.0)
-                    # action = np.array([[throttle], [steer], [brake]])
-                    action = np.array([throttle, steer, brake])
+                    action = np.random.randint(0, action_size)
                     if not bSync:
                         time.sleep(1/FPS)
 
@@ -473,6 +461,7 @@ if __name__ == "__main__":
     
     agent.terminate = True
     trainer_thread.join()
-    # agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
     if bTrainingComplete:
         agent.model.save(f'models/final.model')
+        agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
+        
