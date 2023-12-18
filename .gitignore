@@ -1,3 +1,5 @@
+*.pyc
 _out_14rl_custom/*
+_out_16rl_custom2/*
 tmp/*
 models/*

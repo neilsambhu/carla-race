@@ -663,3 +663,104 @@ Or to minimize the number of packages updated during conda update use
 0episodes [00:00, ?episodes/s]
 WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _update_step_xla while saving (showing 2 of 2). These functions will not be directly callable after loading.
 ```
+12/18/2023 2:51 AM: collect GPS data again from Town04 from spawn point 0 to spawn point 335. Inquiry to ChatGPT: 
+```
+I'm using CARLA Simulator 0.9.14. I used CARLA Autopilot to drive a vehicle.tesla.model3 from spawn point 0 to spawn point 335 in Town04 in synchronous mode with a fixed_delta_seconds of 0.05. I collected the x, y, z coordinates of the location of the car, stored in '_out_07vehicle_location_AP' separated by spaces and line returns. 
+Write code in Python 3.7 to (1) open CARLA Simulator from /opt/carla-simulator/CarlaUE4.sh and train a reinforcement learning agent using these ground truth data. The action spaces exist as throttle from 0.0 to 1.0, steer from -1.0 to 1.0, and brake from 0.0 to 1.0. 
+Vehicle controls are applied as follows:
+throttle, steer, brake = action
+vehicle.apply_control(carla.VehicleControl(throttle=float(throttle), steer=float(steer), brake=float(brake)))
+Collect RGB image data from the vehicle stored to '_out_16rl_custom2/{episode_number}_{frame_number}.png'. 
+```
+12/18/2023 3:21 AM: ChatGPT response is too vague. I will refine the inquiry.
+```
+I'm using CARLA Simulator 0.9.14. I used CARLA Autopilot to drive a vehicle.tesla.model3 from spawn point 0 to spawn point 335 in Town04 in synchronous mode with a fixed_delta_seconds of 0.05. I collected the x, y, z coordinates of the location of the car, stored in '_out_07vehicle_location_AP/Town04_0_335.txt' separated by spaces and line returns. Distance is calculated as follows in CARLA Simulator: the carla.Location class takes in as parameters x, y, and z float values; the carla.Location.distance() method takes as input a carla.location object and returns the Euclidean distance from this location to another one. The action spaces exist as throttle from 0.0 to 1.0, steer from -1.0 to 1.0, and brake from 0.0 to 1.0. Vehicle controls are applied as follows:
+throttle, steer, brake = action
+vehicle.apply_control(carla.VehicleControl(throttle=float(throttle), steer=float(steer), brake=float(brake)))
+Write each line of code in Python 3.7 to train a reinforcement learning agent rewarded by minimizing the distance from these ground truth location data for each tick in the CARLA Simulator. I already have the code written to spawn the vehicle at spawn point 0 in Town04. I need the code that minimizes the distance from the ground truth data.
+```
+12/18/2023 3:42 AM: best code output so far from ChatGPT:
+```
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from collections import deque
+import random
+
+# Load data from the text file
+data_file = 'collected_data.txt'  # Replace with your file path
+with open(data_file, 'r') as file:
+    data = file.read().splitlines()
+
+# Preprocess the data
+parsed_data = [list(map(float, line.split())) for line in data]
+states = np.array(parsed_data)  # States: x, y, z coordinates
+
+# Define action space
+action_space = {'throttle': np.linspace(0.0, 1.0, num=10),
+                'steer': np.linspace(-1.0, 1.0, num=10),
+                'brake': np.linspace(0.0, 1.0, num=10)}
+
+# Define DQN agent
+class DQNAgent:
+    def __init__(self, state_size, action_size):
+        self.state_size = state_size
+        self.action_size = action_size
+        self.memory = deque(maxlen=2000)  # Replay memory
+        self.gamma = 0.95  # Discount factor
+        self.epsilon = 1.0  # Exploration rate
+        self.epsilon_min = 0.01
+        self.epsilon_decay = 0.995
+        self.learning_rate = 0.001
+        self.model = self._build_model()
+
+    def _build_model(self):
+        model = Sequential()
+        model.add(Dense(24, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(24, activation='relu'))
+        model.add(Dense(self.action_size, activation='linear'))
+        model.compile(loss='mse', optimizer=tf.keras.optimizers.Adam(lr=self.learning_rate))
+        return model
+
+    def remember(self, state, action, reward, next_state, done):
+        self.memory.append((state, action, reward, next_state, done))
+
+    def act(self, state):
+        if np.random.rand() <= self.epsilon:
+            return random.choice(action_space)  # Exploration
+        return np.argmax(self.model.predict(state))  # Exploitation
+
+    def replay(self, batch_size):
+        minibatch = random.sample(self.memory, batch_size)
+        for state, action, reward, next_state, done in minibatch:
+            target = reward
+            if not done:
+                target = reward + self.gamma * np.amax(self.model.predict(next_state)[0])
+            target_f = self.model.predict(state)
+            target_f[0][action] = target
+            self.model.fit(state, target_f, epochs=1, verbose=0)
+        if self.epsilon > self.epsilon_min:
+            self.epsilon *= self.epsilon_decay
+
+# Initialize environment and agent
+state_size = len(states[0])
+action_size = len(action_space)
+agent = DQNAgent(state_size, action_size)
+
+# Training the agent
+batch_size = 32
+for episode in range(EPISODES):
+    # Reset environment for each episode
+    state = states[0]
+    for time_step in range(len(states)):
+        action = agent.act(state)
+        next_state = states[time_step]
+        reward = 1  # Define your reward function based on state transition
+        done = True if time_step == len(states) - 1 else False
+        agent.remember(state, action, reward, next_state, done)
+        state = next_state
+        if len(agent.memory) > batch_size:
+            agent.replay(batch_size)
+```
+12/18/2023 4:02 AM: TODO: discretize the values of throttle, steer, and brake.  
