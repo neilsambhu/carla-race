@@ -119,8 +119,8 @@ class CarEnv:
     def __init__(self):
         self.client = carla.Client("localhost", 2000)
         # self.client.set_timeout(2.0)
-        self.client.set_timeout(60)
-        # self.client.set_timeout(600)
+        # self.client.set_timeout(60)
+        self.client.set_timeout(600)
         # self.world = self.client.get_world()
         self.world = self.client.load_world('Town04_Opt')
         self.blueprint_library = self.world.get_blueprint_library()
@@ -145,6 +145,7 @@ class CarEnv:
         self.vehicle = self.world.spawn_actor(self.model_3, self.transform)
         self.actor_list.append(self.vehicle)
         if bSync:
+            time.sleep(1)
             self.world.tick()
 
         self.rgb_cam = self.blueprint_library.find('sensor.camera.rgb')
@@ -369,12 +370,14 @@ if __name__ == "__main__":
     agent = DQNAgent()
     idx_episode_start = 1
     # if tmp/{episode}.model exists, load model
-    import glob
+    import glob, shutil
     matching_files = glob.glob(os.path.join('tmp/', '*.model'))
     if len(matching_files) > 0:
-        print(f'Load model {matching_files[-1]}')
+        print(f'Models in tmp {matching_files}')
+        print(f'Load model {matching_files[0]}')
         agent.model = tf.keras.models.load_model(matching_files[-1])
-        idx_episode_start = int(matching_files[-1].split('/')[1].split('.')[0]) + 1
+        idx_episode_start = int(matching_files[0].split('/')[1].split('.')[0]) + 1
+        shutil.rmtree(matching_files[0])
 
     env = CarEnv()
     # if bSync:
