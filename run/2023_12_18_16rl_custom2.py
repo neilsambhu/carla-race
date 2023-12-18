@@ -87,6 +87,7 @@ class ModifiedTensorBoard(TensorBoard):
     # Overrided, saves logs with our step number
     # (otherwise every .fit() will start writing from 0th step)
     def on_epoch_end(self, epoch, logs=None):
+        super().on_epoch_end(epoch, logs)
         self.update_stats(**logs)
 
     # Overrided

@@ -11,6 +11,7 @@ clean_directory(directory='models')
 def kill_carla():
     kill_process = subprocess.Popen('killall -9 -r CarlaUE4-Linux', shell=True)
     kill_process.wait()
+    time.sleep(1)
 
 # check if saved final model exists
 run = 1
