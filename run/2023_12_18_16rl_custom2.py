@@ -103,6 +103,8 @@ class ModifiedTensorBoard(TensorBoard):
     def update_stats(self, **stats):
         _ = [tf.summary.scalar(key, value, step=self.step) for key, value in stats.items()] # Neil commented `self._write_logs(stats, self.step)`
 
+    def on_train_begin(self, logs=None):
+        self._train_dir = self.log_dir
 
 class CarEnv:
     SHOW_CAM = SHOW_PREVIEW
@@ -111,6 +113,7 @@ class CarEnv:
     im_height = IM_HEIGHT
     front_camera = None
     episode = None
+    action_space = action_space
 
     def __init__(self):
         self.client = carla.Client("localhost", 2000)
@@ -257,7 +260,7 @@ class DQNAgent:
         base_model.add(Flatten())
 
         x = base_model.output
-        x = GlobalAveragePooling2D()(x)
+        # x = GlobalAveragePooling2D()(x)
 
         # predictions = Dense(3, activation="linear")(x)
         predictions = Dense(action_size, activation="linear")(x)
@@ -284,10 +287,7 @@ class DQNAgent:
         future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
 
         X = []
-        # y = []
-        throttle = []
-        steer = []
-        brake = []
+        y = []
 
         for index, (current_state, action, reward, new_state, done) in enumerate(minibatch):
             if bVerbose and False:
@@ -335,10 +335,10 @@ class DQNAgent:
         return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
 
     def train_in_loop(self):
-        # X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
-        X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
-        # y = np.random.uniform(size=(1, action_size)).astype(np.float32)
-        y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
+        X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
+        # X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
+        y = np.random.uniform(size=(1, action_size)).astype(np.float32)
+        # y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
         # Neil commented `with self.graph.as_default():`
         self.model.fit(X,y, verbose=False, batch_size=1) # Neil left tabbed 1
 
@@ -464,4 +464,3 @@ if __name__ == "__main__":
     if bTrainingComplete:
         agent.model.save(f'models/final.model')
         agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
-        
