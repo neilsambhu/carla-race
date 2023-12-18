@@ -287,11 +287,11 @@ class DQNAgent:
         X = []
         # y = []
         throttle = []
-        steering = []
+        steer = []
         brake = []
 
         for index, (current_state, action, reward, new_state, done) in enumerate(minibatch):
-            if bVerbose:
+            if bVerbose and False:
                 print(f'action: {action}')
             if not done:
                 max_future_q = np.max(future_qs_list[index])
@@ -299,17 +299,19 @@ class DQNAgent:
             else:
                 new_q = reward
 
-            if bVerbose:
+            if bVerbose and False:
                 print(f'current_qs_list: {current_qs_list}')
                 print(f'new_q: {new_q}')
             current_qs = current_qs_list[index]
             # current_qs[action] = new_q
-            current_qs[action] = new_q
+            current_qs[0] = throttle[index]
+            current_qs[1] = steer[index]
+            current_qs[2] = brake[index]
 
             X.append(current_state)
             # y.append(current_qs)
             throttle.append(current_qs[0])
-            steering.append(current_qs[1])
+            steer.append(current_qs[1])
             brake.append(current_qs[2])
 
         log_this_step = False
