@@ -240,6 +240,8 @@ class DQNAgent:
         self.model = self.create_model()
         self.target_model = self.create_model()
         self.target_model.set_weights(self.model.get_weights())
+        self.saved_model = self.create_model()
+        self.saved_model.set_weights(self.model.get_weights())
 
         self.replay_memory = deque(maxlen=REPLAY_MEMORY_SIZE)
 
@@ -365,8 +367,8 @@ class DQNAgent:
             if self.terminate:
                 return
             self.train()
-            if not bSync:
-                time.sleep(0.01)
+            self.saved_model.set_weights(self.model.get_weights())
+            time.sleep(0.01)
 
 if __name__ == "__main__":
     FPS = 60
@@ -398,15 +400,14 @@ if __name__ == "__main__":
     # if bSync:
     #     env.world.tick()
 
-    # trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
-    # trainer_thread.start()
+    trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
+    trainer_thread.start()
 
     while not agent.training_initialized:
         time.sleep(0.01)
 
     agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
     bTrainingComplete = False
-    model_saved = None
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episodes"):
             print(f'Started episode {episode} of {EPISODES}')
@@ -442,8 +443,8 @@ if __name__ == "__main__":
                 new_state, reward, done, _ = env.step(action)            
                 episode_reward += reward
                 agent.update_replay_memory((current_state, action, reward, new_state, done))
-                agent.train_in_loop() # 12/19/2023 2:00 AM: Neil added
-                step += 1
+                # agent.train_in_loop() # 12/19/2023 2:00 AM: Neil added
+                # step += 1
 
                 if done:
                     break
@@ -478,10 +479,11 @@ if __name__ == "__main__":
         print(f'Error message: {e}')
         # save episode
         print(f'Error during episode {env.episode}')
-        agent.model.save(f'tmp/{env.episode-1}.model')
+        # agent.model.save(f'tmp/{env.episode-1}.model')
+        agent.saved_model.save(f'tmp/{env.episode-1}.model')
     
     agent.terminate = True
-    # trainer_thread.join()
+    trainer_thread.join()
     if bTrainingComplete:
         agent.model.save(f'models/final.model')
         agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')

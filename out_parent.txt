@@ -1,2 +1,6 @@
 4.26.2-0+++UE4+Release-4.26 522 0
 Disabling core dumps.
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 151ms/step
+  0%|          | 0/100 [00:00<?, ?episodes/s]Started episode 1 of 100
+Finished episode 1 of 100
+  1%|1         | 1/100 [00:07<11:52,  7.20s/episodes]Started episode 2 of 100
