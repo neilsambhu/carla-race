@@ -65,8 +65,8 @@ bSync = False
 bVerbose = True
 
 # Define action space
-action_space = {'throttle': np.linspace(0.0, 1.0, num=10),
-                'steer': np.linspace(-1.0, 1.0, num=20),
+action_space = {'throttle': np.linspace(0.0, 1.0, num=3),
+                'steer': np.linspace(-1.0, 1.0, num=3),
                 # 'brake': np.linspace(0.0, 1.0, num=10)}
                 'brake': np.linspace(0.0, 0.0, num=1)}
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
@@ -255,10 +255,23 @@ class DQNAgent:
         # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
         from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten
         base_model = tf.keras.Sequential()
-        # base_model.add(Conv2D(4, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
         base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        # base_model.add(Conv2D(4, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
         base_model.add(BatchNormalization())
         base_model.add(Activation('relu'))
+        
+        # base_model.add(Conv2D(4, (3,3), padding='same'))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
+
+        # base_model.add(Conv2D(4, (3,3), padding='same'))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
+
+        # base_model.add(Conv2D(4, (3,3), padding='same'))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
+
         base_model.add(Flatten())
 
         x = base_model.output
@@ -268,6 +281,7 @@ class DQNAgent:
         predictions = Dense(action_size, activation="linear")(x)
         model = Model(inputs = base_model.input, outputs=predictions)
         model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
+        # print(model.summary())
         return model
 
     def update_replay_memory(self, transition):
@@ -317,12 +331,13 @@ class DQNAgent:
         # Neil commented `with self.graph.as_default():`
         # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
         self.model.fit(
-            np.array(X) / 255,
+            # np.array(X) / 255,
+            np.array(X),
             np.array(y),
             batch_size=TRAINING_BATCH_SIZE,
             verbose=0,
             shuffle=False,
-            callbacks=[self.tensorboard] if log_this_step else None
+            # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
         )
 
 
@@ -383,14 +398,15 @@ if __name__ == "__main__":
     # if bSync:
     #     env.world.tick()
 
-    trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
-    trainer_thread.start()
+    # trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
+    # trainer_thread.start()
 
     while not agent.training_initialized:
         time.sleep(0.01)
 
     agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
     bTrainingComplete = False
+    model_saved = None
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episodes"):
             print(f'Started episode {episode} of {EPISODES}')
@@ -426,6 +442,7 @@ if __name__ == "__main__":
                 new_state, reward, done, _ = env.step(action)            
                 episode_reward += reward
                 agent.update_replay_memory((current_state, action, reward, new_state, done))
+                agent.train_in_loop() # 12/19/2023 2:00 AM: Neil added
                 step += 1
 
                 if done:
@@ -464,7 +481,7 @@ if __name__ == "__main__":
         agent.model.save(f'tmp/{env.episode-1}.model')
     
     agent.terminate = True
-    trainer_thread.join()
+    # trainer_thread.join()
     if bTrainingComplete:
         agent.model.save(f'models/final.model')
         agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
