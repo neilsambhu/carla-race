@@ -424,7 +424,9 @@ if __name__ == "__main__":
     agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
     bTrainingComplete = False
     try:
-        for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episodes", leave=False):
+        pbar = tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode", disable=False)
+        # for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode", leave=False):
+        for episode in range(idx_episode_start, EPISODES+1):
             print(f'\nStarted episode {episode} of {EPISODES}')
 
             env.collision_hist = []
@@ -437,27 +439,28 @@ if __name__ == "__main__":
                 env.world.tick()
             done = False
 
+            pbar.disable = True
             while True:
-                with tqdm(total=1, position=1, leave=False) as _:
-                    if bSync and False:
-                        # print(f'bSync inside episode')
-                        env.world.tick();
-                    if np.random.random() > epsilon:
-                        action = np.argmax(agent.get_qs(current_state))
-                    else:
-                        # action = np.random.randint(0, 3)
-                        action = np.random.randint(0, action_size)
-                        if not bSync:
-                            time.sleep(1/FPS)
+                if bSync and False:
+                    # print(f'bSync inside episode')
+                    env.world.tick();
+                if np.random.random() > epsilon:
+                    action = np.argmax(agent.get_qs(current_state))
+                else:
+                    # action = np.random.randint(0, 3)
+                    action = np.random.randint(0, action_size)
+                    if not bSync:
+                        time.sleep(1/FPS)
 
-                    new_state, reward, done, _ = env.step(action)            
-                    episode_reward += reward
-                    agent.update_replay_memory((current_state, action, reward, new_state, done))
-                    # agent.train_in_loop() # 12/19/2023 2:00 AM: Neil added
-                    # step += 1
+                new_state, reward, done, _ = env.step(action)            
+                episode_reward += reward
+                agent.update_replay_memory((current_state, action, reward, new_state, done))
+                # agent.train_in_loop() # 12/19/2023 2:00 AM: Neil added
+                # step += 1
 
-                    if done:
-                        break
+                if done:
+                    break
+            pbar.disable = False
 
             for actor in env.actor_list:
                 actor.destroy()
@@ -480,12 +483,14 @@ if __name__ == "__main__":
             if epsilon > MIN_EPSILON:
                 epsilon *= EPSILON_DECAY
                 epsilon = max(MIN_EPSILON, epsilon)
-
-            print(f'Finished episode {episode} of {EPISODES}')
             if episode == EPISODES:
                 bTrainingComplete = True
+            
+            pbar.update(1)
+            print(f'Finished episode {episode} of {EPISODES}')
+            
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
-            # time.sleep(30)
+            # time.sleep(6)
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
 
     except Exception as e:
