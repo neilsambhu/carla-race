@@ -438,25 +438,26 @@ if __name__ == "__main__":
             done = False
 
             while True:
-                if bSync and False:
-                    # print(f'bSync inside episode')
-                    env.world.tick();
-                if np.random.random() > epsilon:
-                    action = np.argmax(agent.get_qs(current_state))
-                else:
-                    # action = np.random.randint(0, 3)
-                    action = np.random.randint(0, action_size)
-                    if not bSync:
-                        time.sleep(1/FPS)
+                with tqdm(total=1, position=1, leave=False) as _:
+                    if bSync and False:
+                        # print(f'bSync inside episode')
+                        env.world.tick();
+                    if np.random.random() > epsilon:
+                        action = np.argmax(agent.get_qs(current_state))
+                    else:
+                        # action = np.random.randint(0, 3)
+                        action = np.random.randint(0, action_size)
+                        if not bSync:
+                            time.sleep(1/FPS)
 
-                new_state, reward, done, _ = env.step(action)            
-                episode_reward += reward
-                agent.update_replay_memory((current_state, action, reward, new_state, done))
-                # agent.train_in_loop() # 12/19/2023 2:00 AM: Neil added
-                # step += 1
+                    new_state, reward, done, _ = env.step(action)            
+                    episode_reward += reward
+                    agent.update_replay_memory((current_state, action, reward, new_state, done))
+                    # agent.train_in_loop() # 12/19/2023 2:00 AM: Neil added
+                    # step += 1
 
-                if done:
-                    break
+                    if done:
+                        break
 
             for actor in env.actor_list:
                 actor.destroy()
