@@ -785,3 +785,4 @@ class CarEnv:
 
         # Rest of your code...
 ```
+12/20/2023 4:48 PM: for ground truth location data from CARLA AP run, `local_planner.py` collects the location datum before applying vehicle controls.  
