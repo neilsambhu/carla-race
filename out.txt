@@ -1,0 +1,9 @@
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 306ms/step
+  0%|          | 0/500 [00:00<?, ?episode/s]
+Started episode 1 of 500
+Finished episode 1 of 500
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _update_step_xla while saving (showing 5 of 5). These functions will not be directly callable after loading.
+Saved model from episode 1. Count of batches trained: 1535
+  0%|          | 0/500 [00:19<?, ?episode/s]
+Error message: [Errno 2] No such file or directory: 'git commit -a -m "upload results"': 'git commit -a -m "upload results"'
+Error during episode 1

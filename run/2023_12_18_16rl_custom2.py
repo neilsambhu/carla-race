@@ -506,6 +506,12 @@ if __name__ == "__main__":
             agent.saved_model.save(f'tmp/{env.episode:03}.model')
             print(f'Saved model from episode {env.episode}. Count of batches trained: {agent.count_batches_trained}')
 
+            # import subprocess
+            # git = subprocess.Popen('git commit -a -m \"upload results\"')
+            # git.wait()
+            # git = subprocess.Popen('git push')
+            # git.wait()
+
     except Exception as e:
         print(f'Error message: {e}')
         # save episode
