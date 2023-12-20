@@ -46,8 +46,9 @@ MODEL_NAME = "Neil_SDC_2023"
 MEMORY_FRACTION = 0.8
 MIN_REWARD = -200
 
-EPISODES = 100
+# EPISODES = 100
 # EPISODES = 5
+EPISODES = 500
 
 DISCOUNT = 0.99
 epsilon = 1.0
@@ -252,6 +253,7 @@ class DQNAgent:
         self.saved_model = self.create_model()
         self.saved_model.set_weights(self.model.get_weights())
         self.count_saved_models = 0
+        self.count_batches_trained = 0
 
         self.replay_memory = deque(maxlen=REPLAY_MEMORY_SIZE)
 
@@ -267,27 +269,27 @@ class DQNAgent:
         # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
         from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten
         base_model = tf.keras.Sequential()
-        base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        # base_model.add(Conv2D(4, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        base_model.add(Conv2D(4, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
         base_model.add(BatchNormalization())
         base_model.add(Activation('relu'))
         
-        # base_model.add(Conv2D(4, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(4, (3,3), padding='same'))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(4, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(4, (3,3), padding='same'))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(4, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(4, (3,3), padding='same'))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        base_model.add(Flatten())
+        # base_model.add(Flatten())
 
         x = base_model.output
-        # x = GlobalAveragePooling2D()(x)
+        x = GlobalAveragePooling2D()(x)
 
         # predictions = Dense(3, activation="linear")(x)
         predictions = Dense(action_size, activation="linear")(x)
@@ -379,6 +381,7 @@ class DQNAgent:
             if self.terminate:
                 return
             self.train()
+            self.count_batches_trained += 1
             self.saved_model.set_weights(self.model.get_weights())
             self.count_saved_models += 1
             # time.sleep(0.01)
@@ -501,6 +504,7 @@ if __name__ == "__main__":
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
             
             agent.saved_model.save(f'tmp/{env.episode:03}.model')
+            print(f'Saved model from episode {env.episode}. Count of batches trained: {agent.count_batches_trained}')
 
     except Exception as e:
         print(f'Error message: {e}')
