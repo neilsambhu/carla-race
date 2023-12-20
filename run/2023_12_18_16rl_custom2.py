@@ -400,14 +400,14 @@ if __name__ == "__main__":
     idx_episode_start = 1
     # if tmp/{episode}.model exists, load model
     import glob, shutil
-    matching_files = glob.glob(os.path.join('tmp/', '*.model'))
+    matching_files = glob.glob(os.path.join('tmp/', '*.model')).sort()
     if len(matching_files) > 0:
         print(f'Models in tmp {matching_files}')
         print(f'Load model {matching_files[-1]}')
         agent.model = tf.keras.models.load_model(matching_files[-1])
         [shutil.rmtree(matching_file) for matching_file in matching_files]
 
-        idx_episode_saved = int(matching_files[0].split('/')[1].split('.')[0])
+        idx_episode_saved = int(matching_files[-1].split('/')[1].split('.')[0])
         idx_episode_crashed = idx_episode_saved + 1
         # remove leftover images from failed episode
         matching_files = glob.glob(os.path.join(directory, f'*{idx_episode_crashed}_*.png'))

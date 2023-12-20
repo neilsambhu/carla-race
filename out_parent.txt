@@ -1,1 +1,3 @@
 Start run at count 1
+4.26.2-0+++UE4+Release-4.26 522 0
+Disabling core dumps.
