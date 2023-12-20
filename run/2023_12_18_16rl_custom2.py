@@ -400,8 +400,9 @@ if __name__ == "__main__":
     idx_episode_start = 1
     # if tmp/{episode}.model exists, load model
     import glob, shutil
-    matching_files = glob.glob(os.path.join('tmp/', '*.model')).sort()
+    matching_files = glob.glob(os.path.join('tmp/', '*.model'))
     if len(matching_files) > 0:
+        matching_files = matching_files.sort()
         print(f'Models in tmp {matching_files}')
         print(f'Load model {matching_files[-1]}')
         agent.model = tf.keras.models.load_model(matching_files[-1])
