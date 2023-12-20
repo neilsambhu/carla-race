@@ -499,14 +499,13 @@ if __name__ == "__main__":
             # time.sleep(6)
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
             
-            agent.saved_model.save(f'tmp/{env.episode-1:03}.model')
+            agent.saved_model.save(f'tmp/{env.episode:03}.model')
 
     except Exception as e:
         print(f'Error message: {e}')
         # save episode
         print(f'Error during episode {env.episode}')
     finally:
-    
         agent.terminate = True
         trainer_thread.join()
         if bTrainingComplete:
