@@ -305,11 +305,13 @@ class DQNAgent:
 
         minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
 
-        current_states = np.array([transition[0] for transition in minibatch])/255
+        # current_states = np.array([transition[0] for transition in minibatch])/255
+        current_states = np.array([transition[0] for transition in minibatch])
         # Neil commented `with self.graph.as_default():`
         current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
 
-        new_current_states = np.array([transition[3] for transition in minibatch])/255
+        # new_current_states = np.array([transition[3] for transition in minibatch])/255
+        new_current_states = np.array([transition[3] for transition in minibatch])
         # Neil commented `with self.graph.as_default():`
         future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
 
@@ -401,15 +403,18 @@ if __name__ == "__main__":
     matching_files = glob.glob(os.path.join('tmp/', '*.model'))
     if len(matching_files) > 0:
         print(f'Models in tmp {matching_files}')
-        print(f'Load model {matching_files[0]}')
+        print(f'Load model {matching_files[-1]}')
         agent.model = tf.keras.models.load_model(matching_files[-1])
-        idx_episode_crash = int(matching_files[0].split('/')[1].split('.')[0])
-        idx_episode_start = idx_episode_crash + 1
-        shutil.rmtree(matching_files[0])
+        [shutil.rmtree(matching_file) for matching_file in matching_files]
+
+        idx_episode_saved = int(matching_files[0].split('/')[1].split('.')[0])
+        idx_episode_crashed = idx_episode_saved + 1
         # remove leftover images from failed episode
-        matching_files = glob.glob(os.path.join(directory, f'*{idx_episode_crash}*.png'))
+        matching_files = glob.glob(os.path.join(directory, f'*{idx_episode_crashed}_*.png'))
         print(f'Leftover images from failed episode: {matching_files}')
         [os.remove(file) for file in matching_files]
+
+        idx_episode_start = idx_episode_crashed
 
     env = CarEnv()
     # if bSync:
@@ -424,9 +429,9 @@ if __name__ == "__main__":
     agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
     bTrainingComplete = False
     try:
-        pbar = tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode", disable=False)
-        # for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode", leave=False):
-        for episode in range(idx_episode_start, EPISODES+1):
+        # pbar = tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode", disable=False)
+        for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
+        # for episode in range(idx_episode_start, EPISODES+1):
             print(f'\nStarted episode {episode} of {EPISODES}')
 
             env.collision_hist = []
@@ -439,7 +444,7 @@ if __name__ == "__main__":
                 env.world.tick()
             done = False
 
-            pbar.disable = True
+            # pbar.disable = True
             while True:
                 if bSync and False:
                     # print(f'bSync inside episode')
@@ -460,7 +465,7 @@ if __name__ == "__main__":
 
                 if done:
                     break
-            pbar.disable = False
+            # pbar.disable = False
 
             for actor in env.actor_list:
                 actor.destroy()
@@ -486,22 +491,23 @@ if __name__ == "__main__":
             if episode == EPISODES:
                 bTrainingComplete = True
             
-            pbar.update(1)
+            # pbar.update(1)
             print(f'Finished episode {episode} of {EPISODES}')
             
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
             # time.sleep(6)
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
+            
+            agent.saved_model.save(f'tmp/{env.episode-1:03}.model')
 
     except Exception as e:
         print(f'Error message: {e}')
         # save episode
         print(f'Error during episode {env.episode}')
-        # agent.model.save(f'tmp/{env.episode-1}.model')
-        agent.saved_model.save(f'tmp/{env.episode-1}.model')
+    finally:
     
-    agent.terminate = True
-    trainer_thread.join()
-    if bTrainingComplete:
-        agent.model.save(f'models/final.model')
-        agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
+        agent.terminate = True
+        trainer_thread.join()
+        if bTrainingComplete:
+            agent.model.save(f'models/final.model')
+            agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')

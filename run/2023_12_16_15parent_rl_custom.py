@@ -7,6 +7,19 @@ def clean_directory(directory):
 clean_directory(directory='_out_16rl_custom2')
 clean_directory(directory='tmp')
 clean_directory(directory='models')
+clean_directory(directory='logs')
+
+start_time = time.time()
+def print_elapsed_time():
+    end_time = time.time()
+    # Calculate elapsed time
+    elapsed_time_seconds = end_time - start_time
+    # Convert seconds to hours, minutes, and seconds
+    hours = int(elapsed_time_seconds // 3600)
+    minutes = int((elapsed_time_seconds % 3600) // 60)
+    seconds = int(elapsed_time_seconds % 60)
+    # Display elapsed time in HH:MM:SS format
+    print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
 
 def kill_carla():
     kill_process = subprocess.Popen('killall -9 -r CarlaUE4-Linux', shell=True)
@@ -38,7 +51,8 @@ while len(glob.glob('models/final.model')) == 0:
         print(f'(Allegedly) no exception occurred for run at count {run}. CARLA Simulator may have crashed.')
     finally:
         print(f'End run at count {run}')
+        print_elapsed_time()
         run += 1
         carla.terminate()
         rl_custom.terminate()
-print('done');quit()
+print('done');import sys; sys.exit()
