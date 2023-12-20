@@ -16,6 +16,7 @@ def kill_carla():
 # check if saved final model exists
 run = 1
 while len(glob.glob('models/final.model')) == 0:
+    print(f'Start run at count {run}')
     kill_carla()
     carla = None
     rl_custom = None
@@ -26,7 +27,7 @@ while len(glob.glob('models/final.model')) == 0:
             rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py 2>&1 | tee out.txt', shell=True)
         elif run > 1:
             rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py 2>&1 | tee -a out.txt', shell=True)
-        carla.wait()
+        # carla.wait()
         rl_custom.wait()
     except Exception as e:
         print(f'Run errored at count {run}')
@@ -36,7 +37,8 @@ while len(glob.glob('models/final.model')) == 0:
     else:
         print(f'(Allegedly) no exception occurred for run at count {run}. CARLA Simulator may have crashed.')
     finally:
+        print(f'End run at count {run}')
         run += 1
         carla.terminate()
         rl_custom.terminate()
-print('done')
+print('done');quit()

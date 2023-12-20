@@ -61,12 +61,12 @@ directory = '_out_16rl_custom2'
 #     [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
 # else:
 #     print("Directory does not exist or is already removed.")
-bSync = False
+bSync = True
 bVerbose = True
 
 # Define action space
-action_space = {'throttle': np.linspace(0.0, 1.0, num=3),
-                'steer': np.linspace(-1.0, 1.0, num=3),
+action_space = {'throttle': np.linspace(0.0, 1.0, num=10),
+                'steer': np.linspace(-1.0, 1.0, num=20),
                 # 'brake': np.linspace(0.0, 1.0, num=10)}
                 'brake': np.linspace(0.0, 0.0, num=1)}
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
@@ -119,13 +119,15 @@ class CarEnv:
     def __init__(self):
         self.client = carla.Client("localhost", 2000)
         # self.client.set_timeout(2.0)
-        # self.client.set_timeout(60)
-        self.client.set_timeout(600)
+        self.client.set_timeout(60)
+        # self.client.set_timeout(600)
         # self.world = self.client.get_world()
         self.world = self.client.load_world('Town04_Opt')
+        self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
         self.blueprint_library = self.world.get_blueprint_library()
         self.model_3 = self.blueprint_library.filter("model3")[0]
         if bSync:
+            # print(f'bSync set synchronous mode')
             # Set synchronous mode 
             settings = self.world.get_settings()
             settings.synchronous_mode = True # Enables synchronous mode
@@ -145,7 +147,7 @@ class CarEnv:
         self.vehicle = self.world.spawn_actor(self.model_3, self.transform)
         self.actor_list.append(self.vehicle)
         if bSync:
-            time.sleep(1)
+            # print('bSync reset: spawn actor')
             self.world.tick()
 
         self.rgb_cam = self.blueprint_library.find('sensor.camera.rgb')
@@ -163,6 +165,9 @@ class CarEnv:
         self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
         if not bSync:
             time.sleep(4)
+        elif bSync:
+            # print('bSync reset: apply control')
+            self.world.tick()
 
         colsensor = self.blueprint_library.find("sensor.other.collision")
         self.colsensor = self.world.spawn_actor(colsensor, transform, attach_to=self.vehicle)
@@ -172,7 +177,8 @@ class CarEnv:
         while self.front_camera is None:
             time.sleep(0.01)
 
-        self.episode_start = time.time()
+        # self.episode_start = time.time()
+        self.episode_start = self.world.get_snapshot().timestamp.elapsed_seconds
         self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
 
         return self.front_camera
@@ -213,8 +219,9 @@ class CarEnv:
             carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
         )
 
-        # if bSync:
-        #     self.world.tick() # Neil added
+        if bSync:
+            # print(f'bSync step: after applying vehicle control')
+            self.world.tick() # Neil added
 
         v = self.vehicle.get_velocity()
         kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
@@ -229,7 +236,8 @@ class CarEnv:
             done = False
             reward = 1
 
-        if self.episode_start + SECONDS_PER_EPISODE < time.time():
+        # if self.episode_start + SECONDS_PER_EPISODE < time.time():
+        if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
             done = True
 
         return self.front_camera, reward, done, None
@@ -242,6 +250,7 @@ class DQNAgent:
         self.target_model.set_weights(self.model.get_weights())
         self.saved_model = self.create_model()
         self.saved_model.set_weights(self.model.get_weights())
+        self.count_saved_models = 0
 
         self.replay_memory = deque(maxlen=REPLAY_MEMORY_SIZE)
 
@@ -354,10 +363,10 @@ class DQNAgent:
         return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
 
     def train_in_loop(self):
-        X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
-        # X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
-        y = np.random.uniform(size=(1, action_size)).astype(np.float32)
-        # y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
+        # X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
+        X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
+        # y = np.random.uniform(size=(1, action_size)).astype(np.float32)
+        y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
         # Neil commented `with self.graph.as_default():`
         self.model.fit(X,y, verbose=False, batch_size=1) # Neil left tabbed 1
 
@@ -368,7 +377,8 @@ class DQNAgent:
                 return
             self.train()
             self.saved_model.set_weights(self.model.get_weights())
-            time.sleep(0.01)
+            self.count_saved_models += 1
+            # time.sleep(0.01)
 
 if __name__ == "__main__":
     FPS = 60
@@ -393,8 +403,13 @@ if __name__ == "__main__":
         print(f'Models in tmp {matching_files}')
         print(f'Load model {matching_files[0]}')
         agent.model = tf.keras.models.load_model(matching_files[-1])
-        idx_episode_start = int(matching_files[0].split('/')[1].split('.')[0]) + 1
+        idx_episode_crash = int(matching_files[0].split('/')[1].split('.')[0])
+        idx_episode_start = idx_episode_crash + 1
         shutil.rmtree(matching_files[0])
+        # remove leftover images from failed episode
+        matching_files = glob.glob(os.path.join(directory, f'*{idx_episode_crash}*.png'))
+        print(f'Leftover images from failed episode: {matching_files}')
+        [os.remove(file) for file in matching_files]
 
     env = CarEnv()
     # if bSync:
@@ -409,28 +424,22 @@ if __name__ == "__main__":
     agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
     bTrainingComplete = False
     try:
-        for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episodes"):
-            print(f'Started episode {episode} of {EPISODES}')
-            # import subprocess
-            # process = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True)
-            # time.sleep(10)
-
-            # env = CarEnv()
-            # agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
+        for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episodes", leave=False):
+            print(f'\nStarted episode {episode} of {EPISODES}')
 
             env.collision_hist = []
             agent.tensorboard.step = episode
             env.episode = episode
             episode_reward = 0
-            step = 1
+            # step = 1
             current_state = env.reset()
-            # while bSync:
-            #     print('tick 1');env.world.tick()
+            if bSync:
+                env.world.tick()
             done = False
-            episode_start = time.time()
 
             while True:
-                if bSync:
+                if bSync and False:
+                    # print(f'bSync inside episode')
                     env.world.tick();
                 if np.random.random() > epsilon:
                     action = np.argmax(agent.get_qs(current_state))
@@ -474,6 +483,9 @@ if __name__ == "__main__":
             print(f'Finished episode {episode} of {EPISODES}')
             if episode == EPISODES:
                 bTrainingComplete = True
+            # print(f'agent.count_saved_models: {agent.count_saved_models}')
+            # time.sleep(30)
+            # print(f'agent.count_saved_models: {agent.count_saved_models}')
 
     except Exception as e:
         print(f'Error message: {e}')

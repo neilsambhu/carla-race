@@ -1,4 +1,7 @@
-1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 151ms/step
-  0%|          | 0/100 [00:00<?, ?episodes/s]Started episode 1 of 100
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 376ms/step
+  0%|          | 0/100 [00:00<?, ?episodes/s]
+Started episode 1 of 100
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _update_step_xla while saving (showing 2 of 2). These functions will not be directly callable after loading.
 Finished episode 1 of 100
-  1%|1         | 1/100 [00:07<11:52,  7.20s/episodes]Started episode 2 of 100
+  1%|1         | 1/100 [00:25<42:33, 25.79s/episodes]
+Started episode 2 of 100
