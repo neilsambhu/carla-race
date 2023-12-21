@@ -119,12 +119,13 @@ class CarEnv:
     front_camera = None
     episode = None
     action_space = action_space
+    idx_tick = 0
 
     def __init__(self):
         self.client = carla.Client("localhost", 2000)
         # self.client.set_timeout(2.0)
-        self.client.set_timeout(60)
-        # self.client.set_timeout(600)
+        # self.client.set_timeout(60)
+        self.client.set_timeout(600)
         # self.world = self.client.get_world()
         self.world = self.client.load_world('Town04_Opt')
         self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
@@ -226,6 +227,7 @@ class CarEnv:
         if bSync:
             # print(f'bSync step: after applying vehicle control')
             self.world.tick() # Neil added
+            self.idx_tick += 1
 
         v = self.vehicle.get_velocity()
         kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
@@ -239,6 +241,17 @@ class CarEnv:
         else:
             done = False
             reward = 1
+
+        # done = False
+        # reward = 0
+
+        location_current = self.vehicle.get_location()
+        location_groundTruth = None
+        with open('_out_07vehicle_location_AP/Town04_0_335_sync.txt', 'r') as file:
+            for idx_line, line in enumerate(file):
+                if idx_line == self.idx_tick:
+                    print(f'self.idx_tick: {self.idx_tick}\tline.split(): {line.split()}')
+                    break
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
         if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
@@ -454,9 +467,10 @@ if __name__ == "__main__":
 
             # pbar.disable = True
             while True:
-                if bSync and False:
+                if bSync:
                     # print(f'bSync inside episode')
                     env.world.tick();
+                    # env.idx_tick += 1
                 if np.random.random() > epsilon:
                     action = np.argmax(agent.get_qs(current_state))
                 else:

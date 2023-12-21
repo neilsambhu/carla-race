@@ -787,3 +787,8 @@ class CarEnv:
 ```
 12/20/2023 4:48 PM: for ground truth location data from CARLA AP run, `local_planner.py` collects the location datum before applying vehicle controls.  
 12/20/2023 8:27 PM: get tensorflow-gpu working.  
+12/20/2023 9:02 PM: TensorFlow needs CUDA Toolkit 11.0.  
+12/20/2023 9:56 PM: Tensorflow needs cuDNN 7.  
+12/20/2023 10:05 PM: TensorFlow needs CUDA Toolkit 10.2 to be compatible with cuDNN 7.  
+12/20/2023 10:32 PM: upgrade CARLA and python versions.  
+12/20/2023 11:53 PM: coordinate ticks and line numbers for ground truth AP run.  
