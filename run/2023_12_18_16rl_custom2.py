@@ -238,6 +238,7 @@ class CarEnv:
         done = False
         reward = 0
         lines = []
+        location_groundTruth = carla.Location(0.0,0.0,0.0)
         # Reading ground truth coordinates from the file
         with open(directory_input, 'r') as file:
             lines = file.readlines()
@@ -246,18 +247,16 @@ class CarEnv:
                 if len(data) >= 3:
                     location_groundTruth = carla.Location(float(data[0]), float(data[1]), float(data[2]))  # Extracting x, y, z coordinates
 
-        # Calculating the reward based on the ground truth location
-        if location_groundTruth:
-            # Get the current location of the vehicle
-            location_current = self.vehicle.get_location()
-            carla_location_current = carla.Location(location_current.x, location_current.y, location_current.z)
+        # Get the current location of the vehicle
+        location_current = self.vehicle.get_location()
+        carla_location_current = carla.Location(location_current.x, location_current.y, location_current.z)
 
-            # Calculate the distance between the vehicle's current location and ground truth location
-            distance = location_groundTruth.distance(carla_location_current)
-            # You might want to define a threshold and reward scheme based on the distance
-            # For example, if distance < threshold: reward = some_value
-            # Modify the reward calculation based on your requirements
-            reward = -1*distance+5
+        # Calculate the distance between the vehicle's current location and ground truth location
+        distance = location_groundTruth.distance(carla_location_current)
+        # You might want to define a threshold and reward scheme based on the distance
+        # For example, if distance < threshold: reward = some_value
+        # Modify the reward calculation based on your requirements
+        reward = -1*distance+5
 
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
