@@ -224,27 +224,27 @@ class CarEnv:
             carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
         )
 
-        if bSync:
+        if bSync and False:
             # print(f'bSync step: after applying vehicle control')
             self.world.tick() # Neil added
             self.idx_tick += 1
 
-        v = self.vehicle.get_velocity()
-        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        # v = self.vehicle.get_velocity()
+        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
 
-        if len (self.collision_hist) != 0:
-            done = True
-            reward = -200
-        elif kmh < 50:
-            done = False
-            reward = -1
-        else:
-            done = False
-            reward = 1
+        # if len (self.collision_hist) != 0:
+        #     done = True
+        #     reward = -200
+        # elif kmh < 50:
+        #     done = False
+        #     reward = -1
+        # else:
+        #     done = False
+        #     reward = 1
 
-        # done = False
-        # reward = 0
-
+        done = False
+        reward = 0
+        lines = []
         
         # Reading ground truth coordinates from the file
         with open('_out_07vehicle_location_AP/Town04_0_335_sync.txt', 'r') as file:
@@ -270,9 +270,9 @@ class CarEnv:
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
 
-        # if self.episode_start + SECONDS_PER_EPISODE < time.time():
-        if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
-            done = True
+        # # if self.episode_start + SECONDS_PER_EPISODE < time.time():
+        # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
+        #     done = True
 
         return self.front_camera, reward, done, None
 
@@ -487,7 +487,7 @@ if __name__ == "__main__":
                 if bSync:
                     # print(f'bSync inside episode')
                     env.world.tick();
-                    # env.idx_tick += 1
+                    env.idx_tick += 1
                 if np.random.random() > epsilon:
                     action = np.argmax(agent.get_qs(current_state))
                 else:
