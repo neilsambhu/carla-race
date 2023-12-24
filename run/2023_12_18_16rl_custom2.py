@@ -29,6 +29,8 @@ except IndexError:
     pass
 import carla
 
+
+
 SHOW_PREVIEW = False
 IM_WIDTH = 600
 IM_HEIGHT = 600
@@ -36,7 +38,11 @@ IM_HEIGHT = 600
 SECONDS_PER_EPISODE = 3*60
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
-MIN_REPLAY_MEMORY_SIZE = int(1.5*SECONDS_PER_EPISODE*20)
+# MIN_REPLAY_MEMORY_SIZE = int(1.5*SECONDS_PER_EPISODE*20) # 12/24/2023 6:37 AM: Neil commented out
+directory_input = '_out_07vehicle_location_AP/Town04_0_335_sync.txt'
+with open(directory_input, 'r') as file:
+    number_of_lines = len(file.readlines())
+MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
 REPLAY_MEMORY_SIZE = 5*MIN_REPLAY_MEMORY_SIZE
 MINIBATCH_SIZE = 16
 PREDICTION_BATCH_SIZE = 1
@@ -60,7 +66,7 @@ MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
-directory = '_out_16rl_custom2'
+directory_output = '_out_16rl_custom2'
 # if os.path.exists(directory):
 #     [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
 # else:
@@ -71,8 +77,8 @@ bVerbose = True
 # Define action space
 action_space = {'throttle': np.linspace(0.0, 1.0, num=10),
                 'steer': np.linspace(-1.0, 1.0, num=20),
-                # 'brake': np.linspace(0.0, 1.0, num=10)}
-                'brake': np.linspace(0.0, 0.0, num=1)}
+                'brake': np.linspace(0.0, 1.0, num=10)}
+                # 'brake': np.linspace(0.0, 0.0, num=1)}
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 
 # Own Tensorboard class
@@ -205,7 +211,7 @@ class CarEnv:
         self.front_camera = i3
         from PIL import Image
         i4 = Image.fromarray(i3)
-        i4.save('%s/%03d_%06d.png' % (directory, self.episode, image.frame))
+        i4.save('%s/%03d_%06d.png' % (directory_output, self.episode, image.frame))
 
     def step(self, action):
         if bVerbose and False:
@@ -229,25 +235,11 @@ class CarEnv:
             self.world.tick() # Neil added
             self.idx_tick += 1
 
-        # v = self.vehicle.get_velocity()
-        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-
-        # if len (self.collision_hist) != 0:
-        #     done = True
-        #     reward = -200
-        # elif kmh < 50:
-        #     done = False
-        #     reward = -1
-        # else:
-        #     done = False
-        #     reward = 1
-
         done = False
         reward = 0
         lines = []
-        
         # Reading ground truth coordinates from the file
-        with open('_out_07vehicle_location_AP/Town04_0_335_sync.txt', 'r') as file:
+        with open(directory_input, 'r') as file:
             lines = file.readlines()
             if self.idx_tick < len(lines):
                 data = lines[self.idx_tick].split()
@@ -273,6 +265,10 @@ class CarEnv:
         # # if self.episode_start + SECONDS_PER_EPISODE < time.time():
         # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
         #     done = True
+
+        if len (self.collision_hist) != 0:
+            done = True
+            reward = -200
 
         return self.front_camera, reward, done, None
 
@@ -447,7 +443,7 @@ if __name__ == "__main__":
         idx_episode_saved = int(matching_files[-1].split('/')[1].split('.')[0])
         idx_episode_crashed = idx_episode_saved + 1
         # remove leftover images from failed episode
-        matching_files = glob.glob(os.path.join(directory, f'*{idx_episode_crashed}_*.png'))
+        matching_files = glob.glob(os.path.join(directory_output, f'*{idx_episode_crashed}_*.png'))
         matching_files.sort()
         print(f'Leftover images from failed episode: {matching_files}')
         [os.remove(file) for file in matching_files]
