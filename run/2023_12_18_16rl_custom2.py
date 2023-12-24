@@ -74,6 +74,7 @@ directory_output = '_out_16rl_custom2'
 #     print("Directory does not exist or is already removed.")
 bSync = True
 bVerbose = True
+bGPU = False
 
 # Define action space
 action_space = {'throttle': np.linspace(0.0, 1.0, num=10),
@@ -424,9 +425,10 @@ if __name__ == "__main__":
     tf.random.set_seed(1) # Neil modified `tf.set_random_seed(1)`
 
     # Neil commented out for CPU `tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)` # Neil modified `gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)`
-    tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)
+    if bGPU:
+        tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)
     pass # Neil modified `backend.set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))`
-    print('a')
+
     if not os.path.isdir("models"):
         os.makedirs("models")
 
