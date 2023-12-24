@@ -152,6 +152,7 @@ class CarEnv:
     def reset(self):
         self.collision_hist = []
         self.actor_list = []
+        self.idx_tick = 0
 
         # self.transform = random.choice(self.world.get_map().get_spawn_points())
         self.transform = self.world.get_map().get_spawn_points()[0]
