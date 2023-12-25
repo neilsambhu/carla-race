@@ -264,7 +264,7 @@ class CarEnv:
         # You might want to define a threshold and reward scheme based on the distance
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
-        reward = -1*distance+5
+        reward = -1*distance**3+5
 
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
@@ -304,22 +304,22 @@ class DQNAgent:
         # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
         from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten
         base_model = tf.keras.Sequential()
-        base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        # base_model.add(Conv2D(4, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        base_model.add(Conv2D(4, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
         base_model.add(BatchNormalization())
         base_model.add(Activation('relu'))
         
-        # base_model.add(Conv2D(4, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(4, (3,3), padding='same'))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(4, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(4, (3,3), padding='same'))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(4, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(4, (3,3), padding='same'))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
         # base_model.add(Flatten())
 
