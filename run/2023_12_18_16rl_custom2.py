@@ -42,7 +42,8 @@ SECONDS_PER_EPISODE = 3*60
 directory_input = '_out_07vehicle_location_AP/Town04_0_335_sync.txt'
 with open(directory_input, 'r') as file:
     number_of_lines = len(file.readlines())
-MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
+# MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
+MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 REPLAY_MEMORY_SIZE = 5*MIN_REPLAY_MEMORY_SIZE
 MINIBATCH_SIZE = 16
 PREDICTION_BATCH_SIZE = 1
@@ -423,8 +424,9 @@ if __name__ == "__main__":
     tf.random.set_seed(1) # Neil modified `tf.set_random_seed(1)`
 
     # Neil commented out for CPU `tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)` # Neil modified `gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)`
+    tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)
     pass # Neil modified `backend.set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))`
-
+    print('a')
     if not os.path.isdir("models"):
         os.makedirs("models")
 
