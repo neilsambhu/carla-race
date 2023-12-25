@@ -412,9 +412,12 @@ class DQNAgent:
             if self.terminate:
                 return
             self.train()
-            self.count_batches_trained += 1
-            self.saved_model.set_weights(self.model.get_weights())
-            self.count_saved_models += 1
+            if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
+                pass
+            else:
+                self.count_batches_trained += 1
+                self.saved_model.set_weights(self.model.get_weights())
+                self.count_saved_models += 1
             # time.sleep(0.01)
 
 if __name__ == "__main__":
