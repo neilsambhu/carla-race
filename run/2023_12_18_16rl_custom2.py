@@ -42,8 +42,8 @@ SECONDS_PER_EPISODE = 3*60
 directory_input = '_out_07vehicle_location_AP/Town04_0_335_sync.txt'
 with open(directory_input, 'r') as file:
     number_of_lines = len(file.readlines())
-# MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
-MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
+MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
+# MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 REPLAY_MEMORY_SIZE = 5*MIN_REPLAY_MEMORY_SIZE
 MINIBATCH_SIZE = 16
 PREDICTION_BATCH_SIZE = 1
@@ -74,7 +74,7 @@ directory_output = '_out_16rl_custom2'
 #     print("Directory does not exist or is already removed.")
 bSync = True
 bVerbose = True
-bGPU = False
+bGPU = True
 
 # Define action space
 action_space = {'throttle': np.linspace(0.0, 1.0, num=10),
@@ -130,7 +130,8 @@ class CarEnv:
     idx_tick = 0
 
     def __init__(self):
-        self.client = carla.Client("localhost", 2000)
+        # self.client = carla.Client("localhost", 2000)
+        self.client = carla.Client("10.247.52.30", 2000)
         # self.client.set_timeout(2.0)
         # self.client.set_timeout(60)
         self.client.set_timeout(600)

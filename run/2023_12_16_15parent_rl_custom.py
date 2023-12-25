@@ -1,5 +1,7 @@
 import time, os, shutil, subprocess, glob
 
+bLocalCarla = False
+
 # delete files from previous run
 def clean_directory(directory):
     [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
@@ -34,13 +36,13 @@ while len(glob.glob('models/final.model')) == 0:
     carla = None
     rl_custom = None
     try:
-        carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
-        # carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True, preexec_fn=os.setsid)
+        if bLocalCarla:
+            carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
+            # carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True, preexec_fn=os.setsid)
         if run == 1:
             rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py 2>&1 | tee out.txt', shell=True)
         elif run > 1:
             rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py 2>&1 | tee -a out.txt', shell=True)
-        # carla.wait()
         rl_custom.wait()
     except Exception as e:
         print(f'Run errored at count {run}')
@@ -53,6 +55,7 @@ while len(glob.glob('models/final.model')) == 0:
         print(f'End run at count {run}')
         print_elapsed_time()
         run += 1
-        carla.terminate()
+        if bLocalCarla:
+            carla.terminate()
         rl_custom.terminate()
 print('done');import sys; sys.exit()

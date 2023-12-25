@@ -1,183 +1,463 @@
 Start run at count 1
-4.26.2-0+++UE4+Release-4.26 522 0
-Disabling core dumps.
-2023-12-24 15:28:26.179402: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2023-12-24 15:28:26.179447: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2023-12-24 15:28:26.180842: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2023-12-24 15:28:33.871337: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2023-12-24 15:28:46.220411: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-24 15:28:51.847027: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-24 15:28:51.847265: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-a
-2023-12-24 15:28:51.869982: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-24 15:28:51.870211: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-24 15:28:51.870423: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-24 15:28:52.558642: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-24 15:28:52.558869: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-24 15:28:52.559057: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-24 15:28:52.559171: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 1776 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1050 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1
+CarlaUE4-Linux: no process found
+/bin/sh: 1: /opt/carla-simulator/CarlaUE4.sh: not found
+2023-12-25 02:20:23.937909: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-25 02:20:23.959569: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-25 02:20:23.959590: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-25 02:20:23.960145: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-25 02:20:23.963440: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-25 02:20:24.359698: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-25 02:20:24.662309: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-25 02:20:24.689587: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-25 02:20:24.689868: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-25 02:20:24.692482: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-25 02:20:24.692673: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-25 02:20:24.692806: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-25 02:20:25.403250: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-25 02:20:25.403395: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-25 02:20:25.403519: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-25 02:20:25.403661: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4337 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
-2023-12-24 15:29:35.936881: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2023-12-24 15:29:36.664801: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.664933: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 57.60MiB (60398080 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665036: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 51.84MiB (54358272 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665136: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 46.66MiB (48922624 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665236: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 41.99MiB (44030464 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665334: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 37.79MiB (39627520 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665445: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 34.01MiB (35664896 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665548: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 30.61MiB (32098560 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665647: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 27.55MiB (28888832 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665747: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 24.79MiB (26000128 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665819: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 22.32MiB (23400192 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665890: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 20.08MiB (21060352 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.665961: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 18.08MiB (18954496 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.666031: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 16.27MiB (17059072 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.666049: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 16.00MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.666196: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.666213: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 18.06MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.666343: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.666359: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 18.06MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.666484: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.666500: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 16.00MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.666622: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.666638: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 53.08MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.666762: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.666777: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 53.08MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.666902: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.666918: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 18.07MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.667044: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.667061: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 18.07MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.667187: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.667203: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 18.06MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.667335: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.667351: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 18.06MiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2023-12-24 15:29:36.667494: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.667628: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.667760: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.667893: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.668028: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.668162: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 64.00MiB (67108864 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.668301: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.668437: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.668571: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.668719: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.668861: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.669105: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.669272: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.669449: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.669620: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.669763: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.669905: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.670061: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.670197: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.670332: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.670467: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.670599: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.670739: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.670884: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.671359: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:185] failed to create cublas handle: the resource allocation failed
-2023-12-24 15:29:36.671391: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:188] Failure to initialize cublas may be due to OOM (cublas needs some free memory when you initialize it, and your deep-learning framework may have preallocated more than its fair share), or may be because this binary was not built with support for the GPU in your machine.
-2023-12-24 15:29:36.671914: W tensorflow/core/kernels/conv_ops_gpu.cc:322] None of the algorithms provided by cuDNN frontend heuristics worked; trying fallback algorithms.  Conv: batch: 1
-in_depths: 3
-out_depths: 4
-in: 600
-in: 600
-data_format: 1
-filter: 3
-filter: 3
-filter: 3
-dilation: 1
-dilation: 1
-stride: 1
-stride: 1
-padding: 1
-padding: 1
-dtype: DT_FLOAT
-group_count: 1
-device_identifier: "sm_6.1 with 4231790592B RAM, 6 cores, 1392000KHz clock, 3504000KHz mem clock, 1048576B L2$"
-version: 3
-
-2023-12-24 15:29:36.683770: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.683949: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.684109: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.684283: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.684452: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.684632: I external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:1101] failed to allocate 512.00MiB (536870912 bytes) from device: CUDA_ERROR_OUT_OF_MEMORY: out of memory
-2023-12-24 15:29:36.684864: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:185] failed to create cublas handle: the resource allocation failed
-2023-12-24 15:29:36.684888: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:188] Failure to initialize cublas may be due to OOM (cublas needs some free memory when you initialize it, and your deep-learning framework may have preallocated more than its fair share), or may be because this binary was not built with support for the GPU in your machine.
-2023-12-24 15:29:36.686767: W tensorflow/core/framework/op_kernel.cc:1839] OP_REQUIRES failed at conv_ops_impl.h:1199 : NOT_FOUND: No algorithm worked!  Error messages:
-  Profiling failure on CUDNN engine eng1{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16777324 bytes.
-  Profiling failure on CUDNN engine eng28{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16777216 bytes.
-  Profiling failure on CUDNN engine eng0{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16777216 bytes.
-  Profiling failure on CUDNN engine eng42{k2=0,k4=1,k5=1,k6=0,k7=0}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 18950900 bytes.
-  Profiling failure on CUDNN engine eng28{k2=1,k3=0}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16777216 bytes.
-  Profiling failure on CUDNN engine eng4{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16890368 bytes.
-Exception in thread Thread-1:
-Traceback (most recent call last):
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 405, in train_in_loop
-    self.model.fit(X,y, verbose=False, batch_size=1) # Neil left tabbed 1
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
-    raise e.with_traceback(filtered_tb) from None
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/tensorflow/python/eager/execute.py", line 53, in quick_execute
-    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
-tensorflow.python.framework.errors_impl.NotFoundError: Graph execution error:
-
-Detected at node model/conv2d/Conv2D defined at (most recent call last):
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/threading.py", line 937, in _bootstrap
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/threading.py", line 980, in _bootstrap_inner
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/threading.py", line 917, in run
-
-  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 405, in train_in_loop
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1807, in fit
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1401, in train_function
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1384, in step_function
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1373, in run_step
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1150, in train_step
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 590, in __call__
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/base_layer.py", line 1149, in __call__
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 96, in error_handler
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/functional.py", line 515, in call
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/functional.py", line 672, in _run_internal_graph
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 65, in error_handler
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/base_layer.py", line 1149, in __call__
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 96, in error_handler
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/layers/convolutional/base_conv.py", line 290, in call
-
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/layers/convolutional/base_conv.py", line 262, in convolution_op
-
-No algorithm worked!  Error messages:
-  Profiling failure on CUDNN engine eng1{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16777324 bytes.
-  Profiling failure on CUDNN engine eng28{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16777216 bytes.
-  Profiling failure on CUDNN engine eng0{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16777216 bytes.
-  Profiling failure on CUDNN engine eng42{k2=0,k4=1,k5=1,k6=0,k7=0}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 18950900 bytes.
-  Profiling failure on CUDNN engine eng28{k2=1,k3=0}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16777216 bytes.
-  Profiling failure on CUDNN engine eng4{}: RESOURCE_EXHAUSTED: Out of memory while trying to allocate 16890368 bytes.
-	 [[{{node model/conv2d/Conv2D}}]] [Op:__inference_train_function_3030]
+2023-12-25 02:20:38.597678: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2023-12-25 02:20:39.462634: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f1e7e1bf730 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-12-25 02:20:39.462650: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2023-12-25 02:20:39.465558: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1703488839.524045    7728 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 78ms/step
+  0%|          | 0/500 [00:00<?, ?episode/s]
+Started episode 1 of 500
+Finished episode 1 of 500
+Saved model from episode 1. Count of batches trained: 14794
+  0%|          | 1/500 [01:41<14:01:18, 101.16s/episode]
+Started episode 2 of 500
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 11ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 11ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 11ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 19ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 19ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+Finished episode 2 of 500
+Saved model from episode 2. Count of batches trained: 29269
+  0%|          | 2/500 [03:24<14:08:38, 102.25s/episode]
+Started episode 3 of 500
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 20ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 19ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 11ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 19ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 14ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 13ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 12ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
+1/1 [==============================] - ETA: 0s1/1 [==============================] - 0s 15ms/step
