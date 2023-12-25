@@ -792,3 +792,4 @@ class CarEnv:
 12/20/2023 10:05 PM: TensorFlow needs CUDA Toolkit 10.2 to be compatible with cuDNN 7.  
 12/20/2023 10:32 PM: upgrade CARLA and python versions.  
 12/20/2023 11:53 PM: coordinate ticks and line numbers for ground truth AP run.  
+12/25/2023 3:00 AM: TODO: make an IL model from the throttle values of the ground truth run.  
