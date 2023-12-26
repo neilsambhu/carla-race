@@ -797,3 +797,4 @@ class CarEnv:
 ```
 while true; do ./CarlaUE4.sh; done
 ```
+12/26/2023 2:55 PM: TODO: reward fast driving without crashing.  
