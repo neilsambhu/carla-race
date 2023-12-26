@@ -58,7 +58,7 @@ MIN_REWARD = -200
 
 # EPISODES = 100
 # EPISODES = 5
-EPISODES = 500
+EPISODES = 1000
 
 DISCOUNT = 0.99
 epsilon = 1.0
@@ -82,7 +82,6 @@ action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
 # action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
                 'steer': np.linspace(-1.0, 1.0, num=21),
                 'brake': np.linspace(0.0, 1.0, num=11)}
-                # 'brake': np.linspace(0.0, 0.0, num=1)}
                 # 'brake': np.linspace(0.0, 1.0, num=2)}
 # print(action_space);import sys;sys.exit()
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
@@ -131,7 +130,7 @@ class CarEnv:
     front_camera = None
     episode = None
     action_space = action_space
-    idx_tick = 0
+    idx_tick = -1
 
     def __init__(self):
         # self.client = carla.Client("localhost", 2000)
@@ -159,7 +158,7 @@ class CarEnv:
     def reset(self):
         self.collision_hist = []
         self.actor_list = []
-        self.idx_tick = 0
+        self.idx_tick = -1
 
         # self.transform = random.choice(self.world.get_map().get_spawn_points())
         self.transform = self.world.get_map().get_spawn_points()[0]
@@ -168,6 +167,7 @@ class CarEnv:
         if bSync:
             # print('bSync reset: spawn actor')
             self.world.tick()
+            self.idx_tick += 1
 
         self.rgb_cam = self.blueprint_library.find('sensor.camera.rgb')
         self.rgb_cam.set_attribute("image_size_x", f"{self.im_width}")
@@ -187,6 +187,7 @@ class CarEnv:
         elif bSync:
             # print('bSync reset: apply control')
             self.world.tick()
+            self.idx_tick += 1
 
         colsensor = self.blueprint_library.find("sensor.other.collision")
         self.colsensor = self.world.spawn_actor(colsensor, transform, attach_to=self.vehicle)
@@ -199,6 +200,10 @@ class CarEnv:
         # self.episode_start = time.time()
         self.episode_start = self.world.get_snapshot().timestamp.elapsed_seconds
         self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
+
+        if bSync and False:
+            self.world.tick()
+            self.idx_tick += 1
 
         return self.front_camera
 
@@ -238,7 +243,7 @@ class CarEnv:
             carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
         )
 
-        if bSync and False:
+        if bSync:
             # print(f'bSync step: after applying vehicle control')
             self.world.tick() # Neil added
             self.idx_tick += 1
@@ -304,27 +309,30 @@ class DQNAgent:
         # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
         from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten
         base_model = tf.keras.Sequential()
-        # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        base_model.add(Conv2D(4, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        # count_filters = 4
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
         
-        base_model.add(Conv2D(4, (3,3), padding='same'))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
-        base_model.add(Conv2D(4, (3,3), padding='same'))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
-        base_model.add(Conv2D(4, (3,3), padding='same'))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
         # base_model.add(Flatten())
 
         x = base_model.output
         x = GlobalAveragePooling2D()(x)
+
+        x = Flatten()(x)
 
         # predictions = Dense(3, activation="linear")(x)
         predictions = Dense(action_size, activation="linear")(x)
@@ -346,12 +354,14 @@ class DQNAgent:
         # current_states = np.array([transition[0] for transition in minibatch])/255
         current_states = np.array([transition[0] for transition in minibatch])
         # Neil commented `with self.graph.as_default():`
-        current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
+        # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
+        current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
 
         # new_current_states = np.array([transition[3] for transition in minibatch])/255
         new_current_states = np.array([transition[3] for transition in minibatch])
         # Neil commented `with self.graph.as_default():`
-        future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
+        # future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
+        future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE, verbose=0)
 
         X = []
         y = []
@@ -400,7 +410,17 @@ class DQNAgent:
             self.target_update_counter = 0
 
     def get_qs(self, state):
-        return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
+        # print(state.shape)
+        # print(np.array(state).shape)
+        # print(type(state))
+        # print(state)
+        # from PIL import Image
+        # im = Image.fromarray(state)
+        # im.save('img.png');import sys;sys.exit()
+        # return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
+        # print(self.model.predict(np.expand_dims(state, axis=0), verbose=0));import sys;sys.exit()
+        # return self.model.predict(state, verbose=0)[0]
+        return self.model.predict(np.expand_dims(state, axis=0), verbose=0)[0]
 
     def train_in_loop(self):
         # X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
@@ -473,7 +493,7 @@ if __name__ == "__main__":
     while not agent.training_initialized:
         time.sleep(0.01)
 
-    agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
+    # agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
     bTrainingComplete = False
     try:
         # pbar = tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode", disable=False)
@@ -487,13 +507,14 @@ if __name__ == "__main__":
             episode_reward = 0
             # step = 1
             current_state = env.reset()
-            if bSync:
+            if bSync and False:
                 env.world.tick()
+                env.idx_tick += 1
             done = False
 
             # pbar.disable = True
             while True:
-                if bSync:
+                if bSync and False:
                     # print(f'bSync inside episode')
                     env.world.tick();
                     env.idx_tick += 1

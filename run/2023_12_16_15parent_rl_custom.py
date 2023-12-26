@@ -32,7 +32,8 @@ def kill_carla():
 run = 1
 while len(glob.glob('models/final.model')) == 0:
     print(f'Start run at count {run}')
-    kill_carla()
+    if bLocalCarla:
+        kill_carla()
     carla = None
     rl_custom = None
     try:
