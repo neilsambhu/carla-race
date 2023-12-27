@@ -33,7 +33,9 @@ import carla
 
 SHOW_PREVIEW = False
 IM_WIDTH = 600
+# IM_WIDTH = 128
 IM_HEIGHT = 600
+# IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
 # REPLAY_MEMORY_SIZE = 5_000
@@ -49,6 +51,7 @@ REPLAY_MEMORY_SIZE = 5*int(1.5 * number_of_lines)
 MINIBATCH_SIZE = 32
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
+# TRAINING_BATCH_SIZE = 1
 UPDATE_TARGET_EVERY = 5
 # MODEL_NAME = "Xception"
 MODEL_NAME = "Neil_SDC_2023"
@@ -78,11 +81,12 @@ bVerbose = True
 bGPU = True
 
 # Define action space
-action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
-# action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
-                'steer': np.linspace(-1.0, 1.0, num=21),
-                'brake': np.linspace(0.0, 1.0, num=11)}
-                # 'brake': np.linspace(0.0, 1.0, num=2)}
+# action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
+action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
+                # 'steer': np.linspace(-1.0, 1.0, num=21),
+                'steer': np.linspace(-1.0, 1.0, num=3),
+                # 'brake': np.linspace(0.0, 1.0, num=11)}
+                'brake': np.linspace(0.0, 1.0, num=2)}
 # print(action_space);import sys;sys.exit()
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 
@@ -338,7 +342,7 @@ class DQNAgent:
         predictions = Dense(action_size, activation="linear")(x)
         model = Model(inputs = base_model.input, outputs=predictions)
         model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
-        print(model.summary())
+        # print(model.summary())
         return model
 
     def update_replay_memory(self, transition):
