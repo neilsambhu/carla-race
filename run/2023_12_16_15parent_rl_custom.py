@@ -45,7 +45,8 @@ while len(glob.glob('models/final.model')) == 0:
             carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
             # carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True, preexec_fn=os.setsid)
         else:
-            subprocess.Popen('ssh SAMBHU23 "/opt/carla-simulator/CarlaUE4.sh"', shell=True, preexec_fn=os.setsid)
+            carla = subprocess.Popen('ssh SAMBHU23 "/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen"', shell=True, preexec_fn=os.setsid)
+            # subprocess.Popen('ssh SAMBHU23 "python ~/github/carla-race/run/2023_12_26_17sim.py"', shell=True, preexec_fn=os.setsid)
         if run == 1:
             rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py 2>&1 | tee out.txt', shell=True)
         elif run > 1:
@@ -62,9 +63,6 @@ while len(glob.glob('models/final.model')) == 0:
         print(f'End run at count {run}')
         print_elapsed_time()
         run += 1
-        if bLocalCarla:
-            carla.terminate()
-        else:
-            kill_carla_remote()
+        carla.terminate()
         rl_custom.terminate()
 print('done');import sys; sys.exit()
