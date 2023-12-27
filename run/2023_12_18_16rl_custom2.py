@@ -317,27 +317,27 @@ class DQNAgent:
         # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
         from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten
         base_model = tf.keras.Sequential()
-        base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        # count_filters = 4
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        count_filters = 4
+        base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
         
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
         x = base_model.output
         x = Flatten()(x)
-        # x = Dense(16, activation="relu")(x)
+        x = Dense(16, activation="relu")(x)
 
         predictions = Dense(action_size, activation="linear")(x)
         model = Model(inputs = base_model.input, outputs=predictions)
