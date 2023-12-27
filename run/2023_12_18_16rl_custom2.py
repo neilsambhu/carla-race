@@ -336,6 +336,8 @@ class DQNAgent:
 
         x = Flatten()(x)
 
+        x = Dense(16)(x)
+
         # predictions = Dense(3, activation="linear")(x)
         predictions = Dense(action_size, activation="linear")(x)
         model = Model(inputs = base_model.input, outputs=predictions)
