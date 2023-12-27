@@ -1,5 +1,4 @@
 import time, os, shutil, subprocess, glob
-os.environ['TF_GPU_ALLOCATOR'] = 'cuda_malloc_async'
 
 bLocalCarla = False
 
