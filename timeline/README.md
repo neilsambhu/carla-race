@@ -798,3 +798,8 @@ class CarEnv:
 while true; do ./CarlaUE4.sh; done
 ```
 12/26/2023 2:55 PM: TODO: reward fast driving without crashing.  
+12/26/2023 5:10 PM: SAMBHU23 with CARLA Simulator crashed. TODO: install CARLA Simulator on SAMBHU24.  
+12/26/2023 9:52 PM: new CARLA Simulator command to recover after crash; kill old process.
+```
+while true; do ./CarlaUE4.sh; [ $? -ne 0 ] && pkill -f CarlaUE4.sh; done
+```
