@@ -48,7 +48,7 @@ with open(directory_input, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 REPLAY_MEMORY_SIZE = 5*int(1.5 * number_of_lines)
 # MINIBATCH_SIZE = 16
-MINIBATCH_SIZE = 32
+MINIBATCH_SIZE = 16
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 # TRAINING_BATCH_SIZE = 1
