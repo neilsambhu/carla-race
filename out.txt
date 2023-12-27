@@ -1,28 +1,385 @@
-2023-12-27 00:09:02.257560: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2023-12-27 00:09:02.280601: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2023-12-27 00:09:02.280623: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2023-12-27 00:09:02.281326: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2023-12-27 00:09:02.285137: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2023-12-27 00:59:37.977855: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-27 00:59:38.000632: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-27 00:59:38.000655: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-27 00:59:38.001529: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-27 00:59:38.005890: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2023-12-27 00:09:02.694364: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2023-12-27 00:09:02.996867: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-27 00:09:03.027974: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-27 00:09:03.028166: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-27 00:09:03.031196: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-27 00:09:03.031496: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-27 00:09:03.031701: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-27 00:09:03.779288: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-27 00:09:03.779426: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-27 00:09:03.779522: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-27 00:09:03.779634: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4173 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
-WARNING: Client API version     = 0.9.15 
-WARNING: Simulator API version  = 0.9.14 
-2023-12-27 00:09:13.077048: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2023-12-27 00:09:13.901054: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f8aa2209e70 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2023-12-27 00:09:13.901073: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2023-12-27 00:09:13.904039: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
-WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1703653753.961935 1416712 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
-  0%|          | 0/1000 [00:00<?, ?episode/s]
-Started episode 1 of 1000
+2023-12-27 00:59:38.432536: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-27 00:59:38.735744: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:38.766828: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:38.767116: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:38.770386: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:38.770695: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:38.770848: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:39.662434: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:39.662564: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:39.662706: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:39.662827: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4379 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2023-12-27 00:59:49.724111: W external/local_tsl/tsl/framework/bfc_allocator.cc:485] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB (rounded to 3659040000)requested by op Mul
+If the cause is memory fragmentation maybe the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' will improve the situation. 
+Current allocation summary follows.
+Current allocation summary follows.
+2023-12-27 00:59:49.724171: I external/local_tsl/tsl/framework/bfc_allocator.cc:1039] BFCAllocator dump for GPU_0_bfc
+2023-12-27 00:59:49.724194: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (256): 	Total Chunks: 11, Chunks in use: 11. 2.8KiB allocated for chunks. 2.8KiB in use in bin. 168B client-requested in use in bin.
+2023-12-27 00:59:49.724209: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (512): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724224: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (1024): 	Total Chunks: 1, Chunks in use: 1. 1.2KiB allocated for chunks. 1.2KiB in use in bin. 1.0KiB client-requested in use in bin.
+2023-12-27 00:59:49.724237: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (2048): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724250: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (4096): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724262: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (8192): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724274: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (16384): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724286: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (32768): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724298: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (65536): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724322: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (131072): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724335: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (262144): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724350: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (524288): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724364: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (1048576): 	Total Chunks: 1, Chunks in use: 0. 2.00MiB allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724383: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (2097152): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724396: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (4194304): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724409: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (8388608): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724421: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (16777216): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724434: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (33554432): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724448: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (67108864): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724461: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (134217728): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 00:59:49.724476: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (268435456): 	Total Chunks: 2, Chunks in use: 1. 4.00GiB allocated for chunks. 3.41GiB in use in bin. 3.41GiB client-requested in use in bin.
+2023-12-27 00:59:49.724494: I external/local_tsl/tsl/framework/bfc_allocator.cc:1062] Bin for 3.41GiB was 256.00MiB, Chunk State: 
+2023-12-27 00:59:49.724517: I external/local_tsl/tsl/framework/bfc_allocator.cc:1068]   Size: 606.47MiB | Requested Size: 0B | in_use: 0 | bin_num: 20, prev:   Size: 3.41GiB | Requested Size: 3.41GiB | in_use: 1 | bin_num: -1
+2023-12-27 00:59:49.724528: I external/local_tsl/tsl/framework/bfc_allocator.cc:1075] Next region of size 4294967296
+2023-12-27 00:59:49.724542: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe172000000 of size 3659040000 next 13
+2023-12-27 00:59:49.724555: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] Free  at 7fe24c188500 of size 635927296 next 18446744073709551615
+2023-12-27 00:59:49.724566: I external/local_tsl/tsl/framework/bfc_allocator.cc:1075] Next region of size 2097152
+2023-12-27 00:59:49.724578: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00000 of size 256 next 1
+2023-12-27 00:59:49.724592: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00100 of size 1280 next 2
+2023-12-27 00:59:49.724603: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00600 of size 256 next 3
+2023-12-27 00:59:49.724613: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00700 of size 256 next 4
+2023-12-27 00:59:49.724624: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00800 of size 256 next 6
+2023-12-27 00:59:49.724635: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00900 of size 256 next 5
+2023-12-27 00:59:49.724646: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00a00 of size 256 next 7
+2023-12-27 00:59:49.724656: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00b00 of size 256 next 8
+2023-12-27 00:59:49.724666: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00c00 of size 256 next 9
+2023-12-27 00:59:49.724677: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00d00 of size 256 next 10
+2023-12-27 00:59:49.724689: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00e00 of size 256 next 11
+2023-12-27 00:59:49.724699: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7fe2cde00f00 of size 256 next 14
+2023-12-27 00:59:49.724710: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] Free  at 7fe2cde01000 of size 2093056 next 18446744073709551615
+2023-12-27 00:59:49.724721: I external/local_tsl/tsl/framework/bfc_allocator.cc:1100]      Summary of in-use Chunks by size: 
+2023-12-27 00:59:49.724736: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 11 Chunks of size 256 totalling 2.8KiB
+2023-12-27 00:59:49.724749: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 1 Chunks of size 1280 totalling 1.2KiB
+2023-12-27 00:59:49.724761: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 1 Chunks of size 3659040000 totalling 3.41GiB
+2023-12-27 00:59:49.724772: I external/local_tsl/tsl/framework/bfc_allocator.cc:1107] Sum Total of in-use chunks: 3.41GiB
+2023-12-27 00:59:49.724785: I external/local_tsl/tsl/framework/bfc_allocator.cc:1109] Total bytes in pool: 4297064448 memory_limit_: 4591714304 available bytes: 294649856 curr_region_allocation_bytes_: 4294967296
+2023-12-27 00:59:49.724805: I external/local_tsl/tsl/framework/bfc_allocator.cc:1114] Stats: 
+Limit:                      4591714304
+InUse:                      3659044096
+MaxInUse:                   3659044096
+NumAllocs:                          18
+MaxAllocSize:               3659040000
+Reserved:                            0
+PeakReserved:                        0
+LargestFreeBlock:                    0
+
+2023-12-27 00:59:49.724821: W external/local_tsl/tsl/framework/bfc_allocator.cc:497] **************************************************************************************_____________*
+2023-12-27 00:59:49.724845: W tensorflow/core/framework/op_kernel.cc:1827] RESOURCE_EXHAUSTED: failed to allocate memory
+Traceback (most recent call last):
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 463, in <module>
+    agent = DQNAgent()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 294, in __init__
+    self.model = self.create_model()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 338, in create_model
+    predictions = Dense(action_size, activation="linear")(x)
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/backend.py", line 2100, in random_uniform
+    return tf.random.stateless_uniform(
+tensorflow.python.framework.errors_impl.ResourceExhaustedError: {{function_node __wrapped__Mul_device_/job:localhost/replica:0/task:0/device:GPU:0}} failed to allocate memory [Op:Mul] name: 
+2023-12-27 00:59:55.661089: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-27 00:59:55.683946: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-27 00:59:55.683966: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-27 00:59:55.684781: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-27 00:59:55.688673: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-27 00:59:56.099163: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-27 00:59:56.396512: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:56.427764: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:56.428043: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:56.430858: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:56.431067: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:56.431391: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:57.327222: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:57.327371: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:57.327539: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 00:59:57.327646: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4379 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2023-12-27 01:00:07.388781: W external/local_tsl/tsl/framework/bfc_allocator.cc:485] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB (rounded to 3659040000)requested by op Mul
+If the cause is memory fragmentation maybe the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' will improve the situation. 
+Current allocation summary follows.
+Current allocation summary follows.
+2023-12-27 01:00:07.388835: I external/local_tsl/tsl/framework/bfc_allocator.cc:1039] BFCAllocator dump for GPU_0_bfc
+2023-12-27 01:00:07.388840: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (256): 	Total Chunks: 11, Chunks in use: 11. 2.8KiB allocated for chunks. 2.8KiB in use in bin. 168B client-requested in use in bin.
+2023-12-27 01:00:07.388845: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (512): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388848: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (1024): 	Total Chunks: 1, Chunks in use: 1. 1.2KiB allocated for chunks. 1.2KiB in use in bin. 1.0KiB client-requested in use in bin.
+2023-12-27 01:00:07.388850: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (2048): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388853: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (4096): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388855: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (8192): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388857: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (16384): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388859: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (32768): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388861: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (65536): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388863: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (131072): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388865: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (262144): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388867: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (524288): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388870: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (1048576): 	Total Chunks: 1, Chunks in use: 0. 2.00MiB allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388872: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (2097152): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388874: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (4194304): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388876: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (8388608): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388879: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (16777216): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388881: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (33554432): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388883: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (67108864): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388885: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (134217728): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:07.388890: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (268435456): 	Total Chunks: 2, Chunks in use: 1. 4.00GiB allocated for chunks. 3.41GiB in use in bin. 3.41GiB client-requested in use in bin.
+2023-12-27 01:00:07.388893: I external/local_tsl/tsl/framework/bfc_allocator.cc:1062] Bin for 3.41GiB was 256.00MiB, Chunk State: 
+2023-12-27 01:00:07.388898: I external/local_tsl/tsl/framework/bfc_allocator.cc:1068]   Size: 606.47MiB | Requested Size: 0B | in_use: 0 | bin_num: 20, prev:   Size: 3.41GiB | Requested Size: 3.41GiB | in_use: 1 | bin_num: -1
+2023-12-27 01:00:07.388900: I external/local_tsl/tsl/framework/bfc_allocator.cc:1075] Next region of size 4294967296
+2023-12-27 01:00:07.388903: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1b46000000 of size 3659040000 next 13
+2023-12-27 01:00:07.388906: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] Free  at 7f1c20188500 of size 635927296 next 18446744073709551615
+2023-12-27 01:00:07.388907: I external/local_tsl/tsl/framework/bfc_allocator.cc:1075] Next region of size 2097152
+2023-12-27 01:00:07.388909: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00000 of size 256 next 1
+2023-12-27 01:00:07.388912: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00100 of size 1280 next 2
+2023-12-27 01:00:07.388914: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00600 of size 256 next 3
+2023-12-27 01:00:07.388916: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00700 of size 256 next 4
+2023-12-27 01:00:07.388918: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00800 of size 256 next 6
+2023-12-27 01:00:07.388919: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00900 of size 256 next 5
+2023-12-27 01:00:07.388921: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00a00 of size 256 next 7
+2023-12-27 01:00:07.388923: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00b00 of size 256 next 8
+2023-12-27 01:00:07.388925: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00c00 of size 256 next 9
+2023-12-27 01:00:07.388926: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00d00 of size 256 next 10
+2023-12-27 01:00:07.388928: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00e00 of size 256 next 11
+2023-12-27 01:00:07.388930: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f1ca5e00f00 of size 256 next 14
+2023-12-27 01:00:07.388932: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] Free  at 7f1ca5e01000 of size 2093056 next 18446744073709551615
+2023-12-27 01:00:07.388934: I external/local_tsl/tsl/framework/bfc_allocator.cc:1100]      Summary of in-use Chunks by size: 
+2023-12-27 01:00:07.388937: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 11 Chunks of size 256 totalling 2.8KiB
+2023-12-27 01:00:07.388939: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 1 Chunks of size 1280 totalling 1.2KiB
+2023-12-27 01:00:07.388942: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 1 Chunks of size 3659040000 totalling 3.41GiB
+2023-12-27 01:00:07.388944: I external/local_tsl/tsl/framework/bfc_allocator.cc:1107] Sum Total of in-use chunks: 3.41GiB
+2023-12-27 01:00:07.388946: I external/local_tsl/tsl/framework/bfc_allocator.cc:1109] Total bytes in pool: 4297064448 memory_limit_: 4591845376 available bytes: 294780928 curr_region_allocation_bytes_: 4294967296
+2023-12-27 01:00:07.388951: I external/local_tsl/tsl/framework/bfc_allocator.cc:1114] Stats: 
+Limit:                      4591845376
+InUse:                      3659044096
+MaxInUse:                   3659044096
+NumAllocs:                          18
+MaxAllocSize:               3659040000
+Reserved:                            0
+PeakReserved:                        0
+LargestFreeBlock:                    0
+
+2023-12-27 01:00:07.388954: W external/local_tsl/tsl/framework/bfc_allocator.cc:497] **************************************************************************************_____________*
+2023-12-27 01:00:07.388962: W tensorflow/core/framework/op_kernel.cc:1827] RESOURCE_EXHAUSTED: failed to allocate memory
+Traceback (most recent call last):
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 463, in <module>
+    agent = DQNAgent()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 294, in __init__
+    self.model = self.create_model()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 338, in create_model
+    predictions = Dense(action_size, activation="linear")(x)
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/backend.py", line 2100, in random_uniform
+    return tf.random.stateless_uniform(
+tensorflow.python.framework.errors_impl.ResourceExhaustedError: {{function_node __wrapped__Mul_device_/job:localhost/replica:0/task:0/device:GPU:0}} failed to allocate memory [Op:Mul] name: 
+2023-12-27 01:00:14.979485: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-27 01:00:15.002399: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-27 01:00:15.002417: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-27 01:00:15.003185: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-27 01:00:15.007032: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-27 01:00:15.422811: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-27 01:00:15.725063: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:15.756390: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:15.756585: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:15.759588: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:15.759878: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:15.760085: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:16.553966: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:16.554100: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:16.554198: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:16.554338: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4379 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2023-12-27 01:00:26.616216: W external/local_tsl/tsl/framework/bfc_allocator.cc:485] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB (rounded to 3659040000)requested by op Mul
+If the cause is memory fragmentation maybe the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' will improve the situation. 
+Current allocation summary follows.
+Current allocation summary follows.
+2023-12-27 01:00:26.616286: I external/local_tsl/tsl/framework/bfc_allocator.cc:1039] BFCAllocator dump for GPU_0_bfc
+2023-12-27 01:00:26.616309: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (256): 	Total Chunks: 11, Chunks in use: 11. 2.8KiB allocated for chunks. 2.8KiB in use in bin. 168B client-requested in use in bin.
+2023-12-27 01:00:26.616325: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (512): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616341: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (1024): 	Total Chunks: 1, Chunks in use: 1. 1.2KiB allocated for chunks. 1.2KiB in use in bin. 1.0KiB client-requested in use in bin.
+2023-12-27 01:00:26.616355: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (2048): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616368: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (4096): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616380: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (8192): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616393: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (16384): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616405: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (32768): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616418: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (65536): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616440: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (131072): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616454: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (262144): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616467: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (524288): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616481: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (1048576): 	Total Chunks: 1, Chunks in use: 0. 2.00MiB allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616495: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (2097152): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616511: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (4194304): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616524: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (8388608): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616540: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (16777216): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616554: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (33554432): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616569: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (67108864): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616584: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (134217728): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:26.616600: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (268435456): 	Total Chunks: 2, Chunks in use: 1. 4.00GiB allocated for chunks. 3.41GiB in use in bin. 3.41GiB client-requested in use in bin.
+2023-12-27 01:00:26.616619: I external/local_tsl/tsl/framework/bfc_allocator.cc:1062] Bin for 3.41GiB was 256.00MiB, Chunk State: 
+2023-12-27 01:00:26.616644: I external/local_tsl/tsl/framework/bfc_allocator.cc:1068]   Size: 606.47MiB | Requested Size: 0B | in_use: 0 | bin_num: 20, prev:   Size: 3.41GiB | Requested Size: 3.41GiB | in_use: 1 | bin_num: -1
+2023-12-27 01:00:26.616656: I external/local_tsl/tsl/framework/bfc_allocator.cc:1075] Next region of size 4294967296
+2023-12-27 01:00:26.616670: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f236c000000 of size 3659040000 next 13
+2023-12-27 01:00:26.616685: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] Free  at 7f2446188500 of size 635927296 next 18446744073709551615
+2023-12-27 01:00:26.616697: I external/local_tsl/tsl/framework/bfc_allocator.cc:1075] Next region of size 2097152
+2023-12-27 01:00:26.616709: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00000 of size 256 next 1
+2023-12-27 01:00:26.616724: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00100 of size 1280 next 2
+2023-12-27 01:00:26.616735: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00600 of size 256 next 3
+2023-12-27 01:00:26.616746: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00700 of size 256 next 4
+2023-12-27 01:00:26.616758: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00800 of size 256 next 6
+2023-12-27 01:00:26.616770: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00900 of size 256 next 5
+2023-12-27 01:00:26.616780: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00a00 of size 256 next 7
+2023-12-27 01:00:26.616791: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00b00 of size 256 next 8
+2023-12-27 01:00:26.616801: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00c00 of size 256 next 9
+2023-12-27 01:00:26.616812: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00d00 of size 256 next 10
+2023-12-27 01:00:26.616825: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00e00 of size 256 next 11
+2023-12-27 01:00:26.616835: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f24cde00f00 of size 256 next 14
+2023-12-27 01:00:26.616846: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] Free  at 7f24cde01000 of size 2093056 next 18446744073709551615
+2023-12-27 01:00:26.616859: I external/local_tsl/tsl/framework/bfc_allocator.cc:1100]      Summary of in-use Chunks by size: 
+2023-12-27 01:00:26.616874: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 11 Chunks of size 256 totalling 2.8KiB
+2023-12-27 01:00:26.616889: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 1 Chunks of size 1280 totalling 1.2KiB
+2023-12-27 01:00:26.616901: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 1 Chunks of size 3659040000 totalling 3.41GiB
+2023-12-27 01:00:26.616914: I external/local_tsl/tsl/framework/bfc_allocator.cc:1107] Sum Total of in-use chunks: 3.41GiB
+2023-12-27 01:00:26.616929: I external/local_tsl/tsl/framework/bfc_allocator.cc:1109] Total bytes in pool: 4297064448 memory_limit_: 4591845376 available bytes: 294780928 curr_region_allocation_bytes_: 4294967296
+2023-12-27 01:00:26.616950: I external/local_tsl/tsl/framework/bfc_allocator.cc:1114] Stats: 
+Limit:                      4591845376
+InUse:                      3659044096
+MaxInUse:                   3659044096
+NumAllocs:                          18
+MaxAllocSize:               3659040000
+Reserved:                            0
+PeakReserved:                        0
+LargestFreeBlock:                    0
+
+2023-12-27 01:00:26.616969: W external/local_tsl/tsl/framework/bfc_allocator.cc:497] **************************************************************************************_____________*
+2023-12-27 01:00:26.617028: W tensorflow/core/framework/op_kernel.cc:1827] RESOURCE_EXHAUSTED: failed to allocate memory
+Traceback (most recent call last):
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 463, in <module>
+    agent = DQNAgent()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 294, in __init__
+    self.model = self.create_model()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 338, in create_model
+    predictions = Dense(action_size, activation="linear")(x)
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/backend.py", line 2100, in random_uniform
+    return tf.random.stateless_uniform(
+tensorflow.python.framework.errors_impl.ResourceExhaustedError: {{function_node __wrapped__Mul_device_/job:localhost/replica:0/task:0/device:GPU:0}} failed to allocate memory [Op:Mul] name: 
+2023-12-27 01:00:32.561853: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-27 01:00:32.585696: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-27 01:00:32.585712: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-27 01:00:32.586505: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-27 01:00:32.590746: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-27 01:00:33.001208: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-27 01:00:33.297452: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:33.329071: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:33.329354: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:33.332308: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:33.332518: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:33.332714: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:34.067528: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:34.067657: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:34.067752: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:34.067891: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4378 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2023-12-27 01:00:44.129434: W external/local_tsl/tsl/framework/bfc_allocator.cc:485] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB (rounded to 3659040000)requested by op Mul
+If the cause is memory fragmentation maybe the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' will improve the situation. 
+Current allocation summary follows.
+Current allocation summary follows.
+2023-12-27 01:00:44.129494: I external/local_tsl/tsl/framework/bfc_allocator.cc:1039] BFCAllocator dump for GPU_0_bfc
+2023-12-27 01:00:44.129516: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (256): 	Total Chunks: 11, Chunks in use: 11. 2.8KiB allocated for chunks. 2.8KiB in use in bin. 168B client-requested in use in bin.
+2023-12-27 01:00:44.129532: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (512): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129548: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (1024): 	Total Chunks: 1, Chunks in use: 1. 1.2KiB allocated for chunks. 1.2KiB in use in bin. 1.0KiB client-requested in use in bin.
+2023-12-27 01:00:44.129560: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (2048): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129574: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (4096): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129586: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (8192): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129599: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (16384): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129611: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (32768): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129624: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (65536): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129637: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (131072): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129650: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (262144): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129665: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (524288): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129682: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (1048576): 	Total Chunks: 1, Chunks in use: 0. 2.00MiB allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129705: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (2097152): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129728: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (4194304): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129752: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (8388608): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129774: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (16777216): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129799: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (33554432): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129815: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (67108864): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129829: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (134217728): 	Total Chunks: 0, Chunks in use: 0. 0B allocated for chunks. 0B in use in bin. 0B client-requested in use in bin.
+2023-12-27 01:00:44.129845: I external/local_tsl/tsl/framework/bfc_allocator.cc:1046] Bin (268435456): 	Total Chunks: 2, Chunks in use: 1. 4.00GiB allocated for chunks. 3.41GiB in use in bin. 3.41GiB client-requested in use in bin.
+2023-12-27 01:00:44.129863: I external/local_tsl/tsl/framework/bfc_allocator.cc:1062] Bin for 3.41GiB was 256.00MiB, Chunk State: 
+2023-12-27 01:00:44.129887: I external/local_tsl/tsl/framework/bfc_allocator.cc:1068]   Size: 606.47MiB | Requested Size: 0B | in_use: 0 | bin_num: 20, prev:   Size: 3.41GiB | Requested Size: 3.41GiB | in_use: 1 | bin_num: -1
+2023-12-27 01:00:44.129899: I external/local_tsl/tsl/framework/bfc_allocator.cc:1075] Next region of size 4294967296
+2023-12-27 01:00:44.129916: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4dbc000000 of size 3659040000 next 13
+2023-12-27 01:00:44.129930: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] Free  at 7f4e96188500 of size 635927296 next 18446744073709551615
+2023-12-27 01:00:44.129951: I external/local_tsl/tsl/framework/bfc_allocator.cc:1075] Next region of size 2097152
+2023-12-27 01:00:44.129966: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00000 of size 256 next 1
+2023-12-27 01:00:44.129979: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00100 of size 1280 next 2
+2023-12-27 01:00:44.129990: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00600 of size 256 next 3
+2023-12-27 01:00:44.130002: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00700 of size 256 next 4
+2023-12-27 01:00:44.130013: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00800 of size 256 next 6
+2023-12-27 01:00:44.130023: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00900 of size 256 next 5
+2023-12-27 01:00:44.130035: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00a00 of size 256 next 7
+2023-12-27 01:00:44.130046: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00b00 of size 256 next 8
+2023-12-27 01:00:44.130056: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00c00 of size 256 next 9
+2023-12-27 01:00:44.130067: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00d00 of size 256 next 10
+2023-12-27 01:00:44.130079: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00e00 of size 256 next 11
+2023-12-27 01:00:44.130094: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] InUse at 7f4f25e00f00 of size 256 next 14
+2023-12-27 01:00:44.130115: I external/local_tsl/tsl/framework/bfc_allocator.cc:1095] Free  at 7f4f25e01000 of size 2093056 next 18446744073709551615
+2023-12-27 01:00:44.130126: I external/local_tsl/tsl/framework/bfc_allocator.cc:1100]      Summary of in-use Chunks by size: 
+2023-12-27 01:00:44.130146: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 11 Chunks of size 256 totalling 2.8KiB
+2023-12-27 01:00:44.130171: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 1 Chunks of size 1280 totalling 1.2KiB
+2023-12-27 01:00:44.130190: I external/local_tsl/tsl/framework/bfc_allocator.cc:1103] 1 Chunks of size 3659040000 totalling 3.41GiB
+2023-12-27 01:00:44.130202: I external/local_tsl/tsl/framework/bfc_allocator.cc:1107] Sum Total of in-use chunks: 3.41GiB
+2023-12-27 01:00:44.130216: I external/local_tsl/tsl/framework/bfc_allocator.cc:1109] Total bytes in pool: 4297064448 memory_limit_: 4591583232 available bytes: 294518784 curr_region_allocation_bytes_: 4294967296
+2023-12-27 01:00:44.130236: I external/local_tsl/tsl/framework/bfc_allocator.cc:1114] Stats: 
+Limit:                      4591583232
+InUse:                      3659044096
+MaxInUse:                   3659044096
+NumAllocs:                          18
+MaxAllocSize:               3659040000
+Reserved:                            0
+PeakReserved:                        0
+LargestFreeBlock:                    0
+
+2023-12-27 01:00:44.130252: W external/local_tsl/tsl/framework/bfc_allocator.cc:497] **************************************************************************************_____________*
+2023-12-27 01:00:44.130277: W tensorflow/core/framework/op_kernel.cc:1827] RESOURCE_EXHAUSTED: failed to allocate memory
+Traceback (most recent call last):
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 463, in <module>
+    agent = DQNAgent()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 294, in __init__
+    self.model = self.create_model()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 338, in create_model
+    predictions = Dense(action_size, activation="linear")(x)
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/backend.py", line 2100, in random_uniform
+    return tf.random.stateless_uniform(
+tensorflow.python.framework.errors_impl.ResourceExhaustedError: {{function_node __wrapped__Mul_device_/job:localhost/replica:0/task:0/device:GPU:0}} failed to allocate memory [Op:Mul] name: 
+2023-12-27 01:00:50.104880: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-27 01:00:50.128198: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-27 01:00:50.128214: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-27 01:00:50.129111: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-27 01:00:50.133131: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-27 01:00:50.561498: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-27 01:00:50.866388: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:50.898073: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:50.898343: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:50.901044: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:50.901174: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:50.901275: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:51.640181: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:51.640336: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:51.640440: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-27 01:00:51.640525: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4379 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5

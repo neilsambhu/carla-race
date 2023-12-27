@@ -250,37 +250,37 @@ class CarEnv:
 
         done = False
         reward = 0
-        # lines = []
-        # location_groundTruth = carla.Location(0.0,0.0,0.0)
-        # # Reading ground truth coordinates from the file
-        # with open(directory_input, 'r') as file:
-        #     lines = file.readlines()
-        #     if self.idx_tick < len(lines):
-        #         data = lines[self.idx_tick].split()
-        #         if len(data) >= 3:
-        #             location_groundTruth = carla.Location(float(data[0]), float(data[1]), float(data[2]))  # Extracting x, y, z coordinates
+        lines = []
+        location_groundTruth = carla.Location(0.0,0.0,0.0)
+        # Reading ground truth coordinates from the file
+        with open(directory_input, 'r') as file:
+            lines = file.readlines()
+            if self.idx_tick < len(lines):
+                data = lines[self.idx_tick].split()
+                if len(data) >= 3:
+                    location_groundTruth = carla.Location(float(data[0]), float(data[1]), float(data[2]))  # Extracting x, y, z coordinates
 
-        # # Get the current location of the vehicle
-        # location_current = self.vehicle.get_location()
-        # carla_location_current = carla.Location(location_current.x, location_current.y, location_current.z)
+        # Get the current location of the vehicle
+        location_current = self.vehicle.get_location()
+        carla_location_current = carla.Location(location_current.x, location_current.y, location_current.z)
 
-        # # Calculate the distance between the vehicle's current location and ground truth location
-        # distance = location_groundTruth.distance(carla_location_current)
-        # # You might want to define a threshold and reward scheme based on the distance
-        # # For example, if distance < threshold: reward = some_value
-        # # Modify the reward calculation based on your requirements
-        # reward = -1*distance**3+5
+        # Calculate the distance between the vehicle's current location and ground truth location
+        distance = location_groundTruth.distance(carla_location_current)
+        # You might want to define a threshold and reward scheme based on the distance
+        # For example, if distance < threshold: reward = some_value
+        # Modify the reward calculation based on your requirements
+        reward = -1*distance**3+5
 
-        # # Set 'done' flag to True when ticks exceed the lines in the file
-        # done = self.idx_tick >= len(lines)
+        # Set 'done' flag to True when ticks exceed the lines in the file
+        done = self.idx_tick >= len(lines)
 
-        v = self.vehicle.get_velocity()
-        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        reward += kmh
+        # v = self.vehicle.get_velocity()
+        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        # reward += kmh
 
-        # # if self.episode_start + SECONDS_PER_EPISODE < time.time():
-        # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
-        #     done = True
+        # if self.episode_start + SECONDS_PER_EPISODE < time.time():
+        if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
+            done = True
 
         if len (self.collision_hist) != 0:
             done = True
@@ -313,36 +313,32 @@ class DQNAgent:
         # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
         from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten
         base_model = tf.keras.Sequential()
-        # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        count_filters = 4
-        base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        # count_filters = 4
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
         
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
         x = base_model.output
-        x = GlobalAveragePooling2D()(x)
-
         x = Flatten()(x)
+        # x = Dense(16, activation="relu")(x)
 
-        x = Dense(16)(x)
-
-        # predictions = Dense(3, activation="linear")(x)
         predictions = Dense(action_size, activation="linear")(x)
         model = Model(inputs = base_model.input, outputs=predictions)
         model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
-        # print(model.summary())
+        print(model.summary())
         return model
 
     def update_replay_memory(self, transition):
