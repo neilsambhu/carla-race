@@ -33,9 +33,9 @@ import carla
 
 SHOW_PREVIEW = False
 # IM_WIDTH = 600
-IM_WIDTH = 128
+IM_WIDTH = 512
 # IM_HEIGHT = 600
-IM_HEIGHT = 128
+IM_HEIGHT = 512
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
 # REPLAY_MEMORY_SIZE = 5_000
@@ -48,7 +48,7 @@ with open(directory_input, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 REPLAY_MEMORY_SIZE = 5*int(1.5 * number_of_lines)
 # MINIBATCH_SIZE = 16
-MINIBATCH_SIZE = 1000
+MINIBATCH_SIZE = 128
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 # TRAINING_BATCH_SIZE = 1
@@ -81,12 +81,12 @@ bVerbose = True
 bGPU = True
 
 # Define action space
-action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
-# action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
-                'steer': np.linspace(-1.0, 1.0, num=21),
-                # 'steer': np.linspace(-1.0, 1.0, num=3),
-                'brake': np.linspace(0.0, 1.0, num=11)}
-                # 'brake': np.linspace(0.0, 1.0, num=2)}
+# action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
+action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
+                # 'steer': np.linspace(-1.0, 1.0, num=21),
+                'steer': np.linspace(-1.0, 1.0, num=3),
+                # 'brake': np.linspace(0.0, 1.0, num=11)}
+                'brake': np.linspace(0.0, 1.0, num=2)}
 # print(action_space);import sys;sys.exit()
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 
@@ -315,29 +315,39 @@ class DQNAgent:
 
     def create_model(self):
         # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
-        from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten
+        from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D
         base_model = tf.keras.Sequential()
-        base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        # count_filters = 4
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        count_filters = 4
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
         
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
         x = base_model.output
         x = Flatten()(x)
-        # x = Dense(64, activation="relu")(x)
+
+        print(f'x.shape: {x.shape}')
+
+        size_reduce = 2
+        while(x.shape.as_list()[1] >= size_reduce*(action_size+1)):
+            x = Dense(x.shape.as_list()[1]//size_reduce, activation="relu")(x)
 
         predictions = Dense(action_size, activation="linear")(x)
         model = Model(inputs = base_model.input, outputs=predictions)
