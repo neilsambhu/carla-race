@@ -81,12 +81,12 @@ bVerbose = True
 bGPU = True
 
 # Define action space
-# action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
-action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
-                # 'steer': np.linspace(-1.0, 1.0, num=21),
-                'steer': np.linspace(-1.0, 1.0, num=3),
-                # 'brake': np.linspace(0.0, 1.0, num=11)}
-                'brake': np.linspace(0.0, 1.0, num=2)}
+action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
+# action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
+                'steer': np.linspace(-1.0, 1.0, num=21),
+                # 'steer': np.linspace(-1.0, 1.0, num=3),
+                'brake': np.linspace(0.0, 1.0, num=11)}
+                # 'brake': np.linspace(0.0, 1.0, num=2)}
 # print(action_space);import sys;sys.exit()
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 
@@ -321,17 +321,17 @@ class DQNAgent:
         base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
         count_filters = 4
         base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(MaxPooling2D(pool_size=(2, 2)))
         base_model.add(BatchNormalization())
         base_model.add(Activation('relu'))
         
         base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(MaxPooling2D(pool_size=(2, 2)))
         base_model.add(BatchNormalization())
         base_model.add(Activation('relu'))
 
         base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(MaxPooling2D(pool_size=(2, 2)))
         base_model.add(BatchNormalization())
         base_model.add(Activation('relu'))
 
