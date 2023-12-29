@@ -48,7 +48,7 @@ with open(directory_input, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 REPLAY_MEMORY_SIZE = 5*number_of_lines
 # MINIBATCH_SIZE = 16
-MINIBATCH_SIZE = 300
+MINIBATCH_SIZE = 200
 MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -457,14 +457,13 @@ class DQNAgent:
                 return
             self.train()
             if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
-                pass
+                time.sleep(1)
             else:
                 if self.count_epochs_trained == 0:
                     print('Finished training first epoch.')
                 self.count_epochs_trained += 1
                 self.saved_model.set_weights(self.model.get_weights())
                 self.count_saved_models += 1
-            # time.sleep(0.01)
 
 if __name__ == "__main__":
     FPS = 60
