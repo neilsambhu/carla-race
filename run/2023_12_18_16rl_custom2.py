@@ -33,22 +33,23 @@ import carla
 
 SHOW_PREVIEW = False
 # IM_WIDTH = 600
-IM_WIDTH = 512
+IM_WIDTH = 128
 # IM_HEIGHT = 600
-IM_HEIGHT = 512
+IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
 # REPLAY_MEMORY_SIZE = 5_000
-MIN_REPLAY_MEMORY_SIZE = 1_000
+# MIN_REPLAY_MEMORY_SIZE = 1_000
 # MIN_REPLAY_MEMORY_SIZE = int(1.5*SECONDS_PER_EPISODE*20) # 12/24/2023 6:37 AM: Neil commented out
 directory_input = '_out_07vehicle_location_AP/Town04_0_335_sync.txt'
 with open(directory_input, 'r') as file:
     number_of_lines = len(file.readlines())
 # MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
-REPLAY_MEMORY_SIZE = 5*int(1.5 * number_of_lines)
+REPLAY_MEMORY_SIZE = 5*number_of_lines
 # MINIBATCH_SIZE = 16
-MINIBATCH_SIZE = 10
+MINIBATCH_SIZE = 200
+MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 # TRAINING_BATCH_SIZE = 1
@@ -292,7 +293,8 @@ class CarEnv:
 
         if len (self.collision_hist) != 0:
             done = True
-            reward = -200
+            # reward = -200
+            reward = -1
 
         return self.front_camera, reward, done, None
 
@@ -305,7 +307,7 @@ class DQNAgent:
         self.saved_model = self.create_model()
         self.saved_model.set_weights(self.model.get_weights())
         self.count_saved_models = 0
-        self.count_batches_trained = 0
+        self.count_epochs_trained = 0
 
         self.replay_memory = deque(maxlen=REPLAY_MEMORY_SIZE)
 
@@ -322,10 +324,9 @@ class DQNAgent:
         from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D
         base_model = tf.keras.Sequential()
         # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        count_filters = 4
-        count_filters = 28
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        count_filters = 64
+        base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
         base_model.add(MaxPooling2D(pool_size=(2, 2)))
         base_model.add(BatchNormalization())
         base_model.add(Activation('relu'))
@@ -348,7 +349,7 @@ class DQNAgent:
         x = base_model.output
         x = Flatten()(x)
 
-        print(f'x.shape: {x.shape}')
+        # print(f'x.shape: {x.shape}')
 
         size_reduce = 2
         while(x.shape.as_list()[1] >= size_reduce*(action_size+1)):
@@ -458,14 +459,17 @@ class DQNAgent:
             if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
                 pass
             else:
-                self.count_batches_trained += 1
+                if self.count_epochs_trained == 0:
+                    print('Finished training first epoch.')
+                self.count_epochs_trained += 1
                 self.saved_model.set_weights(self.model.get_weights())
                 self.count_saved_models += 1
             # time.sleep(0.01)
 
 if __name__ == "__main__":
     FPS = 60
-    ep_rewards = [-200]
+    # ep_rewards = [-200]
+    ep_rewards = [-1]
 
     random.seed(1)
     np.random.seed(1)
@@ -491,8 +495,8 @@ if __name__ == "__main__":
         agent.model = tf.keras.models.load_model(matching_files[-1])
         [shutil.rmtree(matching_file) for matching_file in matching_files[:-1]]
 
-        idx_episode_saved, agent.count_batches_trained = matching_files[-1].split('/')[1].split('.')[0:2]
-        idx_episode_saved, agent.count_batches_trained = int(idx_episode_saved), int(agent.count_batches_trained)
+        idx_episode_saved, agent.count_epochs_trained = matching_files[-1].split('/')[1].split('.')[0:2]
+        idx_episode_saved, agent.count_epochs_trained = int(idx_episode_saved), int(agent.count_epochs_trained)
         idx_episode_crashed = idx_episode_saved + 1
         # remove leftover images from failed episode
         matching_files = glob.glob(os.path.join(directory_output, f'*{idx_episode_crashed}_*.png'))
@@ -503,8 +507,6 @@ if __name__ == "__main__":
         idx_episode_start = idx_episode_crashed
 
     env = CarEnv()
-    # if bSync:
-    #     env.world.tick()
 
     trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
     trainer_thread.start()
@@ -512,12 +514,11 @@ if __name__ == "__main__":
     while not agent.training_initialized:
         time.sleep(0.01)
 
-    # agent.get_qs(np.ones((env.im_height, env.im_width, 3)))
     bTrainingComplete = False
+    episodeStart_countEpochsTrained = agent.count_epochs_trained
     try:
-        # pbar = tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode", disable=False)
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
-        # for episode in range(idx_episode_start, EPISODES+1):
+            episodeStart_countEpochsTrained = agent.count_epochs_trained
             print(f'\nStarted episode {episode} of {EPISODES}')
 
             env.collision_hist = []
@@ -531,7 +532,6 @@ if __name__ == "__main__":
                 env.idx_tick += 1
             done = False
 
-            # pbar.disable = True
             while True:
                 if bSync and False:
                     # print(f'bSync inside episode')
@@ -585,15 +585,19 @@ if __name__ == "__main__":
             if episode == EPISODES:
                 bTrainingComplete = True
             
-            # pbar.update(1)
             print(f'Finished episode {episode} of {EPISODES}')
+            
+            if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
+                while agent.count_epochs_trained < episodeStart_countEpochsTrained+10*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE:
+                    print(f'Count of epochs trained: {agent.count_epochs_trained}')
+                    time.sleep(60)
             
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
             # time.sleep(6)
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
             
-            agent.saved_model.save(f'tmp/{env.episode:03}.{agent.count_batches_trained}.model')
-            print(f'Saved model from episode {env.episode}. Count of batches trained: {agent.count_batches_trained}')
+            agent.saved_model.save(f'tmp/{env.episode:03}.{agent.count_epochs_trained}.model')
+            print(f'Saved model from episode {env.episode}. Count of epochs trained: {agent.count_epochs_trained}')
 
             # import subprocess
             # git = subprocess.Popen('git commit -a -m \"upload results\"')
