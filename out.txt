@@ -1,20 +1,20 @@
-2023-12-29 14:31:58.120739: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2023-12-29 14:31:58.143848: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2023-12-29 14:31:58.143866: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2023-12-29 14:31:58.144727: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2023-12-29 14:31:58.148567: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2023-12-29 21:15:11.056231: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-29 21:15:11.207536: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-29 21:15:11.207593: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-29 21:15:11.226765: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-29 21:15:11.233877: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2023-12-29 14:31:58.560314: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2023-12-29 14:31:58.860097: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-29 14:31:58.891429: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-29 14:31:58.891617: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-29 14:31:58.894653: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-29 14:31:58.894812: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-29 14:31:58.894907: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-29 14:31:59.713077: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-29 14:31:59.713268: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-29 14:31:59.713383: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-29 14:31:59.713494: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4447 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2023-12-29 21:15:11.871055: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-29 21:15:12.404371: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-29 21:15:12.463000: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-29 21:15:12.463294: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-29 21:15:12.466488: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-29 21:15:12.466687: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-29 21:15:12.466827: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-29 21:15:13.450325: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-29 21:15:13.450507: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-29 21:15:13.450621: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-29 21:15:13.450759: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4449 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
 Model: "model"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -188,403 +188,192 @@ None
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
-2023-12-29 14:32:10.358521: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2023-12-29 14:32:11.309603: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f334b928280 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2023-12-29 14:32:11.309618: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2023-12-29 14:32:11.312461: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-12-29 21:15:22.596939: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2023-12-29 21:15:23.674758: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fd0ef936a40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-12-29 21:15:23.674773: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2023-12-29 21:15:23.679986: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1703878331.387183   73888 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1703902523.759166 3391871 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
   0%|          | 0/1000 [00:00<?, ?episode/s]
 Started episode 1 of 1000
-Finished training first epoch.
 Finished episode 1 of 1000
-Saved model from episode 1. Count of epochs trained: 153
-  0%|          | 1/1000 [02:38<44:03:14, 158.75s/episode]
+Saved model from episode 1. Count of epochs trained: 0
+  0%|          | 1/1000 [00:37<10:19:29, 37.21s/episode]
 Started episode 2 of 1000
+Finished training first epoch.
 Finished episode 2 of 1000
-Saved model from episode 2. Count of epochs trained: 358
-  0%|          | 2/1000 [05:17<44:04:32, 158.99s/episode]
+Saved model from episode 2. Count of epochs trained: 4
+  0%|          | 2/1000 [01:02<8:26:30, 30.45s/episode] 
 Started episode 3 of 1000
 Finished episode 3 of 1000
-Saved model from episode 3. Count of epochs trained: 559
-  0%|          | 3/1000 [07:57<44:03:22, 159.08s/episode]
+Saved model from episode 3. Count of epochs trained: 22
+  0%|          | 3/1000 [01:17<6:27:07, 23.30s/episode]
 Started episode 4 of 1000
 Finished episode 4 of 1000
-Saved model from episode 4. Count of epochs trained: 754
-  0%|          | 4/1000 [10:36<44:02:59, 159.22s/episode]
+Saved model from episode 4. Count of epochs trained: 43
+  0%|          | 4/1000 [01:34<5:41:18, 20.56s/episode]
 Started episode 5 of 1000
 Finished episode 5 of 1000
-Saved model from episode 5. Count of epochs trained: 946
-  0%|          | 5/1000 [13:16<44:02:21, 159.34s/episode]
+Saved model from episode 5. Count of epochs trained: 90
+  0%|          | 5/1000 [02:11<7:22:03, 26.66s/episode]
 Started episode 6 of 1000
 Finished episode 6 of 1000
-Count of epochs trained: 1140
-Count of epochs trained: 1223
-Count of epochs trained: 1307
-Count of epochs trained: 1391
-Count of epochs trained: 1473
-Count of epochs trained: 1558
-Count of epochs trained: 1643
-Count of epochs trained: 1727
-Saved model from episode 6. Count of epochs trained: 1813
-  1%|          | 6/1000 [23:58<89:19:22, 323.50s/episode]
+Saved model from episode 6. Count of epochs trained: 106
+  1%|          | 6/1000 [02:24<6:05:19, 22.05s/episode]
 Started episode 7 of 1000
 Finished episode 7 of 1000
-Count of epochs trained: 2000
-Count of epochs trained: 2084
-Count of epochs trained: 2169
-Count of epochs trained: 2254
-Count of epochs trained: 2339
-Count of epochs trained: 2423
-Count of epochs trained: 2508
-Count of epochs trained: 2593
-Saved model from episode 7. Count of epochs trained: 2679
-  1%|          | 7/1000 [34:38<117:46:44, 426.99s/episode]
+Saved model from episode 7. Count of epochs trained: 122
+  1%|          | 7/1000 [02:37<5:14:23, 19.00s/episode]
 Started episode 8 of 1000
 Finished episode 8 of 1000
-Count of epochs trained: 2868
-Count of epochs trained: 2952
-Count of epochs trained: 3035
-Count of epochs trained: 3109
-Count of epochs trained: 3194
-Count of epochs trained: 3278
-Count of epochs trained: 3363
-Count of epochs trained: 3448
-Saved model from episode 8. Count of epochs trained: 3534
-  1%|          | 8/1000 [45:20<136:31:12, 495.44s/episode]
+Saved model from episode 8. Count of epochs trained: 132
+  1%|          | 8/1000 [02:45<4:18:42, 15.65s/episode]
 Started episode 9 of 1000
 Finished episode 9 of 1000
-Count of epochs trained: 3715
-Count of epochs trained: 3792
-Count of epochs trained: 3877
-Count of epochs trained: 3962
-Count of epochs trained: 4047
-Count of epochs trained: 4132
-Count of epochs trained: 4217
-Count of epochs trained: 4302
-Saved model from episode 9. Count of epochs trained: 4387
-  1%|          | 9/1000 [56:01<148:54:50, 540.96s/episode]
+Saved model from episode 9. Count of epochs trained: 143
+  1%|          | 9/1000 [02:54<3:44:32, 13.60s/episode]
 Started episode 10 of 1000
 Finished episode 10 of 1000
-Count of epochs trained: 4392
-Count of epochs trained: 4477
-Count of epochs trained: 4559
-Count of epochs trained: 4644
-Count of epochs trained: 4729
-Count of epochs trained: 4814
-Count of epochs trained: 4899
-Count of epochs trained: 4984
-Count of epochs trained: 5068
-Count of epochs trained: 5153
-Saved model from episode 10. Count of epochs trained: 5239
-  1%|1         | 10/1000 [1:06:07<154:16:45, 561.02s/episode]
+Saved model from episode 10. Count of epochs trained: 152
+  1%|1         | 10/1000 [03:02<3:15:43, 11.86s/episode]
 Started episode 11 of 1000
 Finished episode 11 of 1000
-Count of epochs trained: 5423
-Count of epochs trained: 5507
-Count of epochs trained: 5592
-Count of epochs trained: 5676
-Count of epochs trained: 5761
-Count of epochs trained: 5846
-Count of epochs trained: 5930
-Count of epochs trained: 6014
-Saved model from episode 11. Count of epochs trained: 6098
-  1%|1         | 11/1000 [1:16:50<161:03:16, 586.24s/episode]
+Saved model from episode 11. Count of epochs trained: 164
+  1%|1         | 11/1000 [03:12<3:06:10, 11.29s/episode]
 Started episode 12 of 1000
 Finished episode 12 of 1000
-Count of epochs trained: 6272
-Count of epochs trained: 6354
-Count of epochs trained: 6439
-Count of epochs trained: 6524
-Count of epochs trained: 6609
-Count of epochs trained: 6694
-Count of epochs trained: 6778
-Count of epochs trained: 6863
-Saved model from episode 12. Count of epochs trained: 6949
-  1%|1         | 12/1000 [1:27:34<165:43:47, 603.87s/episode]
+Saved model from episode 12. Count of epochs trained: 175
+  1%|1         | 12/1000 [03:22<2:57:54, 10.80s/episode]
 Started episode 13 of 1000
 Finished episode 13 of 1000
-Count of epochs trained: 7127
-Count of epochs trained: 7212
-Count of epochs trained: 7296
-Count of epochs trained: 7381
-Count of epochs trained: 7464
-Count of epochs trained: 7543
-Count of epochs trained: 7628
-Count of epochs trained: 7712
-Saved model from episode 13. Count of epochs trained: 7798
-  1%|1         | 13/1000 [1:38:16<168:42:26, 615.35s/episode]
+Saved model from episode 13. Count of epochs trained: 184
+  1%|1         | 13/1000 [03:30<2:42:34,  9.88s/episode]
 Started episode 14 of 1000
 Finished episode 14 of 1000
-Count of epochs trained: 7977
-Count of epochs trained: 8062
-Count of epochs trained: 8147
-Count of epochs trained: 8231
-Count of epochs trained: 8316
-Count of epochs trained: 8401
-Count of epochs trained: 8486
-Count of epochs trained: 8572
-Saved model from episode 14. Count of epochs trained: 8657
-  1%|1         | 14/1000 [1:49:01<170:58:48, 624.27s/episode]
+Saved model from episode 14. Count of epochs trained: 194
+  1%|1         | 14/1000 [03:39<2:37:22,  9.58s/episode]
 Started episode 15 of 1000
 Finished episode 15 of 1000
-Count of epochs trained: 8836
-Count of epochs trained: 8921
-Count of epochs trained: 9006
-Count of epochs trained: 9090
-Count of epochs trained: 9175
-Count of epochs trained: 9260
-Count of epochs trained: 9344
-Count of epochs trained: 9429
-Saved model from episode 15. Count of epochs trained: 9513
-  2%|1         | 15/1000 [1:59:48<172:39:01, 631.01s/episode]
+Saved model from episode 15. Count of epochs trained: 202
+  2%|1         | 15/1000 [03:46<2:26:25,  8.92s/episode]
 Started episode 16 of 1000
 Finished episode 16 of 1000
-Count of epochs trained: 9691
-Count of epochs trained: 9776
-Count of epochs trained: 9860
-Count of epochs trained: 9944
-Count of epochs trained: 10029
-Count of epochs trained: 10113
-Count of epochs trained: 10198
-Count of epochs trained: 10282
-Saved model from episode 16. Count of epochs trained: 10368
-  2%|1         | 16/1000 [2:10:34<173:44:02, 635.61s/episode]
+Saved model from episode 16. Count of epochs trained: 212
+  2%|1         | 16/1000 [03:55<2:25:59,  8.90s/episode]
 Started episode 17 of 1000
 Finished episode 17 of 1000
-Count of epochs trained: 10549
-Count of epochs trained: 10633
-Count of epochs trained: 10718
-Count of epochs trained: 10802
-Count of epochs trained: 10887
-Count of epochs trained: 10972
-Count of epochs trained: 11056
-Count of epochs trained: 11141
-Saved model from episode 17. Count of epochs trained: 11226
-  2%|1         | 17/1000 [2:21:23<174:38:19, 639.57s/episode]
+Saved model from episode 17. Count of epochs trained: 219
+  2%|1         | 17/1000 [04:01<2:13:18,  8.14s/episode]
 Started episode 18 of 1000
 Finished episode 18 of 1000
-Count of epochs trained: 11407
-Count of epochs trained: 11491
-Count of epochs trained: 11576
-Count of epochs trained: 11661
-Count of epochs trained: 11746
-Count of epochs trained: 11830
-Count of epochs trained: 11915
-Count of epochs trained: 12001
-Saved model from episode 18. Count of epochs trained: 12087
-  2%|1         | 18/1000 [2:32:12<175:13:16, 642.36s/episode]
+Saved model from episode 18. Count of epochs trained: 226
+  2%|1         | 18/1000 [04:08<2:04:46,  7.62s/episode]
 Started episode 19 of 1000
 Finished episode 19 of 1000
-Count of epochs trained: 12267
-Count of epochs trained: 12352
-Count of epochs trained: 12437
-Count of epochs trained: 12522
-Count of epochs trained: 12607
-Count of epochs trained: 12691
-Count of epochs trained: 12776
-Count of epochs trained: 12860
-Saved model from episode 19. Count of epochs trained: 12946
-  2%|1         | 19/1000 [2:43:01<175:34:44, 644.33s/episode]
+Saved model from episode 19. Count of epochs trained: 235
+  2%|1         | 19/1000 [04:16<2:07:17,  7.79s/episode]
 Started episode 20 of 1000
 Finished episode 20 of 1000
-Count of epochs trained: 13126
-Count of epochs trained: 13211
-Count of epochs trained: 13295
-Count of epochs trained: 13380
-Count of epochs trained: 13465
-Count of epochs trained: 13550
-Count of epochs trained: 13634
-Count of epochs trained: 13719
-Saved model from episode 20. Count of epochs trained: 13804
-  2%|2         | 20/1000 [2:53:51<175:54:29, 646.19s/episode]
+Saved model from episode 20. Count of epochs trained: 246
+  2%|2         | 20/1000 [04:26<2:19:43,  8.55s/episode]
 Started episode 21 of 1000
 Finished episode 21 of 1000
-Count of epochs trained: 13985
-Count of epochs trained: 14070
-Count of epochs trained: 14155
-Count of epochs trained: 14240
-Count of epochs trained: 14325
-Count of epochs trained: 14409
-Count of epochs trained: 14495
-Count of epochs trained: 14579
-Saved model from episode 21. Count of epochs trained: 14664
-  2%|2         | 21/1000 [3:04:43<176:10:01, 647.81s/episode]
+Saved model from episode 21. Count of epochs trained: 260
+  2%|2         | 21/1000 [04:38<2:37:20,  9.64s/episode]
 Started episode 22 of 1000
 Finished episode 22 of 1000
-Count of epochs trained: 14843
-Count of epochs trained: 14927
-Count of epochs trained: 15012
-Count of epochs trained: 15096
-Count of epochs trained: 15181
-Count of epochs trained: 15267
-Count of epochs trained: 15351
-Count of epochs trained: 15436
-Saved model from episode 22. Count of epochs trained: 15521
-  2%|2         | 22/1000 [3:15:34<176:14:21, 648.73s/episode]
+Saved model from episode 22. Count of epochs trained: 266
+  2%|2         | 22/1000 [04:44<2:16:30,  8.37s/episode]
 Started episode 23 of 1000
 Finished episode 23 of 1000
-Count of epochs trained: 15702
-Count of epochs trained: 15786
-Count of epochs trained: 15870
-Count of epochs trained: 15955
-Count of epochs trained: 16039
-Count of epochs trained: 16124
-Count of epochs trained: 16209
-Count of epochs trained: 16293
-Saved model from episode 23. Count of epochs trained: 16378
-  2%|2         | 23/1000 [3:26:27<176:26:40, 650.15s/episode]
+Saved model from episode 23. Count of epochs trained: 271
+  2%|2         | 23/1000 [04:49<2:00:24,  7.39s/episode]
 Started episode 24 of 1000
 Finished episode 24 of 1000
-Count of epochs trained: 16558
-Count of epochs trained: 16643
-Count of epochs trained: 16727
-Count of epochs trained: 16812
-Count of epochs trained: 16896
-Count of epochs trained: 16980
-Count of epochs trained: 17065
-Count of epochs trained: 17149
-Saved model from episode 24. Count of epochs trained: 17234
-  2%|2         | 24/1000 [3:37:22<176:37:38, 651.49s/episode]
+Saved model from episode 24. Count of epochs trained: 276
+  2%|2         | 24/1000 [04:54<1:48:34,  6.68s/episode]
 Started episode 25 of 1000
 Finished episode 25 of 1000
-Count of epochs trained: 17414
-Count of epochs trained: 17498
-Count of epochs trained: 17583
-Count of epochs trained: 17667
-Count of epochs trained: 17751
-Count of epochs trained: 17836
-Count of epochs trained: 17920
-Count of epochs trained: 18004
-Saved model from episode 25. Count of epochs trained: 18088
-  2%|2         | 25/1000 [3:48:17<176:46:07, 652.68s/episode]
+Saved model from episode 25. Count of epochs trained: 282
+  2%|2         | 25/1000 [05:00<1:43:49,  6.39s/episode]
 Started episode 26 of 1000
 Finished episode 26 of 1000
-Count of epochs trained: 18268
-Count of epochs trained: 18353
-Count of epochs trained: 18438
-Count of epochs trained: 18522
-Count of epochs trained: 18606
-Count of epochs trained: 18691
-Count of epochs trained: 18775
-Count of epochs trained: 18859
-Saved model from episode 26. Count of epochs trained: 18944
-  3%|2         | 26/1000 [3:59:13<176:52:09, 653.73s/episode]
+Saved model from episode 26. Count of epochs trained: 323
+  3%|2         | 26/1000 [05:36<4:09:22, 15.36s/episode]
 Started episode 27 of 1000
 Finished episode 27 of 1000
-Count of epochs trained: 19125
-Count of epochs trained: 19209
-Count of epochs trained: 19293
-Count of epochs trained: 19377
-Count of epochs trained: 19462
-Count of epochs trained: 19546
-Count of epochs trained: 19630
-Count of epochs trained: 19714
-Saved model from episode 27. Count of epochs trained: 19799
-  3%|2         | 27/1000 [4:10:11<176:58:41, 654.80s/episode]
+Saved model from episode 27. Count of epochs trained: 361
+  3%|2         | 27/1000 [06:10<5:40:32, 21.00s/episode]
 Started episode 28 of 1000
 Finished episode 28 of 1000
-Count of epochs trained: 19979
-Count of epochs trained: 20063
-Count of epochs trained: 20147
-Count of epochs trained: 20232
-Count of epochs trained: 20316
-Count of epochs trained: 20400
-Count of epochs trained: 20484
-Count of epochs trained: 20568
-Saved model from episode 28. Count of epochs trained: 20653
-  3%|2         | 28/1000 [4:21:09<177:05:25, 655.89s/episode]
+Saved model from episode 28. Count of epochs trained: 375
+  3%|2         | 28/1000 [06:23<5:01:07, 18.59s/episode]
 Started episode 29 of 1000
 Finished episode 29 of 1000
-Count of epochs trained: 20834
-Count of epochs trained: 20918
-Count of epochs trained: 21002
-Count of epochs trained: 21086
-Count of epochs trained: 21170
-Count of epochs trained: 21254
-Count of epochs trained: 21339
-Count of epochs trained: 21422
-Saved model from episode 29. Count of epochs trained: 21506
-  3%|2         | 29/1000 [4:32:09<177:14:00, 657.10s/episode]
+Saved model from episode 29. Count of epochs trained: 379
+  3%|2         | 29/1000 [06:27<3:48:19, 14.11s/episode]
 Started episode 30 of 1000
 Finished episode 30 of 1000
-Count of epochs trained: 21686
-Count of epochs trained: 21770
-Count of epochs trained: 21854
-Count of epochs trained: 21937
-Count of epochs trained: 22020
-Count of epochs trained: 22104
-Count of epochs trained: 22187
-Count of epochs trained: 22271
-Saved model from episode 30. Count of epochs trained: 22355
-  3%|3         | 30/1000 [4:43:09<177:16:48, 657.95s/episode]
+Saved model from episode 30. Count of epochs trained: 382
+  3%|3         | 30/1000 [06:30<2:57:43, 10.99s/episode]
 Started episode 31 of 1000
 Finished episode 31 of 1000
-Count of epochs trained: 22538
-Count of epochs trained: 22622
-Count of epochs trained: 22705
-Count of epochs trained: 22790
-Count of epochs trained: 22873
-Count of epochs trained: 22957
-Count of epochs trained: 23041
-Count of epochs trained: 23125
-Saved model from episode 31. Count of epochs trained: 23209
-  3%|3         | 31/1000 [4:54:11<177:25:35, 659.17s/episode]
+Saved model from episode 31. Count of epochs trained: 386
+  3%|3         | 31/1000 [06:34<2:22:02,  8.80s/episode]
 Started episode 32 of 1000
 Finished episode 32 of 1000
-Count of epochs trained: 23388
-Count of epochs trained: 23473
-Count of epochs trained: 23557
-Count of epochs trained: 23641
-Count of epochs trained: 23726
-Count of epochs trained: 23810
-Count of epochs trained: 23894
-Count of epochs trained: 23978
-Saved model from episode 32. Count of epochs trained: 24063
-  3%|3         | 32/1000 [5:05:11<177:18:33, 659.41s/episode]
+Saved model from episode 32. Count of epochs trained: 389
+  3%|3         | 32/1000 [06:38<1:55:43,  7.17s/episode]
 Started episode 33 of 1000
 Finished episode 33 of 1000
-Count of epochs trained: 24242
-Count of epochs trained: 24326
-Count of epochs trained: 24410
-Count of epochs trained: 24495
-Count of epochs trained: 24578
-Count of epochs trained: 24662
-Count of epochs trained: 24746
-Count of epochs trained: 24830
-Saved model from episode 33. Count of epochs trained: 24916
-  3%|3         | 33/1000 [5:16:11<177:12:59, 659.75s/episode]
+Saved model from episode 33. Count of epochs trained: 396
+  3%|3         | 33/1000 [06:44<1:51:41,  6.93s/episode]
 Started episode 34 of 1000
 Finished episode 34 of 1000
-Count of epochs trained: 25097
-Count of epochs trained: 25171
-Count of epochs trained: 25243
-Count of epochs trained: 25323
-Count of epochs trained: 25407
-Count of epochs trained: 25491
-Count of epochs trained: 25575
-Count of epochs trained: 25658
-Saved model from episode 34. Count of epochs trained: 25744
-  3%|3         | 34/1000 [5:27:14<177:15:10, 660.57s/episode]
+Saved model from episode 34. Count of epochs trained: 408
+  3%|3         | 34/1000 [06:55<2:11:20,  8.16s/episode]
 Started episode 35 of 1000
 Finished episode 35 of 1000
-Count of epochs trained: 25924
-Count of epochs trained: 26008
-Count of epochs trained: 26091
-Count of epochs trained: 26175
-Count of epochs trained: 26259
-Count of epochs trained: 26343
-Count of epochs trained: 26427
-Count of epochs trained: 26512
-Saved model from episode 35. Count of epochs trained: 26598
-  4%|3         | 35/1000 [5:38:16<177:10:23, 660.96s/episode]
+Saved model from episode 35. Count of epochs trained: 419
+  4%|3         | 35/1000 [07:05<2:22:28,  8.86s/episode]
 Started episode 36 of 1000
 Finished episode 36 of 1000
-Count of epochs trained: 26778
-Count of epochs trained: 26862
-Count of epochs trained: 26946
-Count of epochs trained: 27031
-Count of epochs trained: 27115
-Count of epochs trained: 27199
-Count of epochs trained: 27284
-Count of epochs trained: 27368
+Saved model from episode 36. Count of epochs trained: 443
+  4%|3         | 36/1000 [07:28<3:27:22, 12.91s/episode]
+Started episode 37 of 1000
+Finished episode 37 of 1000
+Saved model from episode 37. Count of epochs trained: 533
+  4%|3         | 37/1000 [08:52<9:08:50, 34.20s/episode]
+Started episode 38 of 1000
+Finished episode 38 of 1000
+Saved model from episode 38. Count of epochs trained: 577
+  4%|3         | 38/1000 [09:37<10:03:50, 37.66s/episode]
+Started episode 39 of 1000
+Finished episode 39 of 1000
+Saved model from episode 39. Count of epochs trained: 588
+  4%|3         | 39/1000 [09:48<7:52:23, 29.49s/episode] 
+Started episode 40 of 1000
+Finished episode 40 of 1000
+Saved model from episode 40. Count of epochs trained: 651
+  4%|4         | 40/1000 [10:48<10:18:03, 38.63s/episode]
+Started episode 41 of 1000
+Finished episode 41 of 1000
+Saved model from episode 41. Count of epochs trained: 657
+  4%|4         | 41/1000 [10:54<7:42:25, 28.93s/episode] 
+Started episode 42 of 1000
+Finished episode 42 of 1000
+Saved model from episode 42. Count of epochs trained: 662
+  4%|4         | 42/1000 [11:00<5:52:32, 22.08s/episode]
+Started episode 43 of 1000
+Finished episode 43 of 1000
+Saved model from episode 43. Count of epochs trained: 668
+  4%|4         | 43/1000 [11:07<4:38:16, 17.45s/episode]
+Started episode 44 of 1000
+Finished episode 44 of 1000
+Saved model from episode 44. Count of epochs trained: 675
+  4%|4         | 44/1000 [11:15<3:51:49, 14.55s/episode]
+Started episode 45 of 1000
+Finished episode 45 of 1000
+Saved model from episode 45. Count of epochs trained: 681
+  4%|4         | 45/1000 [11:22<3:19:34, 12.54s/episode]
+Started episode 46 of 1000
