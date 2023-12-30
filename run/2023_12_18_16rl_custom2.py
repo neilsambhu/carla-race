@@ -48,7 +48,7 @@ with open(directory_input, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 REPLAY_MEMORY_SIZE = 5*number_of_lines
 # MINIBATCH_SIZE = 16
-MINIBATCH_SIZE = 200
+MINIBATCH_SIZE = 232
 MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -86,8 +86,8 @@ action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
 # action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
                 'steer': np.linspace(-1.0, 1.0, num=21),
                 # 'steer': np.linspace(-1.0, 1.0, num=3),
-                # 'brake': np.linspace(0.0, 1.0, num=11)}
-                'brake': np.linspace(0.0, 0.0, num=11)}
+                'brake': np.linspace(0.0, 1.0, num=11)}
+                # 'brake': np.linspace(0.0, 0.0, num=11)}
                 # 'brake': np.linspace(0.0, 1.0, num=2)}
 # print(action_space);import sys;sys.exit()
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
@@ -276,17 +276,17 @@ class CarEnv:
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
         # reward = -1*distance**3 - distance + 5
-        if distance < 1:
-            reward += 1
-        else:
-            reward -= 1
+        # if distance < 1:
+        #     reward += 1
+        # else:
+        #     reward -= 1
 
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
 
-        # v = self.vehicle.get_velocity()
-        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        # reward += kmh
+        v = self.vehicle.get_velocity()
+        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        reward += kmh
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
         if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
