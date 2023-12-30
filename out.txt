@@ -197,3 +197,394 @@ I0000 00:00:1703878331.387183   73888 device_compiler.h:186] Compiled cluster us
   0%|          | 0/1000 [00:00<?, ?episode/s]
 Started episode 1 of 1000
 Finished training first epoch.
+Finished episode 1 of 1000
+Saved model from episode 1. Count of epochs trained: 153
+  0%|          | 1/1000 [02:38<44:03:14, 158.75s/episode]
+Started episode 2 of 1000
+Finished episode 2 of 1000
+Saved model from episode 2. Count of epochs trained: 358
+  0%|          | 2/1000 [05:17<44:04:32, 158.99s/episode]
+Started episode 3 of 1000
+Finished episode 3 of 1000
+Saved model from episode 3. Count of epochs trained: 559
+  0%|          | 3/1000 [07:57<44:03:22, 159.08s/episode]
+Started episode 4 of 1000
+Finished episode 4 of 1000
+Saved model from episode 4. Count of epochs trained: 754
+  0%|          | 4/1000 [10:36<44:02:59, 159.22s/episode]
+Started episode 5 of 1000
+Finished episode 5 of 1000
+Saved model from episode 5. Count of epochs trained: 946
+  0%|          | 5/1000 [13:16<44:02:21, 159.34s/episode]
+Started episode 6 of 1000
+Finished episode 6 of 1000
+Count of epochs trained: 1140
+Count of epochs trained: 1223
+Count of epochs trained: 1307
+Count of epochs trained: 1391
+Count of epochs trained: 1473
+Count of epochs trained: 1558
+Count of epochs trained: 1643
+Count of epochs trained: 1727
+Saved model from episode 6. Count of epochs trained: 1813
+  1%|          | 6/1000 [23:58<89:19:22, 323.50s/episode]
+Started episode 7 of 1000
+Finished episode 7 of 1000
+Count of epochs trained: 2000
+Count of epochs trained: 2084
+Count of epochs trained: 2169
+Count of epochs trained: 2254
+Count of epochs trained: 2339
+Count of epochs trained: 2423
+Count of epochs trained: 2508
+Count of epochs trained: 2593
+Saved model from episode 7. Count of epochs trained: 2679
+  1%|          | 7/1000 [34:38<117:46:44, 426.99s/episode]
+Started episode 8 of 1000
+Finished episode 8 of 1000
+Count of epochs trained: 2868
+Count of epochs trained: 2952
+Count of epochs trained: 3035
+Count of epochs trained: 3109
+Count of epochs trained: 3194
+Count of epochs trained: 3278
+Count of epochs trained: 3363
+Count of epochs trained: 3448
+Saved model from episode 8. Count of epochs trained: 3534
+  1%|          | 8/1000 [45:20<136:31:12, 495.44s/episode]
+Started episode 9 of 1000
+Finished episode 9 of 1000
+Count of epochs trained: 3715
+Count of epochs trained: 3792
+Count of epochs trained: 3877
+Count of epochs trained: 3962
+Count of epochs trained: 4047
+Count of epochs trained: 4132
+Count of epochs trained: 4217
+Count of epochs trained: 4302
+Saved model from episode 9. Count of epochs trained: 4387
+  1%|          | 9/1000 [56:01<148:54:50, 540.96s/episode]
+Started episode 10 of 1000
+Finished episode 10 of 1000
+Count of epochs trained: 4392
+Count of epochs trained: 4477
+Count of epochs trained: 4559
+Count of epochs trained: 4644
+Count of epochs trained: 4729
+Count of epochs trained: 4814
+Count of epochs trained: 4899
+Count of epochs trained: 4984
+Count of epochs trained: 5068
+Count of epochs trained: 5153
+Saved model from episode 10. Count of epochs trained: 5239
+  1%|1         | 10/1000 [1:06:07<154:16:45, 561.02s/episode]
+Started episode 11 of 1000
+Finished episode 11 of 1000
+Count of epochs trained: 5423
+Count of epochs trained: 5507
+Count of epochs trained: 5592
+Count of epochs trained: 5676
+Count of epochs trained: 5761
+Count of epochs trained: 5846
+Count of epochs trained: 5930
+Count of epochs trained: 6014
+Saved model from episode 11. Count of epochs trained: 6098
+  1%|1         | 11/1000 [1:16:50<161:03:16, 586.24s/episode]
+Started episode 12 of 1000
+Finished episode 12 of 1000
+Count of epochs trained: 6272
+Count of epochs trained: 6354
+Count of epochs trained: 6439
+Count of epochs trained: 6524
+Count of epochs trained: 6609
+Count of epochs trained: 6694
+Count of epochs trained: 6778
+Count of epochs trained: 6863
+Saved model from episode 12. Count of epochs trained: 6949
+  1%|1         | 12/1000 [1:27:34<165:43:47, 603.87s/episode]
+Started episode 13 of 1000
+Finished episode 13 of 1000
+Count of epochs trained: 7127
+Count of epochs trained: 7212
+Count of epochs trained: 7296
+Count of epochs trained: 7381
+Count of epochs trained: 7464
+Count of epochs trained: 7543
+Count of epochs trained: 7628
+Count of epochs trained: 7712
+Saved model from episode 13. Count of epochs trained: 7798
+  1%|1         | 13/1000 [1:38:16<168:42:26, 615.35s/episode]
+Started episode 14 of 1000
+Finished episode 14 of 1000
+Count of epochs trained: 7977
+Count of epochs trained: 8062
+Count of epochs trained: 8147
+Count of epochs trained: 8231
+Count of epochs trained: 8316
+Count of epochs trained: 8401
+Count of epochs trained: 8486
+Count of epochs trained: 8572
+Saved model from episode 14. Count of epochs trained: 8657
+  1%|1         | 14/1000 [1:49:01<170:58:48, 624.27s/episode]
+Started episode 15 of 1000
+Finished episode 15 of 1000
+Count of epochs trained: 8836
+Count of epochs trained: 8921
+Count of epochs trained: 9006
+Count of epochs trained: 9090
+Count of epochs trained: 9175
+Count of epochs trained: 9260
+Count of epochs trained: 9344
+Count of epochs trained: 9429
+Saved model from episode 15. Count of epochs trained: 9513
+  2%|1         | 15/1000 [1:59:48<172:39:01, 631.01s/episode]
+Started episode 16 of 1000
+Finished episode 16 of 1000
+Count of epochs trained: 9691
+Count of epochs trained: 9776
+Count of epochs trained: 9860
+Count of epochs trained: 9944
+Count of epochs trained: 10029
+Count of epochs trained: 10113
+Count of epochs trained: 10198
+Count of epochs trained: 10282
+Saved model from episode 16. Count of epochs trained: 10368
+  2%|1         | 16/1000 [2:10:34<173:44:02, 635.61s/episode]
+Started episode 17 of 1000
+Finished episode 17 of 1000
+Count of epochs trained: 10549
+Count of epochs trained: 10633
+Count of epochs trained: 10718
+Count of epochs trained: 10802
+Count of epochs trained: 10887
+Count of epochs trained: 10972
+Count of epochs trained: 11056
+Count of epochs trained: 11141
+Saved model from episode 17. Count of epochs trained: 11226
+  2%|1         | 17/1000 [2:21:23<174:38:19, 639.57s/episode]
+Started episode 18 of 1000
+Finished episode 18 of 1000
+Count of epochs trained: 11407
+Count of epochs trained: 11491
+Count of epochs trained: 11576
+Count of epochs trained: 11661
+Count of epochs trained: 11746
+Count of epochs trained: 11830
+Count of epochs trained: 11915
+Count of epochs trained: 12001
+Saved model from episode 18. Count of epochs trained: 12087
+  2%|1         | 18/1000 [2:32:12<175:13:16, 642.36s/episode]
+Started episode 19 of 1000
+Finished episode 19 of 1000
+Count of epochs trained: 12267
+Count of epochs trained: 12352
+Count of epochs trained: 12437
+Count of epochs trained: 12522
+Count of epochs trained: 12607
+Count of epochs trained: 12691
+Count of epochs trained: 12776
+Count of epochs trained: 12860
+Saved model from episode 19. Count of epochs trained: 12946
+  2%|1         | 19/1000 [2:43:01<175:34:44, 644.33s/episode]
+Started episode 20 of 1000
+Finished episode 20 of 1000
+Count of epochs trained: 13126
+Count of epochs trained: 13211
+Count of epochs trained: 13295
+Count of epochs trained: 13380
+Count of epochs trained: 13465
+Count of epochs trained: 13550
+Count of epochs trained: 13634
+Count of epochs trained: 13719
+Saved model from episode 20. Count of epochs trained: 13804
+  2%|2         | 20/1000 [2:53:51<175:54:29, 646.19s/episode]
+Started episode 21 of 1000
+Finished episode 21 of 1000
+Count of epochs trained: 13985
+Count of epochs trained: 14070
+Count of epochs trained: 14155
+Count of epochs trained: 14240
+Count of epochs trained: 14325
+Count of epochs trained: 14409
+Count of epochs trained: 14495
+Count of epochs trained: 14579
+Saved model from episode 21. Count of epochs trained: 14664
+  2%|2         | 21/1000 [3:04:43<176:10:01, 647.81s/episode]
+Started episode 22 of 1000
+Finished episode 22 of 1000
+Count of epochs trained: 14843
+Count of epochs trained: 14927
+Count of epochs trained: 15012
+Count of epochs trained: 15096
+Count of epochs trained: 15181
+Count of epochs trained: 15267
+Count of epochs trained: 15351
+Count of epochs trained: 15436
+Saved model from episode 22. Count of epochs trained: 15521
+  2%|2         | 22/1000 [3:15:34<176:14:21, 648.73s/episode]
+Started episode 23 of 1000
+Finished episode 23 of 1000
+Count of epochs trained: 15702
+Count of epochs trained: 15786
+Count of epochs trained: 15870
+Count of epochs trained: 15955
+Count of epochs trained: 16039
+Count of epochs trained: 16124
+Count of epochs trained: 16209
+Count of epochs trained: 16293
+Saved model from episode 23. Count of epochs trained: 16378
+  2%|2         | 23/1000 [3:26:27<176:26:40, 650.15s/episode]
+Started episode 24 of 1000
+Finished episode 24 of 1000
+Count of epochs trained: 16558
+Count of epochs trained: 16643
+Count of epochs trained: 16727
+Count of epochs trained: 16812
+Count of epochs trained: 16896
+Count of epochs trained: 16980
+Count of epochs trained: 17065
+Count of epochs trained: 17149
+Saved model from episode 24. Count of epochs trained: 17234
+  2%|2         | 24/1000 [3:37:22<176:37:38, 651.49s/episode]
+Started episode 25 of 1000
+Finished episode 25 of 1000
+Count of epochs trained: 17414
+Count of epochs trained: 17498
+Count of epochs trained: 17583
+Count of epochs trained: 17667
+Count of epochs trained: 17751
+Count of epochs trained: 17836
+Count of epochs trained: 17920
+Count of epochs trained: 18004
+Saved model from episode 25. Count of epochs trained: 18088
+  2%|2         | 25/1000 [3:48:17<176:46:07, 652.68s/episode]
+Started episode 26 of 1000
+Finished episode 26 of 1000
+Count of epochs trained: 18268
+Count of epochs trained: 18353
+Count of epochs trained: 18438
+Count of epochs trained: 18522
+Count of epochs trained: 18606
+Count of epochs trained: 18691
+Count of epochs trained: 18775
+Count of epochs trained: 18859
+Saved model from episode 26. Count of epochs trained: 18944
+  3%|2         | 26/1000 [3:59:13<176:52:09, 653.73s/episode]
+Started episode 27 of 1000
+Finished episode 27 of 1000
+Count of epochs trained: 19125
+Count of epochs trained: 19209
+Count of epochs trained: 19293
+Count of epochs trained: 19377
+Count of epochs trained: 19462
+Count of epochs trained: 19546
+Count of epochs trained: 19630
+Count of epochs trained: 19714
+Saved model from episode 27. Count of epochs trained: 19799
+  3%|2         | 27/1000 [4:10:11<176:58:41, 654.80s/episode]
+Started episode 28 of 1000
+Finished episode 28 of 1000
+Count of epochs trained: 19979
+Count of epochs trained: 20063
+Count of epochs trained: 20147
+Count of epochs trained: 20232
+Count of epochs trained: 20316
+Count of epochs trained: 20400
+Count of epochs trained: 20484
+Count of epochs trained: 20568
+Saved model from episode 28. Count of epochs trained: 20653
+  3%|2         | 28/1000 [4:21:09<177:05:25, 655.89s/episode]
+Started episode 29 of 1000
+Finished episode 29 of 1000
+Count of epochs trained: 20834
+Count of epochs trained: 20918
+Count of epochs trained: 21002
+Count of epochs trained: 21086
+Count of epochs trained: 21170
+Count of epochs trained: 21254
+Count of epochs trained: 21339
+Count of epochs trained: 21422
+Saved model from episode 29. Count of epochs trained: 21506
+  3%|2         | 29/1000 [4:32:09<177:14:00, 657.10s/episode]
+Started episode 30 of 1000
+Finished episode 30 of 1000
+Count of epochs trained: 21686
+Count of epochs trained: 21770
+Count of epochs trained: 21854
+Count of epochs trained: 21937
+Count of epochs trained: 22020
+Count of epochs trained: 22104
+Count of epochs trained: 22187
+Count of epochs trained: 22271
+Saved model from episode 30. Count of epochs trained: 22355
+  3%|3         | 30/1000 [4:43:09<177:16:48, 657.95s/episode]
+Started episode 31 of 1000
+Finished episode 31 of 1000
+Count of epochs trained: 22538
+Count of epochs trained: 22622
+Count of epochs trained: 22705
+Count of epochs trained: 22790
+Count of epochs trained: 22873
+Count of epochs trained: 22957
+Count of epochs trained: 23041
+Count of epochs trained: 23125
+Saved model from episode 31. Count of epochs trained: 23209
+  3%|3         | 31/1000 [4:54:11<177:25:35, 659.17s/episode]
+Started episode 32 of 1000
+Finished episode 32 of 1000
+Count of epochs trained: 23388
+Count of epochs trained: 23473
+Count of epochs trained: 23557
+Count of epochs trained: 23641
+Count of epochs trained: 23726
+Count of epochs trained: 23810
+Count of epochs trained: 23894
+Count of epochs trained: 23978
+Saved model from episode 32. Count of epochs trained: 24063
+  3%|3         | 32/1000 [5:05:11<177:18:33, 659.41s/episode]
+Started episode 33 of 1000
+Finished episode 33 of 1000
+Count of epochs trained: 24242
+Count of epochs trained: 24326
+Count of epochs trained: 24410
+Count of epochs trained: 24495
+Count of epochs trained: 24578
+Count of epochs trained: 24662
+Count of epochs trained: 24746
+Count of epochs trained: 24830
+Saved model from episode 33. Count of epochs trained: 24916
+  3%|3         | 33/1000 [5:16:11<177:12:59, 659.75s/episode]
+Started episode 34 of 1000
+Finished episode 34 of 1000
+Count of epochs trained: 25097
+Count of epochs trained: 25171
+Count of epochs trained: 25243
+Count of epochs trained: 25323
+Count of epochs trained: 25407
+Count of epochs trained: 25491
+Count of epochs trained: 25575
+Count of epochs trained: 25658
+Saved model from episode 34. Count of epochs trained: 25744
+  3%|3         | 34/1000 [5:27:14<177:15:10, 660.57s/episode]
+Started episode 35 of 1000
+Finished episode 35 of 1000
+Count of epochs trained: 25924
+Count of epochs trained: 26008
+Count of epochs trained: 26091
+Count of epochs trained: 26175
+Count of epochs trained: 26259
+Count of epochs trained: 26343
+Count of epochs trained: 26427
+Count of epochs trained: 26512
+Saved model from episode 35. Count of epochs trained: 26598
+  4%|3         | 35/1000 [5:38:16<177:10:23, 660.96s/episode]
+Started episode 36 of 1000
+Finished episode 36 of 1000
+Count of epochs trained: 26778
+Count of epochs trained: 26862
+Count of epochs trained: 26946
+Count of epochs trained: 27031
+Count of epochs trained: 27115
+Count of epochs trained: 27199
+Count of epochs trained: 27284
+Count of epochs trained: 27368

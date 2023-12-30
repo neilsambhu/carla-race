@@ -283,9 +283,9 @@ class CarEnv:
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
 
-        # v = self.vehicle.get_velocity()
-        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        # reward += kmh
+        v = self.vehicle.get_velocity()
+        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        reward += kmh
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
         if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
@@ -587,8 +587,9 @@ if __name__ == "__main__":
             print(f'Finished episode {episode} of {EPISODES}')
             
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
-                while agent.count_epochs_trained < episodeStart_countEpochsTrained+10*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE:
-                    print(f'Count of epochs trained: {agent.count_epochs_trained}')
+                count_epochs_goal = episodeStart_countEpochsTrained+10*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
+                while agent.count_epochs_trained < count_epochs_goal:
+                    print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {count_epochs_goal}')
                     time.sleep(60)
             
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
