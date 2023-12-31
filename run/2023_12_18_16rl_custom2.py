@@ -48,7 +48,7 @@ with open(directory_input, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 REPLAY_MEMORY_SIZE = 5*number_of_lines
 # MINIBATCH_SIZE = 16
-MINIBATCH_SIZE = 204
+MINIBATCH_SIZE = 128
 MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -508,17 +508,16 @@ if __name__ == "__main__":
 
     env = CarEnv()
 
-    trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
-    trainer_thread.start()
-
-    while not agent.training_initialized:
-        time.sleep(0.01)
-
-    bTrainingComplete = False
-    episodeStart_countEpochsTrained = agent.count_epochs_trained
     try:
+        trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
+        trainer_thread.start()
+
+        while not agent.training_initialized:
+            time.sleep(0.01)
+
+        bTrainingComplete = False
+        previousEpisode_countEpochsTrained = agent.count_epochs_trained
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
-            episodeStart_countEpochsTrained = agent.count_epochs_trained
             print(f'\nStarted episode {episode} of {EPISODES}')
 
             env.collision_hist = []
@@ -588,10 +587,11 @@ if __name__ == "__main__":
             print(f'Finished episode {episode} of {EPISODES}')
             
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
-                count_epochs_goal = episodeStart_countEpochsTrained+10*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
+                count_epochs_goal = previousEpisode_countEpochsTrained+10*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                 while agent.count_epochs_trained < count_epochs_goal:
                     print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {count_epochs_goal}')
                     time.sleep(60)
+            previousEpisode_countEpochsTrained = agent.count_epochs_trained
             
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
             # time.sleep(6)
