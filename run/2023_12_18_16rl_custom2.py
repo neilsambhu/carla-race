@@ -379,12 +379,11 @@ class DQNAgent:
         # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
         # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
         current_qs_list = None
-        while current_qs_list == None:
-            try:
-                current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
-            except Exception as e:
-                print(f'Error message: {e}')
-
+        try:
+            current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
+        except Exception as e:
+            print(f'Error message: {e}')
+        
         # new_current_states = np.array([transition[3] for transition in minibatch])/255
         new_current_states = np.array([transition[3] for transition in minibatch])
         # Neil commented `with self.graph.as_default():`
