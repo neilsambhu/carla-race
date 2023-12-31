@@ -50,7 +50,6 @@ with open(directory_input, 'r') as file:
 REPLAY_MEMORY_SIZE = 5*number_of_lines
 # MINIBATCH_SIZE = 16
 MINIBATCH_SIZE = 128
-MINIBATCH_SIZE = 1024
 MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -297,7 +296,7 @@ class CarEnv:
         if len (self.collision_hist) != 0:
             done = True
             # reward = -200
-            reward = -1
+            reward = -0.001
 
         return self.front_camera, reward, done, None
 
