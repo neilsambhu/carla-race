@@ -532,8 +532,8 @@ if __name__ == "__main__":
     # trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
     # trainer_thread.start()
 
-    while not agent.training_initialized:
-        time.sleep(0.01)
+    # while not agent.training_initialized:
+    #     time.sleep(0.01)
 
     bTrainingComplete = False
     previousEpisode_countBatchesTrained = agent.count_batches_trained
