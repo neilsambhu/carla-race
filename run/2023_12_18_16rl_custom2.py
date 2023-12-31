@@ -613,12 +613,14 @@ if __name__ == "__main__":
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10
             if epochs > 0:
+                print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {epochs}')
                 count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                 print(f'Count of batches trained: {agent.count_batches_trained}\tGoal: {count_batches_goal}')
                 for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch"):
                     count_batches_subgoal = previousEpisode_countBatchesTrained+epoch*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                     for batch in tqdm(range(agent.count_batches_trained, count_batches_goal), ascii=True, unit="batch"):
                         agent.train()
+                    agent.count_epochs_trained += 1
                     
             previousEpisode_countBatchesTrained = agent.count_batches_trained
             
