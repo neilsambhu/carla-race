@@ -1,17 +1,193 @@
-2023-12-30 22:27:43.136105: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2023-12-30 22:27:43.158447: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2023-12-30 22:27:43.158464: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2023-12-30 22:27:43.159025: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2023-12-30 22:27:43.162520: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2023-12-30 23:11:21.981374: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-30 23:11:22.004287: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-30 23:11:22.004304: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-30 23:11:22.004850: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-30 23:11:22.008256: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2023-12-30 22:27:43.605163: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2023-12-30 22:27:43.909113: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-30 22:27:43.937708: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-30 22:27:43.937992: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-30 22:27:43.940681: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-30 22:27:43.940885: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-30 22:27:43.941085: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-30 22:27:44.699275: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-30 22:27:44.699455: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-30 22:27:44.699619: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2023-12-30 22:27:44.699751: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4455 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2023-12-30 23:11:22.435059: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-30 23:11:22.738312: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-30 23:11:22.767440: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-30 23:11:22.767618: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-30 23:11:22.770693: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-30 23:11:22.770848: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-30 23:11:22.770966: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-30 23:11:23.636225: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-30 23:11:23.636355: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-30 23:11:23.636482: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-30 23:11:23.636620: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4354 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+x.shape: (None, 4096)
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_input (InputLayer)   [(None, 128, 128, 3)]     0         
+                                                                 
+ conv2d (Conv2D)             (None, 128, 128, 64)      1792      
+                                                                 
+ max_pooling2d (MaxPooling2  (None, 64, 64, 64)        0         
+ D)                                                              
+                                                                 
+ batch_normalization (Batch  (None, 64, 64, 64)        256       
+ Normalization)                                                  
+                                                                 
+ activation (Activation)     (None, 64, 64, 64)        0         
+                                                                 
+ conv2d_1 (Conv2D)           (None, 64, 64, 64)        36928     
+                                                                 
+ max_pooling2d_1 (MaxPoolin  (None, 32, 32, 64)        0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_1 (Bat  (None, 32, 32, 64)        256       
+ chNormalization)                                                
+                                                                 
+ activation_1 (Activation)   (None, 32, 32, 64)        0         
+                                                                 
+ conv2d_2 (Conv2D)           (None, 32, 32, 64)        36928     
+                                                                 
+ max_pooling2d_2 (MaxPoolin  (None, 16, 16, 64)        0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_2 (Bat  (None, 16, 16, 64)        256       
+ chNormalization)                                                
+                                                                 
+ activation_2 (Activation)   (None, 16, 16, 64)        0         
+                                                                 
+ conv2d_3 (Conv2D)           (None, 16, 16, 64)        36928     
+                                                                 
+ max_pooling2d_3 (MaxPoolin  (None, 8, 8, 64)          0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_3 (Bat  (None, 8, 8, 64)          256       
+ chNormalization)                                                
+                                                                 
+ activation_3 (Activation)   (None, 8, 8, 64)          0         
+                                                                 
+ flatten (Flatten)           (None, 4096)              0         
+                                                                 
+ dense (Dense)               (None, 2541)              10410477  
+                                                                 
+=================================================================
+Total params: 10524077 (40.15 MB)
+Trainable params: 10523565 (40.14 MB)
+Non-trainable params: 512 (2.00 KB)
+_________________________________________________________________
+None
+x.shape: (None, 4096)
+Model: "model_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_4_input (InputLayer  [(None, 128, 128, 3)]     0         
+ )                                                               
+                                                                 
+ conv2d_4 (Conv2D)           (None, 128, 128, 64)      1792      
+                                                                 
+ max_pooling2d_4 (MaxPoolin  (None, 64, 64, 64)        0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_4 (Bat  (None, 64, 64, 64)        256       
+ chNormalization)                                                
+                                                                 
+ activation_4 (Activation)   (None, 64, 64, 64)        0         
+                                                                 
+ conv2d_5 (Conv2D)           (None, 64, 64, 64)        36928     
+                                                                 
+ max_pooling2d_5 (MaxPoolin  (None, 32, 32, 64)        0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_5 (Bat  (None, 32, 32, 64)        256       
+ chNormalization)                                                
+                                                                 
+ activation_5 (Activation)   (None, 32, 32, 64)        0         
+                                                                 
+ conv2d_6 (Conv2D)           (None, 32, 32, 64)        36928     
+                                                                 
+ max_pooling2d_6 (MaxPoolin  (None, 16, 16, 64)        0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_6 (Bat  (None, 16, 16, 64)        256       
+ chNormalization)                                                
+                                                                 
+ activation_6 (Activation)   (None, 16, 16, 64)        0         
+                                                                 
+ conv2d_7 (Conv2D)           (None, 16, 16, 64)        36928     
+                                                                 
+ max_pooling2d_7 (MaxPoolin  (None, 8, 8, 64)          0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_7 (Bat  (None, 8, 8, 64)          256       
+ chNormalization)                                                
+                                                                 
+ activation_7 (Activation)   (None, 8, 8, 64)          0         
+                                                                 
+ flatten_1 (Flatten)         (None, 4096)              0         
+                                                                 
+ dense_1 (Dense)             (None, 2541)              10410477  
+                                                                 
+=================================================================
+Total params: 10524077 (40.15 MB)
+Trainable params: 10523565 (40.14 MB)
+Non-trainable params: 512 (2.00 KB)
+_________________________________________________________________
+None
+x.shape: (None, 4096)
+Model: "model_2"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d_8_input (InputLayer  [(None, 128, 128, 3)]     0         
+ )                                                               
+                                                                 
+ conv2d_8 (Conv2D)           (None, 128, 128, 64)      1792      
+                                                                 
+ max_pooling2d_8 (MaxPoolin  (None, 64, 64, 64)        0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_8 (Bat  (None, 64, 64, 64)        256       
+ chNormalization)                                                
+                                                                 
+ activation_8 (Activation)   (None, 64, 64, 64)        0         
+                                                                 
+ conv2d_9 (Conv2D)           (None, 64, 64, 64)        36928     
+                                                                 
+ max_pooling2d_9 (MaxPoolin  (None, 32, 32, 64)        0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_9 (Bat  (None, 32, 32, 64)        256       
+ chNormalization)                                                
+                                                                 
+ activation_9 (Activation)   (None, 32, 32, 64)        0         
+                                                                 
+ conv2d_10 (Conv2D)          (None, 32, 32, 64)        36928     
+                                                                 
+ max_pooling2d_10 (MaxPooli  (None, 16, 16, 64)        0         
+ ng2D)                                                           
+                                                                 
+ batch_normalization_10 (Ba  (None, 16, 16, 64)        256       
+ tchNormalization)                                               
+                                                                 
+ activation_10 (Activation)  (None, 16, 16, 64)        0         
+                                                                 
+ conv2d_11 (Conv2D)          (None, 16, 16, 64)        36928     
+                                                                 
+ max_pooling2d_11 (MaxPooli  (None, 8, 8, 64)          0         
+ ng2D)                                                           
+                                                                 
+ batch_normalization_11 (Ba  (None, 8, 8, 64)          256       
+ tchNormalization)                                               
+                                                                 
+ activation_11 (Activation)  (None, 8, 8, 64)          0         
+                                                                 
+ flatten_2 (Flatten)         (None, 4096)              0         
+                                                                 
+ dense_2 (Dense)             (None, 2541)              10410477  
+                                                                 
+=================================================================
+Total params: 10524077 (40.15 MB)
+Trainable params: 10523565 (40.14 MB)
+Non-trainable params: 512 (2.00 KB)
+_________________________________________________________________
+None
+WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
+WARNING: Client API version     = 0.9.15 
+WARNING: Simulator API version  = 0.9.14 

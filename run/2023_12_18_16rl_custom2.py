@@ -333,25 +333,25 @@ class DQNAgent:
         base_model.add(BatchNormalization())
         base_model.add(Activation('relu'))
         
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
-        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        # base_model.add(BatchNormalization())
-        # base_model.add(Activation('relu'))
+        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(BatchNormalization())
+        base_model.add(Activation('relu'))
 
         x = base_model.output
         x = Flatten()(x)
 
-        # print(f'x.shape: {x.shape}')
+        print(f'x.shape: {x.shape}')
 
         size_reduce = 2
         while(x.shape.as_list()[1] >= size_reduce*(action_size+1)):
@@ -382,8 +382,8 @@ class DQNAgent:
         while current_qs_list == None:
             try:
                 current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
-            except:
-                pass
+            except Exception as e:
+                print(f'Error message: {e}')
 
         # new_current_states = np.array([transition[3] for transition in minibatch])/255
         new_current_states = np.array([transition[3] for transition in minibatch])
@@ -519,8 +519,8 @@ if __name__ == "__main__":
 
     env = CarEnv()
 
-    # trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
-    # trainer_thread.start()
+    trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
+    trainer_thread.start()
 
     while not agent.training_initialized:
         time.sleep(0.01)
