@@ -191,3 +191,21 @@ None
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
+  0%|          | 0/1000 [00:00<?, ?episode/s]
+Started episode 1 of 1000
+Finished episode 1 of 1000
+Count of epochs trained: 0	Goal: 1
+Count of batches trained: 0	Goal: 123
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A2023-12-31 15:37:46.928121: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2023-12-31 15:37:49.375405: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f305f5bce70 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-12-31 15:37:49.375420: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2023-12-31 15:37:49.378233: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1704055069.451138 1710645 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Finished training first batch.
+
+100%|##########| 1/1 [01:02<00:00, 62.96s/epoch][A100%|##########| 1/1 [01:02<00:00, 62.96s/epoch]
+Saved model from episode 1. Count of epochs trained: 123
+  0%|          | 1/1000 [04:54<81:48:43, 294.82s/episode]
+Started episode 2 of 1000
