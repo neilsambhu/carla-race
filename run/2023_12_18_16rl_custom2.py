@@ -18,6 +18,7 @@ from threading import Thread
 from tensorflow.keras.callbacks import TensorBoard # Neil modified `from keras.callbacks import TensorBoard`
 
 from tqdm import tqdm
+import pickle
 
 
 try:
@@ -49,6 +50,7 @@ with open(directory_input, 'r') as file:
 REPLAY_MEMORY_SIZE = 5*number_of_lines
 # MINIBATCH_SIZE = 16
 MINIBATCH_SIZE = 128
+MINIBATCH_SIZE = 1024
 MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -332,20 +334,20 @@ class DQNAgent:
         base_model.add(BatchNormalization())
         base_model.add(Activation('relu'))
         
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
         x = base_model.output
         x = Flatten()(x)
@@ -376,7 +378,13 @@ class DQNAgent:
         current_states = np.array([transition[0] for transition in minibatch])
         # Neil commented `with self.graph.as_default():`
         # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
-        current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
+        # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
+        current_qs_list = None
+        while current_qs_list == None:
+            try:
+                current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
+            except:
+                pass
 
         # new_current_states = np.array([transition[3] for transition in minibatch])/255
         new_current_states = np.array([transition[3] for transition in minibatch])
@@ -504,19 +512,23 @@ if __name__ == "__main__":
         print(f'Leftover images from failed episode: {matching_files}')
         [os.remove(file) for file in matching_files]
 
+        matching_files = glob.glob(os.path.join(directory_output, f'*{idx_episode_crashed}_*.png'))
+        with open(f'tmp/{idx_episode_saved}.replay_memory', 'rb') as file:
+            agent.replay_memory = pickle.load(file)
+
         idx_episode_start = idx_episode_crashed
 
     env = CarEnv()
 
+    # trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
+    # trainer_thread.start()
+
+    while not agent.training_initialized:
+        time.sleep(0.01)
+
+    bTrainingComplete = False
+    previousEpisode_countEpochsTrained = agent.count_epochs_trained
     try:
-        trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
-        trainer_thread.start()
-
-        while not agent.training_initialized:
-            time.sleep(0.01)
-
-        bTrainingComplete = False
-        previousEpisode_countEpochsTrained = agent.count_epochs_trained
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
             print(f'\nStarted episode {episode} of {EPISODES}')
 
@@ -558,11 +570,9 @@ if __name__ == "__main__":
 
                 if done:
                     break
-            # pbar.disable = False
 
             for actor in env.actor_list:
                 actor.destroy()
-            # process.terminate()
 
             # Append episode reward to a list and log stats (every given number of episodes)
             ep_rewards.append(episode_reward)
@@ -599,6 +609,9 @@ if __name__ == "__main__":
             
             agent.saved_model.save(f'tmp/{env.episode:03}.{agent.count_epochs_trained}.model')
             print(f'Saved model from episode {env.episode}. Count of epochs trained: {agent.count_epochs_trained}')
+
+            with open(f'tmp/{env.episode:03}.replay_memory', 'wb') as file:
+                pickle.dump(agent.replay_memory, file)
 
             # import subprocess
             # git = subprocess.Popen('git commit -a -m \"upload results\"')
