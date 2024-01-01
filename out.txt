@@ -204,3 +204,192 @@ Count of batches trained: 0	Goal: 123
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
 I0000 00:00:1704055456.845935 1720157 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
 Finished training first batch.
+
+100%|##########| 1/1 [01:04<00:00, 64.03s/epoch][A100%|##########| 1/1 [01:04<00:00, 64.03s/epoch]
+Saved model from episode 1. Count of batches trained: 123
+  0%|          | 1/1000 [04:56<82:08:38, 296.01s/episode]
+Started episode 2 of 1000
+Finished episode 2 of 1000
+Count of epochs trained: 1	Goal: 1
+Count of batches trained: 123	Goal: 246
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:58<00:00, 58.66s/epoch][A100%|##########| 1/1 [00:58<00:00, 58.66s/epoch]
+Saved model from episode 2. Count of batches trained: 246
+  0%|          | 2/1000 [09:43<80:44:02, 291.22s/episode]
+Started episode 3 of 1000
+Finished episode 3 of 1000
+Count of epochs trained: 2	Goal: 1
+Count of batches trained: 246	Goal: 369
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:58<00:00, 58.75s/epoch][A100%|##########| 1/1 [00:58<00:00, 58.75s/epoch]
+Saved model from episode 3. Count of batches trained: 369
+  0%|          | 3/1000 [14:31<80:13:50, 289.70s/episode]
+Started episode 4 of 1000
+Finished episode 4 of 1000
+Count of epochs trained: 3	Goal: 1
+Count of batches trained: 369	Goal: 492
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:58<00:00, 58.79s/epoch][A100%|##########| 1/1 [00:58<00:00, 58.79s/epoch]
+Saved model from episode 4. Count of batches trained: 492
+  0%|          | 4/1000 [19:18<79:52:26, 288.70s/episode]
+Started episode 5 of 1000
+Finished episode 5 of 1000
+Count of epochs trained: 4	Goal: 1
+Count of batches trained: 492	Goal: 615
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:58<00:00, 58.84s/epoch][A100%|##########| 1/1 [00:58<00:00, 58.84s/epoch]
+Saved model from episode 5. Count of batches trained: 615
+  0%|          | 5/1000 [24:06<79:38:03, 288.12s/episode]
+Started episode 6 of 1000
+Finished episode 6 of 1000
+Count of epochs trained: 5	Goal: 10
+Count of batches trained: 615	Goal: 1854
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [00:58<08:49, 58.84s/epoch][A
+ 20%|##        | 2/10 [02:57<12:33, 94.15s/epoch][A
+ 30%|###       | 3/10 [05:56<15:29, 132.73s/epoch][A
+ 40%|####      | 4/10 [09:53<17:24, 174.14s/epoch][A
+ 50%|#####     | 5/10 [14:51<18:13, 218.70s/epoch][A
+ 60%|######    | 6/10 [20:48<17:42, 265.74s/epoch][A
+ 70%|#######   | 7/10 [27:45<15:44, 314.99s/epoch][A
+ 80%|########  | 8/10 [35:41<12:12, 366.31s/epoch][A
+ 90%|######### | 9/10 [44:37<06:59, 419.45s/epoch][A
+100%|##########| 10/10 [54:33<00:00, 473.78s/epoch][A100%|##########| 10/10 [54:33<00:00, 327.30s/epoch]
+Saved model from episode 6. Count of batches trained: 7425
+  1%|          | 6/1000 [1:22:26<381:07:52, 1380.35s/episode]
+Started episode 7 of 1000
+Finished episode 7 of 1000
+Count of epochs trained: 15	Goal: 10
+Count of batches trained: 7425	Goal: 8664
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [00:59<08:54, 59.37s/epoch][A
+ 20%|##        | 2/10 [02:58<12:38, 94.78s/epoch][A
+ 30%|###       | 3/10 [05:58<15:34, 133.51s/epoch][A
+ 40%|####      | 4/10 [09:58<17:32, 175.35s/epoch][A
+ 50%|#####     | 5/10 [14:57<18:21, 220.20s/epoch][A
+ 60%|######    | 6/10 [20:57<17:50, 267.67s/epoch][A
+ 70%|#######   | 7/10 [27:56<15:51, 317.21s/epoch][A
+ 80%|########  | 8/10 [35:54<12:16, 368.41s/epoch][A
+ 90%|######### | 9/10 [44:49<07:00, 420.49s/epoch][A
+100%|##########| 10/10 [54:44<00:00, 474.30s/epoch][A100%|##########| 10/10 [54:44<00:00, 328.46s/epoch]
+Saved model from episode 7. Count of batches trained: 14235
+  1%|          | 7/1000 [2:20:07<568:23:30, 2060.64s/episode]
+Started episode 8 of 1000
+Finished episode 8 of 1000
+Count of epochs trained: 25	Goal: 10
+Count of batches trained: 14235	Goal: 15474
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [00:59<08:55, 59.46s/epoch][A
+ 20%|##        | 2/10 [02:58<12:37, 94.74s/epoch][A
+ 30%|###       | 3/10 [05:58<15:33, 133.36s/epoch][A
+ 40%|####      | 4/10 [09:57<17:31, 175.18s/epoch][A
+ 50%|#####     | 5/10 [14:56<18:19, 219.91s/epoch][A
+ 60%|######    | 6/10 [20:56<17:49, 267.43s/epoch][A
+ 70%|#######   | 7/10 [27:55<15:50, 316.97s/epoch][A
+ 80%|########  | 8/10 [35:55<12:17, 368.82s/epoch][A
+ 90%|######### | 9/10 [44:54<07:02, 422.10s/epoch][A
+100%|##########| 10/10 [54:53<00:00, 476.81s/epoch][A100%|##########| 10/10 [54:53<00:00, 329.38s/epoch]
+Saved model from episode 8. Count of batches trained: 21045
+  1%|          | 8/1000 [3:17:38<689:45:31, 2503.16s/episode]
+Started episode 9 of 1000
+Finished episode 9 of 1000
+Count of epochs trained: 35	Goal: 10
+Count of batches trained: 21045	Goal: 22284
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [00:58<08:47, 58.61s/epoch][A
+ 20%|##        | 2/10 [02:57<12:31, 93.95s/epoch][A
+ 30%|###       | 3/10 [05:55<15:28, 132.61s/epoch][A
+ 40%|####      | 4/10 [09:53<17:25, 174.24s/epoch][A
+ 50%|#####     | 5/10 [14:51<18:13, 218.71s/epoch][A
+ 60%|######    | 6/10 [20:48<17:42, 265.71s/epoch][A
+ 70%|#######   | 7/10 [27:45<15:45, 315.02s/epoch][A
+ 80%|########  | 8/10 [35:40<12:12, 366.08s/epoch][A
+ 90%|######### | 9/10 [44:35<06:59, 419.04s/epoch][A
+100%|##########| 10/10 [54:31<00:00, 473.53s/epoch][A100%|##########| 10/10 [54:31<00:00, 327.14s/epoch]
+Saved model from episode 9. Count of batches trained: 27855
+  1%|          | 9/1000 [4:13:09<760:18:51, 2761.99s/episode]
+Started episode 10 of 1000
+Finished episode 10 of 1000
+Count of epochs trained: 45	Goal: 10
+Count of batches trained: 27855	Goal: 29094
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [00:59<08:51, 59.05s/epoch][A
+ 20%|##        | 2/10 [02:57<12:32, 94.08s/epoch][A
+ 30%|###       | 3/10 [05:56<15:28, 132.70s/epoch][A
+ 40%|####      | 4/10 [09:54<17:25, 174.26s/epoch][A
+ 50%|#####     | 5/10 [14:51<18:13, 218.78s/epoch][A
+ 60%|######    | 6/10 [20:48<17:42, 265.72s/epoch][A
+ 70%|#######   | 7/10 [27:45<15:45, 315.17s/epoch][A
+ 80%|########  | 8/10 [35:42<12:13, 366.50s/epoch][A
+ 90%|######### | 9/10 [44:37<06:59, 419.41s/epoch][A
+100%|##########| 10/10 [54:32<00:00, 473.49s/epoch][A100%|##########| 10/10 [54:32<00:00, 327.25s/epoch]
+Saved model from episode 10. Count of batches trained: 34665
+  1%|1         | 10/1000 [5:09:57<814:23:00, 2961.39s/episode]
+Started episode 11 of 1000
+Finished episode 11 of 1000
+Count of epochs trained: 55	Goal: 10
+Count of batches trained: 34665	Goal: 35904
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [00:59<08:55, 59.46s/epoch][A
+ 20%|##        | 2/10 [02:59<12:38, 94.87s/epoch][A
+ 30%|###       | 3/10 [05:59<15:36, 133.74s/epoch][A
+ 40%|####      | 4/10 [09:59<17:34, 175.73s/epoch][A
+ 50%|#####     | 5/10 [14:59<18:22, 220.55s/epoch][A
+ 60%|######    | 6/10 [20:59<17:52, 268.00s/epoch][A
+ 70%|#######   | 7/10 [27:57<15:51, 317.24s/epoch][A
+ 80%|########  | 8/10 [35:57<12:17, 368.83s/epoch][A
+ 90%|######### | 9/10 [44:57<07:02, 422.41s/epoch][A
+100%|##########| 10/10 [54:57<00:00, 477.12s/epoch][A100%|##########| 10/10 [54:57<00:00, 329.71s/epoch]
+Saved model from episode 11. Count of batches trained: 41475
+  1%|1         | 11/1000 [6:06:40<850:41:22, 3096.54s/episode]
+Started episode 12 of 1000
+Finished episode 12 of 1000
+Count of epochs trained: 65	Goal: 10
+Count of batches trained: 41475	Goal: 42714
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [00:59<08:56, 59.61s/epoch][A
+ 20%|##        | 2/10 [02:59<12:40, 95.05s/epoch][A
+ 30%|###       | 3/10 [06:00<15:38, 134.11s/epoch][A
+ 40%|####      | 4/10 [10:08<17:54, 179.05s/epoch][A
+ 50%|#####     | 5/10 [15:08<18:34, 222.95s/epoch][A
+ 60%|######    | 6/10 [21:09<17:59, 269.77s/epoch][A
+ 70%|#######   | 7/10 [28:10<15:57, 319.17s/epoch][A
+ 80%|########  | 8/10 [36:11<12:21, 370.64s/epoch][A
+ 90%|######### | 9/10 [45:12<07:04, 424.12s/epoch][A
+100%|##########| 10/10 [55:11<00:00, 478.13s/epoch][A100%|##########| 10/10 [55:11<00:00, 331.19s/epoch]
+Saved model from episode 12. Count of batches trained: 48285
+  1%|1         | 12/1000 [7:03:55<878:04:40, 3199.47s/episode]
+Started episode 13 of 1000
+Finished episode 13 of 1000
+Count of epochs trained: 75	Goal: 10
+Count of batches trained: 48285	Goal: 49524
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [00:59<08:53, 59.25s/epoch][A
+ 20%|##        | 2/10 [02:58<12:36, 94.50s/epoch][A
+ 30%|###       | 3/10 [05:56<15:29, 132.79s/epoch][A
+ 40%|####      | 4/10 [09:58<17:33, 175.63s/epoch][A
+ 50%|#####     | 5/10 [14:55<18:17, 219.59s/epoch][A2023-12-31 23:03:59.904498: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-31 23:03:59.926578: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-31 23:03:59.926596: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-31 23:03:59.927241: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-31 23:03:59.930634: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-31 23:04:00.352211: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-12-31 23:04:00.654705: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-31 23:04:00.684316: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-31 23:04:00.684457: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-31 23:04:00.687035: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-31 23:04:00.687325: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-12-31 23:04:00.687604: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
