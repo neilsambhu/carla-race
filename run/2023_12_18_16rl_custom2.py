@@ -47,7 +47,8 @@ with open(directory_input, 'r') as file:
     number_of_lines = len(file.readlines())
 # MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
-REPLAY_MEMORY_SIZE = 5*number_of_lines
+# REPLAY_MEMORY_SIZE = 5*number_of_lines
+REPLAY_MEMORY_SIZE = 50_000
 # MINIBATCH_SIZE = 16
 MINIBATCH_SIZE = 128
 MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
