@@ -483,7 +483,7 @@ class DQNAgent:
 if __name__ == "__main__":
     FPS = 60
     # ep_rewards = [-200]
-    ep_rewards = [-1]
+    ep_rewards = [-0.0001]
 
     random.seed(1)
     np.random.seed(1)
@@ -611,7 +611,8 @@ if __name__ == "__main__":
             if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
                 epochs = 0
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                epochs = 1
+                # epochs = 1
+                epochs = 0
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10
             if epochs > 0:
