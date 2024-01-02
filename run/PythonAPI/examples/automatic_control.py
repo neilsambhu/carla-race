@@ -769,7 +769,7 @@ def game_loop(args):
         # 11/6/2023 8:21 PM: set_destination: end
         # 11/18/2023 8:18 PM: set_destination: start
         # agent.set_destination(spawn_points[16].location)
-        # agent.set_destination(spawn_points[335].location)
+        agent.set_destination(spawn_points[335].location)
         # 11/18/2023 8:18 PM: set_destination: end
 
         clock = pygame.time.Clock()
