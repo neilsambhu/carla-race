@@ -353,7 +353,7 @@ class DQNAgent:
         x = base_model.output
         x = Flatten()(x)
 
-        print(f'x.shape: {x.shape}')
+        # print(f'x.shape: {x.shape}')
 
         size_reduce = 2
         while(x.shape.as_list()[1] >= size_reduce*(action_size+1)):
@@ -362,7 +362,7 @@ class DQNAgent:
         predictions = Dense(action_size, activation="linear")(x)
         model = Model(inputs = base_model.input, outputs=predictions)
         model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
-        print(model.summary())
+        # print(model.summary())
         return model
 
     def update_replay_memory(self, transition):
