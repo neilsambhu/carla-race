@@ -23,6 +23,5 @@
 # killall -9 -r CarlaUE4-Linux
 # nvidia-smi
 
-conda env list
-python -V
+conda activate carla_py3.9
 # srun python
