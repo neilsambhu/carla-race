@@ -57,9 +57,10 @@ while len(glob.glob('models/final.model')) == 0:
             carla = subprocess.Popen('ssh SAMBHU23 "/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen"', shell=True, preexec_fn=os.setsid)
             time.sleep(30)
         if run == 1:
-            rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py 2>&1 | tee out.txt', shell=True)
+            # rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py 2>&1 | tee out.txt', shell=True)
+            rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py', shell=True)
         elif run > 1:
-            rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py 2>&1 | tee -a out.txt', shell=True)
+            rl_custom = subprocess.Popen('python -u run/2023_12_18_16rl_custom2.py', shell=True)
         def signal_handler(sig, frame):
             carla.terminate()
             rl_custom.terminate()
