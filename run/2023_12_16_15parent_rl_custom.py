@@ -57,9 +57,9 @@ while len(glob.glob('models/final.model')) == 0:
                 # carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True, preexec_fn=os.setsid)
             else:
                 # carla = subprocess.Popen(f'srun singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen & wait {30*24*60*60}', shell=True, preexec_fn=os.setsid)
-                carla = subprocess.Popen('srun singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen & wait {30*24*60*60}', shell=True)
-                # carla = subprocess.Popen('sbatch /home/n/nsambhu/github/podman-carla/carla.sh', shell=True, preexec_fn=os.setsid)
-                # carla = subprocess.Popen('sbatch /home/n/nsambhu/github/podman-carla/carla.sh', shell=True)
+                carla = subprocess.Popen(f'srun singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen & wait {30*24*60*60}', shell=True)
+                # carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh', shell=True, preexec_fn=os.setsid)
+                # carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh', shell=True)
                 time.sleep(30)                
                 nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
                 nvidia_smi.wait()
