@@ -5,8 +5,12 @@ bGAIVI = True
 
 # delete files from previous run
 def clean_directory(directory):
-    [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
-    [shutil.rmtree(os.path.join(directory, dir)) for dir in os.listdir(directory) if os.path.isdir(os.path.join(directory, dir))]
+    if not bGAIVI:
+        [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
+        [shutil.rmtree(os.path.join(directory, dir)) for dir in os.listdir(directory) if os.path.isdir(os.path.join(directory, dir))]
+    else:
+        clean = subprocess.Popen(f'rm -rf {directory}/*', shell=True)
+        clean.wait()
 clean_directory(directory='_out_16rl_custom2')
 clean_directory(directory='tmp')
 clean_directory(directory='models')
