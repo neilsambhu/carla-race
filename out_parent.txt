@@ -659,3 +659,13 @@ Count of epochs trained: 45	Goal: 46
 Count of batches trained: 17550	Goal: 17940
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:02<00:00, 182.22s/epoch][A100%|##########| 1/1 [03:02<00:00, 182.22s/epoch]
+Saved model from episode 46. Count of batches trained: 17940
+  5%|4         | 46/1000 [3:02:43<60:58:42, 230.11s/episode]
+Started episode 47 of 1000
+Finished episode 47 of 1000
+len(agent.replay_memory): 44805
+Count of epochs trained: 46	Goal: 47
+Count of batches trained: 17940	Goal: 18330
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
