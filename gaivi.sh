@@ -24,6 +24,7 @@
 # nvidia-smi
 
 python -V
-srun conda activate carla_py3.9
+conda init bash
+conda activate carla_py3.9
 python -V
 # srun python -u run/2023_12_18_16rl_custom2.py
