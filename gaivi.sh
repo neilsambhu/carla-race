@@ -24,4 +24,5 @@
 # nvidia-smi
 
 conda env list
+python -V
 # srun python
