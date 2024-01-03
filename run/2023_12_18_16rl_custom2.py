@@ -141,8 +141,8 @@ class CarEnv:
     idx_tick = -1
 
     def __init__(self):
-        # self.client = carla.Client("localhost", 2000)
-        self.client = carla.Client("10.247.52.30", 2000)
+        self.client = carla.Client("localhost", 2000)
+        # self.client = carla.Client("10.247.52.30", 2000)
         # self.client.set_timeout(2.0)
         # self.client.set_timeout(60)
         self.client.set_timeout(600)
