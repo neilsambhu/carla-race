@@ -1,7 +1,8 @@
 import time, os, shutil, subprocess, glob, signal
 
-bLocalCarla = True
-bGAIVI = True
+bSAMBHU24 = True
+bLocalCarla = not bSAMBHU24
+bGAIVI = not bSAMBHU24
 
 # delete files from previous run
 def clean_directory(directory):
