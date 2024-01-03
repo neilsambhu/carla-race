@@ -284,15 +284,16 @@ class LocalPlanner(object):
             if bVerbose and False:
                 print(f'control: {control}')
             # 11/22/2023 10:48 AM: save control signal: start
-            # with open('_out_07vehicle_control_AP/control.txt', 'a') as file:
-            #     file.write('{} {} {} {} {} {} {}\n'.format(
-            #         control.throttle,
-            #         control.steer,
-            #         control.brake,
-            #         control.hand_brake,
-            #         control.reverse,
-            #         control.manual_gear_shift,
-            #         control.gear))
+            with open('_out_07vehicle_control_AP/Controls_Town04_0_335.txt', 'a') as file:
+                # file.write('{} {} {} {} {} {} {}\n'.format(
+                #     control.throttle,
+                #     control.steer,
+                #     control.brake,
+                #     control.hand_brake,
+                #     control.reverse,
+                #     control.manual_gear_shift,
+                #     control.gear))
+                file.write('{} {} {}\n'.format(control.throttle, control.steer, control.brake))
             # 11/22/2023 10:48 AM: save control signal: end
             # 11/22/2023 11:17 AM: read control signal: start
             # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=1.0,0.5,0.0,False,False,False,0
