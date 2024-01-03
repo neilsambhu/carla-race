@@ -84,7 +84,7 @@ bVerbose = True
 bGPU = True
 
 # Define action space
-action_space = {'throttle': np.linspace(0.0, 1.0, num=21),
+action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
 # action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
                 'steer': np.linspace(-1.0, 1.0, num=21),
                 # 'steer': np.linspace(-1.0, 1.0, num=3),
