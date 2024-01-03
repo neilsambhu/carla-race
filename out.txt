@@ -370,3 +370,9 @@ Count of batches trained: 6240	Goal: 6630
 Saved model from episode 17. Count of batches trained: 6630
   2%|1         | 17/1000 [1:07:36<65:53:30, 241.31s/episode]
 Started episode 18 of 1000
+Finished episode 18 of 1000
+len(agent.replay_memory): 16782
+Count of epochs trained: 17	Goal: 18
+Count of batches trained: 6630	Goal: 7020
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
