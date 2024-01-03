@@ -23,8 +23,5 @@
 # killall -9 -r CarlaUE4-Linux
 # nvidia-smi
 
-python -V
-conda init bash
 conda activate carla_py3.9
-python -V
-# srun python -u run/2023_12_18_16rl_custom2.py
+srun python -u run/2023_12_16_15parent_rl_custom.py
