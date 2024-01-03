@@ -1,6 +1,6 @@
 import time, os, shutil, subprocess, glob, signal
 
-bLocalCarla = False
+bLocalCarla = True
 bGAIVI = True
 
 # delete files from previous run
