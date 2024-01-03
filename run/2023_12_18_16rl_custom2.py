@@ -42,8 +42,8 @@ SECONDS_PER_EPISODE = 3*60
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
 # MIN_REPLAY_MEMORY_SIZE = int(1.5*SECONDS_PER_EPISODE*20) # 12/24/2023 6:37 AM: Neil commented out
-dir_AP_locations = '_out_07CARLA_AP/Locations_Town04_0_335.txt'
-with open(dir_AP_locations, 'r') as file:
+path_AP_locations = '_out_07CARLA_AP/Locations_Town04_0_335.txt'
+with open(path_AP_locations, 'r') as file:
     number_of_lines = len(file.readlines())
 # MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
@@ -261,7 +261,7 @@ class CarEnv:
         lines = []
         location_groundTruth = carla.Location(0.0,0.0,0.0)
         # Reading ground truth coordinates from the file
-        with open(dir_AP_locations, 'r') as file:
+        with open(path_AP_locations, 'r') as file:
             lines = file.readlines()
             if self.idx_tick < len(lines):
                 data = lines[self.idx_tick].split()
@@ -277,7 +277,7 @@ class CarEnv:
         # You might want to define a threshold and reward scheme based on the distance
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
-        # reward = -1*distance**3 - distance + 5
+        reward = -1*distance**3 - distance + 1
         # if distance < 1:
         #     reward += 1
         # else:
@@ -286,13 +286,13 @@ class CarEnv:
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
 
-        v = self.vehicle.get_velocity()
-        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        reward += kmh
+        # v = self.vehicle.get_velocity()
+        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        # reward += kmh
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
-        if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
-            done = True
+        # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
+        #     done = True
 
         if len (self.collision_hist) != 0:
             done = True
@@ -664,7 +664,7 @@ if __name__ == "__main__":
         print(f'Error during episode {env.episode}')
     finally:
         agent.terminate = True
-        trainer_thread.join()
+        # trainer_thread.join()
         if bTrainingComplete:
             agent.model.save(f'models/final.model')
             agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
