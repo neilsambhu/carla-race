@@ -42,8 +42,8 @@ SECONDS_PER_EPISODE = 3*60
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
 # MIN_REPLAY_MEMORY_SIZE = int(1.5*SECONDS_PER_EPISODE*20) # 12/24/2023 6:37 AM: Neil commented out
-directory_input = '_out_07vehicle_location_AP/Town04_0_335_sync.txt'
-with open(directory_input, 'r') as file:
+dir_AP_locations = '_out_07CARLA_AP/Locations_Town04_0_335.txt'
+with open(dir_AP_locations, 'r') as file:
     number_of_lines = len(file.readlines())
 # MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
@@ -261,7 +261,7 @@ class CarEnv:
         lines = []
         location_groundTruth = carla.Location(0.0,0.0,0.0)
         # Reading ground truth coordinates from the file
-        with open(directory_input, 'r') as file:
+        with open(dir_AP_locations, 'r') as file:
             lines = file.readlines()
             if self.idx_tick < len(lines):
                 data = lines[self.idx_tick].split()
@@ -558,8 +558,19 @@ if __name__ == "__main__":
                     # print(f'bSync inside episode')
                     env.world.tick();
                     env.idx_tick += 1
-                if np.random.random() > epsilon:
-                    action = np.argmax(agent.get_qs(current_state))
+                # if np.random.random() > epsilon and True:
+                if agent.count_epochs_trained <= 100:
+                    # action = np.argmax(agent.get_qs(current_state))
+                    action = None
+                    with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
+                        throttle,steer,brake = file.read().split()
+                        throttle,steer,brake = float(throttle),float(steer),float(brake)
+                        throttle_index = np.abs(action_space['throttle'] - throttle_val).argmin()
+                        steer_index = np.abs(action_space['steer'] - steer_val).argmin()
+                        brake_index = np.abs(action_space['brake'] - brake_val).argmin()
+                        action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
+                                    steer_index * len(action_space['brake']) + \
+                                    brake_index
                 else:
                     action = None
                     bActionValid = False

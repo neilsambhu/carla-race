@@ -297,7 +297,7 @@ class LocalPlanner(object):
             # 11/22/2023 10:48 AM: save control signal: end
             # 11/22/2023 11:17 AM: read control signal: start
             # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=1.0,0.5,0.0,False,False,False,0
-            # with open('_out_07vehicle_control_AP/control.txt', 'r') as file:
+            # with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
                 # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear = file.read().split()
             # 11/22/2023 11:17 AM: read control signal: end
             # 11/22/2023 11:08 AM: output control signal: start
