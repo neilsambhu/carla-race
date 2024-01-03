@@ -1,21 +1,21 @@
-2024-01-02 21:57:51.590938: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-02 21:57:51.613211: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-02 21:57:51.613229: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-02 21:57:51.613769: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-02 21:57:51.617119: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-02 22:41:39.537969: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-02 22:41:39.559717: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-02 22:41:39.559735: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-02 22:41:39.560275: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-02 22:41:39.563637: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-02 21:57:52.083377: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-02 21:57:52.409839: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:57:52.449599: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:57:52.449820: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:57:52.452712: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:57:52.453183: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:57:52.453389: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:57:53.223486: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:57:53.223647: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:57:53.223787: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:57:53.223887: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4400 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-x.shape: (None, 16384)
+2024-01-02 22:41:39.983286: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-02 22:41:40.283551: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-02 22:41:40.311070: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-02 22:41:40.311221: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-02 22:41:40.314179: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-02 22:41:40.314354: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-02 22:41:40.314483: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-02 22:41:41.197299: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-02 22:41:41.197423: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-02 22:41:41.197517: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-02 22:41:41.197612: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4442 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+x.shape: (None, 4096)
 Model: "model"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -24,21 +24,20 @@ _________________________________________________________________
                                                                  
  conv2d (Conv2D)             (None, 128, 128, 1)       28        
                                                                  
- flatten (Flatten)           (None, 16384)             0         
+ max_pooling2d (MaxPooling2  (None, 64, 64, 1)         0         
+ D)                                                              
                                                                  
- dense (Dense)               (None, 8192)              134225920 
+ flatten (Flatten)           (None, 4096)              0         
                                                                  
- dense_1 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_2 (Dense)             (None, 2541)              10410477  
+ dense (Dense)               (None, 4851)              19874547  
                                                                  
 =================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
+Total params: 19874575 (75.82 MB)
+Trainable params: 19874575 (75.82 MB)
 Non-trainable params: 0 (0.00 Byte)
 _________________________________________________________________
 None
-x.shape: (None, 16384)
+x.shape: (None, 4096)
 Model: "model_1"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -48,21 +47,20 @@ _________________________________________________________________
                                                                  
  conv2d_1 (Conv2D)           (None, 128, 128, 1)       28        
                                                                  
- flatten_1 (Flatten)         (None, 16384)             0         
+ max_pooling2d_1 (MaxPoolin  (None, 64, 64, 1)         0         
+ g2D)                                                            
                                                                  
- dense_3 (Dense)             (None, 8192)              134225920 
+ flatten_1 (Flatten)         (None, 4096)              0         
                                                                  
- dense_4 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_5 (Dense)             (None, 2541)              10410477  
+ dense_1 (Dense)             (None, 4851)              19874547  
                                                                  
 =================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
+Total params: 19874575 (75.82 MB)
+Trainable params: 19874575 (75.82 MB)
 Non-trainable params: 0 (0.00 Byte)
 _________________________________________________________________
 None
-x.shape: (None, 16384)
+x.shape: (None, 4096)
 Model: "model_2"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -72,17 +70,16 @@ _________________________________________________________________
                                                                  
  conv2d_2 (Conv2D)           (None, 128, 128, 1)       28        
                                                                  
- flatten_2 (Flatten)         (None, 16384)             0         
+ max_pooling2d_2 (MaxPoolin  (None, 64, 64, 1)         0         
+ g2D)                                                            
                                                                  
- dense_6 (Dense)             (None, 8192)              134225920 
+ flatten_2 (Flatten)         (None, 4096)              0         
                                                                  
- dense_7 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_8 (Dense)             (None, 2541)              10410477  
+ dense_2 (Dense)             (None, 4851)              19874547  
                                                                  
 =================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
+Total params: 19874575 (75.82 MB)
+Trainable params: 19874575 (75.82 MB)
 Non-trainable params: 0 (0.00 Byte)
 _________________________________________________________________
 None
@@ -91,317 +88,874 @@ WARNING: Client API version     = 0.9.15
 WARNING: Simulator API version  = 0.9.14 
   0%|          | 0/1000 [00:00<?, ?episode/s]
 Started episode 1 of 1000
-  0%|          | 0/1000 [00:00<?, ?episode/s]
-Error message: too many values to unpack (expected 3)
-Error during episode 1
-Traceback (most recent call last):
-  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 667, in <module>
-    trainer_thread.join()
-NameError: name 'trainer_thread' is not defined
-2024-01-02 21:58:46.747676: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-02 21:58:46.769910: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-02 21:58:46.769928: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-02 21:58:46.770500: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-02 21:58:46.773874: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-02 21:58:47.193335: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-02 21:58:47.507783: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:58:47.540781: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:58:47.540944: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:58:47.543813: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:58:47.544152: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:58:47.544342: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:58:48.301501: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:58:48.301644: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:58:48.301739: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:58:48.301820: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4400 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-x.shape: (None, 16384)
-Model: "model"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_input (InputLayer)   [(None, 128, 128, 3)]     0         
-                                                                 
- conv2d (Conv2D)             (None, 128, 128, 1)       28        
-                                                                 
- flatten (Flatten)           (None, 16384)             0         
-                                                                 
- dense (Dense)               (None, 8192)              134225920 
-                                                                 
- dense_1 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_2 (Dense)             (None, 2541)              10410477  
-                                                                 
-=================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-None
-x.shape: (None, 16384)
-Model: "model_1"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_1_input (InputLayer  [(None, 128, 128, 3)]     0         
- )                                                               
-                                                                 
- conv2d_1 (Conv2D)           (None, 128, 128, 1)       28        
-                                                                 
- flatten_1 (Flatten)         (None, 16384)             0         
-                                                                 
- dense_3 (Dense)             (None, 8192)              134225920 
-                                                                 
- dense_4 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_5 (Dense)             (None, 2541)              10410477  
-                                                                 
-=================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-None
-x.shape: (None, 16384)
-Model: "model_2"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_2_input (InputLayer  [(None, 128, 128, 3)]     0         
- )                                                               
-                                                                 
- conv2d_2 (Conv2D)           (None, 128, 128, 1)       28        
-                                                                 
- flatten_2 (Flatten)         (None, 16384)             0         
-                                                                 
- dense_6 (Dense)             (None, 8192)              134225920 
-                                                                 
- dense_7 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_8 (Dense)             (None, 2541)              10410477  
-                                                                 
-=================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-None
-WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
-WARNING: Client API version     = 0.9.15 
-WARNING: Simulator API version  = 0.9.14 
-  0%|          | 0/1000 [00:00<?, ?episode/s]
-Started episode 1 of 1000
-  0%|          | 0/1000 [00:00<?, ?episode/s]
-Error message: too many values to unpack (expected 3)
-Error during episode 1
-Traceback (most recent call last):
-  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 667, in <module>
-    # trainer_thread.join()
-NameError: name 'trainer_thread' is not defined
-Fatal Python error: PyGILState_Release: thread state 0x7fe034000d00 must be current when releasing
-Python runtime state: finalizing (tstate=0x10658a0)
-
-Thread 0x00007fe3a102f4c0 (most recent call first):
-<no Python frame>
-2024-01-02 21:59:51.355821: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-02 21:59:51.378172: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-02 21:59:51.378190: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-02 21:59:51.378734: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-02 21:59:51.382193: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-02 21:59:51.848645: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-02 21:59:52.184445: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:59:52.221922: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:59:52.222150: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:59:52.225696: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:59:52.225889: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:59:52.226007: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:59:53.079588: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:59:53.079711: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:59:53.079822: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 21:59:53.079902: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4400 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-x.shape: (None, 16384)
-Model: "model"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_input (InputLayer)   [(None, 128, 128, 3)]     0         
-                                                                 
- conv2d (Conv2D)             (None, 128, 128, 1)       28        
-                                                                 
- flatten (Flatten)           (None, 16384)             0         
-                                                                 
- dense (Dense)               (None, 8192)              134225920 
-                                                                 
- dense_1 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_2 (Dense)             (None, 2541)              10410477  
-                                                                 
-=================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-None
-x.shape: (None, 16384)
-Model: "model_1"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_1_input (InputLayer  [(None, 128, 128, 3)]     0         
- )                                                               
-                                                                 
- conv2d_1 (Conv2D)           (None, 128, 128, 1)       28        
-                                                                 
- flatten_1 (Flatten)         (None, 16384)             0         
-                                                                 
- dense_3 (Dense)             (None, 8192)              134225920 
-                                                                 
- dense_4 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_5 (Dense)             (None, 2541)              10410477  
-                                                                 
-=================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-None
-x.shape: (None, 16384)
-Model: "model_2"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_2_input (InputLayer  [(None, 128, 128, 3)]     0         
- )                                                               
-                                                                 
- conv2d_2 (Conv2D)           (None, 128, 128, 1)       28        
-                                                                 
- flatten_2 (Flatten)         (None, 16384)             0         
-                                                                 
- dense_6 (Dense)             (None, 8192)              134225920 
-                                                                 
- dense_7 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_8 (Dense)             (None, 2541)              10410477  
-                                                                 
-=================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-None
-WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
-WARNING: Client API version     = 0.9.15 
-WARNING: Simulator API version  = 0.9.14 
-  0%|          | 0/1000 [00:00<?, ?episode/s]
-Started episode 1 of 1000
-  0%|          | 0/1000 [00:00<?, ?episode/s]
-Error message: too many values to unpack (expected 3)
-Error during episode 1
-Fatal Python error: PyGILState_Release: thread state 0x7feb100061c0 must be current when releasing
-Python runtime state: finalizing (tstate=0x22808a0)
-
-Thread 0x00007fee5e3304c0 (most recent call first):
-<no Python frame>
-2024-01-02 22:01:05.811886: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-02 22:01:05.834684: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-02 22:01:05.834706: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-02 22:01:05.835354: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-02 22:01:05.839529: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-02 22:01:06.269531: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-02 22:01:06.587516: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 22:01:06.620444: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 22:01:06.620688: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 22:01:06.623453: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 22:01:06.623570: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 22:01:06.623658: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 22:01:07.412511: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 22:01:07.412652: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 22:01:07.412796: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-02 22:01:07.412905: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4400 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-x.shape: (None, 16384)
-Model: "model"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_input (InputLayer)   [(None, 128, 128, 3)]     0         
-                                                                 
- conv2d (Conv2D)             (None, 128, 128, 1)       28        
-                                                                 
- flatten (Flatten)           (None, 16384)             0         
-                                                                 
- dense (Dense)               (None, 8192)              134225920 
-                                                                 
- dense_1 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_2 (Dense)             (None, 2541)              10410477  
-                                                                 
-=================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-None
-x.shape: (None, 16384)
-Model: "model_1"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_1_input (InputLayer  [(None, 128, 128, 3)]     0         
- )                                                               
-                                                                 
- conv2d_1 (Conv2D)           (None, 128, 128, 1)       28        
-                                                                 
- flatten_1 (Flatten)         (None, 16384)             0         
-                                                                 
- dense_3 (Dense)             (None, 8192)              134225920 
-                                                                 
- dense_4 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_5 (Dense)             (None, 2541)              10410477  
-                                                                 
-=================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-None
-x.shape: (None, 16384)
-Model: "model_2"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- conv2d_2_input (InputLayer  [(None, 128, 128, 3)]     0         
- )                                                               
-                                                                 
- conv2d_2 (Conv2D)           (None, 128, 128, 1)       28        
-                                                                 
- flatten_2 (Flatten)         (None, 16384)             0         
-                                                                 
- dense_6 (Dense)             (None, 8192)              134225920 
-                                                                 
- dense_7 (Dense)             (None, 4096)              33558528  
-                                                                 
- dense_8 (Dense)             (None, 2541)              10410477  
-                                                                 
-=================================================================
-Total params: 178194953 (679.76 MB)
-Trainable params: 178194953 (679.76 MB)
-Non-trainable params: 0 (0.00 Byte)
-_________________________________________________________________
-None
-WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
-WARNING: Client API version     = 0.9.15 
-WARNING: Simulator API version  = 0.9.14 
-  0%|          | 0/1000 [00:00<?, ?episode/s]
-Started episode 1 of 1000
-  0%|          | 0/1000 [00:00<?, ?episode/s]
-Error message: too many values to unpack (expected 3)
-Error during episode 1
-Fatal Python error: PyGILState_Release: thread state 0x7f6a6c001260 must be current when releasing
-Python runtime state: finalizing (tstate=0x1def8a0)
-
-Thread 0x00007f6de1ab54c0 (most recent call first):
-<no Python frame>
+0.75 -0.10000000149011612 0.0
+0.75 -0.20000000298023224 0.0
+0.75 -0.30000001192092896 0.0
+0.75 -0.4000000059604645 0.0
+0.75 -0.5 0.0
+0.75 -0.584675669670105 0.0
+0.75 -0.5854195356369019 0.0
+0.75 -0.586163341999054 0.0
+0.75 -0.5869072079658508 0.0
+0.75 -0.5876510739326477 0.0
+0.75 -0.5876510739326477 0.0
+0.75 -0.5713353753089905 0.0
+0.75 -0.5212499499320984 0.0
+0.75 -0.476218044757843 0.0
+0.75 -0.4329884946346283 0.0
+0.75 -0.39243021607398987 0.0
+0.75 -0.3548460900783539 0.0
+0.75 -0.3173862099647522 0.0
+0.75 -0.2835932672023773 0.0
+0.75 -0.2500923275947571 0.0
+0.75 -0.2196139544248581 0.0
+0.75 -0.19156935811042786 0.0
+0.75 -0.16655178368091583 0.0
+0.75 -0.14403344690799713 0.0
+0.75 -0.12390311807394028 0.0
+0.75 -0.10612063854932785 0.0
+0.75 -0.09154454618692398 0.0
+0.75 -0.0771576538681984 0.0
+0.75 -0.0670727789402008 0.0
+0.75 -0.0569235235452652 0.0
+0.75 -0.049101218581199646 0.0
+0.75 -0.040157172828912735 0.0
+0.75 -0.034238919615745544 0.0
+0.75 -0.0294911190867424 0.0
+0.75 -0.02365083619952202 0.0
+0.75 -0.01953265257179737 0.0
+0.75 -0.016627905890345573 0.0
+0.75 -0.013891758397221565 0.0
+0.75 -0.010625122115015984 0.0
+0.75 -0.009168026968836784 0.0
+0.75 -0.10916803032159805 0.0
+0.75 -0.12330503016710281 0.0
+0.75 -0.07255742698907852 0.0
+0.6397913098335266 -0.04695921391248703 0.0
+0.0 -0.03881856054067612 0.14980535209178925
+0.0 -0.033130351454019547 0.30000001192092896
+0.0 -0.026966581121087074 0.30000001192092896
+0.0 -0.02176358364522457 0.30000001192092896
+0.0 -0.017709961161017418 0.30000001192092896
+0.22696106135845184 -0.014640012755990028 0.0
+0.6234291791915894 -0.01194336824119091 0.0
+0.75 -0.009783020243048668 0.0
+0.75 -0.00794798694550991 0.0
+0.75 -0.006498278584331274 0.0
+0.75 -0.0052751218900084496 0.0
+0.6888124942779541 -0.004278827458620071 0.0
+0.18054141104221344 -0.0034402813762426376 0.0
+0.0 -0.002776986686512828 0.19654519855976105
+0.0 -0.0022367765195667744 0.30000001192092896
+0.0 -0.0018004763405770063 0.13857823610305786
+0.11773299425840378 -0.0015186637174338102 0.0
+0.5446032285690308 -0.0012339155655354261 0.0
+0.75 -0.0009943164186552167 0.0
+0.75 -0.000820663757622242 0.0
+0.75 -0.0006689649308100343 0.0
+0.75 -0.0005653020925819874 0.0
+0.616881787776947 -0.10056529939174652 0.0
+0.29662975668907166 -0.09701486676931381 0.0
+0.0 -0.05380876362323761 0.09546705335378647
+0.0 -0.034151528030633926 0.17195658385753632
+0.0 -0.028855718672275543 0.09043356031179428
+0.2656320631504059 -0.025426845997571945 0.0
+0.544894814491272 -0.021217098459601402 0.0
+0.75 -0.017425566911697388 0.0
+0.75 -0.014169316738843918 0.0
+0.75 -0.011663251556456089 0.0
+0.6449132561683655 -0.009355691261589527 0.0
+0.3460126519203186 -0.007541236467659473 0.0
+0.0 -0.006050904747098684 0.06898084282875061
+0.0 -0.004878821782767773 0.16326625645160675
+0.0 -0.003940070513635874 0.09904899448156357
+0.2502375543117523 -0.003226066241040826 0.0
+0.5240318775177002 -0.0026308135129511356 0.0
+0.75 -0.002179895993322134 0.0
+0.75 -0.0017570852069184184 0.0
+0.75 -0.0014657173305749893 0.0
+0.6478432416915894 -0.001210589543916285 0.0
+0.35353800654411316 -0.0009581991471350193 0.0
+0.0 -0.0007887055980972946 0.060305364429950714
+0.0 -0.0006500888266600668 0.16026617586612701
+0.0 -0.0005129443597979844 0.10106174647808075
+0.2466059923171997 -0.00047019621706567705 0.0
+0.5748388767242432 -0.0003211976436432451 0.0
+0.75 0.09967879951000214 0.0
+0.75 0.10496325045824051 0.0
+0.75 0.06371189653873444 0.0
+0.75 0.04259341210126877 0.0
+0.75 0.0360645055770874 0.0
+0.75 0.13606449961662292 0.0
+0.4667481482028961 0.09452103823423386 0.0
+0.0 0.055718205869197845 0.08784297853708267
+0.0 0.0420699343085289 0.30000001192092896
+0.0 0.14206993579864502 0.30000001192092896
+0.01729239895939827 0.0676194578409195 0.0
+0.30567213892936707 0.03771120682358742 0.0
+0.736414909362793 0.03367331251502037 0.0
+0.75 0.03144966810941696 0.0
+0.75 0.026994021609425545 0.0
+0.75 0.12699401378631592 0.0
+0.75 0.031935058534145355 0.0
+0.37097498774528503 0.008298058994114399 0.0
+0.0 0.01544464286416769 0.011169332079589367
+0.0 0.07782899588346481 0.30000001192092896
+0.0 0.018420955166220665 0.1723940074443817
+0.050345826894044876 0.007381904870271683 0.0
+0.460206001996994 0.01061180792748928 0.0
+0.75 0.011302866041660309 0.0
+0.75 0.009519779123365879 0.0
+0.75 0.037816841155290604 0.0
+0.75 0.006102371029555798 0.0
+0.7262166142463684 0.0025345312897115946 0.0
+0.38068556785583496 0.005197693593800068 0.0
+0.0 0.011875768192112446 0.11746801435947418
+0.0 0.003923273645341396 0.2723727822303772
+0.0 0.002444076118990779 0.22503134608268738
+0.14388030767440796 0.002646388253197074 0.0
+0.4245075583457947 0.0024903586599975824 0.0
+0.75 0.002096919110044837 0.0
+0.75 -0.009207110852003098 0.0
+0.75 0.0011687790974974632 0.0
+0.75 0.0018975099083036184 0.0
+0.5106102824211121 0.000482535659102723 0.0
+0.04325791820883751 -2.6015619368990883e-05 0.0
+0.0 -0.02381094917654991 0.20174100995063782
+0.0 0.0004719299322459847 0.2513149380683899
+0.07933872193098068 0.002742074429988861 0.0
+0.34540221095085144 -0.0003927045618183911 0.0
+0.7474565505981445 -0.0014897370710968971 0.0
+0.75 -0.034641120582818985 0.0
+0.75 -0.0016785054467618465 0.0
+0.75 0.0017230436205863953 0.0
+0.6369591951370239 -0.0017812359146773815 0.0
+0.17989034950733185 -0.00267922249622643 0.0
+0.0 -0.0428440123796463 0.1296507567167282
+0.0 -0.0022550972644239664 0.27075108885765076
+0.0 0.0027632247656583786 0.006917206570506096
+0.23926736414432526 -0.0018969455268234015 0.0
+0.6595892906188965 -0.0035373326390981674 0.0
+0.75 -0.0487578809261322 0.0
+0.75 -0.004380406346172094 0.0
+0.75 0.0010381457395851612 0.0
+0.75 -0.003145188093185425 0.0
+0.39274370670318604 -0.004307273775339127 0.0
+0.02472830004990101 -0.053275879472494125 0.0
+0.0 -0.004033688921481371 0.2845345735549927
+0.0 0.0025101543869823217 0.16710074245929718
+0.04679430276155472 -0.0028708388563245535 0.0
+0.45273736119270325 -0.004662836901843548 0.0
+0.75 -0.05659471079707146 0.0
+0.75 -0.005957236047834158 0.0
+0.75 0.00047391679254360497 0.0
+0.75 -0.003917010501027107 0.0
+0.7329879403114319 -0.005262928083539009 0.0
+0.3866744935512543 -0.058920059353113174 0.0
+0.0 -0.005037094000726938 0.10145886987447739
+0.0 0.0022301010321825743 0.26921403408050537
+0.0 -0.003572123358026147 0.2300536036491394
+0.1371033638715744 -0.005390032194554806 0.0
+0.4175047278404236 -0.060739923268556595 0.0
+0.75 -0.006693611387163401 0.0
+0.75 0.00035351567203179 0.0
+0.75 -0.004258433822542429 0.0
+0.75 -0.005729363765567541 0.0
+0.5403022766113281 -0.062045007944107056 0.0
+0.08997722715139389 -0.0057306005619466305 0.0
+0.0 0.0019535846076905727 0.17183677852153778
+0.0 -0.004030666314065456 0.24811476469039917
+0.06442519277334213 -0.005802428815513849 0.0
+0.3222060203552246 -0.06318453699350357 0.0
+0.7438585758209229 -0.0072229038923978806 0.0
+0.75 0.00017683430633042008 0.0
+0.75 -0.004457118920981884 0.0
+0.75 -0.005949210841208696 0.0
+0.6780589818954468 -0.06374969333410263 0.0
+0.2368246614933014 -0.0062512182630598545 0.0
+0.0 0.0017041346291080117 0.10000729560852051
+0.0 -0.004330430645495653 0.2962760329246521
+0.0 -0.006083029322326183 0.06255154311656952
+0.1806149184703827 -0.06435199081897736 0.0
+0.6140808463096619 -0.007522199302911758 0.0
+0.75 5.5393385991919786e-05 0.0
+0.75 -0.0046185096725821495 0.0
+0.75 -0.006051132921129465 0.0
+0.75 -0.06474148482084274 0.0
+0.4963579475879669 -0.006725246552377939 0.0
+0.13894517719745636 0.0014914493076503277 0.0
+0.0 -0.004556003957986832 0.2271687239408493
+0.0 -0.0063081178814172745 0.17218860983848572
+0.0 -0.06501253694295883 0.004147421568632126
+0.4014522135257721 -0.007740468252450228 0.0
+0.7095826864242554 0.00010067896801047027 0.0
+0.75 -0.004591005388647318 0.0
+0.75 -0.00618137139827013 0.0
+0.75 -0.06519413739442825 0.0
+0.75 -0.0070433830842375755 0.0
+0.4806300401687622 0.0012568557867780328 0.0
+0.0 -0.004742615390568972 0.026218481361865997
+0.0 -0.006448313593864441 0.26977527141571045
+0.0 -0.06533057987689972 0.30000001192092896
+0.07265983521938324 -0.007891195826232433 0.0
+0.3553828001022339 7.194784848252311e-05 0.0
+0.75 -0.004668282810598612 0.0
+0.75 -0.006198513321578503 0.0
+0.75 -0.06546507030725479 0.0
+0.75 -0.007336563430726528 0.0
+0.6683605909347534 0.00110119697637856 0.0
+0.2046670764684677 -0.004770845174789429 0.0
+0.0 -0.006455426104366779 0.12830695509910583
+0.0 -0.06550941616296768 0.30000001192092896
+0.0 -0.007699652574956417 0.03446444123983383
+0.21240074932575226 0.00026248852373100817 0.0
+0.6281834840774536 -0.004565478768199682 0.0
+0.75 -0.006153163965791464 0.0
+0.75 -0.06561502069234848 0.0
+0.75 -0.007539528422057629 0.0
+0.75 0.0009938335279002786 0.0
+0.426640123128891 -0.004779154900461435 0.0
+0.0650562047958374 -0.0065483590587973595 0.0
+0.0 -0.06554163247346878 0.26956823468208313
+0.0 -0.007289635017514229 0.15104568004608154
+0.04488253965973854 0.0007415268337354064 0.0
+0.43892768025398254 -0.0043692560866475105 0.0
+0.7336814403533936 -0.006123583298176527 0.0
+0.75 -0.06569492071866989 0.0
+0.75 -0.007715510204434395 0.0
+0.75 0.0009257493074983358 0.0
+0.7099041938781738 -0.004788420163094997 0.0
+0.36881572008132935 -0.00644727936014533 0.0
+0.0 -0.06558868288993835 0.11582917720079422
+0.0 -0.006938462145626545 0.23937146365642548
+0.0 0.001214197021909058 0.18615418672561646
+0.1739305704832077 -0.004093378782272339 0.0
+0.4486958384513855 -0.005936361383646727 0.0
+0.75 -0.06571467965841293 0.0
+0.75 -0.0076988693326711655 0.0
+0.75 0.0010162193793803453 0.0
+0.75 -0.004627546761184931 0.0
+0.46591952443122864 -0.006412845104932785 0.0
+0.0 -0.06560645252466202 0.008083879016339779
+0.0 -0.00681603979319334 0.2139393389225006
+0.0 0.0014387504197657108 0.2371140718460083
+0.10725026577711105 -0.004009965807199478 0.0
+0.3780527412891388 -0.005943425465375185 0.0
+0.75 -0.0658019483089447 0.0
+0.75 -0.007665235549211502 0.0
+0.75 0.001082208356820047 0.0
+0.75 -0.004606664180755615 0.0
+0.5936596989631653 -0.006395089905709028 0.0
+0.13115277886390686 -0.06561937183141708 0.0
+0.0 -0.006733516231179237 0.14080476760864258
+0.0 0.0015249537536874413 0.2566700279712677
+0.02972750924527645 -0.004043585155159235 0.0
+0.28000739216804504 -0.0059126694686710835 0.0
+0.6921927332878113 -0.06585699319839478 0.0
+0.75 -0.007726121228188276 0.0
+0.75 0.001112090889364481 0.0
+0.75 -0.0045621502213180065 0.0
+0.75 -0.006374402437359095 0.0
+0.3022846281528473 -0.06569234281778336 0.0
+0.0 -0.006647956557571888 0.06338062882423401
+0.0 0.0016140692168846726 0.30000001192092896
+0.0 -0.004159543197602034 0.1522744596004486
+0.08220250904560089 -0.005956975277513266 0.0
+0.4974540174007416 -0.06588958203792572 0.0
+0.75 -0.007712607271969318 0.0
+0.75 0.001180883962661028 0.0
+0.75 -0.00449443468824029 0.0
+0.75 -0.006337996572256088 0.0
+0.6812499165534973 -0.06575862318277359 0.0
+0.34977108240127563 -0.006915072910487652 0.0
+0.0 0.0012470235815271735 0.11941660940647125
+0.0 -0.004503526259213686 0.23854264616966248
+0.0 -0.006168588530272245 0.17129693925380707
+0.19388534128665924 -0.06594602763652802 0.0
+0.49529945850372314 -0.007662600371986628 0.0
+0.75 0.001227457309141755 0.0
+0.75 -0.004421536345034838 0.0
+0.75 -0.006331043783575296 0.0
+0.7123175859451294 -0.06574654579162598 0.0
+0.4350182116031647 -0.007038707844913006 0.0
+0.0 0.0011187780182808638 0.017892856150865555
+0.0 -0.004562183748930693 0.204595685005188
+0.0 -0.006190367508679628 0.2013530135154724
+0.1469067931175232 -0.06591659039258957 0.0
+0.4399570822715759 -0.007700122892856598 0.0
+0.75 0.001239228993654251 0.0
+0.75 -0.00439251447096467 0.0
+0.75 -0.006337417755275965 0.0
+0.75 -0.06583652645349503 0.0
+0.4940989315509796 -0.007103124633431435 0.0
+0.02387298457324505 0.00108019367326051 0.0
+0.0 -0.004648787900805473 0.2146834433078766
+0.0 -0.006338989827781916 0.257705420255661
+0.08313754200935364 -0.06594971567392349 0.0
+0.37819069623947144 -0.007669646292924881 0.0
+0.75 0.0012497815769165754 0.0
+0.75 -0.004430789966136217 0.0
+0.75 -0.006375869270414114 0.0
+0.75 -0.06583930552005768 0.0
+0.623261034488678 -0.007166803348809481 0.0
+0.1605479121208191 0.0009462771704420447 0.0
+0.0 -0.0047722263261675835 0.14516398310661316
+0.0 -0.006305748131126165 0.2842174172401428
+0.0 -0.06595439463853836 0.006705022882670164
+0.2703060209751129 -0.00766732869669795 0.0
+0.6914178133010864 0.0012754042400047183 0.0
+0.75 -0.004417533054947853 0.0
+0.75 -0.006340826861560345 0.0
+0.75 -0.0658121258020401 0.0
+0.75 -0.007382215466350317 0.0
+0.3617607355117798 0.0006848637131042778 0.0
+0.0 -0.004867187701165676 0.01334579661488533
+0.0 -0.006421090569347143 0.30000001192092896
+0.0 -0.06592319905757904 0.18184210360050201
+0.0703362375497818 -0.007619498297572136 0.0
+0.4793882668018341 0.001340791117399931 0.0
+0.75 -0.004412832669913769 0.0
+0.75 -0.006292467005550861 0.0
+0.75 -0.0657813623547554 0.0
+0.75 -0.007642342709004879 0.0
+0.6869835257530212 0.0004367636574897915 0.0
+0.3427419662475586 -0.004970627836883068 0.0
+0.0 -0.006454397924244404 0.12908370792865753
+0.0 -0.06581322103738785 0.2448849380016327
+0.0 -0.0074265799485147 0.1507541537284851
+0.2065010666847229 0.0016063196817412972 0.0
+0.48182734847068787 -0.004226092714816332 0.0
+0.75 -0.006309812888503075 0.0
+0.75 -0.0657752975821495 0.0
+0.75 -0.007724655792117119 0.0
+0.7143348455429077 0.0003558677854016423 0.0
+0.42113107442855835 -0.0049083298072218895 0.0
+0.0 -0.0063578179106116295 0.03296545147895813
+0.0 -0.06577315926551819 0.20645110309123993
+0.0 -0.0073054637759923935 0.16965319216251373
+0.17019517719745636 0.0016640746034681797 0.0
+0.4363885521888733 -0.00417314562946558 0.0
+0.75 -0.006233586464077234 0.0
+0.75 -0.06580017507076263 0.0
+0.75 -0.007781634107232094 0.0
+0.7468827962875366 0.00027338508516550064 0.0
+0.46226105093955994 -0.00484680337831378 0.0
+0.0 -0.006388670764863491 0.007092964369803667
+0.0 -0.06583007425069809 0.22451412677764893
+0.0 -0.007219325285404921 0.2230077087879181
+0.11754079908132553 0.0018383095739409328 0.0
+0.3857073187828064 -0.0041143386624753475 0.0
+0.75 -0.0062836771830916405 0.0
+0.75 -0.06583509594202042 0.0
+0.75 -0.007804294116795063 0.0
+0.75 0.00024713436141610146 0.0
+0.5667265057563782 -0.004890864714980125 0.0
+0.1047508642077446 -0.00636271433904767 0.0
+0.0 -0.06577602028846741 0.16708464920520782
+0.0 -0.007112610619515181 0.2379259169101715
+0.059177231043577194 0.0018219038611277938 0.0
+0.3090750277042389 -0.004056909587234259 0.0
+0.709682822227478 -0.006241707596927881 0.0
+0.75 -0.06585554033517838 0.0
+0.75 -0.007892654277384281 0.0
+0.75 0.00010599382221698761 0.0
+0.6855218410491943 -0.004878196399658918 0.0
+0.2290649563074112 -0.006377417128533125 0.0
+0.0 -0.0657832995057106 0.10935047268867493
+0.0 -0.006954963784664869 0.28441303968429565
+0.0 0.0019345589680597186 0.05192428082227707
+0.18704594671726227 -0.003980305977165699 0.0
+0.5998035669326782 -0.00621160538867116 0.0
+0.75 -0.06575258821249008 0.0
+0.75 -0.008045051246881485 0.0
+0.75 3.5634344385471195e-05 0.0
+0.75 -0.004937904886901379 0.0
+0.4626990556716919 -0.0063430932350456715 0.0
+0.10713941603899002 -0.0657481998205185 0.0
+0.0 -0.006728715263307095 0.221999853849411
+0.0 0.002044991822913289 0.14707495272159576
+0.02889971062541008 -0.004036813508719206 0.0
+0.4151538908481598 -0.006177710369229317 0.0
+0.7122660279273987 -0.06582118570804596 0.0
+0.75 -0.008096320554614067 0.0
+0.75 -5.862853140570223e-05 0.0
+0.75 -0.004901750013232231 0.0
+0.7283517122268677 -0.006276711821556091 0.0
+0.3883114159107208 -0.06577028334140778 0.0
+0.0 -0.006585942581295967 0.08931143581867218
+0.0 0.002011461416259408 0.2569872736930847
+0.0 -0.0041799950413405895 0.2204331010580063
+0.14386534690856934 -0.006129487883299589 0.0
+0.4222875237464905 -0.06582953035831451 0.0
+0.75 -0.00797673687338829 0.0
+0.75 2.5313269361504354e-05 0.0
+0.75 -0.004761214833706617 0.0
+0.75 -0.006254227831959724 0.0
+0.5278022289276123 -0.06577939540147781 0.0
+0.07781065255403519 -0.006689199712127447 0.0
+0.0 0.0018880615243688226 0.17836137115955353
+0.0 -0.004303205758333206 0.24608127772808075
+0.07198125869035721 -0.006266941782087088 0.0
+0.33176547288894653 -0.06583377718925476 0.0
+0.75 -0.007981088943779469 0.0
+0.75 -1.632959902053699e-05 0.0
+0.75 -0.004761896561831236 0.0
+0.75 -0.00619248952716589 0.0
+0.662146806716919 -0.06583254784345627 0.0
+0.22208604216575623 -0.00677350303158164 0.0
+0.0 0.0017127221217378974 0.10486993938684464
+0.0 -0.004451440181583166 0.28618791699409485
+0.0 -0.006290537770837545 0.042554743587970734
+0.20119792222976685 -0.06588728725910187 0.0
+0.6371533870697021 -0.007988947443664074 0.0
+0.75 5.944812528468901e-06 0.0
+0.75 -0.004698813892900944 0.0
+0.75 -0.00626350985839963 0.0
+0.75 -0.06578797847032547 0.0
+0.46731898188591003 -0.006971854250878096 0.0
+0.10570298135280609 0.0014764877269044518 0.0
+0.0 -0.004579228814691305 0.24737295508384705
+0.0 -0.006397613324224949 0.1708616018295288
+0.011820477433502674 -0.06595782190561295 0.0
+0.4242757558822632 -0.007938506081700325 0.0
+0.7318336963653564 9.008547203848138e-05 0.0
+0.75 -0.004674512427300215 0.0
+0.75 -0.006213004235178232 0.0
+0.75 -0.06582386791706085 0.0
+0.75 -0.007203639950603247 0.0
+0.47018083930015564 0.0012371283955872059 0.0
+0.0 -0.004744901321828365 0.03918219730257988
+0.0 -0.006484057754278183 0.2731620669364929
+0.0 -0.06588608026504517 0.2977571189403534
+0.08188537508249283 -0.007988804951310158 0.0
+0.36519286036491394 7.276177348103374e-05 0.0
+0.75 -0.00468446034938097 0.0
+0.75 -0.006222383119165897 0.0
+0.75 -0.06589429080486298 0.0
+0.75 -0.007426324766129255 0.0
+0.6469592452049255 0.0011083428980782628 0.0
+0.1844816654920578 -0.004815348889678717 0.0
+0.0 -0.006474197842180729 0.13454501330852509
+0.0 -0.06586772948503494 0.29341328144073486
+0.0 -0.007797834929078817 0.009982741437852383
+0.23894630372524261 0.0002589346549939364 0.0
+0.6572508215904236 -0.004578444175422192 0.0
+0.75 -0.006223645526915789 0.0
+0.75 -0.06586096435785294 0.0
+0.75 -0.007548036985099316 0.0
+0.75 0.001025655772536993 0.0
+0.3940158486366272 -0.004790137521922588 0.0
+0.03348890319466591 -0.006554942578077316 0.0
+0.0 -0.06603290885686874 0.2893846929073334
+0.0 -0.007509537506848574 0.15390217304229736
+0.05630803480744362 0.0006703082472085953 0.0
+0.45631691813468933 -0.0043350388295948505 0.0
+0.7496588230133057 -0.006144401151686907 0.0
+0.75 -0.06584850698709488 0.0
+0.75 -0.007696442771703005 0.0
+0.75 0.021836640313267708 0.0
+0.7158043384552002 0.018098998814821243 0.0
+0.37152814865112305 0.0007316792034544051 0.0
+0.0 -0.06505272537469864 0.11938308924436569
+0.0 -0.0020305525977164507 0.24408027529716492
+0.0 0.005885220132768154 0.19182057678699493
+0.1688181757926941 -0.0010966641129925847 0.0
+0.4434972107410431 -0.0038127813022583723 0.0
+0.75 -0.06586363166570663 0.0
+0.75 -0.006597858387976885 0.0
+0.75 0.0023472625762224197 0.0
+0.75 -0.0036471460480242968 0.0
+0.47653695940971375 -0.005704725626856089 0.0
+0.0035645391326397657 -0.06668252497911453 0.0
+0.0 -0.006678594741970301 0.2104705572128296
+0.0 0.0018990295939147472 0.24221307039260864
+0.099916011095047 -0.003667474025860429 0.0
+0.370317667722702 -0.005778120830655098 0.0
+0.75 -0.06707422435283661 0.0
+0.75 -0.007909653708338737 0.0
+0.75 0.0012499074218794703 0.0
+0.75 -0.0045396713539958 0.0
+0.6101959347724915 -0.006452774628996849 0.0
+0.14814633131027222 -0.0667569488286972 0.0
+0.0 -0.006936459802091122 0.13288180530071259
+0.0 0.0016063009388744831 0.26352301239967346
+0.014771616086363792 -0.00411352189257741 0.0
+0.2638487219810486 -0.005949876736849546 0.0
+0.6810961961746216 -0.06674875319004059 0.0
+0.75 -0.007934965193271637 0.0
+0.75 0.00105014827568084 0.0
+0.75 -0.004576142877340317 0.0
+0.75 -0.006449376232922077 0.0
+0.3486824035644531 -0.06636230647563934 0.0
+0.0 -0.006853105034679174 0.011085312813520432
+0.0 0.0015832860954105854 0.30000001192092896
+0.0 -0.004276550840586424 0.16969463229179382
+0.05965816602110863 -0.006009859498590231 0.0
+0.4733491837978363 -0.0664280354976654 0.0
+0.75 -0.007870886474847794 0.0
+0.75 0.0011527431197464466 0.0
+0.75 -0.004508860409259796 0.0
+0.75 -0.006336384918540716 0.0
+0.7286214232444763 -0.06611084192991257 0.0
+0.3942728638648987 -0.006967226043343544 0.0
+0.0 0.0012548292288556695 0.10746780782938004
+0.0 -0.004540208261460066 0.27461254596710205
+0.0 -0.0062513453885912895 0.2358136624097824
+0.1323752999305725 -0.06625646352767944 0.0
+0.43705984950065613 -0.0077384221367537975 0.0
+0.75 0.0013031158596277237 0.0
+0.75 -0.004397754091769457 0.0
+0.75 -0.006363534834235907 0.0
+0.75 -0.0049959332682192326 0.0
+0.523795485496521 -0.0674590989947319 0.0
+0.07431197166442871 -0.006553245708346367 0.0
+0.0 0.00256162928417325 0.1798231452703476
+0.0 -0.004012990742921829 0.2447117269039154
+0.07478233426809311 -0.06677116453647614 0.0
+0.35897961258888245 -0.009342034347355366 0.0
+0.75 0.0003935487475246191 0.0
+0.75 -0.004792060703039169 0.0
+0.75 -0.0065917703323066235 0.0
+0.75 -0.005317043513059616 0.0
+0.6155908107757568 -0.0670778751373291 0.0
+0.1767464131116867 -0.0066387346014380455 0.0
+0.0 0.002277856459841132 0.12189136445522308
+0.0 -0.004182367119938135 0.2609999179840088
+0.008332744240760803 -0.06639159470796585 0.0
+0.27830246090888977 -0.00924074649810791 0.0
+0.6933817267417908 0.00035056815249845386 0.0
+0.75 -0.004802273586392403 0.0
+0.75 -0.00635766563937068 0.0
+0.75 -0.005226762033998966 0.0
+0.75 -0.0666293278336525 0.0
+0.3365744650363922 -0.006643348839133978 0.0
+0.0 0.0020897584035992622 0.043171659111976624
+0.0 -0.004288712050765753 0.30000001192092896
+0.0 -0.06618395447731018 0.1692967563867569
+0.08598405867815018 -0.009146558120846748 0.0
+0.49533817172050476 0.00037355240783654153 0.0
+0.75 -0.004768458195030689 0.0
+0.75 -0.006590212229639292 0.0
+0.75 -0.0052405958995223045 0.0
+0.75 -0.0664227157831192 0.0
+0.6527617573738098 -0.006868276279419661 0.0
+0.3089524805545807 0.0018554029520601034 0.0
+0.0 -0.004475342109799385 0.1392025202512741
+0.0 -0.06595022231340408 0.22063779830932617
+0.0 -0.008988370187580585 0.10706284642219543
+0.250471293926239 0.0005387596320360899 0.0
+0.5277096033096313 -0.004710940644145012 0.0
+0.75 -0.0065190051682293415 0.0
+0.75 -0.005279632285237312 0.0
+0.75 -0.0662790983915329 0.0
+0.6725077033042908 -0.006855445448309183 0.0
+0.370658814907074 0.001810175133869052 0.0
+0.0 -0.004451767075806856 0.06114836409687996
+0.0 -0.06588298082351685 0.1818545162677765
+0.0 -0.00883446540683508 0.10914704203605652
+0.23053064942359924 0.0006123333005234599 0.0
+0.49888935685157776 -0.004626888781785965 0.0
+0.75 -0.006545694544911385 0.0
+0.75 -0.005272803828120232 0.0
+0.75 -0.06617428362369537 0.0
+0.6773866415023804 -0.006851117592304945 0.0
+0.38178741931915283 0.0017961704870685935 0.0
+0.0 -0.0044335429556667805 0.049041979014873505
+0.0 -0.06578371673822403 0.17947451770305634
+0.0 -0.00884878821671009 0.1146882027387619
+0.22347639501094818 0.0006339920801110566 0.0
+0.49086233973503113 -0.0046285949647426605 0.0
+0.75 -0.006509460974484682 0.0
+0.75 -0.005220676772296429 0.0
+0.75 -0.06616351008415222 0.0
+0.6843417882919312 -0.006847060285508633 0.0
+0.39000797271728516 0.0017944079590961337 0.0
+0.0 -0.004464627243578434 0.04437335580587387
+0.0 -0.06578786671161652 0.18339145183563232
+0.0 -0.008822119794785976 0.1240776851773262
+0.21412372589111328 0.0006441818550229073 0.0
+0.48112422227859497 -0.0045706541277468204 0.0
+0.75 -0.006529319100081921 0.0
+0.75 -0.00529450224712491 0.0
+0.75 -0.06608391553163528 0.0
+0.6946496367454529 -0.0068618422374129295 0.0
+0.4017206132411957 0.00181577168405056 0.0
+0.0 -0.004416097421199083 0.03823911398649216
+0.0 -0.06577655673027039 0.18959474563598633
+0.0 -0.008807490579783916 0.13823369145393372
+0.20013348758220673 0.0006880710716359317 0.0
+0.4665530323982239 -0.004620786290615797 0.0
+0.75 -0.006496886257082224 0.0
+0.75 -0.00522973807528615 0.0
+0.75 -0.06611905992031097 0.0
+0.710140585899353 -0.006889278069138527 0.0
+0.4192495346069336 0.0017677638679742813 0.0
+0.0 -0.004445308353751898 0.02913081645965576
+0.0 -0.06572920829057693 0.1994793564081192
+0.0 -0.008709069341421127 0.16145144402980804
+0.17703866958618164 0.0007090971921570599 0.0
+0.4425692558288574 -0.004561913665384054 0.0
+0.75 -0.008423114195466042 0.0
+0.75 -0.006924703251570463 0.0
+0.75 -0.06659645587205887 0.0
+0.75 -0.00725277466699481 0.0
+0.75 0.0012296645436435938 0.0
+0.6918382048606873 -0.004765912890434265 0.0
+0.30336615443229675 -0.006532559171319008 0.0
+0.0 -0.06668804585933685 0.20271889865398407
+0.0 -0.0072293831035494804 0.29377102851867676
+0.0 0.0012900106376037002 0.195095956325531
+0.18683186173439026 -0.004090297035872936 0.0
+0.4722934365272522 -0.006071740295737982 0.0
+0.75 -0.06659175455570221 0.0
+0.75 -0.007925556041300297 0.0
+0.75 0.001020467490889132 0.0
+0.75 -0.004709610249847174 0.0
+0.460534930229187 -0.006579307839274406 0.0
+0.0 -0.0663059875369072 0.01735314540565014
+0.0 -0.007009465247392654 0.2186344563961029
+0.0 0.0014382624067366123 0.2368442565202713
+0.10885681957006454 -0.004105743486434221 0.0
+0.3801504075527191 -0.06473036855459213 0.0
+0.75 -0.009486093185842037 0.0
+0.75 -0.0011037305230274796 0.0
+0.75 -0.0052817570976912975 0.0
+0.75 -0.006524636875838041 0.0
+0.5891695022583008 -0.005355408880859613 0.0
+0.12643681466579437 -0.06552637368440628 0.0
+0.0 -0.0065602390095591545 0.1432296633720398
+0.0 0.001791832735762 0.2552188038825989
+0.033468615263700485 -0.003953696694225073 0.0
+0.28426194190979004 -0.06480231136083603 0.0
+0.7141212224960327 -0.009291949681937695 0.0
+0.75 -0.0009258095524273813 0.0
+0.75 -0.005080563016235828 0.0
+0.75 -0.006411946844309568 0.0
+0.75 -0.005314091686159372 0.0
+0.28996649384498596 -0.06565133482217789 0.0
+0.0 -0.0064305877313017845 0.07740052044391632
+0.0 0.0019416812574490905 0.30000001192092896
+0.0 -0.0039823018014431 0.15175651013851166
+0.08469802886247635 -0.06497153639793396 0.0
+0.5200998187065125 -0.009285478852689266 0.0
+0.75 -0.0008849140722304583 0.0
+0.75 -0.004977609030902386 0.0
+0.75 -0.006436264142394066 0.0
+0.75 -0.005326984915882349 0.0
+0.6772072315216064 -0.06580264121294022 0.0
+0.34570324420928955 -0.006704574916511774 0.0
+0.0 0.0015694735338911414 0.12073948234319687
+0.0 -0.004318385384976864 0.23566009104251862
+0.0 -0.06522901356220245 0.1657990962266922
+0.2180631458759308 -0.009366092272102833 0.0
+0.4963761270046234 -0.0008899613167159259 0.0
+0.75 -0.005036716815084219 0.0
+0.75 -0.006422033999115229 0.0
+0.75 -0.005343151744455099 0.0
+0.6797805428504944 -0.06593101471662521 0.0
+0.4051290452480316 -0.006817844696342945 0.0
+0.0 0.00142285309266299 0.025651490315794945
+0.0 -0.004401851911097765 0.1776578426361084
+0.0 -0.06533806771039963 0.15169939398765564
+0.21304748952388763 -0.009364024735987186 0.0
+0.48263323307037354 -0.0008562117000110447 0.0
+0.75 -0.005013251677155495 0.0
+0.75 -0.006465589161962271 0.0
+0.75 -0.00537746911868453 0.0
+0.6729639172554016 -0.06601575016975403 0.0
+0.40229111909866333 -0.006875908933579922 0.0
+0.0 0.0014210378285497427 0.021622465923428535
+0.0 -0.00441731559112668 0.16922590136528015
+0.0 -0.06538479775190353 0.14153364300727844
+0.2217588871717453 -0.009324425831437111 0.0
+0.49113431572914124 -0.0008424794068560004 0.0
+0.75 -0.005046771839261055 0.0
+0.75 -0.006415946409106255 0.0
+0.75 -0.00535064609721303 0.0
+0.6626729965209961 -0.06604018807411194 0.0
+0.39090943336486816 -0.0068801939487457275 0.0
+0.0 0.001402606605552137 0.027320070192217827
+0.0 -0.004424251150339842 0.1628057062625885
+0.0 -0.06546840816736221 0.12737351655960083
+0.23575830459594727 -0.009347851388156414 0.0
+0.5056861639022827 -0.0008742543286643922 0.0
+0.75 -0.00503527233377099 0.0
+0.75 -0.006443355232477188 0.0
+0.75 -0.00538374949246645 0.0
+0.6469951272010803 -0.06603875756263733 0.0
+0.37291276454925537 -0.0068746511824429035 0.0
+0.0 0.0014455076307058334 0.03711353614926338
+0.0 -0.004375522956252098 0.15384939312934875
+0.0 -0.06540202349424362 0.10671582818031311
+0.25630155205726624 -0.009376239962875843 0.0
+0.5274662971496582 -0.0008567432523705065 0.0
+0.75 -0.005039609037339687 0.0
+0.75 -0.006424545310437679 0.0
+0.75 -0.005384237039834261 0.0
+0.6314669847488403 -0.0660882368683815 0.0
+0.35237258672714233 -0.0068047549575567245 0.0
+0.0 0.0014812095323577523 0.05153830349445343
+0.0 -0.004324973560869694 0.1477932333946228
+0.0 -0.06544874608516693 0.08843521028757095
+0.2758340537548065 -0.009352716617286205 0.0
+0.5499440431594849 -0.0008583359885960817 0.0
+0.75 -0.005040893796831369 0.0
+0.75 -0.006415064446628094 0.0
+0.75 -0.0053891404531896114 0.0
+0.6196152567863464 -0.06603927910327911 0.0
+0.33544155955314636 -0.006813943851739168 0.0
+0.0 0.0015020561404526234 0.0645168349146843
+0.0 -0.00433559063822031 0.14486750960350037
+0.0 -0.060892269015312195 0.07523414492607117
+0.2889159321784973 -0.008369521237909794 0.0
+0.565808892250061 -0.0006993993301875889 0.0
+0.75 -0.004800439812242985 0.0
+0.75 -0.006085869390517473 0.0
+0.75 -0.005026248749345541 0.0
+0.6130549311637878 -0.0476047545671463 0.0
+0.318398118019104 -0.004240650217980146 0.0
+0.0 0.0008559468551538885 0.08023100346326828
+0.0 -0.003568799700587988 0.1464146226644516
+0.0 -0.036463648080825806 0.06600452214479446
+0.28999969363212585 -0.004531563725322485 0.0
+0.5694347023963928 -0.000522918882779777 0.0
+0.75 -0.003138897242024541 0.0
+0.75 -0.003878412302583456 0.0
+0.75 -0.027344487607479095 0.0
+0.6238107681274414 -0.0018593217246234417 0.0
+0.31829962134361267 0.0006156721501611173 0.0
+0.0 -0.002312320051714778 0.08799931406974792
+0.0 -0.002912139520049095 0.15721164643764496
+0.0 -0.02063327468931675 0.07622470706701279
+0.2777242958545685 -0.0018315801862627268 0.0
+0.55656898021698 8.729863475309685e-05 0.0
+0.75 -0.001711203483864665 0.0
+0.75 -0.002087891101837158 0.0
+0.75 -0.015700504183769226 0.0
+0.6327657699584961 -0.0009024148457683623 0.0
+0.33073899149894714 0.00048067813622765243 0.0
+0.0 -0.0012487140484154224 0.07884953171014786
+0.0 -0.0016243797726929188 0.1590171605348587
+0.0 -0.0118802385404706 0.08558773994445801
+0.26558271050453186 -0.0010133798932656646 0.0
+0.542216956615448 0.0001316855486948043 0.0
+0.75 -0.0009451003861613572 0.0
+0.75 -0.0011756077874451876 0.0
+0.75 -0.00907299667596817 0.0
+0.6392569541931152 -0.0005024712299928069 0.0
+0.34066376090049744 0.00030357696232385933 0.0
+0.0 -0.0007312390371225774 0.07060644775629044
+0.0 -0.006813679356127977 0.1592891365289688
+0.0 -0.0005815834156237543 0.09175000339746475
+0.2572783827781677 0.00015078121214173734 0.0
+0.5321133732795715 -0.00047047773841768503 0.0
+0.75 -0.0006658378406427801 0.0
+0.75 -0.0005305437953211367 0.0
+0.75 -0.005141936242580414 0.0
+0.6434748768806458 -0.00024121743626892567 0.0
+0.3472587764263153 0.0001952845195773989 0.0
+0.0 -0.0003152494318783283 0.06510552763938904
+0.0 -0.0038510619197040796 0.15952078998088837
+0.0 -0.0003108892997261137 0.09622511267662048
+0.2519562542438507 0.0001049701968440786 0.0
+0.5256637930870056 -0.0002905733126681298 0.0
+0.75 -0.0003808891633525491 0.0
+0.75 -0.002948013599961996 0.0
+0.75 -0.00020229449728503823 0.0
+0.6460961699485779 3.8356243749149144e-05 0.0
+0.35141322016716003 -0.00029261960298754275 0.0
+0.0 -0.0003112967242486775 0.06160280853509903
+0.0 -0.002254478633403778 0.15958698093891144
+0.0 -0.00013057193427812308 0.09904367476701736
+0.24871356785297394 0.00010774935799418017 0.0
+0.5217243432998657 -0.0001488718407927081 0.0
+0.75 -0.00026401173090562224 0.0
+0.75 -0.001666941330768168 0.0
+0.75 -0.0001096913474611938 0.0
+0.6477401256561279 3.6193083360558376e-05 0.0
+0.35390910506248474 -6.532284169225022e-05 0.0
+0.0 -0.0001279757561860606 0.059544097632169724
+0.0 -0.0013056601164862514 0.15971118211746216
+0.0 -6.389478949131444e-05 0.10073830187320709
+0.2467358410358429 1.6573889297433197e-05 0.0
+0.5193517804145813 -8.248059020843357e-05 0.0
+0.75 -0.00013663424761034548 0.0
+0.75 -0.0010071693686768413 0.0
+0.75 -6.710134039167315e-05 0.0
+0.6488043069839478 7.326927880058065e-05 0.0
+0.35552966594696045 -8.82590829860419e-05 0.0
+0.0 -0.0007235577795654535 0.05824362859129906
+0.0 -3.941462637158111e-05 0.15994250774383545
+0.0 1.9789233647315996e-06 0.10197250545024872
+0.2453235387802124 -2.3325617803493515e-05 0.0
+0.5177821516990662 -5.146451439941302e-05 0.0
+0.75 -3.1842516818869626e-06 0.0
+0.75 -0.0005399422952905297 0.0
+0.75 -7.237316822283901e-06 0.0
+0.649605929851532 -6.255738753679907e-06 0.0
+0.356685996055603 -1.9144128600601107e-05 0.0
+0.0 -0.0004563292895909399 0.05729923024773598
+0.0 -5.592776142293587e-05 0.16021770238876343
+0.0 -1.4995136552897748e-05 0.10290584713220596
+0.24429412186145782 -7.340937736444175e-05 0.0
+0.516659677028656 -7.514680328313261e-05 0.0
+0.75 -0.0003285269485786557 0.0
+0.75 -5.366467303247191e-05 0.0
+0.75 -1.239285666088108e-05 0.0
+0.6502320766448975 -4.90967977384571e-05 0.0
+0.35753878951072693 -6.913612742209807e-05 0.0
+0.0 -0.0002690024848561734 0.05671355873346329
+0.0 -1.917759254865814e-05 0.16038475930690765
+0.0 6.408368790289387e-05 0.10357393324375153
+0.24355623126029968 -8.464019629172981e-05 0.0
+0.5158318281173706 -8.947247260948643e-05 0.0
+0.75 -0.00018492092203814536 0.0
+0.75 -5.1915856602136046e-05 0.0
+0.75 -7.277082477230579e-05 0.0
+0.6506059765815735 -7.460246706614271e-05 0.0
+0.3580659031867981 3.080347232753411e-05 0.0
+0.0 -2.4880790078896098e-05 0.05627931281924248
+0.0 3.693973849294707e-05 0.1605585813522339
+0.0 2.5560413632774726e-05 0.1040470078587532
+0.2430674433708191 3.9775062759872526e-05 0.0
+0.5152859091758728 -3.8700927689205855e-05 0.0
+0.75 -0.0001648965699132532 0.0
+0.75 -5.576252442551777e-05 0.0
+0.75 -8.988138142740354e-05 0.0
+0.6509591937065125 9.405261516803876e-05 0.0
+0.3584931194782257 6.216764450073242e-05 0.0
+0.0 -2.5161414669128135e-05 0.05606633052229881
+0.0 2.1915035176789388e-05 0.16072766482830048
+0.0 3.2886517146835104e-05 0.1044742539525032
+0.2426062524318695 7.686984463362023e-05 0.0
+0.5147848129272461 -4.5651533582713455e-05 0.0
+0.75 -8.750316192163154e-05 0.0
+0.75 -4.671865463024005e-05 0.0
+0.75 -7.28234663256444e-05 0.0
+0.6512628793716431 3.986060164606897e-06 0.0
+0.3588758707046509 5.45079201401677e-05 0.0
+0.0 3.199434286216274e-05 0.055761631578207016
+0.0 2.248829696327448e-05 0.16085325181484222
+0.0 3.024760735570453e-05 0.10484049469232559
+0.24222968518733978 4.6670531446579844e-05 0.0
+0.5143593549728394 -3.594991721911356e-05 0.0
+0.75 -6.11839204793796e-05 0.0
+0.75 -5.362380761653185e-05 0.0
+0.75 -5.19963723490946e-05 0.0
+0.6514633297920227 5.292318746796809e-05 0.0
+0.3591804504394531 2.2060728952055797e-05 0.0
+0.0 3.4564385714475065e-05 0.05556891858577728
+0.0 2.76820246654097e-05 0.1609073132276535
+0.0 3.628171907621436e-05 0.10508975386619568
+0.2420118749141693 7.570425077574328e-05 0.0
+0.5140947103500366 -4.60168048448395e-05 0.0
+0.75 -8.56360566103831e-05 0.0
+0.75 -4.818318484467454e-05 0.0
+0.75 -7.35319554223679e-05 0.0
+0.6515716910362244 7.947231097205076e-06 0.0
+0.35932499170303345 3.316141737741418e-05 0.0
+0.0 5.4427116992883384e-05 0.0554717518389225
+0.0 2.710859371291008e-05 0.1609708070755005
+0.0 2.9055341656203382e-05 0.10519775748252869
+0.2418384552001953 -4.104727486264892e-05 0.0
+0.5139143466949463 5.165617767488584e-05 0.0

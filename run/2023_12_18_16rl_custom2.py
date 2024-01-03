@@ -14,7 +14,7 @@ from tensorflow.keras.models import Model # Neil modified `from keras.models imp
 
 import tensorflow as tf
 import tensorflow.keras.backend as backend # Neil modified `import keras.backend.tensorflow_backend as backend`
-from threading import Thread
+# from threading import Thread
 from tensorflow.keras.callbacks import TensorBoard # Neil modified `from keras.callbacks import TensorBoard`
 
 from tqdm import tqdm
@@ -84,7 +84,7 @@ bVerbose = True
 bGPU = True
 
 # Define action space
-action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
+action_space = {'throttle': np.linspace(0.0, 1.0, num=21),
 # action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
                 'steer': np.linspace(-1.0, 1.0, num=21),
                 # 'steer': np.linspace(-1.0, 1.0, num=3),
@@ -331,7 +331,7 @@ class DQNAgent:
         # base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
         # count_filters = 64
         # base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        base_model.add(MaxPooling2D(pool_size=(2, 2)))
         # base_model.add(BatchNormalization())
         # base_model.add(Activation('relu'))
         
@@ -552,27 +552,31 @@ if __name__ == "__main__":
                 env.world.tick()
                 env.idx_tick += 1
             done = False
+            idx_control = 0
+            for i in range(0,10):
+                env.world.tick()
 
             while True:
                 if bSync and False:
                     # print(f'bSync inside episode')
                     env.world.tick();
                     env.idx_tick += 1
+                action = None
                 # if np.random.random() > epsilon and True:
                 if agent.count_epochs_trained <= 100:
                     # action = np.argmax(agent.get_qs(current_state))
-                    action = None
                     with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
-                        throttle,steer,brake = file.read().split()
+                        lines = file.readlines()
+                        throttle,steer,brake = lines[idx_control].split()
+                        idx_control += 1
                         throttle,steer,brake = float(throttle),float(steer),float(brake)
-                        throttle_index = np.abs(action_space['throttle'] - throttle_val).argmin()
-                        steer_index = np.abs(action_space['steer'] - steer_val).argmin()
-                        brake_index = np.abs(action_space['brake'] - brake_val).argmin()
+                        throttle_index = np.abs(action_space['throttle'] - throttle).argmin()
+                        steer_index = np.abs(action_space['steer'] - steer).argmin()
+                        brake_index = np.abs(action_space['brake'] - brake).argmin()
                         action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
                                     steer_index * len(action_space['brake']) + \
                                     brake_index
                 else:
-                    action = None
                     bActionValid = False
                     while not bActionValid:
                         action = np.random.randint(0, action_size)
