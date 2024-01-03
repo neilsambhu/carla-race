@@ -327,28 +327,28 @@ class DQNAgent:
         # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
         from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D
         base_model = tf.keras.Sequential()
-        # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
         # base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        count_filters = 64
-        base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # count_filters = 64
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
         
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
+        # base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+        # base_model.add(MaxPooling2D(pool_size=(2, 2)))
+        # base_model.add(BatchNormalization())
+        # base_model.add(Activation('relu'))
 
         x = base_model.output
         x = Flatten()(x)
@@ -622,8 +622,8 @@ if __name__ == "__main__":
             if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
                 epochs = 0
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                # epochs = 1
-                epochs = 0
+                epochs = 1
+                # epochs = 0
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10
             if epochs > 0:
