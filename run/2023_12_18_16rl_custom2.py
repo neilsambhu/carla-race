@@ -30,7 +30,7 @@ except IndexError:
     pass
 import carla
 
-bGAIVI = False
+bGAIVI = True
 
 
 SHOW_PREVIEW = False
