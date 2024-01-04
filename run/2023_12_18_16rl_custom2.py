@@ -19,7 +19,7 @@ from tensorflow.keras.callbacks import TensorBoard # Neil modified `from keras.c
 
 from tqdm import tqdm
 import pickle
-
+import subprocess
 
 try:
     sys.path.append(glob.glob('../carla/dist/carla-*%d.%d-%s.egg' % (
@@ -30,6 +30,7 @@ except IndexError:
     pass
 import carla
 
+bGAIVI = False
 
 
 SHOW_PREVIEW = False
@@ -541,8 +542,9 @@ if __name__ == "__main__":
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
             print(f'\nStarted episode {episode} of {EPISODES}')
-            nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-            nvidia_smi.wait()
+            if bGAIVI:
+                nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+                nvidia_smi.wait()
 
             env.collision_hist = []
             agent.tensorboard.step = episode
