@@ -70,7 +70,7 @@ while len(glob.glob('models/final.model')) == 0:
                 print(f"after carla run squeue")
                 squeue_after_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_after_carla.wait()
-                command_output = subprocess.run(['squeue'], capture_output=True, text=True)
+                command_output = subprocess.run(['squeue | grep nsambhu'], capture_output=True, text=True)
                 output_lines = command_output.stdout.split('\n')
                 print(f'output_lines: {output_lines}')
                 carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line]
