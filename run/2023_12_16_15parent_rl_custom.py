@@ -71,7 +71,9 @@ while len(glob.glob('models/final.model')) == 0:
                 squeue_after_carla.wait()
                 command_output = subprocess.run(['squeue'], capture_output=True, text=True)
                 output_lines = command_output.stdout.split('\n')
+                print(f'output_lines: {output_lines}')
                 carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line]
+                print(f'carla_line: {carla_line}')
                 gpu_info = carla_line[0].split()[-1]  # Assuming GPU info is the last column
                 print("GPU Info for carla.sh:", gpu_info)
                 import carla
