@@ -803,3 +803,4 @@ while true; do ./CarlaUE4.sh; done
 ```
 while true; do ./CarlaUE4.sh; [ $? -ne 0 ] && pkill -f CarlaUE4.sh; done
 ```
+1/5/2024 2:52 PM: TODO: (1) check CARLA runs programmatically from python script; (2) make map of drive; (3) refine model
