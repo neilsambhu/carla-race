@@ -1049,3 +1049,9 @@ Count of batches trained: 156000	Goal: 159906
 Saved model from episode 89. Count of batches trained: 159900
   9%|8         | 89/1000 [22:49:42<483:27:27, 1910.48s/episode]
 Started episode 90 of 1000
+Finished episode 90 of 1000
+len(agent.replay_memory): 50000
+Count of epochs trained: 410	Goal: 420
+Count of batches trained: 159900	Goal: 163806
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
