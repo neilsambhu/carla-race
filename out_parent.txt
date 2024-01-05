@@ -949,3 +949,75 @@ Count of batches trained: 136500	Goal: 140406
  60%|######    | 6/10 [18:25<12:20, 185.07s/epoch][A
  70%|#######   | 7/10 [21:29<09:14, 184.71s/epoch][A
  80%|########  | 8/10 [24:32<06:08, 184.22s/epoch][A
+ 90%|######### | 9/10 [27:35<03:03, 183.97s/epoch][A
+100%|##########| 10/10 [30:39<00:00, 183.71s/epoch][A100%|##########| 10/10 [30:39<00:00, 183.91s/epoch]
+Saved model from episode 84. Count of batches trained: 140400
+  8%|8         | 84/1000 [20:10:50<488:58:30, 1921.74s/episode]
+Started episode 85 of 1000
+Finished episode 85 of 1000
+len(agent.replay_memory): 50000
+Count of epochs trained: 360	Goal: 370
+Count of batches trained: 140400	Goal: 144306
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [03:02<27:26, 182.98s/epoch][A
+ 20%|##        | 2/10 [06:06<24:24, 183.02s/epoch][A
+ 30%|###       | 3/10 [09:09<21:22, 183.16s/epoch][A
+ 40%|####      | 4/10 [12:12<18:19, 183.25s/epoch][A
+ 50%|#####     | 5/10 [15:16<15:16, 183.30s/epoch][A
+ 60%|######    | 6/10 [18:19<12:13, 183.37s/epoch][A
+ 70%|#######   | 7/10 [21:23<09:10, 183.41s/epoch][A
+ 80%|########  | 8/10 [24:26<06:06, 183.39s/epoch][A
+ 90%|######### | 9/10 [27:29<03:03, 183.16s/epoch][A
+100%|##########| 10/10 [30:31<00:00, 182.96s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.16s/epoch]
+Saved model from episode 85. Count of batches trained: 144300
+  8%|8         | 85/1000 [20:42:39<487:27:15, 1917.85s/episode]
+Started episode 86 of 1000
+Finished episode 86 of 1000
+len(agent.replay_memory): 50000
+Count of epochs trained: 370	Goal: 380
+Count of batches trained: 144300	Goal: 148206
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [03:03<27:27, 183.02s/epoch][A
+ 20%|##        | 2/10 [06:05<24:19, 182.49s/epoch][A
+ 30%|###       | 3/10 [09:07<21:16, 182.29s/epoch][A
+ 40%|####      | 4/10 [12:09<18:13, 182.19s/epoch][A
+ 50%|#####     | 5/10 [15:11<15:10, 182.15s/epoch][A
+ 60%|######    | 6/10 [18:13<12:08, 182.03s/epoch][A
+ 70%|#######   | 7/10 [21:15<09:06, 182.06s/epoch][A
+ 80%|########  | 8/10 [24:17<06:04, 182.11s/epoch][A
+ 90%|######### | 9/10 [27:19<03:02, 182.13s/epoch][A
+100%|##########| 10/10 [30:21<00:00, 182.11s/epoch][A100%|##########| 10/10 [30:21<00:00, 182.17s/epoch]
+Saved model from episode 86. Count of batches trained: 148200
+  9%|8         | 86/1000 [21:14:28<486:16:20, 1915.30s/episode]
+Started episode 87 of 1000
+Finished episode 87 of 1000
+len(agent.replay_memory): 50000
+Count of epochs trained: 380	Goal: 390
+Count of batches trained: 148200	Goal: 152106
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [03:02<27:18, 182.07s/epoch][A
+ 20%|##        | 2/10 [06:03<24:14, 181.84s/epoch][A
+ 30%|###       | 3/10 [09:05<21:13, 181.94s/epoch][A
+ 40%|####      | 4/10 [12:07<18:10, 181.82s/epoch][A
+ 50%|#####     | 5/10 [15:09<15:10, 182.03s/epoch][A
+ 60%|######    | 6/10 [18:13<12:09, 182.46s/epoch][A
+ 70%|#######   | 7/10 [21:16<09:08, 182.76s/epoch][A
+ 80%|########  | 8/10 [24:19<06:05, 182.92s/epoch][A
+ 90%|######### | 9/10 [27:23<03:03, 183.04s/epoch][A
+100%|##########| 10/10 [30:25<00:00, 182.94s/epoch][A100%|##########| 10/10 [30:25<00:00, 182.58s/epoch]
+Saved model from episode 87. Count of batches trained: 152100
+  9%|8         | 87/1000 [21:45:46<482:54:21, 1904.12s/episode]
+Started episode 88 of 1000
+Finished episode 88 of 1000
+len(agent.replay_memory): 50000
+Count of epochs trained: 390	Goal: 400
+Count of batches trained: 152100	Goal: 156006
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [03:01<27:17, 181.90s/epoch][A
+ 20%|##        | 2/10 [06:03<24:14, 181.86s/epoch][A
+ 30%|###       | 3/10 [09:06<21:14, 182.10s/epoch][A
+ 40%|####      | 4/10 [12:07<18:11, 181.85s/epoch][A
