@@ -30,7 +30,7 @@ except IndexError:
     pass
 import carla
 
-bGAIVI = False
+bGAIVI = True
 
 
 SHOW_PREVIEW = False
@@ -143,7 +143,8 @@ class CarEnv:
 
     def __init__(self):
         # self.client = carla.Client("localhost", 2000)
-        self.client = carla.Client("10.247.52.30", 2000)
+        # self.client = carla.Client("10.247.52.30", 2000)
+        self.client = carla.Client("GPU17", 2000)
         # self.client.set_timeout(2.0)
         # self.client.set_timeout(60)
         self.client.set_timeout(600)
@@ -542,9 +543,9 @@ if __name__ == "__main__":
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
             print(f'\nStarted episode {episode} of {EPISODES}')
-            if bGAIVI:
-                nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-                nvidia_smi.wait()
+            # if bGAIVI:
+            #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+            #     nvidia_smi.wait()
 
             env.collision_hist = []
             agent.tensorboard.step = episode
