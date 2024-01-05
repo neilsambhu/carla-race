@@ -47,6 +47,7 @@ while len(glob.glob('models/final.model')) == 0:
             kill_carla()
         else:
             kill_carla_gaivi()
+            time.sleep(1)
     else:
         kill_carla_remote()
     carla = None
