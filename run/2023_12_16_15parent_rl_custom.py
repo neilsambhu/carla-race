@@ -82,10 +82,10 @@ while len(glob.glob('models/final.model')) == 0:
                 print("GPU Info for carla.sh:", carla_gpu_info)
                 import carla
                 # time.sleep(60)
-                client = carla.Client(str(carla_gpu_info), 2000)
                 world = None
                 while world == None:
                     try:
+                        client = carla.Client(str(carla_gpu_info), 2000)
                         world = client.get_world()
                         print(f'world: {world}')
                     except Exception as e:
