@@ -74,15 +74,13 @@ while len(glob.glob('models/final.model')) == 0:
                 command_output = subprocess.run(['squeue'], capture_output=True, text=True)
                 output_lines = command_output.stdout.split('\n')
                 print(f'output_lines: {output_lines}')
-                carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
-                gaivi_line = [line for line in output_lines if 'nsambhu' in line and 'gaivi.sh' in line and 'GPU' in line]
+                carla_line = []
+                while carla_line == []:
+                    carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
                 print(f'carla_line: {carla_line}')
                 carla_gpu_info = carla_line[0].split()[-1]  # Assuming GPU info is the last column
-                gaivi_gpu_info = gaivi_line[0].split()[-1]  # Assuming GPU info is the last column
                 print("GPU Info for carla.sh:", carla_gpu_info)
                 import carla
-                # if carla_gpu_info == gaivi_gpu_info:
-                #     carla_gpu_info = 'localhost'
                 client = carla.Client(carla_gpu_info, 2000)
                 # client.set_timeout(2.0)
                 client.set_timeout(60)
