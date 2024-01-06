@@ -74,11 +74,15 @@ while len(glob.glob('models/final.model')) == 0:
                 output_lines = command_output.stdout.split('\n')
                 print(f'output_lines: {output_lines}')
                 carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
+                gaivi_line = [line for line in output_lines if 'nsambhu' in line and 'gaivi.sh' in line and 'GPU' in line]
                 print(f'carla_line: {carla_line}')
-                gpu_info = carla_line[0].split()[-1]  # Assuming GPU info is the last column
-                print("GPU Info for carla.sh:", gpu_info)
+                carla_gpu_info = carla_line[0].split()[-1]  # Assuming GPU info is the last column
+                gaivi_gpu_info = gaivi_line[0].split()[-1]  # Assuming GPU info is the last column
+                print("GPU Info for carla.sh:", carla_gpu_info)
                 import carla
-                client = carla.Client(gpu_info, 2000)
+                if carla_gpu_info == gaivi_gpu_info:
+                    carla_gpu_info = 'localhost'
+                carla.Client(carla_gpu_info, 2000)
                 # client.set_timeout(2.0)
                 client.set_timeout(60)
                 # client.set_timeout(600)
