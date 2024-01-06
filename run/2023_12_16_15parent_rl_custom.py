@@ -37,6 +37,7 @@ def kill_carla_remote():
     kill_process.wait()
 def kill_carla_gaivi():
     kill_carla()
+    time.sleep(5)
 
 # check if saved final model exists
 run = 1
@@ -47,7 +48,6 @@ while len(glob.glob('models/final.model')) == 0:
             kill_carla()
         else:
             kill_carla_gaivi()
-            time.sleep(5)
     else:
         kill_carla_remote()
     carla = None
@@ -72,11 +72,10 @@ while len(glob.glob('models/final.model')) == 0:
                 print(f"after carla, run squeue")
                 squeue_after_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_after_carla.wait()
-                command_output = subprocess.run(['squeue'], capture_output=True, text=True)
-                output_lines = command_output.stdout.split('\n')
-                print(f'output_lines: {output_lines}')
                 carla_line = []
                 while carla_line == []:
+                    command_output = subprocess.run(['squeue'], capture_output=True, text=True)
+                    output_lines = command_output.stdout.split('\n')
                     carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
                 print(f'carla_line: {carla_line}')
                 carla_gpu_info = carla_line[0].split()[-1]  # Assuming GPU info is the last column
