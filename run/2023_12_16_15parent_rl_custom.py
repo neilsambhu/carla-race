@@ -83,11 +83,15 @@ while len(glob.glob('models/final.model')) == 0:
                 import carla
                 # time.sleep(60)
                 client = carla.Client(str(carla_gpu_info), 2000)
-                # client.set_timeout(2.0)
-                # client.set_timeout(60)
-                client.set_timeout(600)
-                # time.sleep(5)
-                print(client.get_world())
+                world = None
+                while world == None:
+                    try:
+                        world = client.get_world()
+                        print(f'world: {world}')
+                    except Exception as e:
+                        print(f'CARLA starting error message: {e}')
+                        time.sleep(5)
+                        continue
                 # time.sleep(30)                
                 # nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
                 # nvidia_smi.wait()
