@@ -80,8 +80,8 @@ while len(glob.glob('models/final.model')) == 0:
                 import carla
                 client = carla.Client(gpu_info, 2000)
                 # self.client.set_timeout(2.0)
-                # self.client.set_timeout(60)
-                client.set_timeout(600)
+                self.client.set_timeout(60)
+                # client.set_timeout(600)
                 print(client.get_world())
                 # time.sleep(30)                
                 # nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
