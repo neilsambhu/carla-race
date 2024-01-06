@@ -82,9 +82,10 @@ while len(glob.glob('models/final.model')) == 0:
                 carla_gpu_info = carla_line[0].split()[-1]  # Assuming GPU info is the last column
                 print("GPU Info for carla.sh:", carla_gpu_info)
                 import carla
+                time.sleep(1)
                 client = carla.Client(str(carla_gpu_info), 2000)
                 # client.set_timeout(2.0)
-                client.set_timeout(60)
+                # client.set_timeout(60)
                 # client.set_timeout(600)
                 time.sleep(5)
                 print(client.get_world())
