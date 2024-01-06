@@ -90,8 +90,8 @@ while len(glob.glob('models/final.model')) == 0:
                 # time.sleep(5)
                 print(client.get_world())
                 # time.sleep(30)                
-                nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-                nvidia_smi.wait()
+                # nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+                # nvidia_smi.wait()
         else:
             carla = subprocess.Popen('ssh SAMBHU23 "/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen"', shell=True, preexec_fn=os.setsid)
             time.sleep(30)
