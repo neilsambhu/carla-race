@@ -1815,3 +1815,4 @@ Count of epochs trained: 810	Goal: 820
 Count of batches trained: 315900	Goal: 319806
 
   0%|          | 0/10 [00:00<?, ?epoch/s][A
+ 10%|#         | 1/10 [03:03<27:28, 183.22s/epoch][A
