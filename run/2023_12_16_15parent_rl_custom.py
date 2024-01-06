@@ -79,8 +79,8 @@ while len(glob.glob('models/final.model')) == 0:
                 print("GPU Info for carla.sh:", gpu_info)
                 import carla
                 client = carla.Client(gpu_info, 2000)
-                # self.client.set_timeout(2.0)
-                self.client.set_timeout(60)
+                # client.set_timeout(2.0)
+                client.set_timeout(60)
                 # client.set_timeout(600)
                 print(client.get_world())
                 # time.sleep(30)                
