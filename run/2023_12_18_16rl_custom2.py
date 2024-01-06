@@ -672,10 +672,10 @@ if __name__ == "__main__":
             # time.sleep(6)
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
             
-            agent.saved_model.save(f'tmp/{env.episode:03}.{agent.count_batches_trained}.model')
+            agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_batches_trained}.model')
             print(f'Saved model from episode {env.episode}. Count of batches trained: {agent.count_batches_trained}')
 
-            with open(f'tmp/{env.episode:03}.replay_memory', 'wb') as file:
+            with open(f'tmp/{env.episode:04}.replay_memory', 'wb') as file:
                 pickle.dump(agent.replay_memory, file)
 
             # import subprocess

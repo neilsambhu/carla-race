@@ -121,6 +121,9 @@ while len(glob.glob('models/final.model')) == 0:
         print(f'End run at count {run}')
         print_elapsed_time()
         run += 1
-        carla.terminate()
+        if bSAMBHU24:
+            carla.terminate()
+        elif bGAIVI:
+            kill_carla_gaivi()
         rl_custom.terminate()
 print('done');import sys; sys.exit()
