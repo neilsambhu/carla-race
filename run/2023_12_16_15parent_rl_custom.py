@@ -58,7 +58,7 @@ while len(glob.glob('models/final.model')) == 0:
                 carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
                 # carla = subprocess.Popen('/opt/carla-simulator/CarlaUE4.sh', shell=True, preexec_fn=os.setsid)
             else:
-                print(f"before carla run squeue")
+                print(f"before carla, run squeue")
                 squeue_before_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_before_carla.wait()
                 # carla = subprocess.Popen(f'srun singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
@@ -68,7 +68,8 @@ while len(glob.glob('models/final.model')) == 0:
                 # carla = subprocess.Popen(f'srun -w GPU17 --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
                 # carla = subprocess.Popen(f'srun --partition Contributors --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True)
                 carla.wait()
-                print(f"after carla run squeue")
+                time.sleep(1)
+                print(f"after carla, run squeue")
                 squeue_after_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_after_carla.wait()
                 command_output = subprocess.run(['squeue'], capture_output=True, text=True)
