@@ -151,8 +151,8 @@ class CarEnv:
         print("GPU Info for carla.sh:", gpu_info)
         self.client = carla.Client(gpu_info, 2000)
         # self.client.set_timeout(2.0)
-        self.client.set_timeout(60)
-        # self.client.set_timeout(600)
+        # self.client.set_timeout(60)
+        self.client.set_timeout(600)
         # self.world = self.client.get_world()
         self.world = self.client.load_world('Town04_Opt')
         self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
@@ -308,184 +308,185 @@ class CarEnv:
 
         return self.front_camera, reward, done, None
 
-
-class DQNAgent:
-    def __init__(self):
-        self.model = self.create_model()
-        self.target_model = self.create_model()
-        self.target_model.set_weights(self.model.get_weights())
-        self.saved_model = self.create_model()
-        self.saved_model.set_weights(self.model.get_weights())
-        self.count_saved_models = 0
-        self.count_batches_trained = 0
-        self.count_epochs_trained = 0
-
-        self.replay_memory = deque(maxlen=REPLAY_MEMORY_SIZE)
-
-        self.tensorboard = ModifiedTensorBoard(log_dir=f"logs/{MODEL_NAME}-{int(time.time())}")
-        self.target_update_counter = 0
-        # Neil commented `self.graph = tf.get_default_graph()`
-
-        self.terminate = False
-        self.last_logged_episode = 0
-        self.training_initialized = False
-
-    def create_model(self):
-        # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
-        from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D
-        base_model = tf.keras.Sequential()
-        # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        # base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        count_filters = 64
-        base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
-        
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
-
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
-
-        base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-        base_model.add(MaxPooling2D(pool_size=(2, 2)))
-        base_model.add(BatchNormalization())
-        base_model.add(Activation('relu'))
-
-        x = base_model.output
-        x = Flatten()(x)
-
-        # print(f'x.shape: {x.shape}')
-
-        size_reduce = 2
-        while(x.shape.as_list()[1] >= size_reduce*(action_size+1)):
-            x = Dense(x.shape.as_list()[1]//size_reduce, activation="relu")(x)
-
-        predictions = Dense(action_size, activation="linear")(x)
-        model = Model(inputs = base_model.input, outputs=predictions)
-        model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
-        # print(model.summary())
-        return model
-
-    def update_replay_memory(self, transition):
-        # transition = (current_state, action, reward, new_state, done)
-        self.replay_memory.append(transition)
-
-    def train(self):
-        if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
-            return
-
-        minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
-
-        # current_states = np.array([transition[0] for transition in minibatch])/255
-        current_states = np.array([transition[0] for transition in minibatch])
-        # Neil commented `with self.graph.as_default():`
-        # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
-        # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
-        current_qs_list = None
-        try:
-            current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
-        except Exception as e:
-            print(f'Error message: {e}')
-        
-        # new_current_states = np.array([transition[3] for transition in minibatch])/255
-        new_current_states = np.array([transition[3] for transition in minibatch])
-        # Neil commented `with self.graph.as_default():`
-        # future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
-        future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE, verbose=0)
-
-        X = []
-        y = []
-
-        for index, (current_state, action, reward, new_state, done) in enumerate(minibatch):
-            if bVerbose and False:
-                print(f'action: {action}')
-            if not done:
-                max_future_q = np.max(future_qs_list[index])
-                new_q = reward + DISCOUNT * max_future_q
-            else:
-                new_q = reward
-
-            if bVerbose and False:
-                print(f'current_qs_list: {current_qs_list}')
-                print(f'new_q: {new_q}')
-            current_qs = current_qs_list[index]
-            current_qs[action] = new_q
-
-            X.append(current_state)
-            y.append(current_qs)
-
-        log_this_step = False
-        if self.tensorboard.step > self.last_logged_episode:
-            log_this_step = True
-            self.last_log_episode = self.tensorboard.step
-
-        # Neil commented `with self.graph.as_default():`
-        # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
-        self.model.fit(
-            # np.array(X) / 255,
-            np.array(X),
-            np.array(y),
-            batch_size=TRAINING_BATCH_SIZE,
-            verbose=0,
-            shuffle=False,
-            # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
-        )
-
-
-        if log_this_step:
-            self.target_update_counter += 1
-
-        if self.target_update_counter > UPDATE_TARGET_EVERY:
+strategy = tf.distribute.MirroredStrategy()
+with strategy.scope():
+    class DQNAgent:
+        def __init__(self):
+            self.model = self.create_model()
+            self.target_model = self.create_model()
             self.target_model.set_weights(self.model.get_weights())
+            self.saved_model = self.create_model()
+            self.saved_model.set_weights(self.model.get_weights())
+            self.count_saved_models = 0
+            self.count_batches_trained = 0
+            self.count_epochs_trained = 0
+
+            self.replay_memory = deque(maxlen=REPLAY_MEMORY_SIZE)
+
+            self.tensorboard = ModifiedTensorBoard(log_dir=f"logs/{MODEL_NAME}-{int(time.time())}")
             self.target_update_counter = 0
+            # Neil commented `self.graph = tf.get_default_graph()`
 
-        if self.count_batches_trained == 0:
-            print('Finished training first batch.')
-        self.count_batches_trained += 1
-        self.saved_model.set_weights(self.model.get_weights())
-        self.count_saved_models += 1
+            self.terminate = False
+            self.last_logged_episode = 0
+            self.training_initialized = False
 
-    def get_qs(self, state):
-        # print(state.shape)
-        # print(np.array(state).shape)
-        # print(type(state))
-        # print(state)
-        # from PIL import Image
-        # im = Image.fromarray(state)
-        # im.save('img.png');import sys;sys.exit()
-        # return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
-        # print(self.model.predict(np.expand_dims(state, axis=0), verbose=0));import sys;sys.exit()
-        # return self.model.predict(state, verbose=0)[0]
-        return self.model.predict(np.expand_dims(state, axis=0), verbose=0)[0]
+        def create_model(self):
+            # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
+            from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D
+            base_model = tf.keras.Sequential()
+            # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+            # base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+            count_filters = 64
+            base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
+            base_model.add(MaxPooling2D(pool_size=(2, 2)))
+            base_model.add(BatchNormalization())
+            base_model.add(Activation('relu'))
+            
+            base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+            base_model.add(MaxPooling2D(pool_size=(2, 2)))
+            base_model.add(BatchNormalization())
+            base_model.add(Activation('relu'))
 
-    def train_in_loop(self):
-        # X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
-        X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
-        # y = np.random.uniform(size=(1, action_size)).astype(np.float32)
-        y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
-        # Neil commented `with self.graph.as_default():`
-        self.model.fit(X,y, verbose=False, batch_size=1) # Neil left tabbed 1
+            base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+            base_model.add(MaxPooling2D(pool_size=(2, 2)))
+            base_model.add(BatchNormalization())
+            base_model.add(Activation('relu'))
 
-        self.training_initialized = True
+            base_model.add(Conv2D(count_filters, (3,3), padding='same'))
+            base_model.add(MaxPooling2D(pool_size=(2, 2)))
+            base_model.add(BatchNormalization())
+            base_model.add(Activation('relu'))
 
-        while True:
-            if self.terminate:
-                return
-            self.train()
+            x = base_model.output
+            x = Flatten()(x)
+
+            # print(f'x.shape: {x.shape}')
+
+            size_reduce = 2
+            while(x.shape.as_list()[1] >= size_reduce*(action_size+1)):
+                x = Dense(x.shape.as_list()[1]//size_reduce, activation="relu")(x)
+
+            predictions = Dense(action_size, activation="linear")(x)
+            model = Model(inputs = base_model.input, outputs=predictions)
+            model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
+            # print(model.summary())
+            return model
+
+        def update_replay_memory(self, transition):
+            # transition = (current_state, action, reward, new_state, done)
+            self.replay_memory.append(transition)
+
+        def train(self):
             if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
-                time.sleep(1)
-            else:
-                if self.count_batches_trained == 0:
-                    print('Finished training first epoch.')
-                self.count_batches_trained += 1
-                self.saved_model.set_weights(self.model.get_weights())
-                self.count_saved_models += 1
+                return
+
+            minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
+
+            # current_states = np.array([transition[0] for transition in minibatch])/255
+            current_states = np.array([transition[0] for transition in minibatch])
+            # Neil commented `with self.graph.as_default():`
+            # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
+            # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
+            current_qs_list = None
+            try:
+                current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
+            except Exception as e:
+                print(f'Error message: {e}')
+            
+            # new_current_states = np.array([transition[3] for transition in minibatch])/255
+            new_current_states = np.array([transition[3] for transition in minibatch])
+            # Neil commented `with self.graph.as_default():`
+            # future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
+            future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE, verbose=0)
+
+            X = []
+            y = []
+
+            for index, (current_state, action, reward, new_state, done) in enumerate(minibatch):
+                if bVerbose and False:
+                    print(f'action: {action}')
+                if not done:
+                    max_future_q = np.max(future_qs_list[index])
+                    new_q = reward + DISCOUNT * max_future_q
+                else:
+                    new_q = reward
+
+                if bVerbose and False:
+                    print(f'current_qs_list: {current_qs_list}')
+                    print(f'new_q: {new_q}')
+                current_qs = current_qs_list[index]
+                current_qs[action] = new_q
+
+                X.append(current_state)
+                y.append(current_qs)
+
+            log_this_step = False
+            if self.tensorboard.step > self.last_logged_episode:
+                log_this_step = True
+                self.last_log_episode = self.tensorboard.step
+
+            # Neil commented `with self.graph.as_default():`
+            # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
+            self.model.fit(
+                # np.array(X) / 255,
+                np.array(X),
+                np.array(y),
+                batch_size=TRAINING_BATCH_SIZE,
+                verbose=0,
+                shuffle=False,
+                # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
+            )
+
+
+            if log_this_step:
+                self.target_update_counter += 1
+
+            if self.target_update_counter > UPDATE_TARGET_EVERY:
+                self.target_model.set_weights(self.model.get_weights())
+                self.target_update_counter = 0
+
+            if self.count_batches_trained == 0:
+                print('Finished training first batch.')
+            self.count_batches_trained += 1
+            self.saved_model.set_weights(self.model.get_weights())
+            self.count_saved_models += 1
+
+        def get_qs(self, state):
+            # print(state.shape)
+            # print(np.array(state).shape)
+            # print(type(state))
+            # print(state)
+            # from PIL import Image
+            # im = Image.fromarray(state)
+            # im.save('img.png');import sys;sys.exit()
+            # return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
+            # print(self.model.predict(np.expand_dims(state, axis=0), verbose=0));import sys;sys.exit()
+            # return self.model.predict(state, verbose=0)[0]
+            return self.model.predict(np.expand_dims(state, axis=0), verbose=0)[0]
+
+        def train_in_loop(self):
+            # X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
+            X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
+            # y = np.random.uniform(size=(1, action_size)).astype(np.float32)
+            y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
+            # Neil commented `with self.graph.as_default():`
+            self.model.fit(X,y, verbose=False, batch_size=1) # Neil left tabbed 1
+
+            self.training_initialized = True
+
+            while True:
+                if self.terminate:
+                    return
+                self.train()
+                if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
+                    time.sleep(1)
+                else:
+                    if self.count_batches_trained == 0:
+                        print('Finished training first epoch.')
+                    self.count_batches_trained += 1
+                    self.saved_model.set_weights(self.model.get_weights())
+                    self.count_saved_models += 1
 
 if __name__ == "__main__":
     FPS = 60
