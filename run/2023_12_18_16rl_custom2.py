@@ -308,6 +308,14 @@ class CarEnv:
 
         return self.front_camera, reward, done, None
 
+if bGPU:
+    if not bGAIVI:
+        tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)
+    else:
+        gpus = tf.config.experimental.list_physical_devices('GPU')
+        print(f'GPUs: {gpus}')
+        for gpu in gpus:
+            tf.config.experimental.set_memory_growth(gpu, True)
 strategy = tf.distribute.MirroredStrategy()
 with strategy.scope():
     class DQNAgent:
@@ -496,14 +504,6 @@ if __name__ == "__main__":
     random.seed(1)
     np.random.seed(1)
     tf.random.set_seed(1) # Neil modified `tf.set_random_seed(1)`
-
-    # Neil commented out for CPU `tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)` # Neil modified `gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=MEMORY_FRACTION)`
-    if bGPU:
-        tf.config.experimental.set_memory_growth(tf.config.experimental.list_physical_devices('GPU')[0], True)
-    pass # Neil modified `backend.set_session(tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)))`
-
-    if not os.path.isdir("models"):
-        os.makedirs("models")
 
     agent = DQNAgent()
     idx_episode_start = 1
