@@ -68,7 +68,7 @@ while len(glob.glob('models/final.model')) == 0:
                 # carla = subprocess.Popen(f'srun -w GPU17 --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
                 # carla = subprocess.Popen(f'srun --partition Contributors --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True)
                 carla.wait()
-                time.sleep(1)
+                time.sleep(5)
                 print(f"after carla, run squeue")
                 squeue_after_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_after_carla.wait()
