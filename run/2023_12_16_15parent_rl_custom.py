@@ -67,6 +67,7 @@ while len(glob.glob('models/final.model')) == 0:
                 carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh', shell=True)
                 # carla = subprocess.Popen(f'srun -w GPU17 --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
                 # carla = subprocess.Popen(f'srun --partition Contributors --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True)
+                carla.wait()
                 print(f"after carla run squeue")
                 squeue_after_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_after_carla.wait()
@@ -80,13 +81,13 @@ while len(glob.glob('models/final.model')) == 0:
                 gaivi_gpu_info = gaivi_line[0].split()[-1]  # Assuming GPU info is the last column
                 print("GPU Info for carla.sh:", carla_gpu_info)
                 import carla
-                if carla_gpu_info == gaivi_gpu_info:
-                    carla_gpu_info = 'localhost'
-                client = carla.Client(str(carla_gpu_info), 2000)
+                # if carla_gpu_info == gaivi_gpu_info:
+                #     carla_gpu_info = 'localhost'
+                client = carla.Client(carla_gpu_info, 2000)
                 # client.set_timeout(2.0)
                 client.set_timeout(60)
                 # client.set_timeout(600)
-                time.sleep(5)
+                # time.sleep(5)
                 print(client.get_world())
                 # time.sleep(30)                
                 # nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
