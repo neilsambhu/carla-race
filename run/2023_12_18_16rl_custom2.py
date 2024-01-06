@@ -548,10 +548,14 @@ if __name__ == "__main__":
     previousEpisode_countBatchesTrained = agent.count_batches_trained
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
+            if episode > 5:
+                matching_files = glob.glob(os.path.join(directory_output, f'*{episode-5}_*.png'))
+                [os.remove(file) for file in matching_files]
+
             print(f'\nStarted episode {episode} of {EPISODES}')
-            # if bGAIVI:
-            #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-            #     nvidia_smi.wait()
+            if bGAIVI:
+                nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+                nvidia_smi.wait()
 
             env.collision_hist = []
             agent.tensorboard.step = episode
