@@ -548,8 +548,15 @@ if __name__ == "__main__":
     previousEpisode_countBatchesTrained = agent.count_batches_trained
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
-            if episode > 5:
-                matching_files = glob.glob(os.path.join(directory_output, f'*{episode-5}_*.png'))
+            lookback = 2
+            if episode > lookback:
+                matching_files = glob.glob(os.path.join('tmp/', f'*{episode-lookback}.*.model'))
+                [shutil.rmtree(matching_file) for matching_file in matching_files]
+                matching_files = glob.glob(os.path.join('tmp/', f'*{episode-lookback}.replay_memory'))
+                [os.remove(matching_file) for matching_file in matching_files]
+            lookback = 25
+            if episode > lookback:
+                matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}_*.png'))
                 [os.remove(file) for file in matching_files]
 
             print(f'\nStarted episode {episode} of {EPISODES}')
