@@ -83,7 +83,6 @@ while len(glob.glob('models/final.model')) == 0:
                 if carla_gpu_info == gaivi_gpu_info:
                     carla_gpu_info = 'localhost'
                 client = carla.Client(str(carla_gpu_info), 2000)
-                client = carla.Client('GPU17', 2000)
                 # client.set_timeout(2.0)
                 client.set_timeout(60)
                 # client.set_timeout(600)
