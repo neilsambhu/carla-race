@@ -507,15 +507,18 @@ if __name__ == "__main__":
 
     agent = DQNAgent()
     idx_episode_start = 1
-    # if tmp/{episode}.model exists, load model
     import glob, shutil
+    bLoadReplayMemory = True
+    if bLoadReplayMemory:
+        with open('bak/063.replay_memory', 'rb') as file:
+            agent.replay_memory = pickle.load(file)
+        idx_episode_start = 64
     matching_files = glob.glob(os.path.join('tmp/', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()
         print(f'Models in tmp {matching_files}')
         print(f'Load model {matching_files[-1]}')
         agent.model = tf.keras.models.load_model(matching_files[-1])
-        [shutil.rmtree(matching_file) for matching_file in matching_files[:-1]]
 
         idx_episode_saved, agent.count_batches_trained = matching_files[-1].split('/')[1].split('.')[0:2]
         idx_episode_saved, agent.count_batches_trained = int(idx_episode_saved), int(agent.count_batches_trained)
@@ -524,7 +527,6 @@ if __name__ == "__main__":
         matching_files = glob.glob(os.path.join(directory_output, f'*{idx_episode_crashed}_*.png'))
         matching_files.sort()
         print(f'Leftover images from failed episode: {matching_files}')
-        [os.remove(file) for file in matching_files]
 
         matching_files = glob.glob(os.path.join('tmp/', '*.replay_memory'))
         matching_files.sort()
@@ -532,7 +534,6 @@ if __name__ == "__main__":
         print(f'Load replay memory {matching_files[-1]}')
         with open(matching_files[-1], 'rb') as file:
             agent.replay_memory = pickle.load(file)
-        [os.remove(matching_file) for matching_file in matching_files[:-1]]
 
         idx_episode_start = idx_episode_crashed
 
