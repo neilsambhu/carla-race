@@ -1747,3 +1747,14 @@ Count of batches trained: 300300	Goal: 304206
  60%|######    | 6/10 [18:11<12:07, 181.76s/epoch][A
  70%|#######   | 7/10 [21:14<09:06, 182.22s/epoch][A
  80%|########  | 8/10 [24:16<06:04, 182.24s/epoch][A
+ 90%|######### | 9/10 [27:20<03:02, 182.64s/epoch][A
+100%|##########| 10/10 [30:23<00:00, 182.72s/epoch][A100%|##########| 10/10 [30:23<00:00, 182.31s/epoch]
+Saved model from episode 126. Count of batches trained: 304200
+ 13%|#2        | 126/1000 [42:26:34<461:24:22, 1900.53s/episode]
+Started episode 127 of 1000
+Finished episode 127 of 1000
+len(agent.replay_memory): 50000
+Count of epochs trained: 780	Goal: 790
+Count of batches trained: 304200	Goal: 308106
+
+  0%|          | 0/10 [00:00<?, ?epoch/s][A

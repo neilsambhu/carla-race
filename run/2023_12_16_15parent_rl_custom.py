@@ -87,6 +87,7 @@ while len(glob.glob('models/final.model')) == 0:
                 # client.set_timeout(2.0)
                 client.set_timeout(60)
                 # client.set_timeout(600)
+                time.sleep(5)
                 print(client.get_world())
                 # time.sleep(30)                
                 # nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
