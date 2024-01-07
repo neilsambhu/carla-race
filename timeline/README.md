@@ -810,3 +810,8 @@ sshfs nsambhu@gaivi.cse.usf.edu:/home/n/nsambhu ~/gaivi
 ```
 1/5/2023 11:32 PM: TODO: (1) make map of drive; (2) refine ground truth data collection (i.e., no AP, allow spawn to finish, enable AP, output control signals).
 1/6/2024 1:46 AM: max allocation of 8 GPUs.  
+1/6/2024 10:10 PM: view output
+```
+tail -f slurm-143270.out
+```
+1/6/2024 10:19 PM: TODO: (1) monitor episode to be able to drive without crashing; (2) make map of drive; (3) refine ground truth drive data collection (i..e, no AP, allow spawn to finish, enable AP, output control).  
