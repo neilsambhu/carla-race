@@ -658,7 +658,7 @@ if __name__ == "__main__":
                 # epochs = 1
                 epochs = 0
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
-                epochs = 10
+                epochs = 100
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
