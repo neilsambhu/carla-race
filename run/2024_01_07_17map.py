@@ -16,8 +16,8 @@ locations_file_path = '_out_07CARLA_AP/Locations_Town04_0_335.txt'
 # Read the locations file and extract x, y coordinates
 with open(locations_file_path, 'r') as file:
     # Read lines and split by spaces to get x, y, z coordinates
-    lines = file.readlines()
-    # lines = file.readlines()[0:3400]
+    # lines = file.readlines()
+    lines = file.readlines()[0:3190]
     trajectory = []
     for line in lines:
         coordinates = line.strip().split(' ')
