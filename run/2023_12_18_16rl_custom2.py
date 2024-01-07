@@ -51,7 +51,7 @@ with open(path_AP_locations, 'r') as file:
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
 REPLAY_MEMORY_SIZE = 50_000
 # MINIBATCH_SIZE = 128 # 6 GB GPU memory
-MINIBATCH_SIZE = 128*1*13*4
+MINIBATCH_SIZE = 128*1*13*4*2
 MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -493,7 +493,7 @@ with strategy.scope():
                     if self.count_batches_trained == 0:
                         print('Finished training first epoch.')
                         if bGAIVI:
-                            nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+                            nvidia_smi = subprocess.Popen('nvidia-smi', shell=True)
                             nvidia_smi.wait()
                             time.sleep(1)
                     self.count_batches_trained += 1
