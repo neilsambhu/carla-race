@@ -285,10 +285,10 @@ class CarEnv:
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
         # reward = -1*distance**3 - distance + 1
-        if distance < 1:
-            reward += 1
+        if distance < 10:
+            reward += 10
         else:
-            reward -= 1
+            reward -= 10
 
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
@@ -303,8 +303,8 @@ class CarEnv:
 
         if len (self.collision_hist) != 0:
             done = True
-            # reward = -200
-            reward = -0.001
+            reward = -200
+            # reward = -0.001
 
         return self.front_camera, reward, done, None
 
