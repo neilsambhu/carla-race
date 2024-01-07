@@ -526,8 +526,8 @@ if __name__ == "__main__":
         print(f'Load model {matching_files[-1]}')
         agent.model = tf.keras.models.load_model(matching_files[-1])
 
-        idx_episode_saved, agent.count_batches_trained = matching_files[-1].split('/')[1].split('.')[0:2]
-        idx_episode_saved, agent.count_batches_trained = int(idx_episode_saved), int(agent.count_batches_trained)
+        idx_episode_saved, agent.count_epochs_trained = matching_files[-1].split('/')[1].split('.')[0:2]
+        idx_episode_saved, agent.count_epochs_trained = int(idx_episode_saved), int(agent.count_epochs_trained)
         idx_episode_crashed = idx_episode_saved + 1
         # remove leftover images from failed episode
         matching_files = glob.glob(os.path.join(directory_output, f'*{idx_episode_crashed}_*.png'))
@@ -658,12 +658,13 @@ if __name__ == "__main__":
                 # epochs = 1
                 epochs = 0
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
-                epochs = 100
+                # epochs = 100
+                epochs = 1e6
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
                 count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
-                print(f'Count of batches trained: {agent.count_batches_trained}\tGoal: {count_batches_goal}')
+                # print(f'Count of batches trained: {agent.count_batches_trained}\tGoal: {count_batches_goal}')
                 for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch"):
                     count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                     # for batch in tqdm(range(agent.count_batches_trained, count_batches_subgoal), ascii=True, unit="batch"):
@@ -679,8 +680,10 @@ if __name__ == "__main__":
             # time.sleep(6)
             # print(f'agent.count_saved_models: {agent.count_saved_models}')
             
-            agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_batches_trained}.model')
-            print(f'Saved model from episode {env.episode}. Count of batches trained: {agent.count_batches_trained}')
+            # agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_batches_trained}.model')
+            agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_epochs_trained}.model')
+            # print(f'Saved model from episode {env.episode}. Count of batches trained: {agent.count_batches_trained}')
+            print(f'Saved model from episode {env.episode}. Count of epochs trained: {agent.count_epochs_trained}')
 
             with open(f'tmp/{env.episode:04}.replay_memory', 'wb') as file:
                 pickle.dump(agent.replay_memory, file)
