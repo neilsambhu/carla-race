@@ -505,8 +505,8 @@ with strategy.scope():
 
 if __name__ == "__main__":
     FPS = 60
-    # ep_rewards = [-200]
-    ep_rewards = [-0.0001]
+    ep_rewards = [-200]
+    # ep_rewards = [-0.0001]
 
     random.seed(1)
     np.random.seed(1)
@@ -660,7 +660,7 @@ if __name__ == "__main__":
                 epochs = 0
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 # epochs = 100
-                epochs = 1e6
+                epochs = int(1e6)
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
