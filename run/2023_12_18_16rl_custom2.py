@@ -458,6 +458,7 @@ with strategy.scope():
             if self.count_batches_trained == 0:
                 print('Finished training first batch.')
             self.count_batches_trained += 1
+            time.sleep(0.001)
             self.saved_model.set_weights(self.model.get_weights())
             self.count_saved_models += 1
 
@@ -566,9 +567,9 @@ if __name__ == "__main__":
                 [os.remove(file) for file in matching_files]
 
             print(f'\nStarted episode {episode} of {EPISODES}')
-            if bGAIVI:
-                nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-                nvidia_smi.wait()
+            # if bGAIVI:
+            #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+            #     nvidia_smi.wait()
 
             env.collision_hist = []
             agent.tensorboard.step = episode
