@@ -286,11 +286,11 @@ class CarEnv:
         # You might want to define a threshold and reward scheme based on the distance
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
-        # reward = -1*distance**3 - distance + 1
-        if distance < 10:
-            reward += 10
-        else:
-            reward -= 10
+        reward = -1*distance**3 - distance + 1
+        # if distance < 10:
+        #     reward += 10
+        # else:
+        #     reward -= 10
 
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
@@ -515,7 +515,7 @@ if __name__ == "__main__":
     agent = DQNAgent()
     idx_episode_start = 1
     import glob, shutil
-    bLoadReplayMemory = True
+    bLoadReplayMemory = False
     if bLoadReplayMemory:
         with open('bak/063.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)

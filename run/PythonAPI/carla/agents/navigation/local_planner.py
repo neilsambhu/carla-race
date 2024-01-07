@@ -245,10 +245,8 @@ class LocalPlanner(object):
         # if bVerbose and True:
         #     location_created = carla.Location(veh_location.x,veh_location.y,veh_location.z)
         #     print(f'created location: {location_created}')
-        import time
         with open('_out_07CARLA_AP/Locations_Town04_0_335.txt', 'a') as file:
             file.write('{} {} {}\n'.format(veh_location.x,veh_location.y,veh_location.z))
-            time.sleep(0.01)
         # 12/10/2023 3:38 PM: vehicle location: end
         vehicle_speed = get_speed(self._vehicle) / 3.6
         self._min_distance = self._base_min_distance + self._distance_ratio * vehicle_speed
@@ -296,7 +294,6 @@ class LocalPlanner(object):
                 #     control.manual_gear_shift,
                 #     control.gear))
                 file.write('{} {} {}\n'.format(control.throttle, control.steer, control.brake))
-                time.sleep(0.1)
             # 11/22/2023 10:48 AM: save control signal: end
             # 11/22/2023 11:17 AM: read control signal: start
             # throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=1.0,0.5,0.0,False,False,False,0
