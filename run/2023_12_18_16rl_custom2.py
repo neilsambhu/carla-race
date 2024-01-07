@@ -458,7 +458,7 @@ with strategy.scope():
             if self.count_batches_trained == 0:
                 print('Finished training first batch.')
             self.count_batches_trained += 1
-            time.sleep(0.001)
+            time.sleep(0.01)
             self.saved_model.set_weights(self.model.get_weights())
             self.count_saved_models += 1
 
