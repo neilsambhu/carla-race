@@ -17,7 +17,7 @@ locations_file_path = '_out_07CARLA_AP/Locations_Town04_0_335.txt'
 with open(locations_file_path, 'r') as file:
     # Read lines and split by spaces to get x, y, z coordinates
     lines = file.readlines()
-    # lines = file.readlines()[0:3000]
+    # lines = file.readlines()[0:3400]
     trajectory = []
     for line in lines:
         coordinates = line.strip().split(' ')
@@ -37,7 +37,8 @@ y_coords_shifted = [image_height / 2 - y for y in y_coords]
 plt.imshow(map_img)
 
 # Plot the shifted vehicle's path
-plt.plot(x_coords_shifted, y_coords_shifted, marker='o', color='red', markersize=2)  # Adjust marker size as needed
+plt.plot(x_coords, y_coords, marker='o', color='red', markersize=2)  # Adjust marker size as needed
+# plt.plot(x_coords_shifted, y_coords_shifted, marker='o', color='red', markersize=2)  # Adjust marker size as needed
 
 # Show the plot
 plt.show()
