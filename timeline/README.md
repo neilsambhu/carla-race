@@ -815,3 +815,7 @@ sshfs nsambhu@gaivi.cse.usf.edu:/home/n/nsambhu ~/gaivi
 tail -f slurm-143270.out
 ```
 1/6/2024 10:19 PM: TODO: (1) monitor episode to be able to drive without crashing; (2) make map of drive; (3) refine ground truth drive data collection (i..e, no AP, allow spawn to finish, enable AP, output control).  
+1/7/2024 2:26 AM: ground truth drive data
+```
+python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic --host 10.247.52.30 |& tee out.txt
+```
