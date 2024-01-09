@@ -6,4 +6,4 @@ WARNING: Version mismatch detected: You are trying to connect to a simulator tha
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
 The target has been reached, stopping the simulation
-Elapsed time: 00:02:26
+Elapsed time: 00:02:25

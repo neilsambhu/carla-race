@@ -819,3 +819,4 @@ tail -f slurm-143270.out
 ```
 python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic --host 10.247.52.30 |& tee out.txt
 ```
+1/8/2024 11:11 PM: TODO: collect ground truth data of slow drive.  
