@@ -5,5 +5,3 @@ Example of automatic vehicle control from client side.
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
-The target has been reached, stopping the simulation
-Elapsed time: 00:02:25

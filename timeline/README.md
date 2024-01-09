@@ -820,3 +820,5 @@ tail -f slurm-143270.out
 python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic --host 10.247.52.30 |& tee out.txt
 ```
 1/8/2024 11:11 PM: TODO: collect ground truth data of slow drive.  
+1/8/2024 11:30 PM: ground truth CARLA AP at 5 kmh is not very good. Next attempt is to have the model learn with neither (1) random actions nor (2) ground truth CARLA AP.  
+1/8/2024 11:42 PM: training is such that agent never chooses an action.  
