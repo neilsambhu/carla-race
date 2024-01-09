@@ -286,7 +286,7 @@ class CarEnv:
         # You might want to define a threshold and reward scheme based on the distance
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
-        reward = -1*distance**3 - distance + 1
+        # reward = -1*distance**3 - distance + 1
         # if distance < 10:
         #     reward += 10
         # else:
@@ -295,9 +295,11 @@ class CarEnv:
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
 
-        # v = self.vehicle.get_velocity()
-        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        v = self.vehicle.get_velocity()
+        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
         # reward += kmh
+        if kmh > 25 and kmh < 50:
+            reward = 1
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
         # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
