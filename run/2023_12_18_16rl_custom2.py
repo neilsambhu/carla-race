@@ -561,6 +561,8 @@ if __name__ == "__main__":
     bTrainingComplete = False
     previousEpisode_countBatchesTrained = agent.count_batches_trained
     idx_action = 0
+    count_framesPerAction = 0
+    max_framesPerAction = 100
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
             lookback = 2
@@ -627,6 +629,11 @@ if __name__ == "__main__":
                 #         time.sleep(1/FPS)
                 if idx_action < action_size:
                     action = idx_action
+                    count_framesPerAction += 1
+                    if count_framesPerAction > max_framesPerAction:
+                        idx_action += 1
+                        count_framesPerAction = 0
+
                 else:
                     action = np.argmax(agent.get_qs(current_state))                    
 
@@ -638,8 +645,6 @@ if __name__ == "__main__":
 
                 if done:
                     break
-
-            idx_action += 1
 
             for actor in env.actor_list:
                 actor.destroy()
