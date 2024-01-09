@@ -560,6 +560,7 @@ if __name__ == "__main__":
 
     bTrainingComplete = False
     previousEpisode_countBatchesTrained = agent.count_batches_trained
+    idx_action = 0
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
             lookback = 2
@@ -600,30 +601,34 @@ if __name__ == "__main__":
                 action = None
                 # if np.random.random() > epsilon and True:
                 # if len(agent.replay_memory) <= REPLAY_MEMORY_SIZE:
-                if False:
-                    # action = np.argmax(agent.get_qs(current_state))
-                    with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
-                        lines = file.readlines()
-                        throttle,steer,brake = lines[idx_control].split()
-                        idx_control += 1
-                        throttle,steer,brake = float(throttle),float(steer),float(brake)
-                        throttle_index = np.abs(action_space['throttle'] - throttle).argmin()
-                        steer_index = np.abs(action_space['steer'] - steer).argmin()
-                        brake_index = np.abs(action_space['brake'] - brake).argmin()
-                        action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
-                                    steer_index * len(action_space['brake']) + \
-                                    brake_index
+                # if False:
+                #     # action = np.argmax(agent.get_qs(current_state))
+                #     with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
+                #         lines = file.readlines()
+                #         throttle,steer,brake = lines[idx_control].split()
+                #         idx_control += 1
+                #         throttle,steer,brake = float(throttle),float(steer),float(brake)
+                #         throttle_index = np.abs(action_space['throttle'] - throttle).argmin()
+                #         steer_index = np.abs(action_space['steer'] - steer).argmin()
+                #         brake_index = np.abs(action_space['brake'] - brake).argmin()
+                #         action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
+                #                     steer_index * len(action_space['brake']) + \
+                #                     brake_index
+                # else:
+                #     # bActionValid = False
+                #     # while not bActionValid:
+                #     #     action = np.random.randint(0, action_size)
+                #     #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                #     #     brake_action = action % len(action_space['brake'])
+                #     #     if throttle_action == 0 or brake_action == 0:
+                #     #         bActionValid = True
+                #     action = np.argmax(agent.get_qs(current_state))                    
+                #     if not bSync:
+                #         time.sleep(1/FPS)
+                if idx_action < action_size:
+                    action = idx_action
                 else:
-                    # bActionValid = False
-                    # while not bActionValid:
-                    #     action = np.random.randint(0, action_size)
-                    #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-                    #     brake_action = action % len(action_space['brake'])
-                    #     if throttle_action == 0 or brake_action == 0:
-                    #         bActionValid = True
                     action = np.argmax(agent.get_qs(current_state))                    
-                    if not bSync:
-                        time.sleep(1/FPS)
 
                 new_state, reward, done, _ = env.step(action)            
                 episode_reward += reward
@@ -633,6 +638,8 @@ if __name__ == "__main__":
 
                 if done:
                     break
+
+            idx_action += 1
 
             for actor in env.actor_list:
                 actor.destroy()
