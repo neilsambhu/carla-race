@@ -517,7 +517,7 @@ if __name__ == "__main__":
     agent = DQNAgent()
     idx_episode_start = 1
     import glob, shutil
-    bLoadReplayMemory = True
+    bLoadReplayMemory = False
     if bLoadReplayMemory:
         with open('bak/063.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
@@ -595,7 +595,8 @@ if __name__ == "__main__":
                     env.idx_tick += 1
                 action = None
                 # if np.random.random() > epsilon and True:
-                if len(agent.replay_memory) <= REPLAY_MEMORY_SIZE:
+                # if len(agent.replay_memory) <= REPLAY_MEMORY_SIZE:
+                if False:
                     # action = np.argmax(agent.get_qs(current_state))
                     with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
                         lines = file.readlines()
