@@ -515,6 +515,10 @@ if __name__ == "__main__":
     tf.random.set_seed(1) # Neil modified `tf.set_random_seed(1)`
 
     agent = DQNAgent()
+    x = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
+    y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
+    agent.model.fit(x, y, verbose=False, batch_size=1) # Neil left tabbed 1
+
     idx_episode_start = 1
     import glob, shutil
     bLoadReplayMemory = False
