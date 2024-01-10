@@ -241,7 +241,7 @@ class CarEnv:
         self.front_camera = i3
         from PIL import Image
         i4 = Image.fromarray(i3)
-        i4.save('%s/%03d_%06d.png' % (directory_output, self.episode, image.frame))
+        i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
 
     def step(self, action):
         if bVerbose and False:
@@ -537,7 +537,7 @@ if __name__ == "__main__":
         idx_episode_saved, agent.count_epochs_trained = int(idx_episode_saved), int(agent.count_epochs_trained)
         idx_episode_crashed = idx_episode_saved + 1
         # remove leftover images from failed episode
-        matching_files = glob.glob(os.path.join(directory_output, f'*{idx_episode_crashed}_*.png'))
+        matching_files = glob.glob(os.path.join(directory_output, f'*{idx_episode_crashed}', '*.png'))
         matching_files.sort()
         print(f'Leftover images from failed episode: {matching_files}')
 
@@ -573,7 +573,7 @@ if __name__ == "__main__":
                 [os.remove(matching_file) for matching_file in matching_files]
             lookback = 25
             if episode > lookback:
-                matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}_*.png'))
+                matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}', '*.png'))
                 [os.remove(file) for file in matching_files]
 
             print(f'\nStarted episode {episode} of {EPISODES}')
