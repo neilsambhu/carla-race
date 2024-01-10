@@ -286,7 +286,7 @@ class CarEnv:
         # You might want to define a threshold and reward scheme based on the distance
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
-        # reward = -1*distance**3 - distance + 1
+        reward = -1*distance**3 - distance + 1
         # if distance < 10:
         #     reward += 10
         # else:
@@ -295,11 +295,11 @@ class CarEnv:
         # Set 'done' flag to True when ticks exceed the lines in the file
         done = self.idx_tick >= len(lines)
 
-        v = self.vehicle.get_velocity()
-        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        reward += kmh
-        if kmh > 25 and kmh < 50:
-            reward = 1
+        # v = self.vehicle.get_velocity()
+        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        # reward += kmh
+        # if kmh > 25 and kmh < 50:
+        #     reward = 25
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
         # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
@@ -602,40 +602,40 @@ if __name__ == "__main__":
                     env.idx_tick += 1
                 action = None
                 # if np.random.random() > epsilon and True:
-                # if len(agent.replay_memory) <= REPLAY_MEMORY_SIZE:
+                if len(agent.replay_memory) <= REPLAY_MEMORY_SIZE:
                 # if False:
-                #     # action = np.argmax(agent.get_qs(current_state))
-                #     with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
-                #         lines = file.readlines()
-                #         throttle,steer,brake = lines[idx_control].split()
-                #         idx_control += 1
-                #         throttle,steer,brake = float(throttle),float(steer),float(brake)
-                #         throttle_index = np.abs(action_space['throttle'] - throttle).argmin()
-                #         steer_index = np.abs(action_space['steer'] - steer).argmin()
-                #         brake_index = np.abs(action_space['brake'] - brake).argmin()
-                #         action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
-                #                     steer_index * len(action_space['brake']) + \
-                #                     brake_index
-                # else:
-                #     # bActionValid = False
-                #     # while not bActionValid:
-                #     #     action = np.random.randint(0, action_size)
-                #     #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-                #     #     brake_action = action % len(action_space['brake'])
-                #     #     if throttle_action == 0 or brake_action == 0:
-                #     #         bActionValid = True
-                #     action = np.argmax(agent.get_qs(current_state))                    
-                #     if not bSync:
-                #         time.sleep(1/FPS)
-                if idx_action < action_size:
-                    action = idx_action
-                    count_framesPerAction += 1
-                    if count_framesPerAction > max_framesPerAction:
-                        idx_action += 1
-                        count_framesPerAction = 0
-
+                    # action = np.argmax(agent.get_qs(current_state))
+                    with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
+                        lines = file.readlines()
+                        throttle,steer,brake = lines[idx_control].split()
+                        idx_control += 1
+                        throttle,steer,brake = float(throttle),float(steer),float(brake)
+                        throttle_index = np.abs(action_space['throttle'] - throttle).argmin()
+                        steer_index = np.abs(action_space['steer'] - steer).argmin()
+                        brake_index = np.abs(action_space['brake'] - brake).argmin()
+                        action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
+                                    steer_index * len(action_space['brake']) + \
+                                    brake_index
                 else:
+                    # bActionValid = False
+                    # while not bActionValid:
+                    #     action = np.random.randint(0, action_size)
+                    #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                    #     brake_action = action % len(action_space['brake'])
+                    #     if throttle_action == 0 or brake_action == 0:
+                    #         bActionValid = True
                     action = np.argmax(agent.get_qs(current_state))                    
+                    if not bSync:
+                        time.sleep(1/FPS)
+                # if idx_action < action_size:
+                #     action = idx_action
+                #     count_framesPerAction += 1
+                #     if count_framesPerAction > max_framesPerAction:
+                #         idx_action += 1
+                #         count_framesPerAction = 0
+
+                # else:
+                #     action = np.argmax(agent.get_qs(current_state))                    
 
                 new_state, reward, done, _ = env.step(action)            
                 episode_reward += reward
