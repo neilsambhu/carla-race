@@ -241,6 +241,8 @@ class CarEnv:
         self.front_camera = i3
         from PIL import Image
         i4 = Image.fromarray(i3)
+        if not os.path.exists('%s/%04d' % (directory_output, self.episode)):
+            os.makedirs('%s/%04d' % (directory_output, self.episode))
         i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
 
     def step(self, action):
