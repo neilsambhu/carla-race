@@ -630,6 +630,11 @@ if __name__ == "__main__":
                 #     if not bSync:
                 #         time.sleep(1/FPS)
                 if idx_action < action_size:
+                    count_framesPerAction += 1
+                    if count_framesPerAction > max_framesPerAction:
+                        print(f'Finished idx_action: {idx_action}\taction size: {action_size}')
+                        idx_action += 1
+                        count_framesPerAction = 0
                     bActionValid = False
                     while not bActionValid and idx_action < action_size:
                         action = idx_action
@@ -639,12 +644,8 @@ if __name__ == "__main__":
                             bActionValid = True
                         else:
                             idx_action += 1
-                    count_framesPerAction += 1
-                    if count_framesPerAction > max_framesPerAction:
-                        print(f'Finished idx_action: {idx_action}\taction size: {action_size}')
-                        idx_action += 1
-                        count_framesPerAction = 0
                     if idx_action >= action_size:
+                        print(f'Finished initializing all actions. Predicting from model.')
                         action = np.argmax(agent.get_qs(current_state))                    
                 else:
                     action = np.argmax(agent.get_qs(current_state))                    
