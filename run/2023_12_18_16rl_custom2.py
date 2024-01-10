@@ -575,7 +575,7 @@ if __name__ == "__main__":
                 [os.remove(matching_file) for matching_file in matching_files]
             lookback = 25
             if episode > lookback:
-                matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}', '*.png'))
+                matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}'))
                 [shutil.rmtree(matching_file) for matching_file in matching_files]
 
             print(f'\nStarted episode {episode} of {EPISODES}')
