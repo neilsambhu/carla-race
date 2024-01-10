@@ -574,7 +574,7 @@ if __name__ == "__main__":
                 [shutil.rmtree(matching_file) for matching_file in matching_files]
                 matching_files = glob.glob(os.path.join('tmp/', f'*{episode-lookback}.replay_memory'))
                 [os.remove(matching_file) for matching_file in matching_files]
-            lookback = 25
+            lookback = 200
             if episode > lookback:
                 matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}'))
                 [shutil.rmtree(matching_file) for matching_file in matching_files]
