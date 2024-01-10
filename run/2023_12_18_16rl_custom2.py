@@ -243,6 +243,7 @@ class CarEnv:
         i4 = Image.fromarray(i3)
         if not os.path.exists('%s/%04d' % (directory_output, self.episode)):
             os.makedirs('%s/%04d' % (directory_output, self.episode))
+            time.sleep(1)
         i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
 
     def step(self, action):
