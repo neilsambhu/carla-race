@@ -7,7 +7,7 @@
 #SBATCH --gpus=1 # 4 GPUs
 ##SBATCH --mail-user=nsambhu@mail.usf.edu # email for notifications
 ##SBATCH --mail-type=BEGIN,END,FAIL,REQUEUE # events for notifications
-#SBATCH -w GPU1
+#SBATCH -w GPU43
 
 #srun podman run -it --privileged -e NVIDIA_VISIBLE_DEVICES=0 --net=host -v /tmp/.X11-unix:/tmp/.X11-unix:rw carlasim/carla:0.9.14 /bin/bash ./CarlaUE4.sh -carla-rpc-port=2000 -RenderOffScreen
 #podman pull carlasim/carla:0.9.14
