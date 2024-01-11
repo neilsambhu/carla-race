@@ -36,7 +36,8 @@ def kill_carla_remote():
     kill_process = subprocess.Popen('ssh SAMBHU23 "killall -9 -r CarlaUE4-Linux"', shell=True)
     kill_process.wait()
 def kill_carla_gaivi():
-    kill_carla()
+    kill_process = subprocess.Popen('scancel --name="carla.sh"', shell=True)
+    kill_process.wait()
     # time.sleep(10)
 
 # check if saved final model exists
