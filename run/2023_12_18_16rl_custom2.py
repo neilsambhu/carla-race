@@ -310,8 +310,9 @@ class CarEnv:
 
         if len (self.collision_hist) != 0:
             done = True
-            reward = -200
-            # reward = -0.001
+            # reward = -200
+            reward = -0.001
+            # reward = -1
 
         return self.front_camera, reward, done, None
 
