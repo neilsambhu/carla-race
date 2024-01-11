@@ -524,6 +524,7 @@ if __name__ == "__main__":
     agent.model.fit(x, y, verbose=False, batch_size=1) # Neil left tabbed 1
 
     idx_episode_start = 1
+    idx_action = 0
     import glob, shutil
     bLoadReplayMemory = False
     if bLoadReplayMemory:
@@ -552,6 +553,10 @@ if __name__ == "__main__":
         with open(matching_files[-1], 'rb') as file:
             agent.replay_memory = pickle.load(file)
 
+        matching_files = glob.glob(os.path.join('tmp/', '*.idx_action'))
+        matching_files.sort()
+        idx_action = matching_files[-1].split('/')[1].split('.')[0]
+
         idx_episode_start = idx_episode_crashed
 
     env = CarEnv()
@@ -564,7 +569,6 @@ if __name__ == "__main__":
 
     bTrainingComplete = False
     previousEpisode_countBatchesTrained = agent.count_batches_trained
-    idx_action = 0
     count_framesPerAction = 0
     max_framesPerAction = 100
     try:
@@ -644,6 +648,7 @@ if __name__ == "__main__":
                         brake_action = action % len(action_space['brake'])
                         if throttle_action == 0 or brake_action == 0:
                             bActionValid = True
+                            open(f'tmp/{idx_action}.idx_action', "w")
                         else:
                             idx_action += 1
                     if idx_action >= action_size:
