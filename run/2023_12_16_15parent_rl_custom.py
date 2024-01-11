@@ -77,7 +77,7 @@ while len(glob.glob('models/final.model')) == 0:
                 while carla_line == []:
                     command_output = subprocess.run(['squeue'], capture_output=True, text=True)
                     output_lines = command_output.stdout.split('\n')
-                    carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
+                    carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line and not 'CG' in line]
                 print(f'carla_line: {carla_line}')
                 carla_gpu_info = carla_line[-1].split()[-1]  # Assuming GPU info is the last column
                 print("GPU Info for carla.sh:", carla_gpu_info)
