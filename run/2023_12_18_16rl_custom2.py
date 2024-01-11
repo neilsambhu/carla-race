@@ -556,6 +556,7 @@ if __name__ == "__main__":
         matching_files = glob.glob(os.path.join('tmp/', '*.idx_action'))
         matching_files.sort()
         idx_action = matching_files[-1].split('/')[1].split('.')[0]
+        idx_action = int(idx_action)
 
         idx_episode_start = idx_episode_crashed
 
