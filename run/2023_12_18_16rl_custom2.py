@@ -157,8 +157,8 @@ class CarEnv:
         self.client.set_timeout(600)
         # self.world = self.client.get_world()
         self.world = self.client.load_world('Town04_Opt')
-        # self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
-        self.client.set_timeout(60)
+        self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
+        # self.client.set_timeout(60)
         self.blueprint_library = self.world.get_blueprint_library()
         self.model_3 = self.blueprint_library.filter("model3")[0]
         if bSync:
@@ -650,7 +650,7 @@ if __name__ == "__main__":
                         action = idx_action
                         throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
                         brake_action = action % len(action_space['brake'])
-                        if brake_action == 0:
+                        if brake_action == 0 and throttle_action > 0:
                             bActionValid = True
                             matching_files = glob.glob(os.path.join('tmp', '*idx_action'))
                             [os.remove(matching_file) for matching_file in matching_files]

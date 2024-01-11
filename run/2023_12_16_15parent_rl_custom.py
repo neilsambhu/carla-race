@@ -37,7 +37,7 @@ def kill_carla_remote():
     kill_process.wait()
 def kill_carla_gaivi():
     kill_carla()
-    time.sleep(10)
+    # time.sleep(10)
 
 # check if saved final model exists
 run = 1
@@ -68,7 +68,7 @@ while len(glob.glob('models/final.model')) == 0:
                 # carla = subprocess.Popen(f'srun -w GPU17 --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
                 # carla = subprocess.Popen(f'srun --partition Contributors --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True)
                 carla.wait()
-                time.sleep(10)
+                # time.sleep(10)
                 print(f"after carla, run squeue")
                 squeue_after_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_after_carla.wait()
@@ -90,7 +90,7 @@ while len(glob.glob('models/final.model')) == 0:
                         print(f'world: {world}')
                     except Exception as e:
                         print(f'CARLA starting error message: {e}')
-                        time.sleep(5)
+                        time.sleep(1)
                         continue
                 # time.sleep(30)                
                 # nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
