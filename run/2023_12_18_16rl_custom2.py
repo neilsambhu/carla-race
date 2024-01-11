@@ -555,6 +555,8 @@ if __name__ == "__main__":
 
         matching_files = glob.glob(os.path.join('tmp', '*.idx_action'))
         matching_files.sort()
+        print(f'Index action in temp {matching_files}')
+        print(f'load idx_action {matching_files[-1]}')
         idx_action = matching_files[-1].split('/')[1].split('.')[0]
         idx_action = int(idx_action)
 
