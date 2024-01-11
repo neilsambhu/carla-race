@@ -30,7 +30,7 @@ except IndexError:
     pass
 import carla
 
-bGAIVI = True
+bGAIVI = False
 
 
 SHOW_PREVIEW = False
@@ -50,7 +50,7 @@ with open(path_AP_locations, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
 REPLAY_MEMORY_SIZE = 50_000
-# MINIBATCH_SIZE = 128 # 6 GB GPU memory
+MINIBATCH_SIZE = 128 # 6 GB GPU memory
 # MINIBATCH_SIZE = 128*1*13*4*2
 MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
 MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
@@ -145,16 +145,16 @@ class CarEnv:
 
     def __init__(self):
         # self.client = carla.Client("localhost", 2000)
-        # self.client = carla.Client("10.247.52.30", 2000)
-        command_output = subprocess.run(['squeue'], capture_output=True, text=True)
-        output_lines = command_output.stdout.split('\n')
-        carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
-        gpu_info = carla_line[-1].split()[-1]  # Assuming GPU info is the last column
-        print("GPU Info for carla.sh:", gpu_info)
-        self.client = carla.Client(gpu_info, 2000)
-        # self.client.set_timeout(2.0)
-        # self.client.set_timeout(60)
-        self.client.set_timeout(600)
+        if not bGAIVI:
+            self.client = carla.Client("10.247.52.30", 2000)
+            self.client.set_timeout(600)
+        else:
+            command_output = subprocess.run(['squeue'], capture_output=True, text=True)
+            output_lines = command_output.stdout.split('\n')
+            carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
+            gpu_info = carla_line[-1].split()[-1]  # Assuming GPU info is the last column
+            print("GPU Info for carla.sh:", gpu_info)
+            self.client = carla.Client(gpu_info, 2000)
         # self.world = self.client.get_world()
         self.world = self.client.load_world('Town04_Opt')
         self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
@@ -709,8 +709,8 @@ if __name__ == "__main__":
                 # epochs = 1
                 epochs = 0
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
-                # epochs = 100
-                epochs = int(1e6)
+                epochs = 10
+                # epochs = int(1e6)
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')

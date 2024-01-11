@@ -1,2699 +1,104 @@
 Start run at count 1
 4.26.2-0+++UE4+Release-4.26 522 0
 Disabling core dumps.
-2024-01-04 01:19:17.601180: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-04 01:19:17.623169: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-04 01:19:17.623186: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-04 01:19:17.623750: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-04 01:19:17.627076: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-11 18:26:46.570908: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-11 18:26:46.757392: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-11 18:26:46.757480: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-11 18:26:46.785900: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-11 18:26:46.839703: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-04 01:19:18.074809: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-04 01:19:18.390925: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-04 01:19:18.430816: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-04 01:19:18.430992: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-04 01:19:18.434920: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-04 01:19:18.435221: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-04 01:19:18.435421: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-04 01:19:19.189750: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-04 01:19:19.189886: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-04 01:19:19.189978: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-04 01:19:19.190056: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4464 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
-WARNING: Client API version     = 0.9.15 
-WARNING: Simulator API version  = 0.9.14 
-  0%|          | 0/1000 [00:00<?, ?episode/s]
-Started episode 1 of 1000
-Finished episode 1 of 1000
-len(agent.replay_memory): 943
-Saved model from episode 1. Count of batches trained: 0
-  0%|          | 1/1000 [01:14<20:38:55, 74.41s/episode]
-Started episode 2 of 1000
-Finished episode 2 of 1000
-len(agent.replay_memory): 1638
-Saved model from episode 2. Count of batches trained: 0
-  0%|          | 2/1000 [02:08<17:15:36, 62.26s/episode]
-Started episode 3 of 1000
-Finished episode 3 of 1000
-len(agent.replay_memory): 2601
-Saved model from episode 3. Count of batches trained: 0
-  0%|          | 3/1000 [03:23<18:52:25, 68.15s/episode]
-Started episode 4 of 1000
-Finished episode 4 of 1000
-len(agent.replay_memory): 4023
-Saved model from episode 4. Count of batches trained: 0
-  0%|          | 4/1000 [05:16<23:45:53, 85.90s/episode]
-Started episode 5 of 1000
-Finished episode 5 of 1000
-len(agent.replay_memory): 4989
-Saved model from episode 5. Count of batches trained: 0
-  0%|          | 5/1000 [06:31<22:41:22, 82.09s/episode]
-Started episode 6 of 1000
-Finished episode 6 of 1000
-len(agent.replay_memory): 5911
-Saved model from episode 6. Count of batches trained: 0
-  1%|          | 6/1000 [07:43<21:42:22, 78.61s/episode]
-Started episode 7 of 1000
-Finished episode 7 of 1000
-len(agent.replay_memory): 6627
-Saved model from episode 7. Count of batches trained: 0
-  1%|          | 7/1000 [08:39<19:37:09, 71.13s/episode]
-Started episode 8 of 1000
-Finished episode 8 of 1000
-len(agent.replay_memory): 7666
-Saved model from episode 8. Count of batches trained: 0
-  1%|          | 8/1000 [10:00<20:28:54, 74.33s/episode]
-Started episode 9 of 1000
-Finished episode 9 of 1000
-len(agent.replay_memory): 8289
-Saved model from episode 9. Count of batches trained: 0
-  1%|          | 9/1000 [10:48<18:12:36, 66.15s/episode]
-Started episode 10 of 1000
-Finished episode 10 of 1000
-len(agent.replay_memory): 8919
-Saved model from episode 10. Count of batches trained: 0
-  1%|1         | 10/1000 [11:38<16:46:24, 60.99s/episode]
-Started episode 11 of 1000
-Finished episode 11 of 1000
-len(agent.replay_memory): 10266
-Saved model from episode 11. Count of batches trained: 0
-  1%|1         | 11/1000 [13:25<20:38:49, 75.16s/episode]
-Started episode 12 of 1000
-Finished episode 12 of 1000
-len(agent.replay_memory): 10947
-Saved model from episode 12. Count of batches trained: 0
-  1%|1         | 12/1000 [14:18<18:45:59, 68.38s/episode]
-Started episode 13 of 1000
-Finished episode 13 of 1000
-len(agent.replay_memory): 12380
-Saved model from episode 13. Count of batches trained: 0
-  1%|1         | 13/1000 [16:12<22:34:07, 82.32s/episode]
-Started episode 14 of 1000
-Finished episode 14 of 1000
-len(agent.replay_memory): 13328
-Saved model from episode 14. Count of batches trained: 0
-  1%|1         | 14/1000 [17:26<21:52:45, 79.88s/episode]
-Started episode 15 of 1000
-Finished episode 15 of 1000
-len(agent.replay_memory): 14761
-Saved model from episode 15. Count of batches trained: 0
-  2%|1         | 15/1000 [19:21<24:42:49, 90.32s/episode]
-Started episode 16 of 1000
-Finished episode 16 of 1000
-len(agent.replay_memory): 16167
-Saved model from episode 16. Count of batches trained: 0
-  2%|1         | 16/1000 [21:13<26:29:14, 96.90s/episode]
-Started episode 17 of 1000
-Finished episode 17 of 1000
-len(agent.replay_memory): 17538
-Saved model from episode 17. Count of batches trained: 0
-  2%|1         | 17/1000 [23:03<27:30:22, 100.73s/episode]
-Started episode 18 of 1000
-Finished episode 18 of 1000
-len(agent.replay_memory): 18952
-Saved model from episode 18. Count of batches trained: 0
-  2%|1         | 18/1000 [24:55<28:26:41, 104.28s/episode]
-Started episode 19 of 1000
-Finished episode 19 of 1000
-len(agent.replay_memory): 19678
-Saved model from episode 19. Count of batches trained: 0
-  2%|1         | 19/1000 [25:52<24:32:23, 90.05s/episode] 
-Started episode 20 of 1000
-Finished episode 20 of 1000
-len(agent.replay_memory): 20397
-Saved model from episode 20. Count of batches trained: 0
-  2%|2         | 20/1000 [26:49<21:48:31, 80.11s/episode]
-Started episode 21 of 1000
-Finished episode 21 of 1000
-len(agent.replay_memory): 21786
-Saved model from episode 21. Count of batches trained: 0
-  2%|2         | 21/1000 [28:40<24:19:08, 89.43s/episode]
-Started episode 22 of 1000
-Finished episode 22 of 1000
-len(agent.replay_memory): 22857
-Saved model from episode 22. Count of batches trained: 0
-  2%|2         | 22/1000 [30:05<23:53:34, 87.95s/episode]
-Started episode 23 of 1000
-Finished episode 23 of 1000
-len(agent.replay_memory): 24277
-Saved model from episode 23. Count of batches trained: 0
-  2%|2         | 23/1000 [31:59<25:58:02, 95.68s/episode]
-Started episode 24 of 1000
-Finished episode 24 of 1000
-len(agent.replay_memory): 25321
-Saved model from episode 24. Count of batches trained: 0
-  2%|2         | 24/1000 [33:21<24:51:40, 91.70s/episode]
-Started episode 25 of 1000
-Finished episode 25 of 1000
-len(agent.replay_memory): 26054
-Saved model from episode 25. Count of batches trained: 0
-  2%|2         | 25/1000 [34:19<22:03:43, 81.46s/episode]
-Started episode 26 of 1000
-Finished episode 26 of 1000
-len(agent.replay_memory): 26697
-Saved model from episode 26. Count of batches trained: 0
-  3%|2         | 26/1000 [35:09<19:31:22, 72.16s/episode]
-Started episode 27 of 1000
-Finished episode 27 of 1000
-len(agent.replay_memory): 28140
-Saved model from episode 27. Count of batches trained: 0
-  3%|2         | 27/1000 [37:05<23:01:54, 85.22s/episode]
-Started episode 28 of 1000
-Finished episode 28 of 1000
-len(agent.replay_memory): 29516
-Saved model from episode 28. Count of batches trained: 0
-  3%|2         | 28/1000 [38:55<25:03:18, 92.80s/episode]
-Started episode 29 of 1000
-Finished episode 29 of 1000
-len(agent.replay_memory): 30824
-Saved model from episode 29. Count of batches trained: 0
-  3%|2         | 29/1000 [40:39<25:57:40, 96.25s/episode]
-Started episode 30 of 1000
-Finished episode 30 of 1000
-len(agent.replay_memory): 31853
-Saved model from episode 30. Count of batches trained: 0
-  3%|3         | 30/1000 [42:02<24:47:21, 92.00s/episode]
-Started episode 31 of 1000
-Finished episode 31 of 1000
-len(agent.replay_memory): 32856
-Saved model from episode 31. Count of batches trained: 0
-  3%|3         | 31/1000 [43:21<23:43:44, 88.16s/episode]
-Started episode 32 of 1000
-Finished episode 32 of 1000
-len(agent.replay_memory): 33874
-Saved model from episode 32. Count of batches trained: 0
-  3%|3         | 32/1000 [44:41<23:05:19, 85.87s/episode]
-Started episode 33 of 1000
-Finished episode 33 of 1000
-len(agent.replay_memory): 35268
-Saved model from episode 33. Count of batches trained: 0
-  3%|3         | 33/1000 [46:33<25:10:02, 93.69s/episode]
-Started episode 34 of 1000
-Finished episode 34 of 1000
-len(agent.replay_memory): 35983
-Saved model from episode 34. Count of batches trained: 0
-  3%|3         | 34/1000 [47:30<22:08:50, 82.54s/episode]
-Started episode 35 of 1000
-Finished episode 35 of 1000
-len(agent.replay_memory): 37005
-Saved model from episode 35. Count of batches trained: 0
-  4%|3         | 35/1000 [48:51<22:00:17, 82.09s/episode]
-Started episode 36 of 1000
-Finished episode 36 of 1000
-len(agent.replay_memory): 38019
-Saved model from episode 36. Count of batches trained: 0
-  4%|3         | 36/1000 [50:11<21:51:09, 81.61s/episode]
-Started episode 37 of 1000
-Finished episode 37 of 1000
-len(agent.replay_memory): 39084
-Saved model from episode 37. Count of batches trained: 0
-  4%|3         | 37/1000 [51:36<22:04:03, 82.50s/episode]
-Started episode 38 of 1000
-Finished episode 38 of 1000
-len(agent.replay_memory): 39707
-Saved model from episode 38. Count of batches trained: 0
-  4%|3         | 38/1000 [52:25<19:23:04, 72.54s/episode]
-Started episode 39 of 1000
-Finished episode 39 of 1000
-len(agent.replay_memory): 41085
-Saved model from episode 39. Count of batches trained: 0
-  4%|3         | 39/1000 [54:16<22:26:35, 84.07s/episode]
-Started episode 40 of 1000
-Finished episode 40 of 1000
-len(agent.replay_memory): 42430
-Saved model from episode 40. Count of batches trained: 0
-  4%|4         | 40/1000 [56:05<24:23:03, 91.44s/episode]
-Started episode 41 of 1000
-Finished episode 41 of 1000
-len(agent.replay_memory): 43823
-Saved model from episode 41. Count of batches trained: 0
-  4%|4         | 41/1000 [57:57<25:59:44, 97.59s/episode]
-Started episode 42 of 1000
-Finished episode 42 of 1000
-len(agent.replay_memory): 44502
-Saved model from episode 42. Count of batches trained: 0
-  4%|4         | 42/1000 [58:50<22:26:58, 84.36s/episode]
-Started episode 43 of 1000
-Finished episode 43 of 1000
-len(agent.replay_memory): 45466
-Saved model from episode 43. Count of batches trained: 0
-  4%|4         | 43/1000 [1:00:06<21:46:35, 81.92s/episode]
-Started episode 44 of 1000
-Finished episode 44 of 1000
-len(agent.replay_memory): 46079
-Saved model from episode 44. Count of batches trained: 0
-  4%|4         | 44/1000 [1:00:55<19:04:13, 71.81s/episode]
-Started episode 45 of 1000
-Finished episode 45 of 1000
-len(agent.replay_memory): 46694
-Saved model from episode 45. Count of batches trained: 0
-  4%|4         | 45/1000 [1:01:43<17:12:09, 64.85s/episode]
-Started episode 46 of 1000
-Finished episode 46 of 1000
-len(agent.replay_memory): 47761
-Saved model from episode 46. Count of batches trained: 0
-  5%|4         | 46/1000 [1:03:08<18:45:37, 70.79s/episode]
-Started episode 47 of 1000
-Finished episode 47 of 1000
-len(agent.replay_memory): 49184
-Saved model from episode 47. Count of batches trained: 0
-  5%|4         | 47/1000 [1:05:02<22:11:38, 83.84s/episode]
-Started episode 48 of 1000
-Finished episode 48 of 1000
-len(agent.replay_memory): 49890
-Saved model from episode 48. Count of batches trained: 0
-  5%|4         | 48/1000 [1:05:58<19:56:45, 75.43s/episode]
-Started episode 49 of 1000
-Finished episode 49 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 0	Goal: 10
-Count of batches trained: 0	Goal: 3906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A2024-01-04 02:26:51.649357: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-04 02:26:54.035537: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fed9e8456e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-04 02:26:54.035555: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-04 02:26:54.038400: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-11 18:26:47.529463: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-11 18:26:48.189211: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:26:48.354419: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:26:48.354830: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:26:48.355967: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:26:48.356174: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:26:48.356291: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:26:49.355440: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:26:49.355580: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:26:49.355690: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:26:49.355814: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-11 18:26:51.356949: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-11 18:26:52.891713: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f55367d0590 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-11 18:26:52.891728: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-11 18:26:52.898510: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1704353214.109091 1925844 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
-Finished training first batch.
-
- 10%|#         | 1/10 [03:06<27:57, 186.39s/epoch][A
- 20%|##        | 2/10 [06:10<24:39, 184.89s/epoch][A
- 30%|###       | 3/10 [09:14<21:32, 184.65s/epoch][A
- 40%|####      | 4/10 [12:19<18:27, 184.61s/epoch][A
- 50%|#####     | 5/10 [15:22<15:19, 183.98s/epoch][A
- 60%|######    | 6/10 [18:25<12:14, 183.69s/epoch][A
- 70%|#######   | 7/10 [21:28<09:10, 183.42s/epoch][A
- 80%|########  | 8/10 [24:31<06:06, 183.35s/epoch][A
- 90%|######### | 9/10 [27:35<03:03, 183.62s/epoch][A
-100%|##########| 10/10 [30:39<00:00, 183.85s/epoch][A100%|##########| 10/10 [30:39<00:00, 183.98s/epoch]
-Saved model from episode 49. Count of batches trained: 3900
-  5%|4         | 49/1000 [1:37:32<164:02:48, 621.00s/episode]
-Started episode 50 of 1000
-Finished episode 50 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 10	Goal: 20
-Count of batches trained: 3900	Goal: 7806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:32, 183.61s/epoch][A
- 20%|##        | 2/10 [06:07<24:32, 184.06s/epoch][A
- 30%|###       | 3/10 [09:12<21:30, 184.39s/epoch][A
- 40%|####      | 4/10 [12:17<18:26, 184.42s/epoch][A
- 50%|#####     | 5/10 [15:21<15:21, 184.39s/epoch][A
- 60%|######    | 6/10 [18:25<12:17, 184.38s/epoch][A
- 70%|#######   | 7/10 [21:29<09:11, 183.99s/epoch][A
- 80%|########  | 8/10 [24:31<06:07, 183.62s/epoch][A
- 90%|######### | 9/10 [27:35<03:03, 183.55s/epoch][A
-100%|##########| 10/10 [30:39<00:00, 183.72s/epoch][A100%|##########| 10/10 [30:39<00:00, 183.95s/epoch]
-Saved model from episode 50. Count of batches trained: 7800
-  5%|5         | 50/1000 [2:09:04<264:29:46, 1002.30s/episode]
-Started episode 51 of 1000
-Finished episode 51 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 20	Goal: 30
-Count of batches trained: 7800	Goal: 11706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.38s/epoch][A
- 20%|##        | 2/10 [06:07<24:29, 183.66s/epoch][A
- 30%|###       | 3/10 [09:10<21:25, 183.61s/epoch][A
- 40%|####      | 4/10 [12:14<18:21, 183.64s/epoch][A
- 50%|#####     | 5/10 [15:18<15:18, 183.63s/epoch][A
- 60%|######    | 6/10 [18:21<12:14, 183.52s/epoch][A
- 70%|#######   | 7/10 [21:23<09:09, 183.07s/epoch][A
- 80%|########  | 8/10 [24:27<06:06, 183.24s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.37s/epoch][A
-100%|##########| 10/10 [30:34<00:00, 183.47s/epoch][A100%|##########| 10/10 [30:34<00:00, 183.45s/epoch]
-Saved model from episode 51. Count of batches trained: 11700
-  5%|5         | 51/1000 [2:41:00<336:29:59, 1276.50s/episode]
-Started episode 52 of 1000
-Finished episode 52 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 30	Goal: 40
-Count of batches trained: 11700	Goal: 15606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.27s/epoch][A
- 20%|##        | 2/10 [06:07<24:28, 183.55s/epoch][A
- 30%|###       | 3/10 [09:10<21:23, 183.39s/epoch][A
- 40%|####      | 4/10 [12:14<18:21, 183.61s/epoch][A
- 50%|#####     | 5/10 [15:18<15:19, 183.83s/epoch][A
- 60%|######    | 6/10 [18:22<12:15, 183.87s/epoch][A
- 70%|#######   | 7/10 [21:25<09:11, 183.72s/epoch][A
- 80%|########  | 8/10 [24:29<06:07, 183.66s/epoch][A
- 90%|######### | 9/10 [27:32<03:03, 183.65s/epoch][A
-100%|##########| 10/10 [30:36<00:00, 183.64s/epoch][A100%|##########| 10/10 [30:36<00:00, 183.65s/epoch]
-Saved model from episode 52. Count of batches trained: 15600
-  5%|5         | 52/1000 [3:12:57<386:43:19, 1468.56s/episode]
-Started episode 53 of 1000
-Finished episode 53 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 40	Goal: 50
-Count of batches trained: 15600	Goal: 19506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:31, 183.52s/epoch][A
- 20%|##        | 2/10 [06:07<24:30, 183.78s/epoch][A
- 30%|###       | 3/10 [09:11<21:26, 183.73s/epoch][A
- 40%|####      | 4/10 [12:14<18:22, 183.74s/epoch][A
- 50%|#####     | 5/10 [15:18<15:19, 183.80s/epoch][A
- 60%|######    | 6/10 [18:22<12:14, 183.60s/epoch][A
- 70%|#######   | 7/10 [21:25<09:10, 183.47s/epoch][A
- 80%|########  | 8/10 [24:28<06:06, 183.44s/epoch][A
- 90%|######### | 9/10 [27:31<03:03, 183.39s/epoch][A
-100%|##########| 10/10 [30:34<00:00, 183.26s/epoch][A100%|##########| 10/10 [30:34<00:00, 183.49s/epoch]
-Saved model from episode 53. Count of batches trained: 19500
-  5%|5         | 53/1000 [3:44:22<419:08:21, 1593.35s/episode]
-Started episode 54 of 1000
-Finished episode 54 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 50	Goal: 60
-Count of batches trained: 19500	Goal: 23406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.87s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.31s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.50s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.47s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.47s/epoch][A
- 60%|######    | 6/10 [18:20<12:14, 183.53s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.50s/epoch][A
- 80%|########  | 8/10 [24:27<06:07, 183.52s/epoch][A
- 90%|######### | 9/10 [27:31<03:03, 183.47s/epoch][A
-100%|##########| 10/10 [30:34<00:00, 183.47s/epoch][A100%|##########| 10/10 [30:34<00:00, 183.46s/epoch]
-Saved model from episode 54. Count of batches trained: 23400
-  5%|5         | 54/1000 [4:15:45<441:34:55, 1680.44s/episode]
-Started episode 55 of 1000
-Finished episode 55 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 60	Goal: 70
-Count of batches trained: 23400	Goal: 27306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:15, 181.77s/epoch][A
- 20%|##        | 2/10 [06:03<24:14, 181.80s/epoch][A
- 30%|###       | 3/10 [09:05<21:12, 181.75s/epoch][A
- 40%|####      | 4/10 [12:07<18:11, 181.98s/epoch][A
- 50%|#####     | 5/10 [15:09<15:10, 182.02s/epoch][A
- 60%|######    | 6/10 [18:11<12:08, 182.08s/epoch][A
- 70%|#######   | 7/10 [21:13<09:05, 181.95s/epoch][A
- 80%|########  | 8/10 [24:15<06:03, 181.89s/epoch][A
- 90%|######### | 9/10 [27:17<03:01, 181.83s/epoch][A
-100%|##########| 10/10 [30:18<00:00, 181.78s/epoch][A100%|##########| 10/10 [30:18<00:00, 181.87s/epoch]
-Saved model from episode 55. Count of batches trained: 27300
-  6%|5         | 55/1000 [4:47:24<458:18:05, 1745.91s/episode]
-Started episode 56 of 1000
-Finished episode 56 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 70	Goal: 80
-Count of batches trained: 27300	Goal: 31206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:14, 181.64s/epoch][A
- 20%|##        | 2/10 [06:03<24:13, 181.75s/epoch][A
- 30%|###       | 3/10 [09:05<21:11, 181.71s/epoch][A
- 40%|####      | 4/10 [12:06<18:10, 181.73s/epoch][A
- 50%|#####     | 5/10 [15:08<15:08, 181.71s/epoch][A
- 60%|######    | 6/10 [18:10<12:06, 181.71s/epoch][A
- 70%|#######   | 7/10 [21:11<09:04, 181.58s/epoch][A
- 80%|########  | 8/10 [24:13<06:03, 181.62s/epoch][A
- 90%|######### | 9/10 [27:15<03:01, 181.78s/epoch][A
-100%|##########| 10/10 [30:17<00:00, 181.90s/epoch][A100%|##########| 10/10 [30:17<00:00, 181.76s/epoch]
-Saved model from episode 56. Count of batches trained: 31200
-  6%|5         | 56/1000 [5:18:33<467:30:43, 1782.88s/episode]
-Started episode 57 of 1000
-Finished episode 57 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 80	Goal: 90
-Count of batches trained: 31200	Goal: 35106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:11, 181.29s/epoch][A
- 20%|##        | 2/10 [06:03<24:12, 181.54s/epoch][A
- 30%|###       | 3/10 [09:04<21:11, 181.58s/epoch][A
- 40%|####      | 4/10 [12:06<18:09, 181.65s/epoch][A
- 50%|#####     | 5/10 [15:08<15:08, 181.74s/epoch][A
- 60%|######    | 6/10 [18:10<12:07, 181.88s/epoch][A
- 70%|#######   | 7/10 [21:12<09:05, 181.81s/epoch][A
- 80%|########  | 8/10 [24:13<06:03, 181.82s/epoch][A
- 90%|######### | 9/10 [27:15<03:01, 181.83s/epoch][A
-100%|##########| 10/10 [30:17<00:00, 181.90s/epoch][A100%|##########| 10/10 [30:17<00:00, 181.79s/epoch]
-Saved model from episode 57. Count of batches trained: 35100
-  6%|5         | 57/1000 [5:50:08<475:49:33, 1816.52s/episode]
-Started episode 58 of 1000
-Finished episode 58 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 90	Goal: 100
-Count of batches trained: 35100	Goal: 39006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:16, 181.83s/epoch][A
- 20%|##        | 2/10 [06:05<24:22, 182.77s/epoch][A
- 30%|###       | 3/10 [09:08<21:19, 182.82s/epoch][A
- 40%|####      | 4/10 [12:11<18:17, 182.86s/epoch][A
- 50%|#####     | 5/10 [15:13<15:14, 182.87s/epoch][A
- 60%|######    | 6/10 [18:17<12:11, 182.99s/epoch][A
- 70%|#######   | 7/10 [21:20<09:09, 183.04s/epoch][A
- 80%|########  | 8/10 [24:22<06:05, 182.87s/epoch][A
- 90%|######### | 9/10 [27:24<03:02, 182.58s/epoch][A
-100%|##########| 10/10 [30:26<00:00, 182.33s/epoch][A100%|##########| 10/10 [30:26<00:00, 182.65s/epoch]
-Saved model from episode 58. Count of batches trained: 39000
-  6%|5         | 58/1000 [6:22:24<484:42:13, 1852.37s/episode]
-Started episode 59 of 1000
-Finished episode 59 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 100	Goal: 110
-Count of batches trained: 39000	Goal: 42906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:14, 181.59s/epoch][A
- 20%|##        | 2/10 [06:03<24:12, 181.58s/epoch][A
- 30%|###       | 3/10 [09:04<21:11, 181.67s/epoch][A
- 40%|####      | 4/10 [12:06<18:10, 181.82s/epoch][A
- 50%|#####     | 5/10 [15:10<15:11, 182.28s/epoch][A
- 60%|######    | 6/10 [18:13<12:10, 182.71s/epoch][A
- 70%|#######   | 7/10 [21:15<09:07, 182.47s/epoch][A
- 80%|########  | 8/10 [24:18<06:05, 182.76s/epoch][A
- 90%|######### | 9/10 [27:22<03:02, 183.00s/epoch][A
-100%|##########| 10/10 [30:24<00:00, 182.80s/epoch][A100%|##########| 10/10 [30:24<00:00, 182.49s/epoch]
-Saved model from episode 59. Count of batches trained: 42900
-  6%|5         | 59/1000 [6:54:09<488:20:02, 1868.23s/episode]
-Started episode 60 of 1000
-Finished episode 60 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 110	Goal: 120
-Count of batches trained: 42900	Goal: 46806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:24, 182.72s/epoch][A
- 20%|##        | 2/10 [06:05<24:23, 182.98s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.26s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.20s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.12s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.15s/epoch][A
- 70%|#######   | 7/10 [21:21<09:09, 183.11s/epoch][A
- 80%|########  | 8/10 [24:24<06:06, 183.12s/epoch][A
- 90%|######### | 9/10 [27:28<03:03, 183.20s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 183.19s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.15s/epoch]
-Saved model from episode 60. Count of batches trained: 46800
-  6%|6         | 60/1000 [7:26:34<493:49:04, 1891.22s/episode]
-Started episode 61 of 1000
-Finished episode 61 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 120	Goal: 130
-Count of batches trained: 46800	Goal: 50706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 182.95s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.13s/epoch][A
- 30%|###       | 3/10 [09:09<21:23, 183.42s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.33s/epoch][A
- 50%|#####     | 5/10 [15:16<15:17, 183.43s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.36s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.40s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.29s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.28s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.20s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.28s/epoch]
-Saved model from episode 61. Count of batches trained: 50700
-  6%|6         | 61/1000 [7:57:57<492:40:23, 1888.84s/episode]
-Started episode 62 of 1000
-Finished episode 62 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 130	Goal: 140
-Count of batches trained: 50700	Goal: 54606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.82s/epoch][A
- 20%|##        | 2/10 [06:05<24:23, 182.91s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.16s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.12s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.03s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.11s/epoch][A
- 70%|#######   | 7/10 [21:21<09:09, 183.16s/epoch][A
- 80%|########  | 8/10 [24:24<06:06, 183.07s/epoch][A
- 90%|######### | 9/10 [27:27<03:03, 183.13s/epoch][A
-100%|##########| 10/10 [30:30<00:00, 183.06s/epoch][A100%|##########| 10/10 [30:30<00:00, 183.08s/epoch]
-Saved model from episode 62. Count of batches trained: 54600
-  6%|6         | 62/1000 [8:29:55<494:21:50, 1897.35s/episode]
-Started episode 63 of 1000
-Finished episode 63 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 140	Goal: 150
-Count of batches trained: 54600	Goal: 58506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:16, 181.88s/epoch][A
- 20%|##        | 2/10 [06:04<24:19, 182.48s/epoch][A
- 30%|###       | 3/10 [09:07<21:19, 182.72s/epoch][A
- 40%|####      | 4/10 [12:10<18:16, 182.83s/epoch][A
- 50%|#####     | 5/10 [15:13<15:14, 182.93s/epoch][A
- 60%|######    | 6/10 [18:16<12:11, 182.89s/epoch][A
- 70%|#######   | 7/10 [21:19<09:08, 182.86s/epoch][A
- 80%|########  | 8/10 [24:22<06:05, 182.87s/epoch][A
- 90%|######### | 9/10 [27:25<03:02, 182.89s/epoch][A
-100%|##########| 10/10 [30:28<00:00, 182.94s/epoch][A100%|##########| 10/10 [30:28<00:00, 182.84s/epoch]
-Saved model from episode 63. Count of batches trained: 58500
-  6%|6         | 63/1000 [9:01:39<494:23:00, 1899.45s/episode]
-Started episode 64 of 1000
-Finished episode 64 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 150	Goal: 160
-Count of batches trained: 58500	Goal: 62406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:24, 182.68s/epoch][A
- 20%|##        | 2/10 [06:05<24:23, 182.98s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.20s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.14s/epoch][A
- 50%|#####     | 5/10 [15:15<15:16, 183.21s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.28s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.25s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.14s/epoch][A
- 90%|######### | 9/10 [27:28<03:03, 183.16s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 183.08s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.13s/epoch]
-Saved model from episode 64. Count of batches trained: 62400
-  6%|6         | 64/1000 [9:33:38<495:23:11, 1905.33s/episode]
-Started episode 65 of 1000
-Finished episode 65 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 160	Goal: 170
-Count of batches trained: 62400	Goal: 66306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.01s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.21s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.18s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.20s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.17s/epoch][A
- 60%|######    | 6/10 [18:19<12:12, 183.21s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.21s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.30s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.41s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.33s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.26s/epoch]
-Saved model from episode 65. Count of batches trained: 66300
-  6%|6         | 65/1000 [10:05:32<495:33:17, 1908.02s/episode]
-Started episode 66 of 1000
-Finished episode 66 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 170	Goal: 180
-Count of batches trained: 66300	Goal: 70206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.29s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.42s/epoch][A
- 30%|###       | 3/10 [09:10<21:23, 183.39s/epoch][A
- 40%|####      | 4/10 [12:14<18:22, 183.73s/epoch][A
- 50%|#####     | 5/10 [15:18<15:18, 183.69s/epoch][A
- 60%|######    | 6/10 [18:21<12:14, 183.68s/epoch][A
- 70%|#######   | 7/10 [21:25<09:10, 183.63s/epoch][A
- 80%|########  | 8/10 [24:28<06:06, 183.50s/epoch][A
- 90%|######### | 9/10 [27:31<03:03, 183.50s/epoch][A
-100%|##########| 10/10 [30:35<00:00, 183.45s/epoch][A100%|##########| 10/10 [30:35<00:00, 183.53s/epoch]
-Saved model from episode 66. Count of batches trained: 70200
-  7%|6         | 66/1000 [10:37:29<495:40:41, 1910.54s/episode]
-Started episode 67 of 1000
-Finished episode 67 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 180	Goal: 190
-Count of batches trained: 70200	Goal: 74106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.01s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.17s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.19s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.19s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.11s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.16s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.18s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.22s/epoch][A
- 90%|######### | 9/10 [27:27<03:02, 182.78s/epoch][A
-100%|##########| 10/10 [30:30<00:00, 182.89s/epoch][A100%|##########| 10/10 [30:30<00:00, 183.04s/epoch]
-Saved model from episode 67. Count of batches trained: 74100
-  7%|6         | 67/1000 [11:08:54<493:10:04, 1902.90s/episode]
-Started episode 68 of 1000
-Finished episode 68 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 190	Goal: 200
-Count of batches trained: 74100	Goal: 78006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:22, 182.48s/epoch][A
- 20%|##        | 2/10 [06:05<24:22, 182.87s/epoch][A
- 30%|###       | 3/10 [09:08<21:21, 183.10s/epoch][A
- 40%|####      | 4/10 [12:11<18:18, 183.05s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.11s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.07s/epoch][A
- 70%|#######   | 7/10 [21:21<09:09, 183.09s/epoch][A
- 80%|########  | 8/10 [24:24<06:06, 183.12s/epoch][A
- 90%|######### | 9/10 [27:27<03:03, 183.15s/epoch][A
-100%|##########| 10/10 [30:30<00:00, 183.19s/epoch][A100%|##########| 10/10 [30:30<00:00, 183.10s/epoch]
-Saved model from episode 68. Count of batches trained: 78000
-  7%|6         | 68/1000 [11:40:52<493:47:34, 1907.36s/episode]
-Started episode 69 of 1000
-Finished episode 69 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 200	Goal: 210
-Count of batches trained: 78000	Goal: 81906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.12s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.22s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.26s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.35s/epoch][A
- 50%|#####     | 5/10 [15:16<15:17, 183.50s/epoch][A
- 60%|######    | 6/10 [18:20<12:14, 183.56s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.44s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.23s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.22s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.18s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.29s/epoch]
-Saved model from episode 69. Count of batches trained: 81900
-  7%|6         | 69/1000 [12:12:18<491:38:07, 1901.06s/episode]
-Started episode 70 of 1000
-Finished episode 70 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 210	Goal: 220
-Count of batches trained: 81900	Goal: 85806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:22, 182.53s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.12s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.18s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.25s/epoch][A
- 50%|#####     | 5/10 [15:15<15:16, 183.25s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.25s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.20s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.22s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.52s/epoch][A
-100%|##########| 10/10 [30:39<00:00, 185.37s/epoch][A100%|##########| 10/10 [30:39<00:00, 183.92s/epoch]
-Saved model from episode 70. Count of batches trained: 85800
-  7%|7         | 70/1000 [12:44:53<495:17:35, 1917.26s/episode]
-Started episode 71 of 1000
-Finished episode 71 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 220	Goal: 230
-Count of batches trained: 85800	Goal: 89706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.30s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.34s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.21s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.26s/epoch][A
- 50%|#####     | 5/10 [15:16<15:17, 183.40s/epoch][A
- 60%|######    | 6/10 [18:19<12:12, 183.22s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.25s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.17s/epoch][A
- 90%|######### | 9/10 [27:28<03:03, 183.11s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 183.04s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.18s/epoch]
-Saved model from episode 71. Count of batches trained: 89700
-  7%|7         | 71/1000 [13:17:11<496:22:21, 1923.51s/episode]
-Started episode 72 of 1000
-Finished episode 72 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 230	Goal: 240
-Count of batches trained: 89700	Goal: 93606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.84s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.04s/epoch][A
- 30%|###       | 3/10 [09:08<21:20, 182.98s/epoch][A
- 40%|####      | 4/10 [12:11<18:17, 183.00s/epoch][A
- 50%|#####     | 5/10 [15:14<15:14, 182.96s/epoch][A
- 60%|######    | 6/10 [18:17<12:11, 182.94s/epoch][A
- 70%|#######   | 7/10 [21:19<09:08, 182.71s/epoch][A
- 80%|########  | 8/10 [24:23<06:05, 182.84s/epoch][A
- 90%|######### | 9/10 [27:26<03:02, 182.97s/epoch][A
-100%|##########| 10/10 [30:28<00:00, 182.59s/epoch][A100%|##########| 10/10 [30:28<00:00, 182.81s/epoch]
-Saved model from episode 72. Count of batches trained: 93600
-  7%|7         | 72/1000 [13:48:37<492:58:10, 1912.38s/episode]
-Started episode 73 of 1000
-Finished episode 73 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 240	Goal: 250
-Count of batches trained: 93600	Goal: 97506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 182.98s/epoch][A
- 20%|##        | 2/10 [06:04<24:18, 182.35s/epoch][A
- 30%|###       | 3/10 [09:06<21:15, 182.23s/epoch][A
- 40%|####      | 4/10 [12:09<18:13, 182.24s/epoch][A
- 50%|#####     | 5/10 [15:11<15:10, 182.11s/epoch][A
- 60%|######    | 6/10 [18:13<12:08, 182.06s/epoch][A
- 70%|#######   | 7/10 [21:15<09:06, 182.02s/epoch][A
- 80%|########  | 8/10 [24:16<06:03, 181.95s/epoch][A
- 90%|######### | 9/10 [27:18<03:01, 181.90s/epoch][A
-100%|##########| 10/10 [30:20<00:00, 181.83s/epoch][A100%|##########| 10/10 [30:20<00:00, 182.03s/epoch]
-Saved model from episode 73. Count of batches trained: 97500
-  7%|7         | 73/1000 [14:20:20<491:40:24, 1909.41s/episode]
-Started episode 74 of 1000
-Finished episode 74 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 250	Goal: 260
-Count of batches trained: 97500	Goal: 101406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:23, 182.63s/epoch][A
- 20%|##        | 2/10 [06:05<24:22, 182.86s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.09s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.23s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.02s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.13s/epoch][A
- 70%|#######   | 7/10 [21:21<09:09, 183.11s/epoch][A
- 80%|########  | 8/10 [24:24<06:06, 183.11s/epoch][A
- 90%|######### | 9/10 [27:27<03:03, 183.17s/epoch][A
-100%|##########| 10/10 [30:30<00:00, 183.07s/epoch][A100%|##########| 10/10 [30:30<00:00, 183.08s/epoch]
-Saved model from episode 74. Count of batches trained: 101400
-  7%|7         | 74/1000 [14:52:47<494:04:32, 1920.81s/episode]
-Started episode 75 of 1000
-Finished episode 75 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 260	Goal: 270
-Count of batches trained: 101400	Goal: 105306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 183.00s/epoch][A
- 20%|##        | 2/10 [06:04<24:18, 182.32s/epoch][A
- 30%|###       | 3/10 [09:06<21:14, 182.13s/epoch][A
- 40%|####      | 4/10 [12:08<18:12, 182.06s/epoch][A
- 50%|#####     | 5/10 [15:10<15:09, 181.97s/epoch][A
- 60%|######    | 6/10 [18:12<12:07, 181.86s/epoch][A
- 70%|#######   | 7/10 [21:14<09:05, 181.93s/epoch][A
- 80%|########  | 8/10 [24:15<06:03, 181.86s/epoch][A
- 90%|######### | 9/10 [27:17<03:01, 181.89s/epoch][A
-100%|##########| 10/10 [30:19<00:00, 181.84s/epoch][A100%|##########| 10/10 [30:19<00:00, 181.97s/epoch]
-Saved model from episode 75. Count of batches trained: 105300
-  8%|7         | 75/1000 [15:24:25<491:47:11, 1913.98s/episode]
-Started episode 76 of 1000
-Finished episode 76 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 270	Goal: 280
-Count of batches trained: 105300	Goal: 109206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:13, 181.52s/epoch][A
- 20%|##        | 2/10 [06:03<24:13, 181.75s/epoch][A
- 30%|###       | 3/10 [09:04<21:11, 181.66s/epoch][A
- 40%|####      | 4/10 [12:06<18:09, 181.66s/epoch][A
- 50%|#####     | 5/10 [15:08<15:08, 181.61s/epoch][A
- 60%|######    | 6/10 [18:10<12:06, 181.69s/epoch][A
- 70%|#######   | 7/10 [21:11<09:05, 181.74s/epoch][A
- 80%|########  | 8/10 [24:13<06:03, 181.79s/epoch][A
- 90%|######### | 9/10 [27:15<03:01, 181.83s/epoch][A
-100%|##########| 10/10 [30:17<00:00, 181.96s/epoch][A100%|##########| 10/10 [30:17<00:00, 181.79s/epoch]
-Saved model from episode 76. Count of batches trained: 109200
-  8%|7         | 76/1000 [15:56:06<490:14:34, 1910.04s/episode]
-Started episode 77 of 1000
-Finished episode 77 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 280	Goal: 290
-Count of batches trained: 109200	Goal: 113106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:17, 181.94s/epoch][A
- 20%|##        | 2/10 [06:03<24:15, 181.89s/epoch][A
- 30%|###       | 3/10 [09:05<21:13, 181.89s/epoch][A
- 40%|####      | 4/10 [12:07<18:10, 181.80s/epoch][A
- 50%|#####     | 5/10 [15:09<15:08, 181.80s/epoch][A
- 60%|######    | 6/10 [18:10<12:07, 181.77s/epoch][A
- 70%|#######   | 7/10 [21:12<09:05, 181.73s/epoch][A
- 80%|########  | 8/10 [24:14<06:03, 181.82s/epoch][A
- 90%|######### | 9/10 [27:16<03:01, 181.80s/epoch][A
-100%|##########| 10/10 [30:17<00:00, 181.77s/epoch][A100%|##########| 10/10 [30:17<00:00, 181.80s/epoch]
-Saved model from episode 77. Count of batches trained: 113100
-  8%|7         | 77/1000 [16:27:16<486:35:31, 1897.87s/episode]
-Started episode 78 of 1000
-Finished episode 78 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 290	Goal: 300
-Count of batches trained: 113100	Goal: 117006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.04s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.25s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.44s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.35s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.31s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.31s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.18s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.06s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.19s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.14s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.21s/epoch]
-Saved model from episode 78. Count of batches trained: 117000
-  8%|7         | 78/1000 [16:59:03<486:49:04, 1900.81s/episode]
-Started episode 79 of 1000
-Finished episode 79 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 300	Goal: 310
-Count of batches trained: 117000	Goal: 120906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.24s/epoch][A
- 20%|##        | 2/10 [06:06<24:23, 182.98s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.12s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.10s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.19s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.12s/epoch][A
- 70%|#######   | 7/10 [21:21<09:09, 183.03s/epoch][A
- 80%|########  | 8/10 [24:24<06:06, 183.07s/epoch][A
- 90%|######### | 9/10 [27:27<03:03, 183.07s/epoch][A
-100%|##########| 10/10 [30:30<00:00, 183.04s/epoch][A100%|##########| 10/10 [30:30<00:00, 183.08s/epoch]
-Saved model from episode 79. Count of batches trained: 120900
-  8%|7         | 79/1000 [17:30:26<484:54:47, 1895.43s/episode]
-Started episode 80 of 1000
-Finished episode 80 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 310	Goal: 320
-Count of batches trained: 120900	Goal: 124806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:22, 182.49s/epoch][A
- 20%|##        | 2/10 [06:04<24:19, 182.40s/epoch][A
- 30%|###       | 3/10 [09:06<21:15, 182.25s/epoch][A
- 40%|####      | 4/10 [12:08<18:12, 182.14s/epoch][A
- 50%|#####     | 5/10 [15:10<15:09, 181.96s/epoch][A
- 60%|######    | 6/10 [18:12<12:07, 182.00s/epoch][A
- 70%|#######   | 7/10 [21:14<09:05, 181.96s/epoch][A
- 80%|########  | 8/10 [24:16<06:04, 182.03s/epoch][A
- 90%|######### | 9/10 [27:18<03:02, 182.08s/epoch][A
-100%|##########| 10/10 [30:20<00:00, 181.98s/epoch][A100%|##########| 10/10 [30:20<00:00, 182.06s/epoch]
-Saved model from episode 80. Count of batches trained: 124800
-  8%|8         | 80/1000 [18:02:02<484:24:01, 1895.48s/episode]
-Started episode 81 of 1000
-Finished episode 81 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 320	Goal: 330
-Count of batches trained: 124800	Goal: 128706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:14, 181.56s/epoch][A
- 20%|##        | 2/10 [06:03<24:15, 181.91s/epoch][A
- 30%|###       | 3/10 [09:05<21:13, 181.94s/epoch][A
- 40%|####      | 4/10 [12:07<18:11, 181.93s/epoch][A
- 50%|#####     | 5/10 [15:09<15:10, 182.02s/epoch][A
- 60%|######    | 6/10 [18:12<12:08, 182.22s/epoch][A
- 70%|#######   | 7/10 [21:14<09:06, 182.19s/epoch][A
- 80%|########  | 8/10 [24:17<06:05, 182.59s/epoch][A
- 90%|######### | 9/10 [27:21<03:02, 182.79s/epoch][A
-100%|##########| 10/10 [30:24<00:00, 182.96s/epoch][A100%|##########| 10/10 [30:24<00:00, 182.45s/epoch]
-Saved model from episode 81. Count of batches trained: 128700
-  8%|8         | 81/1000 [18:34:26<487:34:46, 1910.00s/episode]
-Started episode 82 of 1000
-Finished episode 82 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 330	Goal: 340
-Count of batches trained: 128700	Goal: 132606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.87s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.39s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.45s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.43s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.31s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.29s/epoch][A
- 70%|#######   | 7/10 [21:23<09:09, 183.28s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.30s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.34s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.31s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.32s/epoch]
-Saved model from episode 82. Count of batches trained: 132600
-  8%|8         | 82/1000 [19:06:25<487:43:55, 1912.67s/episode]
-Started episode 83 of 1000
-Finished episode 83 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 340	Goal: 350
-Count of batches trained: 132600	Goal: 136506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 182.96s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.08s/epoch][A
- 30%|###       | 3/10 [09:09<21:23, 183.36s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.38s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.07s/epoch][A
- 60%|######    | 6/10 [18:17<12:11, 182.78s/epoch][A
- 70%|#######   | 7/10 [21:19<09:07, 182.52s/epoch][A
- 80%|########  | 8/10 [24:21<06:04, 182.26s/epoch][A
- 90%|######### | 9/10 [27:23<03:02, 182.11s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 183.99s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.16s/epoch]
-Saved model from episode 83. Count of batches trained: 136500
-  8%|8         | 83/1000 [19:38:49<489:39:05, 1922.30s/episode]
-Started episode 84 of 1000
-Finished episode 84 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 350	Goal: 360
-Count of batches trained: 136500	Goal: 140406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:21, 182.42s/epoch][A
- 20%|##        | 2/10 [06:04<24:19, 182.42s/epoch][A
- 30%|###       | 3/10 [09:09<21:23, 183.42s/epoch][A
- 40%|####      | 4/10 [12:14<18:24, 184.02s/epoch][A
- 50%|#####     | 5/10 [15:18<15:19, 183.90s/epoch][A
- 60%|######    | 6/10 [18:25<12:20, 185.07s/epoch][A
- 70%|#######   | 7/10 [21:29<09:14, 184.71s/epoch][A
- 80%|########  | 8/10 [24:32<06:08, 184.22s/epoch][A
- 90%|######### | 9/10 [27:35<03:03, 183.97s/epoch][A
-100%|##########| 10/10 [30:39<00:00, 183.71s/epoch][A100%|##########| 10/10 [30:39<00:00, 183.91s/epoch]
-Saved model from episode 84. Count of batches trained: 140400
-  8%|8         | 84/1000 [20:10:50<488:58:30, 1921.74s/episode]
-Started episode 85 of 1000
-Finished episode 85 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 360	Goal: 370
-Count of batches trained: 140400	Goal: 144306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 182.98s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.02s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.16s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.25s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.30s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.37s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.41s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.39s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.16s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 182.96s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.16s/epoch]
-Saved model from episode 85. Count of batches trained: 144300
-  8%|8         | 85/1000 [20:42:39<487:27:15, 1917.85s/episode]
-Started episode 86 of 1000
-Finished episode 86 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 370	Goal: 380
-Count of batches trained: 144300	Goal: 148206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.02s/epoch][A
- 20%|##        | 2/10 [06:05<24:19, 182.49s/epoch][A
- 30%|###       | 3/10 [09:07<21:16, 182.29s/epoch][A
- 40%|####      | 4/10 [12:09<18:13, 182.19s/epoch][A
- 50%|#####     | 5/10 [15:11<15:10, 182.15s/epoch][A
- 60%|######    | 6/10 [18:13<12:08, 182.03s/epoch][A
- 70%|#######   | 7/10 [21:15<09:06, 182.06s/epoch][A
- 80%|########  | 8/10 [24:17<06:04, 182.11s/epoch][A
- 90%|######### | 9/10 [27:19<03:02, 182.13s/epoch][A
-100%|##########| 10/10 [30:21<00:00, 182.11s/epoch][A100%|##########| 10/10 [30:21<00:00, 182.17s/epoch]
-Saved model from episode 86. Count of batches trained: 148200
-  9%|8         | 86/1000 [21:14:28<486:16:20, 1915.30s/episode]
-Started episode 87 of 1000
-Finished episode 87 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 380	Goal: 390
-Count of batches trained: 148200	Goal: 152106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:18, 182.07s/epoch][A
- 20%|##        | 2/10 [06:03<24:14, 181.84s/epoch][A
- 30%|###       | 3/10 [09:05<21:13, 181.94s/epoch][A
- 40%|####      | 4/10 [12:07<18:10, 181.82s/epoch][A
- 50%|#####     | 5/10 [15:09<15:10, 182.03s/epoch][A
- 60%|######    | 6/10 [18:13<12:09, 182.46s/epoch][A
- 70%|#######   | 7/10 [21:16<09:08, 182.76s/epoch][A
- 80%|########  | 8/10 [24:19<06:05, 182.92s/epoch][A
- 90%|######### | 9/10 [27:23<03:03, 183.04s/epoch][A
-100%|##########| 10/10 [30:25<00:00, 182.94s/epoch][A100%|##########| 10/10 [30:25<00:00, 182.58s/epoch]
-Saved model from episode 87. Count of batches trained: 152100
-  9%|8         | 87/1000 [21:45:46<482:54:21, 1904.12s/episode]
-Started episode 88 of 1000
-Finished episode 88 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 390	Goal: 400
-Count of batches trained: 152100	Goal: 156006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:17, 181.90s/epoch][A
- 20%|##        | 2/10 [06:03<24:14, 181.86s/epoch][A
- 30%|###       | 3/10 [09:06<21:14, 182.10s/epoch][A
- 40%|####      | 4/10 [12:07<18:11, 181.85s/epoch][A
- 50%|#####     | 5/10 [15:09<15:09, 181.96s/epoch][A
- 60%|######    | 6/10 [18:11<12:07, 181.91s/epoch][A
- 70%|#######   | 7/10 [21:13<09:05, 181.86s/epoch][A
- 80%|########  | 8/10 [24:15<06:03, 181.82s/epoch][A
- 90%|######### | 9/10 [27:16<03:01, 181.85s/epoch][A
-100%|##########| 10/10 [30:19<00:00, 181.93s/epoch][A100%|##########| 10/10 [30:19<00:00, 181.91s/epoch]
-Saved model from episode 88. Count of batches trained: 156000
-  9%|8         | 88/1000 [22:17:52<484:01:21, 1910.62s/episode]
-Started episode 89 of 1000
-Finished episode 89 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 400	Goal: 410
-Count of batches trained: 156000	Goal: 159906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:22, 182.53s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.27s/epoch][A
- 30%|###       | 3/10 [09:14<21:38, 185.56s/epoch][A
- 40%|####      | 4/10 [12:17<18:27, 184.54s/epoch][A
- 50%|#####     | 5/10 [15:20<15:19, 183.85s/epoch][A
- 60%|######    | 6/10 [18:23<12:14, 183.60s/epoch][A
- 70%|#######   | 7/10 [21:26<09:10, 183.46s/epoch][A
- 80%|########  | 8/10 [24:29<06:06, 183.36s/epoch][A
- 90%|######### | 9/10 [27:32<03:03, 183.34s/epoch][A
-100%|##########| 10/10 [30:35<00:00, 183.15s/epoch][A100%|##########| 10/10 [30:35<00:00, 183.57s/epoch]
-Saved model from episode 89. Count of batches trained: 159900
-  9%|8         | 89/1000 [22:49:42<483:27:27, 1910.48s/episode]
-Started episode 90 of 1000
-Finished episode 90 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 410	Goal: 420
-Count of batches trained: 159900	Goal: 163806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.21s/epoch][A
- 20%|##        | 2/10 [06:06<24:28, 183.55s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.46s/epoch][A
- 40%|####      | 4/10 [12:15<18:24, 184.02s/epoch][A
- 50%|#####     | 5/10 [15:19<15:20, 184.11s/epoch][A
- 60%|######    | 6/10 [18:23<12:16, 184.08s/epoch][A
- 70%|#######   | 7/10 [21:26<09:11, 183.68s/epoch][A
- 80%|########  | 8/10 [24:29<06:06, 183.39s/epoch][A
- 90%|######### | 9/10 [27:32<03:03, 183.43s/epoch][A
-100%|##########| 10/10 [30:35<00:00, 183.37s/epoch][A100%|##########| 10/10 [30:35<00:00, 183.59s/epoch]
-Saved model from episode 90. Count of batches trained: 163800
-  9%|9         | 90/1000 [23:21:14<481:31:19, 1904.92s/episode]
-Started episode 91 of 1000
-Finished episode 91 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 420	Goal: 430
-Count of batches trained: 163800	Goal: 167706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:08<28:14, 188.26s/epoch][A
- 20%|##        | 2/10 [06:14<24:56, 187.11s/epoch][A
- 30%|###       | 3/10 [09:18<21:38, 185.50s/epoch][A
- 40%|####      | 4/10 [12:21<18:28, 184.75s/epoch][A
- 50%|#####     | 5/10 [15:25<15:21, 184.35s/epoch][A
- 60%|######    | 6/10 [18:28<12:15, 183.97s/epoch][A
- 70%|#######   | 7/10 [21:32<09:11, 183.85s/epoch][A
- 80%|########  | 8/10 [24:35<06:07, 183.68s/epoch][A
- 90%|######### | 9/10 [27:38<03:03, 183.43s/epoch][A
-100%|##########| 10/10 [30:40<00:00, 183.03s/epoch][A100%|##########| 10/10 [30:40<00:00, 184.06s/epoch]
-Saved model from episode 91. Count of batches trained: 167700
-  9%|9         | 91/1000 [23:53:16<482:18:35, 1910.14s/episode]
-Started episode 92 of 1000
-Finished episode 92 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 430	Goal: 440
-Count of batches trained: 167700	Goal: 171606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:17, 181.91s/epoch][A
- 20%|##        | 2/10 [06:03<24:15, 181.94s/epoch][A
- 30%|###       | 3/10 [09:05<21:13, 181.86s/epoch][A
- 40%|####      | 4/10 [12:07<18:11, 181.96s/epoch][A
- 50%|#####     | 5/10 [15:10<15:11, 182.36s/epoch][A
- 60%|######    | 6/10 [18:14<12:10, 182.68s/epoch][A
- 70%|#######   | 7/10 [21:17<09:08, 183.00s/epoch][A
- 80%|########  | 8/10 [24:20<06:06, 183.03s/epoch][A
- 90%|######### | 9/10 [27:24<03:03, 183.11s/epoch][A
-100%|##########| 10/10 [30:27<00:00, 183.19s/epoch][A100%|##########| 10/10 [30:27<00:00, 182.75s/epoch]
-Saved model from episode 92. Count of batches trained: 171600
-  9%|9         | 92/1000 [24:24:36<479:30:30, 1901.14s/episode]
-Started episode 93 of 1000
-Finished episode 93 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 440	Goal: 450
-Count of batches trained: 171600	Goal: 175506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.12s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.33s/epoch][A
- 30%|###       | 3/10 [09:10<21:23, 183.41s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.39s/epoch][A
- 50%|#####     | 5/10 [15:16<15:17, 183.42s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.43s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.38s/epoch][A
- 80%|########  | 8/10 [24:27<06:06, 183.42s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.39s/epoch][A
-100%|##########| 10/10 [30:34<00:00, 183.46s/epoch][A100%|##########| 10/10 [30:34<00:00, 183.41s/epoch]
-Saved model from episode 93. Count of batches trained: 175500
-  9%|9         | 93/1000 [24:56:08<478:17:03, 1898.37s/episode]
-Started episode 94 of 1000
-Finished episode 94 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 450	Goal: 460
-Count of batches trained: 175500	Goal: 179406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.34s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.39s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.48s/epoch][A
- 40%|####      | 4/10 [12:14<18:21, 183.60s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.56s/epoch][A
- 60%|######    | 6/10 [18:21<12:14, 183.50s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.35s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.11s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.03s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 182.91s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.21s/epoch]
-Saved model from episode 94. Count of batches trained: 179400
-  9%|9         | 94/1000 [25:27:38<477:07:43, 1895.88s/episode]
-Started episode 95 of 1000
-Finished episode 95 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 460	Goal: 470
-Count of batches trained: 179400	Goal: 183306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:24, 182.71s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.07s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.14s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.27s/epoch][A
- 50%|#####     | 5/10 [15:15<15:16, 183.24s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.36s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.27s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.15s/epoch][A
- 90%|######### | 9/10 [27:27<03:02, 182.77s/epoch][A
-100%|##########| 10/10 [30:30<00:00, 182.73s/epoch][A100%|##########| 10/10 [30:30<00:00, 183.01s/epoch]
-Saved model from episode 95. Count of batches trained: 183300
- 10%|9         | 95/1000 [25:59:59<480:01:14, 1909.47s/episode]
-Started episode 96 of 1000
-Finished episode 96 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 470	Goal: 480
-Count of batches trained: 183300	Goal: 187206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.31s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.45s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.56s/epoch][A
- 40%|####      | 4/10 [12:13<18:21, 183.50s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.47s/epoch][A
- 60%|######    | 6/10 [18:20<12:14, 183.51s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.47s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.11s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.09s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.18s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.31s/epoch]
-Saved model from episode 96. Count of batches trained: 187200
- 10%|9         | 96/1000 [26:31:31<478:06:32, 1903.97s/episode]
-Started episode 97 of 1000
-Finished episode 97 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 480	Goal: 490
-Count of batches trained: 187200	Goal: 191106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.85s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.40s/epoch][A
- 30%|###       | 3/10 [09:10<21:25, 183.61s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.44s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.56s/epoch][A
- 60%|######    | 6/10 [18:20<12:14, 183.52s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.42s/epoch][A
- 80%|########  | 8/10 [24:28<06:07, 183.59s/epoch][A
- 90%|######### | 9/10 [27:31<03:03, 183.51s/epoch][A
-100%|##########| 10/10 [30:34<00:00, 183.53s/epoch][A100%|##########| 10/10 [30:34<00:00, 183.49s/epoch]
-Saved model from episode 97. Count of batches trained: 191100
- 10%|9         | 97/1000 [27:02:59<476:23:51, 1899.26s/episode]
-Started episode 98 of 1000
-Finished episode 98 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 490	Goal: 500
-Count of batches trained: 191100	Goal: 195006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:23, 182.60s/epoch][A
- 20%|##        | 2/10 [06:04<24:17, 182.16s/epoch][A
- 30%|###       | 3/10 [09:06<21:14, 182.13s/epoch][A
- 40%|####      | 4/10 [12:08<18:12, 182.06s/epoch][A
- 50%|#####     | 5/10 [15:10<15:10, 182.08s/epoch][A
- 60%|######    | 6/10 [18:12<12:08, 182.01s/epoch][A
- 70%|#######   | 7/10 [21:14<09:06, 182.13s/epoch][A
- 80%|########  | 8/10 [24:16<06:04, 182.08s/epoch][A
- 90%|######### | 9/10 [27:18<03:02, 182.04s/epoch][A
-100%|##########| 10/10 [30:20<00:00, 181.93s/epoch][A100%|##########| 10/10 [30:20<00:00, 182.05s/epoch]
-Saved model from episode 98. Count of batches trained: 195000
- 10%|9         | 98/1000 [27:34:11<473:48:23, 1891.02s/episode]
-Started episode 99 of 1000
-Finished episode 99 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 500	Goal: 510
-Count of batches trained: 195000	Goal: 198906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:24, 182.69s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.16s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.14s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.25s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.39s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.40s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.38s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.16s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.21s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.35s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.28s/epoch]
-Saved model from episode 99. Count of batches trained: 198900
- 10%|9         | 99/1000 [28:06:40<477:39:40, 1908.52s/episode]
-Started episode 100 of 1000
-Finished episode 100 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 510	Goal: 520
-Count of batches trained: 198900	Goal: 202806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.34s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.33s/epoch][A
- 30%|###       | 3/10 [09:10<21:23, 183.37s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.33s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.25s/epoch][A
- 60%|######    | 6/10 [18:19<12:12, 183.18s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.14s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.29s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.33s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.37s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.31s/epoch]
-Saved model from episode 100. Count of batches trained: 202800
- 10%|#         | 100/1000 [28:38:10<475:42:01, 1902.80s/episode]
-Started episode 101 of 1000
-Finished episode 101 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 520	Goal: 530
-Count of batches trained: 202800	Goal: 206706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:22, 182.49s/epoch][A
- 20%|##        | 2/10 [06:05<24:23, 182.94s/epoch][A
- 30%|###       | 3/10 [09:08<21:21, 183.03s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.19s/epoch][A
- 50%|#####     | 5/10 [15:15<15:16, 183.34s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.43s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.51s/epoch][A
- 80%|########  | 8/10 [24:26<06:07, 183.54s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.48s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.43s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.35s/epoch]
-Saved model from episode 101. Count of batches trained: 206700
- 10%|#         | 101/1000 [29:10:36<478:28:41, 1916.04s/episode]
-Started episode 102 of 1000
-Finished episode 102 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 530	Goal: 540
-Count of batches trained: 206700	Goal: 210606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.30s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.21s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.22s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.19s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.11s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.07s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.23s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.22s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.31s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.31s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.24s/epoch]
-Saved model from episode 102. Count of batches trained: 210600
- 10%|#         | 102/1000 [29:42:01<475:33:55, 1906.50s/episode]
-Started episode 103 of 1000
-Finished episode 103 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 540	Goal: 550
-Count of batches trained: 210600	Goal: 214506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:24, 182.69s/epoch][A
- 20%|##        | 2/10 [06:05<24:22, 182.83s/epoch][A
- 30%|###       | 3/10 [09:08<21:20, 182.97s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.12s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.15s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.25s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.28s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.29s/epoch][A
- 90%|######### | 9/10 [27:28<03:03, 183.31s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.34s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.22s/epoch]
-Saved model from episode 103. Count of batches trained: 214500
- 10%|#         | 103/1000 [30:13:55<475:36:12, 1908.78s/episode]
-Started episode 104 of 1000
-Finished episode 104 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 550	Goal: 560
-Count of batches trained: 214500	Goal: 218406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.83s/epoch][A
- 20%|##        | 2/10 [06:05<24:24, 183.01s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.18s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.17s/epoch][A
- 50%|#####     | 5/10 [15:15<15:16, 183.25s/epoch][A
- 60%|######    | 6/10 [18:19<12:12, 183.22s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.21s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.27s/epoch][A
- 90%|######### | 9/10 [27:28<03:03, 183.24s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.24s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.21s/epoch]
-Saved model from episode 104. Count of batches trained: 218400
- 10%|#         | 104/1000 [30:46:23<478:01:33, 1920.64s/episode]
-Started episode 105 of 1000
-Finished episode 105 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 560	Goal: 570
-Count of batches trained: 218400	Goal: 222306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 182.98s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.27s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.28s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.31s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.30s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.35s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.35s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.28s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.16s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.13s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.23s/epoch]
-Saved model from episode 105. Count of batches trained: 222300
- 10%|#         | 105/1000 [31:18:47<479:11:48, 1927.50s/episode]
-Started episode 106 of 1000
-Finished episode 106 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 570	Goal: 580
-Count of batches trained: 222300	Goal: 226206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:32, 183.64s/epoch][A
- 20%|##        | 2/10 [06:07<24:30, 183.81s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.56s/epoch][A
- 40%|####      | 4/10 [12:14<18:21, 183.53s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.50s/epoch][A
- 60%|######    | 6/10 [18:21<12:13, 183.50s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.44s/epoch][A
- 80%|########  | 8/10 [24:27<06:06, 183.43s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.17s/epoch][A
-100%|##########| 10/10 [30:34<00:00, 183.29s/epoch][A100%|##########| 10/10 [30:34<00:00, 183.41s/epoch]
-Saved model from episode 106. Count of batches trained: 226200
- 11%|#         | 106/1000 [31:50:17<475:55:27, 1916.47s/episode]
-Started episode 107 of 1000
-Finished episode 107 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 580	Goal: 590
-Count of batches trained: 226200	Goal: 230106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:24, 182.73s/epoch][A
- 20%|##        | 2/10 [06:04<24:19, 182.38s/epoch][A
- 30%|###       | 3/10 [09:07<21:16, 182.31s/epoch][A
- 40%|####      | 4/10 [12:09<18:13, 182.21s/epoch][A
- 50%|#####     | 5/10 [15:12<15:12, 182.47s/epoch][A
- 60%|######    | 6/10 [18:15<12:11, 182.75s/epoch][A
- 70%|#######   | 7/10 [21:18<09:08, 182.97s/epoch][A
- 80%|########  | 8/10 [24:22<06:06, 183.14s/epoch][A
- 90%|######### | 9/10 [27:25<03:03, 183.18s/epoch][A
-100%|##########| 10/10 [30:28<00:00, 183.07s/epoch][A100%|##########| 10/10 [30:28<00:00, 182.84s/epoch]
-Saved model from episode 107. Count of batches trained: 230100
- 11%|#         | 107/1000 [32:22:39<477:14:19, 1923.92s/episode]
-Started episode 108 of 1000
-Finished episode 108 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 590	Goal: 600
-Count of batches trained: 230100	Goal: 234006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.80s/epoch][A
- 20%|##        | 2/10 [06:04<24:19, 182.42s/epoch][A
- 30%|###       | 3/10 [09:06<21:15, 182.22s/epoch][A
- 40%|####      | 4/10 [12:09<18:13, 182.20s/epoch][A
- 50%|#####     | 5/10 [15:11<15:11, 182.34s/epoch][A
- 60%|######    | 6/10 [18:15<12:10, 182.69s/epoch][A
- 70%|#######   | 7/10 [21:18<09:08, 182.93s/epoch][A
- 80%|########  | 8/10 [24:21<06:05, 182.95s/epoch][A
- 90%|######### | 9/10 [27:24<03:03, 183.07s/epoch][A
-100%|##########| 10/10 [30:28<00:00, 183.19s/epoch][A100%|##########| 10/10 [30:28<00:00, 182.83s/epoch]
-Saved model from episode 108. Count of batches trained: 234000
- 11%|#         | 108/1000 [32:54:23<475:16:41, 1918.16s/episode]
-Started episode 109 of 1000
-Finished episode 109 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 600	Goal: 610
-Count of batches trained: 234000	Goal: 237906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.84s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.11s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.16s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.24s/epoch][A
- 50%|#####     | 5/10 [15:15<15:16, 183.25s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.30s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.26s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.31s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.25s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.27s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.24s/epoch]
-Saved model from episode 109. Count of batches trained: 237900
- 11%|#         | 109/1000 [33:26:48<476:40:58, 1925.99s/episode]
-Started episode 110 of 1000
-Finished episode 110 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 610	Goal: 620
-Count of batches trained: 237900	Goal: 241806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.44s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.37s/epoch][A
- 30%|###       | 3/10 [09:10<21:23, 183.31s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.39s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.35s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.26s/epoch][A
- 70%|#######   | 7/10 [21:23<09:09, 183.26s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.18s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.18s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.19s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.25s/epoch]
-Saved model from episode 110. Count of batches trained: 241800
- 11%|#1        | 110/1000 [33:58:18<473:31:36, 1915.39s/episode]
-Started episode 111 of 1000
-Finished episode 111 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 620	Goal: 630
-Count of batches trained: 241800	Goal: 245706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.36s/epoch][A
- 20%|##        | 2/10 [06:07<24:28, 183.53s/epoch][A
- 30%|###       | 3/10 [09:10<21:23, 183.42s/epoch][A
- 40%|####      | 4/10 [12:14<18:21, 183.53s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.45s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.37s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.44s/epoch][A
- 80%|########  | 8/10 [24:27<06:07, 183.58s/epoch][A
- 90%|######### | 9/10 [27:31<03:03, 183.50s/epoch][A
-100%|##########| 10/10 [30:34<00:00, 183.53s/epoch][A100%|##########| 10/10 [30:34<00:00, 183.49s/epoch]
-Saved model from episode 111. Count of batches trained: 245700
- 11%|#1        | 111/1000 [34:30:12<472:53:19, 1914.96s/episode]
-Started episode 112 of 1000
-Finished episode 112 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 630	Goal: 640
-Count of batches trained: 245700	Goal: 249606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.22s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.21s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.22s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.28s/epoch][A
- 50%|#####     | 5/10 [15:16<15:17, 183.42s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.41s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.55s/epoch][A
- 80%|########  | 8/10 [24:27<06:06, 183.44s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.37s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.37s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.37s/epoch]
-Saved model from episode 112. Count of batches trained: 249600
- 11%|#1        | 112/1000 [35:02:09<472:29:33, 1915.51s/episode]
-Started episode 113 of 1000
-Finished episode 113 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 640	Goal: 650
-Count of batches trained: 249600	Goal: 253506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.16s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.30s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.22s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.27s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.30s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.27s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.23s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.26s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.34s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.24s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.26s/epoch]
-Saved model from episode 113. Count of batches trained: 253500
- 11%|#1        | 113/1000 [35:34:34<474:06:31, 1924.23s/episode]
-Started episode 114 of 1000
-Finished episode 114 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 650	Goal: 660
-Count of batches trained: 253500	Goal: 257406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 182.91s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.29s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.26s/epoch][A
- 40%|####      | 4/10 [12:20<18:37, 186.22s/epoch][A
- 50%|#####     | 5/10 [15:24<15:26, 185.27s/epoch][A
- 60%|######    | 6/10 [18:27<12:18, 184.52s/epoch][A
- 70%|#######   | 7/10 [21:30<09:12, 184.04s/epoch][A
- 80%|########  | 8/10 [24:33<06:07, 183.67s/epoch][A
- 90%|######### | 9/10 [27:36<03:03, 183.54s/epoch][A
-100%|##########| 10/10 [30:39<00:00, 183.29s/epoch][A100%|##########| 10/10 [30:39<00:00, 183.90s/epoch]
-Saved model from episode 114. Count of batches trained: 257400
- 11%|#1        | 114/1000 [36:06:39<473:38:43, 1924.52s/episode]
-Started episode 115 of 1000
-Finished episode 115 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 660	Goal: 670
-Count of batches trained: 257400	Goal: 261306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.32s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.27s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.28s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.24s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.24s/epoch][A
- 60%|######    | 6/10 [18:18<12:11, 182.89s/epoch][A
- 70%|#######   | 7/10 [21:20<09:07, 182.65s/epoch][A
- 80%|########  | 8/10 [24:23<06:05, 182.66s/epoch][A
- 90%|######### | 9/10 [27:26<03:02, 182.79s/epoch][A
-100%|##########| 10/10 [30:29<00:00, 183.01s/epoch][A100%|##########| 10/10 [30:29<00:00, 182.99s/epoch]
-Saved model from episode 115. Count of batches trained: 261300
- 12%|#1        | 115/1000 [36:38:05<470:16:31, 1912.98s/episode]
-Started episode 116 of 1000
-Finished episode 116 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 670	Goal: 680
-Count of batches trained: 261300	Goal: 265206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.44s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.33s/epoch][A
- 30%|###       | 3/10 [09:10<21:23, 183.35s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.29s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.34s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.39s/epoch][A
- 70%|#######   | 7/10 [21:23<09:09, 183.31s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.23s/epoch][A
- 90%|######### | 9/10 [27:28<03:02, 182.88s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 183.04s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.19s/epoch]
-Saved model from episode 116. Count of batches trained: 265200
- 12%|#1        | 116/1000 [37:09:28<467:31:45, 1903.97s/episode]
-Started episode 117 of 1000
-Finished episode 117 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 680	Goal: 690
-Count of batches trained: 265200	Goal: 269106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.06s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.24s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.19s/epoch][A
- 40%|####      | 4/10 [12:22<18:41, 186.98s/epoch][A
- 50%|#####     | 5/10 [15:26<15:29, 185.96s/epoch][A
- 60%|######    | 6/10 [18:30<12:21, 185.35s/epoch][A
- 70%|#######   | 7/10 [21:33<09:13, 184.59s/epoch][A
- 80%|########  | 8/10 [24:36<06:08, 184.16s/epoch][A
- 90%|######### | 9/10 [27:40<03:04, 184.01s/epoch][A
-100%|##########| 10/10 [30:43<00:00, 183.76s/epoch][A100%|##########| 10/10 [30:43<00:00, 184.38s/epoch]
-Saved model from episode 117. Count of batches trained: 269100
- 12%|#1        | 117/1000 [37:41:23<467:50:41, 1907.41s/episode]
-Started episode 118 of 1000
-Finished episode 118 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 690	Goal: 700
-Count of batches trained: 269100	Goal: 273006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.00s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.38s/epoch][A
- 30%|###       | 3/10 [09:09<21:23, 183.29s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.28s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.24s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.28s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.38s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.28s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.20s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.26s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.27s/epoch]
-Saved model from episode 118. Count of batches trained: 273000
- 12%|#1        | 118/1000 [38:13:18<467:52:48, 1909.72s/episode]
-Started episode 119 of 1000
-Finished episode 119 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 700	Goal: 710
-Count of batches trained: 273000	Goal: 276906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.14s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.07s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.00s/epoch][A
- 40%|####      | 4/10 [12:11<18:17, 182.96s/epoch][A
- 50%|#####     | 5/10 [15:13<15:12, 182.59s/epoch][A
- 60%|######    | 6/10 [18:16<12:10, 182.60s/epoch][A
- 70%|#######   | 7/10 [21:19<09:08, 182.73s/epoch][A
- 80%|########  | 8/10 [24:22<06:05, 182.84s/epoch][A
- 90%|######### | 9/10 [27:25<03:02, 182.88s/epoch][A
-100%|##########| 10/10 [30:27<00:00, 182.71s/epoch][A100%|##########| 10/10 [30:27<00:00, 182.79s/epoch]
-Saved model from episode 119. Count of batches trained: 276900
- 12%|#1        | 119/1000 [38:45:06<467:13:43, 1909.22s/episode]
-Started episode 120 of 1000
-Finished episode 120 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 710	Goal: 720
-Count of batches trained: 276900	Goal: 280806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.02s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.07s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.07s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.16s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.17s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.21s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.23s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.28s/epoch][A
- 90%|######### | 9/10 [27:28<03:03, 183.23s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.24s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.20s/epoch]
-Saved model from episode 120. Count of batches trained: 280800
- 12%|#2        | 120/1000 [39:17:01<467:06:16, 1910.88s/episode]
-Started episode 121 of 1000
-Finished episode 121 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 720	Goal: 730
-Count of batches trained: 280800	Goal: 284706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.17s/epoch][A
- 20%|##        | 2/10 [06:04<24:18, 182.35s/epoch][A
- 30%|###       | 3/10 [09:07<21:16, 182.34s/epoch][A
- 40%|####      | 4/10 [12:09<18:14, 182.39s/epoch][A
- 50%|#####     | 5/10 [15:11<15:11, 182.29s/epoch][A
- 60%|######    | 6/10 [18:13<12:08, 182.23s/epoch][A
- 70%|#######   | 7/10 [21:16<09:06, 182.20s/epoch][A
- 80%|########  | 8/10 [24:18<06:04, 182.20s/epoch][A
- 90%|######### | 9/10 [27:20<03:02, 182.15s/epoch][A
-100%|##########| 10/10 [30:22<00:00, 182.11s/epoch][A100%|##########| 10/10 [30:22<00:00, 182.24s/epoch]
-Saved model from episode 121. Count of batches trained: 284700
- 12%|#2        | 121/1000 [39:48:41<465:46:06, 1907.58s/episode]
-Started episode 122 of 1000
-Finished episode 122 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 730	Goal: 740
-Count of batches trained: 284700	Goal: 288606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.18s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.40s/epoch][A
- 30%|###       | 3/10 [09:09<21:23, 183.32s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.37s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.47s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.31s/epoch][A
- 70%|#######   | 7/10 [21:23<09:09, 183.27s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.06s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.14s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.17s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.24s/epoch]
-Saved model from episode 122. Count of batches trained: 288600
- 12%|#2        | 122/1000 [40:20:11<463:55:37, 1902.21s/episode]
-Started episode 123 of 1000
-Finished episode 123 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 740	Goal: 750
-Count of batches trained: 288600	Goal: 292506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.03s/epoch][A
- 20%|##        | 2/10 [06:07<24:29, 183.66s/epoch][A
- 30%|###       | 3/10 [09:10<21:25, 183.64s/epoch][A
- 40%|####      | 4/10 [12:14<18:22, 183.70s/epoch][A
- 50%|#####     | 5/10 [15:18<15:18, 183.67s/epoch][A
- 60%|######    | 6/10 [18:21<12:14, 183.65s/epoch][A
- 70%|#######   | 7/10 [21:25<09:11, 183.78s/epoch][A
- 80%|########  | 8/10 [24:29<06:07, 183.89s/epoch][A
- 90%|######### | 9/10 [27:33<03:03, 183.75s/epoch][A
-100%|##########| 10/10 [30:35<00:00, 183.27s/epoch][A100%|##########| 10/10 [30:35<00:00, 183.56s/epoch]
-Saved model from episode 123. Count of batches trained: 292500
- 12%|#2        | 123/1000 [40:51:37<462:12:24, 1897.31s/episode]
-Started episode 124 of 1000
-Finished episode 124 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 750	Goal: 760
-Count of batches trained: 292500	Goal: 296406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:21, 182.35s/epoch][A
- 20%|##        | 2/10 [06:04<24:19, 182.41s/epoch][A
- 30%|###       | 3/10 [09:07<21:16, 182.37s/epoch][A
- 40%|####      | 4/10 [12:09<18:13, 182.24s/epoch][A
- 50%|#####     | 5/10 [15:12<15:12, 182.50s/epoch][A
- 60%|######    | 6/10 [18:15<12:11, 182.93s/epoch][A
- 70%|#######   | 7/10 [21:19<09:09, 183.09s/epoch][A
- 80%|########  | 8/10 [24:21<06:05, 182.77s/epoch][A
- 90%|######### | 9/10 [27:24<03:02, 182.96s/epoch][A
-100%|##########| 10/10 [30:28<00:00, 183.13s/epoch][A100%|##########| 10/10 [30:28<00:00, 182.83s/epoch]
-Saved model from episode 124. Count of batches trained: 296400
- 12%|#2        | 124/1000 [41:22:55<460:18:07, 1891.65s/episode]
-Started episode 125 of 1000
-Finished episode 125 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 760	Goal: 770
-Count of batches trained: 296400	Goal: 300306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.11s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.16s/epoch][A
- 30%|###       | 3/10 [09:10<21:25, 183.57s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.35s/epoch][A
- 50%|#####     | 5/10 [15:16<15:15, 183.17s/epoch][A
- 60%|######    | 6/10 [18:19<12:12, 183.06s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.09s/epoch][A
- 80%|########  | 8/10 [24:24<06:05, 182.97s/epoch][A
- 90%|######### | 9/10 [27:28<03:03, 183.23s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 183.14s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.17s/epoch]
-Saved model from episode 125. Count of batches trained: 300300
- 12%|#2        | 125/1000 [41:54:45<461:08:10, 1897.25s/episode]
-Started episode 126 of 1000
-Finished episode 126 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 770	Goal: 780
-Count of batches trained: 300300	Goal: 304206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:16, 181.82s/epoch][A
- 20%|##        | 2/10 [06:04<24:18, 182.31s/epoch][A
- 30%|###       | 3/10 [09:06<21:15, 182.19s/epoch][A
- 40%|####      | 4/10 [12:07<18:10, 181.77s/epoch][A
- 50%|#####     | 5/10 [15:09<15:08, 181.80s/epoch][A
- 60%|######    | 6/10 [18:11<12:07, 181.76s/epoch][A
- 70%|#######   | 7/10 [21:14<09:06, 182.22s/epoch][A
- 80%|########  | 8/10 [24:16<06:04, 182.24s/epoch][A
- 90%|######### | 9/10 [27:20<03:02, 182.64s/epoch][A
-100%|##########| 10/10 [30:23<00:00, 182.72s/epoch][A100%|##########| 10/10 [30:23<00:00, 182.31s/epoch]
-Saved model from episode 126. Count of batches trained: 304200
- 13%|#2        | 126/1000 [42:26:34<461:24:22, 1900.53s/episode]
-Started episode 127 of 1000
-Finished episode 127 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 780	Goal: 790
-Count of batches trained: 304200	Goal: 308106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.34s/epoch][A
- 20%|##        | 2/10 [06:10<24:43, 185.38s/epoch][A
- 30%|###       | 3/10 [09:21<21:56, 188.14s/epoch][A
- 40%|####      | 4/10 [12:25<18:38, 186.40s/epoch][A
- 50%|#####     | 5/10 [15:28<15:26, 185.29s/epoch][A
- 60%|######    | 6/10 [18:31<12:18, 184.60s/epoch][A
- 70%|#######   | 7/10 [21:35<09:12, 184.22s/epoch][A
- 80%|########  | 8/10 [24:38<06:08, 184.03s/epoch][A
- 90%|######### | 9/10 [27:41<03:03, 183.67s/epoch][A
-100%|##########| 10/10 [30:44<00:00, 183.35s/epoch][A100%|##########| 10/10 [30:44<00:00, 184.45s/epoch]
-Saved model from episode 127. Count of batches trained: 308100
- 13%|#2        | 127/1000 [42:59:09<464:52:08, 1916.99s/episode]
-Started episode 128 of 1000
-Finished episode 128 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 790	Goal: 800
-Count of batches trained: 308100	Goal: 312006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.01s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.24s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.46s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.49s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.47s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.37s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.10s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.25s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.37s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.25s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.30s/epoch]
-Saved model from episode 128. Count of batches trained: 312000
- 13%|#2        | 128/1000 [43:30:39<462:24:43, 1909.04s/episode]
-Started episode 129 of 1000
-Finished episode 129 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 800	Goal: 810
-Count of batches trained: 312000	Goal: 315906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.36s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.16s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.14s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.12s/epoch][A
- 50%|#####     | 5/10 [15:17<15:18, 183.64s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.38s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.38s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.20s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.22s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 182.88s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.16s/epoch]
-Saved model from episode 129. Count of batches trained: 315900
- 13%|#2        | 129/1000 [44:03:04<464:26:46, 1919.64s/episode]
-Started episode 130 of 1000
-Finished episode 130 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 810	Goal: 820
-Count of batches trained: 315900	Goal: 319806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.22s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.21s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.23s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.14s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.29s/epoch][A
- 60%|######    | 6/10 [18:19<12:12, 183.23s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.24s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.47s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.25s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.27s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.27s/epoch]
-Saved model from episode 130. Count of batches trained: 319800
- 13%|#3        | 130/1000 [44:34:35<461:50:14, 1911.05s/episode]
-Started episode 131 of 1000
-Finished episode 131 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 820	Goal: 830
-Count of batches trained: 319800	Goal: 323706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.37s/epoch][A
- 20%|##        | 2/10 [06:07<24:30, 183.86s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.48s/epoch][A
- 40%|####      | 4/10 [12:14<18:20, 183.45s/epoch][A
- 50%|#####     | 5/10 [15:19<15:21, 184.21s/epoch][A
- 60%|######    | 6/10 [18:25<12:19, 184.88s/epoch][A
- 70%|#######   | 7/10 [21:29<09:13, 184.36s/epoch][A
- 80%|########  | 8/10 [24:33<06:08, 184.36s/epoch][A
- 90%|######### | 9/10 [27:37<03:04, 184.26s/epoch][A
-100%|##########| 10/10 [30:41<00:00, 184.14s/epoch][A100%|##########| 10/10 [30:41<00:00, 184.13s/epoch]
-Saved model from episode 131. Count of batches trained: 323700
- 13%|#3        | 131/1000 [45:06:38<462:11:23, 1914.71s/episode]
-Started episode 132 of 1000
-Finished episode 132 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 830	Goal: 840
-Count of batches trained: 323700	Goal: 327606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.86s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.03s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.15s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.31s/epoch][A
- 50%|#####     | 5/10 [15:14<15:13, 182.78s/epoch][A
- 60%|######    | 6/10 [18:17<12:11, 182.75s/epoch][A
- 70%|#######   | 7/10 [21:20<09:08, 182.74s/epoch][A
- 80%|########  | 8/10 [24:24<06:06, 183.11s/epoch][A
- 90%|######### | 9/10 [27:26<03:03, 183.04s/epoch][A
-100%|##########| 10/10 [30:29<00:00, 182.84s/epoch][A100%|##########| 10/10 [30:29<00:00, 182.93s/epoch]
-Saved model from episode 132. Count of batches trained: 327600
- 13%|#3        | 132/1000 [45:38:31<461:31:15, 1914.14s/episode]
-Started episode 133 of 1000
-Finished episode 133 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 840	Goal: 850
-Count of batches trained: 327600	Goal: 331506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:22, 182.46s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.31s/epoch][A
- 30%|###       | 3/10 [09:12<21:31, 184.51s/epoch][A
- 40%|####      | 4/10 [12:16<18:26, 184.50s/epoch][A
- 50%|#####     | 5/10 [15:20<15:21, 184.36s/epoch][A
- 60%|######    | 6/10 [18:27<12:19, 184.97s/epoch][A
- 70%|#######   | 7/10 [21:39<09:22, 187.37s/epoch][A
- 80%|########  | 8/10 [24:45<06:14, 187.09s/epoch][A
- 90%|######### | 9/10 [27:55<03:07, 187.93s/epoch][A
-100%|##########| 10/10 [31:00<00:00, 186.91s/epoch][A100%|##########| 10/10 [31:00<00:00, 186.02s/epoch]
-Saved model from episode 133. Count of batches trained: 331500
- 13%|#3        | 133/1000 [46:10:51<462:53:20, 1922.03s/episode]
-Started episode 134 of 1000
-Finished episode 134 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 850	Goal: 860
-Count of batches trained: 331500	Goal: 335406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:04<27:38, 184.23s/epoch][A
- 20%|##        | 2/10 [06:13<24:55, 186.98s/epoch][A
- 30%|###       | 3/10 [09:19<21:45, 186.48s/epoch][A
- 40%|####      | 4/10 [12:22<18:31, 185.33s/epoch][A
- 50%|#####     | 5/10 [15:26<15:23, 184.66s/epoch][A
- 60%|######    | 6/10 [18:29<12:17, 184.35s/epoch][A
- 70%|#######   | 7/10 [21:34<09:13, 184.51s/epoch][A
- 80%|########  | 8/10 [24:40<06:09, 184.98s/epoch][A
- 90%|######### | 9/10 [27:45<03:04, 184.82s/epoch][A
-100%|##########| 10/10 [30:51<00:00, 185.19s/epoch][A100%|##########| 10/10 [30:51<00:00, 185.11s/epoch]
-Saved model from episode 134. Count of batches trained: 335400
- 13%|#3        | 134/1000 [46:42:34<460:56:03, 1916.12s/episode]
-Started episode 135 of 1000
-Finished episode 135 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 860	Goal: 870
-Count of batches trained: 335400	Goal: 339306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:06<27:58, 186.47s/epoch][A
- 20%|##        | 2/10 [06:31<26:20, 197.55s/epoch][A
- 30%|###       | 3/10 [09:36<22:22, 191.81s/epoch][A
- 40%|####      | 4/10 [12:55<19:26, 194.49s/epoch][A
- 50%|#####     | 5/10 [16:00<15:54, 190.97s/epoch][A
- 60%|######    | 6/10 [19:03<12:34, 188.57s/epoch][A
- 70%|#######   | 7/10 [22:09<09:22, 187.48s/epoch][A
- 80%|########  | 8/10 [25:12<06:12, 186.26s/epoch][A
- 90%|######### | 9/10 [28:17<03:05, 185.71s/epoch][A
-100%|##########| 10/10 [31:19<00:00, 184.57s/epoch][A100%|##########| 10/10 [31:19<00:00, 187.94s/epoch]
-Saved model from episode 135. Count of batches trained: 339300
- 14%|#3        | 135/1000 [47:15:43<465:40:50, 1938.09s/episode]
-Started episode 136 of 1000
-Finished episode 136 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 870	Goal: 880
-Count of batches trained: 339300	Goal: 343206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:18, 182.00s/epoch][A
- 20%|##        | 2/10 [06:03<24:13, 181.63s/epoch][A
- 30%|###       | 3/10 [09:04<21:10, 181.54s/epoch][A
- 40%|####      | 4/10 [12:07<18:11, 181.90s/epoch][A
- 50%|#####     | 5/10 [15:10<15:11, 182.22s/epoch][A
- 60%|######    | 6/10 [18:12<12:09, 182.41s/epoch][A
- 70%|#######   | 7/10 [21:15<09:07, 182.65s/epoch][A
- 80%|########  | 8/10 [24:18<06:05, 182.59s/epoch][A
- 90%|######### | 9/10 [27:20<03:02, 182.42s/epoch][A
-100%|##########| 10/10 [30:24<00:00, 182.90s/epoch][A100%|##########| 10/10 [30:24<00:00, 182.45s/epoch]
-Saved model from episode 136. Count of batches trained: 343200
- 14%|#3        | 136/1000 [47:46:57<460:31:12, 1918.83s/episode]
-Started episode 137 of 1000
-Finished episode 137 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 880	Goal: 890
-Count of batches trained: 343200	Goal: 347106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.37s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.13s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.44s/epoch][A
- 40%|####      | 4/10 [12:15<18:25, 184.22s/epoch][A
- 50%|#####     | 5/10 [15:19<15:20, 184.17s/epoch][A
- 60%|######    | 6/10 [18:23<12:16, 184.22s/epoch][A
- 70%|#######   | 7/10 [21:30<09:14, 184.92s/epoch][A
- 80%|########  | 8/10 [24:34<06:09, 184.76s/epoch][A
- 90%|######### | 9/10 [27:39<03:04, 184.68s/epoch][A
-100%|##########| 10/10 [30:53<00:00, 187.79s/epoch][A100%|##########| 10/10 [30:53<00:00, 185.40s/epoch]
-Saved model from episode 137. Count of batches trained: 347100
- 14%|#3        | 137/1000 [48:19:46<463:37:40, 1934.02s/episode]
-Started episode 138 of 1000
-Finished episode 138 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 890	Goal: 900
-Count of batches trained: 347100	Goal: 351006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:09<28:27, 189.77s/epoch][A
- 20%|##        | 2/10 [06:13<24:51, 186.47s/epoch][A
- 30%|###       | 3/10 [09:16<21:31, 184.53s/epoch][A
- 40%|####      | 4/10 [12:19<18:24, 184.00s/epoch][A
- 50%|#####     | 5/10 [15:22<15:19, 183.85s/epoch][A
- 60%|######    | 6/10 [18:25<12:13, 183.46s/epoch][A
- 70%|#######   | 7/10 [21:28<09:09, 183.14s/epoch][A
- 80%|########  | 8/10 [24:33<06:07, 183.72s/epoch][A
- 90%|######### | 9/10 [27:34<03:03, 183.00s/epoch][A
-100%|##########| 10/10 [30:38<00:00, 183.40s/epoch][A100%|##########| 10/10 [30:38<00:00, 183.88s/epoch]
-Saved model from episode 138. Count of batches trained: 351000
- 14%|#3        | 138/1000 [48:52:17<464:17:47, 1939.06s/episode]
-Started episode 139 of 1000
-Finished episode 139 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 900	Goal: 910
-Count of batches trained: 351000	Goal: 354906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:20, 182.31s/epoch][A
- 20%|##        | 2/10 [06:04<24:17, 182.22s/epoch][A
- 30%|###       | 3/10 [09:08<21:20, 183.00s/epoch][A
- 40%|####      | 4/10 [12:12<18:20, 183.36s/epoch][A
- 50%|#####     | 5/10 [15:14<15:14, 182.94s/epoch][A
- 60%|######    | 6/10 [18:23<12:20, 185.03s/epoch][A
- 70%|#######   | 7/10 [21:30<09:17, 185.73s/epoch][A
- 80%|########  | 8/10 [24:35<06:11, 185.56s/epoch][A
- 90%|######### | 9/10 [27:38<03:04, 184.51s/epoch][A
-100%|##########| 10/10 [30:40<00:00, 183.95s/epoch][A100%|##########| 10/10 [30:40<00:00, 184.08s/epoch]
-Saved model from episode 139. Count of batches trained: 354900
- 14%|#3        | 139/1000 [49:24:46<464:28:03, 1942.02s/episode]
-Started episode 140 of 1000
-Finished episode 140 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 910	Goal: 920
-Count of batches trained: 354900	Goal: 358806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:08<28:19, 188.84s/epoch][A
- 20%|##        | 2/10 [06:12<24:46, 185.76s/epoch][A
- 30%|###       | 3/10 [09:17<21:37, 185.30s/epoch][A
- 40%|####      | 4/10 [12:20<18:28, 184.68s/epoch][A
- 50%|#####     | 5/10 [15:23<15:20, 184.07s/epoch][A
- 60%|######    | 6/10 [18:26<12:14, 183.69s/epoch][A
- 70%|#######   | 7/10 [21:30<09:10, 183.52s/epoch][A
- 80%|########  | 8/10 [24:33<06:06, 183.38s/epoch][A
- 90%|######### | 9/10 [27:36<03:03, 183.35s/epoch][A
-100%|##########| 10/10 [30:39<00:00, 183.20s/epoch][A100%|##########| 10/10 [30:39<00:00, 183.93s/epoch]
-Saved model from episode 140. Count of batches trained: 358800
- 14%|#4        | 140/1000 [49:57:17<464:33:47, 1944.68s/episode]
-Started episode 141 of 1000
-Finished episode 141 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 920	Goal: 930
-Count of batches trained: 358800	Goal: 362706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:19, 182.17s/epoch][A
- 20%|##        | 2/10 [06:03<24:15, 181.92s/epoch][A
- 30%|###       | 3/10 [09:05<21:13, 181.98s/epoch][A
- 40%|####      | 4/10 [12:07<18:11, 181.97s/epoch][A
- 50%|#####     | 5/10 [15:09<15:09, 181.89s/epoch][A
- 60%|######    | 6/10 [18:11<12:07, 181.96s/epoch][A
- 70%|#######   | 7/10 [21:13<09:05, 181.87s/epoch][A
- 80%|########  | 8/10 [24:15<06:03, 181.80s/epoch][A
- 90%|######### | 9/10 [27:17<03:01, 181.86s/epoch][A
-100%|##########| 10/10 [30:19<00:00, 181.89s/epoch][A100%|##########| 10/10 [30:19<00:00, 181.91s/epoch]
-Saved model from episode 141. Count of batches trained: 362700
- 14%|#4        | 141/1000 [50:28:57<460:50:00, 1931.32s/episode]
-Started episode 142 of 1000
-Finished episode 142 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 930	Goal: 940
-Count of batches trained: 362700	Goal: 366606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:22, 182.50s/epoch][A
- 20%|##        | 2/10 [06:05<24:24, 183.01s/epoch][A
- 30%|###       | 3/10 [09:09<21:23, 183.37s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.44s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.27s/epoch][A
- 60%|######    | 6/10 [18:19<12:12, 183.19s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.12s/epoch][A
- 80%|########  | 8/10 [24:24<06:05, 182.87s/epoch][A
- 90%|######### | 9/10 [27:27<03:02, 182.79s/epoch][A
-100%|##########| 10/10 [30:29<00:00, 182.78s/epoch][A100%|##########| 10/10 [30:29<00:00, 182.99s/epoch]
-Saved model from episode 142. Count of batches trained: 366600
- 14%|#4        | 142/1000 [51:00:39<458:11:57, 1922.51s/episode]
-Started episode 143 of 1000
-Finished episode 143 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 940	Goal: 950
-Count of batches trained: 366600	Goal: 370506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.86s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.14s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.08s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.03s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.07s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.14s/epoch][A
- 70%|#######   | 7/10 [21:21<09:09, 183.22s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.34s/epoch][A
- 90%|######### | 9/10 [27:27<03:03, 183.01s/epoch][A
-100%|##########| 10/10 [30:30<00:00, 182.90s/epoch][A100%|##########| 10/10 [30:30<00:00, 183.05s/epoch]
-Saved model from episode 143. Count of batches trained: 370500
- 14%|#4        | 143/1000 [51:33:04<459:14:00, 1929.10s/episode]
-Started episode 144 of 1000
-Finished episode 144 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 950	Goal: 960
-Count of batches trained: 370500	Goal: 374406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:18, 182.06s/epoch][A
- 20%|##        | 2/10 [06:03<24:15, 181.93s/epoch][A
- 30%|###       | 3/10 [09:06<21:14, 182.02s/epoch][A
- 40%|####      | 4/10 [12:09<18:14, 182.43s/epoch][A
- 50%|#####     | 5/10 [15:12<15:13, 182.75s/epoch][A
- 60%|######    | 6/10 [18:14<12:10, 182.62s/epoch][A
- 70%|#######   | 7/10 [21:17<09:07, 182.59s/epoch][A
- 80%|########  | 8/10 [24:19<06:04, 182.38s/epoch][A
- 90%|######### | 9/10 [27:20<03:02, 182.11s/epoch][A
-100%|##########| 10/10 [30:23<00:00, 182.46s/epoch][A100%|##########| 10/10 [30:23<00:00, 182.40s/epoch]
-Saved model from episode 144. Count of batches trained: 374400
- 14%|#4        | 144/1000 [52:04:25<455:19:35, 1914.92s/episode]
-Started episode 145 of 1000
-Finished episode 145 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 960	Goal: 970
-Count of batches trained: 374400	Goal: 378306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 182.98s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.22s/epoch][A
- 30%|###       | 3/10 [09:09<21:23, 183.29s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.46s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.49s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.47s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.38s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.35s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.36s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.21s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.32s/epoch]
-Saved model from episode 145. Count of batches trained: 378300
- 14%|#4        | 145/1000 [52:35:56<453:02:20, 1907.53s/episode]
-Started episode 146 of 1000
-Finished episode 146 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 970	Goal: 980
-Count of batches trained: 378300	Goal: 382206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.38s/epoch][A
- 20%|##        | 2/10 [06:07<24:29, 183.71s/epoch][A
- 30%|###       | 3/10 [09:11<21:26, 183.84s/epoch][A
- 40%|####      | 4/10 [12:15<18:23, 183.87s/epoch][A
- 50%|#####     | 5/10 [15:19<15:19, 183.85s/epoch][A
- 60%|######    | 6/10 [18:22<12:15, 183.78s/epoch][A
- 70%|#######   | 7/10 [21:26<09:11, 183.68s/epoch][A
- 80%|########  | 8/10 [24:29<06:07, 183.64s/epoch][A
- 90%|######### | 9/10 [27:32<03:03, 183.49s/epoch][A
-100%|##########| 10/10 [30:36<00:00, 183.55s/epoch][A100%|##########| 10/10 [30:36<00:00, 183.65s/epoch]
-Saved model from episode 146. Count of batches trained: 382200
- 15%|#4        | 146/1000 [53:07:28<451:24:43, 1902.91s/episode]
-Started episode 147 of 1000
-Finished episode 147 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 980	Goal: 990
-Count of batches trained: 382200	Goal: 386106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.30s/epoch][A
- 20%|##        | 2/10 [06:07<24:28, 183.60s/epoch][A
- 30%|###       | 3/10 [09:10<21:25, 183.70s/epoch][A
- 40%|####      | 4/10 [12:14<18:21, 183.63s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.52s/epoch][A
- 60%|######    | 6/10 [18:21<12:13, 183.44s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.36s/epoch][A
- 80%|########  | 8/10 [24:27<06:06, 183.40s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.33s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.20s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.38s/epoch]
-Saved model from episode 147. Count of batches trained: 386100
- 15%|#4        | 147/1000 [53:39:23<451:45:45, 1906.62s/episode]
-Started episode 148 of 1000
-Finished episode 148 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 990	Goal: 1000
-Count of batches trained: 386100	Goal: 390006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:24, 182.68s/epoch][A
- 20%|##        | 2/10 [06:05<24:23, 182.99s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.09s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.24s/epoch][A
- 50%|#####     | 5/10 [15:15<15:16, 183.25s/epoch][A
- 60%|######    | 6/10 [18:19<12:12, 183.23s/epoch][A
- 70%|#######   | 7/10 [21:21<09:08, 182.86s/epoch][A
- 80%|########  | 8/10 [24:24<06:06, 183.01s/epoch][A
- 90%|######### | 9/10 [27:27<03:03, 183.07s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 183.24s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.13s/epoch]
-Saved model from episode 148. Count of batches trained: 390000
- 15%|#4        | 148/1000 [54:11:20<451:59:05, 1909.79s/episode]
-Started episode 149 of 1000
-Finished episode 149 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1000	Goal: 1010
-Count of batches trained: 390000	Goal: 393906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.35s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.44s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.54s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.37s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.23s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.34s/epoch][A
- 70%|#######   | 7/10 [21:22<09:08, 183.00s/epoch][A
- 80%|########  | 8/10 [24:24<06:05, 182.61s/epoch][A
- 90%|######### | 9/10 [27:27<03:02, 182.70s/epoch][A
-100%|##########| 10/10 [30:29<00:00, 182.62s/epoch][A100%|##########| 10/10 [30:29<00:00, 182.96s/epoch]
-Saved model from episode 149. Count of batches trained: 393900
- 15%|#4        | 149/1000 [54:42:41<449:23:20, 1901.06s/episode]
-Started episode 150 of 1000
-Finished episode 150 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1010	Goal: 1020
-Count of batches trained: 393900	Goal: 397806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:15, 181.73s/epoch][A
- 20%|##        | 2/10 [06:03<24:13, 181.70s/epoch][A
- 30%|###       | 3/10 [09:05<21:12, 181.83s/epoch][A
- 40%|####      | 4/10 [12:06<18:10, 181.73s/epoch][A
- 50%|#####     | 5/10 [15:08<15:08, 181.62s/epoch][A
- 60%|######    | 6/10 [18:10<12:06, 181.73s/epoch][A
- 70%|#######   | 7/10 [21:12<09:05, 181.78s/epoch][A
- 80%|########  | 8/10 [24:13<06:03, 181.75s/epoch][A
- 90%|######### | 9/10 [27:16<03:01, 181.89s/epoch][A
-100%|##########| 10/10 [30:17<00:00, 181.84s/epoch][A100%|##########| 10/10 [30:17<00:00, 181.79s/epoch]
-Saved model from episode 150. Count of batches trained: 397800
- 15%|#5        | 150/1000 [55:13:51<446:39:02, 1891.70s/episode]
-Started episode 151 of 1000
-Finished episode 151 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1020	Goal: 1030
-Count of batches trained: 397800	Goal: 401706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:23, 182.59s/epoch][A
- 20%|##        | 2/10 [06:05<24:23, 183.00s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.19s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.29s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.39s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.48s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.52s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.46s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.38s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.34s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.34s/epoch]
-Saved model from episode 151. Count of batches trained: 401700
- 15%|#5        | 151/1000 [55:46:18<450:04:41, 1908.46s/episode]
-Started episode 152 of 1000
-Finished episode 152 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1030	Goal: 1040
-Count of batches trained: 401700	Goal: 405606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.18s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.21s/epoch][A
- 30%|###       | 3/10 [09:09<21:23, 183.29s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.24s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.29s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.39s/epoch][A
- 70%|#######   | 7/10 [21:23<09:10, 183.40s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.30s/epoch][A
- 90%|######### | 9/10 [27:28<03:03, 183.05s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.06s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.20s/epoch]
-Saved model from episode 152. Count of batches trained: 405600
- 15%|#5        | 152/1000 [56:18:39<451:50:51, 1918.22s/episode]
-Started episode 153 of 1000
-Finished episode 153 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1040	Goal: 1050
-Count of batches trained: 405600	Goal: 409506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 183.00s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.12s/epoch][A
- 30%|###       | 3/10 [09:09<21:21, 183.11s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.18s/epoch][A
- 50%|#####     | 5/10 [15:15<15:16, 183.23s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.39s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.29s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.25s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.29s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.29s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.25s/epoch]
-Saved model from episode 153. Count of batches trained: 409500
- 15%|#5        | 153/1000 [56:50:31<450:51:45, 1916.30s/episode]
-Started episode 154 of 1000
-Finished episode 154 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1050	Goal: 1060
-Count of batches trained: 409500	Goal: 413406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.12s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.11s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.27s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.34s/epoch][A
- 50%|#####     | 5/10 [15:15<15:14, 182.95s/epoch][A
- 60%|######    | 6/10 [18:17<12:10, 182.72s/epoch][A
- 70%|#######   | 7/10 [21:20<09:08, 182.86s/epoch][A
- 80%|########  | 8/10 [24:23<06:05, 182.95s/epoch][A
- 90%|######### | 9/10 [27:27<03:03, 183.01s/epoch][A
-100%|##########| 10/10 [30:30<00:00, 183.11s/epoch][A100%|##########| 10/10 [30:30<00:00, 183.04s/epoch]
-Saved model from episode 154. Count of batches trained: 413400
- 15%|#5        | 154/1000 [57:22:01<448:26:48, 1908.28s/episode]
-Started episode 155 of 1000
-Finished episode 155 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1060	Goal: 1070
-Count of batches trained: 413400	Goal: 417306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:19<29:56, 199.62s/epoch][A
- 20%|##        | 2/10 [06:35<26:18, 197.28s/epoch][A
- 30%|###       | 3/10 [09:40<22:21, 191.69s/epoch][A
- 40%|####      | 4/10 [12:44<18:53, 188.90s/epoch][A
- 50%|#####     | 5/10 [15:49<15:36, 187.29s/epoch][A
- 60%|######    | 6/10 [18:57<12:30, 187.68s/epoch][A
- 70%|#######   | 7/10 [22:03<09:20, 186.96s/epoch][A
- 80%|########  | 8/10 [25:07<06:11, 185.96s/epoch][A
- 90%|######### | 9/10 [28:10<03:05, 185.20s/epoch][A
-100%|##########| 10/10 [31:14<00:00, 184.73s/epoch][A100%|##########| 10/10 [31:14<00:00, 187.43s/epoch]
-Saved model from episode 155. Count of batches trained: 417300
- 16%|#5        | 155/1000 [57:54:05<449:00:37, 1912.94s/episode]
-Started episode 156 of 1000
-Finished episode 156 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1070	Goal: 1080
-Count of batches trained: 417300	Goal: 421206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:28, 183.21s/epoch][A
- 20%|##        | 2/10 [06:06<24:28, 183.52s/epoch][A
- 30%|###       | 3/10 [09:10<21:25, 183.61s/epoch][A
- 40%|####      | 4/10 [12:14<18:21, 183.52s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.56s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.48s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.41s/epoch][A
- 80%|########  | 8/10 [24:27<06:06, 183.49s/epoch][A
- 90%|######### | 9/10 [27:31<03:03, 183.55s/epoch][A
-100%|##########| 10/10 [30:35<00:00, 183.59s/epoch][A100%|##########| 10/10 [30:35<00:00, 183.53s/epoch]
-Saved model from episode 156. Count of batches trained: 421200
- 16%|#5        | 156/1000 [58:25:55<448:17:24, 1912.14s/episode]
-Started episode 157 of 1000
-Finished episode 157 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1080	Goal: 1090
-Count of batches trained: 421200	Goal: 425106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.33s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.42s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.43s/epoch][A
- 40%|####      | 4/10 [12:13<18:21, 183.54s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.47s/epoch][A
- 60%|######    | 6/10 [18:21<12:14, 183.57s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.47s/epoch][A
- 80%|########  | 8/10 [24:27<06:06, 183.41s/epoch][A
- 90%|######### | 9/10 [27:31<03:03, 183.43s/epoch][A
-100%|##########| 10/10 [30:34<00:00, 183.49s/epoch][A100%|##########| 10/10 [30:34<00:00, 183.47s/epoch]
-Saved model from episode 157. Count of batches trained: 425100
- 16%|#5        | 157/1000 [58:57:31<446:39:47, 1907.46s/episode]
-Started episode 158 of 1000
-Finished episode 158 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1090	Goal: 1100
-Count of batches trained: 425100	Goal: 429006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.82s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.26s/epoch][A
- 30%|###       | 3/10 [09:09<21:23, 183.30s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.21s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.27s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.29s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.31s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.23s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.27s/epoch][A
-100%|##########| 10/10 [30:32<00:00, 183.38s/epoch][A100%|##########| 10/10 [30:32<00:00, 183.29s/epoch]
-Saved model from episode 158. Count of batches trained: 429000
- 16%|#5        | 158/1000 [59:29:55<448:42:04, 1918.44s/episode]
-Started episode 159 of 1000
-Finished episode 159 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1100	Goal: 1110
-Count of batches trained: 429000	Goal: 432906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.86s/epoch][A
- 20%|##        | 2/10 [06:06<24:24, 183.08s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.17s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.04s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.09s/epoch][A
- 60%|######    | 6/10 [18:18<12:12, 183.15s/epoch][A
- 70%|#######   | 7/10 [21:21<09:09, 183.14s/epoch][A
- 80%|########  | 8/10 [24:25<06:06, 183.24s/epoch][A
- 90%|######### | 9/10 [27:28<03:03, 183.20s/epoch][A
-100%|##########| 10/10 [30:31<00:00, 183.25s/epoch][A100%|##########| 10/10 [30:31<00:00, 183.17s/epoch]
-Saved model from episode 159. Count of batches trained: 432900
- 16%|#5        | 159/1000 [60:01:16<445:31:26, 1907.12s/episode]
-Started episode 160 of 1000
-Finished episode 160 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1110	Goal: 1120
-Count of batches trained: 432900	Goal: 436806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:31, 183.45s/epoch][A
- 20%|##        | 2/10 [06:07<24:29, 183.66s/epoch][A
- 30%|###       | 3/10 [09:10<21:25, 183.67s/epoch][A
- 40%|####      | 4/10 [12:14<18:22, 183.68s/epoch][A
- 50%|#####     | 5/10 [15:18<15:18, 183.65s/epoch][A
- 60%|######    | 6/10 [18:22<12:15, 183.78s/epoch][A
- 70%|#######   | 7/10 [21:25<09:11, 183.69s/epoch][A
- 80%|########  | 8/10 [24:29<06:07, 183.78s/epoch][A
- 90%|######### | 9/10 [27:33<03:03, 183.72s/epoch][A
-100%|##########| 10/10 [30:37<00:00, 183.73s/epoch][A100%|##########| 10/10 [30:37<00:00, 183.71s/epoch]
-Saved model from episode 160. Count of batches trained: 436800
- 16%|#6        | 160/1000 [60:33:18<446:00:21, 1911.45s/episode]
-Started episode 161 of 1000
-Finished episode 161 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1120	Goal: 1130
-Count of batches trained: 436800	Goal: 440706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:19, 182.15s/epoch][A
- 20%|##        | 2/10 [06:03<24:15, 181.92s/epoch][A
- 30%|###       | 3/10 [09:05<21:13, 181.99s/epoch][A
- 40%|####      | 4/10 [12:07<18:11, 181.98s/epoch][A
- 50%|#####     | 5/10 [15:09<15:10, 182.00s/epoch][A
- 60%|######    | 6/10 [18:11<12:07, 181.97s/epoch][A
- 70%|#######   | 7/10 [21:13<09:05, 181.97s/epoch][A
- 80%|########  | 8/10 [24:15<06:03, 181.89s/epoch][A
- 90%|######### | 9/10 [27:17<03:01, 181.92s/epoch][A
-100%|##########| 10/10 [30:19<00:00, 182.01s/epoch][A100%|##########| 10/10 [30:19<00:00, 181.98s/epoch]
-Saved model from episode 161. Count of batches trained: 440700
- 16%|#6        | 161/1000 [61:04:56<444:33:50, 1907.55s/episode]
-Started episode 162 of 1000
-Finished episode 162 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1130	Goal: 1140
-Count of batches trained: 440700	Goal: 444606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 182.96s/epoch][A
- 20%|##        | 2/10 [06:06<24:26, 183.26s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.27s/epoch][A
- 40%|####      | 4/10 [12:12<18:18, 183.12s/epoch][A
- 50%|#####     | 5/10 [15:15<15:14, 182.89s/epoch][A
- 60%|######    | 6/10 [18:17<12:10, 182.57s/epoch][A
- 70%|#######   | 7/10 [21:19<09:07, 182.49s/epoch][A
- 80%|########  | 8/10 [24:22<06:05, 182.83s/epoch][A
- 90%|######### | 9/10 [27:26<03:03, 183.02s/epoch][A
-100%|##########| 10/10 [30:29<00:00, 182.93s/epoch][A100%|##########| 10/10 [30:29<00:00, 182.91s/epoch]
-Saved model from episode 162. Count of batches trained: 444600
- 16%|#6        | 162/1000 [61:36:49<444:24:10, 1909.13s/episode]
-Started episode 163 of 1000
-Finished episode 163 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1140	Goal: 1150
-Count of batches trained: 444600	Goal: 448506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.41s/epoch][A
- 20%|##        | 2/10 [06:07<24:29, 183.73s/epoch][A
- 30%|###       | 3/10 [09:19<21:53, 187.67s/epoch][A
- 40%|####      | 4/10 [12:22<18:35, 185.85s/epoch][A
- 50%|#####     | 5/10 [15:34<15:39, 187.81s/epoch][A
- 60%|######    | 6/10 [18:38<12:26, 186.70s/epoch][A
- 70%|#######   | 7/10 [21:41<09:16, 185.43s/epoch][A
- 80%|########  | 8/10 [24:44<06:09, 184.61s/epoch][A
- 90%|######### | 9/10 [27:48<03:04, 184.45s/epoch][A
-100%|##########| 10/10 [30:52<00:00, 184.25s/epoch][A100%|##########| 10/10 [30:52<00:00, 185.22s/epoch]
-Saved model from episode 163. Count of batches trained: 448500
- 16%|#6        | 163/1000 [62:08:38<443:53:56, 1909.24s/episode]
-Started episode 164 of 1000
-Finished episode 164 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1150	Goal: 1160
-Count of batches trained: 448500	Goal: 452406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.30s/epoch][A
- 20%|##        | 2/10 [06:07<24:29, 183.65s/epoch][A
- 30%|###       | 3/10 [09:10<21:25, 183.63s/epoch][A
- 40%|####      | 4/10 [12:14<18:22, 183.72s/epoch][A
- 50%|#####     | 5/10 [15:18<15:18, 183.69s/epoch][A
- 60%|######    | 6/10 [18:21<12:14, 183.60s/epoch][A
- 70%|#######   | 7/10 [21:23<09:09, 183.11s/epoch][A
- 80%|########  | 8/10 [24:27<06:06, 183.29s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.00s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.14s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.33s/epoch]
-Saved model from episode 164. Count of batches trained: 452400
- 16%|#6        | 164/1000 [62:41:06<446:00:06, 1920.58s/episode]
-Started episode 165 of 1000
-Finished episode 165 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1160	Goal: 1170
-Count of batches trained: 452400	Goal: 456306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:25, 182.84s/epoch][A
- 20%|##        | 2/10 [06:05<24:23, 182.89s/epoch][A
- 30%|###       | 3/10 [09:08<21:20, 182.95s/epoch][A
- 40%|####      | 4/10 [12:11<18:18, 183.01s/epoch][A
- 50%|#####     | 5/10 [15:14<15:14, 182.93s/epoch][A
- 60%|######    | 6/10 [18:17<12:11, 182.99s/epoch][A
- 70%|#######   | 7/10 [21:20<09:09, 183.03s/epoch][A
- 80%|########  | 8/10 [24:23<06:05, 182.94s/epoch][A
- 90%|######### | 9/10 [27:26<03:02, 182.96s/epoch][A
-100%|##########| 10/10 [30:28<00:00, 182.66s/epoch][A100%|##########| 10/10 [30:28<00:00, 182.86s/epoch]
-Saved model from episode 165. Count of batches trained: 456300
- 16%|#6        | 165/1000 [63:13:29<447:03:25, 1927.43s/episode]
-Started episode 166 of 1000
-Finished episode 166 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1170	Goal: 1180
-Count of batches trained: 456300	Goal: 460206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:13, 181.53s/epoch][A
- 20%|##        | 2/10 [06:03<24:12, 181.55s/epoch][A
- 30%|###       | 3/10 [09:04<21:11, 181.62s/epoch][A
- 40%|####      | 4/10 [12:06<18:09, 181.54s/epoch][A
- 50%|#####     | 5/10 [15:08<15:08, 181.64s/epoch][A
- 60%|######    | 6/10 [18:10<12:07, 181.78s/epoch][A
- 70%|#######   | 7/10 [21:13<09:06, 182.32s/epoch][A
- 80%|########  | 8/10 [24:16<06:05, 182.51s/epoch][A
- 90%|######### | 9/10 [27:19<03:02, 182.74s/epoch][A
-100%|##########| 10/10 [30:22<00:00, 182.79s/epoch][A100%|##########| 10/10 [30:22<00:00, 182.26s/epoch]
-Saved model from episode 166. Count of batches trained: 460200
- 17%|#6        | 166/1000 [63:45:48<447:18:24, 1930.82s/episode]
-Started episode 167 of 1000
-Finished episode 167 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1180	Goal: 1190
-Count of batches trained: 460200	Goal: 464106
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.26s/epoch][A
- 20%|##        | 2/10 [06:06<24:28, 183.53s/epoch][A
- 30%|###       | 3/10 [09:10<21:23, 183.40s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.34s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.32s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.44s/epoch][A
- 70%|#######   | 7/10 [21:23<09:09, 183.31s/epoch][A
- 80%|########  | 8/10 [24:26<06:06, 183.30s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.24s/epoch][A
-100%|##########| 10/10 [30:33<00:00, 183.31s/epoch][A100%|##########| 10/10 [30:33<00:00, 183.33s/epoch]
-Saved model from episode 167. Count of batches trained: 464100
- 17%|#6        | 167/1000 [64:17:40<445:29:06, 1925.27s/episode]
-Started episode 168 of 1000
-Finished episode 168 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1190	Goal: 1200
-Count of batches trained: 464100	Goal: 468006
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:29, 183.32s/epoch][A
- 20%|##        | 2/10 [06:06<24:27, 183.49s/epoch][A
- 30%|###       | 3/10 [09:10<21:24, 183.49s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.35s/epoch][A
- 50%|#####     | 5/10 [15:17<15:17, 183.47s/epoch][A
- 60%|######    | 6/10 [18:20<12:13, 183.47s/epoch][A
- 70%|#######   | 7/10 [21:24<09:10, 183.41s/epoch][A
- 80%|########  | 8/10 [24:27<06:06, 183.43s/epoch][A
- 90%|######### | 9/10 [27:30<03:03, 183.39s/epoch][A
-100%|##########| 10/10 [30:34<00:00, 183.42s/epoch][A100%|##########| 10/10 [30:34<00:00, 183.43s/epoch]
-Saved model from episode 168. Count of batches trained: 468000
- 17%|#6        | 168/1000 [64:50:06<446:21:37, 1931.37s/episode]
-Started episode 169 of 1000
-Finished episode 169 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1200	Goal: 1210
-Count of batches trained: 468000	Goal: 471906
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:01<27:17, 181.95s/epoch][A
- 20%|##        | 2/10 [06:04<24:17, 182.17s/epoch][A
- 30%|###       | 3/10 [09:06<21:14, 182.13s/epoch][A
- 40%|####      | 4/10 [12:09<18:15, 182.59s/epoch][A
- 50%|#####     | 5/10 [15:13<15:15, 183.00s/epoch][A
- 60%|######    | 6/10 [18:16<12:12, 183.20s/epoch][A
- 70%|#######   | 7/10 [21:20<09:09, 183.30s/epoch][A
- 80%|########  | 8/10 [24:23<06:06, 183.21s/epoch][A
- 90%|######### | 9/10 [27:25<03:02, 182.77s/epoch][A
-100%|##########| 10/10 [30:27<00:00, 182.69s/epoch][A100%|##########| 10/10 [30:27<00:00, 182.78s/epoch]
-Saved model from episode 169. Count of batches trained: 471900
- 17%|#6        | 169/1000 [65:21:59<444:34:53, 1925.99s/episode]
-Started episode 170 of 1000
-Finished episode 170 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1210	Goal: 1220
-Count of batches trained: 471900	Goal: 475806
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:30, 183.42s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.21s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.24s/epoch][A
- 40%|####      | 4/10 [12:13<18:20, 183.33s/epoch][A
- 50%|#####     | 5/10 [15:16<15:16, 183.26s/epoch][A
- 60%|######    | 6/10 [18:19<12:12, 183.20s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.04s/epoch][A
- 80%|########  | 8/10 [24:25<06:05, 182.98s/epoch][A
- 90%|######### | 9/10 [27:27<03:02, 182.93s/epoch][A
-100%|##########| 10/10 [30:30<00:00, 182.89s/epoch][A100%|##########| 10/10 [30:30<00:00, 183.06s/epoch]
-Saved model from episode 170. Count of batches trained: 475800
- 17%|#7        | 170/1000 [65:53:51<443:05:55, 1921.87s/episode]
-Started episode 171 of 1000
-Finished episode 171 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1220	Goal: 1230
-Count of batches trained: 475800	Goal: 479706
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:03<27:27, 183.05s/epoch][A
- 20%|##        | 2/10 [06:05<24:23, 182.91s/epoch][A
- 30%|###       | 3/10 [09:08<21:19, 182.83s/epoch][A
- 40%|####      | 4/10 [12:11<18:16, 182.80s/epoch][A
- 50%|#####     | 5/10 [15:13<15:13, 182.67s/epoch][A
- 60%|######    | 6/10 [18:16<12:10, 182.69s/epoch][A
- 70%|#######   | 7/10 [21:19<09:08, 182.79s/epoch][A
- 80%|########  | 8/10 [24:22<06:05, 182.78s/epoch][A
- 90%|######### | 9/10 [27:25<03:02, 182.87s/epoch][A
-100%|##########| 10/10 [30:28<00:00, 183.05s/epoch][A100%|##########| 10/10 [30:28<00:00, 182.88s/epoch]
-Saved model from episode 171. Count of batches trained: 479700
- 17%|#7        | 171/1000 [66:25:18<440:09:28, 1911.42s/episode]
-Started episode 172 of 1000
-Finished episode 172 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1230	Goal: 1240
-Count of batches trained: 479700	Goal: 483606
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:26, 182.94s/epoch][A
- 20%|##        | 2/10 [06:06<24:25, 183.19s/epoch][A
- 30%|###       | 3/10 [09:09<21:22, 183.17s/epoch][A
- 40%|####      | 4/10 [12:12<18:19, 183.22s/epoch][A
- 50%|#####     | 5/10 [15:15<15:15, 183.19s/epoch][A
- 60%|######    | 6/10 [18:19<12:13, 183.27s/epoch][A
- 70%|#######   | 7/10 [21:22<09:09, 183.17s/epoch][A
- 80%|########  | 8/10 [24:24<06:05, 182.89s/epoch][A
- 90%|######### | 9/10 [27:29<03:03, 183.38s/epoch][A
-100%|##########| 10/10 [30:42<00:00, 186.54s/epoch][A100%|##########| 10/10 [30:42<00:00, 184.26s/epoch]
-Saved model from episode 172. Count of batches trained: 483600
- 17%|#7        | 172/1000 [66:57:23<440:33:15, 1915.45s/episode]
-Started episode 173 of 1000
-Finished episode 173 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1240	Goal: 1250
-Count of batches trained: 483600	Goal: 487506
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:07<28:07, 187.46s/epoch][A
- 20%|##        | 2/10 [06:13<24:50, 186.36s/epoch][A
- 30%|###       | 3/10 [09:16<21:35, 185.12s/epoch][A
- 40%|####      | 4/10 [12:19<18:25, 184.22s/epoch][A
- 50%|#####     | 5/10 [15:23<15:20, 184.04s/epoch][A
- 60%|######    | 6/10 [18:26<12:14, 183.62s/epoch][A
- 70%|#######   | 7/10 [21:29<09:10, 183.46s/epoch][A
- 80%|########  | 8/10 [24:34<06:07, 183.93s/epoch][A
- 90%|######### | 9/10 [27:47<03:06, 186.97s/epoch][A
-100%|##########| 10/10 [30:52<00:00, 186.39s/epoch][A100%|##########| 10/10 [30:52<00:00, 185.29s/epoch]
-Saved model from episode 173. Count of batches trained: 487500
- 17%|#7        | 173/1000 [67:29:08<439:15:50, 1912.15s/episode]
-Started episode 174 of 1000
-Finished episode 174 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1250	Goal: 1260
-Count of batches trained: 487500	Goal: 491406
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:02<27:20, 182.30s/epoch][A
- 20%|##        | 2/10 [06:07<24:31, 183.99s/epoch][A
- 30%|###       | 3/10 [09:10<21:23, 183.34s/epoch][A
- 40%|####      | 4/10 [12:13<18:19, 183.27s/epoch][A
- 50%|#####     | 5/10 [15:14<15:13, 182.71s/epoch][A
- 60%|######    | 6/10 [18:17<12:10, 182.72s/epoch][A
- 70%|#######   | 7/10 [21:19<09:07, 182.42s/epoch][A
- 80%|########  | 8/10 [24:20<06:04, 182.11s/epoch][A
- 90%|######### | 9/10 [27:22<03:01, 181.84s/epoch][A
-100%|##########| 10/10 [30:24<00:00, 182.06s/epoch][A100%|##########| 10/10 [30:24<00:00, 182.47s/epoch]
-Saved model from episode 174. Count of batches trained: 491400
- 17%|#7        | 174/1000 [68:00:21<436:01:56, 1900.38s/episode]
-Started episode 175 of 1000
-Finished episode 175 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1260	Goal: 1270
-Count of batches trained: 491400	Goal: 495306
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:21<30:12, 201.35s/epoch][A
- 20%|##        | 2/10 [06:40<26:41, 200.21s/epoch][A
- 30%|###       | 3/10 [09:54<23:02, 197.45s/epoch][A
- 40%|####      | 4/10 [13:12<19:44, 197.48s/epoch][A
- 50%|#####     | 5/10 [16:37<16:40, 200.09s/epoch][A
- 60%|######    | 6/10 [19:57<13:20, 200.20s/epoch][A
- 70%|#######   | 7/10 [23:02<09:45, 195.25s/epoch][A
- 80%|########  | 8/10 [26:06<06:23, 191.71s/epoch][A
- 90%|######### | 9/10 [29:13<03:10, 190.15s/epoch][A
-100%|##########| 10/10 [32:35<00:00, 193.74s/epoch][A100%|##########| 10/10 [32:35<00:00, 195.53s/epoch]
-Saved model from episode 175. Count of batches trained: 495300
- 18%|#7        | 175/1000 [68:34:16<444:48:59, 1941.02s/episode]
-Started episode 176 of 1000
-Finished episode 176 of 1000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1270	Goal: 1280
-Count of batches trained: 495300	Goal: 499206
-
-  0%|          | 0/10 [00:00<?, ?epoch/s][A
- 10%|#         | 1/10 [03:24<30:42, 204.73s/epoch][A
- 20%|##        | 2/10 [06:39<26:32, 199.10s/epoch][A
- 30%|###       | 3/10 [09:55<23:01, 197.33s/epoch][A
- 40%|####      | 4/10 [13:01<19:18, 193.05s/epoch][A
- 50%|#####     | 5/10 [16:13<16:03, 192.78s/epoch][A
- 60%|######    | 6/10 [19:30<12:56, 194.11s/epoch][A
- 70%|#######   | 7/10 [22:43<09:41, 193.75s/epoch][A
- 80%|########  | 8/10 [25:47<06:21, 190.76s/epoch][A
+I0000 00:00:1705015612.982757    9672 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Traceback (most recent call last):
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 569, in <module>
+    env = CarEnv()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 149, in __init__
+    command_output = subprocess.run(['squeue'], capture_output=True, text=True)
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/subprocess.py", line 505, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/subprocess.py", line 1837, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'squeue'
+(Allegedly) no exception occurred for run at count 1. CARLA Simulator may have crashed.
+End run at count 1
+Elapsed time: 00:00:39
+Start run at count 2
+Killed
+4.26.2-0+++UE4+Release-4.26 522 0
+Disabling core dumps.
+2024-01-11 18:27:32.298765: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-11 18:27:32.320719: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-11 18:27:32.320739: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-11 18:27:32.321278: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-11 18:27:32.324641: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-01-11 18:27:32.747929: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-11 18:27:33.048469: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:27:33.076486: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:27:33.076622: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:27:33.077673: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:27:33.077902: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:27:33.078016: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:27:33.818909: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:27:33.819030: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:27:33.819122: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:27:33.819206: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-11 18:27:35.400960: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-11 18:27:36.334085: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fc436ef3c50 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-11 18:27:36.334099: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-11 18:27:36.336938: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1705015656.409668   10100 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Traceback (most recent call last):
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 569, in <module>
+    env = CarEnv()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 149, in __init__
+    command_output = subprocess.run(['squeue'], capture_output=True, text=True)
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/subprocess.py", line 505, in run
+    with Popen(*popenargs, **kwargs) as process:
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/subprocess.py", line 1837, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'squeue'
+(Allegedly) no exception occurred for run at count 2. CARLA Simulator may have crashed.
+End run at count 2
+Elapsed time: 00:01:22
+Start run at count 3
+Killed
+4.26.2-0+++UE4+Release-4.26 522 0
+Disabling core dumps.
+2024-01-11 18:28:08.766121: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-11 18:28:08.789609: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-11 18:28:08.789649: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-11 18:28:08.790461: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-11 18:28:08.794057: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-01-11 18:28:09.220012: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-11 18:28:09.525255: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:28:09.553636: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:28:09.553848: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:28:09.554612: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:28:09.554733: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:28:09.555048: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:28:10.331420: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:28:10.331561: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:28:10.331655: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 18:28:10.331735: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
