@@ -149,7 +149,7 @@ class CarEnv:
         command_output = subprocess.run(['squeue'], capture_output=True, text=True)
         output_lines = command_output.stdout.split('\n')
         carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
-        gpu_info = carla_line[0].split()[-1]  # Assuming GPU info is the last column
+        gpu_info = carla_line[-1].split()[-1]  # Assuming GPU info is the last column
         print("GPU Info for carla.sh:", gpu_info)
         self.client = carla.Client(gpu_info, 2000)
         # self.client.set_timeout(2.0)
