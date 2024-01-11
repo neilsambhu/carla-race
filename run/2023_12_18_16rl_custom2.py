@@ -247,7 +247,7 @@ class CarEnv:
             time.sleep(1)
         i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
         while not os.path.exists('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame)):
-            time.sleep(0.01)
+            time.sleep(0.1)
 
     def step(self, action):
         if bVerbose and False:
