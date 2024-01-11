@@ -531,7 +531,7 @@ if __name__ == "__main__":
         with open('bak/063.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
         idx_episode_start = 64
-    matching_files = glob.glob(os.path.join('tmp/', '*.model'))
+    matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()
         print(f'Models in tmp {matching_files}')
@@ -546,14 +546,14 @@ if __name__ == "__main__":
         matching_files.sort()
         print(f'Leftover images from failed episode: {matching_files}')
 
-        matching_files = glob.glob(os.path.join('tmp/', '*.replay_memory'))
+        matching_files = glob.glob(os.path.join('tmp', '*.replay_memory'))
         matching_files.sort()
         print(f'Replay memory in tmp {matching_files}')
         print(f'Load replay memory {matching_files[-1]}')
         with open(matching_files[-1], 'rb') as file:
             agent.replay_memory = pickle.load(file)
 
-        matching_files = glob.glob(os.path.join('tmp/', '*.idx_action'))
+        matching_files = glob.glob(os.path.join('tmp', '*.idx_action'))
         matching_files.sort()
         idx_action = matching_files[-1].split('/')[1].split('.')[0]
         idx_action = int(idx_action)
@@ -576,9 +576,9 @@ if __name__ == "__main__":
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
             lookback = 2
             if episode > lookback:
-                matching_files = glob.glob(os.path.join('tmp/', f'*{episode-lookback}.*.model'))
+                matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.*.model'))
                 [shutil.rmtree(matching_file) for matching_file in matching_files]
-                matching_files = glob.glob(os.path.join('tmp/', f'*{episode-lookback}.replay_memory'))
+                matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.replay_memory'))
                 [os.remove(matching_file) for matching_file in matching_files]
             lookback = 200
             if episode > lookback:
@@ -649,6 +649,8 @@ if __name__ == "__main__":
                         brake_action = action % len(action_space['brake'])
                         if throttle_action == 0 or brake_action == 0:
                             bActionValid = True
+                            matching_files = glob.glob(os.path.join('tmp', '*idx_action'))
+                            [os.remove(matching_file) for matching_file in matching_files]
                             open(f'tmp/{idx_action:04d}.idx_action', "w")
                         else:
                             idx_action += 1
