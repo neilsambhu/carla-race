@@ -649,7 +649,7 @@ if __name__ == "__main__":
                         brake_action = action % len(action_space['brake'])
                         if throttle_action == 0 or brake_action == 0:
                             bActionValid = True
-                            open(f'tmp/{idx_action}.idx_action', "w")
+                            open(f'tmp/{idx_action:04d}.idx_action', "w")
                         else:
                             idx_action += 1
                     if idx_action >= action_size:
