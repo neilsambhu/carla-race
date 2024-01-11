@@ -650,7 +650,7 @@ if __name__ == "__main__":
                         action = idx_action
                         throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
                         brake_action = action % len(action_space['brake'])
-                        if throttle_action == 0 or brake_action == 0:
+                        if brake_action == 0:
                             bActionValid = True
                             matching_files = glob.glob(os.path.join('tmp', '*idx_action'))
                             [os.remove(matching_file) for matching_file in matching_files]
