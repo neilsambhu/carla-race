@@ -677,6 +677,7 @@ if __name__ == "__main__":
 
             for actor in env.actor_list:
                 actor.destroy()
+                time.sleep(1)
 
             # Append episode reward to a list and log stats (every given number of episodes)
             ep_rewards.append(episode_reward)
