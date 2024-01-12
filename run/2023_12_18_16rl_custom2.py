@@ -50,7 +50,7 @@ with open(path_AP_locations, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
 REPLAY_MEMORY_SIZE = 50_000
-MINIBATCH_SIZE = 128 # 6 GB GPU memory
+# MINIBATCH_SIZE = 128 # 6 GB GPU memory
 # MINIBATCH_SIZE = 128*1*13*4*2
 MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
 MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
@@ -534,6 +534,7 @@ if __name__ == "__main__":
         with open('bak/0282.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
         idx_episode_start = 283
+        idx_action = action_size
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()
