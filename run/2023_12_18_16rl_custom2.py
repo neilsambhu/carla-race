@@ -30,7 +30,7 @@ except IndexError:
     pass
 import carla
 
-bSAMBHU24 = False
+bSAMBHU24 = True
 bGAIVI = not bSAMBHU24
 
 
@@ -262,20 +262,20 @@ class CarEnv:
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
         # reward = -1*distance**3 - distance + 1
-        # if distance < 10:
-        #     reward += 10
-        # else:
-        #     reward -= 10
+        if distance < 10:
+            reward += 10
+        else:
+            reward -= 10
 
         # Set 'done' flag to True when ticks exceed the lines in the file
         # done = self.idx_tick >= len(lines)
         done = self.idx_tick >= 1000
 
-        v = self.vehicle.get_velocity()
-        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        reward += kmh
-        if kmh > 15 and kmh < 50:
-            reward = 15
+        # v = self.vehicle.get_velocity()
+        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        # reward += kmh
+        # if kmh > 15 and kmh < 50:
+        #     reward = 15
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
         # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
