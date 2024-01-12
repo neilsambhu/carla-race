@@ -158,3 +158,48 @@ len(agent.replay_memory): 31764
 Count of epochs trained: 14	Goal: 15
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:13<00:00, 193.42s/epoch][A100%|##########| 1/1 [03:13<00:00, 193.42s/epoch]
+Saved model from episode 297. Count of epochs trained: 15
+  0%|          | 15/9718 [1:00:21<661:04:39, 245.27s/episode]
+Started episode 298 of 10000
+Finished episode 298 of 10000
+len(agent.replay_memory): 32763
+Count of epochs trained: 15	Goal: 16
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:16<00:00, 196.14s/epoch][A100%|##########| 1/1 [03:16<00:00, 196.14s/epoch]
+Saved model from episode 298. Count of epochs trained: 16
+  0%|          | 16/9718 [1:04:42<673:43:09, 249.99s/episode]
+Started episode 299 of 10000
+Finished episode 299 of 10000
+len(agent.replay_memory): 32874
+Count of epochs trained: 16	Goal: 17
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:15<00:00, 195.31s/epoch][A100%|##########| 1/1 [03:15<00:00, 195.31s/epoch]
+Saved model from episode 299. Count of epochs trained: 17
+  0%|          | 17/9718 [1:08:06<636:55:19, 236.36s/episode]
+Started episode 300 of 10000
+Finished episode 300 of 10000
+len(agent.replay_memory): 33873
+Count of epochs trained: 17	Goal: 18
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:13<00:00, 193.36s/epoch][A100%|##########| 1/1 [03:13<00:00, 193.36s/epoch]
+Saved model from episode 300. Count of epochs trained: 18
+  0%|          | 18/9718 [1:12:26<655:23:02, 243.24s/episode]
+Started episode 301 of 10000
+Finished episode 301 of 10000
+len(agent.replay_memory): 34872
+Count of epochs trained: 18	Goal: 19
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:14<00:00, 194.91s/epoch][A100%|##########| 1/1 [03:14<00:00, 194.91s/epoch]
+Saved model from episode 301. Count of epochs trained: 19
+  0%|          | 19/9718 [1:16:46<668:58:17, 248.30s/episode]
+Started episode 302 of 10000
+Finished episode 302 of 10000
+len(agent.replay_memory): 35871
+Count of epochs trained: 19	Goal: 20
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
