@@ -30,7 +30,8 @@ except IndexError:
     pass
 import carla
 
-bGAIVI = True
+bSAMBHU24 = True
+bGAIVI = not bSAMBHU24
 
 
 SHOW_PREVIEW = False
@@ -52,7 +53,7 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 50_000
 # MINIBATCH_SIZE = 128 # 6 GB GPU memory
 # MINIBATCH_SIZE = 128*1*13*4*2
-MINIBATCH_SIZE = 1024
+MINIBATCH_SIZE = 512
 MIN_REPLAY_MEMORY_SIZE = 20_000
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -299,7 +300,8 @@ class CarEnv:
         #     reward -= 10
 
         # Set 'done' flag to True when ticks exceed the lines in the file
-        done = self.idx_tick >= len(lines)
+        # done = self.idx_tick >= len(lines)
+        done = self.idx_tick >= 1000
 
         v = self.vehicle.get_velocity()
         kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))

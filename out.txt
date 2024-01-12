@@ -1,1659 +1,18 @@
-2024-01-11 18:33:12.682569: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-11 18:33:12.704121: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-11 18:33:12.704136: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-11 18:33:12.704676: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-11 18:33:12.707936: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-11 19:55:34.257749: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-11 19:55:34.279735: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-11 19:55:34.279752: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-11 19:55:34.280292: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-11 19:55:34.283673: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-11 18:33:13.121992: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-11 18:33:13.419924: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-11 18:33:13.447483: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-11 18:33:13.447629: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-11 18:33:13.448415: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-11 18:33:13.448582: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-11 18:33:13.448692: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-11 18:33:14.215503: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-11 18:33:14.215627: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-11 18:33:14.215739: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-11 18:33:14.215819: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-2024-01-11 18:33:15.792620: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-11 18:33:16.711160: I external/local_xla/xla/service/service.cc:168] XLA service 0x7ef9f6247f90 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-11 18:33:16.711174: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-11 18:33:16.713962: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
-WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705015996.787408   11625 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
-WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
-WARNING: Client API version     = 0.9.15 
-WARNING: Simulator API version  = 0.9.14 
-  0%|          | 0/10000 [00:00<?, ?episode/s]
-Started episode 1 of 10000
-Finished idx_action: 231	action size: 2541
-Finished idx_action: 242	action size: 2541
-Finished idx_action: 253	action size: 2541
-Finished idx_action: 264	action size: 2541
-Finished idx_action: 275	action size: 2541
-Finished idx_action: 286	action size: 2541
-Finished idx_action: 297	action size: 2541
-Finished idx_action: 308	action size: 2541
-Finished idx_action: 319	action size: 2541
-Finished idx_action: 330	action size: 2541
-Finished idx_action: 341	action size: 2541
-Finished idx_action: 352	action size: 2541
-Finished idx_action: 363	action size: 2541
-Finished idx_action: 374	action size: 2541
-Finished idx_action: 385	action size: 2541
-Finished idx_action: 396	action size: 2541
-Finished idx_action: 407	action size: 2541
-Finished idx_action: 418	action size: 2541
-Finished idx_action: 429	action size: 2541
-Finished idx_action: 440	action size: 2541
-Finished idx_action: 451	action size: 2541
-Finished idx_action: 462	action size: 2541
-Finished idx_action: 473	action size: 2541
-Finished idx_action: 484	action size: 2541
-Finished episode 1 of 10000
-len(agent.replay_memory): 2521
-Saved model from episode 1. Count of epochs trained: 0
-  0%|          | 1/10000 [03:12<534:50:31, 192.56s/episode]
-Started episode 2 of 10000
-Finished idx_action: 495	action size: 2541
-Finished idx_action: 506	action size: 2541
-Finished idx_action: 517	action size: 2541
-Finished episode 2 of 10000
-len(agent.replay_memory): 2782
-Saved model from episode 2. Count of epochs trained: 0
-  0%|          | 2/10000 [03:33<254:52:14, 91.77s/episode] 
-Started episode 3 of 10000
-Finished idx_action: 528	action size: 2541
-Finished idx_action: 539	action size: 2541
-Finished episode 3 of 10000
-len(agent.replay_memory): 2953
-Saved model from episode 3. Count of epochs trained: 0
-  0%|          | 3/10000 [03:47<156:22:01, 56.31s/episode]
-Started episode 4 of 10000
-Finished idx_action: 550	action size: 2541
-Finished idx_action: 561	action size: 2541
-Finished episode 4 of 10000
-len(agent.replay_memory): 3170
-Saved model from episode 4. Count of epochs trained: 0
-  0%|          | 4/10000 [04:05<113:43:54, 40.96s/episode]
-Started episode 5 of 10000
-Finished idx_action: 572	action size: 2541
-Finished episode 5 of 10000
-len(agent.replay_memory): 3303
-Saved model from episode 5. Count of epochs trained: 0
-  0%|          | 5/10000 [04:16<83:31:34, 30.08s/episode] 
-Started episode 6 of 10000
-Finished idx_action: 583	action size: 2541
-Finished episode 6 of 10000
-len(agent.replay_memory): 3408
-Saved model from episode 6. Count of epochs trained: 0
-  0%|          | 6/10000 [04:24<63:14:04, 22.78s/episode]
-Started episode 7 of 10000
-Finished idx_action: 594	action size: 2541
-Finished episode 7 of 10000
-len(agent.replay_memory): 3502
-Saved model from episode 7. Count of epochs trained: 0
-  0%|          | 7/10000 [04:32<49:39:52, 17.89s/episode]
-Started episode 8 of 10000
-Finished idx_action: 605	action size: 2541
-Finished episode 8 of 10000
-len(agent.replay_memory): 3589
-Saved model from episode 8. Count of epochs trained: 0
-  0%|          | 8/10000 [04:39<40:17:16, 14.52s/episode]
-Started episode 9 of 10000
-Finished idx_action: 616	action size: 2541
-Finished episode 9 of 10000
-len(agent.replay_memory): 3672
-Saved model from episode 9. Count of epochs trained: 0
-  0%|          | 9/10000 [04:46<33:47:36, 12.18s/episode]
-Started episode 10 of 10000
-Finished idx_action: 627	action size: 2541
-Finished episode 10 of 10000
-len(agent.replay_memory): 3755
-Saved model from episode 10. Count of epochs trained: 0
-  0%|          | 10/10000 [04:54<30:02:46, 10.83s/episode]
-Started episode 11 of 10000
-Finished episode 11 of 10000
-len(agent.replay_memory): 3834
-Saved model from episode 11. Count of epochs trained: 0
-  0%|          | 11/10000 [05:01<26:32:42,  9.57s/episode]
-Started episode 12 of 10000
-Finished idx_action: 638	action size: 2541
-Finished episode 12 of 10000
-len(agent.replay_memory): 3911
-Saved model from episode 12. Count of epochs trained: 0
-  0%|          | 12/10000 [05:07<23:56:31,  8.63s/episode]
-Started episode 13 of 10000
-Finished idx_action: 649	action size: 2541
-Finished episode 13 of 10000
-len(agent.replay_memory): 3987
-Saved model from episode 13. Count of epochs trained: 0
-  0%|          | 13/10000 [05:14<22:18:41,  8.04s/episode]
-Started episode 14 of 10000
-Finished idx_action: 660	action size: 2541
-Finished episode 14 of 10000
-len(agent.replay_memory): 4061
-Saved model from episode 14. Count of epochs trained: 0
-  0%|          | 14/10000 [05:20<20:57:25,  7.56s/episode]
-Started episode 15 of 10000
-Finished episode 15 of 10000
-len(agent.replay_memory): 4135
-Saved model from episode 15. Count of epochs trained: 0
-  0%|          | 15/10000 [05:27<19:54:22,  7.18s/episode]
-Started episode 16 of 10000
-Finished idx_action: 671	action size: 2541
-Finished episode 16 of 10000
-len(agent.replay_memory): 4208
-Saved model from episode 16. Count of epochs trained: 0
-  0%|          | 16/10000 [05:33<19:10:03,  6.91s/episode]
-Started episode 17 of 10000
-Finished idx_action: 682	action size: 2541
-Finished idx_action: 693	action size: 2541
-Finished idx_action: 704	action size: 2541
-Finished idx_action: 715	action size: 2541
-Finished idx_action: 726	action size: 2541
-Finished idx_action: 737	action size: 2541
-Finished idx_action: 748	action size: 2541
-Finished episode 17 of 10000
-len(agent.replay_memory): 4912
-Saved model from episode 17. Count of epochs trained: 0
-  0%|          | 17/10000 [06:29<60:06:58, 21.68s/episode]
-Started episode 18 of 10000
-Finished idx_action: 759	action size: 2541
-Finished episode 18 of 10000
-len(agent.replay_memory): 5032
-Saved model from episode 18. Count of epochs trained: 0
-  0%|          | 18/10000 [06:39<50:34:37, 18.24s/episode]
-Started episode 19 of 10000
-Finished idx_action: 770	action size: 2541
-Finished idx_action: 781	action size: 2541
-Finished episode 19 of 10000
-len(agent.replay_memory): 5163
-Saved model from episode 19. Count of epochs trained: 0
-  0%|          | 19/10000 [06:51<44:44:23, 16.14s/episode]
-Started episode 20 of 10000
-Finished idx_action: 792	action size: 2541
-Finished idx_action: 803	action size: 2541
-Finished idx_action: 814	action size: 2541
-Finished episode 20 of 10000
-len(agent.replay_memory): 5466
-Saved model from episode 20. Count of epochs trained: 0
-  0%|          | 20/10000 [07:15<51:55:52, 18.73s/episode]
-Started episode 21 of 10000
-Finished episode 21 of 10000
-len(agent.replay_memory): 5539
-Saved model from episode 21. Count of epochs trained: 0
-  0%|          | 21/10000 [07:22<41:40:25, 15.03s/episode]
-Started episode 22 of 10000
-Finished idx_action: 825	action size: 2541
-Finished episode 22 of 10000
-len(agent.replay_memory): 5606
-Saved model from episode 22. Count of epochs trained: 0
-  0%|          | 22/10000 [07:28<34:10:30, 12.33s/episode]
-Started episode 23 of 10000
-Finished idx_action: 836	action size: 2541
-Finished episode 23 of 10000
-len(agent.replay_memory): 5670
-Saved model from episode 23. Count of epochs trained: 0
-  0%|          | 23/10000 [07:33<28:38:15, 10.33s/episode]
-Started episode 24 of 10000
-Finished episode 24 of 10000
-len(agent.replay_memory): 5732
-Saved model from episode 24. Count of epochs trained: 0
-  0%|          | 24/10000 [07:39<24:37:55,  8.89s/episode]
-Started episode 25 of 10000
-Finished idx_action: 847	action size: 2541
-Finished episode 25 of 10000
-len(agent.replay_memory): 5791
-Saved model from episode 25. Count of epochs trained: 0
-  0%|          | 25/10000 [07:44<21:40:19,  7.82s/episode]
-Started episode 26 of 10000
-Finished episode 26 of 10000
-len(agent.replay_memory): 5850
-Saved model from episode 26. Count of epochs trained: 0
-  0%|          | 26/10000 [07:50<19:29:31,  7.04s/episode]
-Started episode 27 of 10000
-Finished idx_action: 858	action size: 2541
-Finished episode 27 of 10000
-len(agent.replay_memory): 5907
-Saved model from episode 27. Count of epochs trained: 0
-  0%|          | 27/10000 [07:55<17:56:48,  6.48s/episode]
-Started episode 28 of 10000
-Finished idx_action: 869	action size: 2541
-Finished episode 28 of 10000
-len(agent.replay_memory): 5964
-Saved model from episode 28. Count of epochs trained: 0
-  0%|          | 28/10000 [08:00<16:49:53,  6.08s/episode]
-Started episode 29 of 10000
-Finished episode 29 of 10000
-len(agent.replay_memory): 6019
-Saved model from episode 29. Count of epochs trained: 0
-  0%|          | 29/10000 [08:05<15:57:26,  5.76s/episode]
-Started episode 30 of 10000
-Finished idx_action: 880	action size: 2541
-Finished episode 30 of 10000
-len(agent.replay_memory): 6073
-Saved model from episode 30. Count of epochs trained: 0
-  0%|          | 30/10000 [08:11<15:54:14,  5.74s/episode]
-Started episode 31 of 10000
-Finished episode 31 of 10000
-len(agent.replay_memory): 6127
-Saved model from episode 31. Count of epochs trained: 0
-  0%|          | 31/10000 [08:16<15:14:27,  5.50s/episode]
-Started episode 32 of 10000
-Finished idx_action: 891	action size: 2541
-Finished episode 32 of 10000
-len(agent.replay_memory): 6180
-Saved model from episode 32. Count of epochs trained: 0
-  0%|          | 32/10000 [08:20<14:45:55,  5.33s/episode]
-Started episode 33 of 10000
-Finished episode 33 of 10000
-len(agent.replay_memory): 6232
-Saved model from episode 33. Count of epochs trained: 0
-  0%|          | 33/10000 [08:25<14:18:06,  5.17s/episode]
-Started episode 34 of 10000
-Finished idx_action: 902	action size: 2541
-Finished episode 34 of 10000
-len(agent.replay_memory): 6284
-Saved model from episode 34. Count of epochs trained: 0
-  0%|          | 34/10000 [08:30<13:52:19,  5.01s/episode]
-Started episode 35 of 10000
-Finished episode 35 of 10000
-len(agent.replay_memory): 6336
-Saved model from episode 35. Count of epochs trained: 0
-  0%|          | 35/10000 [08:35<13:39:38,  4.94s/episode]
-Started episode 36 of 10000
-Finished idx_action: 913	action size: 2541
-Finished idx_action: 924	action size: 2541
-Finished idx_action: 935	action size: 2541
-Finished idx_action: 946	action size: 2541
-Finished idx_action: 957	action size: 2541
-Finished episode 36 of 10000
-len(agent.replay_memory): 6796
-Saved model from episode 36. Count of epochs trained: 0
-  0%|          | 36/10000 [09:12<40:27:37, 14.62s/episode]
-Started episode 37 of 10000
-Finished idx_action: 968	action size: 2541
-Finished idx_action: 979	action size: 2541
-Finished idx_action: 990	action size: 2541
-Finished episode 37 of 10000
-len(agent.replay_memory): 7092
-Saved model from episode 37. Count of epochs trained: 0
-  0%|          | 37/10000 [09:36<48:32:30, 17.54s/episode]
-Started episode 38 of 10000
-Finished idx_action: 1001	action size: 2541
-Finished episode 38 of 10000
-len(agent.replay_memory): 7193
-Saved model from episode 38. Count of epochs trained: 0
-  0%|          | 38/10000 [09:45<41:15:01, 14.91s/episode]
-Started episode 39 of 10000
-Finished idx_action: 1012	action size: 2541
-Finished episode 39 of 10000
-len(agent.replay_memory): 7305
-Saved model from episode 39. Count of epochs trained: 0
-  0%|          | 39/10000 [09:55<36:53:16, 13.33s/episode]
-Started episode 40 of 10000
-Finished idx_action: 1023	action size: 2541
-Finished idx_action: 1034	action size: 2541
-Finished episode 40 of 10000
-len(agent.replay_memory): 7545
-Saved model from episode 40. Count of epochs trained: 0
-  0%|          | 40/10000 [10:15<42:29:21, 15.36s/episode]
-Started episode 41 of 10000
-Finished idx_action: 1045	action size: 2541
-Finished episode 41 of 10000
-len(agent.replay_memory): 7606
-Saved model from episode 41. Count of epochs trained: 0
-  0%|          | 41/10000 [10:20<34:12:42, 12.37s/episode]
-Started episode 42 of 10000
-Finished episode 42 of 10000
-len(agent.replay_memory): 7666
-Saved model from episode 42. Count of epochs trained: 0
-  0%|          | 42/10000 [10:26<28:29:48, 10.30s/episode]
-Started episode 43 of 10000
-Finished idx_action: 1056	action size: 2541
-Finished episode 43 of 10000
-len(agent.replay_memory): 7720
-Saved model from episode 43. Count of epochs trained: 0
-  0%|          | 43/10000 [10:31<24:04:05,  8.70s/episode]
-Started episode 44 of 10000
-Finished episode 44 of 10000
-len(agent.replay_memory): 7774
-Saved model from episode 44. Count of epochs trained: 0
-  0%|          | 44/10000 [10:35<20:54:06,  7.56s/episode]
-Started episode 45 of 10000
-Finished idx_action: 1067	action size: 2541
-Finished episode 45 of 10000
-len(agent.replay_memory): 7824
-Saved model from episode 45. Count of epochs trained: 0
-  0%|          | 45/10000 [10:40<18:33:54,  6.71s/episode]
-Started episode 46 of 10000
-Finished episode 46 of 10000
-len(agent.replay_memory): 7874
-Saved model from episode 46. Count of epochs trained: 0
-  0%|          | 46/10000 [10:45<16:52:10,  6.10s/episode]
-Started episode 47 of 10000
-Finished idx_action: 1078	action size: 2541
-Finished episode 47 of 10000
-len(agent.replay_memory): 7922
-Saved model from episode 47. Count of epochs trained: 0
-  0%|          | 47/10000 [10:49<15:32:27,  5.62s/episode]
-Started episode 48 of 10000
-Finished episode 48 of 10000
-len(agent.replay_memory): 7970
-Saved model from episode 48. Count of epochs trained: 0
-  0%|          | 48/10000 [10:54<14:37:47,  5.29s/episode]
-Started episode 49 of 10000
-Finished idx_action: 1089	action size: 2541
-Finished episode 49 of 10000
-len(agent.replay_memory): 8016
-Saved model from episode 49. Count of epochs trained: 0
-  0%|          | 49/10000 [10:58<13:56:25,  5.04s/episode]
-Started episode 50 of 10000
-Finished episode 50 of 10000
-len(agent.replay_memory): 8062
-Saved model from episode 50. Count of epochs trained: 0
-  0%|          | 50/10000 [11:04<14:04:34,  5.09s/episode]
-Started episode 51 of 10000
-Finished idx_action: 1100	action size: 2541
-Finished episode 51 of 10000
-len(agent.replay_memory): 8107
-Saved model from episode 51. Count of epochs trained: 0
-  1%|          | 51/10000 [11:08<13:24:05,  4.85s/episode]
-Started episode 52 of 10000
-Finished episode 52 of 10000
-len(agent.replay_memory): 8152
-Saved model from episode 52. Count of epochs trained: 0
-  1%|          | 52/10000 [11:12<12:57:30,  4.69s/episode]
-Started episode 53 of 10000
-Finished idx_action: 1111	action size: 2541
-Finished episode 53 of 10000
-len(agent.replay_memory): 8196
-Saved model from episode 53. Count of epochs trained: 0
-  1%|          | 53/10000 [11:16<12:33:54,  4.55s/episode]
-Started episode 54 of 10000
-Finished episode 54 of 10000
-len(agent.replay_memory): 8241
-Saved model from episode 54. Count of epochs trained: 0
-  1%|          | 54/10000 [11:21<12:28:51,  4.52s/episode]
-Started episode 55 of 10000
-Finished idx_action: 1122	action size: 2541
-Finished episode 55 of 10000
-len(agent.replay_memory): 8285
-Saved model from episode 55. Count of epochs trained: 0
-  1%|          | 55/10000 [11:25<12:16:06,  4.44s/episode]
-Started episode 56 of 10000
-Finished episode 56 of 10000
-len(agent.replay_memory): 8328
-Saved model from episode 56. Count of epochs trained: 0
-  1%|          | 56/10000 [11:29<12:01:30,  4.35s/episode]
-Started episode 57 of 10000
-Finished episode 57 of 10000
-len(agent.replay_memory): 8371
-Saved model from episode 57. Count of epochs trained: 0
-  1%|          | 57/10000 [11:33<11:48:18,  4.27s/episode]
-Started episode 58 of 10000
-Finished idx_action: 1133	action size: 2541
-Finished episode 58 of 10000
-len(agent.replay_memory): 8413
-Saved model from episode 58. Count of epochs trained: 0
-  1%|          | 58/10000 [11:37<11:31:34,  4.17s/episode]
-Started episode 59 of 10000
-Finished episode 59 of 10000
-len(agent.replay_memory): 8456
-Saved model from episode 59. Count of epochs trained: 0
-  1%|          | 59/10000 [11:41<11:33:39,  4.19s/episode]
-Started episode 60 of 10000
-Finished idx_action: 1144	action size: 2541
-Finished idx_action: 1155	action size: 2541
-Finished idx_action: 1166	action size: 2541
-Finished idx_action: 1177	action size: 2541
-Finished idx_action: 1188	action size: 2541
-Finished episode 60 of 10000
-len(agent.replay_memory): 8946
-Saved model from episode 60. Count of epochs trained: 0
-  1%|          | 60/10000 [12:22<41:33:24, 15.05s/episode]
-Started episode 61 of 10000
-Finished idx_action: 1199	action size: 2541
-Finished idx_action: 1210	action size: 2541
-Finished episode 61 of 10000
-len(agent.replay_memory): 9129
-Saved model from episode 61. Count of epochs trained: 0
-  1%|          | 61/10000 [12:37<41:54:15, 15.18s/episode]
-Started episode 62 of 10000
-Finished idx_action: 1221	action size: 2541
-Finished episode 62 of 10000
-len(agent.replay_memory): 9211
-Saved model from episode 62. Count of epochs trained: 0
-  1%|          | 62/10000 [12:45<35:25:36, 12.83s/episode]
-Started episode 63 of 10000
-Finished idx_action: 1232	action size: 2541
-Finished episode 63 of 10000
-len(agent.replay_memory): 9297
-Saved model from episode 63. Count of epochs trained: 0
-  1%|          | 63/10000 [12:52<31:11:57, 11.30s/episode]
-Started episode 64 of 10000
-Finished episode 64 of 10000
-len(agent.replay_memory): 9390
-Saved model from episode 64. Count of epochs trained: 0
-  1%|          | 64/10000 [13:01<28:38:50, 10.38s/episode]
-Started episode 65 of 10000
-Finished idx_action: 1243	action size: 2541
-Finished idx_action: 1254	action size: 2541
-Finished episode 65 of 10000
-len(agent.replay_memory): 9564
-Saved model from episode 65. Count of epochs trained: 0
-  1%|          | 65/10000 [13:15<32:03:35, 11.62s/episode]
-Started episode 66 of 10000
-Finished idx_action: 1265	action size: 2541
-Finished episode 66 of 10000
-len(agent.replay_memory): 9633
-Saved model from episode 66. Count of epochs trained: 0
-  1%|          | 66/10000 [13:21<27:36:11, 10.00s/episode]
-Started episode 67 of 10000
-Finished idx_action: 1276	action size: 2541
-Finished episode 67 of 10000
-len(agent.replay_memory): 9696
-Saved model from episode 67. Count of epochs trained: 0
-  1%|          | 67/10000 [13:27<24:00:44,  8.70s/episode]
-Started episode 68 of 10000
-Finished episode 68 of 10000
-len(agent.replay_memory): 9748
-Saved model from episode 68. Count of epochs trained: 0
-  1%|          | 68/10000 [13:32<20:55:58,  7.59s/episode]
-Started episode 69 of 10000
-Finished idx_action: 1287	action size: 2541
-Finished episode 69 of 10000
-len(agent.replay_memory): 9800
-Saved model from episode 69. Count of epochs trained: 0
-  1%|          | 69/10000 [13:37<18:38:20,  6.76s/episode]
-Started episode 70 of 10000
-Finished episode 70 of 10000
-len(agent.replay_memory): 9847
-Saved model from episode 70. Count of epochs trained: 0
-  1%|          | 70/10000 [13:42<17:27:01,  6.33s/episode]
-Started episode 71 of 10000
-Finished episode 71 of 10000
-len(agent.replay_memory): 9894
-Saved model from episode 71. Count of epochs trained: 0
-  1%|          | 71/10000 [13:47<16:03:02,  5.82s/episode]
-Started episode 72 of 10000
-Finished idx_action: 1298	action size: 2541
-Finished episode 72 of 10000
-len(agent.replay_memory): 9937
-Saved model from episode 72. Count of epochs trained: 0
-  1%|          | 72/10000 [13:51<14:41:59,  5.33s/episode]
-Started episode 73 of 10000
-Finished episode 73 of 10000
-len(agent.replay_memory): 9980
-Saved model from episode 73. Count of epochs trained: 0
-  1%|          | 73/10000 [13:55<13:50:09,  5.02s/episode]
-Started episode 74 of 10000
-Finished idx_action: 1309	action size: 2541
-Finished episode 74 of 10000
-len(agent.replay_memory): 10022
-Saved model from episode 74. Count of epochs trained: 0
-  1%|          | 74/10000 [13:59<13:08:44,  4.77s/episode]
-Started episode 75 of 10000
-Finished episode 75 of 10000
-len(agent.replay_memory): 10063
-Saved model from episode 75. Count of epochs trained: 0
-  1%|          | 75/10000 [14:04<12:35:50,  4.57s/episode]
-Started episode 76 of 10000
-Finished idx_action: 1320	action size: 2541
-Finished episode 76 of 10000
-len(agent.replay_memory): 10104
-Saved model from episode 76. Count of epochs trained: 0
-  1%|          | 76/10000 [14:08<12:12:56,  4.43s/episode]
-Started episode 77 of 10000
-Finished episode 77 of 10000
-len(agent.replay_memory): 10144
-Saved model from episode 77. Count of epochs trained: 0
-  1%|          | 77/10000 [14:12<11:51:30,  4.30s/episode]
-Started episode 78 of 10000
-Finished episode 78 of 10000
-len(agent.replay_memory): 10184
-Saved model from episode 78. Count of epochs trained: 0
-  1%|          | 78/10000 [14:16<11:38:28,  4.22s/episode]
-Started episode 79 of 10000
-Finished idx_action: 1331	action size: 2541
-Finished episode 79 of 10000
-len(agent.replay_memory): 10223
-Saved model from episode 79. Count of epochs trained: 0
-  1%|          | 79/10000 [14:20<11:23:07,  4.13s/episode]
-Started episode 80 of 10000
-Finished episode 80 of 10000
-len(agent.replay_memory): 10261
-Saved model from episode 80. Count of epochs trained: 0
-  1%|          | 80/10000 [14:24<11:52:24,  4.31s/episode]
-Started episode 81 of 10000
-Finished episode 81 of 10000
-len(agent.replay_memory): 10299
-Saved model from episode 81. Count of epochs trained: 0
-  1%|          | 81/10000 [14:28<11:30:08,  4.17s/episode]
-Started episode 82 of 10000
-Finished idx_action: 1342	action size: 2541
-Finished episode 82 of 10000
-len(agent.replay_memory): 10337
-Saved model from episode 82. Count of epochs trained: 0
-  1%|          | 82/10000 [14:32<11:14:52,  4.08s/episode]
-Started episode 83 of 10000
-Finished episode 83 of 10000
-len(agent.replay_memory): 10375
-Saved model from episode 83. Count of epochs trained: 0
-  1%|          | 83/10000 [14:36<11:07:36,  4.04s/episode]
-Started episode 84 of 10000
-Finished idx_action: 1353	action size: 2541
-Finished episode 84 of 10000
-len(agent.replay_memory): 10412
-Saved model from episode 84. Count of epochs trained: 0
-  1%|          | 84/10000 [14:40<10:52:30,  3.95s/episode]
-Started episode 85 of 10000
-Finished episode 85 of 10000
-len(agent.replay_memory): 10449
-Saved model from episode 85. Count of epochs trained: 0
-  1%|          | 85/10000 [14:44<10:45:12,  3.90s/episode]
-Started episode 86 of 10000
-Finished episode 86 of 10000
-len(agent.replay_memory): 10486
-Saved model from episode 86. Count of epochs trained: 0
-  1%|          | 86/10000 [14:47<10:35:26,  3.85s/episode]
-Started episode 87 of 10000
-Finished idx_action: 1364	action size: 2541
-Finished episode 87 of 10000
-len(agent.replay_memory): 10523
-Saved model from episode 87. Count of epochs trained: 0
-  1%|          | 87/10000 [14:51<10:32:11,  3.83s/episode]
-Started episode 88 of 10000
-Finished episode 88 of 10000
-len(agent.replay_memory): 10560
-Saved model from episode 88. Count of epochs trained: 0
-  1%|          | 88/10000 [14:55<10:22:45,  3.77s/episode]
-Started episode 89 of 10000
-Finished episode 89 of 10000
-len(agent.replay_memory): 10597
-Saved model from episode 89. Count of epochs trained: 0
-  1%|          | 89/10000 [14:59<10:25:52,  3.79s/episode]
-Started episode 90 of 10000
-Finished idx_action: 1375	action size: 2541
-Finished idx_action: 1386	action size: 2541
-Finished idx_action: 1397	action size: 2541
-Finished idx_action: 1408	action size: 2541
-Finished idx_action: 1419	action size: 2541
-Finished idx_action: 1430	action size: 2541
-Finished episode 90 of 10000
-len(agent.replay_memory): 11160
-Saved model from episode 90. Count of epochs trained: 0
-  1%|          | 90/10000 [15:45<45:35:52, 16.56s/episode]
-Started episode 91 of 10000
-Finished idx_action: 1441	action size: 2541
-Finished episode 91 of 10000
-len(agent.replay_memory): 11236
-Saved model from episode 91. Count of epochs trained: 0
-  1%|          | 91/10000 [15:52<37:40:40, 13.69s/episode]
-Started episode 92 of 10000
-Finished episode 92 of 10000
-len(agent.replay_memory): 11311
-Saved model from episode 92. Count of epochs trained: 0
-  1%|          | 92/10000 [15:59<32:08:25, 11.68s/episode]
-Started episode 93 of 10000
-Finished idx_action: 1452	action size: 2541
-Finished episode 93 of 10000
-len(agent.replay_memory): 11386
-Saved model from episode 93. Count of epochs trained: 0
-  1%|          | 93/10000 [16:06<28:07:44, 10.22s/episode]
-Started episode 94 of 10000
-Finished idx_action: 1463	action size: 2541
-Finished episode 94 of 10000
-len(agent.replay_memory): 11465
-Saved model from episode 94. Count of epochs trained: 0
-  1%|          | 94/10000 [16:13<25:34:28,  9.29s/episode]
-Started episode 95 of 10000
-Finished idx_action: 1474	action size: 2541
-Finished episode 95 of 10000
-len(agent.replay_memory): 11551
-Saved model from episode 95. Count of epochs trained: 0
-  1%|          | 95/10000 [16:21<24:18:43,  8.84s/episode]
-Started episode 96 of 10000
-Finished idx_action: 1485	action size: 2541
-Finished episode 96 of 10000
-len(agent.replay_memory): 11668
-Saved model from episode 96. Count of epochs trained: 0
-  1%|          | 96/10000 [16:31<25:12:41,  9.16s/episode]
-Started episode 97 of 10000
-Finished idx_action: 1496	action size: 2541
-Finished episode 97 of 10000
-len(agent.replay_memory): 11742
-Saved model from episode 97. Count of epochs trained: 0
-  1%|          | 97/10000 [16:37<23:08:46,  8.41s/episode]
-Started episode 98 of 10000
-Finished episode 98 of 10000
-len(agent.replay_memory): 11798
-Saved model from episode 98. Count of epochs trained: 0
-  1%|          | 98/10000 [16:42<20:29:53,  7.45s/episode]
-Started episode 99 of 10000
-Finished idx_action: 1507	action size: 2541
-Finished episode 99 of 10000
-len(agent.replay_memory): 11846
-Saved model from episode 99. Count of epochs trained: 0
-  1%|          | 99/10000 [16:47<18:09:34,  6.60s/episode]
-Started episode 100 of 10000
-Finished episode 100 of 10000
-len(agent.replay_memory): 11893
-Saved model from episode 100. Count of epochs trained: 0
-  1%|1         | 100/10000 [16:52<17:09:07,  6.24s/episode]
-Started episode 101 of 10000
-Finished idx_action: 1518	action size: 2541
-Finished episode 101 of 10000
-len(agent.replay_memory): 11937
-Saved model from episode 101. Count of epochs trained: 0
-  1%|1         | 101/10000 [16:57<15:33:27,  5.66s/episode]
-Started episode 102 of 10000
-Finished episode 102 of 10000
-len(agent.replay_memory): 11979
-Saved model from episode 102. Count of epochs trained: 0
-  1%|1         | 102/10000 [17:01<14:22:53,  5.23s/episode]
-Started episode 103 of 10000
-Finished idx_action: 1529	action size: 2541
-Finished episode 103 of 10000
-len(agent.replay_memory): 12021
-Saved model from episode 103. Count of epochs trained: 0
-  1%|1         | 103/10000 [17:05<13:32:57,  4.93s/episode]
-Started episode 104 of 10000
-Finished episode 104 of 10000
-len(agent.replay_memory): 12060
-Saved model from episode 104. Count of epochs trained: 0
-  1%|1         | 104/10000 [17:09<12:43:42,  4.63s/episode]
-Started episode 105 of 10000
-Finished episode 105 of 10000
-len(agent.replay_memory): 12099
-Saved model from episode 105. Count of epochs trained: 0
-  1%|1         | 105/10000 [17:13<12:14:17,  4.45s/episode]
-Started episode 106 of 10000
-Finished idx_action: 1540	action size: 2541
-Finished episode 106 of 10000
-len(agent.replay_memory): 12136
-Saved model from episode 106. Count of epochs trained: 0
-  1%|1         | 106/10000 [17:17<11:41:04,  4.25s/episode]
-Started episode 107 of 10000
-Finished episode 107 of 10000
-len(agent.replay_memory): 12173
-Saved model from episode 107. Count of epochs trained: 0
-  1%|1         | 107/10000 [17:21<11:18:41,  4.12s/episode]
-Started episode 108 of 10000
-Finished episode 108 of 10000
-len(agent.replay_memory): 12210
-Saved model from episode 108. Count of epochs trained: 0
-  1%|1         | 108/10000 [17:25<11:03:51,  4.03s/episode]
-Started episode 109 of 10000
-Finished idx_action: 1551	action size: 2541
-Finished episode 109 of 10000
-len(agent.replay_memory): 12246
-Saved model from episode 109. Count of epochs trained: 0
-  1%|1         | 109/10000 [17:28<10:51:33,  3.95s/episode]
-Started episode 110 of 10000
-Finished episode 110 of 10000
-len(agent.replay_memory): 12282
-Saved model from episode 110. Count of epochs trained: 0
-  1%|1         | 110/10000 [17:33<11:21:28,  4.13s/episode]
-Started episode 111 of 10000
-Finished episode 111 of 10000
-len(agent.replay_memory): 12318
-Saved model from episode 111. Count of epochs trained: 0
-  1%|1         | 111/10000 [17:37<11:00:49,  4.01s/episode]
-Started episode 112 of 10000
-Finished idx_action: 1562	action size: 2541
-Finished episode 112 of 10000
-len(agent.replay_memory): 12352
-Saved model from episode 112. Count of epochs trained: 0
-  1%|1         | 112/10000 [17:40<10:39:26,  3.88s/episode]
-Started episode 113 of 10000
-Finished episode 113 of 10000
-len(agent.replay_memory): 12386
-Saved model from episode 113. Count of epochs trained: 0
-  1%|1         | 113/10000 [17:44<10:25:41,  3.80s/episode]
-Started episode 114 of 10000
-Finished episode 114 of 10000
-len(agent.replay_memory): 12421
-Saved model from episode 114. Count of epochs trained: 0
-  1%|1         | 114/10000 [17:48<10:22:54,  3.78s/episode]
-Started episode 115 of 10000
-Finished idx_action: 1573	action size: 2541
-Finished episode 115 of 10000
-len(agent.replay_memory): 12455
-Saved model from episode 115. Count of epochs trained: 0
-  1%|1         | 115/10000 [17:51<10:13:11,  3.72s/episode]
-Started episode 116 of 10000
-Finished episode 116 of 10000
-len(agent.replay_memory): 12489
-Saved model from episode 116. Count of epochs trained: 0
-  1%|1         | 116/10000 [17:55<10:10:55,  3.71s/episode]
-Started episode 117 of 10000
-Finished episode 117 of 10000
-len(agent.replay_memory): 12523
-Saved model from episode 117. Count of epochs trained: 0
-  1%|1         | 117/10000 [17:58<10:04:01,  3.67s/episode]
-Started episode 118 of 10000
-Finished idx_action: 1584	action size: 2541
-Finished episode 118 of 10000
-len(agent.replay_memory): 12556
-Saved model from episode 118. Count of epochs trained: 0
-  1%|1         | 118/10000 [18:02<10:00:32,  3.65s/episode]
-Started episode 119 of 10000
-Finished episode 119 of 10000
-len(agent.replay_memory): 12589
-Saved model from episode 119. Count of epochs trained: 0
-  1%|1         | 119/10000 [18:05<9:54:25,  3.61s/episode] 
-Started episode 120 of 10000
-Finished episode 120 of 10000
-len(agent.replay_memory): 12622
-Saved model from episode 120. Count of epochs trained: 0
-  1%|1         | 120/10000 [18:10<10:29:35,  3.82s/episode]
-Started episode 121 of 10000
-Finished idx_action: 1595	action size: 2541
-Finished episode 121 of 10000
-len(agent.replay_memory): 12655
-Saved model from episode 121. Count of epochs trained: 0
-  1%|1         | 121/10000 [18:13<10:13:02,  3.72s/episode]
-Started episode 122 of 10000
-Finished episode 122 of 10000
-len(agent.replay_memory): 12688
-Saved model from episode 122. Count of epochs trained: 0
-  1%|1         | 122/10000 [18:17<10:01:41,  3.65s/episode]
-Started episode 123 of 10000
-Finished episode 123 of 10000
-len(agent.replay_memory): 12721
-Saved model from episode 123. Count of epochs trained: 0
-  1%|1         | 123/10000 [18:20<9:57:31,  3.63s/episode] 
-Started episode 124 of 10000
-Finished idx_action: 1606	action size: 2541
-Finished idx_action: 1617	action size: 2541
-Finished idx_action: 1628	action size: 2541
-Finished idx_action: 1639	action size: 2541
-Finished idx_action: 1650	action size: 2541
-Finished episode 124 of 10000
-len(agent.replay_memory): 13158
-Saved model from episode 124. Count of epochs trained: 0
-  1%|1         | 124/10000 [18:56<36:24:03, 13.27s/episode]
-Started episode 125 of 10000
-Finished idx_action: 1661	action size: 2541
-Finished idx_action: 1672	action size: 2541
-Finished idx_action: 1683	action size: 2541
-Finished episode 125 of 10000
-len(agent.replay_memory): 13451
-Saved model from episode 125. Count of epochs trained: 0
-  1%|1         | 125/10000 [19:21<45:32:01, 16.60s/episode]
-Started episode 126 of 10000
-Finished episode 126 of 10000
-len(agent.replay_memory): 13518
-Saved model from episode 126. Count of epochs trained: 0
-  1%|1         | 126/10000 [19:27<37:03:27, 13.51s/episode]
-Started episode 127 of 10000
-Finished idx_action: 1694	action size: 2541
-Finished episode 127 of 10000
-len(agent.replay_memory): 13590
-Saved model from episode 127. Count of epochs trained: 0
-  1%|1         | 127/10000 [19:34<31:27:02, 11.47s/episode]
-Started episode 128 of 10000
-Finished idx_action: 1705	action size: 2541
-Finished episode 128 of 10000
-len(agent.replay_memory): 13666
-Saved model from episode 128. Count of epochs trained: 0
-  1%|1         | 128/10000 [19:41<27:48:35, 10.14s/episode]
-Started episode 129 of 10000
-Finished idx_action: 1716	action size: 2541
-Finished episode 129 of 10000
-len(agent.replay_memory): 13755
-Saved model from episode 129. Count of epochs trained: 0
-  1%|1         | 129/10000 [19:48<25:59:13,  9.48s/episode]
-Started episode 130 of 10000
-Finished idx_action: 1727	action size: 2541
-Finished episode 130 of 10000
-len(agent.replay_memory): 13844
-Saved model from episode 130. Count of epochs trained: 0
-  1%|1         | 130/10000 [19:57<25:12:57,  9.20s/episode]
-Started episode 131 of 10000
-Finished episode 131 of 10000
-len(agent.replay_memory): 13895
-Saved model from episode 131. Count of epochs trained: 0
-  1%|1         | 131/10000 [20:02<21:46:56,  7.95s/episode]
-Started episode 132 of 10000
-Finished idx_action: 1738	action size: 2541
-Finished episode 132 of 10000
-len(agent.replay_memory): 13945
-Saved model from episode 132. Count of epochs trained: 0
-  1%|1         | 132/10000 [20:07<19:15:36,  7.03s/episode]
-Started episode 133 of 10000
-Finished episode 133 of 10000
-len(agent.replay_memory): 13988
-Saved model from episode 133. Count of epochs trained: 0
-  1%|1         | 133/10000 [20:11<17:07:31,  6.25s/episode]
-Started episode 134 of 10000
-Finished episode 134 of 10000
-len(agent.replay_memory): 14031
-Saved model from episode 134. Count of epochs trained: 0
-  1%|1         | 134/10000 [20:16<15:25:49,  5.63s/episode]
-Started episode 135 of 10000
-Finished idx_action: 1749	action size: 2541
-Finished episode 135 of 10000
-len(agent.replay_memory): 14069
-Saved model from episode 135. Count of epochs trained: 0
-  1%|1         | 135/10000 [20:20<14:06:34,  5.15s/episode]
-Started episode 136 of 10000
-Finished episode 136 of 10000
-len(agent.replay_memory): 14107
-Saved model from episode 136. Count of epochs trained: 0
-  1%|1         | 136/10000 [20:23<13:01:07,  4.75s/episode]
-Started episode 137 of 10000
-Finished idx_action: 1760	action size: 2541
-Finished episode 137 of 10000
-len(agent.replay_memory): 14145
-Saved model from episode 137. Count of epochs trained: 0
-  1%|1         | 137/10000 [20:27<12:21:22,  4.51s/episode]
-Started episode 138 of 10000
-Finished episode 138 of 10000
-len(agent.replay_memory): 14181
-Saved model from episode 138. Count of epochs trained: 0
-  1%|1         | 138/10000 [20:31<11:49:47,  4.32s/episode]
-Started episode 139 of 10000
-Finished episode 139 of 10000
-len(agent.replay_memory): 14217
-Saved model from episode 139. Count of epochs trained: 0
-  1%|1         | 139/10000 [20:35<11:28:17,  4.19s/episode]
-Started episode 140 of 10000
-Finished idx_action: 1771	action size: 2541
-Finished episode 140 of 10000
-len(agent.replay_memory): 14252
-Saved model from episode 140. Count of epochs trained: 0
-  1%|1         | 140/10000 [20:40<11:44:47,  4.29s/episode]
-Started episode 141 of 10000
-Finished episode 141 of 10000
-len(agent.replay_memory): 14286
-Saved model from episode 141. Count of epochs trained: 0
-  1%|1         | 141/10000 [20:43<11:13:24,  4.10s/episode]
-Started episode 142 of 10000
-Finished episode 142 of 10000
-len(agent.replay_memory): 14320
-Saved model from episode 142. Count of epochs trained: 0
-  1%|1         | 142/10000 [20:47<10:54:19,  3.98s/episode]
-Started episode 143 of 10000
-Finished idx_action: 1782	action size: 2541
-Finished episode 143 of 10000
-len(agent.replay_memory): 14353
-Saved model from episode 143. Count of epochs trained: 0
-  1%|1         | 143/10000 [20:51<10:34:19,  3.86s/episode]
-Started episode 144 of 10000
-Finished episode 144 of 10000
-len(agent.replay_memory): 14385
-Saved model from episode 144. Count of epochs trained: 0
-  1%|1         | 144/10000 [20:54<10:17:25,  3.76s/episode]
-Started episode 145 of 10000
-Finished episode 145 of 10000
-len(agent.replay_memory): 14417
-Saved model from episode 145. Count of epochs trained: 0
-  1%|1         | 145/10000 [20:58<10:10:38,  3.72s/episode]
-Started episode 146 of 10000
-Finished idx_action: 1793	action size: 2541
-Finished episode 146 of 10000
-len(agent.replay_memory): 14449
-Saved model from episode 146. Count of epochs trained: 0
-  1%|1         | 146/10000 [21:01<9:56:54,  3.63s/episode] 
-Started episode 147 of 10000
-Finished episode 147 of 10000
-len(agent.replay_memory): 14480
-Saved model from episode 147. Count of epochs trained: 0
-  1%|1         | 147/10000 [21:05<9:51:12,  3.60s/episode]
-Started episode 148 of 10000
-Finished episode 148 of 10000
-len(agent.replay_memory): 14511
-Saved model from episode 148. Count of epochs trained: 0
-  1%|1         | 148/10000 [21:08<9:42:15,  3.55s/episode]
-Started episode 149 of 10000
-Finished episode 149 of 10000
-len(agent.replay_memory): 14542
-Saved model from episode 149. Count of epochs trained: 0
-  1%|1         | 149/10000 [21:12<9:39:58,  3.53s/episode]
-Started episode 150 of 10000
-Finished idx_action: 1804	action size: 2541
-Finished episode 150 of 10000
-len(agent.replay_memory): 14573
-Saved model from episode 150. Count of epochs trained: 0
-  2%|1         | 150/10000 [21:16<10:15:41,  3.75s/episode]
-Started episode 151 of 10000
-Finished episode 151 of 10000
-len(agent.replay_memory): 14604
-Saved model from episode 151. Count of epochs trained: 0
-  2%|1         | 151/10000 [21:19<9:59:41,  3.65s/episode] 
-Started episode 152 of 10000
-Finished episode 152 of 10000
-len(agent.replay_memory): 14635
-Saved model from episode 152. Count of epochs trained: 0
-  2%|1         | 152/10000 [21:23<9:51:40,  3.60s/episode]
-Started episode 153 of 10000
-Finished idx_action: 1815	action size: 2541
-Finished episode 153 of 10000
-len(agent.replay_memory): 14665
-Saved model from episode 153. Count of epochs trained: 0
-  2%|1         | 153/10000 [21:26<9:40:12,  3.54s/episode]
-Started episode 154 of 10000
-Finished episode 154 of 10000
-len(agent.replay_memory): 14695
-Saved model from episode 154. Count of epochs trained: 0
-  2%|1         | 154/10000 [21:30<9:35:42,  3.51s/episode]
-Started episode 155 of 10000
-Finished episode 155 of 10000
-len(agent.replay_memory): 14725
-Saved model from episode 155. Count of epochs trained: 0
-  2%|1         | 155/10000 [21:33<9:27:10,  3.46s/episode]
-Started episode 156 of 10000
-Finished idx_action: 1826	action size: 2541
-Finished episode 156 of 10000
-len(agent.replay_memory): 14755
-Saved model from episode 156. Count of epochs trained: 0
-  2%|1         | 156/10000 [21:36<9:25:19,  3.45s/episode]
-Started episode 157 of 10000
-Finished episode 157 of 10000
-len(agent.replay_memory): 14785
-Saved model from episode 157. Count of epochs trained: 0
-  2%|1         | 157/10000 [21:40<9:17:50,  3.40s/episode]
-Started episode 158 of 10000
-Finished episode 158 of 10000
-len(agent.replay_memory): 14815
-Saved model from episode 158. Count of epochs trained: 0
-  2%|1         | 158/10000 [21:43<9:15:27,  3.39s/episode]
-Started episode 159 of 10000
-Finished episode 159 of 10000
-len(agent.replay_memory): 14845
-Saved model from episode 159. Count of epochs trained: 0
-  2%|1         | 159/10000 [21:46<9:17:42,  3.40s/episode]
-Started episode 160 of 10000
-Finished idx_action: 1837	action size: 2541
-Finished idx_action: 1848	action size: 2541
-Finished idx_action: 1859	action size: 2541
-Finished idx_action: 1870	action size: 2541
-Finished idx_action: 1881	action size: 2541
-Finished idx_action: 1892	action size: 2541
-Finished episode 160 of 10000
-len(agent.replay_memory): 15381
-Saved model from episode 160. Count of epochs trained: 0
-  2%|1         | 160/10000 [22:31<43:06:17, 15.77s/episode]
-Started episode 161 of 10000
-Finished idx_action: 1903	action size: 2541
-Finished idx_action: 1914	action size: 2541
-Finished episode 161 of 10000
-len(agent.replay_memory): 15594
-Saved model from episode 161. Count of epochs trained: 0
-  2%|1         | 161/10000 [22:49<44:59:58, 16.46s/episode]
-Started episode 162 of 10000
-Finished idx_action: 1925	action size: 2541
-Finished episode 162 of 10000
-len(agent.replay_memory): 15655
-Saved model from episode 162. Count of epochs trained: 0
-  2%|1         | 162/10000 [22:55<36:16:42, 13.28s/episode]
-Started episode 163 of 10000
-Finished episode 163 of 10000
-len(agent.replay_memory): 15721
-Saved model from episode 163. Count of epochs trained: 0
-  2%|1         | 163/10000 [23:01<30:29:09, 11.16s/episode]
-Started episode 164 of 10000
-Finished idx_action: 1936	action size: 2541
-Finished episode 164 of 10000
-len(agent.replay_memory): 15792
-Saved model from episode 164. Count of epochs trained: 0
-  2%|1         | 164/10000 [23:08<26:52:08,  9.83s/episode]
-Started episode 165 of 10000
-Finished idx_action: 1947	action size: 2541
-Finished episode 165 of 10000
-len(agent.replay_memory): 15872
-Saved model from episode 165. Count of epochs trained: 0
-  2%|1         | 165/10000 [23:15<24:46:43,  9.07s/episode]
-Started episode 166 of 10000
-Finished episode 166 of 10000
-len(agent.replay_memory): 15956
-Saved model from episode 166. Count of epochs trained: 0
-  2%|1         | 166/10000 [23:23<23:32:32,  8.62s/episode]
-Started episode 167 of 10000
-Finished idx_action: 1958	action size: 2541
-Finished episode 167 of 10000
-len(agent.replay_memory): 16003
-Saved model from episode 167. Count of epochs trained: 0
-  2%|1         | 167/10000 [23:27<20:15:37,  7.42s/episode]
-Started episode 168 of 10000
-Finished episode 168 of 10000
-len(agent.replay_memory): 16050
-Saved model from episode 168. Count of epochs trained: 0
-  2%|1         | 168/10000 [23:32<18:06:04,  6.63s/episode]
-Started episode 169 of 10000
-Finished idx_action: 1969	action size: 2541
-Finished episode 169 of 10000
-len(agent.replay_memory): 16090
-Saved model from episode 169. Count of epochs trained: 0
-  2%|1         | 169/10000 [23:36<16:00:18,  5.86s/episode]
-Started episode 170 of 10000
-Finished episode 170 of 10000
-len(agent.replay_memory): 16130
-Saved model from episode 170. Count of epochs trained: 0
-  2%|1         | 170/10000 [23:41<15:11:55,  5.57s/episode]
-Started episode 171 of 10000
-Finished idx_action: 1980	action size: 2541
-Finished episode 171 of 10000
-len(agent.replay_memory): 16168
-Saved model from episode 171. Count of epochs trained: 0
-  2%|1         | 171/10000 [23:45<14:02:31,  5.14s/episode]
-Started episode 172 of 10000
-Finished episode 172 of 10000
-len(agent.replay_memory): 16204
-Saved model from episode 172. Count of epochs trained: 0
-  2%|1         | 172/10000 [23:49<12:57:54,  4.75s/episode]
-Started episode 173 of 10000
-Finished episode 173 of 10000
-len(agent.replay_memory): 16240
-Saved model from episode 173. Count of epochs trained: 0
-  2%|1         | 173/10000 [23:53<12:17:51,  4.51s/episode]
-Started episode 174 of 10000
-Finished idx_action: 1991	action size: 2541
-Finished episode 174 of 10000
-len(agent.replay_memory): 16274
-Saved model from episode 174. Count of epochs trained: 0
-  2%|1         | 174/10000 [23:57<11:39:37,  4.27s/episode]
-Started episode 175 of 10000
-Finished episode 175 of 10000
-len(agent.replay_memory): 16307
-Saved model from episode 175. Count of epochs trained: 0
-  2%|1         | 175/10000 [24:01<11:15:19,  4.12s/episode]
-Started episode 176 of 10000
-Finished episode 176 of 10000
-len(agent.replay_memory): 16340
-Saved model from episode 176. Count of epochs trained: 0
-  2%|1         | 176/10000 [24:04<10:51:05,  3.98s/episode]
-Started episode 177 of 10000
-Finished idx_action: 2002	action size: 2541
-Finished episode 177 of 10000
-len(agent.replay_memory): 16372
-Saved model from episode 177. Count of epochs trained: 0
-  2%|1         | 177/10000 [24:08<10:30:07,  3.85s/episode]
-Started episode 178 of 10000
-Finished episode 178 of 10000
-len(agent.replay_memory): 16404
-Saved model from episode 178. Count of epochs trained: 0
-  2%|1         | 178/10000 [24:11<10:16:41,  3.77s/episode]
-Started episode 179 of 10000
-Finished episode 179 of 10000
-len(agent.replay_memory): 16436
-Saved model from episode 179. Count of epochs trained: 0
-  2%|1         | 179/10000 [24:16<10:44:24,  3.94s/episode]
-Started episode 180 of 10000
-Finished idx_action: 2013	action size: 2541
-Finished episode 180 of 10000
-len(agent.replay_memory): 16467
-Saved model from episode 180. Count of epochs trained: 0
-  2%|1         | 180/10000 [24:20<11:00:53,  4.04s/episode]
-Started episode 181 of 10000
-Finished episode 181 of 10000
-len(agent.replay_memory): 16497
-Saved model from episode 181. Count of epochs trained: 0
-  2%|1         | 181/10000 [24:23<10:32:28,  3.86s/episode]
-Started episode 182 of 10000
-Finished episode 182 of 10000
-len(agent.replay_memory): 16527
-Saved model from episode 182. Count of epochs trained: 0
-  2%|1         | 182/10000 [24:27<10:08:14,  3.72s/episode]
-Started episode 183 of 10000
-Finished episode 183 of 10000
-len(agent.replay_memory): 16557
-Saved model from episode 183. Count of epochs trained: 0
-  2%|1         | 183/10000 [24:30<9:51:40,  3.62s/episode] 
-Started episode 184 of 10000
-Finished idx_action: 2024	action size: 2541
-Finished episode 184 of 10000
-len(agent.replay_memory): 16586
-Saved model from episode 184. Count of epochs trained: 0
-  2%|1         | 184/10000 [24:34<9:38:49,  3.54s/episode]
-Started episode 185 of 10000
-Finished episode 185 of 10000
-len(agent.replay_memory): 16615
-Saved model from episode 185. Count of epochs trained: 0
-  2%|1         | 185/10000 [24:37<9:33:03,  3.50s/episode]
-Started episode 186 of 10000
-Finished episode 186 of 10000
-len(agent.replay_memory): 16644
-Saved model from episode 186. Count of epochs trained: 0
-  2%|1         | 186/10000 [24:40<9:25:01,  3.45s/episode]
-Started episode 187 of 10000
-Finished idx_action: 2035	action size: 2541
-Finished episode 187 of 10000
-len(agent.replay_memory): 16673
-Saved model from episode 187. Count of epochs trained: 0
-  2%|1         | 187/10000 [24:44<9:21:36,  3.43s/episode]
-Started episode 188 of 10000
-Finished episode 188 of 10000
-len(agent.replay_memory): 16702
-Saved model from episode 188. Count of epochs trained: 0
-  2%|1         | 188/10000 [24:47<9:13:06,  3.38s/episode]
-Started episode 189 of 10000
-Finished episode 189 of 10000
-len(agent.replay_memory): 16731
-Saved model from episode 189. Count of epochs trained: 0
-  2%|1         | 189/10000 [24:50<9:12:42,  3.38s/episode]
-Started episode 190 of 10000
-Finished episode 190 of 10000
-len(agent.replay_memory): 16760
-Saved model from episode 190. Count of epochs trained: 0
-  2%|1         | 190/10000 [24:54<9:49:27,  3.61s/episode]
-Started episode 191 of 10000
-Finished idx_action: 2046	action size: 2541
-Finished episode 191 of 10000
-len(agent.replay_memory): 16789
-Saved model from episode 191. Count of epochs trained: 0
-  2%|1         | 191/10000 [24:58<9:35:58,  3.52s/episode]
-Started episode 192 of 10000
-Finished episode 192 of 10000
-len(agent.replay_memory): 16817
-Saved model from episode 192. Count of epochs trained: 0
-  2%|1         | 192/10000 [25:01<9:27:02,  3.47s/episode]
-Started episode 193 of 10000
-Finished episode 193 of 10000
-len(agent.replay_memory): 16845
-Saved model from episode 193. Count of epochs trained: 0
-  2%|1         | 193/10000 [25:04<9:16:11,  3.40s/episode]
-Started episode 194 of 10000
-Finished idx_action: 2057	action size: 2541
-Finished episode 194 of 10000
-len(agent.replay_memory): 16873
-Saved model from episode 194. Count of epochs trained: 0
-  2%|1         | 194/10000 [25:08<9:12:46,  3.38s/episode]
-Started episode 195 of 10000
-Finished episode 195 of 10000
-len(agent.replay_memory): 16901
-Saved model from episode 195. Count of epochs trained: 0
-  2%|1         | 195/10000 [25:11<9:02:01,  3.32s/episode]
-Started episode 196 of 10000
-Finished episode 196 of 10000
-len(agent.replay_memory): 16929
-Saved model from episode 196. Count of epochs trained: 0
-  2%|1         | 196/10000 [25:14<9:02:26,  3.32s/episode]
-Started episode 197 of 10000
-Finished episode 197 of 10000
-len(agent.replay_memory): 16957
-Saved model from episode 197. Count of epochs trained: 0
-  2%|1         | 197/10000 [25:17<8:56:37,  3.28s/episode]
-Started episode 198 of 10000
-Finished idx_action: 2068	action size: 2541
-Finished idx_action: 2079	action size: 2541
-Finished idx_action: 2090	action size: 2541
-Finished idx_action: 2101	action size: 2541
-Finished episode 198 of 10000
-len(agent.replay_memory): 17352
-Saved model from episode 198. Count of epochs trained: 0
-  2%|1         | 198/10000 [25:50<32:58:16, 12.11s/episode]
-Started episode 199 of 10000
-Finished idx_action: 2112	action size: 2541
-Finished idx_action: 2123	action size: 2541
-Finished idx_action: 2134	action size: 2541
-Finished episode 199 of 10000
-len(agent.replay_memory): 17634
-Saved model from episode 199. Count of epochs trained: 0
-  2%|1         | 199/10000 [26:14<42:22:36, 15.57s/episode]
-Started episode 200 of 10000
-Finished idx_action: 2145	action size: 2541
-Finished episode 200 of 10000
-len(agent.replay_memory): 17689
-Saved model from episode 200. Count of epochs trained: 0
-  2%|2         | 200/10000 [26:20<34:49:13, 12.79s/episode]
-Started episode 201 of 10000
-Finished episode 201 of 10000
-len(agent.replay_memory): 17746
-Saved model from episode 201. Count of epochs trained: 0
-  2%|2         | 201/10000 [26:26<29:02:51, 10.67s/episode]
-Started episode 202 of 10000
-Finished idx_action: 2156	action size: 2541
-Finished episode 202 of 10000
-len(agent.replay_memory): 17804
-Saved model from episode 202. Count of epochs trained: 0
-  2%|2         | 202/10000 [26:31<25:01:30,  9.19s/episode]
-Started episode 203 of 10000
-Finished episode 203 of 10000
-len(agent.replay_memory): 17864
-Saved model from episode 203. Count of epochs trained: 0
-  2%|2         | 203/10000 [26:37<22:22:47,  8.22s/episode]
-Started episode 204 of 10000
-Finished idx_action: 2167	action size: 2541
-Finished episode 204 of 10000
-len(agent.replay_memory): 17958
-Saved model from episode 204. Count of epochs trained: 0
-  2%|2         | 204/10000 [26:46<22:42:39,  8.35s/episode]
-Started episode 205 of 10000
-Finished idx_action: 2178	action size: 2541
-Finished episode 205 of 10000
-len(agent.replay_memory): 18045
-Saved model from episode 205. Count of epochs trained: 0
-  2%|2         | 205/10000 [26:54<22:14:19,  8.17s/episode]
-Started episode 206 of 10000
-Finished idx_action: 2189	action size: 2541
-Finished episode 206 of 10000
-len(agent.replay_memory): 18099
-Saved model from episode 206. Count of epochs trained: 0
-  2%|2         | 206/10000 [26:59<19:52:26,  7.31s/episode]
-Started episode 207 of 10000
-Finished episode 207 of 10000
-len(agent.replay_memory): 18143
-Saved model from episode 207. Count of epochs trained: 0
-  2%|2         | 207/10000 [27:04<17:37:57,  6.48s/episode]
-Started episode 208 of 10000
-Finished idx_action: 2200	action size: 2541
-Finished episode 208 of 10000
-len(agent.replay_memory): 18186
-Saved model from episode 208. Count of epochs trained: 0
-  2%|2         | 208/10000 [27:09<16:41:35,  6.14s/episode]
-Started episode 209 of 10000
-Finished episode 209 of 10000
-len(agent.replay_memory): 18223
-Saved model from episode 209. Count of epochs trained: 0
-  2%|2         | 209/10000 [27:13<14:59:07,  5.51s/episode]
-Started episode 210 of 10000
-Finished episode 210 of 10000
-len(agent.replay_memory): 18260
-Saved model from episode 210. Count of epochs trained: 0
-  2%|2         | 210/10000 [27:18<14:27:39,  5.32s/episode]
-Started episode 211 of 10000
-Finished idx_action: 2211	action size: 2541
-Finished episode 211 of 10000
-len(agent.replay_memory): 18295
-Saved model from episode 211. Count of epochs trained: 0
-  2%|2         | 211/10000 [27:22<13:14:16,  4.87s/episode]
-Started episode 212 of 10000
-Finished episode 212 of 10000
-len(agent.replay_memory): 18328
-Saved model from episode 212. Count of epochs trained: 0
-  2%|2         | 212/10000 [27:26<12:19:52,  4.54s/episode]
-Started episode 213 of 10000
-Finished episode 213 of 10000
-len(agent.replay_memory): 18361
-Saved model from episode 213. Count of epochs trained: 0
-  2%|2         | 213/10000 [27:29<11:39:50,  4.29s/episode]
-Started episode 214 of 10000
-Finished idx_action: 2222	action size: 2541
-Finished episode 214 of 10000
-len(agent.replay_memory): 18393
-Saved model from episode 214. Count of epochs trained: 0
-  2%|2         | 214/10000 [27:33<11:06:48,  4.09s/episode]
-Started episode 215 of 10000
-Finished episode 215 of 10000
-len(agent.replay_memory): 18424
-Saved model from episode 215. Count of epochs trained: 0
-  2%|2         | 215/10000 [27:36<10:43:13,  3.94s/episode]
-Started episode 216 of 10000
-Finished episode 216 of 10000
-len(agent.replay_memory): 18455
-Saved model from episode 216. Count of epochs trained: 0
-  2%|2         | 216/10000 [27:40<10:24:27,  3.83s/episode]
-Started episode 217 of 10000
-Finished idx_action: 2233	action size: 2541
-Finished episode 217 of 10000
-len(agent.replay_memory): 18486
-Saved model from episode 217. Count of epochs trained: 0
-  2%|2         | 217/10000 [27:44<10:09:52,  3.74s/episode]
-Started episode 218 of 10000
-Finished episode 218 of 10000
-len(agent.replay_memory): 18516
-Saved model from episode 218. Count of epochs trained: 0
-  2%|2         | 218/10000 [27:47<9:55:45,  3.65s/episode] 
-Started episode 219 of 10000
-Finished episode 219 of 10000
-len(agent.replay_memory): 18546
-Saved model from episode 219. Count of epochs trained: 0
-  2%|2         | 219/10000 [27:51<9:49:00,  3.61s/episode]
-Started episode 220 of 10000
-Finished episode 220 of 10000
-len(agent.replay_memory): 18576
-Saved model from episode 220. Count of epochs trained: 0
-  2%|2         | 220/10000 [27:55<10:16:36,  3.78s/episode]
-Started episode 221 of 10000
-Finished idx_action: 2244	action size: 2541
-Finished episode 221 of 10000
-len(agent.replay_memory): 18605
-Saved model from episode 221. Count of epochs trained: 0
-  2%|2         | 221/10000 [27:58<9:53:21,  3.64s/episode] 
-Started episode 222 of 10000
-Finished episode 222 of 10000
-len(agent.replay_memory): 18634
-Saved model from episode 222. Count of epochs trained: 0
-  2%|2         | 222/10000 [28:01<9:40:01,  3.56s/episode]
-Started episode 223 of 10000
-Finished episode 223 of 10000
-len(agent.replay_memory): 18663
-Saved model from episode 223. Count of epochs trained: 0
-  2%|2         | 223/10000 [28:05<9:31:21,  3.51s/episode]
-Started episode 224 of 10000
-Finished idx_action: 2255	action size: 2541
-Finished episode 224 of 10000
-len(agent.replay_memory): 18691
-Saved model from episode 224. Count of epochs trained: 0
-  2%|2         | 224/10000 [28:08<9:24:53,  3.47s/episode]
-Started episode 225 of 10000
-Finished episode 225 of 10000
-len(agent.replay_memory): 18719
-Saved model from episode 225. Count of epochs trained: 0
-  2%|2         | 225/10000 [28:11<9:16:46,  3.42s/episode]
-Started episode 226 of 10000
-Finished episode 226 of 10000
-len(agent.replay_memory): 18747
-Saved model from episode 226. Count of epochs trained: 0
-  2%|2         | 226/10000 [28:15<9:13:31,  3.40s/episode]
-Started episode 227 of 10000
-Finished episode 227 of 10000
-len(agent.replay_memory): 18775
-Saved model from episode 227. Count of epochs trained: 0
-  2%|2         | 227/10000 [28:18<9:04:35,  3.34s/episode]
-Started episode 228 of 10000
-Finished idx_action: 2266	action size: 2541
-Finished episode 228 of 10000
-len(agent.replay_memory): 18802
-Saved model from episode 228. Count of epochs trained: 0
-  2%|2         | 228/10000 [28:21<9:03:31,  3.34s/episode]
-Started episode 229 of 10000
-Finished episode 229 of 10000
-len(agent.replay_memory): 18829
-Saved model from episode 229. Count of epochs trained: 0
-  2%|2         | 229/10000 [28:25<8:57:54,  3.30s/episode]
-Started episode 230 of 10000
-Finished episode 230 of 10000
-len(agent.replay_memory): 18856
-Saved model from episode 230. Count of epochs trained: 0
-  2%|2         | 230/10000 [28:29<9:33:12,  3.52s/episode]
-Started episode 231 of 10000
-Finished episode 231 of 10000
-len(agent.replay_memory): 18883
-Saved model from episode 231. Count of epochs trained: 0
-  2%|2         | 231/10000 [28:32<9:22:13,  3.45s/episode]
-Started episode 232 of 10000
-Finished idx_action: 2277	action size: 2541
-Finished episode 232 of 10000
-len(agent.replay_memory): 18909
-Saved model from episode 232. Count of epochs trained: 0
-  2%|2         | 232/10000 [28:35<9:05:44,  3.35s/episode]
-Started episode 233 of 10000
-Finished episode 233 of 10000
-len(agent.replay_memory): 18935
-Saved model from episode 233. Count of epochs trained: 0
-  2%|2         | 233/10000 [28:38<8:56:31,  3.30s/episode]
-Started episode 234 of 10000
-Finished episode 234 of 10000
-len(agent.replay_memory): 18961
-Saved model from episode 234. Count of epochs trained: 0
-  2%|2         | 234/10000 [28:41<8:51:33,  3.27s/episode]
-Started episode 235 of 10000
-Finished episode 235 of 10000
-len(agent.replay_memory): 18987
-Saved model from episode 235. Count of epochs trained: 0
-  2%|2         | 235/10000 [28:45<8:50:04,  3.26s/episode]
-Started episode 236 of 10000
-Finished idx_action: 2288	action size: 2541
-Finished episode 236 of 10000
-len(agent.replay_memory): 19013
-Saved model from episode 236. Count of epochs trained: 0
-  2%|2         | 236/10000 [28:48<8:49:56,  3.26s/episode]
-Started episode 237 of 10000
-Finished episode 237 of 10000
-len(agent.replay_memory): 19039
-Saved model from episode 237. Count of epochs trained: 0
-  2%|2         | 237/10000 [28:51<8:42:18,  3.21s/episode]
-Started episode 238 of 10000
-Finished episode 238 of 10000
-len(agent.replay_memory): 19065
-Saved model from episode 238. Count of epochs trained: 0
-  2%|2         | 238/10000 [28:54<8:42:16,  3.21s/episode]
-Started episode 239 of 10000
-Finished idx_action: 2299	action size: 2541
-Finished episode 239 of 10000
-len(agent.replay_memory): 19091
-Saved model from episode 239. Count of epochs trained: 0
-  2%|2         | 239/10000 [28:57<8:39:28,  3.19s/episode]
-Started episode 240 of 10000
-Finished idx_action: 2310	action size: 2541
-Finished idx_action: 2321	action size: 2541
-Finished idx_action: 2332	action size: 2541
-Finished idx_action: 2343	action size: 2541
-Finished idx_action: 2354	action size: 2541
-Finished idx_action: 2365	action size: 2541
-Finished episode 240 of 10000
-len(agent.replay_memory): 19793
-Saved model from episode 240. Count of epochs trained: 0
-  2%|2         | 240/10000 [29:56<53:28:37, 19.73s/episode]
-Started episode 241 of 10000
-Finished idx_action: 2376	action size: 2541
-Finished episode 241 of 10000
-len(agent.replay_memory): 19846
-Saved model from episode 241. Count of epochs trained: 0
-  2%|2         | 241/10000 [30:01<41:53:39, 15.45s/episode]
-Started episode 242 of 10000
-Finished idx_action: 2387	action size: 2541
-Finished episode 242 of 10000
-len(agent.replay_memory): 19899
-Saved model from episode 242. Count of epochs trained: 0
-  2%|2         | 242/10000 [30:07<33:44:45, 12.45s/episode]
-Started episode 243 of 10000
-Finished episode 243 of 10000
-len(agent.replay_memory): 19955
-Saved model from episode 243. Count of epochs trained: 0
-  2%|2         | 243/10000 [30:12<28:12:11, 10.41s/episode]
-Started episode 244 of 10000
-Finished idx_action: 2398	action size: 2541
-Finished episode 244 of 10000
-len(agent.replay_memory): 20012
-Saved model from episode 244. Count of epochs trained: 0
-  2%|2         | 244/10000 [30:18<24:18:05,  8.97s/episode]
-Started episode 245 of 10000
-Finished idx_action: 2409	action size: 2541
-Finished episode 245 of 10000
-len(agent.replay_memory): 20099
-Saved model from episode 245. Count of epochs trained: 0
-  2%|2         | 245/10000 [30:26<23:33:36,  8.69s/episode]
-Started episode 246 of 10000
-Finished episode 246 of 10000
-len(agent.replay_memory): 20169
-Saved model from episode 246. Count of epochs trained: 0
-  2%|2         | 246/10000 [30:32<21:50:14,  8.06s/episode]
-Started episode 247 of 10000
-Finished idx_action: 2420	action size: 2541
-Finished episode 247 of 10000
-len(agent.replay_memory): 20219
-Saved model from episode 247. Count of epochs trained: 0
-  2%|2         | 247/10000 [30:38<19:28:47,  7.19s/episode]
-Started episode 248 of 10000
-Finished episode 248 of 10000
-len(agent.replay_memory): 20260
-Saved model from episode 248. Count of epochs trained: 0
-  2%|2         | 248/10000 [30:42<17:13:00,  6.36s/episode]
-Started episode 249 of 10000
-Finished idx_action: 2431	action size: 2541
-Finished episode 249 of 10000
-len(agent.replay_memory): 20301
-Saved model from episode 249. Count of epochs trained: 0
-  2%|2         | 249/10000 [30:46<15:38:47,  5.78s/episode]
-Started episode 250 of 10000
-Finished episode 250 of 10000
-len(agent.replay_memory): 20336
-Saved model from episode 250. Count of epochs trained: 0
-  2%|2         | 250/10000 [30:51<14:53:00,  5.50s/episode]
-Started episode 251 of 10000
-Finished episode 251 of 10000
-len(agent.replay_memory): 20371
-Saved model from episode 251. Count of epochs trained: 0
-  3%|2         | 251/10000 [30:55<13:34:40,  5.01s/episode]
-Started episode 252 of 10000
-Finished idx_action: 2442	action size: 2541
-Finished episode 252 of 10000
-len(agent.replay_memory): 20405
-Saved model from episode 252. Count of epochs trained: 0
-  3%|2         | 252/10000 [30:59<12:37:02,  4.66s/episode]
-Started episode 253 of 10000
-Finished episode 253 of 10000
-len(agent.replay_memory): 20437
-Saved model from episode 253. Count of epochs trained: 0
-  3%|2         | 253/10000 [31:03<11:48:37,  4.36s/episode]
-Started episode 254 of 10000
-Finished episode 254 of 10000
-len(agent.replay_memory): 20469
-Saved model from episode 254. Count of epochs trained: 0
-  3%|2         | 254/10000 [31:06<11:17:24,  4.17s/episode]
-Started episode 255 of 10000
-Finished episode 255 of 10000
-len(agent.replay_memory): 20501
-Saved model from episode 255. Count of epochs trained: 0
-  3%|2         | 255/10000 [31:10<11:00:11,  4.06s/episode]
-Started episode 256 of 10000
-Finished idx_action: 2453	action size: 2541
-Finished episode 256 of 10000
-len(agent.replay_memory): 20531
-Saved model from episode 256. Count of epochs trained: 0
-  3%|2         | 256/10000 [31:14<10:38:21,  3.93s/episode]
-Started episode 257 of 10000
-Finished episode 257 of 10000
-len(agent.replay_memory): 20561
-Saved model from episode 257. Count of epochs trained: 0
-  3%|2         | 257/10000 [31:17<10:24:23,  3.85s/episode]
-Started episode 258 of 10000
-Finished episode 258 of 10000
-len(agent.replay_memory): 20591
-Saved model from episode 258. Count of epochs trained: 0
-  3%|2         | 258/10000 [31:21<10:08:21,  3.75s/episode]
-Started episode 259 of 10000
-Finished idx_action: 2464	action size: 2541
-Finished episode 259 of 10000
-len(agent.replay_memory): 20619
-Saved model from episode 259. Count of epochs trained: 0
-  3%|2         | 259/10000 [31:24<9:51:46,  3.65s/episode] 
-Started episode 260 of 10000
-Finished episode 260 of 10000
-len(agent.replay_memory): 20647
-Saved model from episode 260. Count of epochs trained: 0
-  3%|2         | 260/10000 [31:28<10:13:50,  3.78s/episode]
-Started episode 261 of 10000
-Finished episode 261 of 10000
-len(agent.replay_memory): 20675
-Saved model from episode 261. Count of epochs trained: 0
-  3%|2         | 261/10000 [31:32<9:52:22,  3.65s/episode] 
-Started episode 262 of 10000
-Finished episode 262 of 10000
-len(agent.replay_memory): 20703
-Saved model from episode 262. Count of epochs trained: 0
-  3%|2         | 262/10000 [31:35<9:41:50,  3.58s/episode]
-Started episode 263 of 10000
-Finished idx_action: 2475	action size: 2541
-Finished episode 263 of 10000
-len(agent.replay_memory): 20730
-Saved model from episode 263. Count of epochs trained: 0
-  3%|2         | 263/10000 [31:39<9:27:14,  3.50s/episode]
-Started episode 264 of 10000
-Finished episode 264 of 10000
-len(agent.replay_memory): 20757
-Saved model from episode 264. Count of epochs trained: 0
-  3%|2         | 264/10000 [31:42<9:21:48,  3.46s/episode]
-Started episode 265 of 10000
-Finished episode 265 of 10000
-len(agent.replay_memory): 20784
-Saved model from episode 265. Count of epochs trained: 0
-  3%|2         | 265/10000 [31:45<9:11:35,  3.40s/episode]
-Started episode 266 of 10000
-Finished idx_action: 2486	action size: 2541
-Finished episode 266 of 10000
-len(agent.replay_memory): 20811
-Saved model from episode 266. Count of epochs trained: 0
-  3%|2         | 266/10000 [31:48<9:05:18,  3.36s/episode]
-Started episode 267 of 10000
-Finished episode 267 of 10000
-len(agent.replay_memory): 20837
-Saved model from episode 267. Count of epochs trained: 0
-  3%|2         | 267/10000 [31:52<8:58:52,  3.32s/episode]
-Started episode 268 of 10000
-Finished episode 268 of 10000
-len(agent.replay_memory): 20863
-Saved model from episode 268. Count of epochs trained: 0
-  3%|2         | 268/10000 [31:55<8:58:42,  3.32s/episode]
-Started episode 269 of 10000
-Finished episode 269 of 10000
-len(agent.replay_memory): 20889
-Saved model from episode 269. Count of epochs trained: 0
-  3%|2         | 269/10000 [31:58<8:51:42,  3.28s/episode]
-Started episode 270 of 10000
-Finished idx_action: 2497	action size: 2541
-Finished episode 270 of 10000
-len(agent.replay_memory): 20915
-Saved model from episode 270. Count of epochs trained: 0
-  3%|2         | 270/10000 [32:02<9:30:25,  3.52s/episode]
-Started episode 271 of 10000
-Finished episode 271 of 10000
-len(agent.replay_memory): 20940
-Saved model from episode 271. Count of epochs trained: 0
-  3%|2         | 271/10000 [32:05<9:09:23,  3.39s/episode]
-Started episode 272 of 10000
-Finished episode 272 of 10000
-len(agent.replay_memory): 20965
-Saved model from episode 272. Count of epochs trained: 0
-  3%|2         | 272/10000 [32:09<9:01:37,  3.34s/episode]
-Started episode 273 of 10000
-Finished episode 273 of 10000
-len(agent.replay_memory): 20990
-Saved model from episode 273. Count of epochs trained: 0
-  3%|2         | 273/10000 [32:12<8:57:25,  3.32s/episode]
-Started episode 274 of 10000
-Finished idx_action: 2508	action size: 2541
-Finished episode 274 of 10000
-len(agent.replay_memory): 21015
-Saved model from episode 274. Count of epochs trained: 0
-  3%|2         | 274/10000 [32:15<8:49:26,  3.27s/episode]
-Started episode 275 of 10000
-Finished episode 275 of 10000
-len(agent.replay_memory): 21040
-Saved model from episode 275. Count of epochs trained: 0
-  3%|2         | 275/10000 [32:18<8:46:30,  3.25s/episode]
-Started episode 276 of 10000
-Finished episode 276 of 10000
-len(agent.replay_memory): 21065
-Saved model from episode 276. Count of epochs trained: 0
-  3%|2         | 276/10000 [32:21<8:44:02,  3.23s/episode]
-Started episode 277 of 10000
-Finished episode 277 of 10000
-len(agent.replay_memory): 21090
-Saved model from episode 277. Count of epochs trained: 0
-  3%|2         | 277/10000 [32:25<8:38:05,  3.20s/episode]
-Started episode 278 of 10000
-Finished idx_action: 2519	action size: 2541
-Finished episode 278 of 10000
-len(agent.replay_memory): 21115
-Saved model from episode 278. Count of epochs trained: 0
-  3%|2         | 278/10000 [32:28<8:46:12,  3.25s/episode]
-Started episode 279 of 10000
-Finished episode 279 of 10000
-len(agent.replay_memory): 21140
-Saved model from episode 279. Count of epochs trained: 0
-  3%|2         | 279/10000 [32:31<8:44:28,  3.24s/episode]
-Started episode 280 of 10000
-Finished episode 280 of 10000
-len(agent.replay_memory): 21165
-Saved model from episode 280. Count of epochs trained: 0
-  3%|2         | 280/10000 [32:36<10:08:35,  3.76s/episode]
-Started episode 281 of 10000
-Finished episode 281 of 10000
-len(agent.replay_memory): 21190
-Saved model from episode 281. Count of epochs trained: 0
-  3%|2         | 281/10000 [32:39<9:38:29,  3.57s/episode] 
-Started episode 282 of 10000
-Finished idx_action: 2530	action size: 2541
-Finished initializing all actions. Predicting from model.
-Finished episode 282 of 10000
-len(agent.replay_memory): 21218
-Saved model from episode 282. Count of epochs trained: 0
-  3%|2         | 282/10000 [32:43<9:30:22,  3.52s/episode]
-Started episode 283 of 10000
-Finished episode 283 of 10000
-len(agent.replay_memory): 31291
-Saved model from episode 283. Count of epochs trained: 0
-  3%|2         | 283/10000 [44:29<578:33:13, 214.35s/episode]
-Started episode 284 of 10000
-Finished episode 284 of 10000
-len(agent.replay_memory): 41364
-Saved model from episode 284. Count of epochs trained: 0
-  3%|2         | 284/10000 [56:14<976:16:08, 361.73s/episode]
-Started episode 285 of 10000
+2024-01-11 19:55:34.703269: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-11 19:55:35.003801: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 19:55:35.033323: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 19:55:35.033459: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 19:55:35.034219: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 19:55:35.034347: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 19:55:35.034464: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 19:55:35.773719: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 19:55:35.773892: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 19:55:35.774019: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-11 19:55:35.774126: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4409 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-11 19:55:37.371884: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
