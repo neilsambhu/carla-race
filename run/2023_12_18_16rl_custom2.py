@@ -594,7 +594,7 @@ if __name__ == "__main__":
             print(f'\nStarted episode {episode} of {EPISODES}')
             if bGAIVI:
                 nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-                nvidia_smi.wait()
+                # nvidia_smi.wait()
 
             env.collision_hist = []
             agent.tensorboard.step = episode
