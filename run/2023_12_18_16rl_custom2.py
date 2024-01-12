@@ -310,7 +310,6 @@ with strategy.scope():
 
             self.replay_memory = deque(maxlen=REPLAY_MEMORY_SIZE)
 
-            self.tensorboard = ModifiedTensorBoard(log_dir=f"logs/{MODEL_NAME}-{int(time.time())}")
             self.target_update_counter = 0
             # Neil commented `self.graph = tf.get_default_graph()`
 

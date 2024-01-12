@@ -68,3 +68,7 @@ len(agent.replay_memory): 26213
 Count of epochs trained: 4	Goal: 5
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:13<00:00, 193.20s/epoch][A100%|##########| 1/1 [03:13<00:00, 193.20s/epoch]
+Saved model from episode 287. Count of epochs trained: 5
+  0%|          | 5/9718 [21:34<697:46:56, 258.62s/episode]
+Started episode 288 of 10000
