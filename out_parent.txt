@@ -98,3 +98,21 @@ len(agent.replay_memory): 27435
 Count of epochs trained: 7	Goal: 8
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:15<00:00, 195.60s/epoch][A100%|##########| 1/1 [03:15<00:00, 195.60s/epoch]
+Saved model from episode 290. Count of epochs trained: 8
+  0%|          | 8/9718 [32:46<621:12:05, 230.31s/episode]
+Started episode 291 of 10000
+Finished episode 291 of 10000
+len(agent.replay_memory): 27546
+Count of epochs trained: 8	Goal: 9
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:13<00:00, 193.84s/epoch][A100%|##########| 1/1 [03:13<00:00, 193.84s/epoch]
+Saved model from episode 291. Count of epochs trained: 9
+  0%|          | 9/9718 [36:09<597:45:11, 221.64s/episode]
+Started episode 292 of 10000
+Finished episode 292 of 10000
+len(agent.replay_memory): 27657
+Count of epochs trained: 9	Goal: 10
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A

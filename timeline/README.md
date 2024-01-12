@@ -823,3 +823,7 @@ python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_co
 1/8/2024 11:30 PM: ground truth CARLA AP at 5 kmh is not very good. Next attempt is to have the model learn with neither (1) random actions nor (2) ground truth CARLA AP.  
 1/8/2024 11:42 PM: training is such that agent never chooses an action.  
 1/10/2024 7:55 PM: potential TODO: initialize pairs of 462 actions. 462 actions \* 461 actions = 212982 action transitions = 2114 episodes' worth of frames.  
+1/11/2024 8:31 PM: GAIVI command
+```
+scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi.sh && sleep 5 && tail -f slurm*
+```
