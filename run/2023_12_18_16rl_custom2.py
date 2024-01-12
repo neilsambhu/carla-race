@@ -54,8 +54,8 @@ REPLAY_MEMORY_SIZE = 50_000
 if bSAMBHU24:
     MINIBATCH_SIZE = 128 # 6 GB GPU memory
 else:
-    MINIBATCH_SIZE = 128*2*8
-    # MINIBATCH_SIZE = 512
+    # MINIBATCH_SIZE = 128*2*8
+    MINIBATCH_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = 20_000
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -99,42 +99,6 @@ action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
                 # 'brake': np.linspace(0.0, 1.0, num=2)}
 # print(action_space);import sys;sys.exit()
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
-
-# Own Tensorboard class
-class ModifiedTensorBoard(TensorBoard):
-
-    # Overriding init to set initial step and writer (we want one log file for all .fit() calls)
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.step = 1
-        self.writer = tf.summary.create_file_writer(self.log_dir) # Neil modified `self.writer = tf.summary.FileWriter(self.log_dir)`
-
-    # Overriding this method to stop creating default log writer
-    def set_model(self, model):
-        pass
-
-    # Overrided, saves logs with our step number
-    # (otherwise every .fit() will start writing from 0th step)
-    def on_epoch_end(self, epoch, logs=None):
-        super().on_epoch_end(epoch, logs)
-        self.update_stats(**logs)
-
-    # Overrided
-    # We train for one batch only, no need to save anything at epoch end
-    def on_batch_end(self, batch, logs=None):
-        pass
-
-    # Overrided, so won't close writer
-    def on_train_end(self, _):
-        pass
-
-    # Custom method for saving own metrics
-    # Creates writer, writes custom metrics and closes writer
-    def update_stats(self, **stats):
-        _ = [tf.summary.scalar(key, value, step=self.step) for key, value in stats.items()] # Neil commented `self._write_logs(stats, self.step)`
-
-    def on_train_begin(self, logs=None):
-        self._train_dir = self.log_dir
 
 class CarEnv:
     SHOW_CAM = SHOW_PREVIEW
