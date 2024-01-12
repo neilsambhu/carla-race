@@ -30,7 +30,7 @@ except IndexError:
     pass
 import carla
 
-bGAIVI = False
+bGAIVI = True
 
 
 SHOW_PREVIEW = False
@@ -529,11 +529,11 @@ if __name__ == "__main__":
     idx_episode_start = 1
     idx_action = 0
     import glob, shutil
-    bLoadReplayMemory = False
+    bLoadReplayMemory = True
     if bLoadReplayMemory:
-        with open('bak/063.replay_memory', 'rb') as file:
+        with open('bak/0282.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
-        idx_episode_start = 64
+        idx_episode_start = 283
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()
@@ -591,9 +591,9 @@ if __name__ == "__main__":
                 [shutil.rmtree(matching_file) for matching_file in matching_files]
 
             print(f'\nStarted episode {episode} of {EPISODES}')
-            # if bGAIVI:
-            #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-            #     nvidia_smi.wait()
+            if bGAIVI:
+                nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+                nvidia_smi.wait()
 
             env.collision_hist = []
             agent.tensorboard.step = episode
@@ -707,8 +707,10 @@ if __name__ == "__main__":
                 # epochs = 1
                 epochs = 0
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
-                epochs = 10
-                # epochs = int(1e6)
+                if bSAMBHU24:
+                    epochs = 10
+                else:
+                    epochs = int(1e6)
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
