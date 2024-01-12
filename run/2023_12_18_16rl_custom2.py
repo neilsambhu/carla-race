@@ -52,8 +52,8 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 50_000
 # MINIBATCH_SIZE = 128 # 6 GB GPU memory
 # MINIBATCH_SIZE = 128*1*13*4*2
-MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
-MIN_REPLAY_MEMORY_SIZE = 4*MINIBATCH_SIZE
+MINIBATCH_SIZE = 1024
+MIN_REPLAY_MEMORY_SIZE = 20_000
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 # TRAINING_BATCH_SIZE = 1
@@ -705,8 +705,11 @@ if __name__ == "__main__":
             if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
                 epochs = 0
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                # epochs = 1
-                epochs = 0
+                if bSAMBHU24:
+                    epochs = 1
+                    # epochs = 0
+                else:
+                    epochs = int(1e3)
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 if bSAMBHU24:
                     epochs = 10

@@ -1655,3 +1655,8 @@ len(agent.replay_memory): 31291
 Saved model from episode 283. Count of epochs trained: 0
   3%|2         | 283/10000 [44:29<578:33:13, 214.35s/episode]
 Started episode 284 of 10000
+Finished episode 284 of 10000
+len(agent.replay_memory): 41364
+Saved model from episode 284. Count of epochs trained: 0
+  3%|2         | 284/10000 [56:14<976:16:08, 361.73s/episode]
+Started episode 285 of 10000
