@@ -1,26 +1,26 @@
-2024-01-12 14:28:35.206592: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-12 14:28:35.228630: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-12 14:28:35.228649: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-12 14:28:35.229222: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-12 14:28:35.232528: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-12 14:46:50.419799: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-12 14:46:50.441970: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-12 14:46:50.441989: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-12 14:46:50.442532: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-12 14:46:50.445868: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-12 14:28:35.640714: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-12 14:28:35.938006: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 14:28:35.967675: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 14:28:35.967824: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 14:28:35.968625: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 14:28:35.968762: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 14:28:35.968877: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 14:28:36.651908: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 14:28:36.652055: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 14:28:36.652183: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 14:28:36.652264: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4412 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-2024-01-12 14:28:38.228625: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-12 14:28:39.147291: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f77569b9390 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-12 14:28:39.147309: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-12 14:28:39.150167: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-12 14:46:50.859890: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-12 14:46:51.147094: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 14:46:51.176608: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 14:46:51.176745: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 14:46:51.177659: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 14:46:51.177803: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 14:46:51.177935: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 14:46:51.899600: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 14:46:51.899741: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 14:46:51.899879: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 14:46:51.899979: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4408 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-12 14:46:53.517365: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-12 14:46:54.443356: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fa87a6b3250 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-12 14:46:54.443374: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-12 14:46:54.446278: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705087719.222378 1254391 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1705088814.517040 1389138 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
@@ -32,48 +32,615 @@ Count of epochs trained: 0	Goal: 1
 
   0%|          | 0/1 [00:00<?, ?epoch/s][AFinished training first batch.
 
-100%|##########| 1/1 [03:11<00:00, 191.50s/epoch][A100%|##########| 1/1 [03:11<00:00, 191.50s/epoch]
+100%|##########| 1/1 [03:11<00:00, 191.28s/epoch][A100%|##########| 1/1 [03:11<00:00, 191.28s/epoch]
 Saved model from episode 283. Count of epochs trained: 1
-  0%|          | 1/9718 [03:19<539:41:31, 199.95s/episode]
+  0%|          | 1/9718 [03:17<532:43:48, 197.37s/episode]
 Started episode 284 of 10000
 Finished episode 284 of 10000
 len(agent.replay_memory): 21416
 Count of epochs trained: 1	Goal: 2
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
-100%|##########| 1/1 [03:09<00:00, 189.89s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.89s/epoch]
+100%|##########| 1/1 [03:09<00:00, 189.92s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.92s/epoch]
 Saved model from episode 284. Count of epochs trained: 2
-  0%|          | 2/9718 [06:38<536:39:57, 198.85s/episode]
+  0%|          | 2/9718 [06:33<530:08:01, 196.43s/episode]
 Started episode 285 of 10000
 Finished episode 285 of 10000
 len(agent.replay_memory): 21515
 Count of epochs trained: 2	Goal: 3
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
-100%|##########| 1/1 [03:09<00:00, 189.51s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.51s/epoch]
+100%|##########| 1/1 [03:09<00:00, 189.50s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.50s/epoch]
 Saved model from episode 285. Count of epochs trained: 3
-  0%|          | 3/9718 [09:55<535:20:49, 198.38s/episode]
+  0%|          | 3/9718 [09:48<529:02:28, 196.04s/episode]
 Started episode 286 of 10000
 Finished episode 286 of 10000
 len(agent.replay_memory): 21614
 Count of epochs trained: 3	Goal: 4
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
-100%|##########| 1/1 [03:08<00:00, 188.90s/epoch][A100%|##########| 1/1 [03:08<00:00, 188.90s/epoch]
+100%|##########| 1/1 [03:09<00:00, 189.58s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.58s/epoch]
 Saved model from episode 286. Count of epochs trained: 4
-  0%|          | 4/9718 [13:13<534:02:07, 197.91s/episode]
+  0%|          | 4/9718 [13:04<528:37:46, 195.91s/episode]
 Started episode 287 of 10000
 Finished episode 287 of 10000
 len(agent.replay_memory): 21713
 Count of epochs trained: 4	Goal: 5
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
-100%|##########| 1/1 [03:10<00:00, 190.92s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.92s/epoch]
+100%|##########| 1/1 [03:09<00:00, 189.87s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.87s/epoch]
 Saved model from episode 287. Count of epochs trained: 5
-  0%|          | 5/9718 [16:32<535:27:14, 198.46s/episode]
+  0%|          | 5/9718 [16:20<528:40:32, 195.95s/episode]
 Started episode 288 of 10000
 Finished episode 288 of 10000
 len(agent.replay_memory): 21812
 Count of epochs trained: 5	Goal: 6
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.57s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.57s/epoch]
+Saved model from episode 288. Count of epochs trained: 6
+  0%|          | 6/9718 [19:35<528:15:20, 195.81s/episode]
+Started episode 289 of 10000
+Finished episode 289 of 10000
+len(agent.replay_memory): 21911
+Count of epochs trained: 6	Goal: 7
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.03s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.03s/epoch]
+Saved model from episode 289. Count of epochs trained: 7
+  0%|          | 7/9718 [22:52<528:24:59, 195.89s/episode]
+Started episode 290 of 10000
+Finished episode 290 of 10000
+len(agent.replay_memory): 22010
+Count of epochs trained: 7	Goal: 8
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.70s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.70s/epoch]
+Saved model from episode 290. Count of epochs trained: 8
+  0%|          | 8/9718 [26:07<528:14:25, 195.85s/episode]
+Started episode 291 of 10000
+Finished episode 291 of 10000
+len(agent.replay_memory): 22109
+Count of epochs trained: 8	Goal: 9
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.45s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.45s/epoch]
+Saved model from episode 291. Count of epochs trained: 9
+  0%|          | 9/9718 [29:23<527:55:21, 195.75s/episode]
+Started episode 292 of 10000
+Finished episode 292 of 10000
+len(agent.replay_memory): 22208
+Count of epochs trained: 9	Goal: 10
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.25s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.25s/epoch]
+Saved model from episode 292. Count of epochs trained: 10
+  0%|          | 10/9718 [32:38<527:29:25, 195.61s/episode]
+Started episode 293 of 10000
+Finished episode 293 of 10000
+len(agent.replay_memory): 22307
+Count of epochs trained: 10	Goal: 11
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.41s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.41s/epoch]
+Saved model from episode 293. Count of epochs trained: 11
+  0%|          | 11/9718 [35:54<527:22:07, 195.58s/episode]
+Started episode 294 of 10000
+Finished episode 294 of 10000
+len(agent.replay_memory): 22406
+Count of epochs trained: 11	Goal: 12
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.50s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.50s/epoch]
+Saved model from episode 294. Count of epochs trained: 12
+  0%|          | 12/9718 [39:09<527:18:53, 195.58s/episode]
+Started episode 295 of 10000
+Finished episode 295 of 10000
+len(agent.replay_memory): 22505
+Count of epochs trained: 12	Goal: 13
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.55s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.55s/epoch]
+Saved model from episode 295. Count of epochs trained: 13
+  0%|          | 13/9718 [42:25<527:19:41, 195.61s/episode]
+Started episode 296 of 10000
+Finished episode 296 of 10000
+len(agent.replay_memory): 22604
+Count of epochs trained: 13	Goal: 14
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.79s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.79s/epoch]
+Saved model from episode 296. Count of epochs trained: 14
+  0%|          | 14/9718 [45:41<527:25:07, 195.66s/episode]
+Started episode 297 of 10000
+Finished episode 297 of 10000
+len(agent.replay_memory): 22703
+Count of epochs trained: 14	Goal: 15
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.79s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.79s/epoch]
+Saved model from episode 297. Count of epochs trained: 15
+  0%|          | 15/9718 [48:57<527:37:36, 195.76s/episode]
+Started episode 298 of 10000
+Finished episode 298 of 10000
+len(agent.replay_memory): 22802
+Count of epochs trained: 15	Goal: 16
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.36s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.36s/epoch]
+Saved model from episode 298. Count of epochs trained: 16
+  0%|          | 16/9718 [52:13<528:02:31, 195.93s/episode]
+Started episode 299 of 10000
+Finished episode 299 of 10000
+len(agent.replay_memory): 22901
+Count of epochs trained: 16	Goal: 17
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.13s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.13s/epoch]
+Saved model from episode 299. Count of epochs trained: 17
+  0%|          | 17/9718 [55:29<528:17:06, 196.04s/episode]
+Started episode 300 of 10000
+Finished episode 300 of 10000
+len(agent.replay_memory): 23000
+Count of epochs trained: 17	Goal: 18
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.59s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.59s/epoch]
+Saved model from episode 300. Count of epochs trained: 18
+  0%|          | 18/9718 [58:45<527:49:37, 195.89s/episode]
+Started episode 301 of 10000
+Finished episode 301 of 10000
+len(agent.replay_memory): 23099
+Count of epochs trained: 18	Goal: 19
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.32s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.32s/epoch]
+Saved model from episode 301. Count of epochs trained: 19
+  0%|          | 19/9718 [1:02:00<527:25:40, 195.77s/episode]
+Started episode 302 of 10000
+Finished episode 302 of 10000
+len(agent.replay_memory): 23198
+Count of epochs trained: 19	Goal: 20
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.85s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.85s/epoch]
+Saved model from episode 302. Count of epochs trained: 20
+  0%|          | 20/9718 [1:05:16<527:25:25, 195.79s/episode]
+Started episode 303 of 10000
+Finished episode 303 of 10000
+len(agent.replay_memory): 23297
+Count of epochs trained: 20	Goal: 21
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.74s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.74s/epoch]
+Saved model from episode 303. Count of epochs trained: 21
+  0%|          | 21/9718 [1:08:32<527:38:33, 195.89s/episode]
+Started episode 304 of 10000
+Finished episode 304 of 10000
+len(agent.replay_memory): 23396
+Count of epochs trained: 21	Goal: 22
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.02s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.02s/epoch]
+Saved model from episode 304. Count of epochs trained: 22
+  0%|          | 22/9718 [1:11:48<527:43:05, 195.93s/episode]
+Started episode 305 of 10000
+Finished episode 305 of 10000
+len(agent.replay_memory): 23495
+Count of epochs trained: 22	Goal: 23
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.95s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.95s/epoch]
+Saved model from episode 305. Count of epochs trained: 23
+  0%|          | 23/9718 [1:15:04<527:45:19, 195.97s/episode]
+Started episode 306 of 10000
+Finished episode 306 of 10000
+len(agent.replay_memory): 23594
+Count of epochs trained: 23	Goal: 24
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.02s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.02s/epoch]
+Saved model from episode 306. Count of epochs trained: 24
+  0%|          | 24/9718 [1:18:20<527:48:54, 196.01s/episode]
+Started episode 307 of 10000
+Finished episode 307 of 10000
+len(agent.replay_memory): 23693
+Count of epochs trained: 24	Goal: 25
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.35s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.35s/epoch]
+Saved model from episode 307. Count of epochs trained: 25
+  0%|          | 25/9718 [1:21:37<528:09:27, 196.16s/episode]
+Started episode 308 of 10000
+Finished episode 308 of 10000
+len(agent.replay_memory): 23792
+Count of epochs trained: 25	Goal: 26
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.20s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.20s/epoch]
+Saved model from episode 308. Count of epochs trained: 26
+  0%|          | 26/9718 [1:24:53<528:06:35, 196.16s/episode]
+Started episode 309 of 10000
+Finished episode 309 of 10000
+len(agent.replay_memory): 23891
+Count of epochs trained: 26	Goal: 27
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.86s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.86s/epoch]
+Saved model from episode 309. Count of epochs trained: 27
+  0%|          | 27/9718 [1:28:09<527:53:39, 196.10s/episode]
+Started episode 310 of 10000
+Finished episode 310 of 10000
+len(agent.replay_memory): 23990
+Count of epochs trained: 27	Goal: 28
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.84s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.84s/epoch]
+Saved model from episode 310. Count of epochs trained: 28
+  0%|          | 28/9718 [1:31:25<527:35:17, 196.01s/episode]
+Started episode 311 of 10000
+Finished episode 311 of 10000
+len(agent.replay_memory): 24089
+Count of epochs trained: 28	Goal: 29
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.96s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.96s/epoch]
+Saved model from episode 311. Count of epochs trained: 29
+  0%|          | 29/9718 [1:34:41<527:38:40, 196.05s/episode]
+Started episode 312 of 10000
+Finished episode 312 of 10000
+len(agent.replay_memory): 24188
+Count of epochs trained: 29	Goal: 30
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.55s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.55s/epoch]
+Saved model from episode 312. Count of epochs trained: 30
+  0%|          | 30/9718 [1:37:58<527:59:30, 196.20s/episode]
+Started episode 313 of 10000
+Finished episode 313 of 10000
+len(agent.replay_memory): 24287
+Count of epochs trained: 30	Goal: 31
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.72s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.72s/epoch]
+Saved model from episode 313. Count of epochs trained: 31
+  0%|          | 31/9718 [1:41:13<527:39:46, 196.10s/episode]
+Started episode 314 of 10000
+Finished episode 314 of 10000
+len(agent.replay_memory): 24386
+Count of epochs trained: 31	Goal: 32
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.91s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.91s/epoch]
+Saved model from episode 314. Count of epochs trained: 32
+  0%|          | 32/9718 [1:44:30<527:35:07, 196.09s/episode]
+Started episode 315 of 10000
+Finished episode 315 of 10000
+len(agent.replay_memory): 24485
+Count of epochs trained: 32	Goal: 33
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.13s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.13s/epoch]
+Saved model from episode 315. Count of epochs trained: 33
+  0%|          | 33/9718 [1:47:46<527:43:58, 196.16s/episode]
+Started episode 316 of 10000
+Finished episode 316 of 10000
+len(agent.replay_memory): 24584
+Count of epochs trained: 33	Goal: 34
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.67s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.67s/epoch]
+Saved model from episode 316. Count of epochs trained: 34
+  0%|          | 34/9718 [1:51:03<528:08:34, 196.34s/episode]
+Started episode 317 of 10000
+Finished episode 317 of 10000
+len(agent.replay_memory): 24683
+Count of epochs trained: 34	Goal: 35
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.53s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.53s/epoch]
+Saved model from episode 317. Count of epochs trained: 35
+  0%|          | 35/9718 [1:54:19<528:19:22, 196.42s/episode]
+Started episode 318 of 10000
+Finished episode 318 of 10000
+len(agent.replay_memory): 24782
+Count of epochs trained: 35	Goal: 36
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.65s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.65s/epoch]
+Saved model from episode 318. Count of epochs trained: 36
+  0%|          | 36/9718 [1:57:35<527:38:46, 196.19s/episode]
+Started episode 319 of 10000
+Finished episode 319 of 10000
+len(agent.replay_memory): 24881
+Count of epochs trained: 36	Goal: 37
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.37s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.37s/epoch]
+Saved model from episode 319. Count of epochs trained: 37
+  0%|          | 37/9718 [2:00:51<527:51:42, 196.29s/episode]
+Started episode 320 of 10000
+Finished episode 320 of 10000
+len(agent.replay_memory): 24980
+Count of epochs trained: 37	Goal: 38
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.67s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.67s/epoch]
+Saved model from episode 320. Count of epochs trained: 38
+  0%|          | 38/9718 [2:04:07<527:27:23, 196.16s/episode]
+Started episode 321 of 10000
+Finished episode 321 of 10000
+len(agent.replay_memory): 25079
+Count of epochs trained: 38	Goal: 39
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.40s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.40s/epoch]
+Saved model from episode 321. Count of epochs trained: 39
+  0%|          | 39/9718 [2:07:24<527:38:29, 196.25s/episode]
+Started episode 322 of 10000
+Finished episode 322 of 10000
+len(agent.replay_memory): 25178
+Count of epochs trained: 39	Goal: 40
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.95s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.95s/epoch]
+Saved model from episode 322. Count of epochs trained: 40
+  0%|          | 40/9718 [2:10:40<527:26:36, 196.20s/episode]
+Started episode 323 of 10000
+Finished episode 323 of 10000
+len(agent.replay_memory): 25277
+Count of epochs trained: 40	Goal: 41
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.91s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.91s/epoch]
+Saved model from episode 323. Count of epochs trained: 41
+  0%|          | 41/9718 [2:13:56<527:19:01, 196.17s/episode]
+Started episode 324 of 10000
+Finished episode 324 of 10000
+len(agent.replay_memory): 25376
+Count of epochs trained: 41	Goal: 42
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.08s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.08s/epoch]
+Saved model from episode 324. Count of epochs trained: 42
+  0%|          | 42/9718 [2:17:12<527:22:06, 196.21s/episode]
+Started episode 325 of 10000
+Finished episode 325 of 10000
+len(agent.replay_memory): 25475
+Count of epochs trained: 42	Goal: 43
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.13s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.13s/epoch]
+Saved model from episode 325. Count of epochs trained: 43
+  0%|          | 43/9718 [2:20:28<527:19:12, 196.21s/episode]
+Started episode 326 of 10000
+Finished episode 326 of 10000
+len(agent.replay_memory): 25574
+Count of epochs trained: 43	Goal: 44
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.31s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.31s/epoch]
+Saved model from episode 326. Count of epochs trained: 44
+  0%|          | 44/9718 [2:23:45<527:33:35, 196.32s/episode]
+Started episode 327 of 10000
+Finished episode 327 of 10000
+len(agent.replay_memory): 25673
+Count of epochs trained: 44	Goal: 45
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.66s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.66s/epoch]
+Saved model from episode 327. Count of epochs trained: 45
+  0%|          | 45/9718 [2:27:01<527:04:23, 196.16s/episode]
+Started episode 328 of 10000
+Finished episode 328 of 10000
+len(agent.replay_memory): 25772
+Count of epochs trained: 45	Goal: 46
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.16s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.16s/epoch]
+Saved model from episode 328. Count of epochs trained: 46
+  0%|          | 46/9718 [2:30:17<527:04:53, 196.18s/episode]
+Started episode 329 of 10000
+Finished episode 329 of 10000
+len(agent.replay_memory): 25871
+Count of epochs trained: 46	Goal: 47
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.21s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.21s/epoch]
+Saved model from episode 329. Count of epochs trained: 47
+  0%|          | 47/9718 [2:33:34<527:21:39, 196.31s/episode]
+Started episode 330 of 10000
+Finished episode 330 of 10000
+len(agent.replay_memory): 25970
+Count of epochs trained: 47	Goal: 48
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.59s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.59s/epoch]
+Saved model from episode 330. Count of epochs trained: 48
+  0%|          | 48/9718 [2:36:49<526:41:44, 196.08s/episode]
+Started episode 331 of 10000
+Finished episode 331 of 10000
+len(agent.replay_memory): 26069
+Count of epochs trained: 48	Goal: 49
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.08s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.08s/epoch]
+Saved model from episode 331. Count of epochs trained: 49
+  1%|          | 49/9718 [2:40:05<526:44:08, 196.12s/episode]
+Started episode 332 of 10000
+Finished episode 332 of 10000
+len(agent.replay_memory): 26168
+Count of epochs trained: 49	Goal: 50
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.75s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.75s/epoch]
+Saved model from episode 332. Count of epochs trained: 50
+  1%|          | 50/9718 [2:43:21<526:26:31, 196.03s/episode]
+Started episode 333 of 10000
+Finished episode 333 of 10000
+len(agent.replay_memory): 26267
+Count of epochs trained: 50	Goal: 51
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.71s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.71s/epoch]
+Saved model from episode 333. Count of epochs trained: 51
+  1%|          | 51/9718 [2:46:37<526:20:19, 196.01s/episode]
+Started episode 334 of 10000
+Finished episode 334 of 10000
+len(agent.replay_memory): 26366
+Count of epochs trained: 51	Goal: 52
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.64s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.64s/epoch]
+Saved model from episode 334. Count of epochs trained: 52
+  1%|          | 52/9718 [2:49:53<526:07:01, 195.95s/episode]
+Started episode 335 of 10000
+Finished episode 335 of 10000
+len(agent.replay_memory): 26465
+Count of epochs trained: 52	Goal: 53
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.13s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.13s/epoch]
+Saved model from episode 335. Count of epochs trained: 53
+  1%|          | 53/9718 [2:53:09<526:22:50, 196.07s/episode]
+Started episode 336 of 10000
+Finished episode 336 of 10000
+len(agent.replay_memory): 26564
+Count of epochs trained: 53	Goal: 54
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.90s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.90s/epoch]
+Saved model from episode 336. Count of epochs trained: 54
+  1%|          | 54/9718 [2:56:25<526:20:25, 196.07s/episode]
+Started episode 337 of 10000
+Finished episode 337 of 10000
+len(agent.replay_memory): 26663
+Count of epochs trained: 54	Goal: 55
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.26s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.26s/epoch]
+Saved model from episode 337. Count of epochs trained: 55
+  1%|          | 55/9718 [2:59:42<526:34:54, 196.18s/episode]
+Started episode 338 of 10000
+Finished episode 338 of 10000
+len(agent.replay_memory): 26762
+Count of epochs trained: 55	Goal: 56
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.74s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.74s/epoch]
+Saved model from episode 338. Count of epochs trained: 56
+  1%|          | 56/9718 [3:02:58<526:15:06, 196.08s/episode]
+Started episode 339 of 10000
+Finished episode 339 of 10000
+len(agent.replay_memory): 26861
+Count of epochs trained: 56	Goal: 57
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.04s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.04s/epoch]
+Saved model from episode 339. Count of epochs trained: 57
+  1%|          | 57/9718 [3:06:14<526:21:55, 196.14s/episode]
+Started episode 340 of 10000
+Finished episode 340 of 10000
+len(agent.replay_memory): 26960
+Count of epochs trained: 57	Goal: 58
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.28s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.28s/epoch]
+Saved model from episode 340. Count of epochs trained: 58
+  1%|          | 58/9718 [3:09:30<526:32:45, 196.23s/episode]
+Started episode 341 of 10000
+Finished episode 341 of 10000
+len(agent.replay_memory): 27059
+Count of epochs trained: 58	Goal: 59
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:11<00:00, 191.10s/epoch][A100%|##########| 1/1 [03:11<00:00, 191.10s/epoch]
+Saved model from episode 341. Count of epochs trained: 59
+  1%|          | 59/9718 [3:12:48<527:22:04, 196.55s/episode]
+Started episode 342 of 10000
+Finished episode 342 of 10000
+len(agent.replay_memory): 27158
+Count of epochs trained: 59	Goal: 60
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:11<00:00, 191.14s/epoch][A100%|##########| 1/1 [03:11<00:00, 191.14s/epoch]
+Saved model from episode 342. Count of epochs trained: 60
+  1%|          | 60/9718 [3:16:05<527:55:57, 196.79s/episode]
+Started episode 343 of 10000
+Finished episode 343 of 10000
+len(agent.replay_memory): 27257
+Count of epochs trained: 60	Goal: 61
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.21s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.21s/epoch]
+Saved model from episode 343. Count of epochs trained: 61
+  1%|          | 61/9718 [3:19:21<527:33:10, 196.66s/episode]
+Started episode 344 of 10000
+Finished episode 344 of 10000
+len(agent.replay_memory): 27356
+Count of epochs trained: 61	Goal: 62
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.08s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.08s/epoch]
+Saved model from episode 344. Count of epochs trained: 62
+  1%|          | 62/9718 [3:22:38<527:11:30, 196.55s/episode]
+Started episode 345 of 10000
+Finished episode 345 of 10000
+len(agent.replay_memory): 27455
+Count of epochs trained: 62	Goal: 63
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.86s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.86s/epoch]
+Saved model from episode 345. Count of epochs trained: 63
+  1%|          | 63/9718 [3:25:55<527:32:28, 196.70s/episode]
+Started episode 346 of 10000
+Finished episode 346 of 10000
+len(agent.replay_memory): 27554
+Count of epochs trained: 63	Goal: 64
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.58s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.58s/epoch]
+Saved model from episode 346. Count of epochs trained: 64
+  1%|          | 64/9718 [3:29:11<527:29:19, 196.70s/episode]
+Started episode 347 of 10000
+Finished episode 347 of 10000
+len(agent.replay_memory): 27653
+Count of epochs trained: 64	Goal: 65
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.82s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.82s/epoch]
+Saved model from episode 347. Count of epochs trained: 65
+  1%|          | 65/9718 [3:32:28<527:42:19, 196.80s/episode]
+Started episode 348 of 10000
+Finished episode 348 of 10000
+len(agent.replay_memory): 27752
+Count of epochs trained: 65	Goal: 66
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.17s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.17s/epoch]
+Saved model from episode 348. Count of epochs trained: 66
+  1%|          | 66/9718 [3:35:45<527:16:59, 196.67s/episode]
+Started episode 349 of 10000
+Finished episode 349 of 10000
+len(agent.replay_memory): 27851
+Count of epochs trained: 66	Goal: 67
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:09<00:00, 189.52s/epoch][A100%|##########| 1/1 [03:09<00:00, 189.52s/epoch]
+Saved model from episode 349. Count of epochs trained: 67
+  1%|          | 67/9718 [3:39:01<526:28:39, 196.39s/episode]
+Started episode 350 of 10000
+Finished episode 350 of 10000
+len(agent.replay_memory): 27950
+Count of epochs trained: 67	Goal: 68
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:12<00:00, 192.37s/epoch][A100%|##########| 1/1 [03:12<00:00, 192.37s/epoch]
+Saved model from episode 350. Count of epochs trained: 68
+  1%|          | 68/9718 [3:42:19<528:09:16, 197.03s/episode]
+Started episode 351 of 10000
+Finished episode 351 of 10000
+len(agent.replay_memory): 28049
+Count of epochs trained: 68	Goal: 69
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
