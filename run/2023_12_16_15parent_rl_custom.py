@@ -65,7 +65,7 @@ while len(glob.glob('models/final.model')) == 0:
                 # carla = subprocess.Popen(f'srun singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
                 # carla = subprocess.Popen(f'srun singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen & wait {30*24*60*60}', shell=True)
                 # carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh', shell=True, preexec_fn=os.setsid)
-                carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh', shell=True)
+                carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh ', shell=True)
                 # carla = subprocess.Popen(f'srun -w GPU17 --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
                 # carla = subprocess.Popen(f'srun --partition Contributors --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True)
                 carla.wait()
