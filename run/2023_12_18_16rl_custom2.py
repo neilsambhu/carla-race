@@ -15,7 +15,7 @@ from tensorflow.keras.models import Model # Neil modified `from keras.models imp
 import tensorflow as tf
 import tensorflow.keras.backend as backend # Neil modified `import keras.backend.tensorflow_backend as backend`
 # from threading import Thread
-from tensorflow.keras.callbacks import TensorBoard # Neil modified `from keras.callbacks import TensorBoard`
+# from tensorflow.keras.callbacks import TensorBoard # Neil modified `from keras.callbacks import TensorBoard`
 
 from tqdm import tqdm
 import pickle
@@ -408,9 +408,6 @@ with strategy.scope():
                 y.append(current_qs)
 
             log_this_step = False
-            if self.tensorboard.step > self.last_logged_episode:
-                log_this_step = True
-                self.last_log_episode = self.tensorboard.step
 
             # Neil commented `with self.graph.as_default():`
             # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
@@ -564,7 +561,7 @@ if __name__ == "__main__":
                 # nvidia_smi.wait()
 
             env.collision_hist = []
-            agent.tensorboard.step = episode
+            # agent.tensorboard.step = episode
             env.episode = episode
             episode_reward = 0
             # step = 1
@@ -651,7 +648,7 @@ if __name__ == "__main__":
                 average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
                 min_reward = min(ep_rewards[-AGGREGATE_STATS_EVERY:])
                 max_reward = max(ep_rewards[-AGGREGATE_STATS_EVERY:])
-                agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
+                # agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
 
                 # Save model, but only when min reward is greater or equal a set value
                 if min_reward >= MIN_REWARD:

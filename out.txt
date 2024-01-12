@@ -72,3 +72,8 @@ Count of epochs trained: 4	Goal: 5
 Saved model from episode 287. Count of epochs trained: 5
   0%|          | 5/9718 [21:34<697:46:56, 258.62s/episode]
 Started episode 288 of 10000
+Finished episode 288 of 10000
+len(agent.replay_memory): 27212
+Count of epochs trained: 5	Goal: 6
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
