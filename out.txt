@@ -26,3 +26,81 @@ WARNING: Client API version     = 0.9.15
 WARNING: Simulator API version  = 0.9.14 
   0%|          | 0/9718 [00:00<?, ?episode/s]
 Started episode 283 of 10000
+Finished episode 283 of 10000
+len(agent.replay_memory): 22217
+Count of epochs trained: 0	Goal: 1
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][AFinished training first batch.
+
+100%|##########| 1/1 [03:12<00:00, 192.57s/epoch][A100%|##########| 1/1 [03:12<00:00, 192.57s/epoch]
+Saved model from episode 283. Count of epochs trained: 1
+  0%|          | 1/9718 [04:21<706:16:09, 261.66s/episode]
+Started episode 284 of 10000
+Finished episode 284 of 10000
+len(agent.replay_memory): 23216
+Count of epochs trained: 1	Goal: 2
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:12<00:00, 192.78s/epoch][A100%|##########| 1/1 [03:12<00:00, 192.78s/epoch]
+Saved model from episode 284. Count of epochs trained: 2
+  0%|          | 2/9718 [08:43<705:50:16, 261.53s/episode]
+Started episode 285 of 10000
+Finished episode 285 of 10000
+len(agent.replay_memory): 24215
+Count of epochs trained: 2	Goal: 3
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:10<00:00, 190.83s/epoch][A100%|##########| 1/1 [03:10<00:00, 190.83s/epoch]
+Saved model from episode 285. Count of epochs trained: 3
+  0%|          | 3/9718 [13:02<703:09:01, 260.56s/episode]
+Started episode 286 of 10000
+Finished episode 286 of 10000
+len(agent.replay_memory): 25214
+Count of epochs trained: 3	Goal: 4
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:11<00:00, 191.11s/epoch][A100%|##########| 1/1 [03:11<00:00, 191.11s/epoch]
+Saved model from episode 286. Count of epochs trained: 4
+  0%|          | 4/9718 [17:22<702:04:03, 260.19s/episode]
+Started episode 287 of 10000
+Finished episode 287 of 10000
+len(agent.replay_memory): 26213
+Count of epochs trained: 4	Goal: 5
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:11<00:00, 191.26s/epoch][A100%|##########| 1/1 [03:11<00:00, 191.26s/epoch]
+Saved model from episode 287. Count of epochs trained: 5
+  0%|          | 5/9718 [21:42<701:46:33, 260.10s/episode]
+Started episode 288 of 10000
+Finished episode 288 of 10000
+len(agent.replay_memory): 27212
+Count of epochs trained: 5	Goal: 6
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:12<00:00, 192.81s/epoch][A100%|##########| 1/1 [03:12<00:00, 192.81s/epoch]
+Saved model from episode 288. Count of epochs trained: 6
+  0%|          | 6/9718 [26:03<702:59:48, 260.58s/episode]
+Started episode 289 of 10000
+Finished episode 289 of 10000
+len(agent.replay_memory): 28211
+Count of epochs trained: 6	Goal: 7
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:12<00:00, 192.54s/epoch][A100%|##########| 1/1 [03:12<00:00, 192.54s/epoch]
+Saved model from episode 289. Count of epochs trained: 7
+  0%|          | 7/9718 [30:25<703:39:26, 260.86s/episode]
+Started episode 290 of 10000
+Finished episode 290 of 10000
+len(agent.replay_memory): 29210
+Count of epochs trained: 7	Goal: 8
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [03:12<00:00, 192.61s/epoch][A100%|##########| 1/1 [03:12<00:00, 192.61s/epoch]
+Saved model from episode 290. Count of epochs trained: 8
+  0%|          | 8/9718 [34:46<704:10:40, 261.08s/episode]
+Started episode 291 of 10000
+Finished episode 291 of 10000
+len(agent.replay_memory): 30209
+Count of epochs trained: 8	Goal: 9
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
