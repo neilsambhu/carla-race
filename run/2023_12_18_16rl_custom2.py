@@ -477,8 +477,8 @@ with strategy.scope():
             self.count_saved_models += 1
 
         def get_qs(self, state):
-            print(state.shape)
-            print(np.array(state).shape)
+            # print(state.shape)
+            # print(np.array(state).shape)
             # print(type(state))
             # print(state)
             # from PIL import Image
@@ -606,6 +606,10 @@ if __name__ == "__main__":
             episode_reward = 0
             # step = 1
             current_state = env.reset()
+            window_current_state = deque(maxlen=COUNT_FRAME_WINDOW)
+            for i in range(COUNT_FRAME_WINDOW):
+                window_current_state.append(np.asarray(current_state))
+
             if bSync and False:
                 env.world.tick()
                 env.idx_tick += 1
@@ -666,13 +670,16 @@ if __name__ == "__main__":
                             idx_action += 1
                     if idx_action >= action_size:
                         print(f'Finished initializing all actions. Predicting from model.')
-                        action = np.argmax(agent.get_qs(current_state))                    
+                        # action = np.argmax(agent.get_qs(current_state))                    
+                        action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                 else:
-                    action = np.argmax(agent.get_qs(current_state))                    
+                    # action = np.argmax(agent.get_qs(current_state))                    
+                    action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
 
                 new_state, reward, done, _ = env.step(action)            
                 episode_reward += reward
                 agent.update_replay_memory((current_state, action, reward, new_state, done))
+                window_current_state.append(np.asarray(current_state))
                 # agent.train_in_loop() # 12/19/2023 2:00 AM: Neil added
                 # step += 1
 
@@ -718,7 +725,8 @@ if __name__ == "__main__":
             #         epochs = int(1e3)
             # if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
-                    epochs = 10
+                    # epochs = 10
+                    epochs = 1
                 else:
                     epochs = int(1e6)
             if epochs > 0:
