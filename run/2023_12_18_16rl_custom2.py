@@ -384,13 +384,21 @@ with strategy.scope():
             sampled_indices = random.sample(range(len(self.replay_memory) - COUNT_FRAME_WINDOW + 1), MINIBATCH_SIZE)
             minibatch = []
             for index in sampled_indices:
-                
                 sequence = list(self.replay_memory)[index:index + COUNT_FRAME_WINDOW]
                 minibatch.append(sequence)
 
             # current_states = np.array([transition[0] for transition in minibatch])/255
             # current_states = np.array([transition[0] for transition in minibatch])
-            current_states = np.array([transition[:][0] for transition in minibatch])
+            # current_states = np.array([current_state for transition[0] in transition in minibatch])
+            current_states = []
+            new_current_states = []
+            for sequence in minibatch:
+                for frame in sequence:
+                    current_states.append(frame[0])
+                    new_current_states.append(frame[3])
+            current_states = np.asarray(current_states)
+            new_current_states = np.asarray(new_current_states)
+            print(f'len(minibatch): {len(minibatch)}\tcurrent_states.shape: {current_states.shape}\tnew_current_states.shape: {new_current_states.shape}')
             # Neil commented `with self.graph.as_default():`
             # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
             # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
@@ -402,7 +410,7 @@ with strategy.scope():
             
             # new_current_states = np.array([transition[3] for transition in minibatch])/255
             # new_current_states = np.array([transition[3] for transition in minibatch])
-            new_current_states = np.array([transition[:][3] for transition in minibatch])
+            # new_current_states = np.array([transition[:][3] for transition in minibatch])
             # Neil commented `with self.graph.as_default():`
             # future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
             future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE, verbose=0)
