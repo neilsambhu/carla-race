@@ -53,7 +53,7 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 50_000
 if bSAMBHU24:
     # MINIBATCH_SIZE = 128 # 6 GB GPU memory
-    MINIBATCH_SIZE = 130
+    MINIBATCH_SIZE = 64
 else:
     # MINIBATCH_SIZE = 128*2*8
     MINIBATCH_SIZE = 20_000

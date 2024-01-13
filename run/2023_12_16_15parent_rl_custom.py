@@ -42,8 +42,8 @@ def kill_carla_gaivi():
 
 # check if saved final model exists
 run = 1
-count_max_runs = 1
-# count_max_runs = int(1e6)
+# count_max_runs = 1
+count_max_runs = int(1e6)
 while len(glob.glob('models/final.model')) == 0 and run<=count_max_runs:
     print(f'Start run at count {run}')
     if bLocalCarla:

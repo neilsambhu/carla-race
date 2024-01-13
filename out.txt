@@ -1,26 +1,26 @@
-2024-01-12 23:42:32.365145: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-12 23:42:32.387119: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-12 23:42:32.387135: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-12 23:42:32.387701: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-12 23:42:32.391329: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-12 23:49:28.043865: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-12 23:49:28.065948: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-12 23:49:28.065963: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-12 23:49:28.066521: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-12 23:49:28.069895: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-12 23:42:32.810966: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-12 23:42:33.107056: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 23:42:33.137019: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 23:42:33.137178: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 23:42:33.138128: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 23:42:33.138352: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 23:42:33.138494: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 23:42:33.894009: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 23:42:33.894148: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 23:42:33.894270: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 23:42:33.894351: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4432 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-2024-01-12 23:42:35.902197: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-12 23:42:36.833961: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fb7b6bae110 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-12 23:42:36.833976: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-12 23:42:36.836795: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-12 23:49:28.497296: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-12 23:49:28.797738: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 23:49:28.826702: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 23:49:28.826848: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 23:49:28.827792: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 23:49:28.827992: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 23:49:28.828172: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 23:49:29.610453: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 23:49:29.610595: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 23:49:29.610702: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 23:49:29.610788: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4432 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-12 23:49:31.598144: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-12 23:49:32.522178: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fb0265390d0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-12 23:49:32.522194: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-12 23:49:32.525070: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705120956.895589   25000 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1705121372.586091   25652 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
@@ -30,49 +30,9 @@ Finished episode 323 of 10000
 len(agent.replay_memory): 20045
 Count of epochs trained: 0	Goal: 1
 
-  0%|          | 0/1 [00:00<?, ?epoch/s][A  0%|          | 0/1 [00:00<?, ?epoch/s]
-  0%|          | 0/9678 [00:05<?, ?episode/s]
-Error message: in user code:
-
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1401, in train_function  *
-        return step_function(self, iterator)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1384, in step_function  **
-        outputs = model.distribute_strategy.run(run_step, args=(data,))
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1373, in run_step  **
-        outputs = model.train_step(data)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1150, in train_step
-        y_pred = self(x, training=True)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
-        raise e.with_traceback(filtered_tb) from None
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/input_spec.py", line 298, in assert_input_compatibility
-        raise ValueError(
-
-    ValueError: Input 0 of layer "model" is incompatible with the layer: expected shape=(None, 4, 128, 128, 3), found shape=(None, 128, 128, 3)
-
-Traceback (most recent call last):
-  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 728, in <module>
-    agent.train()
-  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 450, in train
-    self.model.fit(
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
-    raise e.with_traceback(filtered_tb) from None
-  File "/tmp/__autograph_generated_file3zmnrr05.py", line 15, in tf__train_function
-    retval_ = ag__.converted_call(ag__.ld(step_function), (ag__.ld(self), ag__.ld(iterator)), None, fscope)
-ValueError: in user code:
-
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1401, in train_function  *
-        return step_function(self, iterator)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1384, in step_function  **
-        outputs = model.distribute_strategy.run(run_step, args=(data,))
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1373, in run_step  **
-        outputs = model.train_step(data)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1150, in train_step
-        y_pred = self(x, training=True)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
-        raise e.with_traceback(filtered_tb) from None
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/input_spec.py", line 298, in assert_input_compatibility
-        raise ValueError(
-
-    ValueError: Input 0 of layer "model" is incompatible with the layer: expected shape=(None, 4, 128, 128, 3), found shape=(None, 128, 128, 3)
-
-Error during episode 323
+  0%|          | 0/1 [00:00<?, ?epoch/s][A2024-01-12 23:49:59.845208: W external/local_tsl/tsl/framework/bfc_allocator.cc:366] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you'd like to disable this feature.
+2024-01-12 23:50:01.728093: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.47GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2024-01-12 23:50:01.728122: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.47GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2024-01-12 23:50:01.852397: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.47GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2024-01-12 23:50:01.852445: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.47GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+Finished training first batch.
