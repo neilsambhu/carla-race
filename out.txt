@@ -21,3 +21,9 @@ To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other ope
 2024-01-13 00:53:17.304000: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
 I0000 00:00:1705125197.364938  396460 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Traceback (most recent call last):
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 573, in <module>
+    env = CarEnv()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 132, in __init__
+    self.world = self.client.load_world('Town04_Opt')
+RuntimeError: time-out of 600000ms while waiting for the simulator, make sure the simulator is ready and connected to 10.247.52.30:2000
