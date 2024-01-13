@@ -3,6 +3,8 @@ import time, os, shutil, subprocess, glob, signal
 bSAMBHU24 = True
 bLocalCarla = not bSAMBHU24
 bGAIVI = not bSAMBHU24
+count_max_runs = 1
+# count_max_runs = int(1e6)
 
 # delete files from previous run
 def clean_directory(directory):
@@ -42,8 +44,7 @@ def kill_carla_gaivi():
 
 # check if saved final model exists
 run = 1
-# count_max_runs = 1
-count_max_runs = int(1e6)
+
 while len(glob.glob('models/final.model')) == 0 and run<=count_max_runs:
     print(f'Start run at count {run}')
     if bLocalCarla:

@@ -477,8 +477,8 @@ with strategy.scope():
             self.count_saved_models += 1
 
         def get_qs(self, state):
-            # print(state.shape)
-            # print(np.array(state).shape)
+            print(state.shape)
+            print(np.array(state).shape)
             # print(type(state))
             # print(state)
             # from PIL import Image
@@ -535,10 +535,10 @@ if __name__ == "__main__":
     import glob, shutil
     bLoadReplayMemory = True
     if bLoadReplayMemory:
-        with open('bak/0323.replay_memory', 'rb') as file:
+        with open('bak/0362.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
-        idx_episode_start = 323
-        idx_action = 2409
+        idx_episode_start = 363
+        idx_action = 2530+1
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()
