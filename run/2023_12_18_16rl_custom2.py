@@ -401,7 +401,8 @@ with strategy.scope():
                 print(f'Error message: {e}')
             
             # new_current_states = np.array([transition[3] for transition in minibatch])/255
-            new_current_states = np.array([transition[3] for transition in minibatch])
+            # new_current_states = np.array([transition[3] for transition in minibatch])
+            new_current_states = np.array([transition[-1][3] for transition in minibatch])
             # Neil commented `with self.graph.as_default():`
             # future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
             future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE, verbose=0)
@@ -734,6 +735,7 @@ if __name__ == "__main__":
             # git.wait()
 
     except Exception as e:
+        # time.sleep(5)
         print(f'Error message: {e}')
         import traceback
         traceback.print_exc() 
