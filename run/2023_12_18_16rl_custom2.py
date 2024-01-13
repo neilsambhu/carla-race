@@ -31,8 +31,8 @@ except IndexError:
 import carla
 
 bSAMBHU24 = False
+bA100 = True
 bGAIVI = not bSAMBHU24
-bA100 = False
 
 
 SHOW_PREVIEW = False
@@ -56,11 +56,10 @@ if bSAMBHU24:
     # MINIBATCH_SIZE = 128 # 6 GB GPU memory
     MINIBATCH_SIZE = 64
 else:
-    # MINIBATCH_SIZE = 128*2*8
-    # MINIBATCH_SIZE = 20_000
-    # MINIBATCH_SIZE = 5_000
-    # MINIBATCH_SIZE = 1_000
-    MINIBATCH_SIZE = 250
+    if not bA100:
+        MINIBATCH_SIZE = 250
+    else:
+        MINIBATCH_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = 20_000
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
