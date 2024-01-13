@@ -390,7 +390,7 @@ with strategy.scope():
 
             # current_states = np.array([transition[0] for transition in minibatch])/255
             # current_states = np.array([transition[0] for transition in minibatch])
-            current_states = np.array([transition[-1][0] for transition in minibatch])
+            current_states = np.array([transition[:][0] for transition in minibatch])
             # Neil commented `with self.graph.as_default():`
             # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
             # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
@@ -402,7 +402,7 @@ with strategy.scope():
             
             # new_current_states = np.array([transition[3] for transition in minibatch])/255
             # new_current_states = np.array([transition[3] for transition in minibatch])
-            new_current_states = np.array([transition[-1][3] for transition in minibatch])
+            new_current_states = np.array([transition[:][3] for transition in minibatch])
             # Neil commented `with self.graph.as_default():`
             # future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
             future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE, verbose=0)
