@@ -324,43 +324,48 @@ with strategy.scope():
         def create_model(self):
             # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
             from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed
-            base_model = tf.keras.Sequential()
-            # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-            # base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-            # count_filters = 64
+            from tensorflow.keras.models import Model
+            input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             count_filters = 4
-            base_model.add(TimeDistributed(Conv2D(count_filters, (3,3), padding='same', input_shape=(COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3))))
-            base_model.add(TimeDistributed(MaxPooling2D(pool_size=(2, 2))))
-            base_model.add(TimeDistributed(BatchNormalization()))
-            base_model.add(TimeDistributed(Activation('relu')))
+            time_steps = COUNT_FRAME_WINDOW
+
+            # Define the input layer
+            input_layer = Input(shape=input_shape)
+
+            # Apply TimeDistributed to the entire base model
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
+
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
+
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
             
-            base_model.add(TimeDistributed(Conv2D(count_filters, (3,3), padding='same')))
-            base_model.add(TimeDistributed(MaxPooling2D(pool_size=(2, 2))))
-            base_model.add(TimeDistributed(BatchNormalization()))
-            base_model.add(TimeDistributed(Activation('relu')))
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            base_model.add(TimeDistributed(Conv2D(count_filters, (3,3), padding='same')))
-            base_model.add(TimeDistributed(MaxPooling2D(pool_size=(2, 2))))
-            base_model.add(TimeDistributed(BatchNormalization()))
-            base_model.add(TimeDistributed(Activation('relu')))
-
-            base_model.add(TimeDistributed(Conv2D(count_filters, (3,3), padding='same')))
-            base_model.add(TimeDistributed(MaxPooling2D(pool_size=(2, 2))))
-            base_model.add(TimeDistributed(BatchNormalization()))
-            base_model.add(TimeDistributed(Activation('relu')))
-
-            x = base_model.output
-            x = TimeDistributed(Flatten())(x)
+            x = TimeDistributed(Flatten())(base_model)
 
             # print(f'x.shape: {x.shape}')
 
             size_reduce = 2
-            while(x.shape.as_list()[1] >= size_reduce*(action_size+1)):
-                x = Dense(x.shape.as_list()[1]//size_reduce, activation="relu")(x)
+            while x.shape.as_list()[2] >= size_reduce * (action_size + 1):
+                x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
 
-            predictions = Dense(action_size, activation="linear")(x)
-            model = Model(inputs = base_model.input, outputs=predictions)
-            model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
+            # Define the output layer
+            output_layer = TimeDistributed(Dense(action_size, activation="linear"))(x)
+
+            model = Model(inputs=input_layer, outputs=output_layer)
+            model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"])
             print(model.summary())
             return model
 
