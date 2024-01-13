@@ -82,6 +82,8 @@ MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
+COUNT_FRAME_WINDOW = 10
+
 directory_output = '_out_16rl_custom2'
 # if os.path.exists(directory):
 #     [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
@@ -271,9 +273,9 @@ class CarEnv:
         # done = self.idx_tick >= len(lines)
         done = self.idx_tick >= 100
 
-        v = self.vehicle.get_velocity()
-        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        reward += kmh
+        # v = self.vehicle.get_velocity()
+        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        # reward += kmh
         # if kmh > 15 and kmh < 50:
         #     reward += 15
 
@@ -321,33 +323,34 @@ with strategy.scope():
 
         def create_model(self):
             # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
-            from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D
+            from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed
             base_model = tf.keras.Sequential()
             # base_model.add(Conv2D(1, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
             # base_model.add(AveragePooling2D(pool_size=(4,4), input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-            count_filters = 64
-            base_model.add(Conv2D(count_filters, (3,3), padding='same', input_shape=(IM_HEIGHT, IM_WIDTH, 3)))
-            base_model.add(MaxPooling2D(pool_size=(2, 2)))
-            base_model.add(BatchNormalization())
-            base_model.add(Activation('relu'))
+            # count_filters = 64
+            count_filters = 4
+            base_model.add(TimeDistributed(Conv2D(count_filters, (3,3), padding='same', input_shape=(COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3))))
+            base_model.add(TimeDistributed(MaxPooling2D(pool_size=(2, 2))))
+            base_model.add(TimeDistributed(BatchNormalization()))
+            base_model.add(TimeDistributed(Activation('relu')))
             
-            base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-            base_model.add(MaxPooling2D(pool_size=(2, 2)))
-            base_model.add(BatchNormalization())
-            base_model.add(Activation('relu'))
+            base_model.add(TimeDistributed(Conv2D(count_filters, (3,3), padding='same')))
+            base_model.add(TimeDistributed(MaxPooling2D(pool_size=(2, 2))))
+            base_model.add(TimeDistributed(BatchNormalization()))
+            base_model.add(TimeDistributed(Activation('relu')))
 
-            base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-            base_model.add(MaxPooling2D(pool_size=(2, 2)))
-            base_model.add(BatchNormalization())
-            base_model.add(Activation('relu'))
+            base_model.add(TimeDistributed(Conv2D(count_filters, (3,3), padding='same')))
+            base_model.add(TimeDistributed(MaxPooling2D(pool_size=(2, 2))))
+            base_model.add(TimeDistributed(BatchNormalization()))
+            base_model.add(TimeDistributed(Activation('relu')))
 
-            base_model.add(Conv2D(count_filters, (3,3), padding='same'))
-            base_model.add(MaxPooling2D(pool_size=(2, 2)))
-            base_model.add(BatchNormalization())
-            base_model.add(Activation('relu'))
+            base_model.add(TimeDistributed(Conv2D(count_filters, (3,3), padding='same')))
+            base_model.add(TimeDistributed(MaxPooling2D(pool_size=(2, 2))))
+            base_model.add(TimeDistributed(BatchNormalization()))
+            base_model.add(TimeDistributed(Activation('relu')))
 
             x = base_model.output
-            x = Flatten()(x)
+            x = TimeDistributed(Flatten())(x)
 
             # print(f'x.shape: {x.shape}')
 
@@ -358,7 +361,7 @@ with strategy.scope():
             predictions = Dense(action_size, activation="linear")(x)
             model = Model(inputs = base_model.input, outputs=predictions)
             model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"]) # Neil modified `model.compile(loss="mse", optimizer=Adam(lr=0.001), metrics=["accuracy"])`
-            # print(model.summary())
+            print(model.summary())
             return model
 
         def update_replay_memory(self, transition):
@@ -369,7 +372,12 @@ with strategy.scope():
             if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
                 return
 
-            minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
+            # minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
+            sampled_indices = random.sample(range(len(self.replay_memory) - COUNT_FRAME_WINDOW + 1), MINIBATCH_SIZE)
+            minibatch = []
+            for index in sampled_indices:
+                sequence = self.replay_memory[index:index + SEQUENCE_LENGTH]
+                minibatch.append(sequence)
 
             # current_states = np.array([transition[0] for transition in minibatch])/255
             current_states = np.array([transition[0] for transition in minibatch])
@@ -488,14 +496,14 @@ if __name__ == "__main__":
     tf.random.set_seed(1) # Neil modified `tf.set_random_seed(1)`
 
     agent = DQNAgent()
-    x = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
+    x = np.random.uniform(size=(COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
     y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
     agent.model.fit(x, y, verbose=False, batch_size=1) # Neil left tabbed 1
 
     idx_episode_start = 1
     idx_action = 0
     import glob, shutil
-    bLoadReplayMemory = True
+    bLoadReplayMemory = False
     if bLoadReplayMemory:
         with open('bak/0282.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
