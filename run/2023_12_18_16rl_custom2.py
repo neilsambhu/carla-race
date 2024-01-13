@@ -706,15 +706,17 @@ if __name__ == "__main__":
             
             epochs = None
             print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
-            if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
+            # if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
+            if idx_action < action_size:
                 epochs = 0
-            elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                if bSAMBHU24 or not bA100:
-                    epochs = 1
-                    # epochs = 0
-                else:
-                    epochs = int(1e3)
-            if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
+            else:
+            # elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
+            #     if bSAMBHU24 or not bA100:
+            #         epochs = 1
+            #         # epochs = 0
+            #     else:
+            #         epochs = int(1e3)
+            # if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
                     epochs = 10
                 else:
