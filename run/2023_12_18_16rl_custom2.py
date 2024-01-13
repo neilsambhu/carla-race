@@ -384,11 +384,13 @@ with strategy.scope():
             sampled_indices = random.sample(range(len(self.replay_memory) - COUNT_FRAME_WINDOW + 1), MINIBATCH_SIZE)
             minibatch = []
             for index in sampled_indices:
+                
                 sequence = list(self.replay_memory)[index:index + COUNT_FRAME_WINDOW]
                 minibatch.append(sequence)
 
             # current_states = np.array([transition[0] for transition in minibatch])/255
-            current_states = np.array([transition[0] for transition in minibatch])
+            # current_states = np.array([transition[0] for transition in minibatch])
+            current_states = np.array([transition[-1][0] for transition in minibatch])
             # Neil commented `with self.graph.as_default():`
             # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
             # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
@@ -733,7 +735,8 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f'Error message: {e}')
-        # save episode
+        import traceback
+        traceback.print_exc() 
         print(f'Error during episode {env.episode}')
     finally:
         agent.terminate = True
