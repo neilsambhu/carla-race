@@ -440,7 +440,10 @@ with strategy.scope():
                 current_qs = current_qs_list[index]
                 current_qs[action] = new_q
 
-                x.append(current_state)
+                window_x = []
+                for frame in sequence:
+                    window_x.append(frame[0])
+                x.append(window_x)
                 y.append(current_qs)
 
             log_this_step = False
