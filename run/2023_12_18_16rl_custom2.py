@@ -403,7 +403,8 @@ with strategy.scope():
                 new_current_states.append(window_new_current_states)
             current_states = np.asarray(current_states)
             new_current_states = np.asarray(new_current_states)
-            print(f'len(minibatch): {len(minibatch)}\tcurrent_states.shape: {current_states.shape}\tnew_current_states.shape: {new_current_states.shape}')
+            if bVerbose and False:
+                print(f'len(minibatch): {len(minibatch)}\tcurrent_states.shape: {current_states.shape}\tnew_current_states.shape: {new_current_states.shape}')
             # Neil commented `with self.graph.as_default():`
             # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
             # current_qs_list = self.model.predict(current_states, PREDICTION_BATCH_SIZE, verbose=0)
@@ -424,23 +425,23 @@ with strategy.scope():
             y = []
 
             for index, sequence in enumerate(minibatch):
-                for current_state, action, reward, new_state, done in sequence:
-                    if bVerbose and False:
-                        print(f'action: {action}')
-                    if not done:
-                        max_future_q = np.max(future_qs_list[index])
-                        new_q = reward + DISCOUNT * max_future_q
-                    else:
-                        new_q = reward
+                current_state, action, reward, new_state, done = sequence[-1]
+                if bVerbose and False:
+                    print(f'action: {action}')
+                if not done:
+                    max_future_q = np.max(future_qs_list[index])
+                    new_q = reward + DISCOUNT * max_future_q
+                else:
+                    new_q = reward
 
-                    if bVerbose and False:
-                        print(f'current_qs_list: {current_qs_list}')
-                        print(f'new_q: {new_q}')
-                    current_qs = current_qs_list[index]
-                    current_qs[action] = new_q
+                if bVerbose and False:
+                    print(f'current_qs_list: {current_qs_list}')
+                    print(f'new_q: {new_q}')
+                current_qs = current_qs_list[index]
+                current_qs[action] = new_q
 
-                    x.append(current_state)
-                    y.append(current_qs)
+                x.append(current_state)
+                y.append(current_qs)
 
             log_this_step = False
 
