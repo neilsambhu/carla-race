@@ -82,7 +82,7 @@ MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
-COUNT_FRAME_WINDOW = 10
+COUNT_FRAME_WINDOW = 4
 
 directory_output = '_out_16rl_custom2'
 # if os.path.exists(directory):
@@ -353,14 +353,15 @@ with strategy.scope():
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            x = TimeDistributed(Flatten())(base_model)
+            # x = TimeDistributed(Flatten())(base_model)
+            x = Flatten()(base_model)
 
             # print(f'x.shape: {x.shape}')
 
             size_reduce = 2
-            while x.shape.as_list()[2] >= size_reduce * (action_size + 1):
+            while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
                 # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
-                x = Dense(x.shape.as_list()[2] // size_reduce, activation="relu")(x)
+                x = Dense(x.shape.as_list()[1] // size_reduce, activation="relu")(x)
 
             # Define the output layer
             # output_layer = TimeDistributed(Dense(action_size, activation="linear"))(x)
@@ -368,7 +369,7 @@ with strategy.scope():
 
             model = Model(inputs=input_layer, outputs=output_layer)
             model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"])
-            print(model.summary())
+            # print(model.summary())
             return model
 
         def update_replay_memory(self, transition):
@@ -383,7 +384,7 @@ with strategy.scope():
             sampled_indices = random.sample(range(len(self.replay_memory) - COUNT_FRAME_WINDOW + 1), MINIBATCH_SIZE)
             minibatch = []
             for index in sampled_indices:
-                sequence = self.replay_memory[index:index + SEQUENCE_LENGTH]
+                sequence = list(self.replay_memory)[index:index + COUNT_FRAME_WINDOW]
                 minibatch.append(sequence)
 
             # current_states = np.array([transition[0] for transition in minibatch])/255
@@ -510,12 +511,12 @@ if __name__ == "__main__":
     idx_episode_start = 1
     idx_action = 0
     import glob, shutil
-    bLoadReplayMemory = False
+    bLoadReplayMemory = True
     if bLoadReplayMemory:
-        with open('bak/0282.replay_memory', 'rb') as file:
+        with open('bak/0323.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
-        idx_episode_start = 283
-        idx_action = action_size
+        idx_episode_start = 323
+        idx_action = 2409
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()

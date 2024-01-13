@@ -1,249 +1,36 @@
-2024-01-12 20:30:25.910863: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-12 20:30:25.932831: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-12 20:30:25.932847: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-12 20:30:25.933406: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-12 20:30:25.936759: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-12 21:27:19.970127: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-12 21:27:19.992176: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-12 21:27:19.992193: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-12 21:27:19.992760: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-12 21:27:19.996178: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-12 20:30:26.356017: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-12 20:30:26.656057: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 20:30:26.684661: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 20:30:26.684848: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 20:30:26.686085: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 20:30:26.686237: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 20:30:26.686440: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 20:30:27.450599: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 20:30:27.450726: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 20:30:27.450821: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-12 20:30:27.450921: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4409 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-Model: "model"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_1 (InputLayer)        [(None, 10, 128, 128, 3   0         
-                             )]                                  
-                                                                 
- time_distributed (TimeDist  (None, 10, 128, 128, 32   896       
- ributed)                    )                                   
-                                                                 
- time_distributed_1 (TimeDi  (None, 10, 64, 64, 32)    0         
- stributed)                                                      
-                                                                 
- time_distributed_2 (TimeDi  (None, 10, 64, 64, 32)    128       
- stributed)                                                      
-                                                                 
- time_distributed_3 (TimeDi  (None, 10, 64, 64, 32)    0         
- stributed)                                                      
-                                                                 
- time_distributed_4 (TimeDi  (None, 10, 64, 64, 32)    9248      
- stributed)                                                      
-                                                                 
- time_distributed_5 (TimeDi  (None, 10, 32, 32, 32)    0         
- stributed)                                                      
-                                                                 
- time_distributed_6 (TimeDi  (None, 10, 32, 32, 32)    128       
- stributed)                                                      
-                                                                 
- time_distributed_7 (TimeDi  (None, 10, 32, 32, 32)    0         
- stributed)                                                      
-                                                                 
- time_distributed_8 (TimeDi  (None, 10, 32, 32, 32)    9248      
- stributed)                                                      
-                                                                 
- time_distributed_9 (TimeDi  (None, 10, 16, 16, 32)    0         
- stributed)                                                      
-                                                                 
- time_distributed_10 (TimeD  (None, 10, 16, 16, 32)    128       
- istributed)                                                     
-                                                                 
- time_distributed_11 (TimeD  (None, 10, 16, 16, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_12 (TimeD  (None, 10, 16, 16, 32)    9248      
- istributed)                                                     
-                                                                 
- time_distributed_13 (TimeD  (None, 10, 8, 8, 32)      0         
- istributed)                                                     
-                                                                 
- time_distributed_14 (TimeD  (None, 10, 8, 8, 32)      128       
- istributed)                                                     
-                                                                 
- time_distributed_15 (TimeD  (None, 10, 8, 8, 32)      0         
- istributed)                                                     
-                                                                 
- time_distributed_16 (TimeD  (None, 10, 2048)          0         
- istributed)                                                     
-                                                                 
- dense (Dense)               (None, 10, 2541)          5206509   
-                                                                 
-=================================================================
-Total params: 5235661 (19.97 MB)
-Trainable params: 5235405 (19.97 MB)
-Non-trainable params: 256 (1.00 KB)
-_________________________________________________________________
-None
-Model: "model_1"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_2 (InputLayer)        [(None, 10, 128, 128, 3   0         
-                             )]                                  
-                                                                 
- time_distributed_17 (TimeD  (None, 10, 128, 128, 32   896       
- istributed)                 )                                   
-                                                                 
- time_distributed_18 (TimeD  (None, 10, 64, 64, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_19 (TimeD  (None, 10, 64, 64, 32)    128       
- istributed)                                                     
-                                                                 
- time_distributed_20 (TimeD  (None, 10, 64, 64, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_21 (TimeD  (None, 10, 64, 64, 32)    9248      
- istributed)                                                     
-                                                                 
- time_distributed_22 (TimeD  (None, 10, 32, 32, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_23 (TimeD  (None, 10, 32, 32, 32)    128       
- istributed)                                                     
-                                                                 
- time_distributed_24 (TimeD  (None, 10, 32, 32, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_25 (TimeD  (None, 10, 32, 32, 32)    9248      
- istributed)                                                     
-                                                                 
- time_distributed_26 (TimeD  (None, 10, 16, 16, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_27 (TimeD  (None, 10, 16, 16, 32)    128       
- istributed)                                                     
-                                                                 
- time_distributed_28 (TimeD  (None, 10, 16, 16, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_29 (TimeD  (None, 10, 16, 16, 32)    9248      
- istributed)                                                     
-                                                                 
- time_distributed_30 (TimeD  (None, 10, 8, 8, 32)      0         
- istributed)                                                     
-                                                                 
- time_distributed_31 (TimeD  (None, 10, 8, 8, 32)      128       
- istributed)                                                     
-                                                                 
- time_distributed_32 (TimeD  (None, 10, 8, 8, 32)      0         
- istributed)                                                     
-                                                                 
- time_distributed_33 (TimeD  (None, 10, 2048)          0         
- istributed)                                                     
-                                                                 
- dense_1 (Dense)             (None, 10, 2541)          5206509   
-                                                                 
-=================================================================
-Total params: 5235661 (19.97 MB)
-Trainable params: 5235405 (19.97 MB)
-Non-trainable params: 256 (1.00 KB)
-_________________________________________________________________
-None
-Model: "model_2"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_3 (InputLayer)        [(None, 10, 128, 128, 3   0         
-                             )]                                  
-                                                                 
- time_distributed_34 (TimeD  (None, 10, 128, 128, 32   896       
- istributed)                 )                                   
-                                                                 
- time_distributed_35 (TimeD  (None, 10, 64, 64, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_36 (TimeD  (None, 10, 64, 64, 32)    128       
- istributed)                                                     
-                                                                 
- time_distributed_37 (TimeD  (None, 10, 64, 64, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_38 (TimeD  (None, 10, 64, 64, 32)    9248      
- istributed)                                                     
-                                                                 
- time_distributed_39 (TimeD  (None, 10, 32, 32, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_40 (TimeD  (None, 10, 32, 32, 32)    128       
- istributed)                                                     
-                                                                 
- time_distributed_41 (TimeD  (None, 10, 32, 32, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_42 (TimeD  (None, 10, 32, 32, 32)    9248      
- istributed)                                                     
-                                                                 
- time_distributed_43 (TimeD  (None, 10, 16, 16, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_44 (TimeD  (None, 10, 16, 16, 32)    128       
- istributed)                                                     
-                                                                 
- time_distributed_45 (TimeD  (None, 10, 16, 16, 32)    0         
- istributed)                                                     
-                                                                 
- time_distributed_46 (TimeD  (None, 10, 16, 16, 32)    9248      
- istributed)                                                     
-                                                                 
- time_distributed_47 (TimeD  (None, 10, 8, 8, 32)      0         
- istributed)                                                     
-                                                                 
- time_distributed_48 (TimeD  (None, 10, 8, 8, 32)      128       
- istributed)                                                     
-                                                                 
- time_distributed_49 (TimeD  (None, 10, 8, 8, 32)      0         
- istributed)                                                     
-                                                                 
- time_distributed_50 (TimeD  (None, 10, 2048)          0         
- istributed)                                                     
-                                                                 
- dense_2 (Dense)             (None, 10, 2541)          5206509   
-                                                                 
-=================================================================
-Total params: 5235661 (19.97 MB)
-Trainable params: 5235405 (19.97 MB)
-Non-trainable params: 256 (1.00 KB)
-_________________________________________________________________
-None
-Traceback (most recent call last):
-  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 508, in <module>
-    agent.model.fit(x, y, verbose=False, batch_size=1) # Neil left tabbed 1
-  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/traceback_utils.py", line 70, in error_handler
-    raise e.with_traceback(filtered_tb) from None
-  File "/tmp/__autograph_generated_filefgx2oqr6.py", line 15, in tf__train_function
-    retval_ = ag__.converted_call(ag__.ld(step_function), (ag__.ld(self), ag__.ld(iterator)), None, fscope)
-ValueError: in user code:
+2024-01-12 21:27:20.420208: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-12 21:27:20.717560: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 21:27:20.747146: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 21:27:20.747294: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 21:27:20.748079: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 21:27:20.748197: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 21:27:20.748322: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 21:27:21.512661: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 21:27:21.512810: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 21:27:21.512921: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-12 21:27:21.513014: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4432 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-12 21:27:23.516498: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-12 21:27:24.448789: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fdf6e725890 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-12 21:27:24.448804: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-12 21:27:24.451593: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1705112844.512707    6850 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
+WARNING: Client API version     = 0.9.15 
+WARNING: Simulator API version  = 0.9.14 
+  0%|          | 0/9678 [00:00<?, ?episode/s]
+Started episode 323 of 10000
+Finished episode 323 of 10000
+len(agent.replay_memory): 20044
+Count of epochs trained: 0	Goal: 1
 
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1401, in train_function  *
-        return step_function(self, iterator)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1384, in step_function  **
-        outputs = model.distribute_strategy.run(run_step, args=(data,))
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1373, in run_step  **
-        outputs = model.train_step(data)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1155, in train_step
-        return self.compute_metrics(x, y, y_pred, sample_weight)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/training.py", line 1249, in compute_metrics
-        self.compiled_metrics.update_state(y, y_pred, sample_weight)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/engine/compile_utils.py", line 620, in update_state
-        metric_obj.update_state(y_t, y_p, sample_weight=mask)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/metrics_utils.py", line 77, in decorated
-        result = update_state_fn(*args, **kwargs)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/metrics/base_metric.py", line 140, in update_state_fn
-        return ag_update_state(*args, **kwargs)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/metrics/base_metric.py", line 723, in update_state  **
-        matches = ag_fn(y_true, y_pred, **self._fn_kwargs)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/metrics/accuracy_metrics.py", line 459, in sparse_categorical_accuracy
-        matches = metrics_utils.sparse_categorical_matches(y_true, y_pred)
-    File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/site-packages/keras/src/utils/metrics_utils.py", line 969, in sparse_categorical_matches
-        matches = tf.cast(tf.equal(y_true, y_pred), backend.floatx())
-
-    ValueError: Dimensions must be equal, but are 2541 and 10 for '{{node Equal}} = Equal[T=DT_FLOAT, incompatible_shape_error=true](Cast_1, Cast_2)' with input shapes: [1,2541], [1,10].
-
+  0%|          | 0/1 [00:00<?, ?epoch/s][A  0%|          | 0/1 [00:00<?, ?epoch/s]
+  0%|          | 0/9678 [00:04<?, ?episode/s]
+Error message: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (128, 5) + inhomogeneous part.
+Error during episode 323
