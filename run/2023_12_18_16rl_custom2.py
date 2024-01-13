@@ -359,10 +359,12 @@ with strategy.scope():
 
             size_reduce = 2
             while x.shape.as_list()[2] >= size_reduce * (action_size + 1):
-                x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
+                # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
+                x = Dense(x.shape.as_list()[2] // size_reduce, activation="relu")(x)
 
             # Define the output layer
-            output_layer = TimeDistributed(Dense(action_size, activation="linear"))(x)
+            # output_layer = TimeDistributed(Dense(action_size, activation="linear"))(x)
+            output_layer = Dense(action_size, activation="linear")(x)
 
             model = Model(inputs=input_layer, outputs=output_layer)
             model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"])
