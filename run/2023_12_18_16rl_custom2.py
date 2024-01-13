@@ -30,7 +30,7 @@ except IndexError:
     pass
 import carla
 
-bSAMBHU24 = True
+bSAMBHU24 = False
 bGAIVI = not bSAMBHU24
 
 
