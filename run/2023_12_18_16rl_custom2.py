@@ -323,7 +323,7 @@ with strategy.scope():
 
         def create_model(self):
             # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
-            from tensorflow.keras.layers import Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed
+            from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             count_filters = 4
@@ -347,7 +347,7 @@ with strategy.scope():
             base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
-            
+
             base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
             base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
             base_model = TimeDistributed(BatchNormalization())(base_model)
@@ -501,7 +501,7 @@ if __name__ == "__main__":
     tf.random.set_seed(1) # Neil modified `tf.set_random_seed(1)`
 
     agent = DQNAgent()
-    x = np.random.uniform(size=(COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
+    x = np.random.uniform(size=(1, COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
     y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
     agent.model.fit(x, y, verbose=False, batch_size=1) # Neil left tabbed 1
 
