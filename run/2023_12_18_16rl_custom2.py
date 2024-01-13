@@ -52,7 +52,8 @@ with open(path_AP_locations, 'r') as file:
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
 REPLAY_MEMORY_SIZE = 50_000
 if bSAMBHU24:
-    MINIBATCH_SIZE = 128 # 6 GB GPU memory
+    # MINIBATCH_SIZE = 128 # 6 GB GPU memory
+    MINIBATCH_SIZE = 130
 else:
     # MINIBATCH_SIZE = 128*2*8
     MINIBATCH_SIZE = 20_000
@@ -393,9 +394,13 @@ with strategy.scope():
             current_states = []
             new_current_states = []
             for sequence in minibatch:
+                window_current_states = []
+                window_new_current_states = []
                 for frame in sequence:
-                    current_states.append(frame[0])
-                    new_current_states.append(frame[3])
+                    window_current_states.append(frame[0])
+                    window_new_current_states.append(frame[3])
+                current_states.append(window_current_states)
+                new_current_states.append(window_new_current_states)
             current_states = np.asarray(current_states)
             new_current_states = np.asarray(new_current_states)
             print(f'len(minibatch): {len(minibatch)}\tcurrent_states.shape: {current_states.shape}\tnew_current_states.shape: {new_current_states.shape}')
@@ -415,34 +420,35 @@ with strategy.scope():
             # future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE) # Neil left tabbed 1
             future_qs_list = self.target_model.predict(new_current_states, PREDICTION_BATCH_SIZE, verbose=0)
 
-            X = []
+            x = []
             y = []
 
-            for index, (current_state, action, reward, new_state, done) in enumerate(minibatch):
-                if bVerbose and False:
-                    print(f'action: {action}')
-                if not done:
-                    max_future_q = np.max(future_qs_list[index])
-                    new_q = reward + DISCOUNT * max_future_q
-                else:
-                    new_q = reward
+            for index, sequence in enumerate(minibatch):
+                for current_state, action, reward, new_state, done in sequence:
+                    if bVerbose and False:
+                        print(f'action: {action}')
+                    if not done:
+                        max_future_q = np.max(future_qs_list[index])
+                        new_q = reward + DISCOUNT * max_future_q
+                    else:
+                        new_q = reward
 
-                if bVerbose and False:
-                    print(f'current_qs_list: {current_qs_list}')
-                    print(f'new_q: {new_q}')
-                current_qs = current_qs_list[index]
-                current_qs[action] = new_q
+                    if bVerbose and False:
+                        print(f'current_qs_list: {current_qs_list}')
+                        print(f'new_q: {new_q}')
+                    current_qs = current_qs_list[index]
+                    current_qs[action] = new_q
 
-                X.append(current_state)
-                y.append(current_qs)
+                    x.append(current_state)
+                    y.append(current_qs)
 
             log_this_step = False
 
             # Neil commented `with self.graph.as_default():`
             # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
             self.model.fit(
-                # np.array(X) / 255,
-                np.array(X),
+                # np.array(x) / 255,
+                np.array(x),
                 np.array(y),
                 batch_size=TRAINING_BATCH_SIZE,
                 verbose=0,
