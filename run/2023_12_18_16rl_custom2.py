@@ -32,6 +32,7 @@ import carla
 
 bSAMBHU24 = False
 bGAIVI = not bSAMBHU24
+bA100 = False
 
 
 SHOW_PREVIEW = False
@@ -709,13 +710,13 @@ if __name__ == "__main__":
             if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
                 epochs = 0
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                if bSAMBHU24:
+                if bSAMBHU24 or not bA100:
                     epochs = 1
                     # epochs = 0
                 else:
                     epochs = int(1e3)
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
-                if bSAMBHU24:
+                if bSAMBHU24 or not bA100:
                     epochs = 10
                 else:
                     epochs = int(1e6)
