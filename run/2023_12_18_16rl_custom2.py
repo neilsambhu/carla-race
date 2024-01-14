@@ -30,7 +30,7 @@ except IndexError:
     pass
 import carla
 
-bSAMBHU24 = True
+bSAMBHU24 = False
 bA100 = False
 bGAIVI = not bSAMBHU24
 
@@ -54,7 +54,9 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 50_000
 if bSAMBHU24:
     # MINIBATCH_SIZE = 128 # 6 GB GPU memory
-    MINIBATCH_SIZE = 64
+    # MINIBATCH_SIZE = 32
+    # MINIBATCH_SIZE = 4
+    MINIBATCH_SIZE = 1
 else:
     if not bA100:
         MINIBATCH_SIZE = 250
@@ -84,7 +86,7 @@ MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
-COUNT_FRAME_WINDOW = 4
+COUNT_FRAME_WINDOW = 20
 
 directory_output = '_out_16rl_custom2'
 # if os.path.exists(directory):
