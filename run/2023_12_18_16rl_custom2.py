@@ -59,8 +59,8 @@ if bSAMBHU24:
     MINIBATCH_SIZE = 1
 else:
     if not bA100:
-        MINIBATCH_SIZE = 250
-        # MINIBATCH_SIZE = 500
+        # MINIBATCH_SIZE = 250
+        MINIBATCH_SIZE = 100
     else:
         MINIBATCH_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = 20_000
