@@ -330,7 +330,8 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            count_filters = 32
+            # count_filters = 32
+            count_filters = 16
             time_steps = COUNT_FRAME_WINDOW
 
             # Define the input layer
