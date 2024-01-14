@@ -278,9 +278,9 @@ class CarEnv:
         # done = self.idx_tick >= len(lines)
         done = self.idx_tick >= 100
 
-        # v = self.vehicle.get_velocity()
-        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        # reward += kmh
+        v = self.vehicle.get_velocity()
+        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        reward += kmh
         # if kmh > 15 and kmh < 50:
         #     reward += 15
 
@@ -538,7 +538,7 @@ if __name__ == "__main__":
     idx_episode_start = 1
     idx_action = 0
     import glob, shutil
-    bLoadReplayMemory = True
+    bLoadReplayMemory = False
     if bLoadReplayMemory:
         with open('bak/0362.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
