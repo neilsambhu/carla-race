@@ -87,15 +87,20 @@ while len(glob.glob('models/final.model')) == 0 and run<=count_max_runs:
                 import carla
                 # time.sleep(60)
                 world = None
-                while world == None:
+                count_attempt = 0
+                count_max_attempt = 10
+                while world == None and count_attempt<count_max_attempt:
                     try:
                         client = carla.Client(str(carla_gpu_info), 2000)
                         world = client.get_world()
                         print(f'world: {world}')
                     except Exception as e:
+                        count_attempt+=1
                         print(f'CARLA starting error message: {e}')
                         time.sleep(1)
                         continue
+                if world == None:
+                    raise Exception('Code could not connect to CARLA Simulator.')
                 # time.sleep(30)                
                 # nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
                 # nvidia_smi.wait()
