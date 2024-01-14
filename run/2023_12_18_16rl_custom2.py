@@ -59,7 +59,8 @@ if bSAMBHU24:
     MINIBATCH_SIZE = 1
 else:
     if not bA100:
-        MINIBATCH_SIZE = 250
+        # MINIBATCH_SIZE = 250
+        MINIBATCH_SIZE = 500
     else:
         MINIBATCH_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = 20_000
@@ -537,7 +538,7 @@ if __name__ == "__main__":
     idx_episode_start = 1
     idx_action = 0
     import glob, shutil
-    bLoadReplayMemory = True
+    bLoadReplayMemory = False
     if bLoadReplayMemory:
         with open('bak/0362.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
