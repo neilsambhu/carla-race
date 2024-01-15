@@ -30,7 +30,7 @@ except IndexError:
     pass
 import carla
 
-bSAMBHU24 = False
+bSAMBHU24 = True
 bA100 = False
 bGAIVI = not bSAMBHU24
 
@@ -54,10 +54,8 @@ with open(path_AP_locations, 'r') as file:
 #REPLAY_MEMORY_SIZE = 50_000
 REPLAY_MEMORY_SIZE = 75_000
 if bSAMBHU24:
-    # MINIBATCH_SIZE = 128 # 6 GB GPU memory
-    # MINIBATCH_SIZE = 32
-    # MINIBATCH_SIZE = 4
-    MINIBATCH_SIZE = 1
+    # MINIBATCH_SIZE = 1
+    MINIBATCH_SIZE = 4
 else:
     if not bA100:
         # MINIBATCH_SIZE = 250
@@ -334,7 +332,8 @@ with strategy.scope():
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             # count_filters = 32
             # count_filters = 16
-            count_filters = 8
+            # count_filters = 8
+            count_filters = 1
             time_steps = COUNT_FRAME_WINDOW
 
             # Define the input layer

@@ -1,6 +1,6 @@
 import time, os, shutil, subprocess, glob, signal
 
-bSAMBHU24 = False
+bSAMBHU24 = True
 bLocalCarla = not bSAMBHU24
 bGAIVI = not bSAMBHU24
 # count_max_runs = 1
