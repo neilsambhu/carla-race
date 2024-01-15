@@ -537,6 +537,8 @@ if __name__ == "__main__":
 
     idx_episode_start = 1
     idx_action = 0
+    max_framesPerAction = 100
+    count_framesPerAction = 0
     import glob, shutil
     bLoadReplayMemory = False
     if bLoadReplayMemory:
@@ -585,8 +587,6 @@ if __name__ == "__main__":
 
     bTrainingComplete = False
     previousEpisode_countBatchesTrained = agent.count_batches_trained
-    count_framesPerAction = 0
-    max_framesPerAction = 100
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
             lookback = 2
