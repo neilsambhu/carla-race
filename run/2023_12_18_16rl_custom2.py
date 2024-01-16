@@ -30,7 +30,7 @@ except IndexError:
     pass
 import carla
 
-bSAMBHU24 = True
+bSAMBHU24 = False
 bA100 = False
 bGAIVI = not bSAMBHU24
 
@@ -55,7 +55,8 @@ REPLAY_MEMORY_SIZE = 50_000
 # REPLAY_MEMORY_SIZE = 75_000
 if bSAMBHU24:
     # MINIBATCH_SIZE = 4
-    MINIBATCH_SIZE = 128
+    # MINIBATCH_SIZE = 128
+    MINIBATCH_SIZE = 64
 else:
     if not bA100:
         # MINIBATCH_SIZE = 250
@@ -366,7 +367,7 @@ with strategy.scope():
             x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
             x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             
-            print(f'x.shape: {x.shape}')
+            # print(f'x.shape: {x.shape}')
             size_reduce = 2
             while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
                 # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
