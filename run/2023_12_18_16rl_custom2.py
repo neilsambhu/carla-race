@@ -93,7 +93,7 @@ MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
-COUNT_FRAME_WINDOW = 30
+COUNT_FRAME_WINDOW = 5
 
 directory_output = '_out_16rl_custom2'
 # if os.path.exists(directory):
@@ -742,7 +742,8 @@ if __name__ == "__main__":
                     # epochs = 10
                     epochs = 1
                 else:
-                    epochs = int(1e6)
+                    # epochs = int(1e6)
+                    epochs = 1
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
