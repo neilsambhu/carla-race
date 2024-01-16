@@ -56,11 +56,8 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 50_000
 # REPLAY_MEMORY_SIZE = 75_000
 if bSAMBHU24:
-    # MINIBATCH_SIZE = 4
-    # MINIBATCH_SIZE = 128
-    # MINIBATCH_SIZE = 64
-    # MINIBATCH_SIZE = 32
     MINIBATCH_SIZE = 16
+    MINIBATCH_SIZE = 64
 else:
     if not bA100:
         # MINIBATCH_SIZE = 250
@@ -285,9 +282,9 @@ class CarEnv:
         # done = self.idx_tick >= len(lines)
         done = self.idx_tick >= 100
 
-        v = self.vehicle.get_velocity()
-        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        reward += kmh
+        # v = self.vehicle.get_velocity()
+        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        # reward += kmh
         # if kmh > 15 and kmh < 50:
         #     reward += 15
 
