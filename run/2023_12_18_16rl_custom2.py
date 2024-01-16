@@ -31,7 +31,7 @@ except IndexError:
 import carla
 
 bSAMBHU24 = False
-bA100 = False
+bA100 = True
 bGAIVI = not bSAMBHU24
 
 
