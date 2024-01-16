@@ -89,7 +89,7 @@ MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
-COUNT_FRAME_WINDOW = 5
+COUNT_FRAME_WINDOW = 40
 
 directory_output = '_out_16rl_custom2'
 # if os.path.exists(directory):
@@ -333,7 +333,6 @@ with strategy.scope():
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             count_filters = 1
-            count_filters = 8
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
@@ -362,12 +361,14 @@ with strategy.scope():
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
             # x = Flatten()(x)
+            # print(f'x.shape after flatten: {x.shape}')
+
 
             # Apply LSTM layer
             x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
             x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             
-            # print(f'x.shape: {x.shape}')
+            # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
             while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
                 # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
