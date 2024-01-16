@@ -334,8 +334,8 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            count_filters = 1
-            # count_filters = 4
+            # count_filters = 1
+            count_filters = 28
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
