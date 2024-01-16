@@ -334,8 +334,8 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            # count_filters = 1
-            count_filters = 4
+            count_filters = 1
+            # count_filters = 4
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
@@ -364,12 +364,12 @@ with strategy.scope():
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
             # x = Flatten()(x)
-            print(f'x.shape after flatten: {x.shape}')
+            # print(f'x.shape after flatten: {x.shape}')
 
 
             # Apply LSTM layer
-            x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
-            x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
+            x = Bidirectional(LSTM(units=COUNT_FRAME_WINDOW*64, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=COUNT_FRAME_WINDOW*64, return_sequences=False))(x)
             
             # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
@@ -396,6 +396,8 @@ with strategy.scope():
 
             # minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
             sampled_indices = random.sample(range(len(self.replay_memory) - COUNT_FRAME_WINDOW + 1), MINIBATCH_SIZE)
+            if bVerbose and False:
+                print(f'sampled_indices: {sampled_indices}')
             minibatch = []
             for index in sampled_indices:
                 sequence = list(self.replay_memory)[index:index + COUNT_FRAME_WINDOW]
