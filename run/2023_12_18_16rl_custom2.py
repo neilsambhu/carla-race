@@ -31,7 +31,7 @@ except IndexError:
 import carla
 
 bSAMBHU24 = False
-bA100 = True
+bA100 = not bSAMBHU24
 bGAIVI = not bSAMBHU24
 
 
@@ -62,7 +62,8 @@ else:
         # MINIBATCH_SIZE = 250
         MINIBATCH_SIZE = 100
     else:
-        MINIBATCH_SIZE = 20_000
+        # MINIBATCH_SIZE = 20_000
+        MINIBATCH_SIZE = 10_000
 MIN_REPLAY_MEMORY_SIZE = 20_000
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
