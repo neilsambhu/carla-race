@@ -51,8 +51,8 @@ with open(path_AP_locations, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
-#REPLAY_MEMORY_SIZE = 50_000
-REPLAY_MEMORY_SIZE = 75_000
+REPLAY_MEMORY_SIZE = 50_000
+# REPLAY_MEMORY_SIZE = 75_000
 if bSAMBHU24:
     # MINIBATCH_SIZE = 1
     MINIBATCH_SIZE = 4
@@ -326,15 +326,13 @@ with strategy.scope():
             self.training_initialized = False
 
         def create_model(self):
-            # base_model = Xception(weights=None, include_top=False, input_shape=(IM_HEIGHT, IM_WIDTH, 3))
-            from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed
+            from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             # count_filters = 32
             # count_filters = 16
             # count_filters = 8
             count_filters = 1
-            time_steps = COUNT_FRAME_WINDOW
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
@@ -360,10 +358,15 @@ with strategy.scope():
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            # x = TimeDistributed(Flatten())(base_model)
-            x = Flatten()(base_model)
+            # Apply LSTM layer
+            x = Bidirectional(LSTM(units=64, return_sequences=True))(base_model)
+            x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
 
-            # print(f'x.shape: {x.shape}')
+            # x = TimeDistributed(Flatten())(base_model)
+            # x = Flatten()(base_model)
+            x = Flatten()(x)
+
+            print(f'x.shape: {x.shape}')
 
             size_reduce = 2
             while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
@@ -540,11 +543,11 @@ if __name__ == "__main__":
     max_framesPerAction = 100
     count_framesPerAction = 0
     import glob, shutil
-    bLoadReplayMemory = False
+    bLoadReplayMemory = True
     if bLoadReplayMemory:
-        with open('bak/0362.replay_memory', 'rb') as file:
+        with open('bak/0369.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
-        idx_episode_start = 363
+        idx_episode_start = 370
         idx_action = 2530+1
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
