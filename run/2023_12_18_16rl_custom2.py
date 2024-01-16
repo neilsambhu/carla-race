@@ -54,8 +54,8 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 50_000
 # REPLAY_MEMORY_SIZE = 75_000
 if bSAMBHU24:
-    # MINIBATCH_SIZE = 1
-    MINIBATCH_SIZE = 4
+    # MINIBATCH_SIZE = 4
+    MINIBATCH_SIZE = 128
 else:
     if not bA100:
         # MINIBATCH_SIZE = 250
@@ -358,16 +358,15 @@ with strategy.scope():
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            # Apply LSTM layer
-            x = Bidirectional(LSTM(units=64, return_sequences=True))(base_model)
-            x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
-
-            # x = TimeDistributed(Flatten())(base_model)
+            x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
-            x = Flatten()(x)
+            # x = Flatten()(x)
 
+            # Apply LSTM layer
+            x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
+            
             print(f'x.shape: {x.shape}')
-
             size_reduce = 2
             while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
                 # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
