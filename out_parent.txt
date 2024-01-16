@@ -35,3 +35,13 @@ len(agent.replay_memory): 21862
 Count of epochs trained: 0	Goal: 1
 
   0%|          | 0/1 [00:00<?, ?epoch/s][AFinished training first batch.
+
+100%|##########| 1/1 [11:50<00:00, 710.02s/epoch][A100%|##########| 1/1 [11:50<00:00, 710.02s/epoch]
+Saved model from episode 370. Count of epochs trained: 1
+  0%|          | 1/9631 [12:03<1935:47:35, 723.66s/episode]
+Started episode 371 of 10000
+Finished episode 371 of 10000
+len(agent.replay_memory): 21902
+Count of epochs trained: 1	Goal: 2
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
