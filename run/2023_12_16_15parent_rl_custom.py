@@ -1,6 +1,8 @@
-import time, os, shutil, subprocess, glob, signal
+import time, os, shutil, subprocess, glob, signal, configparser
 
-bSAMBHU24 = False
+config = configparser.ConfigParser()
+config.read('config.ini')
+bSAMBHU24 = config.getboolean('Settings','bSAMBHU24')
 bLocalCarla = not bSAMBHU24
 bGAIVI = not bSAMBHU24
 # count_max_runs = 1

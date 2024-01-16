@@ -28,10 +28,12 @@ try:
         'win-amd64' if os.name == 'nt' else 'linux-x86_64'))[0])
 except IndexError:
     pass
-import carla
+import carla, configparser
 
-bSAMBHU24 = False
-bA100 = not bSAMBHU24
+config = configparser.ConfigParser()
+config.read('config.ini')
+bSAMBHU24 = config.getboolean('Settings','bSAMBHU24')
+bA100 = config.getboolean('Settings','bA100')
 bGAIVI = not bSAMBHU24
 
 
@@ -56,7 +58,9 @@ REPLAY_MEMORY_SIZE = 50_000
 if bSAMBHU24:
     # MINIBATCH_SIZE = 4
     # MINIBATCH_SIZE = 128
-    MINIBATCH_SIZE = 64
+    # MINIBATCH_SIZE = 64
+    # MINIBATCH_SIZE = 32
+    MINIBATCH_SIZE = 16
 else:
     if not bA100:
         # MINIBATCH_SIZE = 250
