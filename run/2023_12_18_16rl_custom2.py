@@ -575,11 +575,12 @@ if __name__ == "__main__":
             agent.replay_memory = pickle.load(file)
 
         matching_files = glob.glob(os.path.join('tmp', '*.idx_action'))
-        matching_files.sort()
-        print(f'Index action in temp {matching_files}')
-        print(f'load idx_action {matching_files[-1]}')
-        idx_action = matching_files[-1].split('/')[1].split('.')[0]
-        idx_action = int(idx_action)
+        if len(matching_files)>0:
+            matching_files.sort()
+            print(f'Index action in temp {matching_files}')
+            print(f'load idx_action {matching_files[-1]}')
+            idx_action = matching_files[-1].split('/')[1].split('.')[0]
+            idx_action = int(idx_action)
 
         idx_episode_start = idx_episode_crashed
 
