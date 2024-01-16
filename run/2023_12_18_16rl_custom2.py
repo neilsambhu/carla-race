@@ -69,6 +69,7 @@ else:
         # MINIBATCH_SIZE = 20_000
         # MINIBATCH_SIZE = 10_000
         MINIBATCH_SIZE = 1_000
+        MINIBATCH_SIZE = 10_000
 MIN_REPLAY_MEMORY_SIZE = 20_000
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -336,10 +337,8 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            # count_filters = 32
-            # count_filters = 16
-            # count_filters = 8
             count_filters = 1
+            # count_filters = 8
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
