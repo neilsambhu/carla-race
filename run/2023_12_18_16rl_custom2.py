@@ -56,8 +56,8 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 50_000
 # REPLAY_MEMORY_SIZE = 75_000
 if bSAMBHU24:
-    MINIBATCH_SIZE = 16
-    MINIBATCH_SIZE = 64
+    # MINIBATCH_SIZE = 64
+    MINIBATCH_SIZE = 32
 else:
     if not bA100:
         # MINIBATCH_SIZE = 250
@@ -89,7 +89,7 @@ MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
-COUNT_FRAME_WINDOW = 40
+COUNT_FRAME_WINDOW = 20
 
 directory_output = '_out_16rl_custom2'
 # if os.path.exists(directory):
