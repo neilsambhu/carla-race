@@ -381,7 +381,7 @@ with strategy.scope():
 
             model = Model(inputs=input_layer, outputs=output_layer)
             model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"])
-            print(model.summary())
+            # print(model.summary())
             return model
 
         def update_replay_memory(self, transition):
