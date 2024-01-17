@@ -1,25 +1,25 @@
 Start run at count 1
 4.26.2-0+++UE4+Release-4.26 522 0
 Disabling core dumps.
-2024-01-16 23:51:48.171319: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-16 23:51:48.193477: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-16 23:51:48.193498: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-16 23:51:48.194204: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-16 23:51:48.197992: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-16 23:54:47.842246: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-16 23:54:47.865582: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-16 23:54:47.865602: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-16 23:54:47.866146: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-16 23:54:47.869622: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-16 23:51:48.633880: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-16 23:51:48.938203: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:51:48.968227: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:51:48.968498: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:51:48.969786: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:51:48.970032: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:51:48.970231: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:51:49.813423: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:51:49.813543: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:51:49.813664: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:51:49.813798: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-x.shape after flatten: (None, 20, 1792)
-x.shape after LSTM: (None, 2560)
+2024-01-16 23:54:48.294486: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-16 23:54:48.596324: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-16 23:54:48.626457: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-16 23:54:48.626591: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-16 23:54:48.627548: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-16 23:54:48.627692: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-16 23:54:48.627821: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-16 23:54:49.437234: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-16 23:54:49.437354: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-16 23:54:49.437447: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-16 23:54:49.437529: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+x.shape after flatten: (None, 20, 1024)
+x.shape after LSTM: (None, 128)
 Model: "model"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -27,73 +27,73 @@ _________________________________________________________________
  input_1 (InputLayer)        [(None, 20, 128, 128, 3   0         
                              )]                                  
                                                                  
- time_distributed (TimeDist  (None, 20, 128, 128, 28   784       
+ time_distributed (TimeDist  (None, 20, 128, 128, 16   448       
  ributed)                    )                                   
                                                                  
- time_distributed_1 (TimeDi  (None, 20, 64, 64, 28)    0         
+ time_distributed_1 (TimeDi  (None, 20, 64, 64, 16)    0         
  stributed)                                                      
                                                                  
- time_distributed_2 (TimeDi  (None, 20, 64, 64, 28)    112       
+ time_distributed_2 (TimeDi  (None, 20, 64, 64, 16)    64        
  stributed)                                                      
                                                                  
- time_distributed_3 (TimeDi  (None, 20, 64, 64, 28)    0         
+ time_distributed_3 (TimeDi  (None, 20, 64, 64, 16)    0         
  stributed)                                                      
                                                                  
- time_distributed_4 (TimeDi  (None, 20, 64, 64, 28)    7084      
+ time_distributed_4 (TimeDi  (None, 20, 64, 64, 16)    2320      
  stributed)                                                      
                                                                  
- time_distributed_5 (TimeDi  (None, 20, 32, 32, 28)    0         
+ time_distributed_5 (TimeDi  (None, 20, 32, 32, 16)    0         
  stributed)                                                      
                                                                  
- time_distributed_6 (TimeDi  (None, 20, 32, 32, 28)    112       
+ time_distributed_6 (TimeDi  (None, 20, 32, 32, 16)    64        
  stributed)                                                      
                                                                  
- time_distributed_7 (TimeDi  (None, 20, 32, 32, 28)    0         
+ time_distributed_7 (TimeDi  (None, 20, 32, 32, 16)    0         
  stributed)                                                      
                                                                  
- time_distributed_8 (TimeDi  (None, 20, 32, 32, 28)    7084      
+ time_distributed_8 (TimeDi  (None, 20, 32, 32, 16)    2320      
  stributed)                                                      
                                                                  
- time_distributed_9 (TimeDi  (None, 20, 16, 16, 28)    0         
+ time_distributed_9 (TimeDi  (None, 20, 16, 16, 16)    0         
  stributed)                                                      
                                                                  
- time_distributed_10 (TimeD  (None, 20, 16, 16, 28)    112       
+ time_distributed_10 (TimeD  (None, 20, 16, 16, 16)    64        
  istributed)                                                     
                                                                  
- time_distributed_11 (TimeD  (None, 20, 16, 16, 28)    0         
+ time_distributed_11 (TimeD  (None, 20, 16, 16, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_12 (TimeD  (None, 20, 16, 16, 28)    7084      
+ time_distributed_12 (TimeD  (None, 20, 16, 16, 16)    2320      
  istributed)                                                     
                                                                  
- time_distributed_13 (TimeD  (None, 20, 8, 8, 28)      0         
+ time_distributed_13 (TimeD  (None, 20, 8, 8, 16)      0         
  istributed)                                                     
                                                                  
- time_distributed_14 (TimeD  (None, 20, 8, 8, 28)      112       
+ time_distributed_14 (TimeD  (None, 20, 8, 8, 16)      64        
  istributed)                                                     
                                                                  
- time_distributed_15 (TimeD  (None, 20, 8, 8, 28)      0         
+ time_distributed_15 (TimeD  (None, 20, 8, 8, 16)      0         
  istributed)                                                     
                                                                  
- time_distributed_16 (TimeD  (None, 20, 1792)          0         
+ time_distributed_16 (TimeD  (None, 20, 1024)          0         
  istributed)                                                     
                                                                  
- bidirectional (Bidirection  (None, 20, 2560)          31467520  
+ bidirectional (Bidirection  (None, 20, 128)           557568    
  al)                                                             
                                                                  
- bidirectional_1 (Bidirecti  (None, 2560)              39331840  
+ bidirectional_1 (Bidirecti  (None, 128)               98816     
  onal)                                                           
                                                                  
- dense (Dense)               (None, 2541)              6507501   
+ dense (Dense)               (None, 2541)              327789    
                                                                  
 =================================================================
-Total params: 77329345 (294.99 MB)
-Trainable params: 77329121 (294.99 MB)
-Non-trainable params: 224 (896.00 Byte)
+Total params: 991837 (3.78 MB)
+Trainable params: 991709 (3.78 MB)
+Non-trainable params: 128 (512.00 Byte)
 _________________________________________________________________
 None
-x.shape after flatten: (None, 20, 1792)
-x.shape after LSTM: (None, 2560)
+x.shape after flatten: (None, 20, 1024)
+x.shape after LSTM: (None, 128)
 Model: "model_1"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -101,73 +101,73 @@ _________________________________________________________________
  input_2 (InputLayer)        [(None, 20, 128, 128, 3   0         
                              )]                                  
                                                                  
- time_distributed_17 (TimeD  (None, 20, 128, 128, 28   784       
+ time_distributed_17 (TimeD  (None, 20, 128, 128, 16   448       
  istributed)                 )                                   
                                                                  
- time_distributed_18 (TimeD  (None, 20, 64, 64, 28)    0         
+ time_distributed_18 (TimeD  (None, 20, 64, 64, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_19 (TimeD  (None, 20, 64, 64, 28)    112       
+ time_distributed_19 (TimeD  (None, 20, 64, 64, 16)    64        
  istributed)                                                     
                                                                  
- time_distributed_20 (TimeD  (None, 20, 64, 64, 28)    0         
+ time_distributed_20 (TimeD  (None, 20, 64, 64, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_21 (TimeD  (None, 20, 64, 64, 28)    7084      
+ time_distributed_21 (TimeD  (None, 20, 64, 64, 16)    2320      
  istributed)                                                     
                                                                  
- time_distributed_22 (TimeD  (None, 20, 32, 32, 28)    0         
+ time_distributed_22 (TimeD  (None, 20, 32, 32, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_23 (TimeD  (None, 20, 32, 32, 28)    112       
+ time_distributed_23 (TimeD  (None, 20, 32, 32, 16)    64        
  istributed)                                                     
                                                                  
- time_distributed_24 (TimeD  (None, 20, 32, 32, 28)    0         
+ time_distributed_24 (TimeD  (None, 20, 32, 32, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_25 (TimeD  (None, 20, 32, 32, 28)    7084      
+ time_distributed_25 (TimeD  (None, 20, 32, 32, 16)    2320      
  istributed)                                                     
                                                                  
- time_distributed_26 (TimeD  (None, 20, 16, 16, 28)    0         
+ time_distributed_26 (TimeD  (None, 20, 16, 16, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_27 (TimeD  (None, 20, 16, 16, 28)    112       
+ time_distributed_27 (TimeD  (None, 20, 16, 16, 16)    64        
  istributed)                                                     
                                                                  
- time_distributed_28 (TimeD  (None, 20, 16, 16, 28)    0         
+ time_distributed_28 (TimeD  (None, 20, 16, 16, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_29 (TimeD  (None, 20, 16, 16, 28)    7084      
+ time_distributed_29 (TimeD  (None, 20, 16, 16, 16)    2320      
  istributed)                                                     
                                                                  
- time_distributed_30 (TimeD  (None, 20, 8, 8, 28)      0         
+ time_distributed_30 (TimeD  (None, 20, 8, 8, 16)      0         
  istributed)                                                     
                                                                  
- time_distributed_31 (TimeD  (None, 20, 8, 8, 28)      112       
+ time_distributed_31 (TimeD  (None, 20, 8, 8, 16)      64        
  istributed)                                                     
                                                                  
- time_distributed_32 (TimeD  (None, 20, 8, 8, 28)      0         
+ time_distributed_32 (TimeD  (None, 20, 8, 8, 16)      0         
  istributed)                                                     
                                                                  
- time_distributed_33 (TimeD  (None, 20, 1792)          0         
+ time_distributed_33 (TimeD  (None, 20, 1024)          0         
  istributed)                                                     
                                                                  
- bidirectional_2 (Bidirecti  (None, 20, 2560)          31467520  
+ bidirectional_2 (Bidirecti  (None, 20, 128)           557568    
  onal)                                                           
                                                                  
- bidirectional_3 (Bidirecti  (None, 2560)              39331840  
+ bidirectional_3 (Bidirecti  (None, 128)               98816     
  onal)                                                           
                                                                  
- dense_1 (Dense)             (None, 2541)              6507501   
+ dense_1 (Dense)             (None, 2541)              327789    
                                                                  
 =================================================================
-Total params: 77329345 (294.99 MB)
-Trainable params: 77329121 (294.99 MB)
-Non-trainable params: 224 (896.00 Byte)
+Total params: 991837 (3.78 MB)
+Trainable params: 991709 (3.78 MB)
+Non-trainable params: 128 (512.00 Byte)
 _________________________________________________________________
 None
-x.shape after flatten: (None, 20, 1792)
-x.shape after LSTM: (None, 2560)
+x.shape after flatten: (None, 20, 1024)
+x.shape after LSTM: (None, 128)
 Model: "model_2"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -175,77 +175,77 @@ _________________________________________________________________
  input_3 (InputLayer)        [(None, 20, 128, 128, 3   0         
                              )]                                  
                                                                  
- time_distributed_34 (TimeD  (None, 20, 128, 128, 28   784       
+ time_distributed_34 (TimeD  (None, 20, 128, 128, 16   448       
  istributed)                 )                                   
                                                                  
- time_distributed_35 (TimeD  (None, 20, 64, 64, 28)    0         
+ time_distributed_35 (TimeD  (None, 20, 64, 64, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_36 (TimeD  (None, 20, 64, 64, 28)    112       
+ time_distributed_36 (TimeD  (None, 20, 64, 64, 16)    64        
  istributed)                                                     
                                                                  
- time_distributed_37 (TimeD  (None, 20, 64, 64, 28)    0         
+ time_distributed_37 (TimeD  (None, 20, 64, 64, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_38 (TimeD  (None, 20, 64, 64, 28)    7084      
+ time_distributed_38 (TimeD  (None, 20, 64, 64, 16)    2320      
  istributed)                                                     
                                                                  
- time_distributed_39 (TimeD  (None, 20, 32, 32, 28)    0         
+ time_distributed_39 (TimeD  (None, 20, 32, 32, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_40 (TimeD  (None, 20, 32, 32, 28)    112       
+ time_distributed_40 (TimeD  (None, 20, 32, 32, 16)    64        
  istributed)                                                     
                                                                  
- time_distributed_41 (TimeD  (None, 20, 32, 32, 28)    0         
+ time_distributed_41 (TimeD  (None, 20, 32, 32, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_42 (TimeD  (None, 20, 32, 32, 28)    7084      
+ time_distributed_42 (TimeD  (None, 20, 32, 32, 16)    2320      
  istributed)                                                     
                                                                  
- time_distributed_43 (TimeD  (None, 20, 16, 16, 28)    0         
+ time_distributed_43 (TimeD  (None, 20, 16, 16, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_44 (TimeD  (None, 20, 16, 16, 28)    112       
+ time_distributed_44 (TimeD  (None, 20, 16, 16, 16)    64        
  istributed)                                                     
                                                                  
- time_distributed_45 (TimeD  (None, 20, 16, 16, 28)    0         
+ time_distributed_45 (TimeD  (None, 20, 16, 16, 16)    0         
  istributed)                                                     
                                                                  
- time_distributed_46 (TimeD  (None, 20, 16, 16, 28)    7084      
+ time_distributed_46 (TimeD  (None, 20, 16, 16, 16)    2320      
  istributed)                                                     
                                                                  
- time_distributed_47 (TimeD  (None, 20, 8, 8, 28)      0         
+ time_distributed_47 (TimeD  (None, 20, 8, 8, 16)      0         
  istributed)                                                     
                                                                  
- time_distributed_48 (TimeD  (None, 20, 8, 8, 28)      112       
+ time_distributed_48 (TimeD  (None, 20, 8, 8, 16)      64        
  istributed)                                                     
                                                                  
- time_distributed_49 (TimeD  (None, 20, 8, 8, 28)      0         
+ time_distributed_49 (TimeD  (None, 20, 8, 8, 16)      0         
  istributed)                                                     
                                                                  
- time_distributed_50 (TimeD  (None, 20, 1792)          0         
+ time_distributed_50 (TimeD  (None, 20, 1024)          0         
  istributed)                                                     
                                                                  
- bidirectional_4 (Bidirecti  (None, 20, 2560)          31467520  
+ bidirectional_4 (Bidirecti  (None, 20, 128)           557568    
  onal)                                                           
                                                                  
- bidirectional_5 (Bidirecti  (None, 2560)              39331840  
+ bidirectional_5 (Bidirecti  (None, 128)               98816     
  onal)                                                           
                                                                  
- dense_2 (Dense)             (None, 2541)              6507501   
+ dense_2 (Dense)             (None, 2541)              327789    
                                                                  
 =================================================================
-Total params: 77329345 (294.99 MB)
-Trainable params: 77329121 (294.99 MB)
-Non-trainable params: 224 (896.00 Byte)
+Total params: 991837 (3.78 MB)
+Trainable params: 991709 (3.78 MB)
+Non-trainable params: 128 (512.00 Byte)
 _________________________________________________________________
 None
-2024-01-16 23:52:07.257855: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-16 23:52:08.608520: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f5fc82e3a70 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-16 23:52:08.608535: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-16 23:52:08.611347: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-16 23:54:54.199704: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-16 23:54:55.443666: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f127e036dd0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-16 23:54:55.443681: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-16 23:54:55.446534: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705467128.671816 4049756 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1705467295.511415 4055805 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
@@ -257,3 +257,22 @@ len(agent.replay_memory): 21862
 Count of epochs trained: 0	Goal: 1
 
   0%|          | 0/1 [00:00<?, ?epoch/s][AFinished training first batch.
+
+100%|##########| 1/1 [27:55<00:00, 1675.82s/epoch][A100%|##########| 1/1 [27:55<00:00, 1675.82s/epoch]
+Saved model from episode 370. Count of epochs trained: 1
+  0%|          | 1/9631 [28:09<4518:39:18, 1689.22s/episode]
+Started episode 371 of 10000
+Finished episode 371 of 10000
+len(agent.replay_memory): 21894
+Count of epochs trained: 1	Goal: 2
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:53<00:00, 1673.36s/epoch][A100%|##########| 1/1 [27:53<00:00, 1673.36s/epoch]
+Saved model from episode 371. Count of epochs trained: 2
+  0%|          | 2/9631 [56:12<4508:47:36, 1685.71s/episode]
+Started episode 372 of 10000
+Finished episode 372 of 10000
+len(agent.replay_memory): 21927
+Count of epochs trained: 2	Goal: 3
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
