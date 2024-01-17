@@ -56,8 +56,8 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 50_000
 # REPLAY_MEMORY_SIZE = 75_000
 if bSAMBHU24:
-    # MINIBATCH_SIZE = 64
-    MINIBATCH_SIZE = 32
+    # MINIBATCH_SIZE = 32
+    MINIBATCH_SIZE = 16
 else:
     if not bA100:
         # MINIBATCH_SIZE = 250
@@ -333,7 +333,7 @@ with strategy.scope():
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             # count_filters = 1
-            count_filters = 28
+            count_filters = 16
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
@@ -362,14 +362,14 @@ with strategy.scope():
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
             # x = Flatten()(x)
-            # print(f'x.shape after flatten: {x.shape}')
+            print(f'x.shape after flatten: {x.shape}')
 
 
             # Apply LSTM layer
-            x = Bidirectional(LSTM(units=COUNT_FRAME_WINDOW*64, return_sequences=True))(x)
-            x = Bidirectional(LSTM(units=COUNT_FRAME_WINDOW*64, return_sequences=False))(x)
+            x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             
-            # print(f'x.shape after LSTM: {x.shape}')
+            print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
             while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
                 # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
@@ -381,7 +381,7 @@ with strategy.scope():
 
             model = Model(inputs=input_layer, outputs=output_layer)
             model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"])
-            # print(model.summary())
+            print(model.summary())
             return model
 
         def update_replay_memory(self, transition):
