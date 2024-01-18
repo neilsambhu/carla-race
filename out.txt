@@ -1,248 +1,26 @@
-2024-01-16 23:54:47.842246: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-16 23:54:47.865582: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-16 23:54:47.865602: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-16 23:54:47.866146: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-16 23:54:47.869622: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-17 02:09:38.161033: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-17 02:09:38.183816: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-17 02:09:38.183838: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-17 02:09:38.184472: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-17 02:09:38.188404: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-16 23:54:48.294486: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-16 23:54:48.596324: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:54:48.626457: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:54:48.626591: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:54:48.627548: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:54:48.627692: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:54:48.627821: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:54:49.437234: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:54:49.437354: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:54:49.437447: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-16 23:54:49.437529: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-x.shape after flatten: (None, 20, 1024)
-x.shape after LSTM: (None, 128)
-Model: "model"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_1 (InputLayer)        [(None, 20, 128, 128, 3   0         
-                             )]                                  
-                                                                 
- time_distributed (TimeDist  (None, 20, 128, 128, 16   448       
- ributed)                    )                                   
-                                                                 
- time_distributed_1 (TimeDi  (None, 20, 64, 64, 16)    0         
- stributed)                                                      
-                                                                 
- time_distributed_2 (TimeDi  (None, 20, 64, 64, 16)    64        
- stributed)                                                      
-                                                                 
- time_distributed_3 (TimeDi  (None, 20, 64, 64, 16)    0         
- stributed)                                                      
-                                                                 
- time_distributed_4 (TimeDi  (None, 20, 64, 64, 16)    2320      
- stributed)                                                      
-                                                                 
- time_distributed_5 (TimeDi  (None, 20, 32, 32, 16)    0         
- stributed)                                                      
-                                                                 
- time_distributed_6 (TimeDi  (None, 20, 32, 32, 16)    64        
- stributed)                                                      
-                                                                 
- time_distributed_7 (TimeDi  (None, 20, 32, 32, 16)    0         
- stributed)                                                      
-                                                                 
- time_distributed_8 (TimeDi  (None, 20, 32, 32, 16)    2320      
- stributed)                                                      
-                                                                 
- time_distributed_9 (TimeDi  (None, 20, 16, 16, 16)    0         
- stributed)                                                      
-                                                                 
- time_distributed_10 (TimeD  (None, 20, 16, 16, 16)    64        
- istributed)                                                     
-                                                                 
- time_distributed_11 (TimeD  (None, 20, 16, 16, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_12 (TimeD  (None, 20, 16, 16, 16)    2320      
- istributed)                                                     
-                                                                 
- time_distributed_13 (TimeD  (None, 20, 8, 8, 16)      0         
- istributed)                                                     
-                                                                 
- time_distributed_14 (TimeD  (None, 20, 8, 8, 16)      64        
- istributed)                                                     
-                                                                 
- time_distributed_15 (TimeD  (None, 20, 8, 8, 16)      0         
- istributed)                                                     
-                                                                 
- time_distributed_16 (TimeD  (None, 20, 1024)          0         
- istributed)                                                     
-                                                                 
- bidirectional (Bidirection  (None, 20, 128)           557568    
- al)                                                             
-                                                                 
- bidirectional_1 (Bidirecti  (None, 128)               98816     
- onal)                                                           
-                                                                 
- dense (Dense)               (None, 2541)              327789    
-                                                                 
-=================================================================
-Total params: 991837 (3.78 MB)
-Trainable params: 991709 (3.78 MB)
-Non-trainable params: 128 (512.00 Byte)
-_________________________________________________________________
-None
-x.shape after flatten: (None, 20, 1024)
-x.shape after LSTM: (None, 128)
-Model: "model_1"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_2 (InputLayer)        [(None, 20, 128, 128, 3   0         
-                             )]                                  
-                                                                 
- time_distributed_17 (TimeD  (None, 20, 128, 128, 16   448       
- istributed)                 )                                   
-                                                                 
- time_distributed_18 (TimeD  (None, 20, 64, 64, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_19 (TimeD  (None, 20, 64, 64, 16)    64        
- istributed)                                                     
-                                                                 
- time_distributed_20 (TimeD  (None, 20, 64, 64, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_21 (TimeD  (None, 20, 64, 64, 16)    2320      
- istributed)                                                     
-                                                                 
- time_distributed_22 (TimeD  (None, 20, 32, 32, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_23 (TimeD  (None, 20, 32, 32, 16)    64        
- istributed)                                                     
-                                                                 
- time_distributed_24 (TimeD  (None, 20, 32, 32, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_25 (TimeD  (None, 20, 32, 32, 16)    2320      
- istributed)                                                     
-                                                                 
- time_distributed_26 (TimeD  (None, 20, 16, 16, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_27 (TimeD  (None, 20, 16, 16, 16)    64        
- istributed)                                                     
-                                                                 
- time_distributed_28 (TimeD  (None, 20, 16, 16, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_29 (TimeD  (None, 20, 16, 16, 16)    2320      
- istributed)                                                     
-                                                                 
- time_distributed_30 (TimeD  (None, 20, 8, 8, 16)      0         
- istributed)                                                     
-                                                                 
- time_distributed_31 (TimeD  (None, 20, 8, 8, 16)      64        
- istributed)                                                     
-                                                                 
- time_distributed_32 (TimeD  (None, 20, 8, 8, 16)      0         
- istributed)                                                     
-                                                                 
- time_distributed_33 (TimeD  (None, 20, 1024)          0         
- istributed)                                                     
-                                                                 
- bidirectional_2 (Bidirecti  (None, 20, 128)           557568    
- onal)                                                           
-                                                                 
- bidirectional_3 (Bidirecti  (None, 128)               98816     
- onal)                                                           
-                                                                 
- dense_1 (Dense)             (None, 2541)              327789    
-                                                                 
-=================================================================
-Total params: 991837 (3.78 MB)
-Trainable params: 991709 (3.78 MB)
-Non-trainable params: 128 (512.00 Byte)
-_________________________________________________________________
-None
-x.shape after flatten: (None, 20, 1024)
-x.shape after LSTM: (None, 128)
-Model: "model_2"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_3 (InputLayer)        [(None, 20, 128, 128, 3   0         
-                             )]                                  
-                                                                 
- time_distributed_34 (TimeD  (None, 20, 128, 128, 16   448       
- istributed)                 )                                   
-                                                                 
- time_distributed_35 (TimeD  (None, 20, 64, 64, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_36 (TimeD  (None, 20, 64, 64, 16)    64        
- istributed)                                                     
-                                                                 
- time_distributed_37 (TimeD  (None, 20, 64, 64, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_38 (TimeD  (None, 20, 64, 64, 16)    2320      
- istributed)                                                     
-                                                                 
- time_distributed_39 (TimeD  (None, 20, 32, 32, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_40 (TimeD  (None, 20, 32, 32, 16)    64        
- istributed)                                                     
-                                                                 
- time_distributed_41 (TimeD  (None, 20, 32, 32, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_42 (TimeD  (None, 20, 32, 32, 16)    2320      
- istributed)                                                     
-                                                                 
- time_distributed_43 (TimeD  (None, 20, 16, 16, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_44 (TimeD  (None, 20, 16, 16, 16)    64        
- istributed)                                                     
-                                                                 
- time_distributed_45 (TimeD  (None, 20, 16, 16, 16)    0         
- istributed)                                                     
-                                                                 
- time_distributed_46 (TimeD  (None, 20, 16, 16, 16)    2320      
- istributed)                                                     
-                                                                 
- time_distributed_47 (TimeD  (None, 20, 8, 8, 16)      0         
- istributed)                                                     
-                                                                 
- time_distributed_48 (TimeD  (None, 20, 8, 8, 16)      64        
- istributed)                                                     
-                                                                 
- time_distributed_49 (TimeD  (None, 20, 8, 8, 16)      0         
- istributed)                                                     
-                                                                 
- time_distributed_50 (TimeD  (None, 20, 1024)          0         
- istributed)                                                     
-                                                                 
- bidirectional_4 (Bidirecti  (None, 20, 128)           557568    
- onal)                                                           
-                                                                 
- bidirectional_5 (Bidirecti  (None, 128)               98816     
- onal)                                                           
-                                                                 
- dense_2 (Dense)             (None, 2541)              327789    
-                                                                 
-=================================================================
-Total params: 991837 (3.78 MB)
-Trainable params: 991709 (3.78 MB)
-Non-trainable params: 128 (512.00 Byte)
-_________________________________________________________________
-None
-2024-01-16 23:54:54.199704: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-16 23:54:55.443666: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f127e036dd0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-16 23:54:55.443681: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-16 23:54:55.446534: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-17 02:09:38.611594: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-17 02:09:38.906770: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-17 02:09:38.935548: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-17 02:09:38.935711: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-17 02:09:38.936493: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-17 02:09:38.936601: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-17 02:09:38.936701: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-17 02:09:39.790250: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-17 02:09:39.790401: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-17 02:09:39.790569: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-17 02:09:39.790695: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-17 02:09:44.869405: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-17 02:09:46.159496: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f50724f6c20 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-17 02:09:46.159511: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-17 02:09:46.162413: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705467295.511415 4055805 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1705475386.228459  380589 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
@@ -255,21 +33,255 @@ Count of epochs trained: 0	Goal: 1
 
   0%|          | 0/1 [00:00<?, ?epoch/s][AFinished training first batch.
 
-100%|##########| 1/1 [27:55<00:00, 1675.82s/epoch][A100%|##########| 1/1 [27:55<00:00, 1675.82s/epoch]
+100%|##########| 1/1 [27:55<00:00, 1675.68s/epoch][A100%|##########| 1/1 [27:55<00:00, 1675.68s/epoch]
 Saved model from episode 370. Count of epochs trained: 1
-  0%|          | 1/9631 [28:09<4518:39:18, 1689.22s/episode]
+  0%|          | 1/9631 [28:09<4518:43:08, 1689.24s/episode]
 Started episode 371 of 10000
 Finished episode 371 of 10000
 len(agent.replay_memory): 21894
 Count of epochs trained: 1	Goal: 2
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
-100%|##########| 1/1 [27:53<00:00, 1673.36s/epoch][A100%|##########| 1/1 [27:53<00:00, 1673.36s/epoch]
+100%|##########| 1/1 [27:46<00:00, 1666.19s/epoch][A100%|##########| 1/1 [27:46<00:00, 1666.19s/epoch]
 Saved model from episode 371. Count of epochs trained: 2
-  0%|          | 2/9631 [56:12<4508:47:36, 1685.71s/episode]
+  0%|          | 2/9631 [56:05<4497:12:22, 1681.37s/episode]
 Started episode 372 of 10000
 Finished episode 372 of 10000
 len(agent.replay_memory): 21927
 Count of epochs trained: 2	Goal: 3
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:15<00:00, 1695.02s/epoch][A100%|##########| 1/1 [28:15<00:00, 1695.02s/epoch]
+Saved model from episode 372. Count of epochs trained: 3
+  0%|          | 3/9631 [1:24:30<4525:58:42, 1692.31s/episode]
+Started episode 373 of 10000
+Finished episode 373 of 10000
+len(agent.replay_memory): 21962
+Count of epochs trained: 3	Goal: 4
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:11<00:00, 1691.28s/epoch][A100%|##########| 1/1 [28:11<00:00, 1691.28s/epoch]
+Saved model from episode 373. Count of epochs trained: 4
+  0%|          | 4/9631 [1:52:51<4534:46:28, 1695.77s/episode]
+Started episode 374 of 10000
+Finished episode 374 of 10000
+len(agent.replay_memory): 21998
+Count of epochs trained: 4	Goal: 5
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:49<00:00, 1669.71s/epoch][A100%|##########| 1/1 [27:49<00:00, 1669.71s/epoch]
+Saved model from episode 374. Count of epochs trained: 5
+  0%|          | 5/9631 [2:20:51<4518:36:44, 1689.90s/episode]
+Started episode 375 of 10000
+Finished episode 375 of 10000
+len(agent.replay_memory): 22038
+Count of epochs trained: 5	Goal: 6
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:54<00:00, 1674.02s/epoch][A100%|##########| 1/1 [27:54<00:00, 1674.02s/epoch]
+Saved model from episode 375. Count of epochs trained: 6
+  0%|          | 6/9631 [2:48:55<4512:52:48, 1687.93s/episode]
+Started episode 376 of 10000
+Finished episode 376 of 10000
+len(agent.replay_memory): 22066
+Count of epochs trained: 6	Goal: 7
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:13<00:00, 1693.80s/epoch][A100%|##########| 1/1 [28:13<00:00, 1693.80s/epoch]
+Saved model from episode 376. Count of epochs trained: 7
+  0%|          | 7/9631 [3:17:18<4525:59:01, 1693.01s/episode]
+Started episode 377 of 10000
+Finished episode 377 of 10000
+len(agent.replay_memory): 22097
+Count of epochs trained: 7	Goal: 8
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:12<00:00, 1692.92s/epoch][A100%|##########| 1/1 [28:12<00:00, 1692.92s/epoch]
+Saved model from episode 377. Count of epochs trained: 8
+  0%|          | 8/9631 [3:45:41<4533:40:45, 1696.07s/episode]
+Started episode 378 of 10000
+Finished episode 378 of 10000
+len(agent.replay_memory): 22127
+Count of epochs trained: 8	Goal: 9
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:58<00:00, 1678.11s/epoch][A100%|##########| 1/1 [27:58<00:00, 1678.11s/epoch]
+Saved model from episode 378. Count of epochs trained: 9
+  0%|          | 9/9631 [4:13:48<4526:10:17, 1693.43s/episode]
+Started episode 379 of 10000
+Finished episode 379 of 10000
+len(agent.replay_memory): 22171
+Count of epochs trained: 9	Goal: 10
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:53<00:00, 1673.43s/epoch][A100%|##########| 1/1 [27:53<00:00, 1673.43s/epoch]
+Saved model from episode 379. Count of epochs trained: 10
+  0%|          | 10/9631 [4:41:52<4517:41:12, 1690.43s/episode]
+Started episode 380 of 10000
+Finished episode 380 of 10000
+len(agent.replay_memory): 22208
+Count of epochs trained: 10	Goal: 11
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:55<00:00, 1675.63s/epoch][A100%|##########| 1/1 [27:55<00:00, 1675.63s/epoch]
+Saved model from episode 380. Count of epochs trained: 11
+  0%|          | 11/9631 [5:09:58<4513:17:54, 1688.97s/episode]
+Started episode 381 of 10000
+Finished episode 381 of 10000
+len(agent.replay_memory): 22238
+Count of epochs trained: 11	Goal: 12
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:53<00:00, 1673.69s/epoch][A100%|##########| 1/1 [27:53<00:00, 1673.69s/epoch]
+Saved model from episode 381. Count of epochs trained: 12
+  0%|          | 12/9631 [5:38:01<4508:06:11, 1687.20s/episode]
+Started episode 382 of 10000
+Finished episode 382 of 10000
+len(agent.replay_memory): 22281
+Count of epochs trained: 12	Goal: 13
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:48<00:00, 1668.69s/epoch][A100%|##########| 1/1 [27:48<00:00, 1668.69s/epoch]
+Saved model from episode 382. Count of epochs trained: 13
+  0%|          | 13/9631 [6:06:00<4500:46:53, 1684.63s/episode]
+Started episode 383 of 10000
+Finished episode 383 of 10000
+len(agent.replay_memory): 22337
+Count of epochs trained: 13	Goal: 14
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:55<00:00, 1675.49s/epoch][A100%|##########| 1/1 [27:55<00:00, 1675.49s/epoch]
+Saved model from episode 383. Count of epochs trained: 14
+  0%|          | 14/9631 [6:34:06<4501:34:11, 1685.10s/episode]
+Started episode 384 of 10000
+Finished episode 384 of 10000
+len(agent.replay_memory): 22370
+Count of epochs trained: 14	Goal: 15
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:10<00:00, 1690.41s/epoch][A100%|##########| 1/1 [28:10<00:00, 1690.41s/epoch]
+Saved model from episode 384. Count of epochs trained: 15
+  0%|          | 15/9631 [7:02:26<4513:12:42, 1689.64s/episode]
+Started episode 385 of 10000
+Finished episode 385 of 10000
+len(agent.replay_memory): 22400
+Count of epochs trained: 15	Goal: 16
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:12<00:00, 1692.54s/epoch][A100%|##########| 1/1 [28:12<00:00, 1692.54s/epoch]
+Saved model from episode 385. Count of epochs trained: 16
+  0%|          | 16/9631 [7:30:48<4522:38:38, 1693.35s/episode]
+Started episode 386 of 10000
+Finished episode 386 of 10000
+len(agent.replay_memory): 22436
+Count of epochs trained: 16	Goal: 17
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:11<00:00, 1691.95s/epoch][A100%|##########| 1/1 [28:11<00:00, 1691.95s/epoch]
+Saved model from episode 386. Count of epochs trained: 17
+  0%|          | 17/9631 [7:59:10<4529:07:52, 1695.95s/episode]
+Started episode 387 of 10000
+Finished episode 387 of 10000
+len(agent.replay_memory): 22471
+Count of epochs trained: 17	Goal: 18
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:09<00:00, 1689.38s/epoch][A100%|##########| 1/1 [28:09<00:00, 1689.38s/epoch]
+Saved model from episode 387. Count of epochs trained: 18
+  0%|          | 18/9631 [8:27:29<4531:02:43, 1696.84s/episode]
+Started episode 388 of 10000
+Finished episode 388 of 10000
+len(agent.replay_memory): 22509
+Count of epochs trained: 18	Goal: 19
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [27:45<00:00, 1665.82s/epoch][A100%|##########| 1/1 [27:45<00:00, 1665.82s/epoch]
+Saved model from episode 388. Count of epochs trained: 19
+  0%|          | 19/9631 [8:55:24<4513:35:00, 1690.48s/episode]
+Started episode 389 of 10000
+Finished episode 389 of 10000
+len(agent.replay_memory): 22537
+Count of epochs trained: 19	Goal: 20
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:05<00:00, 1685.48s/epoch][A100%|##########| 1/1 [28:05<00:00, 1685.48s/epoch]
+Saved model from episode 389. Count of epochs trained: 20
+  0%|          | 20/9631 [9:23:39<4516:41:04, 1691.82s/episode]
+Started episode 390 of 10000
+Finished episode 390 of 10000
+len(agent.replay_memory): 22570
+Count of epochs trained: 20	Goal: 21
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:05<00:00, 1685.03s/epoch][A100%|##########| 1/1 [28:05<00:00, 1685.03s/epoch]
+Saved model from episode 390. Count of epochs trained: 21
+  0%|          | 21/9631 [9:52:03<4525:15:39, 1695.21s/episode]
+Started episode 391 of 10000
+Finished episode 391 of 10000
+len(agent.replay_memory): 22597
+Count of epochs trained: 21	Goal: 22
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:06<00:00, 1686.51s/epoch][A100%|##########| 1/1 [28:06<00:00, 1686.51s/epoch]
+Saved model from episode 391. Count of epochs trained: 22
+  0%|          | 22/9631 [10:20:19<4525:34:19, 1695.50s/episode]
+Started episode 392 of 10000
+Finished episode 392 of 10000
+len(agent.replay_memory): 22644
+Count of epochs trained: 22	Goal: 23
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:06<00:00, 1686.44s/epoch][A100%|##########| 1/1 [28:06<00:00, 1686.44s/epoch]
+Saved model from episode 392. Count of epochs trained: 23
+  0%|          | 23/9631 [10:48:36<4526:11:33, 1695.91s/episode]
+Started episode 393 of 10000
+Finished episode 393 of 10000
+len(agent.replay_memory): 22671
+Count of epochs trained: 23	Goal: 24
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:07<00:00, 1687.94s/epoch][A100%|##########| 1/1 [28:07<00:00, 1687.94s/epoch]
+Saved model from episode 393. Count of epochs trained: 24
+  0%|          | 24/9631 [11:16:53<4526:58:38, 1696.38s/episode]
+Started episode 394 of 10000
+Finished episode 394 of 10000
+len(agent.replay_memory): 22697
+Count of epochs trained: 24	Goal: 25
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:16<00:00, 1696.05s/epoch][A100%|##########| 1/1 [28:16<00:00, 1696.05s/epoch]
+Saved model from episode 394. Count of epochs trained: 25
+  0%|          | 25/9631 [11:45:19<4533:49:56, 1699.13s/episode]
+Started episode 395 of 10000
+Finished episode 395 of 10000
+len(agent.replay_memory): 22739
+Count of epochs trained: 25	Goal: 26
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:07<00:00, 1687.53s/epoch][A100%|##########| 1/1 [28:07<00:00, 1687.53s/epoch]
+Saved model from episode 395. Count of epochs trained: 26
+  0%|          | 26/9631 [12:13:36<4532:15:48, 1698.71s/episode]
+Started episode 396 of 10000
+Finished episode 396 of 10000
+len(agent.replay_memory): 22786
+Count of epochs trained: 26	Goal: 27
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:07<00:00, 1687.16s/epoch][A100%|##########| 1/1 [28:07<00:00, 1687.16s/epoch]
+Saved model from episode 396. Count of epochs trained: 27
+  0%|          | 27/9631 [12:41:54<4530:40:11, 1698.29s/episode]
+Started episode 397 of 10000
+Finished episode 397 of 10000
+len(agent.replay_memory): 22818
+Count of epochs trained: 27	Goal: 28
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [28:09<00:00, 1689.05s/epoch][A100%|##########| 1/1 [28:09<00:00, 1689.05s/epoch]
+Saved model from episode 397. Count of epochs trained: 28
+  0%|          | 28/9631 [13:10:13<4530:41:34, 1698.48s/episode]
+Started episode 398 of 10000
+Finished episode 398 of 10000
+len(agent.replay_memory): 22858
+Count of epochs trained: 28	Goal: 29
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
