@@ -279,7 +279,7 @@ class CarEnv:
 
         # Set 'done' flag to True when ticks exceed the lines in the file
         # done = self.idx_tick >= len(lines)
-        done = self.idx_tick >= 100
+        done = self.idx_tick >= 200
 
         # v = self.vehicle.get_velocity()
         # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
@@ -333,8 +333,8 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            count_filters = 1
-            # count_filters = 16
+            # count_filters = 1
+            count_filters = 16
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
@@ -345,20 +345,20 @@ with strategy.scope():
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            # base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            # base_model = TimeDistributed(BatchNormalization())(base_model)
-            # base_model = TimeDistributed(Activation('relu'))(base_model)
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            # base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            # base_model = TimeDistributed(BatchNormalization())(base_model)
-            # base_model = TimeDistributed(Activation('relu'))(base_model)
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            # base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            # base_model = TimeDistributed(BatchNormalization())(base_model)
-            # base_model = TimeDistributed(Activation('relu'))(base_model)
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
 
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
@@ -544,16 +544,18 @@ if __name__ == "__main__":
     agent.model.fit(x, y, verbose=False, batch_size=1) # Neil left tabbed 1
 
     idx_episode_start = 1
-    idx_action = 0
+    idx_action1 = 0
+    idx_action2 = 0
     max_framesPerAction = 100
-    count_framesPerAction = 0
+    count_framesPerAction1 = 0
+    count_framesPerAction2 = 0
     import glob, shutil
-    bLoadReplayMemory = True
+    bLoadReplayMemory = False
     if bLoadReplayMemory:
         with open('bak/0369.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
         idx_episode_start = 370
-        idx_action = 2530+1
+        idx_action1 = 2530+1
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()
@@ -576,13 +578,13 @@ if __name__ == "__main__":
         with open(matching_files[-1], 'rb') as file:
             agent.replay_memory = pickle.load(file)
 
-        matching_files = glob.glob(os.path.join('tmp', '*.idx_action'))
+        matching_files = glob.glob(os.path.join('tmp', '*.idx_action1'))
         if len(matching_files)>0:
             matching_files.sort()
             print(f'Index action in temp {matching_files}')
-            print(f'load idx_action {matching_files[-1]}')
-            idx_action = matching_files[-1].split('/')[1].split('.')[0]
-            idx_action = int(idx_action)
+            print(f'load idx_action1 {matching_files[-1]}')
+            idx_action1 = matching_files[-1].split('/')[1].split('.')[0]
+            idx_action1 = int(idx_action1)
 
         idx_episode_start = idx_episode_crashed
 
@@ -596,6 +598,8 @@ if __name__ == "__main__":
 
     bTrainingComplete = False
     previousEpisode_countBatchesTrained = agent.count_batches_trained
+    bAction2Started = False
+    bAction2Finished = False
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
             lookback = 2
@@ -654,35 +658,59 @@ if __name__ == "__main__":
                 #                     steer_index * len(action_space['brake']) + \
                 #                     brake_index
                 # else:
-                #     # bActionValid = False
-                #     # while not bActionValid:
+                #     # bAction1Valid = False
+                #     # while not bAction1Valid:
                 #     #     action = np.random.randint(0, action_size)
                 #     #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
                 #     #     brake_action = action % len(action_space['brake'])
                 #     #     if throttle_action == 0 or brake_action == 0:
-                #     #         bActionValid = True
+                #     #         bAction1Valid = True
                 #     action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                 #     if not bSync:
                 #         time.sleep(1/FPS)
-                if idx_action < action_size:
-                    count_framesPerAction += 1
-                    if count_framesPerAction > max_framesPerAction:
-                        print(f'Finished idx_action: {idx_action}\taction size: {action_size}')
-                        idx_action += 1
-                        count_framesPerAction = 0
-                    bActionValid = False
-                    while not bActionValid and idx_action < action_size:
-                        action = idx_action
+                if idx_action1 < action_size:
+                    count_framesPerAction1 += 1
+                    if count_framesPerAction1 > max_framesPerAction:
+                        print(f'Finished idx_action1: {idx_action1}\taction size: {action_size}')
+                        # transition to second action
+                        count_framesPerAction2 += 1
+                        if count_framesPerAction2 > max_framesPerAction:
+                            bAction2Finished = True
+                            print(f'Finished idx_action2: {idx_action2}\taction size: {action_size}')
+                        if bAction2Finished:
+                            idx_action2 += 1
+                            count_framesPerAction2 = 0
+                            bAction2Started = False
+                        if not bAction2Started:
+                            idx_action2 = 0
+                            count_framesPerAction2 = 0
+                            bAction2Started = True
+                        bAction2Valid = False
+                        while not bAction2Valid and idx_action2 < action_size:
+                            action = idx_action2
+                            throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                            brake_action = action % len(action_space['brake'])
+                            if brake_action == 0 and throttle_action > 0 and idx_action2 != idx_action1:
+                                bAction2Valid = True
+                                matching_files = glob.glob(os.path.join('tmp', '*idx_action2'))
+                                [os.remove(matching_file) for matching_file in matching_files]
+                                open(f'tmp/{idx_action2:04d}.idx_action2', "w")
+                            else:
+                                idx_action2 += 1
+                        
+                    bAction1Valid = False
+                    while not bAction1Valid and idx_action1 < action_size:
+                        action = idx_action1
                         throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
                         brake_action = action % len(action_space['brake'])
                         if brake_action == 0 and throttle_action > 0:
-                            bActionValid = True
-                            matching_files = glob.glob(os.path.join('tmp', '*idx_action'))
+                            bAction1Valid = True
+                            matching_files = glob.glob(os.path.join('tmp', '*idx_action1'))
                             [os.remove(matching_file) for matching_file in matching_files]
-                            open(f'tmp/{idx_action:04d}.idx_action', "w")
+                            open(f'tmp/{idx_action1:04d}.idx_action1', "w")
                         else:
-                            idx_action += 1
-                    if idx_action >= action_size:
+                            idx_action1 += 1
+                    if idx_action1 >= action_size:
                         print(f'Finished initializing all actions. Predicting from model.')
                         # action = np.argmax(agent.get_qs(current_state))                    
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
@@ -728,7 +756,7 @@ if __name__ == "__main__":
             epochs = None
             print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
             # if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
-            if idx_action < action_size:
+            if idx_action1 < action_size:
                 epochs = 0
             else:
             # elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:

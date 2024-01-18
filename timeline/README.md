@@ -827,3 +827,4 @@ python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_co
 ```
 scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi.sh && sleep 5 && tail -f slurm*
 ```
+1/18/2024 3:25 PM: TODO: nest the transitions between two actions.  
