@@ -278,8 +278,8 @@ class CarEnv:
         #     reward -= 10
 
         # Set 'done' flag to True when ticks exceed the lines in the file
-        done = self.idx_tick >= len(lines)
-        # done = self.idx_tick >= 100
+        # done = self.idx_tick >= len(lines)
+        done = self.idx_tick >= 100
 
         # v = self.vehicle.get_velocity()
         # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
@@ -333,8 +333,8 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            # count_filters = 1
-            count_filters = 16
+            count_filters = 1
+            # count_filters = 16
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
@@ -345,32 +345,32 @@ with strategy.scope():
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            base_model = TimeDistributed(BatchNormalization())(base_model)
-            base_model = TimeDistributed(Activation('relu'))(base_model)
+            # base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            # base_model = TimeDistributed(BatchNormalization())(base_model)
+            # base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            base_model = TimeDistributed(BatchNormalization())(base_model)
-            base_model = TimeDistributed(Activation('relu'))(base_model)
+            # base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            # base_model = TimeDistributed(BatchNormalization())(base_model)
+            # base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            base_model = TimeDistributed(BatchNormalization())(base_model)
-            base_model = TimeDistributed(Activation('relu'))(base_model)
+            # base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            # base_model = TimeDistributed(BatchNormalization())(base_model)
+            # base_model = TimeDistributed(Activation('relu'))(base_model)
 
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
             # x = Flatten()(x)
-            # print(f'x.shape after flatten: {x.shape}')
+            print(f'x.shape after flatten: {x.shape}')
 
 
             # Apply LSTM layer
             x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
             x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             
-            # print(f'x.shape after LSTM: {x.shape}')
+            print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
             while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
                 # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
@@ -382,7 +382,7 @@ with strategy.scope():
 
             model = Model(inputs=input_layer, outputs=output_layer)
             model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"])
-            # print(model.summary())
+            print(model.summary())
             return model
 
         def update_replay_memory(self, transition):
@@ -639,56 +639,56 @@ if __name__ == "__main__":
                     env.idx_tick += 1
                 action = None
                 # # if np.random.random() > epsilon and True:
-                if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                # if False:
-                    # action = np.argmax(agent.get_qs(current_state))
-                    with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
-                        lines = file.readlines()
-                        throttle,steer,brake = lines[idx_control].split()
-                        idx_control += 1
-                        throttle,steer,brake = float(throttle),float(steer),float(brake)
-                        throttle_index = np.abs(action_space['throttle'] - throttle).argmin()
-                        steer_index = np.abs(action_space['steer'] - steer).argmin()
-                        brake_index = np.abs(action_space['brake'] - brake).argmin()
-                        action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
-                                    steer_index * len(action_space['brake']) + \
-                                    brake_index
-                else:
-                    # bActionValid = False
-                    # while not bActionValid:
-                    #     action = np.random.randint(0, action_size)
-                    #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-                    #     brake_action = action % len(action_space['brake'])
-                    #     if throttle_action == 0 or brake_action == 0:
-                    #         bActionValid = True
-                    action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
+                # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
+                # # if False:
+                #     # action = np.argmax(agent.get_qs(current_state))
+                #     with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
+                #         lines = file.readlines()
+                #         throttle,steer,brake = lines[idx_control].split()
+                #         idx_control += 1
+                #         throttle,steer,brake = float(throttle),float(steer),float(brake)
+                #         throttle_index = np.abs(action_space['throttle'] - throttle).argmin()
+                #         steer_index = np.abs(action_space['steer'] - steer).argmin()
+                #         brake_index = np.abs(action_space['brake'] - brake).argmin()
+                #         action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
+                #                     steer_index * len(action_space['brake']) + \
+                #                     brake_index
+                # else:
+                #     # bActionValid = False
+                #     # while not bActionValid:
+                #     #     action = np.random.randint(0, action_size)
+                #     #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                #     #     brake_action = action % len(action_space['brake'])
+                #     #     if throttle_action == 0 or brake_action == 0:
+                #     #         bActionValid = True
+                #     action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                 #     if not bSync:
                 #         time.sleep(1/FPS)
-                # if idx_action < action_size:
-                #     count_framesPerAction += 1
-                #     if count_framesPerAction > max_framesPerAction:
-                #         print(f'Finished idx_action: {idx_action}\taction size: {action_size}')
-                #         idx_action += 1
-                #         count_framesPerAction = 0
-                #     bActionValid = False
-                #     while not bActionValid and idx_action < action_size:
-                #         action = idx_action
-                #         throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-                #         brake_action = action % len(action_space['brake'])
-                #         if brake_action == 0 and throttle_action > 0:
-                #             bActionValid = True
-                #             matching_files = glob.glob(os.path.join('tmp', '*idx_action'))
-                #             [os.remove(matching_file) for matching_file in matching_files]
-                #             open(f'tmp/{idx_action:04d}.idx_action', "w")
-                #         else:
-                #             idx_action += 1
-                #     if idx_action >= action_size:
-                #         print(f'Finished initializing all actions. Predicting from model.')
-                #         # action = np.argmax(agent.get_qs(current_state))                    
-                #         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
-                # else:
-                #     # action = np.argmax(agent.get_qs(current_state))                    
-                #     action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
+                if idx_action < action_size:
+                    count_framesPerAction += 1
+                    if count_framesPerAction > max_framesPerAction:
+                        print(f'Finished idx_action: {idx_action}\taction size: {action_size}')
+                        idx_action += 1
+                        count_framesPerAction = 0
+                    bActionValid = False
+                    while not bActionValid and idx_action < action_size:
+                        action = idx_action
+                        throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                        brake_action = action % len(action_space['brake'])
+                        if brake_action == 0 and throttle_action > 0:
+                            bActionValid = True
+                            matching_files = glob.glob(os.path.join('tmp', '*idx_action'))
+                            [os.remove(matching_file) for matching_file in matching_files]
+                            open(f'tmp/{idx_action:04d}.idx_action', "w")
+                        else:
+                            idx_action += 1
+                    if idx_action >= action_size:
+                        print(f'Finished initializing all actions. Predicting from model.')
+                        # action = np.argmax(agent.get_qs(current_state))                    
+                        action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
+                else:
+                    # action = np.argmax(agent.get_qs(current_state))                    
+                    action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
 
                 new_state, reward, done, _ = env.step(action)            
                 episode_reward += reward
