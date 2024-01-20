@@ -241,6 +241,9 @@ class CarEnv:
         steer_value = self.action_space['steer'][steer_action]
         brake_value = self.action_space['brake'][brake_action]
 
+        if bVerbose:
+            print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+
         self.vehicle.apply_control(
             carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
         )
@@ -546,7 +549,7 @@ if __name__ == "__main__":
     idx_episode_start = 1
     idx_action1 = 0
     idx_action2 = 0
-    max_framesPerAction = 100
+    max_framesPerAction = 1_000
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
@@ -773,8 +776,8 @@ if __name__ == "__main__":
                     # epochs = 10
                     epochs = 1000
                 else:
-                    epochs = int(1e6)
-                    # epochs = 1000
+                    # epochs = int(1e6)
+                    epochs = 10_000
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
