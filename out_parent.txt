@@ -1,3 +1,158 @@
 Start run at count 1
 4.26.2-0+++UE4+Release-4.26 522 0
 Disabling core dumps.
+2024-01-20 01:19:16.959987: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-20 01:19:16.983339: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-20 01:19:16.983360: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-20 01:19:16.983909: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-20 01:19:16.987364: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-01-20 01:19:17.409901: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-20 01:19:17.708128: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:19:17.736817: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:19:17.736948: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:19:17.737671: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:19:17.737817: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:19:17.737961: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:19:18.550884: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:19:18.551007: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:19:18.551100: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:19:18.551178: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4386 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-20 01:19:23.031385: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-20 01:19:24.069069: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f2dc5e67d40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-20 01:19:24.069084: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-20 01:19:24.071959: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1705731564.131699 1647366 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
+WARNING: Client API version     = 0.9.15 
+WARNING: Simulator API version  = 0.9.14 
+  0%|          | 0/10000 [00:00<?, ?episode/s]
+Started episode 1 of 10000
+Finished episode 1 of 10000
+len(agent.replay_memory): 99
+Count of epochs trained: 0	Goal: 1
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][AFinished training first batch.
+
+100%|##########| 1/1 [00:03<00:00,  3.89s/epoch][A100%|##########| 1/1 [00:03<00:00,  3.89s/epoch]
+Saved model from episode 1. Count of epochs trained: 1
+  0%|          | 1/10000 [00:15<43:47:41, 15.77s/episode]
+Started episode 2 of 10000
+Finished episode 2 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 1	Goal: 2
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.42s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.42s/epoch]
+Saved model from episode 2. Count of epochs trained: 2
+  0%|          | 2/10000 [00:29<40:34:46, 14.61s/episode]
+Started episode 3 of 10000
+Finished episode 3 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 2	Goal: 3
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.44s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.44s/epoch]
+Saved model from episode 3. Count of epochs trained: 3
+  0%|          | 3/10000 [00:42<38:33:31, 13.89s/episode]
+Started episode 4 of 10000
+Finished episode 4 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 3	Goal: 4
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.44s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.44s/epoch]
+Saved model from episode 4. Count of epochs trained: 4
+  0%|          | 4/10000 [00:55<37:37:22, 13.55s/episode]
+Started episode 5 of 10000
+Finished episode 5 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 4	Goal: 5
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.43s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.43s/epoch]
+Saved model from episode 5. Count of epochs trained: 5
+  0%|          | 5/10000 [01:08<37:18:29, 13.44s/episode]
+Started episode 6 of 10000
+Finished episode 6 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 5	Goal: 6
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.56s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.56s/epoch]
+Saved model from episode 6. Count of epochs trained: 6
+  0%|          | 6/10000 [01:22<37:11:08, 13.39s/episode]
+Started episode 7 of 10000
+Finished episode 7 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 6	Goal: 7
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.44s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.44s/epoch]
+Saved model from episode 7. Count of epochs trained: 7
+  0%|          | 7/10000 [01:35<36:43:57, 13.23s/episode]
+Started episode 8 of 10000
+Finished episode 8 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 7	Goal: 8
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.43s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.43s/epoch]
+Saved model from episode 8. Count of epochs trained: 8
+  0%|          | 8/10000 [01:47<36:23:47, 13.11s/episode]
+Started episode 9 of 10000
+Finished episode 9 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 8	Goal: 9
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.43s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.43s/epoch]
+Saved model from episode 9. Count of epochs trained: 9
+  0%|          | 9/10000 [02:01<36:29:34, 13.15s/episode]
+Started episode 10 of 10000
+Finished episode 10 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 9	Goal: 10
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.44s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.44s/epoch]
+Saved model from episode 10. Count of epochs trained: 10
+  0%|          | 10/10000 [02:14<36:24:17, 13.12s/episode]
+Started episode 11 of 10000
+Finished episode 11 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 10	Goal: 11
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.44s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.44s/epoch]
+Saved model from episode 11. Count of epochs trained: 11
+  0%|          | 11/10000 [02:27<36:12:21, 13.05s/episode]
+Started episode 12 of 10000
+Finished episode 12 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 11	Goal: 12
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.44s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.44s/epoch]
+Saved model from episode 12. Count of epochs trained: 12
+  0%|          | 12/10000 [02:40<36:18:18, 13.09s/episode]
+Started episode 13 of 10000
+Finished episode 13 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 12	Goal: 13
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.48s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.48s/epoch]
+Saved model from episode 13. Count of epochs trained: 13
+  0%|          | 13/10000 [02:52<35:16:00, 12.71s/episode]
+Started episode 14 of 10000
+Finished episode 14 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 13	Goal: 14
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.51s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.51s/epoch]
+Saved model from episode 14. Count of epochs trained: 14
+  0%|          | 14/10000 [03:04<34:41:04, 12.50s/episode]
+Started episode 15 of 10000
