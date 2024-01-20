@@ -55,17 +55,18 @@ with open(path_AP_locations, 'r') as file:
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
 # REPLAY_MEMORY_SIZE = 50_000
 REPLAY_MEMORY_SIZE = 200
+REPLAY_MEMORY_SIZE = 50_000
 if bSAMBHU24:
     # MINIBATCH_SIZE = 100
-    MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
+    MINIBATCH_SIZE = 1_000
 else:
     if not bA100:
         # MINIBATCH_SIZE = 250
         # MINIBATCH_SIZE = 100
-        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
+        MINIBATCH_SIZE = 10_000
     else:
         # MINIBATCH_SIZE = 100
-        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
+        MINIBATCH_SIZE = 10_000
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE+1
 PREDICTION_BATCH_SIZE = 1
@@ -771,6 +772,12 @@ if __name__ == "__main__":
                 bTrainingComplete = True
             
             print(f'Finished episode {episode} of {EPISODES}')
+            # fill agent.replay_memory
+            idx_replay_memory = 0
+            while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
+                element = agent.replay_memory[idx_replay_memory]
+                agent.replay_memory.append(element)
+                idx_replay_memory += 1
             
             epochs = None
             print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
