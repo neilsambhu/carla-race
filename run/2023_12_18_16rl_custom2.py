@@ -286,11 +286,12 @@ class CarEnv:
         # done = self.idx_tick >= len(lines)
         done = self.idx_tick >= 100
 
-        # v = self.vehicle.get_velocity()
-        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        # reward += kmh
-        # if kmh > 15 and kmh < 50:
-        #     reward += 15
+        v = self.vehicle.get_velocity()
+        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        if kmh <= 15:
+            reward += kmh            
+        elif kmh > 15
+            reward += 15
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
         # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
