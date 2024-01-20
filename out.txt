@@ -1,26 +1,26 @@
-2024-01-20 02:38:06.003204: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-20 02:38:06.025982: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-20 02:38:06.025998: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-20 02:38:06.026587: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-20 02:38:06.030394: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-20 02:41:25.979366: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-20 02:41:26.002355: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-20 02:41:26.002372: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-20 02:41:26.002916: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-20 02:41:26.006383: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-20 02:38:06.455466: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-20 02:38:06.762022: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 02:38:06.791896: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 02:38:06.792213: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 02:38:06.793862: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 02:38:06.794075: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 02:38:06.794272: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 02:38:07.727308: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 02:38:07.727508: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 02:38:07.727649: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 02:38:07.727727: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4416 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-2024-01-20 02:38:12.159107: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-20 02:38:13.204916: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fda38279890 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-20 02:38:13.204931: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-20 02:38:13.207661: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-20 02:41:26.430344: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-20 02:41:26.724869: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 02:41:26.753877: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 02:41:26.754009: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 02:41:26.754926: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 02:41:26.755172: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 02:41:26.755321: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 02:41:27.563379: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 02:41:27.563516: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 02:41:27.563686: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 02:41:27.563792: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4416 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-20 02:41:31.951348: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-20 02:41:32.989186: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fc872d65c40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-20 02:41:32.989201: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-20 02:41:32.992126: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705736293.276831 2049628 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1705736493.056166 2057854 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
@@ -30,103 +30,15 @@ Finished episode 1 of 10000
 len(agent.replay_memory): 50000
 Count of epochs trained: 0	Goal: 1
 
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 35544.95epoch/s]
-Saved model from episode 1. Count of epochs trained: 1
-  0%|          | 1/10000 [00:11<32:36:38, 11.74s/episode]
-Started episode 2 of 10000
-Finished episode 2 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 1	Goal: 2
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 53092.46epoch/s]
-Saved model from episode 2. Count of epochs trained: 2
-  0%|          | 2/10000 [00:23<33:14:41, 11.97s/episode]
-Started episode 3 of 10000
-Finished episode 3 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 2	Goal: 3
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 49344.75epoch/s]
-Saved model from episode 3. Count of epochs trained: 3
-  0%|          | 3/10000 [00:35<32:58:45, 11.88s/episode]
-Started episode 4 of 10000
-Finished episode 4 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 3	Goal: 4
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 10010.27epoch/s]
-Saved model from episode 4. Count of epochs trained: 4
-  0%|          | 4/10000 [00:47<32:38:43, 11.76s/episode]
-Started episode 5 of 10000
-Finished episode 5 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 4	Goal: 5
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 7332.70epoch/s]
-Saved model from episode 5. Count of epochs trained: 5
-  0%|          | 5/10000 [00:58<32:30:48, 11.71s/episode]
-Started episode 6 of 10000
-Finished episode 6 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 5	Goal: 6
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 49932.19epoch/s]
-Saved model from episode 6. Count of epochs trained: 6
-  0%|          | 6/10000 [01:10<32:27:33, 11.69s/episode]
-Started episode 7 of 10000
-Finished episode 7 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 6	Goal: 7
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 9642.08epoch/s]
-Saved model from episode 7. Count of epochs trained: 7
-  0%|          | 7/10000 [01:22<32:31:34, 11.72s/episode]
-Started episode 8 of 10000
-Finished episode 8 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 7	Goal: 8
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 28149.69epoch/s]
-Saved model from episode 8. Count of epochs trained: 8
-  0%|          | 8/10000 [01:33<32:19:12, 11.64s/episode]
-Started episode 9 of 10000
-Finished episode 9 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 8	Goal: 9
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 9597.95epoch/s]
-Saved model from episode 9. Count of epochs trained: 9
-  0%|          | 9/10000 [01:45<32:21:08, 11.66s/episode]
-Started episode 10 of 10000
-Finished episode 10 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 9	Goal: 10
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 5745.62epoch/s]
-Saved model from episode 10. Count of epochs trained: 10
-  0%|          | 10/10000 [01:57<33:04:43, 11.92s/episode]
-Started episode 11 of 10000
-Finished episode 11 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 10	Goal: 11
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 51150.05epoch/s]
-Saved model from episode 11. Count of epochs trained: 11
-  0%|          | 11/10000 [02:09<32:35:06, 11.74s/episode]
-Started episode 12 of 10000
-Finished episode 12 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 11	Goal: 12
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 38836.15epoch/s]
-Saved model from episode 12. Count of epochs trained: 12
-  0%|          | 12/10000 [02:20<32:25:13, 11.69s/episode]
-Started episode 13 of 10000
-Finished episode 13 of 10000
-len(agent.replay_memory): 50000
-Count of epochs trained: 12	Goal: 13
-
-  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 43240.25epoch/s]
-Saved model from episode 13. Count of epochs trained: 13
-  0%|          | 13/10000 [02:32<32:21:37, 11.66s/episode]
-Started episode 14 of 10000
+  0%|          | 0/1 [00:00<?, ?epoch/s][A  0%|          | 0/1 [00:00<?, ?epoch/s]
+  0%|          | 0/10000 [00:04<?, ?episode/s]
+Error message: Sample larger than population or is negative
+Traceback (most recent call last):
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 807, in <module>
+    agent.train()
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 406, in train
+    sampled_indices = random.sample(range(len(self.replay_memory) - COUNT_FRAME_WINDOW + 1), MINIBATCH_SIZE)
+  File "/home/nsambhu/anaconda3/envs/carla_py3.9/lib/python3.9/random.py", line 449, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+Error during episode 1
