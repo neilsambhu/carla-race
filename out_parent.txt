@@ -1,23 +1,23 @@
 Start run at count 1
 4.26.2-0+++UE4+Release-4.26 522 0
 Disabling core dumps.
-2024-01-19 20:42:18.641829: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-19 20:42:18.836169: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-19 20:42:18.836260: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-19 20:42:18.865570: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-19 20:42:18.918267: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-19 20:46:55.483740: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-19 20:46:55.505666: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-19 20:46:55.505683: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-19 20:46:55.506231: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-19 20:46:55.509564: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-19 20:42:19.606801: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-19 20:42:20.253753: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 20:42:20.418202: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 20:42:20.418405: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 20:42:20.419699: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 20:42:20.419878: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 20:42:20.420011: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 20:42:21.472276: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 20:42:21.472420: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 20:42:21.472554: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 20:42:21.472666: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-19 20:46:55.934673: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-19 20:46:56.233901: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-19 20:46:56.262259: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-19 20:46:56.262402: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-19 20:46:56.263113: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-19 20:46:56.263742: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-19 20:46:56.264216: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-19 20:46:57.305879: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-19 20:46:57.306002: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-19 20:46:57.306186: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-19 20:46:57.306264: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
 x.shape after flatten: (None, 20, 1024)
 x.shape after LSTM: (None, 128)
 Model: "model"
@@ -258,12 +258,12 @@ Trainable params: 674988 (2.57 MB)
 Non-trainable params: 128 (512.00 Byte)
 _________________________________________________________________
 None
-2024-01-19 20:42:26.910647: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-19 20:42:28.672787: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f2fa0bbe880 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-19 20:42:28.672801: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-19 20:42:28.681332: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-19 20:47:02.383459: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-19 20:47:03.614583: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f373c806c80 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-19 20:47:03.614597: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-19 20:47:03.617457: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705714948.755464    9020 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1705715223.680192   10123 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
@@ -272,1396 +272,81 @@ Started episode 1 of 10000
 Finished episode 1 of 10000
 len(agent.replay_memory): 99
 Saved model from episode 1. Count of epochs trained: 0
-  0%|          | 1/10000 [00:13<36:39:55, 13.20s/episode]
+  0%|          | 1/10000 [00:13<37:46:42, 13.60s/episode]
 Started episode 2 of 10000
 Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
+Finished idx_action1: 8	action size: 12
+Finished idx_action1: 10	action size: 12
+Finished initializing all actions. Predicting from model.
 Finished episode 2 of 10000
 len(agent.replay_memory): 198
-Saved model from episode 2. Count of epochs trained: 0
-  0%|          | 2/10000 [00:26<36:49:50, 13.26s/episode]
+Count of epochs trained: 0	Goal: 1
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 960.01epoch/s]
+Saved model from episode 2. Count of epochs trained: 1
+  0%|          | 2/10000 [00:27<37:43:43, 13.59s/episode]
 Started episode 3 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
 Finished episode 3 of 10000
 len(agent.replay_memory): 297
-Saved model from episode 3. Count of epochs trained: 0
-  0%|          | 3/10000 [00:40<37:15:14, 13.42s/episode]
+Count of epochs trained: 1	Goal: 2
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 1788.62epoch/s]
+Saved model from episode 3. Count of epochs trained: 2
+  0%|          | 3/10000 [00:39<36:17:58, 13.07s/episode]
 Started episode 4 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
 Finished episode 4 of 10000
 len(agent.replay_memory): 396
-Saved model from episode 4. Count of epochs trained: 0
-  0%|          | 4/10000 [00:53<37:04:35, 13.35s/episode]
+Count of epochs trained: 2	Goal: 3
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 1885.93epoch/s]
+Saved model from episode 4. Count of epochs trained: 3
+  0%|          | 4/10000 [00:52<35:32:36, 12.80s/episode]
 Started episode 5 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
 Finished episode 5 of 10000
 len(agent.replay_memory): 495
-Saved model from episode 5. Count of epochs trained: 0
-  0%|          | 5/10000 [01:06<36:47:06, 13.25s/episode]
+Count of epochs trained: 3	Goal: 4
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 1992.54epoch/s]
+Saved model from episode 5. Count of epochs trained: 4
+  0%|          | 5/10000 [01:04<35:23:16, 12.75s/episode]
 Started episode 6 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
 Finished episode 6 of 10000
 len(agent.replay_memory): 594
-Saved model from episode 6. Count of epochs trained: 0
-  0%|          | 6/10000 [01:19<36:33:29, 13.17s/episode]
+Count of epochs trained: 4	Goal: 5
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 2003.97epoch/s]
+Saved model from episode 6. Count of epochs trained: 5
+  0%|          | 6/10000 [01:17<35:03:45, 12.63s/episode]
 Started episode 7 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
 Finished episode 7 of 10000
 len(agent.replay_memory): 693
-Saved model from episode 7. Count of epochs trained: 0
-  0%|          | 7/10000 [01:32<36:38:04, 13.20s/episode]
+Count of epochs trained: 5	Goal: 6
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 1902.18epoch/s]
+Saved model from episode 7. Count of epochs trained: 6
+  0%|          | 7/10000 [01:29<34:53:05, 12.57s/episode]
 Started episode 8 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
 Finished episode 8 of 10000
 len(agent.replay_memory): 792
-Saved model from episode 8. Count of epochs trained: 0
-  0%|          | 8/10000 [01:46<37:15:42, 13.42s/episode]
+Count of epochs trained: 6	Goal: 7
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 1921.35epoch/s]
+Saved model from episode 8. Count of epochs trained: 7
+  0%|          | 8/10000 [01:42<34:49:59, 12.55s/episode]
 Started episode 9 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
 Finished episode 9 of 10000
 len(agent.replay_memory): 891
-Saved model from episode 9. Count of epochs trained: 0
-  0%|          | 9/10000 [01:59<37:08:56, 13.39s/episode]
+Count of epochs trained: 7	Goal: 8
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 1935.53epoch/s]
+Saved model from episode 9. Count of epochs trained: 8
+  0%|          | 9/10000 [01:54<34:53:03, 12.57s/episode]
 Started episode 10 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
 Finished episode 10 of 10000
 len(agent.replay_memory): 990
-Saved model from episode 10. Count of epochs trained: 0
-  0%|          | 10/10000 [02:13<37:12:23, 13.41s/episode]
+Count of epochs trained: 8	Goal: 9
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A100%|##########| 1/1 [00:00<00:00, 1901.32epoch/s]
+Saved model from episode 10. Count of epochs trained: 9
+  0%|          | 10/10000 [02:07<34:56:38, 12.59s/episode]
 Started episode 11 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished episode 11 of 10000
-len(agent.replay_memory): 1089
-Saved model from episode 11. Count of epochs trained: 0
-  0%|          | 11/10000 [02:26<36:58:17, 13.32s/episode]
-Started episode 12 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished episode 12 of 10000
-len(agent.replay_memory): 1188
-Saved model from episode 12. Count of epochs trained: 0
-  0%|          | 12/10000 [02:39<36:54:48, 13.30s/episode]
-Started episode 13 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished episode 13 of 10000
-len(agent.replay_memory): 1287
-Saved model from episode 13. Count of epochs trained: 0
-  0%|          | 13/10000 [02:52<36:39:17, 13.21s/episode]
-Started episode 14 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished episode 14 of 10000
-len(agent.replay_memory): 1386
-Saved model from episode 14. Count of epochs trained: 0
-  0%|          | 14/10000 [03:05<36:32:51, 13.18s/episode]
-Started episode 15 of 10000
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
-Finished idx_action1: 6	action size: 12
