@@ -66,7 +66,8 @@ else:
         MINIBATCH_SIZE = 100
         # MINIBATCH_SIZE = 1000
         # MINIBATCH_SIZE = 400
-MIN_REPLAY_MEMORY_SIZE = 20_000
+# MIN_REPLAY_MEMORY_SIZE = 20_000
+MIN_REPLAY_MEMORY_SIZE = 0
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 # TRAINING_BATCH_SIZE = 1
@@ -275,7 +276,7 @@ class CarEnv:
         # You might want to define a threshold and reward scheme based on the distance
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
-        reward = -1*distance**3 - distance + 100
+        reward = -1*distance**3 - distance + 1
         # reward = 100 - distance 
         # if distance < 10:
         #     reward += 10
@@ -286,12 +287,12 @@ class CarEnv:
         # done = self.idx_tick >= len(lines)
         done = self.idx_tick >= 100
 
-        v = self.vehicle.get_velocity()
-        kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        if kmh <= 15:
-            reward += kmh            
-        elif kmh > 15:
-            reward += 15
+        # v = self.vehicle.get_velocity()
+        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+        # if kmh <= 15:
+        #     reward += kmh            
+        # elif kmh > 15:
+        #     reward += 15
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
         # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
@@ -300,7 +301,7 @@ class CarEnv:
         if len (self.collision_hist) != 0:
             done = True
             # reward = -200
-            # reward = -0.001
+            reward = -0.001
             # reward = -1
 
         return self.front_camera, reward, done, None
@@ -777,10 +778,10 @@ if __name__ == "__main__":
             # if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
                     # epochs = 10
-                    epochs = 1000
+                    epochs = 1
                 else:
                     # epochs = int(1e6)
-                    epochs = 10_000
+                    epochs = 1
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
