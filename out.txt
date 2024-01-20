@@ -1,23 +1,531 @@
-2024-01-19 23:52:01.991311: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-19 23:52:02.013496: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-19 23:52:02.013513: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-19 23:52:02.014062: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-19 23:52:02.017430: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-20 00:41:06.130615: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-20 00:41:06.152859: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-20 00:41:06.152875: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-20 00:41:06.153423: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-20 00:41:06.156771: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-19 23:52:02.436807: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-19 23:52:02.734990: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 23:52:02.763883: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 23:52:02.764179: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 23:52:02.765286: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 23:52:02.765422: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 23:52:02.765527: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 23:52:03.631253: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 23:52:03.631374: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 23:52:03.631495: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-19 23:52:03.631606: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4403 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-2024-01-19 23:52:08.621886: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-19 23:52:09.880083: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f765c0af3e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-19 23:52:09.880107: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-19 23:52:09.883685: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-20 00:41:06.577516: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-20 00:41:06.878359: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 00:41:06.907129: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 00:41:06.907281: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 00:41:06.908138: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 00:41:06.908350: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 00:41:06.908500: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 00:41:07.761363: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 00:41:07.761489: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 00:41:07.761582: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 00:41:07.761694: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4382 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+x.shape after flatten: (None, 20, 4096)
+x.shape after LSTM: (None, 128)
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 20, 128, 128, 3   0         
+                             )]                                  
+                                                                 
+ time_distributed (TimeDist  (None, 20, 128, 128, 1)   28        
+ ributed)                                                        
+                                                                 
+ time_distributed_1 (TimeDi  (None, 20, 64, 64, 1)     0         
+ stributed)                                                      
+                                                                 
+ time_distributed_2 (TimeDi  (None, 20, 64, 64, 1)     4         
+ stributed)                                                      
+                                                                 
+ time_distributed_3 (TimeDi  (None, 20, 64, 64, 1)     0         
+ stributed)                                                      
+                                                                 
+ time_distributed_4 (TimeDi  (None, 20, 4096)          0         
+ stributed)                                                      
+                                                                 
+ bidirectional (Bidirection  (None, 20, 128)           2130432   
+ al)                                                             
+                                                                 
+ bidirectional_1 (Bidirecti  (None, 128)               98816     
+ onal)                                                           
+                                                                 
+ dense (Dense)               (None, 64)                8256      
+                                                                 
+ dense_1 (Dense)             (None, 32)                2080      
+                                                                 
+ dense_2 (Dense)             (None, 16)                528       
+                                                                 
+ dense_3 (Dense)             (None, 8)                 136       
+                                                                 
+ dense_4 (Dense)             (None, 6)                 54        
+                                                                 
+=================================================================
+Total params: 2240334 (8.55 MB)
+Trainable params: 2240332 (8.55 MB)
+Non-trainable params: 2 (8.00 Byte)
+_________________________________________________________________
+None
+x.shape after flatten: (None, 20, 4096)
+x.shape after LSTM: (None, 128)
+Model: "model_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_2 (InputLayer)        [(None, 20, 128, 128, 3   0         
+                             )]                                  
+                                                                 
+ time_distributed_5 (TimeDi  (None, 20, 128, 128, 1)   28        
+ stributed)                                                      
+                                                                 
+ time_distributed_6 (TimeDi  (None, 20, 64, 64, 1)     0         
+ stributed)                                                      
+                                                                 
+ time_distributed_7 (TimeDi  (None, 20, 64, 64, 1)     4         
+ stributed)                                                      
+                                                                 
+ time_distributed_8 (TimeDi  (None, 20, 64, 64, 1)     0         
+ stributed)                                                      
+                                                                 
+ time_distributed_9 (TimeDi  (None, 20, 4096)          0         
+ stributed)                                                      
+                                                                 
+ bidirectional_2 (Bidirecti  (None, 20, 128)           2130432   
+ onal)                                                           
+                                                                 
+ bidirectional_3 (Bidirecti  (None, 128)               98816     
+ onal)                                                           
+                                                                 
+ dense_5 (Dense)             (None, 64)                8256      
+                                                                 
+ dense_6 (Dense)             (None, 32)                2080      
+                                                                 
+ dense_7 (Dense)             (None, 16)                528       
+                                                                 
+ dense_8 (Dense)             (None, 8)                 136       
+                                                                 
+ dense_9 (Dense)             (None, 6)                 54        
+                                                                 
+=================================================================
+Total params: 2240334 (8.55 MB)
+Trainable params: 2240332 (8.55 MB)
+Non-trainable params: 2 (8.00 Byte)
+_________________________________________________________________
+None
+x.shape after flatten: (None, 20, 4096)
+x.shape after LSTM: (None, 128)
+Model: "model_2"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_3 (InputLayer)        [(None, 20, 128, 128, 3   0         
+                             )]                                  
+                                                                 
+ time_distributed_10 (TimeD  (None, 20, 128, 128, 1)   28        
+ istributed)                                                     
+                                                                 
+ time_distributed_11 (TimeD  (None, 20, 64, 64, 1)     0         
+ istributed)                                                     
+                                                                 
+ time_distributed_12 (TimeD  (None, 20, 64, 64, 1)     4         
+ istributed)                                                     
+                                                                 
+ time_distributed_13 (TimeD  (None, 20, 64, 64, 1)     0         
+ istributed)                                                     
+                                                                 
+ time_distributed_14 (TimeD  (None, 20, 4096)          0         
+ istributed)                                                     
+                                                                 
+ bidirectional_4 (Bidirecti  (None, 20, 128)           2130432   
+ onal)                                                           
+                                                                 
+ bidirectional_5 (Bidirecti  (None, 128)               98816     
+ onal)                                                           
+                                                                 
+ dense_10 (Dense)            (None, 64)                8256      
+                                                                 
+ dense_11 (Dense)            (None, 32)                2080      
+                                                                 
+ dense_12 (Dense)            (None, 16)                528       
+                                                                 
+ dense_13 (Dense)            (None, 8)                 136       
+                                                                 
+ dense_14 (Dense)            (None, 6)                 54        
+                                                                 
+=================================================================
+Total params: 2240334 (8.55 MB)
+Trainable params: 2240332 (8.55 MB)
+Non-trainable params: 2 (8.00 Byte)
+_________________________________________________________________
+None
+2024-01-20 00:41:12.219063: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-20 00:41:13.278680: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f7a48132cd0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-20 00:41:13.278696: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-20 00:41:13.281560: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705726329.944740 1063078 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1705729273.340736 1375072 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
+WARNING: Client API version     = 0.9.15 
+WARNING: Simulator API version  = 0.9.14 
+  0%|          | 0/10000 [00:00<?, ?episode/s]
+Started episode 1 of 10000
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+Finished episode 1 of 10000
+len(agent.replay_memory): 99
+Saved model from episode 1. Count of epochs trained: 0
+  0%|          | 1/10000 [00:12<34:04:24, 12.27s/episode]
+Started episode 2 of 10000
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+Finished idx_action1: 3	action size: 6
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+Finished episode 2 of 10000
+len(agent.replay_memory): 169
+Saved model from episode 2. Count of epochs trained: 0
+  0%|          | 2/10000 [00:22<30:56:10, 11.14s/episode]
+Started episode 3 of 10000
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+Finished idx_action1: 4	action size: 6
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+Finished episode 3 of 10000
+len(agent.replay_memory): 212
+Saved model from episode 3. Count of epochs trained: 0
+  0%|          | 3/10000 [00:31<28:36:51, 10.30s/episode]
+Started episode 4 of 10000
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+Finished episode 4 of 10000
+len(agent.replay_memory): 237
+Saved model from episode 4. Count of epochs trained: 0
+  0%|          | 4/10000 [00:40<26:17:04,  9.47s/episode]
+Started episode 5 of 10000
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+Finished episode 5 of 10000
+len(agent.replay_memory): 262
+Saved model from episode 5. Count of epochs trained: 0
+  0%|          | 5/10000 [00:48<25:05:14,  9.04s/episode]
+Started episode 6 of 10000
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+Finished episode 6 of 10000
+len(agent.replay_memory): 287
+Saved model from episode 6. Count of epochs trained: 0
+  0%|          | 6/10000 [00:56<24:24:44,  8.79s/episode]
+Started episode 7 of 10000
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+Finished idx_action1: 5	action size: 6
+Finished initializing all actions. Predicting from model.
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+Finished episode 7 of 10000
+len(agent.replay_memory): 326
+Count of epochs trained: 0	Goal: 1
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][AFinished training first batch.
