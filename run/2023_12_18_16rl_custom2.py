@@ -238,7 +238,7 @@ class CarEnv:
             print(f'action: {action}')
             print(f'action[0]: {action[0]}')
             print(f'type(action[0]): {type(action[0])}')
-        brake_throttle_index, steer_index = np.unravel_index(random_index, (len(action_space['brake_throttle']), len(action_space['steer'])))
+        brake_throttle_index, steer_index = np.unravel_index(action, (len(action_space['brake_throttle']), len(action_space['steer'])))
 
         selected_brake_throttle = action_space['brake_throttle'][brake_throttle_index]
         selected_steer = action_space['steer'][steer_index]
