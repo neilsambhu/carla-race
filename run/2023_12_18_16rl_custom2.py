@@ -53,8 +53,8 @@ with open(path_AP_locations, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
-REPLAY_MEMORY_SIZE = 50_000
-# REPLAY_MEMORY_SIZE = 200
+# REPLAY_MEMORY_SIZE = 50_000
+REPLAY_MEMORY_SIZE = 200
 if bSAMBHU24:
     # MINIBATCH_SIZE = 100
     MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
@@ -104,15 +104,18 @@ bGPU = True
 
 # Define action space
 # action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
-action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
-                # 'steer': np.linspace(-1.0, 1.0, num=21),
-                'steer': np.linspace(-1.0, 1.0, num=3),
-                # 'brake': np.linspace(0.0, 1.0, num=11)}
-                # 'brake': np.linspace(0.0, 0.0, num=11)}
-                # 'brake': np.linspace(0.0, 1.0, num=2)}
-                'brake': np.linspace(0.0, 0.0, num=1)}
+# action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
+#                 # 'steer': np.linspace(-1.0, 1.0, num=21),
+#                 'steer': np.linspace(-1.0, 1.0, num=3),
+#                 # 'brake': np.linspace(0.0, 1.0, num=11)}
+#                 # 'brake': np.linspace(0.0, 0.0, num=11)}
+#                 # 'brake': np.linspace(0.0, 1.0, num=2)}
+#                 'brake': np.linspace(0.0, 0.0, num=1)}
+action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=3),
+                'steer': np.linspace(-1.0, 1.0, num=3)}
 # print(action_space);import sys;sys.exit()
-action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
+# action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
+action_size = len(action_space['brake_throttle'])*len(action_space['steer'])
 
 class CarEnv:
     SHOW_CAM = SHOW_PREVIEW
@@ -235,16 +238,17 @@ class CarEnv:
             print(f'action: {action}')
             print(f'action[0]: {action[0]}')
             print(f'type(action[0]): {type(action[0])}')
-        throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-        steer_action = (action % (len(action_space['steer'])*len(action_space['brake']))) // len(action_space['brake'])
-        brake_action = action % len(action_space['brake'])
+        brake_throttle_index, steer_index = np.unravel_index(random_index, (len(action_space['brake_throttle']), len(action_space['steer'])))
 
-        throttle_value = self.action_space['throttle'][throttle_action]
-        steer_value = self.action_space['steer'][steer_action]
-        brake_value = self.action_space['brake'][brake_action]
+        selected_brake_throttle = action_space['brake_throttle'][brake_throttle_index]
+        selected_steer = action_space['steer'][steer_index]
 
-        # if bVerbose:
-        #     print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+        throttle_value, steer_value, brake_value = selected_brake_throttle, selected_steer, selected_brake_throttle
+        if selected_brake_throttle < 0:
+            throttle_value = 0.0
+            brake_value = -1*selected_brake_throttle
+        if selected_brake_throttle > 0:
+            brake_value = 0.0
 
         self.vehicle.apply_control(
             carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
