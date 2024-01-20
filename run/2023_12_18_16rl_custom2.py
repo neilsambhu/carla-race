@@ -64,10 +64,10 @@ else:
         # MINIBATCH_SIZE = 100
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
     else:
-        MINIBATCH_SIZE = 100
+        # MINIBATCH_SIZE = 100
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
 # MIN_REPLAY_MEMORY_SIZE = 20_000
-MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
+MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE+1
 PREDICTION_BATCH_SIZE = 1
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 # TRAINING_BATCH_SIZE = 1
@@ -250,6 +250,9 @@ class CarEnv:
         if selected_brake_throttle > 0:
             brake_value = 0.0
 
+        if bVerbose:
+            print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+
         self.vehicle.apply_control(
             carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
         )
@@ -288,8 +291,8 @@ class CarEnv:
         #     reward -= 10
 
         # Set 'done' flag to True when ticks exceed the lines in the file
-        done = self.idx_tick >= len(lines)
-        # done = self.idx_tick >= 100
+        # done = self.idx_tick >= len(lines)
+        done = self.idx_tick >= 100
 
         # v = self.vehicle.get_velocity()
         # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
