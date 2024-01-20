@@ -243,8 +243,8 @@ class CarEnv:
         steer_value = self.action_space['steer'][steer_action]
         brake_value = self.action_space['brake'][brake_action]
 
-        if bVerbose:
-            print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+        # if bVerbose:
+        #     print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
 
         self.vehicle.apply_control(
             carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))

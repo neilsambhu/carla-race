@@ -1,132 +1,617 @@
-2024-01-20 01:11:03.852175: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-20 01:11:03.873919: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-20 01:11:03.873934: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-20 01:11:03.874534: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-20 01:11:03.877898: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-20 01:17:16.424073: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-20 01:17:16.450833: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-20 01:17:16.450854: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-20 01:17:16.451443: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-20 01:17:16.454955: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-20 01:11:04.296865: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-20 01:11:04.594340: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 01:11:04.623342: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 01:11:04.623601: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 01:11:04.624504: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 01:11:04.624715: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 01:11:04.624870: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 01:11:05.472746: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 01:11:05.472883: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 01:11:05.472974: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-20 01:11:05.473107: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4366 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-2024-01-20 01:11:09.866664: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-20 01:11:10.919901: I external/local_xla/xla/service/service.cc:168] XLA service 0x7ff3e562bd50 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-20 01:11:10.919916: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-20 01:11:10.922745: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-20 01:17:16.939995: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-20 01:17:17.240200: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:17:17.271269: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:17:17.271455: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:17:17.272373: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:17:17.272506: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:17:17.272622: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:17:18.108346: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:17:18.108467: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:17:18.108575: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-20 01:17:18.108669: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4361 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+2024-01-20 01:17:22.661768: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-20 01:17:23.703072: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f700dae2fc0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-20 01:17:23.703087: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-20 01:17:23.705953: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705731070.982675 1570390 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+I0000 00:00:1705731443.769593 1643181 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
   0%|          | 0/10000 [00:00<?, ?episode/s]
 Started episode 1 of 10000
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
 action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
 action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
 action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
 action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
 action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
 action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
 action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
 action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
 action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
 action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
 action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
 action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
 action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
 action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
 action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
 action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
 action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
-action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
 action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
 action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
 action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
 action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
 action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
 action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
 action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
 action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
 action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
 action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
 action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
 action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
-action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
-action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
-action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
 Finished episode 1 of 10000
 len(agent.replay_memory): 99
 Count of epochs trained: 0	Goal: 1
 
   0%|          | 0/1 [00:00<?, ?epoch/s][AFinished training first batch.
+
+100%|##########| 1/1 [00:03<00:00,  3.87s/epoch][A100%|##########| 1/1 [00:03<00:00,  3.87s/epoch]
+Saved model from episode 1. Count of epochs trained: 1
+  0%|          | 1/10000 [00:15<43:52:31, 15.80s/episode]
+Started episode 2 of 10000
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+Finished episode 2 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 1	Goal: 2
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.43s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.43s/epoch]
+Saved model from episode 2. Count of epochs trained: 2
+  0%|          | 2/10000 [00:29<40:30:21, 14.59s/episode]
+Started episode 3 of 10000
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+Finished episode 3 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 2	Goal: 3
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.49s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.49s/epoch]
+Saved model from episode 3. Count of epochs trained: 3
+  0%|          | 3/10000 [00:42<38:33:01, 13.88s/episode]
+Started episode 4 of 10000
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+Finished episode 4 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 3	Goal: 4
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.47s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.47s/epoch]
+Saved model from episode 4. Count of epochs trained: 4
+  0%|          | 4/10000 [00:55<37:56:06, 13.66s/episode]
+Started episode 5 of 10000
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+Finished episode 5 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 4	Goal: 5
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.47s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.47s/epoch]
+Saved model from episode 5. Count of epochs trained: 5
+  0%|          | 5/10000 [01:07<36:20:09, 13.09s/episode]
+Started episode 6 of 10000
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 0	throttle: 0.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 3	throttle: 1.0	steer: -1.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 1	throttle: 0.0	steer: 0.0	brake: 0.0
+action: 4	throttle: 1.0	steer: 0.0	brake: 0.0
+action: 5	throttle: 1.0	steer: 1.0	brake: 0.0
+action: 2	throttle: 0.0	steer: 1.0	brake: 0.0
+Finished episode 6 of 10000
+len(agent.replay_memory): 100
+Count of epochs trained: 5	Goal: 6
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [00:01<00:00,  1.52s/epoch][A100%|##########| 1/1 [00:01<00:00,  1.52s/epoch]
