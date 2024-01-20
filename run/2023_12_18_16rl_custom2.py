@@ -108,7 +108,8 @@ action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
                 'steer': np.linspace(-1.0, 1.0, num=3),
                 # 'brake': np.linspace(0.0, 1.0, num=11)}
                 # 'brake': np.linspace(0.0, 0.0, num=11)}
-                'brake': np.linspace(0.0, 1.0, num=2)}
+                # 'brake': np.linspace(0.0, 1.0, num=2)}
+                'brake': np.linspace(0.0, 0.0, num=1)}
 # print(action_space);import sys;sys.exit()
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 
@@ -274,8 +275,8 @@ class CarEnv:
         # You might want to define a threshold and reward scheme based on the distance
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
-        # reward = -1*distance**3 - distance + 100
-        reward = 100 - distance 
+        reward = -1*distance**3 - distance + 1
+        # reward = 100 - distance 
         # if distance < 10:
         #     reward += 10
         # else:
