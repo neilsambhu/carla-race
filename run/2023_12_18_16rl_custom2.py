@@ -109,8 +109,8 @@ action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
                 'steer': np.linspace(-1.0, 1.0, num=3),
                 # 'brake': np.linspace(0.0, 1.0, num=11)}
                 # 'brake': np.linspace(0.0, 0.0, num=11)}
-                'brake': np.linspace(0.0, 1.0, num=2)}
-                # 'brake': np.linspace(0.0, 0.0, num=1)}
+                # 'brake': np.linspace(0.0, 1.0, num=2)}
+                'brake': np.linspace(0.0, 0.0, num=1)}
 # print(action_space);import sys;sys.exit()
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 
