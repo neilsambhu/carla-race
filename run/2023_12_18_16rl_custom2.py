@@ -290,7 +290,7 @@ class CarEnv:
         kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
         if kmh <= 15:
             reward += kmh            
-        elif kmh > 15
+        elif kmh > 15:
             reward += 15
 
         # if self.episode_start + SECONDS_PER_EPISODE < time.time():
