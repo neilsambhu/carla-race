@@ -274,7 +274,7 @@ class CarEnv:
         # You might want to define a threshold and reward scheme based on the distance
         # For example, if distance < threshold: reward = some_value
         # Modify the reward calculation based on your requirements
-        reward = -1*distance**3 - distance + 1
+        reward = -1*distance**3 - distance + 100
         # if distance < 10:
         #     reward += 10
         # else:
@@ -549,7 +549,7 @@ if __name__ == "__main__":
     idx_episode_start = 1
     idx_action1 = 0
     idx_action2 = 0
-    max_framesPerAction = 1_000
+    max_framesPerAction = 100
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
