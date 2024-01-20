@@ -53,8 +53,8 @@ with open(path_AP_locations, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
-REPLAY_MEMORY_SIZE = 50_000
-# REPLAY_MEMORY_SIZE = 1_000
+# REPLAY_MEMORY_SIZE = 50_000
+REPLAY_MEMORY_SIZE = 100
 if bSAMBHU24:
     # MINIBATCH_SIZE = 32
     MINIBATCH_SIZE = 16
@@ -91,7 +91,7 @@ MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
 
-COUNT_FRAME_WINDOW = 5
+COUNT_FRAME_WINDOW = 3
 
 directory_output = '_out_16rl_custom2'
 # if os.path.exists(directory):
