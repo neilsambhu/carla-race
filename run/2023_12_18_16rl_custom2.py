@@ -697,6 +697,7 @@ if __name__ == "__main__":
                         #         open(f'tmp/{idx_action2:04d}.idx_action2', "w")
                         #     else:
                         #         idx_action2 += 1
+                        idx_action1+=1
                         
                     bAction1Valid = False
                     while not bAction1Valid and idx_action1 < action_size:
