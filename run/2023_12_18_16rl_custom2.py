@@ -56,8 +56,8 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 50_000
 COUNT_FRAME_WINDOW = 3
 if bSAMBHU24:
-    # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE//32
-    MINIBATCH_SIZE = REPLAY_MEMORY_SIZE//64
+    # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE//64
+    MINIBATCH_SIZE = REPLAY_MEMORY_SIZE//128
 else:
     if not bA100:
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
@@ -87,7 +87,6 @@ EPSILON_DECAY = 0.95
 MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
-
 
 
 directory_output = '_out_16rl_custom2'
@@ -288,8 +287,8 @@ class CarEnv:
         #     reward -= 10
 
         # Set 'done' flag to True when ticks exceed the lines in the file
-        # done = self.idx_tick >= len(lines)
-        done = self.idx_tick >= 100
+        done = self.idx_tick >= len(lines)
+        # done = self.idx_tick >= 100
 
         # v = self.vehicle.get_velocity()
         # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
