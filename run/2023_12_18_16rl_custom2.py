@@ -102,13 +102,13 @@ bVerbose = True
 bGPU = True
 
 # Define action space
-action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
-# action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
-                'steer': np.linspace(-1.0, 1.0, num=21),
-                # 'steer': np.linspace(-1.0, 1.0, num=3),
-                'brake': np.linspace(0.0, 1.0, num=11)}
+# action_space = {'throttle': np.linspace(0.0, 1.0, num=11),
+action_space = {'throttle': np.linspace(0.0, 1.0, num=2),
+                # 'steer': np.linspace(-1.0, 1.0, num=21),
+                'steer': np.linspace(-1.0, 1.0, num=3),
+                # 'brake': np.linspace(0.0, 1.0, num=11)}
                 # 'brake': np.linspace(0.0, 0.0, num=11)}
-                # 'brake': np.linspace(0.0, 1.0, num=2)}
+                'brake': np.linspace(0.0, 1.0, num=2)}
 # print(action_space);import sys;sys.exit()
 action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 
@@ -279,7 +279,7 @@ class CarEnv:
 
         # Set 'done' flag to True when ticks exceed the lines in the file
         # done = self.idx_tick >= len(lines)
-        done = self.idx_tick >= 200
+        done = self.idx_tick >= 100
 
         # v = self.vehicle.get_velocity()
         # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
@@ -672,31 +672,31 @@ if __name__ == "__main__":
                     count_framesPerAction1 += 1
                     if count_framesPerAction1 > max_framesPerAction:
                         print(f'Finished idx_action1: {idx_action1}\taction size: {action_size}')
-                        # transition to second action
-                        count_framesPerAction2 += 1
-                        if count_framesPerAction2 > max_framesPerAction:
-                            bAction2Finished = True
-                            print(f'Finished idx_action2: {idx_action2}\taction size: {action_size}')
-                        if bAction2Finished:
-                            idx_action2 += 1
-                            count_framesPerAction2 = 0
-                            bAction2Started = False
-                        if not bAction2Started:
-                            idx_action2 = 0
-                            count_framesPerAction2 = 0
-                            bAction2Started = True
-                        bAction2Valid = False
-                        while not bAction2Valid and idx_action2 < action_size:
-                            action = idx_action2
-                            throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-                            brake_action = action % len(action_space['brake'])
-                            if brake_action == 0 and throttle_action > 0 and idx_action2 != idx_action1:
-                                bAction2Valid = True
-                                matching_files = glob.glob(os.path.join('tmp', '*idx_action2'))
-                                [os.remove(matching_file) for matching_file in matching_files]
-                                open(f'tmp/{idx_action2:04d}.idx_action2', "w")
-                            else:
-                                idx_action2 += 1
+                        # # transition to second action
+                        # count_framesPerAction2 += 1
+                        # if count_framesPerAction2 > max_framesPerAction:
+                        #     bAction2Finished = True
+                        #     print(f'Finished idx_action2: {idx_action2}\taction size: {action_size}')
+                        # if bAction2Finished:
+                        #     idx_action2 += 1
+                        #     count_framesPerAction2 = 0
+                        #     bAction2Started = False
+                        # if not bAction2Started:
+                        #     idx_action2 = 0
+                        #     count_framesPerAction2 = 0
+                        #     bAction2Started = True
+                        # bAction2Valid = False
+                        # while not bAction2Valid and idx_action2 < action_size:
+                        #     action = idx_action2
+                        #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                        #     brake_action = action % len(action_space['brake'])
+                        #     if brake_action == 0 and throttle_action > 0 and idx_action2 != idx_action1:
+                        #         bAction2Valid = True
+                        #         matching_files = glob.glob(os.path.join('tmp', '*idx_action2'))
+                        #         [os.remove(matching_file) for matching_file in matching_files]
+                        #         open(f'tmp/{idx_action2:04d}.idx_action2', "w")
+                        #     else:
+                        #         idx_action2 += 1
                         
                     bAction1Valid = False
                     while not bAction1Valid and idx_action1 < action_size:
