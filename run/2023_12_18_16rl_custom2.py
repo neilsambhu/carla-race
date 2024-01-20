@@ -666,13 +666,14 @@ if __name__ == "__main__":
                     #                 steer_index * len(action_space['brake']) + \
                     #                 brake_index
                 else:
-                    bAction1Valid = False
-                    while not bAction1Valid:
-                        action = np.random.randint(0, action_size)
-                        throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-                        brake_action = action % len(action_space['brake'])
-                        if throttle_action == 0 or brake_action == 0:
-                            bAction1Valid = True
+                    # bAction1Valid = False
+                    # while not bAction1Valid:
+                    #     action = np.random.randint(0, action_size)
+                    #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                    #     brake_action = action % len(action_space['brake'])
+                    #     if throttle_action == 0 or brake_action == 0:
+                    #         bAction1Valid = True
+                    action = np.random.randint(0, action_size)                            
                     # action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                     if not bSync:
                         time.sleep(1/FPS)
