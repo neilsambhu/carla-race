@@ -57,7 +57,8 @@ with open(path_AP_locations, 'r') as file:
 REPLAY_MEMORY_SIZE = 200
 if bSAMBHU24:
     # MINIBATCH_SIZE = 32
-    MINIBATCH_SIZE = 16
+    # MINIBATCH_SIZE = 16
+    MINIBATCH_SIZE = 100
 else:
     if not bA100:
         # MINIBATCH_SIZE = 250
