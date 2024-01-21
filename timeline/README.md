@@ -828,3 +828,4 @@ python run/2023_11_06_05town.py && python -u run/PythonAPI/examples/automatic_co
 scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi.sh && sleep 5 && tail -f slurm*
 ```
 1/18/2024 3:25 PM: TODO: nest the transitions between two actions.  
+1/21/2024 2:30 AM: 20-lookback window, 1 filter, and 80 epochs goes forward and moves right into wall. Current progress is 20-lookback window, 28 filter, 4 layers.  
