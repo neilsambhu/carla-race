@@ -212,3 +212,12 @@ len(agent.replay_memory): 50000
 Count of epochs trained: 20	Goal: 21
 
   0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [21:19<00:00, 1279.32s/epoch][A100%|##########| 1/1 [21:19<00:00, 1279.32s/epoch]
+Saved model from episode 21. Count of epochs trained: 21
+  0%|          | 21/10000 [7:49:24<3509:18:06, 1266.01s/episode]
+Started episode 22 of 10000
+Finished episode 22 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 21	Goal: 22
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
