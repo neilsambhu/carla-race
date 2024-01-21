@@ -62,8 +62,8 @@ else:
     if not bA100:
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW
     else:
-        # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8
-        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 16
+        # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 16
+        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 64
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
@@ -374,14 +374,14 @@ with strategy.scope():
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
             # x = Flatten()(x)
-            print(f'x.shape after flatten: {x.shape}')
+            # print(f'x.shape after flatten: {x.shape}')
 
 
             # Apply LSTM layer
             x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
             x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             
-            print(f'x.shape after LSTM: {x.shape}')
+            # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
             while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
                 # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
