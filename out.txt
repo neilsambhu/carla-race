@@ -31,3 +31,130 @@ len(agent.replay_memory): 50000
 Count of epochs trained: 0	Goal: 1
 
   0%|          | 0/1 [00:00<?, ?epoch/s][AFinished training first batch.
+
+100%|##########| 1/1 [33:35<00:00, 2015.13s/epoch][A100%|##########| 1/1 [33:35<00:00, 2015.13s/epoch]
+Saved model from episode 1. Count of epochs trained: 1
+  0%|          | 1/10000 [37:05<6180:16:43, 2225.12s/episode]
+Started episode 2 of 10000
+Finished episode 2 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 1	Goal: 2
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:21<00:00, 2001.47s/epoch][A100%|##########| 1/1 [33:21<00:00, 2001.47s/epoch]
+Saved model from episode 2. Count of epochs trained: 2
+  0%|          | 2/10000 [1:18:39<6619:43:32, 2383.58s/episode]
+Started episode 3 of 10000
+Finished episode 3 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 2	Goal: 3
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:15<00:00, 1995.47s/epoch][A100%|##########| 1/1 [33:15<00:00, 1995.47s/epoch]
+Saved model from episode 3. Count of epochs trained: 3
+  0%|          | 3/10000 [1:59:58<6739:22:56, 2426.91s/episode]
+Started episode 4 of 10000
+Finished episode 4 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 3	Goal: 4
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:27<00:00, 2007.10s/epoch][A100%|##########| 1/1 [33:27<00:00, 2007.10s/epoch]
+Saved model from episode 4. Count of epochs trained: 4
+  0%|          | 4/10000 [2:34:00<6317:09:04, 2275.08s/episode]
+Started episode 5 of 10000
+Finished episode 5 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 4	Goal: 5
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:12<00:00, 1992.19s/epoch][A100%|##########| 1/1 [33:12<00:00, 1992.19s/epoch]
+Saved model from episode 5. Count of epochs trained: 5
+  0%|          | 5/10000 [3:08:07<6088:36:11, 2192.99s/episode]
+Started episode 6 of 10000
+Finished episode 6 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 5	Goal: 6
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:17<00:00, 1997.21s/epoch][A100%|##########| 1/1 [33:17<00:00, 1997.21s/epoch]
+Saved model from episode 6. Count of epochs trained: 6
+  0%|          | 6/10000 [3:41:47<5924:35:39, 2134.13s/episode]
+Started episode 7 of 10000
+Finished episode 7 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 6	Goal: 7
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:11<00:00, 1991.60s/epoch][A100%|##########| 1/1 [33:11<00:00, 1991.60s/epoch]
+Saved model from episode 7. Count of epochs trained: 7
+  0%|          | 7/10000 [4:15:13<5807:18:05, 2092.09s/episode]
+Started episode 8 of 10000
+Finished episode 8 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 7	Goal: 8
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:18<00:00, 1998.84s/epoch][A100%|##########| 1/1 [33:18<00:00, 1998.84s/epoch]
+Saved model from episode 8. Count of epochs trained: 8
+  0%|          | 8/10000 [4:48:47<5737:51:08, 2067.28s/episode]
+Started episode 9 of 10000
+Finished episode 9 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 8	Goal: 9
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:21<00:00, 2001.05s/epoch][A100%|##########| 1/1 [33:21<00:00, 2001.05s/epoch]
+Saved model from episode 9. Count of epochs trained: 9
+  0%|          | 9/10000 [5:22:27<5696:43:37, 2052.67s/episode]
+Started episode 10 of 10000
+Finished episode 10 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 9	Goal: 10
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:14<00:00, 1994.38s/epoch][A100%|##########| 1/1 [33:14<00:00, 1994.38s/epoch]
+Saved model from episode 10. Count of epochs trained: 10
+  0%|          | 10/10000 [5:55:56<5658:09:52, 2038.98s/episode]
+Started episode 11 of 10000
+Finished episode 11 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 10	Goal: 11
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:12<00:00, 1992.36s/epoch][A100%|##########| 1/1 [33:12<00:00, 1992.36s/epoch]
+Saved model from episode 11. Count of epochs trained: 11
+  0%|          | 11/10000 [6:29:21<5629:08:13, 2028.72s/episode]
+Started episode 12 of 10000
+Finished episode 12 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 11	Goal: 12
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:39<00:00, 2019.67s/epoch][A100%|##########| 1/1 [33:39<00:00, 2019.67s/epoch]
+Saved model from episode 12. Count of epochs trained: 12
+  0%|          | 12/10000 [7:03:15<5633:11:16, 2030.38s/episode]
+Started episode 13 of 10000
+Finished episode 13 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 12	Goal: 13
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:15<00:00, 1995.66s/epoch][A100%|##########| 1/1 [33:15<00:00, 1995.66s/epoch]
+Saved model from episode 13. Count of epochs trained: 13
+  0%|          | 13/10000 [7:36:44<5614:04:49, 2023.70s/episode]
+Started episode 14 of 10000
+Finished episode 14 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 13	Goal: 14
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
+100%|##########| 1/1 [33:16<00:00, 1996.58s/epoch][A100%|##########| 1/1 [33:16<00:00, 1996.58s/epoch]
+Saved model from episode 14. Count of epochs trained: 14
+  0%|          | 14/10000 [8:10:14<5602:12:56, 2019.63s/episode]
+Started episode 15 of 10000
+Finished episode 15 of 10000
+len(agent.replay_memory): 50000
+Count of epochs trained: 14	Goal: 15
+
+  0%|          | 0/1 [00:00<?, ?epoch/s][A
