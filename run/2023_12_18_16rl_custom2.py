@@ -62,7 +62,8 @@ else:
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW
     else:
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 1024
-        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 4096
+        # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 4096
+        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
@@ -304,7 +305,7 @@ class CarEnv:
         if len (self.collision_hist) != 0:
             done = True
             # reward = -200
-            reward = -0.001
+            # reward = -0.001
             # reward = -1
 
         return self.front_camera, reward, done, None
@@ -377,7 +378,7 @@ with strategy.scope():
 
 
             # Apply LSTM layer
-            x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=128, return_sequences=True))(x)
             x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             
             # print(f'x.shape after LSTM: {x.shape}')

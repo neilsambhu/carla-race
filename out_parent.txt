@@ -1,34 +1,274 @@
 Start run at count 1
 4.26.2-0+++UE4+Release-4.26 522 0
 Disabling core dumps.
-2024-01-21 11:01:32.611798: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-2024-01-21 11:01:32.633676: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-01-21 11:01:32.633693: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-01-21 11:01:32.634235: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-01-21 11:01:32.637553: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-01-22 02:11:16.371562: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-22 02:11:16.553175: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-01-22 02:11:16.553249: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-01-22 02:11:16.576563: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-01-22 02:11:16.629070: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-01-21 11:01:33.050440: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-2024-01-21 11:01:33.366869: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-21 11:01:33.396376: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-21 11:01:33.396547: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-21 11:01:33.397451: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-21 11:01:33.397587: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-21 11:01:33.397790: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-21 11:01:34.240179: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-21 11:01:34.240303: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-21 11:01:34.240425: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
-2024-01-21 11:01:34.240581: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4401 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
-2024-01-21 11:01:39.191282: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
-2024-01-21 11:01:39.958970: W external/local_tsl/tsl/framework/bfc_allocator.cc:366] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you'd like to disable this feature.
-2024-01-21 11:01:41.546870: I external/local_xla/xla/service/service.cc:168] XLA service 0x7f7e4026dc20 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2024-01-21 11:01:41.546885: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
-2024-01-21 11:01:41.549686: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-01-22 02:11:17.324605: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2024-01-22 02:11:17.991422: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-22 02:11:18.156647: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-22 02:11:18.156915: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-22 02:11:18.158474: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-22 02:11:18.158690: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-22 02:11:18.158890: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-22 02:11:19.244141: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-22 02:11:19.244280: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-22 02:11:19.244374: I external/local_xla/xla/stream_executor/cuda/cuda_executor.cc:901] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2024-01-22 02:11:19.244453: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1929] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4434 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1660 SUPER, pci bus id: 0000:02:00.0, compute capability: 7.5
+x.shape after flatten: (None, 200, 1792)
+x.shape after LSTM: (None, 128)
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 200, 128, 128,    0         
+                             3)]                                 
+                                                                 
+ time_distributed (TimeDist  (None, 200, 128, 128, 2   784       
+ ributed)                    8)                                  
+                                                                 
+ time_distributed_1 (TimeDi  (None, 200, 64, 64, 28)   0         
+ stributed)                                                      
+                                                                 
+ time_distributed_2 (TimeDi  (None, 200, 64, 64, 28)   112       
+ stributed)                                                      
+                                                                 
+ time_distributed_3 (TimeDi  (None, 200, 64, 64, 28)   0         
+ stributed)                                                      
+                                                                 
+ time_distributed_4 (TimeDi  (None, 200, 64, 64, 28)   7084      
+ stributed)                                                      
+                                                                 
+ time_distributed_5 (TimeDi  (None, 200, 32, 32, 28)   0         
+ stributed)                                                      
+                                                                 
+ time_distributed_6 (TimeDi  (None, 200, 32, 32, 28)   112       
+ stributed)                                                      
+                                                                 
+ time_distributed_7 (TimeDi  (None, 200, 32, 32, 28)   0         
+ stributed)                                                      
+                                                                 
+ time_distributed_8 (TimeDi  (None, 200, 32, 32, 28)   7084      
+ stributed)                                                      
+                                                                 
+ time_distributed_9 (TimeDi  (None, 200, 16, 16, 28)   0         
+ stributed)                                                      
+                                                                 
+ time_distributed_10 (TimeD  (None, 200, 16, 16, 28)   112       
+ istributed)                                                     
+                                                                 
+ time_distributed_11 (TimeD  (None, 200, 16, 16, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_12 (TimeD  (None, 200, 16, 16, 28)   7084      
+ istributed)                                                     
+                                                                 
+ time_distributed_13 (TimeD  (None, 200, 8, 8, 28)     0         
+ istributed)                                                     
+                                                                 
+ time_distributed_14 (TimeD  (None, 200, 8, 8, 28)     112       
+ istributed)                                                     
+                                                                 
+ time_distributed_15 (TimeD  (None, 200, 8, 8, 28)     0         
+ istributed)                                                     
+                                                                 
+ time_distributed_16 (TimeD  (None, 200, 1792)         0         
+ istributed)                                                     
+                                                                 
+ bidirectional (Bidirection  (None, 200, 128)          950784    
+ al)                                                             
+                                                                 
+ bidirectional_1 (Bidirecti  (None, 128)               98816     
+ onal)                                                           
+                                                                 
+ dense (Dense)               (None, 64)                8256      
+                                                                 
+ dense_1 (Dense)             (None, 32)                2080      
+                                                                 
+ dense_2 (Dense)             (None, 16)                528       
+                                                                 
+ dense_3 (Dense)             (None, 9)                 153       
+                                                                 
+=================================================================
+Total params: 1083101 (4.13 MB)
+Trainable params: 1082877 (4.13 MB)
+Non-trainable params: 224 (896.00 Byte)
+_________________________________________________________________
+None
+x.shape after flatten: (None, 200, 1792)
+x.shape after LSTM: (None, 128)
+Model: "model_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_2 (InputLayer)        [(None, 200, 128, 128,    0         
+                             3)]                                 
+                                                                 
+ time_distributed_17 (TimeD  (None, 200, 128, 128, 2   784       
+ istributed)                 8)                                  
+                                                                 
+ time_distributed_18 (TimeD  (None, 200, 64, 64, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_19 (TimeD  (None, 200, 64, 64, 28)   112       
+ istributed)                                                     
+                                                                 
+ time_distributed_20 (TimeD  (None, 200, 64, 64, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_21 (TimeD  (None, 200, 64, 64, 28)   7084      
+ istributed)                                                     
+                                                                 
+ time_distributed_22 (TimeD  (None, 200, 32, 32, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_23 (TimeD  (None, 200, 32, 32, 28)   112       
+ istributed)                                                     
+                                                                 
+ time_distributed_24 (TimeD  (None, 200, 32, 32, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_25 (TimeD  (None, 200, 32, 32, 28)   7084      
+ istributed)                                                     
+                                                                 
+ time_distributed_26 (TimeD  (None, 200, 16, 16, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_27 (TimeD  (None, 200, 16, 16, 28)   112       
+ istributed)                                                     
+                                                                 
+ time_distributed_28 (TimeD  (None, 200, 16, 16, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_29 (TimeD  (None, 200, 16, 16, 28)   7084      
+ istributed)                                                     
+                                                                 
+ time_distributed_30 (TimeD  (None, 200, 8, 8, 28)     0         
+ istributed)                                                     
+                                                                 
+ time_distributed_31 (TimeD  (None, 200, 8, 8, 28)     112       
+ istributed)                                                     
+                                                                 
+ time_distributed_32 (TimeD  (None, 200, 8, 8, 28)     0         
+ istributed)                                                     
+                                                                 
+ time_distributed_33 (TimeD  (None, 200, 1792)         0         
+ istributed)                                                     
+                                                                 
+ bidirectional_2 (Bidirecti  (None, 200, 128)          950784    
+ onal)                                                           
+                                                                 
+ bidirectional_3 (Bidirecti  (None, 128)               98816     
+ onal)                                                           
+                                                                 
+ dense_4 (Dense)             (None, 64)                8256      
+                                                                 
+ dense_5 (Dense)             (None, 32)                2080      
+                                                                 
+ dense_6 (Dense)             (None, 16)                528       
+                                                                 
+ dense_7 (Dense)             (None, 9)                 153       
+                                                                 
+=================================================================
+Total params: 1083101 (4.13 MB)
+Trainable params: 1082877 (4.13 MB)
+Non-trainable params: 224 (896.00 Byte)
+_________________________________________________________________
+None
+x.shape after flatten: (None, 200, 1792)
+x.shape after LSTM: (None, 128)
+Model: "model_2"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_3 (InputLayer)        [(None, 200, 128, 128,    0         
+                             3)]                                 
+                                                                 
+ time_distributed_34 (TimeD  (None, 200, 128, 128, 2   784       
+ istributed)                 8)                                  
+                                                                 
+ time_distributed_35 (TimeD  (None, 200, 64, 64, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_36 (TimeD  (None, 200, 64, 64, 28)   112       
+ istributed)                                                     
+                                                                 
+ time_distributed_37 (TimeD  (None, 200, 64, 64, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_38 (TimeD  (None, 200, 64, 64, 28)   7084      
+ istributed)                                                     
+                                                                 
+ time_distributed_39 (TimeD  (None, 200, 32, 32, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_40 (TimeD  (None, 200, 32, 32, 28)   112       
+ istributed)                                                     
+                                                                 
+ time_distributed_41 (TimeD  (None, 200, 32, 32, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_42 (TimeD  (None, 200, 32, 32, 28)   7084      
+ istributed)                                                     
+                                                                 
+ time_distributed_43 (TimeD  (None, 200, 16, 16, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_44 (TimeD  (None, 200, 16, 16, 28)   112       
+ istributed)                                                     
+                                                                 
+ time_distributed_45 (TimeD  (None, 200, 16, 16, 28)   0         
+ istributed)                                                     
+                                                                 
+ time_distributed_46 (TimeD  (None, 200, 16, 16, 28)   7084      
+ istributed)                                                     
+                                                                 
+ time_distributed_47 (TimeD  (None, 200, 8, 8, 28)     0         
+ istributed)                                                     
+                                                                 
+ time_distributed_48 (TimeD  (None, 200, 8, 8, 28)     112       
+ istributed)                                                     
+                                                                 
+ time_distributed_49 (TimeD  (None, 200, 8, 8, 28)     0         
+ istributed)                                                     
+                                                                 
+ time_distributed_50 (TimeD  (None, 200, 1792)         0         
+ istributed)                                                     
+                                                                 
+ bidirectional_4 (Bidirecti  (None, 200, 128)          950784    
+ onal)                                                           
+                                                                 
+ bidirectional_5 (Bidirecti  (None, 128)               98816     
+ onal)                                                           
+                                                                 
+ dense_8 (Dense)             (None, 64)                8256      
+                                                                 
+ dense_9 (Dense)             (None, 32)                2080      
+                                                                 
+ dense_10 (Dense)            (None, 16)                528       
+                                                                 
+ dense_11 (Dense)            (None, 9)                 153       
+                                                                 
+=================================================================
+Total params: 1083101 (4.13 MB)
+Trainable params: 1082877 (4.13 MB)
+Non-trainable params: 224 (896.00 Byte)
+_________________________________________________________________
+None
+2024-01-22 02:11:24.885820: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:454] Loaded cuDNN version 8904
+2024-01-22 02:11:26.138326: W external/local_tsl/tsl/framework/bfc_allocator.cc:366] Garbage collection: deallocate free memory regions (i.e., allocations) so that we can re-allocate a larger region to avoid OOM due to memory fragmentation. If you see this message frequently, you are running near the threshold of the available device memory and re-allocation may incur great performance overhead. You may try smaller batch sizes to observe the performance impact. Set TF_ENABLE_GPU_GARBAGE_COLLECTION=false if you'd like to disable this feature.
+2024-01-22 02:11:27.902431: I external/local_xla/xla/service/service.cc:168] XLA service 0x7fad03f02bd0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2024-01-22 02:11:27.902445: I external/local_xla/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1660 SUPER, Compute Capability 7.5
+2024-01-22 02:11:27.909912: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
 WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1705852901.607073 2277624 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
-2024-01-21 11:01:44.284007: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2024-01-21 11:01:44.284033: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2024-01-21 11:01:44.468619: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
-2024-01-21 11:01:44.468638: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+I0000 00:00:1705907487.979136    2633 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+2024-01-22 02:11:30.912484: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2024-01-22 02:11:30.912508: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2024-01-22 02:11:31.099440: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
+2024-01-22 02:11:31.099487: W external/local_tsl/tsl/framework/bfc_allocator.cc:296] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.41GiB with freed_by_count=0. The caller indicates that this is not a failure, but this may mean that there could be performance gains if more memory were available.
 WARNING: Version mismatch detected: You are trying to connect to a simulator that might be incompatible with this API 
 WARNING: Client API version     = 0.9.15 
 WARNING: Simulator API version  = 0.9.14 
