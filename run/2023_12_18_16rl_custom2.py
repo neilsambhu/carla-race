@@ -561,11 +561,11 @@ if __name__ == "__main__":
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
-    bLoadReplayMemory = False
+    bLoadReplayMemory = True
     if bLoadReplayMemory:
-        with open('bak/0369.replay_memory', 'rb') as file:
+        with open('bak/0079.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
-        idx_episode_start = 370
+        idx_episode_start = 80
         idx_action1 = 2530+1
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
