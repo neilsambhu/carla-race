@@ -567,6 +567,9 @@ if __name__ == "__main__":
             agent.replay_memory = pickle.load(file)
         idx_episode_start = 80
         idx_action1 = 2530+1
+    bLoadModel = True
+    if bLoadModel:
+        agent.model = tf.keras.models.load_model('bak/0079.79.model')
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()
