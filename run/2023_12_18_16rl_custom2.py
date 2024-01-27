@@ -226,7 +226,8 @@ class CarEnv:
         if not os.path.exists('%s/%04d' % (directory_output, self.episode)):
             os.makedirs('%s/%04d' % (directory_output, self.episode))
             time.sleep(1)
-        i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
+        # i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
+        i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
         while not os.path.exists('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame)):
             time.sleep(0.1)
 
