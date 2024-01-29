@@ -787,12 +787,12 @@ if __name__ == "__main__":
                 bTrainingComplete = True
             
             print(f'Finished episode {episode} of {EPISODES}')
-            # fill agent.replay_memory
-            idx_replay_memory = 0
-            while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                element = agent.replay_memory[idx_replay_memory]
-                agent.replay_memory.append(element)
-                idx_replay_memory += 1
+            # # fill agent.replay_memory
+            # idx_replay_memory = 0
+            # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
+            #     element = agent.replay_memory[idx_replay_memory]
+            #     agent.replay_memory.append(element)
+            #     idx_replay_memory += 1
             
             epochs = None
             print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
