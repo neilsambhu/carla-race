@@ -429,7 +429,7 @@ with strategy.scope():
                 frame_3_last = None
                 for frame in sequence:
                     if frame[4]:
-                        if bVerbose:
+                        if bVerbose and False:
                             print("found final frame in drive")
                         bFound_done = True
                         frame_0_last = frame[0]
