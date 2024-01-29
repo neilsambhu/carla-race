@@ -2,7 +2,7 @@
 #All options below are recommended
 #SBATCH -p Contributors #general # run on partition general
 ##SBATCH --cpus-per-task=32 # 32 CPUs per task
-#SBATCH --cpus-per-task=16 # 32 CPUs per task
+#SBATCH --cpus-per-task=12 # 32 CPUs per task
 ##SBATCH --mem=100GB # 100GB per task
 #SBATCH --mem=350GB # 100GB per task
 #SBATCH --gpus=8 # 63 GPUs available
