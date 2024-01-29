@@ -60,15 +60,17 @@ if bSAMBHU24:
 else:
     if not bA100:
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW
+        MINIBATCH_SIZE = 1
     else:
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 1024
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 4096
-        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
+        # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
+        MINIBATCH_SIZE = 1
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
-TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
-# TRAINING_BATCH_SIZE = 1
+# TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
+TRAINING_BATCH_SIZE = 1
 UPDATE_TARGET_EVERY = 5
 # MODEL_NAME = "Xception"
 MODEL_NAME = "Neil_SDC_2023"
@@ -564,13 +566,13 @@ if __name__ == "__main__":
     import glob, shutil
     bLoadReplayMemory = True
     if bLoadReplayMemory:
-        with open('bak/0079.replay_memory', 'rb') as file:
+        with open('bak/0117.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
-        idx_episode_start = 80
+        idx_episode_start = 118
         idx_action1 = 2530+1
     bLoadModel = True
     if bLoadModel:
-        agent.model = tf.keras.models.load_model('bak/0079.79.model')
+        agent.model = tf.keras.models.load_model('bak/0117.38.model')
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()
