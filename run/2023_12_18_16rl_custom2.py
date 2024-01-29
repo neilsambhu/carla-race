@@ -424,9 +424,20 @@ with strategy.scope():
             for sequence in minibatch:
                 window_current_states = []
                 window_new_current_states = []
+                bFound_done = False
+                frame_0_last = None
+                frame_3_last = None
                 for frame in sequence:
-                    window_current_states.append(frame[0])
-                    window_new_current_states.append(frame[3])
+                    if frame[4]:
+                        bFound_done = True
+                        frame_0_last = frame[0]
+                        frame_3_last = frame[3]
+                    if not bFound_done:
+                        window_current_states.append(frame[0])
+                        window_new_current_states.append(frame[3])
+                    else:
+                        window_current_states.append(frame_0_last)
+                        window_new_current_states.append(frame_3_last)
                 current_states.append(window_current_states)
                 new_current_states.append(window_new_current_states)
             current_states = np.asarray(current_states)
