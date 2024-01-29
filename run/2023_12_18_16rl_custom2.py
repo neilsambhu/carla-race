@@ -577,13 +577,13 @@ if __name__ == "__main__":
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
-    bLoadReplayMemory = True
+    bLoadReplayMemory = False
     if bLoadReplayMemory:
         with open('bak/0117.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
         idx_episode_start = 118
         idx_action1 = 2530+1
-    bLoadModel = True
+    bLoadModel = False
     if bLoadModel:
         agent.model = tf.keras.models.load_model('bak/0117.38.model')
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
