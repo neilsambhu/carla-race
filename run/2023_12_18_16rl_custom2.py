@@ -767,7 +767,7 @@ if __name__ == "__main__":
                 if done:
                     break
 
-            time.sleep(1)
+            time.sleep(30)
             for actor in env.actor_list:
                 actor.destroy()
 
