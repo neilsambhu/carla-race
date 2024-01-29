@@ -803,11 +803,11 @@ if __name__ == "__main__":
             # else:
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
-                    epochs = 1
+                    epochs = 0
                     # epochs = 0
                 else:
                     # epochs = int(1e3)
-                    epochs = 1
+                    epochs = 0
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
                     # epochs = 10
