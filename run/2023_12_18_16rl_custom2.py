@@ -669,6 +669,7 @@ if __name__ == "__main__":
             idx_control = 0
             # for i in range(0,10):
             #     env.world.tick()
+            count_frames_completed = 0
 
             while True:
                 if bSync and False:
@@ -758,6 +759,7 @@ if __name__ == "__main__":
                 #     action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
 
                 new_state, reward, done, _ = env.step(action)            
+                count_frames_completed += 1
                 episode_reward += reward
                 agent.update_replay_memory((current_state, action, reward, new_state, done))
                 window_current_state.append(np.asarray(current_state))
@@ -765,6 +767,7 @@ if __name__ == "__main__":
                 # step += 1
 
                 if done:
+                    print(f'count_frames_completed: {count_frames_completed}')
                     break
 
             time.sleep(30)
