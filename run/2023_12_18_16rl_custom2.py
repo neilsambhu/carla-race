@@ -230,11 +230,11 @@ class CarEnv:
             time.sleep(1)
         i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
         # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
-        count_checkFileExists = 0
+        # count_checkFileExists = 0
         while not os.path.exists('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame)):
-            count_checkFileExists += 1
+            # count_checkFileExists += 1
             time.sleep(0.1)
-        print(f'count_checkFileExists: {count_checkFileExists}')
+        # print(f'count_checkFileExists: {count_checkFileExists}')
 
 
     def step(self, action):
