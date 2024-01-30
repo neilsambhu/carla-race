@@ -99,3 +99,29 @@ WARNING: Client API version     = 0.9.15
 WARNING: Simulator API version  = 0.9.14 
   0%|          | 0/9999 [00:00<?, ?episode/s]
 Started episode 2 of 10000
+Finished episode 2 of 10000
+len(agent.replay_memory): 13604
+Saved model from episode 2. Count of epochs trained: 0
+  0%|          | 1/9999 [07:09<1191:46:21, 429.12s/episode]
+Started episode 3 of 10000
+  0%|          | 1/9999 [07:12<1200:27:17, 432.25s/episode]
+Error message: time-out of 2000ms while waiting for the simulator, make sure the simulator is ready and connected to 10.247.52.30:2000
+Traceback (most recent call last):
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 760, in <module>
+  File "/home/nsambhu/github/carla-race/run/2023_12_18_16rl_custom2.py", line 266, in step
+    self.world.tick() # Neil added
+RuntimeError: time-out of 2000ms while waiting for the simulator, make sure the simulator is ready and connected to 10.247.52.30:2000
+Error during episode 3
+Fatal Python error: PyGILState_Release: thread state 0x7f7480001370 must be current when releasing
+Python runtime state: finalizing (tstate=0x8d28a0)
+
+Thread 0x00007f76c3d364c0 (most recent call first):
+<no Python frame>
+Aborted (core dumped)
+(Allegedly) no exception occurred for run at count 2. CARLA Simulator may have crashed.
+End run at count 2
+Elapsed time: 00:11:46
+Start run at count 3
+Killed
+4.26.2-0+++UE4+Release-4.26 522 0
+Disabling core dumps.

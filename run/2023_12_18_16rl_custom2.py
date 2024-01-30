@@ -228,8 +228,8 @@ class CarEnv:
         if not os.path.exists('%s/%04d' % (directory_output, self.episode)):
             os.makedirs('%s/%04d' % (directory_output, self.episode))
             time.sleep(1)
-        # i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
-        i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
+        i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
+        # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
         count_checkFileExists = 0
         while not os.path.exists('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame)):
             count_checkFileExists += 1
@@ -763,8 +763,13 @@ if __name__ == "__main__":
                 episode_reward += reward
                 agent.update_replay_memory((current_state, action, reward, new_state, done))
                 window_current_state.append(np.asarray(current_state))
-                # agent.train_in_loop() # 12/19/2023 2:00 AM: Neil added
-                # step += 1
+                # from PIL import Image
+                # i4 = Image.fromarray(current_state)
+                # if not os.path.exists('%s/%04d' % (directory_output, episode)):
+                #     os.makedirs('%s/%04d' % (directory_output, episode))
+                #     time.sleep(1)
+                # # i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
+                # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))                
 
                 if done:
                     print(f'count_frames_completed: {count_frames_completed}')

@@ -30,7 +30,7 @@ with open(locations_file_path, 'r') as file:
 x_coords, y_coords = zip(*trajectory)
 
 # Shift the coordinates to set the origin at the center of the image
-scaling_factor = 0.7
+scaling_factor = 0.715
 x_coords_shifted = [scaling_factor*(x + 525) for x in x_coords]
 y_coords_shifted = [scaling_factor*(y + 425) for y in y_coords]
 
