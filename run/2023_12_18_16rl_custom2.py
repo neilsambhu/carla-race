@@ -581,13 +581,13 @@ if __name__ == "__main__":
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
-    bLoadReplayMemory = False
+    bLoadReplayMemory = True
     if bLoadReplayMemory:
         with open('bak/0117.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
         idx_episode_start = 118
         idx_action1 = 2530+1
-    bLoadModel = False
+    bLoadModel = True
     if bLoadModel:
         agent.model = tf.keras.models.load_model('bak/0117.38.model')
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
@@ -772,7 +772,6 @@ if __name__ == "__main__":
                 # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))                
 
                 if done:
-                    print(f'count_frames_completed: {count_frames_completed}')
                     break
 
             time.sleep(30)
@@ -800,6 +799,7 @@ if __name__ == "__main__":
                 bTrainingComplete = True
             
             print(f'Finished episode {episode} of {EPISODES}')
+            print(f'count_frames_completed: {count_frames_completed}')
             # # fill agent.replay_memory
             # idx_replay_memory = 0
             # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
