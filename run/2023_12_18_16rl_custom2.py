@@ -84,6 +84,7 @@ MIN_REWARD = -200
 EPISODES = 10_000
 
 DISCOUNT = 0.99
+epsilon_base = 1.0
 epsilon = 1.0
 EPSILON_DECAY = 0.95
 # EPSILON_DECAY = 0.99
@@ -793,7 +794,8 @@ if __name__ == "__main__":
 
             # Decay epsilon
             if epsilon > MIN_EPSILON:
-                epsilon *= EPSILON_DECAY
+                # epsilon *= EPSILON_DECAY
+                epsilon = epsilon_base*(EPSILON_DECAY**episode)
                 epsilon = max(MIN_EPSILON, epsilon)
             if episode == EPISODES:
                 bTrainingComplete = True
