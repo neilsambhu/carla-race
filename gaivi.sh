@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=24 # 32 CPUs per task
 ##SBATCH --cpus-per-task=12 # 32 CPUs per task
 ##SBATCH --mem=100GB # 100GB per task
-#SBATCH --mem=2TB # 100GB per task
+#SBATCH --mem=1TB # 100GB per task
 #SBATCH --gpus=3 # 63 GPUs available
 ##SBATCH --mail-user=nsambhu@mail.usf.edu # email for notifications
 ##SBATCH --mail-type=BEGIN,END,FAIL,REQUEUE # events for notifications
