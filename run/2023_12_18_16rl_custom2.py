@@ -93,6 +93,7 @@ else:
         MINIBATCH_SIZE = 16 # 1 hour 8 minutes per epoch
         # 4 GPUs
         MINIBATCH_SIZE = 4*16 # failure
+        MINIBATCH_SIZE = 4*12
     elif bGPU45:
         MINIBATCH_SIZE = 8 # 1 hour 3 minutes per epoch
         MINIBATCH_SIZE = 64 # failure
@@ -165,8 +166,8 @@ if bGPU:
         print(f'GPUs: {gpus}')
         for gpu in gpus:
             tf.config.experimental.set_memory_growth(gpu, True)
-strategy = tf.distribute.MirroredStrategy()
-# strategy = tf.distribute.MultiWorkerMirroredStrategy()
+# strategy = tf.distribute.MirroredStrategy()
+strategy = tf.distribute.MultiWorkerMirroredStrategy()
 with strategy.scope():
     class CarEnv:
         SHOW_CAM = SHOW_PREVIEW
