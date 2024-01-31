@@ -345,7 +345,8 @@ if bGPU:
         for gpu in gpus:
             tf.config.experimental.set_memory_growth(gpu, True)
 # strategy = tf.distribute.MirroredStrategy()
-strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
+# strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
+strategy = tf.distribute.MultiWorkerMirroredStrategy()
 with strategy.scope():
     class DQNAgent:
         def __init__(self):
