@@ -88,7 +88,8 @@ else:
 
         # GPU43
         MINIBATCH_SIZE = 4*8 # 4 hours 20 minutes per epoch
-        MINIBATCH_SIZE = 4*64
+        MINIBATCH_SIZE = 4*64 # 4 hours 20 minutes per epoch
+        MINIBATCH_SIZE = 4*512 
 
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
