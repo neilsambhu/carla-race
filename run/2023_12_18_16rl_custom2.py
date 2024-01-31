@@ -726,9 +726,9 @@ if __name__ == "__main__":
                     [shutil.rmtree(matching_file) for matching_file in matching_files]
 
                 print(f'\nStarted episode {episode} of {EPISODES}')
-                if bGAIVI:
-                    nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-                    # nvidia_smi.wait()
+                # if bGAIVI:
+                #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+                #     # nvidia_smi.wait()
 
                 env.collision_hist = []
                 # agent.tensorboard.step = episode
@@ -919,6 +919,7 @@ if __name__ == "__main__":
                     for batch in tqdm(range(agent.count_batches_trained, count_batches_subgoal), ascii=True, unit="batch"):
                         agent.train()
                         if bGAIVI:
+                            print('\n')
                             nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
                         count_batches_completed += 1
                     # while count_batches_completed < count_batches_subgoal:
