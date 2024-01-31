@@ -595,7 +595,7 @@ if __name__ == "__main__":
         epsilon = max(MIN_EPSILON, epsilon)
     bLoadModel = True
     if bLoadModel:
-        agent.model = tf.keras.models.load_model(globl.glob(f'bak/{episodeToRecover}.*.model')[0])
+        agent.model = tf.keras.models.load_model(glob.glob(f'bak/{episodeToRecover}.*.model')[0])
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
     if len(matching_files) > 0:
         matching_files.sort()
