@@ -53,7 +53,8 @@ while len(glob.glob('models/final.model')) == 0 and run<=count_max_runs:
         if not bGAIVI:
             kill_carla()
         else:
-            kill_carla_gaivi()
+            # kill_carla_gaivi()
+            pass
     else:
         kill_carla_remote()
     carla = None
