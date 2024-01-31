@@ -840,3 +840,4 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 1/31/2024 1:41 AM: training from GPU43 all used batch size of 1 because of "not A100".  
 1/31/2024 1:58 AM: GPU45 (1 A100): 56 minutes per epoch with MINIBATCH_SIZE = 16 and TRAINING_BATCH_SIZE = MINIBATCH_SIZE. TODO: MINIBATCH_SIZE = REPLAY_MEMORY_SIZE = 50_000 and TRAINING_BATCH_SIZE = 16.  
 1/31/2024 3:03 AM: 5 GPUs across GPU43 and GPU45 have 1 hour per epoch.  
+1/31/2024 4:19 AM: trying to cache the batch size doesn't work for speedup.  
