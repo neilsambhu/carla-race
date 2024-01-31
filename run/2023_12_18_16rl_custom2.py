@@ -350,7 +350,7 @@ with strategy.scope():
 
             return self.front_camera, reward, done, None
     
-        def get_count_vehicles():
+        def get_count_vehicles(self):
             actors = self.world.get_actors()
             vehicles = [actor for actor in actors if actor.type_id.startswith('vehicle')]
             return len(vehicles)
