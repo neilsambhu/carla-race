@@ -833,3 +833,4 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 1/29/2024 2:38 AM: TODO: custom data structure to train from full sequences of data. Windows should be real data. Verification: how does training account for "done" flag?  
 1/29/2024 2:51 AM: alternative to changing data structure is seeing if window or pull contains "done". Currently, check is if last value in sequence is done.  
 1/29/2024 4:17 PM: model shows only 1 frame from drive. Time to restart training from first epoch.  
+1/31/2024 12:46 AM: 35 GPUs: 2.3-2.5 batches/second
