@@ -76,7 +76,7 @@ else:
         MINIBATCH_SIZE = 75 #first batch trained; warning
         MINIBATCH_SIZE = 87 #first batch trained; warning
         MINIBATCH_SIZE = 93 #first batch trained; warning
-        MINIBATCH_SIZE = 96
+        # MINIBATCH_SIZE = 96 #failure
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
