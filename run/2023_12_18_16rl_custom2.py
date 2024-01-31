@@ -173,8 +173,8 @@ with strategy.scope():
                 self.client.set_timeout(120)
             # self.world = self.client.get_world()
             self.world = self.client.load_world('Town04_Opt')
-            self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
-            # self.client.set_timeout(60)
+            # self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
+            self.client.set_timeout(60)
             self.blueprint_library = self.world.get_blueprint_library()
             self.model_3 = self.blueprint_library.filter("model3")[0]
             if bSync:
