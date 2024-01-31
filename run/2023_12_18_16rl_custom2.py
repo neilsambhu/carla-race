@@ -667,6 +667,7 @@ if __name__ == "__main__":
     bAction2Finished = False
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
+            time.sleep(random.uniform(0,30))
             count_vehicles = env.get_count_vehicles()
             print(f'episode: {episode}\tcount_vehicles: {count_vehicles}')
             if count_vehicles == 0:
