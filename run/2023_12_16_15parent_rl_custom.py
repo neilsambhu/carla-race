@@ -68,14 +68,15 @@ while len(glob.glob('models/final.model')) == 0 and run<=count_max_runs:
                 print(f"before carla, run squeue")
                 squeue_before_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_before_carla.wait()
-                # carla = subprocess.Popen(f'srun singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
-                # carla = subprocess.Popen(f'srun singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen & wait {30*24*60*60}', shell=True)
-                # carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh', shell=True, preexec_fn=os.setsid)
-                carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh ', shell=True)
-                # carla = subprocess.Popen(f'srun -w GPU17 --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True, preexec_fn=os.setsid)
-                # carla = subprocess.Popen(f'srun --partition Contributors --gpus=1 --pty singularity exec --nv /home/n/nsambhu/github/podman-carla/carla-0.9.14.sif /home/carla/CarlaUE4.sh -RenderOffScreen', shell=True)
-                carla.wait()
-                time.sleep(10)
+                # if existing CARLA is present, don't spawn CARLA
+                carla_line = []
+                command_output = subprocess.run(['squeue'], capture_output=True, text=True)
+                output_lines = command_output.stdout.split('\n')
+                carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line and not 'CG' in line]
+                if len(carla_line) == 0:
+                    carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh ', shell=True)
+                    carla.wait()
+                    time.sleep(10)
                 print(f"after carla, run squeue")
                 squeue_after_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_after_carla.wait()
