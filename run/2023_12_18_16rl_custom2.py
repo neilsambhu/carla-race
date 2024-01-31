@@ -75,13 +75,17 @@ else:
         MINIBATCH_SIZE = 48 #first batch trained; warning
         MINIBATCH_SIZE = 75 #first batch trained; warning
         MINIBATCH_SIZE = 87 #first batch trained; warning
-        MINIBATCH_SIZE = 93 #first batch trained; warning
+        MINIBATCH_SIZE = 93 #failure
         # MINIBATCH_SIZE = 96 #failure
+
+        # batch size decrease by factor of 4
+        MINIBATCH_SIZE = 22
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
-TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
+# TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
+TRAINING_BATCH_SIZE = MINIBATCH_SIZE
 # TRAINING_BATCH_SIZE = 1
 UPDATE_TARGET_EVERY = 5
 # MODEL_NAME = "Xception"
