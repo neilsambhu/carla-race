@@ -349,6 +349,12 @@ with strategy.scope():
                 # reward = -1
 
             return self.front_camera, reward, done, None
+    
+        def get_count_vehicles():
+            actors = self.world.get_actors()
+            vehicles = [actor for actor in actors if actor.type_id.startswith('vehicle')]
+            return len(vehicles)
+
     class DQNAgent:
         def __init__(self):
             self.model = self.create_model()
@@ -661,178 +667,180 @@ if __name__ == "__main__":
     bAction2Finished = False
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
-            lookback = 2
-            if episode > lookback:
-                matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.*.model'))
-                [shutil.rmtree(matching_file) for matching_file in matching_files]
-                matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.replay_memory'))
-                [os.remove(matching_file) for matching_file in matching_files]
-            lookback = 200
-            if episode > lookback:
-                matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}'))
-                [shutil.rmtree(matching_file) for matching_file in matching_files]
+            count_vehicles = env.get_count_vehicles()
+            print(f'episode: {episode}\tcount_vehicles: {count_vehicles}')
+            if count_vehicles == 0:
+                lookback = 2
+                if episode > lookback:
+                    matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.*.model'))
+                    [shutil.rmtree(matching_file) for matching_file in matching_files]
+                    matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.replay_memory'))
+                    [os.remove(matching_file) for matching_file in matching_files]
+                lookback = 200
+                if episode > lookback:
+                    matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}'))
+                    [shutil.rmtree(matching_file) for matching_file in matching_files]
 
-            print(f'\nStarted episode {episode} of {EPISODES}')
-            if bGAIVI:
-                nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-                # nvidia_smi.wait()
+                print(f'\nStarted episode {episode} of {EPISODES}')
+                if bGAIVI:
+                    nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+                    # nvidia_smi.wait()
 
-            env.collision_hist = []
-            # agent.tensorboard.step = episode
-            env.episode = episode
-            episode_reward = 0
-            # step = 1
-            current_state = env.reset()
-            window_current_state = deque(maxlen=COUNT_FRAME_WINDOW)
-            for i in range(COUNT_FRAME_WINDOW):
-                window_current_state.append(np.asarray(current_state))
+                env.collision_hist = []
+                # agent.tensorboard.step = episode
+                env.episode = episode
+                episode_reward = 0
+                # step = 1
+                current_state = env.reset()
+                window_current_state = deque(maxlen=COUNT_FRAME_WINDOW)
+                for i in range(COUNT_FRAME_WINDOW):
+                    window_current_state.append(np.asarray(current_state))
 
-            if bSync and False:
-                env.world.tick()
-                env.idx_tick += 1
-            done = False
-            idx_control = 0
-            # for i in range(0,10):
-            #     env.world.tick()
-            count_frames_completed = 0
-
-            while True:
                 if bSync and False:
-                    # print(f'bSync inside episode')
-                    env.world.tick();
+                    env.world.tick()
                     env.idx_tick += 1
-                action = None
-                if np.random.random() > epsilon:
-                # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                # if False:
-                    # action = np.argmax(agent.get_qs(current_state))
-                    action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
-                    # with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
-                    #     lines = file.readlines()
-                    #     throttle,steer,brake = lines[idx_control].split()
-                    #     idx_control += 1
-                    #     throttle,steer,brake = float(throttle),float(steer),float(brake)
-                    #     throttle_index = np.abs(action_space['throttle'] - throttle).argmin()
-                    #     steer_index = np.abs(action_space['steer'] - steer).argmin()
-                    #     brake_index = np.abs(action_space['brake'] - brake).argmin()
-                    #     action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
-                    #                 steer_index * len(action_space['brake']) + \
-                    #                 brake_index
-                else:
-                    # bAction1Valid = False
-                    # while not bAction1Valid:
-                    #     action = np.random.randint(0, action_size)
-                    #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-                    #     brake_action = action % len(action_space['brake'])
-                    #     if throttle_action == 0 or brake_action == 0:
-                    #         bAction1Valid = True
-                    action = np.random.randint(0, action_size)                            
-                    # action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
-                    if not bSync:
-                        time.sleep(1/FPS)
-                # if idx_action1 < action_size:
-                #     count_framesPerAction1 += 1
-                #     if count_framesPerAction1 > max_framesPerAction:
-                #         print(f'Finished idx_action1: {idx_action1}\taction size: {action_size}')
-                #         # # transition to second action
-                #         # count_framesPerAction2 += 1
-                #         # if count_framesPerAction2 > max_framesPerAction:
-                #         #     bAction2Finished = True
-                #         #     print(f'Finished idx_action2: {idx_action2}\taction size: {action_size}')
-                #         # if bAction2Finished:
-                #         #     idx_action2 += 1
-                #         #     count_framesPerAction2 = 0
-                #         #     bAction2Started = False
-                #         # if not bAction2Started:
-                #         #     idx_action2 = 0
-                #         #     count_framesPerAction2 = 0
-                #         #     bAction2Started = True
-                #         # bAction2Valid = False
-                #         # while not bAction2Valid and idx_action2 < action_size:
-                #         #     action = idx_action2
-                #         #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-                #         #     brake_action = action % len(action_space['brake'])
-                #         #     if brake_action == 0 and throttle_action > 0 and idx_action2 != idx_action1:
-                #         #         bAction2Valid = True
-                #         #         matching_files = glob.glob(os.path.join('tmp', '*idx_action2'))
-                #         #         [os.remove(matching_file) for matching_file in matching_files]
-                #         #         open(f'tmp/{idx_action2:04d}.idx_action2', "w")
-                #         #     else:
-                #         #         idx_action2 += 1
-                #         idx_action1 += 1
-                #         count_framesPerAction1 = 1
+                done = False
+                idx_control = 0
+                # for i in range(0,10):
+                #     env.world.tick()
+                count_frames_completed = 0
 
-                        
-                #     bAction1Valid = False
-                #     while not bAction1Valid and idx_action1 < action_size:
-                #         action = idx_action1
-                #         throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
-                #         brake_action = action % len(action_space['brake'])
-                #         if brake_action == 0 and throttle_action > 0:
-                #             bAction1Valid = True
-                #             matching_files = glob.glob(os.path.join('tmp', '*idx_action1'))
-                #             [os.remove(matching_file) for matching_file in matching_files]
-                #             open(f'tmp/{idx_action1:04d}.idx_action1', "w")
-                #         else:
-                #             idx_action1 += 1
-                #     if idx_action1 >= action_size:
-                #         print(f'Finished initializing all actions. Predicting from model.')
-                #         # action = np.argmax(agent.get_qs(current_state))                    
-                #         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
-                # else:
-                #     # action = np.argmax(agent.get_qs(current_state))                    
-                #     action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
+                while True:
+                    if bSync and False:
+                        # print(f'bSync inside episode')
+                        env.world.tick();
+                        env.idx_tick += 1
+                    action = None
+                    if np.random.random() > epsilon:
+                    # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
+                    # if False:
+                        # action = np.argmax(agent.get_qs(current_state))
+                        action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
+                        # with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
+                        #     lines = file.readlines()
+                        #     throttle,steer,brake = lines[idx_control].split()
+                        #     idx_control += 1
+                        #     throttle,steer,brake = float(throttle),float(steer),float(brake)
+                        #     throttle_index = np.abs(action_space['throttle'] - throttle).argmin()
+                        #     steer_index = np.abs(action_space['steer'] - steer).argmin()
+                        #     brake_index = np.abs(action_space['brake'] - brake).argmin()
+                        #     action = throttle_index * len(action_space['steer']) * len(action_space['brake']) + \
+                        #                 steer_index * len(action_space['brake']) + \
+                        #                 brake_index
+                    else:
+                        # bAction1Valid = False
+                        # while not bAction1Valid:
+                        #     action = np.random.randint(0, action_size)
+                        #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                        #     brake_action = action % len(action_space['brake'])
+                        #     if throttle_action == 0 or brake_action == 0:
+                        #         bAction1Valid = True
+                        action = np.random.randint(0, action_size)                            
+                        # action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
+                        if not bSync:
+                            time.sleep(1/FPS)
+                    # if idx_action1 < action_size:
+                    #     count_framesPerAction1 += 1
+                    #     if count_framesPerAction1 > max_framesPerAction:
+                    #         print(f'Finished idx_action1: {idx_action1}\taction size: {action_size}')
+                    #         # # transition to second action
+                    #         # count_framesPerAction2 += 1
+                    #         # if count_framesPerAction2 > max_framesPerAction:
+                    #         #     bAction2Finished = True
+                    #         #     print(f'Finished idx_action2: {idx_action2}\taction size: {action_size}')
+                    #         # if bAction2Finished:
+                    #         #     idx_action2 += 1
+                    #         #     count_framesPerAction2 = 0
+                    #         #     bAction2Started = False
+                    #         # if not bAction2Started:
+                    #         #     idx_action2 = 0
+                    #         #     count_framesPerAction2 = 0
+                    #         #     bAction2Started = True
+                    #         # bAction2Valid = False
+                    #         # while not bAction2Valid and idx_action2 < action_size:
+                    #         #     action = idx_action2
+                    #         #     throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                    #         #     brake_action = action % len(action_space['brake'])
+                    #         #     if brake_action == 0 and throttle_action > 0 and idx_action2 != idx_action1:
+                    #         #         bAction2Valid = True
+                    #         #         matching_files = glob.glob(os.path.join('tmp', '*idx_action2'))
+                    #         #         [os.remove(matching_file) for matching_file in matching_files]
+                    #         #         open(f'tmp/{idx_action2:04d}.idx_action2', "w")
+                    #         #     else:
+                    #         #         idx_action2 += 1
+                    #         idx_action1 += 1
+                    #         count_framesPerAction1 = 1
 
-                new_state, reward, done, _ = env.step(action)            
-                count_frames_completed += 1
-                episode_reward += reward
-                agent.update_replay_memory((current_state, action, reward, new_state, done))
-                window_current_state.append(np.asarray(current_state))
-                # from PIL import Image
-                # i4 = Image.fromarray(current_state)
-                # if not os.path.exists('%s/%04d' % (directory_output, episode)):
-                #     os.makedirs('%s/%04d' % (directory_output, episode))
-                #     time.sleep(1)
-                # # i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
-                # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))                
+                            
+                    #     bAction1Valid = False
+                    #     while not bAction1Valid and idx_action1 < action_size:
+                    #         action = idx_action1
+                    #         throttle_action = action // (len(action_space['steer'])*len(action_space['brake']))
+                    #         brake_action = action % len(action_space['brake'])
+                    #         if brake_action == 0 and throttle_action > 0:
+                    #             bAction1Valid = True
+                    #             matching_files = glob.glob(os.path.join('tmp', '*idx_action1'))
+                    #             [os.remove(matching_file) for matching_file in matching_files]
+                    #             open(f'tmp/{idx_action1:04d}.idx_action1', "w")
+                    #         else:
+                    #             idx_action1 += 1
+                    #     if idx_action1 >= action_size:
+                    #         print(f'Finished initializing all actions. Predicting from model.')
+                    #         # action = np.argmax(agent.get_qs(current_state))                    
+                    #         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
+                    # else:
+                    #     # action = np.argmax(agent.get_qs(current_state))                    
+                    #     action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
 
-                if done:
-                    break
+                    new_state, reward, done, _ = env.step(action)            
+                    count_frames_completed += 1
+                    episode_reward += reward
+                    agent.update_replay_memory((current_state, action, reward, new_state, done))
+                    window_current_state.append(np.asarray(current_state))
+                    # from PIL import Image
+                    # i4 = Image.fromarray(current_state)
+                    # if not os.path.exists('%s/%04d' % (directory_output, episode)):
+                    #     os.makedirs('%s/%04d' % (directory_output, episode))
+                    #     time.sleep(1)
+                    # # i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
+                    # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))                
 
-            time.sleep(30)
-            for actor in env.actor_list:
-                actor.destroy()
+                    if done:
+                        break
 
-            # Append episode reward to a list and log stats (every given number of episodes)
-            ep_rewards.append(episode_reward)
-            if not episode % AGGREGATE_STATS_EVERY or episode == 1:
-                average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
-                min_reward = min(ep_rewards[-AGGREGATE_STATS_EVERY:])
-                max_reward = max(ep_rewards[-AGGREGATE_STATS_EVERY:])
-                # agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
+                time.sleep(30)
+                for actor in env.actor_list:
+                    actor.destroy()
 
-                # Save model, but only when min reward is greater or equal a set value
-                if min_reward >= MIN_REWARD:
-                    agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
+                # Append episode reward to a list and log stats (every given number of episodes)
+                ep_rewards.append(episode_reward)
+                if not episode % AGGREGATE_STATS_EVERY or episode == 1:
+                    average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
+                    min_reward = min(ep_rewards[-AGGREGATE_STATS_EVERY:])
+                    max_reward = max(ep_rewards[-AGGREGATE_STATS_EVERY:])
+                    # agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
+
+                    # Save model, but only when min reward is greater or equal a set value
+                    if min_reward >= MIN_REWARD:
+                        agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
 
 
-            # Decay epsilon
-            if epsilon > MIN_EPSILON:
-                # epsilon *= EPSILON_DECAY
-                epsilon = epsilon_base*(EPSILON_DECAY**episode)
-                epsilon = max(MIN_EPSILON, epsilon)
-            if episode == EPISODES:
-                bTrainingComplete = True
-            
-            print(f'Finished episode {episode} of {EPISODES}')
-            print(f'count_frames_completed: {count_frames_completed}')
-            # # fill agent.replay_memory
-            # idx_replay_memory = 0
-            # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-            #     element = agent.replay_memory[idx_replay_memory]
-            #     agent.replay_memory.append(element)
-            #     idx_replay_memory += 1
-            
+                # Decay epsilon
+                if epsilon > MIN_EPSILON:
+                    # epsilon *= EPSILON_DECAY
+                    epsilon = epsilon_base*(EPSILON_DECAY**episode)
+                    epsilon = max(MIN_EPSILON, epsilon)
+                if episode == EPISODES:
+                    bTrainingComplete = True
+                
+                print(f'Finished episode {episode} of {EPISODES}')
+                print(f'count_frames_completed: {count_frames_completed}')
+                # # fill agent.replay_memory
+                # idx_replay_memory = 0
+                # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
+                #     element = agent.replay_memory[idx_replay_memory]
+                #     agent.replay_memory.append(element)
+                #     idx_replay_memory += 1
             epochs = None
             print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
             if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
