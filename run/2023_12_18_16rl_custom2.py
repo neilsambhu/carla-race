@@ -90,7 +90,7 @@ else:
         MINIBATCH_SIZE = 4*8 # 4 hours 20 minutes per epoch
         MINIBATCH_SIZE = 4*64 # 4 hours 20 minutes per epoch
         MINIBATCH_SIZE = 4*512 # 4 hours 24 minutes per epoch
-        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
+        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE # 4 hours 21 minutes per epoch
 
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
