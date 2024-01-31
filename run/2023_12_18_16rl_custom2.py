@@ -69,7 +69,8 @@ else:
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 2048 #first batch trained
         MINIBATCH_SIZE = 36 #first batch trained
         MINIBATCH_SIZE = 40 #first batch trained
-        MINIBATCH_SIZE = 44
+        MINIBATCH_SIZE = 44 #first batch trained
+        MINIBATCH_SIZE = 46
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
