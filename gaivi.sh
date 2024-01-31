@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=32 # 32 CPUs per task
 ##SBATCH --cpus-per-task=128 # 32 CPUs per task
 ##SBATCH --cpus-per-task=48 # 32 CPUs per task
-#SBATCH --mem=120GB # 100GB per task
+#SBATCH --mem=100GB # 100GB per task
 ##SBATCH --mem=500GB # 100GB per task
 ##SBATCH --mem=250GB # 100GB per task
 ##SBATCH --mem=1900GB # 100GB per task
