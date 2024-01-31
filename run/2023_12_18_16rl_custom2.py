@@ -89,8 +89,9 @@ else:
         MINIBATCH_SIZE = 4*512
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
     elif bGPU45:
-        MINIBATCH_SIZE = 8 # 1 hour 5 minutes per epoch
-        MINIBATCH_SIZE = 64
+        MINIBATCH_SIZE = 8 # 1 hour 3 minutes per epoch
+        MINIBATCH_SIZE = 64 # failure
+        MINIBATCH_SIZE = 48
 
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
