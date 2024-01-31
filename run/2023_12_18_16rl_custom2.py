@@ -34,6 +34,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 bSAMBHU24 = config.getboolean('Settings','bSAMBHU24')
 bA100 = config.getboolean('Settings','bA100')
+bGPU43 = config.getboolean('Settings','bGPU43')
 bGAIVI = not bSAMBHU24
 
 
@@ -62,7 +63,7 @@ else:
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW
         MINIBATCH_SIZE = 1 # 2.3 batches/second on 35 GPUs
         # MINIBATCH_SIZE = 2 #first batch trained; warning
-    else:
+    else if bGPU43:
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
         # MINIBATCH_SIZE = 1
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 1024 #failure
@@ -83,6 +84,8 @@ else:
         MINIBATCH_SIZE = 22 # not tried
         MINIBATCH_SIZE = 3*11 #failure
         MINIBATCH_SIZE = 3*5 # 3685 seconds/epoch
+        MINIBATCH_SIZE = 4*8 # 
+
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
