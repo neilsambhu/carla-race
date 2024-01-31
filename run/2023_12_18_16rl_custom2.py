@@ -61,7 +61,7 @@ else:
     if not bA100:
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW
         MINIBATCH_SIZE = 1 # 2.3 batches/second on 35 GPUs
-        MINIBATCH_SIZE = 2
+        # MINIBATCH_SIZE = 2 #first batch trained; warning
     else:
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
         # MINIBATCH_SIZE = 1
