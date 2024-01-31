@@ -837,3 +837,4 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 1/31/2024 1:04 AM: 45 GPUs: 2.5 batches/second
 1/31/2024 1:33 AM: GPU43 (4 A40): batch size does not affect training time of 4 hours 20 minutes.  
 1/31/2024 1:36 AM: GPU43 (1 A40): training time of 3 hours 42 minutes.  
+1/31/2024 1:41 AM: training from GPU43 all used batch size of 1 because of "not A100".  

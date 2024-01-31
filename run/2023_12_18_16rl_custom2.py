@@ -60,11 +60,7 @@ COUNT_FRAME_WINDOW = 10*20
 if bSAMBHU24:
     MINIBATCH_SIZE = 50_000//65536
 else:
-    if not bA100:
-        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW
-        MINIBATCH_SIZE = 1 # 2.3 batches/second on 35 GPUs
-        # MINIBATCH_SIZE = 2 #first batch trained; warning
-    elif bGPU43:
+    if bGPU43:
         # GPU45
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
         # MINIBATCH_SIZE = 1
@@ -88,12 +84,12 @@ else:
         MINIBATCH_SIZE = 3*5 # 3685 seconds/epoch
 
         # GPU43
-        MINIBATCH_SIZE = 4*8 # 4 hours 20 minutes per epoch
-        MINIBATCH_SIZE = 4*64 # 4 hours 20 minutes per epoch
-        MINIBATCH_SIZE = 4*512 # 4 hours 24 minutes per epoch
-        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE # 4 hours 21 minutes per epoch
+        MINIBATCH_SIZE = 4*8 
+        MINIBATCH_SIZE = 4*64
+        MINIBATCH_SIZE = 4*512
+        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE
     elif bGPU45:
-        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE 
+        MINIBATCH_SIZE = 8 
 
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
