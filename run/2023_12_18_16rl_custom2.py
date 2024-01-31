@@ -94,7 +94,8 @@ else:
         MINIBATCH_SIZE = 48 # failure
         MINIBATCH_SIZE = 16 # 56 minutes per epoch
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW # not useful; main memory not big enough
-        MINIBATCH_SIZE = 32
+        MINIBATCH_SIZE = 32 # failure
+        MINIBATCH_SIZE = 24
 
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
