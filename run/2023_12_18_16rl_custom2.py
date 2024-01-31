@@ -113,7 +113,9 @@ else:
         MINIBATCH_SIZE = 20 # 56 minutes per epoch
         MINIBATCH_SIZE = 20 # 51 minutes per epoch
         MINIBATCH_SIZE = 100 # 47 minutes per epoch (training batch size 20)
-        MINIBATCH_SIZE = 200 # 59 minutes per epoch (training batch size 1)
+        MINIBATCH_SIZE = 200 # 56 minutes per epoch (training batch size 1)
+        MINIBATCH_SIZE = 200 # 47 minutes per epoch (training batch size 20)
+        MINIBATCH_SIZE = 400
 
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
