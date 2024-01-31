@@ -68,7 +68,8 @@ else:
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 4096 #3600 seconds/epoch
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 2048 #first batch trained
         MINIBATCH_SIZE = 36 #first batch trained
-        MINIBATCH_SIZE = 40
+        MINIBATCH_SIZE = 40 #first batch trained
+        MINIBATCH_SIZE = 44
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
