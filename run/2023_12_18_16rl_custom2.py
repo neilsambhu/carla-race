@@ -64,6 +64,7 @@ else:
         MINIBATCH_SIZE = 1 # 2.3 batches/second on 35 GPUs
         # MINIBATCH_SIZE = 2 #first batch trained; warning
     elif bGPU43:
+        # GPU45
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
         # MINIBATCH_SIZE = 1
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 1024 #failure
@@ -84,7 +85,10 @@ else:
         MINIBATCH_SIZE = 22 # not tried
         MINIBATCH_SIZE = 3*11 #failure
         MINIBATCH_SIZE = 3*5 # 3685 seconds/epoch
-        MINIBATCH_SIZE = 4*8 # 
+
+        # GPU43
+        MINIBATCH_SIZE = 4*8 # 4 hours 20 minutes per epoch
+        MINIBATCH_SIZE = 4*64
 
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
