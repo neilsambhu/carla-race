@@ -72,7 +72,7 @@ while len(glob.glob('models/final.model')) == 0 and run<=count_max_runs:
                 carla_line = []
                 command_output = subprocess.run(['squeue'], capture_output=True, text=True)
                 output_lines = command_output.stdout.split('\n')
-                carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line and not 'CG' in line]
+                carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and not 'CG' in line]
                 if len(carla_line) == 0:
                     carla = subprocess.Popen(f'sbatch /home/n/nsambhu/github/podman-carla/carla.sh ', shell=True)
                     carla.wait()
