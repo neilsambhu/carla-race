@@ -99,6 +99,7 @@ else:
         MINIBATCH_SIZE = 4*12 # failure
         MINIBATCH_SIZE = 4*8 # failure
         MINIBATCH_SIZE = 4*4 # 1 hour 10 minutes per epoch
+        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW
     elif bGPU45:
         MINIBATCH_SIZE = 8 # 1 hour 3 minutes per epoch
         MINIBATCH_SIZE = 64 # failure
@@ -693,7 +694,7 @@ if __name__ == "__main__":
     bAction2Finished = False
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
-            time.sleep(random.uniform(0,30))
+            # time.sleep(random.uniform(0,60))
             count_vehicles = env.get_count_vehicles()
             print(f'episode: {episode}\tcount_vehicles: {count_vehicles}')
             if count_vehicles == 0:
