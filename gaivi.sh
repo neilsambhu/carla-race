@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #All options below are recommended
 #SBATCH -p Contributors #general # run on partition general
-#SBATCH --cpus-per-task=32 # 32 CPUs per task
+#SBATCH --cpus-per-task=16 # 32 CPUs per task
 ##SBATCH --cpus-per-task=128 # 32 CPUs per task
 ##SBATCH --cpus-per-task=48 # 32 CPUs per task
 #SBATCH --mem=64GB # 100GB per task
