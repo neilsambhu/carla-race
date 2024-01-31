@@ -71,7 +71,8 @@ else:
         MINIBATCH_SIZE = 40 #first batch trained
         MINIBATCH_SIZE = 44 #first batch trained
         MINIBATCH_SIZE = 46 #first batch trained
-        MINIBATCH_SIZE = 100
+        MINIBATCH_SIZE = 100 #failure
+        MINIBATCH_SIZE = 48
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
