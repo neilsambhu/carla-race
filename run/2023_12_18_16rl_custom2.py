@@ -34,6 +34,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 bSAMBHU24 = config.getboolean('Settings','bSAMBHU24')
 bA100 = config.getboolean('Settings','bA100')
+bGPU_random = config.getboolean('Settings','bGPU_random')
 bGPU43 = config.getboolean('Settings','bGPU43')
 bGPU45 = config.getboolean('Settings','bGPU45')
 bGAIVI = not bSAMBHU24
@@ -60,7 +61,9 @@ COUNT_FRAME_WINDOW = 10*20
 if bSAMBHU24:
     MINIBATCH_SIZE = 50_000//65536
 else:
-    if bGPU43:
+    if bGPU_random:
+        MINIBATCH_SIZE = 4
+    elif bGPU43:
         # GPU45
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
         # MINIBATCH_SIZE = 1
