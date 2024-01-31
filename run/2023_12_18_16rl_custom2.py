@@ -135,207 +135,6 @@ action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=3),
 # action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 action_size = len(action_space['brake_throttle'])*len(action_space['steer'])
 
-class CarEnv:
-    SHOW_CAM = SHOW_PREVIEW
-    STEER_AMT = 1.0
-    im_width = IM_WIDTH
-    im_height = IM_HEIGHT
-    front_camera = None
-    episode = None
-    action_space = action_space
-    idx_tick = -1
-
-    def __init__(self):
-        # self.client = carla.Client("localhost", 2000)
-        if not bGAIVI:
-            self.client = carla.Client("10.247.52.30", 2000)
-            self.client.set_timeout(600)
-        else:
-            command_output = subprocess.run(['squeue'], capture_output=True, text=True)
-            output_lines = command_output.stdout.split('\n')
-            carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
-            gpu_info = carla_line[-1].split()[-1]  # Assuming GPU info is the last column
-            print("GPU Info for carla.sh:", gpu_info)
-            self.client = carla.Client(gpu_info, 2000)
-            self.client.set_timeout(120)
-        # self.world = self.client.get_world()
-        self.world = self.client.load_world('Town04_Opt')
-        # self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
-        self.client.set_timeout(60)
-        self.blueprint_library = self.world.get_blueprint_library()
-        self.model_3 = self.blueprint_library.filter("model3")[0]
-        if bSync:
-            # print(f'bSync set synchronous mode')
-            # Set synchronous mode 
-            settings = self.world.get_settings()
-            settings.synchronous_mode = True # Enables synchronous mode
-            settings.fixed_delta_seconds = 0.05
-            self.world.apply_settings(settings)
-            traffic_manager = self.client.get_trafficmanager()
-            traffic_manager.set_synchronous_mode(True)
-            # Reload world
-            # self.client.reload_world()
-
-    def reset(self):
-        self.collision_hist = []
-        self.actor_list = []
-        self.idx_tick = -1
-
-        # self.transform = random.choice(self.world.get_map().get_spawn_points())
-        self.transform = self.world.get_map().get_spawn_points()[0]
-        self.vehicle = self.world.spawn_actor(self.model_3, self.transform)
-        self.actor_list.append(self.vehicle)
-        if bSync:
-            # print('bSync reset: spawn actor')
-            self.world.tick()
-            self.idx_tick += 1
-
-        self.rgb_cam = self.blueprint_library.find('sensor.camera.rgb')
-        self.rgb_cam.set_attribute("image_size_x", f"{self.im_width}")
-        self.rgb_cam.set_attribute("image_size_y", f"{self.im_height}")
-        self.rgb_cam.set_attribute("fov", f"110")
-
-        # transform = carla.Transform(carla.Location(x=2.5, z=0.7)) 
-        # revision: 
-        transform = carla.Transform(carla.Location(x=1.5, z=2.4))
-        self.sensor = self.world.spawn_actor(self.rgb_cam, transform, attach_to=self.vehicle)
-        self.actor_list.append(self.sensor)
-        self.sensor.listen(lambda data: self.process_img(data))
-
-        self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
-        if not bSync:
-            time.sleep(4)
-        elif bSync:
-            # print('bSync reset: apply control')
-            self.world.tick()
-            self.idx_tick += 1
-
-        colsensor = self.blueprint_library.find("sensor.other.collision")
-        self.colsensor = self.world.spawn_actor(colsensor, transform, attach_to=self.vehicle)
-        self.actor_list.append(self.colsensor)
-        self.colsensor.listen(lambda event: self.collision_data(event))
-
-        while self.front_camera is None:
-            time.sleep(0.01)
-
-        # self.episode_start = time.time()
-        self.episode_start = self.world.get_snapshot().timestamp.elapsed_seconds
-        self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
-
-        if bSync and False:
-            self.world.tick()
-            self.idx_tick += 1
-
-        return self.front_camera
-
-    def collision_data(self, event):
-        self.collision_hist.append(event)
-
-    def process_img(self, image):
-        # print(image.height, image.width)
-        i = np.array(image.raw_data)
-        # print(i.shape)
-        i2 = i.reshape((self.im_height, self.im_width, 4))
-        # i3 = i2[:, :, :3]
-        i3 = cv2.cvtColor(i2, cv2.COLOR_BGRA2RGB)
-        # print('type(i3)',type(i3))
-        if self.SHOW_CAM:
-            cv2.imshow("", i3)
-            cv2.waitKey(1)
-        self.front_camera = i3
-        from PIL import Image
-        i4 = Image.fromarray(i3)
-        if not os.path.exists('%s/%04d' % (directory_output, self.episode)):
-            os.makedirs('%s/%04d' % (directory_output, self.episode))
-            time.sleep(1)
-        i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
-        # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
-        # count_checkFileExists = 0
-        while not os.path.exists('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame)):
-            # count_checkFileExists += 1
-            time.sleep(0.1)
-        # print(f'count_checkFileExists: {count_checkFileExists}')
-
-
-    def step(self, action):
-        if bVerbose and False:
-            print(f'action: {action}')
-            print(f'action[0]: {action[0]}')
-            print(f'type(action[0]): {type(action[0])}')
-        brake_throttle_index, steer_index = np.unravel_index(action, (len(action_space['brake_throttle']), len(action_space['steer'])))
-
-        selected_brake_throttle = action_space['brake_throttle'][brake_throttle_index]
-        selected_steer = action_space['steer'][steer_index]
-
-        throttle_value, steer_value, brake_value = selected_brake_throttle, selected_steer, selected_brake_throttle
-        if selected_brake_throttle < 0:
-            throttle_value = 0.0
-            brake_value = -1*selected_brake_throttle
-        if selected_brake_throttle > 0:
-            brake_value = 0.0
-
-        # if bVerbose:
-        #     print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
-
-        self.vehicle.apply_control(
-            carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
-        )
-
-        if bSync:
-            # print(f'bSync step: after applying vehicle control')
-            self.world.tick() # Neil added
-            self.idx_tick += 1
-
-        done = False
-        reward = 0
-        lines = []
-        location_groundTruth = carla.Location(0.0,0.0,0.0)
-        # Reading ground truth coordinates from the file
-        with open(path_AP_locations, 'r') as file:
-            lines = file.readlines()
-            if self.idx_tick < len(lines):
-                data = lines[self.idx_tick].split()
-                if len(data) >= 3:
-                    location_groundTruth = carla.Location(float(data[0]), float(data[1]), float(data[2]))  # Extracting x, y, z coordinates
-
-        # Get the current location of the vehicle
-        location_current = self.vehicle.get_location()
-        carla_location_current = carla.Location(location_current.x, location_current.y, location_current.z)
-
-        # Calculate the distance between the vehicle's current location and ground truth location
-        distance = location_groundTruth.distance(carla_location_current)
-        # You might want to define a threshold and reward scheme based on the distance
-        # For example, if distance < threshold: reward = some_value
-        # Modify the reward calculation based on your requirements
-        reward = -1*distance**3 - distance + 1
-        # reward = 100 - distance 
-        # if distance < 10:
-        #     reward += 10
-        # else:
-        #     reward -= 10
-
-        # Set 'done' flag to True when ticks exceed the lines in the file
-        done = self.idx_tick >= len(lines)
-        # done = self.idx_tick >= 100
-
-        # v = self.vehicle.get_velocity()
-        # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-        # if kmh <= 15:
-        #     reward += kmh            
-        # elif kmh > 15:
-        #     reward += 15
-
-        # if self.episode_start + SECONDS_PER_EPISODE < time.time():
-        # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
-        #     done = True
-
-        if len (self.collision_hist) != 0:
-            done = True
-            # reward = -200
-            # reward = -0.001
-            # reward = -1
-
-        return self.front_camera, reward, done, None
 
 if bGPU:
     if not bGAIVI:
@@ -349,6 +148,207 @@ if bGPU:
 # strategy = tf.distribute.experimental.MultiWorkerMirroredStrategy()
 strategy = tf.distribute.MultiWorkerMirroredStrategy()
 with strategy.scope():
+    class CarEnv:
+        SHOW_CAM = SHOW_PREVIEW
+        STEER_AMT = 1.0
+        im_width = IM_WIDTH
+        im_height = IM_HEIGHT
+        front_camera = None
+        episode = None
+        action_space = action_space
+        idx_tick = -1
+
+        def __init__(self):
+            # self.client = carla.Client("localhost", 2000)
+            if not bGAIVI:
+                self.client = carla.Client("10.247.52.30", 2000)
+                self.client.set_timeout(600)
+            else:
+                command_output = subprocess.run(['squeue'], capture_output=True, text=True)
+                output_lines = command_output.stdout.split('\n')
+                carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
+                gpu_info = carla_line[-1].split()[-1]  # Assuming GPU info is the last column
+                print("GPU Info for carla.sh:", gpu_info)
+                self.client = carla.Client(gpu_info, 2000)
+                self.client.set_timeout(120)
+            # self.world = self.client.get_world()
+            self.world = self.client.load_world('Town04_Opt')
+            # self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
+            self.client.set_timeout(60)
+            self.blueprint_library = self.world.get_blueprint_library()
+            self.model_3 = self.blueprint_library.filter("model3")[0]
+            if bSync:
+                # print(f'bSync set synchronous mode')
+                # Set synchronous mode 
+                settings = self.world.get_settings()
+                settings.synchronous_mode = True # Enables synchronous mode
+                settings.fixed_delta_seconds = 0.05
+                self.world.apply_settings(settings)
+                traffic_manager = self.client.get_trafficmanager()
+                traffic_manager.set_synchronous_mode(True)
+                # Reload world
+                # self.client.reload_world()
+
+        def reset(self):
+            self.collision_hist = []
+            self.actor_list = []
+            self.idx_tick = -1
+
+            # self.transform = random.choice(self.world.get_map().get_spawn_points())
+            self.transform = self.world.get_map().get_spawn_points()[0]
+            self.vehicle = self.world.spawn_actor(self.model_3, self.transform)
+            self.actor_list.append(self.vehicle)
+            if bSync:
+                # print('bSync reset: spawn actor')
+                self.world.tick()
+                self.idx_tick += 1
+
+            self.rgb_cam = self.blueprint_library.find('sensor.camera.rgb')
+            self.rgb_cam.set_attribute("image_size_x", f"{self.im_width}")
+            self.rgb_cam.set_attribute("image_size_y", f"{self.im_height}")
+            self.rgb_cam.set_attribute("fov", f"110")
+
+            # transform = carla.Transform(carla.Location(x=2.5, z=0.7)) 
+            # revision: 
+            transform = carla.Transform(carla.Location(x=1.5, z=2.4))
+            self.sensor = self.world.spawn_actor(self.rgb_cam, transform, attach_to=self.vehicle)
+            self.actor_list.append(self.sensor)
+            self.sensor.listen(lambda data: self.process_img(data))
+
+            self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
+            if not bSync:
+                time.sleep(4)
+            elif bSync:
+                # print('bSync reset: apply control')
+                self.world.tick()
+                self.idx_tick += 1
+
+            colsensor = self.blueprint_library.find("sensor.other.collision")
+            self.colsensor = self.world.spawn_actor(colsensor, transform, attach_to=self.vehicle)
+            self.actor_list.append(self.colsensor)
+            self.colsensor.listen(lambda event: self.collision_data(event))
+
+            while self.front_camera is None:
+                time.sleep(0.01)
+
+            # self.episode_start = time.time()
+            self.episode_start = self.world.get_snapshot().timestamp.elapsed_seconds
+            self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
+
+            if bSync and False:
+                self.world.tick()
+                self.idx_tick += 1
+
+            return self.front_camera
+
+        def collision_data(self, event):
+            self.collision_hist.append(event)
+
+        def process_img(self, image):
+            # print(image.height, image.width)
+            i = np.array(image.raw_data)
+            # print(i.shape)
+            i2 = i.reshape((self.im_height, self.im_width, 4))
+            # i3 = i2[:, :, :3]
+            i3 = cv2.cvtColor(i2, cv2.COLOR_BGRA2RGB)
+            # print('type(i3)',type(i3))
+            if self.SHOW_CAM:
+                cv2.imshow("", i3)
+                cv2.waitKey(1)
+            self.front_camera = i3
+            from PIL import Image
+            i4 = Image.fromarray(i3)
+            if not os.path.exists('%s/%04d' % (directory_output, self.episode)):
+                os.makedirs('%s/%04d' % (directory_output, self.episode))
+                time.sleep(1)
+            i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
+            # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
+            # count_checkFileExists = 0
+            while not os.path.exists('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame)):
+                # count_checkFileExists += 1
+                time.sleep(0.1)
+            # print(f'count_checkFileExists: {count_checkFileExists}')
+
+
+        def step(self, action):
+            if bVerbose and False:
+                print(f'action: {action}')
+                print(f'action[0]: {action[0]}')
+                print(f'type(action[0]): {type(action[0])}')
+            brake_throttle_index, steer_index = np.unravel_index(action, (len(action_space['brake_throttle']), len(action_space['steer'])))
+
+            selected_brake_throttle = action_space['brake_throttle'][brake_throttle_index]
+            selected_steer = action_space['steer'][steer_index]
+
+            throttle_value, steer_value, brake_value = selected_brake_throttle, selected_steer, selected_brake_throttle
+            if selected_brake_throttle < 0:
+                throttle_value = 0.0
+                brake_value = -1*selected_brake_throttle
+            if selected_brake_throttle > 0:
+                brake_value = 0.0
+
+            # if bVerbose:
+            #     print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+
+            self.vehicle.apply_control(
+                carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
+            )
+
+            if bSync:
+                # print(f'bSync step: after applying vehicle control')
+                self.world.tick() # Neil added
+                self.idx_tick += 1
+
+            done = False
+            reward = 0
+            lines = []
+            location_groundTruth = carla.Location(0.0,0.0,0.0)
+            # Reading ground truth coordinates from the file
+            with open(path_AP_locations, 'r') as file:
+                lines = file.readlines()
+                if self.idx_tick < len(lines):
+                    data = lines[self.idx_tick].split()
+                    if len(data) >= 3:
+                        location_groundTruth = carla.Location(float(data[0]), float(data[1]), float(data[2]))  # Extracting x, y, z coordinates
+
+            # Get the current location of the vehicle
+            location_current = self.vehicle.get_location()
+            carla_location_current = carla.Location(location_current.x, location_current.y, location_current.z)
+
+            # Calculate the distance between the vehicle's current location and ground truth location
+            distance = location_groundTruth.distance(carla_location_current)
+            # You might want to define a threshold and reward scheme based on the distance
+            # For example, if distance < threshold: reward = some_value
+            # Modify the reward calculation based on your requirements
+            reward = -1*distance**3 - distance + 1
+            # reward = 100 - distance 
+            # if distance < 10:
+            #     reward += 10
+            # else:
+            #     reward -= 10
+
+            # Set 'done' flag to True when ticks exceed the lines in the file
+            done = self.idx_tick >= len(lines)
+            # done = self.idx_tick >= 100
+
+            # v = self.vehicle.get_velocity()
+            # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+            # if kmh <= 15:
+            #     reward += kmh            
+            # elif kmh > 15:
+            #     reward += 15
+
+            # if self.episode_start + SECONDS_PER_EPISODE < time.time():
+            # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
+            #     done = True
+
+            if len (self.collision_hist) != 0:
+                done = True
+                # reward = -200
+                # reward = -0.001
+                # reward = -1
+
+            return self.front_camera, reward, done, None
     class DQNAgent:
         def __init__(self):
             self.model = self.create_model()
