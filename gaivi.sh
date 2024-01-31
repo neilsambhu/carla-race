@@ -1,14 +1,14 @@
 #!/bin/bash -l
 #All options below are recommended
 #SBATCH -p Contributors #general # run on partition general
-#SBATCH --cpus-per-task=16 # 32 CPUs per task
+#SBATCH --cpus-per-task=32 # 32 CPUs per task
 ##SBATCH --cpus-per-task=128 # 32 CPUs per task
 ##SBATCH --cpus-per-task=48 # 32 CPUs per task
 #SBATCH --mem=128GB # 100GB per task
 ##SBATCH --mem=500GB # 100GB per task
 ##SBATCH --mem=250GB # 100GB per task
 ##SBATCH --mem=1900GB # 100GB per task
-#SBATCH --gpus=40 # 63 GPUs available
+#SBATCH --gpus=35 # 63 GPUs available
 #SBATCH --mail-user=nsambhu@mail.usf.edu # email for notifications
 ##SBATCH --mail-type=BEGIN,END,FAIL,REQUEUE # events for notifications
 ##SBATCH --mail-type=END,FAIL,REQUEUE # events for notifications
