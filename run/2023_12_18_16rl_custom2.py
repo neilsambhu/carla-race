@@ -918,6 +918,8 @@ if __name__ == "__main__":
                     count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                     for batch in tqdm(range(agent.count_batches_trained, count_batches_subgoal), ascii=True, unit="batch"):
                         agent.train()
+                        if bGAIVI:
+                            nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
                         count_batches_completed += 1
                     # while count_batches_completed < count_batches_subgoal:
                     #     agent.train()
