@@ -93,7 +93,8 @@ else:
         MINIBATCH_SIZE = 16 # 1 hour 8 minutes per epoch
         # 4 GPUs
         MINIBATCH_SIZE = 4*16 # failure
-        MINIBATCH_SIZE = 4*12
+        MINIBATCH_SIZE = 4*12 # failure
+        MINIBATCH_SIZE = 4*8
     elif bGPU45:
         MINIBATCH_SIZE = 8 # 1 hour 3 minutes per epoch
         MINIBATCH_SIZE = 64 # failure
