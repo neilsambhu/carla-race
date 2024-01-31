@@ -112,17 +112,17 @@ else:
         MINIBATCH_SIZE = 24 # failure
         MINIBATCH_SIZE = 20 # 56 minutes per epoch
         MINIBATCH_SIZE = 20 # 51 minutes per epoch
-        MINIBATCH_SIZE = 100 # 47 minutes per epoch
-        MINIBATCH_SIZE = 200 
+        MINIBATCH_SIZE = 100 # 47 minutes per epoch (training batch size 20)
+        MINIBATCH_SIZE = 200 # 59 minutes per epoch (training batch size 1)
 
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 # TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 # TRAINING_BATCH_SIZE = MINIBATCH_SIZE
-# TRAINING_BATCH_SIZE = 20
+TRAINING_BATCH_SIZE = 20
 # TRAINING_BATCH_SIZE = 16
-TRAINING_BATCH_SIZE = 1
+# TRAINING_BATCH_SIZE = 1
 UPDATE_TARGET_EVERY = 5
 # MODEL_NAME = "Xception"
 MODEL_NAME = "Neil_SDC_2023"
