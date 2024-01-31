@@ -80,7 +80,8 @@ else:
 
         # batch size decrease by factor of 4
         MINIBATCH_SIZE = 22 # not tried
-        MINIBATCH_SIZE = 3*11
+        MINIBATCH_SIZE = 3*11 #failure
+        MINIBATCH_SIZE = 3*5
         
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
