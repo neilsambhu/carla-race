@@ -170,11 +170,11 @@ with strategy.scope():
                 gpu_info = carla_line[-1].split()[-1]  # Assuming GPU info is the last column
                 print("GPU Info for carla.sh:", gpu_info)
                 self.client = carla.Client(gpu_info, 2000)
-                self.client.set_timeout(120)
+                # self.client.set_timeout(120)
             # self.world = self.client.get_world()
             self.world = self.client.load_world('Town04_Opt')
-            # self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
-            self.client.set_timeout(60)
+            self.client.set_timeout(2.0) # 12/19/2023 11:45 PM: Neil added
+            # self.client.set_timeout(60)
             self.blueprint_library = self.world.get_blueprint_library()
             self.model_3 = self.blueprint_library.filter("model3")[0]
             if bSync:
