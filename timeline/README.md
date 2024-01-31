@@ -835,3 +835,5 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 1/29/2024 4:17 PM: model shows only 1 frame from drive. Time to restart training from first epoch.  
 1/31/2024 12:46 AM: 35 GPUs: 2.3-2.5 batches/second
 1/31/2024 1:04 AM: 45 GPUs: 2.5 batches/second
+1/31/2024 1:33 AM: GPU43 (4 A40): batch size does not affect training time of 4 hours 20 minutes.  
+1/31/2024 1:36 AM: GPU43 (1 A40): training time of 3 hours 42 minutes.  

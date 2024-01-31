@@ -35,6 +35,7 @@ config.read('config.ini')
 bSAMBHU24 = config.getboolean('Settings','bSAMBHU24')
 bA100 = config.getboolean('Settings','bA100')
 bGPU43 = config.getboolean('Settings','bGPU43')
+bGPU45 = config.getboolean('Settings','bGPU45')
 bGAIVI = not bSAMBHU24
 
 
@@ -91,8 +92,9 @@ else:
         MINIBATCH_SIZE = 4*64 # 4 hours 20 minutes per epoch
         MINIBATCH_SIZE = 4*512 # 4 hours 24 minutes per epoch
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE # 4 hours 21 minutes per epoch
+    elif bGPU45:
+        MINIBATCH_SIZE = REPLAY_MEMORY_SIZE 
 
-        
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
