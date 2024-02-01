@@ -58,7 +58,8 @@ with open(path_AP_locations, 'r') as file:
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
 REPLAY_MEMORY_SIZE = 50_000
-COUNT_FRAME_WINDOW = 10*20
+# COUNT_FRAME_WINDOW = 10*20
+COUNT_FRAME_WINDOW = 5
 MINIBATCH_SIZE = None
 if bSAMBHU24:
     MINIBATCH_SIZE = 50_000//65536
@@ -651,7 +652,7 @@ if __name__ == "__main__":
     count_framesPerAction2 = 0
     import glob, shutil
     bLoadReplayMemory = False
-    episodeToRecover = '0120'
+    episodeToRecover = '0008'
     if bLoadReplayMemory:        
         with open(f'bak/{episodeToRecover}.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
@@ -659,7 +660,7 @@ if __name__ == "__main__":
         idx_action1 = 2530+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
         epsilon = max(MIN_EPSILON, epsilon)
-    bLoadModel = bLoadReplayMemory
+    bLoadModel = False
     if bLoadModel:
         agent.model = tf.keras.models.load_model(glob.glob(f'bak/{episodeToRecover}.*.model')[0])
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
