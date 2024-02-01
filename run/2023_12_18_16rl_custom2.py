@@ -644,7 +644,7 @@ if __name__ == "__main__":
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
-    bLoadReplayMemory = True
+    bLoadReplayMemory = False
     episodeToRecover = '0120'
     if bLoadReplayMemory:        
         with open(f'bak/{episodeToRecover}.replay_memory', 'rb') as file:
@@ -653,7 +653,7 @@ if __name__ == "__main__":
         idx_action1 = 2530+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
         epsilon = max(MIN_EPSILON, epsilon)
-    bLoadModel = True
+    bLoadModel = bLoadReplayMemory
     if bLoadModel:
         agent.model = tf.keras.models.load_model(glob.glob(f'bak/{episodeToRecover}.*.model')[0])
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
@@ -730,8 +730,10 @@ if __name__ == "__main__":
                 # step = 1
                 current_state = env.reset()
                 window_current_state = deque(maxlen=COUNT_FRAME_WINDOW)
-                for i in range(COUNT_FRAME_WINDOW):
-                    window_current_state.append(np.asarray(current_state))
+                black_image = np.zeros((IM_HEIGHT, IM_WIDTH, 3), dtype=np.uint8)
+                for i in range(COUNT_FRAME_WINDOW-1):
+                    window_current_state.append(np.asarray(black_image))
+                window_current_state.append(np.asarray(current_state))
 
                 if bSync and False:
                     env.world.tick()
