@@ -59,6 +59,7 @@ with open(path_AP_locations, 'r') as file:
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
 REPLAY_MEMORY_SIZE = 50_000
 COUNT_FRAME_WINDOW = 10*20
+MINIBATCH_SIZE = None
 if bSAMBHU24:
     MINIBATCH_SIZE = 50_000//65536
 else:
