@@ -651,7 +651,7 @@ if __name__ == "__main__":
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
-    bLoadReplayMemory = False
+    bLoadReplayMemory = True
     episodeToRecover = '0008'
     if bLoadReplayMemory:        
         with open(f'bak/{episodeToRecover}.replay_memory', 'rb') as file:
