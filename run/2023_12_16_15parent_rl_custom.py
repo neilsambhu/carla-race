@@ -68,8 +68,8 @@ while len(glob.glob('models/final.model')) == 0 and run<=count_max_runs:
                 print(f"before carla, run squeue")
                 squeue_before_carla = subprocess.Popen('squeue | grep nsambhu', shell=True)
                 squeue_before_carla.wait()
-                import random
-                time.sleep(random.uniform(0,60))
+                # import random
+                # time.sleep(random.uniform(0,60))
                 # if existing CARLA is present, don't spawn CARLA
                 carla_line = []
                 command_output = subprocess.run(['squeue'], capture_output=True, text=True)
