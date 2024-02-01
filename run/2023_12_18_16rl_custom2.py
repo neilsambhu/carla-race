@@ -125,7 +125,8 @@ else:
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW
         MINIBATCH_SIZE = 200 # 7 minutes per epoch
         MINIBATCH_SIZE = 2000 # failure
-        MINIBATCH_SIZE = 1000
+        MINIBATCH_SIZE = 1000 # 5 minutes per epoch
+        MINIBATCH_SIZE = 1500
     elif bGPU47:
         MINIBATCH_SIZE = 20 # 51 minutes per epoch
 
