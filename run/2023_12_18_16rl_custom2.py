@@ -119,7 +119,7 @@ else:
         # MINIBATCH_SIZE = 200 # 47 minutes per epoch (training batch size 20)
         # MINIBATCH_SIZE = 400 # 49 minutes per epoch (training batch size 20) # failure
     elif bGPU47:
-        MINIBATCH_SIZE = 20
+        MINIBATCH_SIZE = 20 # 51 minutes per epoch
 
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
@@ -708,11 +708,11 @@ if __name__ == "__main__":
     bAction2Finished = False
     try:
         for episode in tqdm(range(idx_episode_start, EPISODES+1), ascii=True, unit="episode"):
-            # time.sleep(random.uniform(0,60))
-            # count_vehicles = env.get_count_vehicles()
-            # print(f'episode: {episode}\tcount_vehicles: {count_vehicles}')
-            # if count_vehicles == 0:
-            if True:
+            time.sleep(random.uniform(0,60))
+            count_vehicles = env.get_count_vehicles()
+            print(f'episode: {episode}\tcount_vehicles: {count_vehicles}')
+            if count_vehicles == 0:
+            # if True:
                 lookback = 2
                 if episode > lookback:
                     matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.*.model'))
