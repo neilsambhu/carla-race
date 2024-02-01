@@ -35,6 +35,7 @@ config.read('config.ini')
 bSAMBHU24 = config.getboolean('Settings','bSAMBHU24')
 bA100 = config.getboolean('Settings','bA100')
 bGPU_random = config.getboolean('Settings','bGPU_random')
+bGPU13 = config.getboolean('Settings','bGPU13')
 bGPU43 = config.getboolean('Settings','bGPU43')
 bGPU45 = config.getboolean('Settings','bGPU45')
 bGPU46 = config.getboolean('Settings','bGPU46')
@@ -66,6 +67,8 @@ if bSAMBHU24:
 else:
     if bGPU_random:
         MINIBATCH_SIZE = 4
+    elif bGPU13:
+        MINIBATCH_SIZE = 1000
     elif bGPU43:
         # GPU45
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
