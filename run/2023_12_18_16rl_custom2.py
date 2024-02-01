@@ -37,6 +37,7 @@ bA100 = config.getboolean('Settings','bA100')
 bGPU_random = config.getboolean('Settings','bGPU_random')
 bGPU43 = config.getboolean('Settings','bGPU43')
 bGPU45 = config.getboolean('Settings','bGPU45')
+bGPU47 = config.getboolean('Settings','bGPU47')
 bGAIVI = not bSAMBHU24
 
 
@@ -116,6 +117,8 @@ else:
         # MINIBATCH_SIZE = 200 # 56 minutes per epoch (training batch size 1)
         # MINIBATCH_SIZE = 200 # 47 minutes per epoch (training batch size 20)
         # MINIBATCH_SIZE = 400 # 49 minutes per epoch (training batch size 20) # failure
+    elif bGPU47:
+        MINIBATCH_SIZE = 40
 
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
