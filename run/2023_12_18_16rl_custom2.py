@@ -135,8 +135,8 @@ else:
     elif bGPU47:
         MINIBATCH_SIZE = 20 # 51 minutes per epoch
 
-# MIN_REPLAY_MEMORY_SIZE = 20_000
-MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
+MIN_REPLAY_MEMORY_SIZE = 30_000
+# MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 # TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE
@@ -952,6 +952,8 @@ if __name__ == "__main__":
 
             with open(f'tmp/{env.episode:04}.replay_memory', 'wb') as file:
                 pickle.dump(agent.replay_memory, file)
+
+            agent.replay_memory.clear()
 
             # import subprocess
             # git = subprocess.Popen('git commit -a -m \"upload results\"')
