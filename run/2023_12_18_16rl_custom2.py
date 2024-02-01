@@ -739,8 +739,8 @@ if __name__ == "__main__":
                     [shutil.rmtree(matching_file) for matching_file in matching_files]
 
                 print(f'\nStarted episode {episode} of {EPISODES}')
-                if bGAIVI:
-                    nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+                # if bGAIVI:
+                #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
 
                 env.collision_hist = []
                 # agent.tensorboard.step = episode
@@ -871,6 +871,7 @@ if __name__ == "__main__":
                     actor.destroy()
 
                 # Append episode reward to a list and log stats (every given number of episodes)
+                print(f'episode: {episode}\treward: {episode_reward}')
                 ep_rewards.append(episode_reward)
                 if not episode % AGGREGATE_STATS_EVERY or episode == 1:
                     average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
@@ -899,6 +900,9 @@ if __name__ == "__main__":
                 #     element = agent.replay_memory[idx_replay_memory]
                 #     agent.replay_memory.append(element)
                 #     idx_replay_memory += 1
+
+            with open(f'tmp/{env.episode:04}.replay_memory', 'wb') as file:
+                pickle.dump(agent.replay_memory, file)
             epochs = None
             print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
             if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
@@ -908,12 +912,12 @@ if __name__ == "__main__":
             # else:
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
-                    # epochs = 1
-                    epochs = 0
+                    epochs = 1
+                    # epochs = 0
                 else:
-                    epochs = 0
+                    # epochs = 0
                     # epochs = int(1e3)
-                    # epochs = 1
+                    epochs = 1
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
                     # epochs = 10
@@ -938,28 +942,14 @@ if __name__ == "__main__":
                     #     agent.train()
                     #     count_batches_completed += 1
                     agent.count_epochs_trained += 1
+                agent.replay_memory.clear()
                     
             previousEpisode_countBatchesTrained = agent.count_batches_trained
-            
-            # print(f'agent.count_saved_models: {agent.count_saved_models}')
-            # time.sleep(6)
-            # print(f'agent.count_saved_models: {agent.count_saved_models}')
             
             # agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_batches_trained}.model')
             agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_epochs_trained}.model')
             # print(f'Saved model from episode {env.episode}. Count of batches trained: {agent.count_batches_trained}')
             print(f'Saved model from episode {env.episode}. Count of epochs trained: {agent.count_epochs_trained}')
-
-            with open(f'tmp/{env.episode:04}.replay_memory', 'wb') as file:
-                pickle.dump(agent.replay_memory, file)
-
-            agent.replay_memory.clear()
-
-            # import subprocess
-            # git = subprocess.Popen('git commit -a -m \"upload results\"')
-            # git.wait()
-            # git = subprocess.Popen('git push')
-            # git.wait()
 
     except Exception as e:
         # time.sleep(5)
