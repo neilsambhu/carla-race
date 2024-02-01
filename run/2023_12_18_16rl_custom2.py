@@ -119,7 +119,7 @@ else:
         # MINIBATCH_SIZE = 200 # 47 minutes per epoch (training batch size 20)
         # MINIBATCH_SIZE = 400 # 49 minutes per epoch (training batch size 20) # failure
     elif bGPU47:
-        MINIBATCH_SIZE = 40
+        MINIBATCH_SIZE = 20
 
 # MIN_REPLAY_MEMORY_SIZE = 20_000
 MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
