@@ -37,6 +37,7 @@ bA100 = config.getboolean('Settings','bA100')
 bGPU_random = config.getboolean('Settings','bGPU_random')
 bGPU43 = config.getboolean('Settings','bGPU43')
 bGPU45 = config.getboolean('Settings','bGPU45')
+bGPU46 = config.getboolean('Settings','bGPU46')
 bGPU47 = config.getboolean('Settings','bGPU47')
 bGAIVI = not bSAMBHU24
 
@@ -126,7 +127,7 @@ else:
         MINIBATCH_SIZE = 200 # 7 minutes per epoch
         MINIBATCH_SIZE = 2000 # failure
         MINIBATCH_SIZE = 1000 # 5 minutes per epoch
-        MINIBATCH_SIZE = 1500
+        MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
         MINIBATCH_SIZE = 20 # 51 minutes per epoch
 
