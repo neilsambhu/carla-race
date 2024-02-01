@@ -123,6 +123,7 @@ else:
         # 5-frame lookback
         MINIBATCH_SIZE = 20 # 32 minutes per epoch
         MINIBATCH_SIZE = REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW
+        MINIBATCH_SIZE = 200
     elif bGPU47:
         MINIBATCH_SIZE = 20 # 51 minutes per epoch
 
