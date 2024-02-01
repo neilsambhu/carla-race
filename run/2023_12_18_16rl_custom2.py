@@ -486,11 +486,12 @@ with strategy.scope():
             # current_states = np.array([transition[0] for transition in minibatch])/255
             # current_states = np.array([transition[0] for transition in minibatch])
             # current_states = np.array([current_state for transition[0] in transition in minibatch])
+            black_image = np.zeros((IM_HEIGHT, IM_WIDTH, 3), dtype=np.uint8)
             current_states = []
             new_current_states = []
             for sequence in minibatch:
-                window_current_states = []
-                window_new_current_states = []
+                window_current_states = [np.copy(black_image) for _ in range(COUNT_FRAME_WINDOW)]
+                window_new_current_states = [np.copy(black_image) for _ in range(COUNT_FRAME_WINDOW)]
                 bFound_done = False
                 frame_0_last = None
                 frame_3_last = None
@@ -507,8 +508,9 @@ with strategy.scope():
                     else:
                         window_current_states.append(frame_0_last)
                         window_new_current_states.append(frame_3_last)
-                current_states.append(window_current_states)
-                new_current_states.append(window_new_current_states)
+                        break
+                current_states.append(window_current_states[-COUNT_FRAME_WINDOW:])
+                new_current_states.append(window_new_current_states[-COUNT_FRAME_WINDOW:])
             current_states = np.asarray(current_states)
             new_current_states = np.asarray(new_current_states)
             if bVerbose and False:
