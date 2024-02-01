@@ -66,7 +66,7 @@ if bSAMBHU24:
     MINIBATCH_SIZE = 50_000//65536
 else:
     if bGPU_random:
-        MINIBATCH_SIZE = 1000
+        MINIBATCH_SIZE = 1000 # 8 minutes per epoch
     elif bGPU13:
         MINIBATCH_SIZE = 1000 # 7 minutes per epoch
     elif bGPU43:
