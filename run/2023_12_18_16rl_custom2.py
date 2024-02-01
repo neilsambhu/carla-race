@@ -68,7 +68,7 @@ else:
     if bGPU_random:
         MINIBATCH_SIZE = 1000 # 8 minutes per epoch
     elif bGPU13:
-        MINIBATCH_SIZE = 1000 # 7 minutes per epoch
+        MINIBATCH_SIZE = 1000 # 7 minutes per epoch; with 1 GPU, 8 minutes per epoch
     elif bGPU43:
         # GPU45
         # MINIBATCH_SIZE = REPLAY_MEMORY_SIZE // 8192
