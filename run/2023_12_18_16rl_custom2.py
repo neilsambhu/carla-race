@@ -380,7 +380,8 @@ with strategy.scope():
             # You might want to define a threshold and reward scheme based on the distance
             # For example, if distance < threshold: reward = some_value
             # Modify the reward calculation based on your requirements
-            reward = -1*distance**3 - distance + 1
+            # reward = -1*distance**3 - distance + 1
+            reward = -1*distance**3 - distance + 100
             # reward = 100 - distance 
             # if distance < 10:
             #     reward += 10
