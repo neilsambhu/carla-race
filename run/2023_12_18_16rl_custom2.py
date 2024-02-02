@@ -477,7 +477,8 @@ with strategy.scope():
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 5 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
-            x = LSTM(units=512)(x) # 5 seconds per epoch
+            # x = LSTM(units=512)(x) # 5 seconds per epoch
+            x = LSTM(units=1024)(x)
             
             # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
