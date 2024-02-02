@@ -55,10 +55,11 @@ SECONDS_PER_EPISODE = 3*60
 path_AP_locations = '_out_07CARLA_AP/Locations_Town04_0_335.txt'
 with open(path_AP_locations, 'r') as file:
     number_of_lines = len(file.readlines())
-# MIN_REPLAY_MEMORY_SIZE = int(1.5 * number_of_lines)
+MIN_REPLAY_MEMORY_SIZE = number_of_lines
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
-REPLAY_MEMORY_SIZE = 50_000
+# REPLAY_MEMORY_SIZE = 50_000
+REPLAY_MEMORY_SIZE = number_of_lines
 # COUNT_FRAME_WINDOW = 10*20
 COUNT_FRAME_WINDOW = 5
 MINIBATCH_SIZE = None
@@ -135,7 +136,7 @@ else:
     elif bGPU47:
         MINIBATCH_SIZE = 20 # 51 minutes per epoch
 
-MIN_REPLAY_MEMORY_SIZE = 30_000
+# MIN_REPLAY_MEMORY_SIZE = 30_000
 # MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 # TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
@@ -466,15 +467,16 @@ with strategy.scope():
 
 
             # Apply LSTM layer
-            x = Bidirectional(LSTM(units=128, return_sequences=True))(x)
-            x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
+            # x = Bidirectional(LSTM(units=128, return_sequences=True))(x)
+            # x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
+            x = LSTM(units=64)(x) # 
             
             # print(f'x.shape after LSTM: {x.shape}')
-            size_reduce = 2
-            while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
-                # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
-                x = Dense(x.shape.as_list()[1] // size_reduce, activation="relu")(x)
+            # size_reduce = 2
+            # while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
+            #     # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
+            #     x = Dense(x.shape.as_list()[1] // size_reduce, activation="relu")(x)
 
             # Define the output layer
             # output_layer = TimeDistributed(Dense(action_size, activation="linear"))(x)
