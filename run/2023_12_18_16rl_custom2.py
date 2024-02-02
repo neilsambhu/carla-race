@@ -879,7 +879,7 @@ if __name__ == "__main__":
                     actor.destroy()
 
                 # Append episode reward to a list and log stats (every given number of episodes)
-                print(f'episode: {episode}\treward: {episode_reward}\treward//frames: {episode_reward/count_frames_completed}')
+                print(f'episode: {episode}\treward: {episode_reward}\treward/frames: {episode_reward/count_frames_completed}')
                 ep_rewards.append(episode_reward)
                 if not episode % AGGREGATE_STATS_EVERY or episode == 1:
                     average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
