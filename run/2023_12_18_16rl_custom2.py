@@ -476,7 +476,8 @@ with strategy.scope():
             # x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 5 seconds per epoch
-            x = LSTM(units=128)(x)
+            # x = LSTM(units=128)(x) # 5 seconds per epoch
+            x = LSTM(units=512)(x)
             
             # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
@@ -920,19 +921,9 @@ if __name__ == "__main__":
             #     epochs = 0
             # else:
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                if bSAMBHU24 or not bA100:
-                    # epochs = 0
-                    epochs = 10
-                else:
-                    # epochs = 0
-                    # epochs = int(1e3)
-                    epochs = 10
+                epochs = 1
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
-                if bSAMBHU24 or not bA100:
-                    epochs = 10
-                else:
-                    # epochs = int(1e6)
-                    epochs = 10
+                epochs = epochs
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
