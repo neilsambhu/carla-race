@@ -915,16 +915,15 @@ if __name__ == "__main__":
             # else:
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
-                    epochs = 1
-                    # epochs = 0
+                    epochs = 0
+                    # epochs = 1
                 else:
-                    # epochs = 0
+                    epochs = 0
                     # epochs = int(1e3)
-                    epochs = 1
+                    # epochs = 1
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
-                    # epochs = 10
-                    epochs = 1
+                    epochs = 10
                 else:
                     # epochs = int(1e6)
                     epochs = 1
@@ -935,15 +934,15 @@ if __name__ == "__main__":
                 # print(f'Count of batches trained: {agent.count_batches_trained}\tGoal: {count_batches_goal}')
                 for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch"):
                     count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
-                    for batch in tqdm(range(agent.count_batches_trained, count_batches_subgoal), ascii=True, unit="batch"):
-                        agent.train()
-                        # if bGAIVI:
-                        #     print('\n')
-                        #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
-                        count_batches_completed += 1
-                    # while count_batches_completed < count_batches_subgoal:
+                    # for batch in tqdm(range(agent.count_batches_trained, count_batches_subgoal), ascii=True, unit="batch"):
                     #     agent.train()
+                    #     # if bGAIVI:
+                    #     #     print('\n')
+                    #     #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
                     #     count_batches_completed += 1
+                    while count_batches_completed < count_batches_subgoal:
+                        agent.train()
+                        count_batches_completed += 1
                     agent.count_epochs_trained += 1
                 agent.replay_memory.clear()
                     
