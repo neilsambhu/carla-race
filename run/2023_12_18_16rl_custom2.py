@@ -133,7 +133,7 @@ else:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
 
         # 4-layer, 28 filters
-        MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)//16
+        MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)//32
     elif bGPU46:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
