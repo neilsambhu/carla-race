@@ -142,7 +142,7 @@ else:
         MINIBATCH_SIZE = 20 # 51 minutes per epoch
 
 # MIN_REPLAY_MEMORY_SIZE = 30_000
-# MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
+MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE
 PREDICTION_BATCH_SIZE = 1
 # TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE
@@ -920,18 +920,18 @@ if __name__ == "__main__":
             # else:
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
-                    epochs = 0
-                    # epochs = 1
+                    # epochs = 0
+                    epochs = 1
                 else:
-                    epochs = 0
+                    # epochs = 0
                     # epochs = int(1e3)
-                    # epochs = 1
+                    epochs = 1
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 if bSAMBHU24 or not bA100:
                     epochs = 10
                 else:
                     # epochs = int(1e6)
-                    epochs = 1
+                    epochs = 10
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
