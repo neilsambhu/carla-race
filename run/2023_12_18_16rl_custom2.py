@@ -466,9 +466,9 @@ with strategy.scope():
 
 
             # Apply LSTM layer
-            # x = Bidirectional(LSTM(units=128, return_sequences=True))(x)
-            # x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
-            x = LSTM(units=1024)(x)
+            x = Bidirectional(LSTM(units=128, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
+            # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             
             # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
