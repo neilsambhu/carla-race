@@ -951,7 +951,7 @@ if __name__ == "__main__":
             # agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_batches_trained}.model')
             agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_epochs_trained}.model')
             # print(f'Saved model from episode {env.episode}. Count of batches trained: {agent.count_batches_trained}')
-            print(f'Saved model from episode {env.episode}. Count of epochs trained: {agent.count_epochs_trained}')
+            # print(f'Saved model from episode {env.episode}. Count of epochs trained: {agent.count_epochs_trained}')
 
     except Exception as e:
         # time.sleep(5)
