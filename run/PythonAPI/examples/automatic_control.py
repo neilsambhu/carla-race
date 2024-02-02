@@ -745,7 +745,12 @@ def game_loop(args):
         if args.agent == "Basic":
             # agent = BasicAgent(world.player, 30) # 11/11/2023 7:12 PM: Neil commented out
             # agent = BasicAgent(world.player, 60) # 2/1/2024 7:38 PM: Neil added
-            agent = BasicAgent(world.player, 120) # 2/1/2024 7:46 PM: Neil added
+            # agent = BasicAgent(world.player, 120) # 2/1/2024 7:46 PM: Neil added
+            # agent = BasicAgent(world.player, 120, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 7:56 PM: Neil added
+            # agent = BasicAgent(world.player, 240, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:07 PM: Neil added # crash
+            # agent = BasicAgent(world.player, 180, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:07 PM: Neil added #crash
+            # agent = BasicAgent(world.player, 150, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:10 PM: Neil added # crash
+            agent = BasicAgent(world.player, 135, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:13 PM: Neil added # crash
             # agent = BasicAgent(world.player, 15) # 1/8/2024 11:19 PM: Neil added
             # 11/11/2023 7:12 PM: Neil custom call to BasicAgent: start
             # agent = BasicAgent(world.player, 30, {'target_speed'})
