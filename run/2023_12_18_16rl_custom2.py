@@ -476,13 +476,13 @@ with strategy.scope():
             # x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             x = LSTM(units=64)(x) 
-            x = LSTM(units=64)(x)
+            # x = LSTM(units=64)(x)
             
             # print(f'x.shape after LSTM: {x.shape}')
-            # size_reduce = 2
-            # while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
-            #     # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
-            #     x = Dense(x.shape.as_list()[1] // size_reduce, activation="relu")(x)
+            size_reduce = 2
+            while x.shape.as_list()[1] >= size_reduce * (action_size + 1):
+                # x = TimeDistributed(Dense(x.shape.as_list()[2] // size_reduce, activation="relu"))(x)
+                x = Dense(x.shape.as_list()[1] // size_reduce, activation="relu")(x)
 
             # Define the output layer
             # output_layer = TimeDistributed(Dense(action_size, activation="linear"))(x)
