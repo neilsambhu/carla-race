@@ -477,7 +477,7 @@ with strategy.scope():
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 5 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
-            x = LSTM(units=512)(x)
+            x = LSTM(units=512)(x) # 5 seconds per epoch
             
             # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
@@ -881,7 +881,6 @@ if __name__ == "__main__":
                     actor.destroy()
 
                 # Append episode reward to a list and log stats (every given number of episodes)
-                print(f'episode: {episode}\treward: {episode_reward}\treward/frames: {episode_reward/count_frames_completed}')
                 ep_rewards.append(episode_reward)
                 if not episode % AGGREGATE_STATS_EVERY or episode == 1:
                     average_reward = sum(ep_rewards[-AGGREGATE_STATS_EVERY:])/len(ep_rewards[-AGGREGATE_STATS_EVERY:])
@@ -904,6 +903,7 @@ if __name__ == "__main__":
                 
                 print(f'Finished episode {episode} of {EPISODES}')
                 print(f'count_frames_completed: {count_frames_completed}')
+                print(f'episode: {episode}\treward: {episode_reward}\treward/frames: {episode_reward/count_frames_completed}')
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
@@ -921,7 +921,7 @@ if __name__ == "__main__":
             #     epochs = 0
             # else:
             elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                epochs = 1
+                epochs = 10
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = epochs
             if epochs > 0:
