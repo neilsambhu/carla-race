@@ -59,9 +59,10 @@ MIN_REPLAY_MEMORY_SIZE = number_of_lines
 # MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
 # REPLAY_MEMORY_SIZE = 5*number_of_lines
 # REPLAY_MEMORY_SIZE = 50_000
-REPLAY_MEMORY_SIZE = number_of_lines
+# REPLAY_MEMORY_SIZE = number_of_lines
 COUNT_FRAME_WINDOW = 10*20
 # COUNT_FRAME_WINDOW = 5
+REPLAY_MEMORY_SIZE = number_of_lines + COUNT_FRAME_WINDOW - 1
 MINIBATCH_SIZE = None
 if bSAMBHU24:
     MINIBATCH_SIZE = 50_000//65536
@@ -143,7 +144,8 @@ else:
         MINIBATCH_SIZE = 20 # 51 minutes per epoch
 
 # MIN_REPLAY_MEMORY_SIZE = 30_000
-MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE + COUNT_FRAME_WINDOW - 1
+# MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE + COUNT_FRAME_WINDOW - 1
+MIN_REPLAY_MEMORY_SIZE = 20
 PREDICTION_BATCH_SIZE = 1
 # TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE
@@ -479,9 +481,9 @@ with strategy.scope():
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 5 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
-            # x = LSTM(units=512)(x) # 5 seconds per epoch
+            x = LSTM(units=512)(x) # 5 seconds per epoch
             # x = LSTM(units=1024)(x) # 90 seconds per epoch
-            x = LSTM(units=4096)(x) 
+            # x = LSTM(units=4096)(x) # 215 seconds per epoch
             
             # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
@@ -918,7 +920,7 @@ if __name__ == "__main__":
             with open(f'tmp/{env.episode:04}.replay_memory', 'wb') as file:
                 pickle.dump(agent.replay_memory, file)
             epochs = None
-            # print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
+            print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
             if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
                 epochs = 0
             # if idx_action1 < action_size:
