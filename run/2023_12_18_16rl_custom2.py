@@ -806,7 +806,7 @@ if __name__ == "__main__":
                         env.world.tick();
                         env.idx_tick += 1
                     action = None
-                    if np.random.random() > epsilon and count_action_random is 0:
+                    if np.random.random() > epsilon and count_action_random == 0:
                     # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                     # if False:
                         # action = np.argmax(agent.get_qs(current_state))
