@@ -588,7 +588,8 @@ with strategy.scope():
                 window_x = []
                 for frame in sequence:
                     if bVerbose:
-                        print(f'type(frame[0]: {type(frame[0])}')
+                        # print(f'type(frame[0]: {type(frame[0])}')
+                        print(f'frame[0].shape: {frame[0].shape}')
                     window_x.append(frame[0])
                 x.append(window_x)
                 y.append(current_qs)
