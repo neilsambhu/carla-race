@@ -134,10 +134,8 @@ else:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
 
         # 4-layer, 28 filters
-        # MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)//4
-        MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)//128
-        # MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)//128
-        # MINIBATCH_SIZE = 1
+        MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)//128 # 95 seconds per epoch; 64-node LSTM
+        MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)
     elif bGPU46:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
@@ -479,7 +477,7 @@ with strategy.scope():
             # x = Bidirectional(LSTM(units=128, return_sequences=True))(x)
             # x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
-            x = LSTM(units=64)(x) # 5 seconds per epoch
+            x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
             # x = LSTM(units=512)(x) # 2/3/2024 11:34 PM: 100 seconds per epoch
             # x = LSTM(units=1024)(x) # 90 seconds per epoch
