@@ -399,12 +399,12 @@ with strategy.scope():
             done = self.idx_tick >= len(lines)
             # done = self.idx_tick >= 100
 
-            v = self.vehicle.get_velocity()
-            kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-            if kmh <= 15:
-                reward += kmh            
-            elif kmh > 15:
-                reward += 15
+            # v = self.vehicle.get_velocity()
+            # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+            # if kmh <= 15:
+            #     reward += kmh            
+            # elif kmh > 15:
+            #     reward += 15
 
             # if self.episode_start + SECONDS_PER_EPISODE < time.time():
             # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
@@ -449,13 +449,13 @@ with strategy.scope():
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             count_filters = 1 # 2/4/2024 2:47 AM: 73 seconds per epoch
             # count_filters = 28
-            pool_size = (8,8)
+            pool_size = (8,8) # 2/4/2024 2:57 AM: 53 seconds per epoch
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
 
             # Apply TimeDistributed to the entire base model
-            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer)
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
             base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
@@ -519,7 +519,7 @@ with strategy.scope():
             intRangeToSample = len(self.replay_memory) - COUNT_FRAME_WINDOW + 1
             if bVerbose and False:
                 print(f'intRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
-            sampled_indices = random.sample(range(0, intRangeToSample), MINIBATCH_SIZE)
+            sampled_indices = random.sample(range(0, intRangeToSample), min(intRangeToSample, MINIBATCH_SIZE))
             if bVerbose and False:
                 print(f'sampled_indices: {sampled_indices}')
             minibatch = []
@@ -945,7 +945,7 @@ if __name__ == "__main__":
             # if idx_action1 < action_size:
             #     epochs = 0
             # else:
-            elif len(agent.replay_memory) >= max(COUNT_FRAME_WINDOW, MINIBATCH_SIZE):
+            elif len(agent.replay_memory) >= max(COUNT_FRAME_WINDOW, MINIBATCH_SIZE) and len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                 epochs = 1
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10
