@@ -507,7 +507,7 @@ with strategy.scope():
                 return
 
             # minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
-            intRangeToSample = len(self.replay_memory) - COUNT_FRAME_WINDOW + 2
+            intRangeToSample = len(self.replay_memory) - COUNT_FRAME_WINDOW + 1
             if bVerbose:
                 print(f'intRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
             sampled_indices = random.sample(range(0, intRangeToSample), MINIBATCH_SIZE)
