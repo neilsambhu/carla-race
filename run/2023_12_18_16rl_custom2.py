@@ -354,7 +354,7 @@ with strategy.scope():
             if selected_brake_throttle > 0:
                 brake_value = 0.0
 
-            if bVerbose:
+            if bVerbose and False:
                 print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
 
             self.vehicle.apply_control(
@@ -830,7 +830,7 @@ if __name__ == "__main__":
                         #     brake_action = action % len(action_space['brake'])
                         #     if throttle_action == 0 or brake_action == 0:
                         #         bAction1Valid = True
-                        if count_action_random > 10*20:
+                        if count_action_random > 1*20:
                             action_random = np.random.randint(0, action_size)
                             count_action_random = 0
                         action = action_random
