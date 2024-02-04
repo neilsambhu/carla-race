@@ -383,12 +383,12 @@ with strategy.scope():
             # For example, if distance < threshold: reward = some_value
             # Modify the reward calculation based on your requirements
             # reward = -1*distance**3 - distance + 1
-            reward = -1*distance**3 - distance + 100
+            # reward = -1*distance**3 - distance + 100
             # reward = 100 - distance 
-            # if distance < 10:
-            #     reward += 10
-            # else:
-            #     reward -= 10
+            if distance < 10:
+                reward += 10 - distance
+            else:
+                reward -= 10
 
             # Set 'done' flag to True when ticks exceed the lines in the file
             done = self.idx_tick >= len(lines)
@@ -926,7 +926,7 @@ if __name__ == "__main__":
             # if idx_action1 < action_size:
             #     epochs = 0
             # else:
-            elif len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
+            elif len(agent.replay_memory) >= MINIBATCH_SIZE:
                 epochs = 1
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10
