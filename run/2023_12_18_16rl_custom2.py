@@ -142,7 +142,7 @@ else:
 
         # 8-node LSTM
         MINIBATCH_SIZE = COUNT_LOCATIONS//64 # 90 seconds per epoch
-        MINIBATCH_SIZE = COUNT_LOCATIONS//16
+        # MINIBATCH_SIZE = COUNT_LOCATIONS//16 # failure
     elif bGPU46:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
@@ -447,8 +447,8 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            # count_filters = 1
-            count_filters = 28
+            count_filters = 1
+            # count_filters = 28
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
@@ -489,7 +489,7 @@ with strategy.scope():
             # x = LSTM(units=512)(x) # 2/3/2024 11:34 PM: 100 seconds per epoch
             # x = LSTM(units=1024)(x) # 90 seconds per epoch
             # x = LSTM(units=4096)(x) # 215 seconds per epoch
-            x = LSTM(units=8)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
+            x = LSTM(units=8)(x) # 2/4/2024 2:42 AM: 90 seconds per epoch
             
             # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
