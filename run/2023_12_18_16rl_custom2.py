@@ -591,7 +591,7 @@ with strategy.scope():
                         # print(f'type(frame[0]: {type(frame[0])}')
                         if frame[0].shape != (128, 128, 3):
                             print(f'frame[0].shape: {frame[0].shape}')
-                        if frame[0].dtype != uint8:
+                        if frame[0].dtype != 'uint8':
                             print(f'frame[0].dtype: {frame[0].dtype}')
                     window_x.append(frame[0])
                 x.append(window_x)
