@@ -138,7 +138,7 @@ else:
         MINIBATCH_SIZE = COUNT_LOCATIONS # failure
         MINIBATCH_SIZE = COUNT_LOCATIONS//4
         MINIBATCH_SIZE = COUNT_LOCATIONS//16
-        MINIBATCH_SIZE = COUNT_LOCATIONS//64
+        MINIBATCH_SIZE = COUNT_LOCATIONS//64 # 90 seconds per epoch; 64-node LSTM
     elif bGPU46:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
@@ -480,11 +480,12 @@ with strategy.scope():
             # x = Bidirectional(LSTM(units=128, return_sequences=True))(x)
             # x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
-            x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
+            # x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
             # x = LSTM(units=512)(x) # 2/3/2024 11:34 PM: 100 seconds per epoch
             # x = LSTM(units=1024)(x) # 90 seconds per epoch
             # x = LSTM(units=4096)(x) # 215 seconds per epoch
+            x = LSTM(units=8)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             
             # print(f'x.shape after LSTM: {x.shape}')
             size_reduce = 2
