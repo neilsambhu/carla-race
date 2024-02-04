@@ -135,7 +135,8 @@ else:
 
         # 4-layer, 28 filters
         MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)//128 # 95 seconds per epoch; 64-node LSTM
-        MINIBATCH_SIZE = COUNT_LOCATIONS
+        MINIBATCH_SIZE = COUNT_LOCATIONS # failure
+        MINIBATCH_SIZE = COUNT_LOCATIONS//4
     elif bGPU46:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
