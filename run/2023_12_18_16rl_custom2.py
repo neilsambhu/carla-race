@@ -447,15 +447,16 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            count_filters = 1
+            count_filters = 1 # 2/4/2024 2:47 AM: 73 seconds per epoch
             # count_filters = 28
+            pool_size = (8,8)
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
 
             # Apply TimeDistributed to the entire base model
             base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer)
-            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
 
