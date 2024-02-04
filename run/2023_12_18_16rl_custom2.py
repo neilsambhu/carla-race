@@ -54,15 +54,15 @@ SECONDS_PER_EPISODE = 3*60
 # MIN_REPLAY_MEMORY_SIZE = int(1.5*SECONDS_PER_EPISODE*20) # 12/24/2023 6:37 AM: Neil commented out
 path_AP_locations = '_out_07CARLA_AP/Locations_Town04_0_335.txt'
 with open(path_AP_locations, 'r') as file:
-    number_of_lines = len(file.readlines())
-MIN_REPLAY_MEMORY_SIZE = number_of_lines
-# MIN_REPLAY_MEMORY_SIZE = int(64 * number_of_lines)
-# REPLAY_MEMORY_SIZE = 5*number_of_lines
+    COUNT_LOCATIONS = len(file.readlines())
+MIN_REPLAY_MEMORY_SIZE = COUNT_LOCATIONS
+# MIN_REPLAY_MEMORY_SIZE = int(64 * COUNT_LOCATIONS)
+# REPLAY_MEMORY_SIZE = 5*COUNT_LOCATIONS
 # REPLAY_MEMORY_SIZE = 50_000
-# REPLAY_MEMORY_SIZE = number_of_lines
+# REPLAY_MEMORY_SIZE = COUNT_LOCATIONS
 COUNT_FRAME_WINDOW = 10*20
 # COUNT_FRAME_WINDOW = 5
-REPLAY_MEMORY_SIZE = number_of_lines + COUNT_FRAME_WINDOW - 1
+REPLAY_MEMORY_SIZE = COUNT_LOCATIONS + COUNT_FRAME_WINDOW - 1
 MINIBATCH_SIZE = None
 if bSAMBHU24:
     MINIBATCH_SIZE = 50_000//65536
@@ -135,7 +135,7 @@ else:
 
         # 4-layer, 28 filters
         MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)//128 # 95 seconds per epoch; 64-node LSTM
-        MINIBATCH_SIZE = (REPLAY_MEMORY_SIZE - COUNT_FRAME_WINDOW)
+        MINIBATCH_SIZE = COUNT_LOCATIONS
     elif bGPU46:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
