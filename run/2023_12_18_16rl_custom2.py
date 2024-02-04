@@ -354,8 +354,8 @@ with strategy.scope():
             if selected_brake_throttle > 0:
                 brake_value = 0.0
 
-            # if bVerbose:
-            #     print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+            if bVerbose:
+                print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
 
             self.vehicle.apply_control(
                 carla.VehicleControl(throttle=float(throttle_value), steer=float(steer_value), brake=float(brake_value))
