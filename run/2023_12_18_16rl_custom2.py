@@ -589,7 +589,8 @@ with strategy.scope():
                 for frame in sequence:
                     if bVerbose:
                         # print(f'type(frame[0]: {type(frame[0])}')
-                        print(f'frame[0].shape: {frame[0].shape}')
+                        # print(f'frame[0].shape: {frame[0].shape}')
+                        print(f'frame[0].dtype: {frame[0].dtype}')
                     window_x.append(frame[0])
                 x.append(window_x)
                 y.append(current_qs)
