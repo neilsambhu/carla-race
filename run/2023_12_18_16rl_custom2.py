@@ -145,7 +145,7 @@ else:
 
 # MIN_REPLAY_MEMORY_SIZE = 30_000
 # MIN_REPLAY_MEMORY_SIZE = MINIBATCH_SIZE + COUNT_FRAME_WINDOW - 1
-MIN_REPLAY_MEMORY_SIZE = 20
+MIN_REPLAY_MEMORY_SIZE = max(COUNT_FRAME_WINDOW, MINIBATCH_SIZE)
 PREDICTION_BATCH_SIZE = 1
 # TRAINING_BATCH_SIZE = MINIBATCH_SIZE // 4
 TRAINING_BATCH_SIZE = MINIBATCH_SIZE
@@ -481,7 +481,7 @@ with strategy.scope():
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 5 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
-            x = LSTM(units=512)(x) # 5 seconds per epoch
+            x = LSTM(units=512)(x) # 2/3/2024 11:34 PM: 100 seconds per epoch
             # x = LSTM(units=1024)(x) # 90 seconds per epoch
             # x = LSTM(units=4096)(x) # 215 seconds per epoch
             
@@ -509,7 +509,8 @@ with strategy.scope():
                 return
 
             # minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
-            sampled_indices = random.sample(range(len(self.replay_memory) - COUNT_FRAME_WINDOW + 1), MINIBATCH_SIZE)
+            intRangeToSample = len(self.replay_memory) - COUNT_FRAME_WINDOW
+            sampled_indices = random.sample(range(0, intRangeToSample), MINIBATCH_SIZE)
             if bVerbose and False:
                 print(f'sampled_indices: {sampled_indices}')
             minibatch = []
@@ -926,7 +927,7 @@ if __name__ == "__main__":
             # if idx_action1 < action_size:
             #     epochs = 0
             # else:
-            elif len(agent.replay_memory) >= MINIBATCH_SIZE:
+            elif len(agent.replay_memory) >= max(COUNT_FRAME_WINDOW, MINIBATCH_SIZE):
                 epochs = 1
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10
