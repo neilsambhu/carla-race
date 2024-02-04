@@ -573,6 +573,8 @@ with strategy.scope():
                 current_state, action, reward, new_state, done = sequence[-1]
                 if bVerbose and False:
                     print(f'action: {action}')
+                if bVerbose: 
+                    print(f'len(sequence): {len(sequence)}')
                 if not done:
                     max_future_q = np.max(future_qs_list[index])
                     new_q = reward + DISCOUNT * max_future_q
