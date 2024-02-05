@@ -999,6 +999,7 @@ if __name__ == "__main__":
                 loss = None
                 accuracy = None
                 thresholdAccuracy = 0.999
+                strMessage = ''
                 for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch"):
                     count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
 
@@ -1013,11 +1014,12 @@ if __name__ == "__main__":
                         loss, accuracy = history['loss'][0], history['accuracy'][0]
                         count_batches_completed += 1
                         if accuracy >= thresholdAccuracy:
-                            print(f'Accuracy is {accuracy}. Training stopped after {count_batches_completed} of {count_batches_subgoal} intended batches.')
+                            strMessage += f'Accuracy is {accuracy}. Training stopped after {count_batches_completed} of {count_batches_subgoal} intended batches.'
                             break
                     agent.count_epochs_trained += 1
                     if accuracy >= thresholdAccuracy:
-                        print(f'Accuracy is {accuracy}. Training stopped at {epoch} of {epochs} intended epochs.')
+                        strMessage += 'Training stopped at {epoch} of {epochs} intended epochs.'
+                        print(strMessage)
                         break
                 agent.replay_memory.clear()
                     
