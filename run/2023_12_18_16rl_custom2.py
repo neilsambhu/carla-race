@@ -1009,7 +1009,8 @@ if __name__ == "__main__":
                     while count_batches_completed < count_batches_subgoal:
                         history = agent.train()
                         if bVerbose:
-                            print(f"{history['loss']}\t{history['accuracy']}")
+                            print(f"{history['loss'][0]}\t{history['accuracy'][0]}")
+                            print(f"{type(history['loss'][0])}\t{type(history['accuracy'][0])}")
                         count_batches_completed += 1
                     agent.count_epochs_trained += 1
                 agent.replay_memory.clear()
