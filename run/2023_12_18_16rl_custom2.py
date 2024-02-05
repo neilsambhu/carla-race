@@ -998,6 +998,8 @@ if __name__ == "__main__":
                 # print(f'Count of batches trained: {agent.count_batches_trained}\tGoal: {count_batches_goal}')
                 for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch"):
                     count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
+                    loss = None
+                    accuracy = None
                     # for batch in tqdm(range(agent.count_batches_trained, count_batches_subgoal), ascii=True, unit="batch"):
                     #     agent.train()
                     #     # if bGAIVI:
@@ -1007,7 +1009,7 @@ if __name__ == "__main__":
                     while count_batches_completed < count_batches_subgoal:
                         history = agent.train()
                         if bVerbose:
-                            print(f'history: {history}')
+                            print(f'{history['loss']}\t{history['accuracy']}')
                         count_batches_completed += 1
                     agent.count_epochs_trained += 1
                 agent.replay_memory.clear()
