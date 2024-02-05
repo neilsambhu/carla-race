@@ -643,7 +643,7 @@ with strategy.scope():
                 callbacks=[callback]
             )
             if bVerbose:
-                print(f'hist: {hist}')
+                print(f'hist.history: {hist.history}')
 
 
             if log_this_step:
