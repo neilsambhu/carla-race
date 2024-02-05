@@ -996,10 +996,12 @@ if __name__ == "__main__":
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
                 count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                 # print(f'Count of batches trained: {agent.count_batches_trained}\tGoal: {count_batches_goal}')
+                loss = None
+                accuracy = None
+                thresholdAccuracy = 0.999
                 for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch"):
                     count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
-                    loss = None
-                    accuracy = None
+
                     # for batch in tqdm(range(agent.count_batches_trained, count_batches_subgoal), ascii=True, unit="batch"):
                     #     agent.train()
                     #     # if bGAIVI:
@@ -1008,11 +1010,15 @@ if __name__ == "__main__":
                     #     count_batches_completed += 1
                     while count_batches_completed < count_batches_subgoal:
                         history = agent.train()
-                        if bVerbose:
-                            print(f"{history['loss'][0]}\t{history['accuracy'][0]}")
-                            print(f"{type(history['loss'][0])}\t{type(history['accuracy'][0])}")
+                        loss, accuracy = history['loss'][0], history['accuracy'][0]
                         count_batches_completed += 1
+                        if accuracy >= thresholdAccuracy:
+                            print(f'Accuracy is {accuracy}. Training stopped after {count_batches_completed} of {count_batches_subgoal} intended batches.')
+                            break
                     agent.count_epochs_trained += 1
+                    if accuracy >= thresholdAccuracy:
+                        print(f'Accuracy is {accuracy}. Training stopped at {epoch} of {epochs} intended epochs.')
+                        break
                 agent.replay_memory.clear()
                     
             previousEpisode_countBatchesTrained = agent.count_batches_trained
