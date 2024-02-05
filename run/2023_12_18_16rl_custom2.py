@@ -529,7 +529,7 @@ with strategy.scope():
             # minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
             intRangeToSample = len(self.replay_memory) - COUNT_FRAME_WINDOW + 1
             # intRangeToSample = len(self.replay_memory)
-            if bVerbose and False:
+            if bVerbose:
                 print(f'intRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
             sampled_indices = random.sample(range(0, intRangeToSample), min(intRangeToSample, MINIBATCH_SIZE))
             if bVerbose and False:
@@ -932,7 +932,7 @@ if __name__ == "__main__":
                     # while not os.path.exists(pathImage):
                     #     # print(f'waiting for {pathImage} to exist')
                     #     time.sleep(0.1)
-                    print(f'env.queueImagesWritten.qsize(): {env.queueImagesWritten.qsize()}\tenv.idx_tick: {env.idx_tick}')
+                    # print(f'env.queueImagesWritten.qsize(): {env.queueImagesWritten.qsize()}\tenv.idx_tick: {env.idx_tick}')
                     time.sleep(0.1)
                 for actor in env.actor_list:
                     actor.destroy()
