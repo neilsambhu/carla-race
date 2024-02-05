@@ -1014,11 +1014,11 @@ if __name__ == "__main__":
                         loss, accuracy = history['loss'][0], history['accuracy'][0]
                         count_batches_completed += 1
                         if accuracy >= thresholdAccuracy:
-                            strMessage += f'Accuracy is {accuracy}. Training stopped after {count_batches_completed} of {count_batches_subgoal} intended batches.'
+                            strMessage += f'Early stop at accuracy {accuracy}: {count_batches_completed} of {count_batches_subgoal} batches; '
                             break
                     agent.count_epochs_trained += 1
                     if accuracy >= thresholdAccuracy:
-                        strMessage += 'Training stopped at {epoch} of {epochs} intended epochs.'
+                        strMessage += '{epoch} of {epochs} epochs.'
                         print(strMessage)
                         break
                 agent.replay_memory.clear()
