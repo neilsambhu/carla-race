@@ -329,7 +329,7 @@ with strategy.scope():
             if not os.path.exists('%s/%04d' % (directory_output, self.episode)):
                 os.makedirs('%s/%04d' % (directory_output, self.episode))
                 time.sleep(1)
-            pathImage = '%s/%04d' % (directory_output, self.episode)
+            self.pathImage = '%s/%04d' % (directory_output, self.episode)
             i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
             # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
             # count_checkFileExists = 0
@@ -915,8 +915,8 @@ if __name__ == "__main__":
                         break
 
                 while not os.path.exists(env.pathImage):
-                    print(f'waiting for {env.pathImage} to exist')
-                    time.sleep(10)
+                    # print(f'waiting for {env.pathImage} to exist')
+                    time.sleep(0.1)
                 for actor in env.actor_list:
                     actor.destroy()
 
