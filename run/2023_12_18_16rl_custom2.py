@@ -494,7 +494,7 @@ with strategy.scope():
 
             # Apply LSTM layer
             x = Bidirectional(LSTM(units=128, return_sequences=True))(x)
-            x = Bidirectional(LSTM(units=128, return_sequences=False))(x)
+            x = Bidirectional(LSTM(units=128, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
