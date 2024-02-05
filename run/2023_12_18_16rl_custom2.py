@@ -965,7 +965,8 @@ if __name__ == "__main__":
             # if idx_action1 < action_size:
             #     epochs = 0
             # else:
-            elif len(agent.replay_memory) >= max(COUNT_FRAME_WINDOW, MINIBATCH_SIZE) and len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
+            # elif len(agent.replay_memory) >= max(COUNT_FRAME_WINDOW, MINIBATCH_SIZE) and len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
+            elif len(agent.replay_memory) >= MINIBATCH_SIZE and len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                 epochs = 1
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10
