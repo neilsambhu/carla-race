@@ -598,7 +598,7 @@ with strategy.scope():
                 current_state, action, reward, new_state, done = sequence[-1]
                 if bVerbose and False:
                     print(f'action: {action}')
-                if bVerbose: 
+                if bVerbose and False: 
                     if len(sequence) is not COUNT_FRAME_WINDOW:
                         print(f'len(sequence): {len(sequence)}')
                 if not done:
