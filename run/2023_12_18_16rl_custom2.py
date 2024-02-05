@@ -1019,7 +1019,7 @@ if __name__ == "__main__":
                     agent.count_epochs_trained += 1
                     if loss < thresholdLoss:
                         strMessage += f'{epoch} of {epochs} epochs.'
-                        print(f'\n{strMessage}\n')
+                        print(f'{strMessage}\n')
                         break
                 agent.replay_memory.clear()
                     
