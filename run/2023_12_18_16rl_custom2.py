@@ -227,7 +227,7 @@ with strategy.scope():
         idx_tick = -1
         pathImage = ''
         import queue
-        queueImages = queue.Queue()
+        queueImagesWritten = queue.Queue()
 
         def __init__(self):
             # self.client = carla.Client("localhost", 2000)
@@ -264,6 +264,8 @@ with strategy.scope():
             self.collision_hist = []
             self.actor_list = []
             self.idx_tick = -1
+            self.pathImage = ''
+            self.queueImagesWritten = queue.Queue()
 
             # self.transform = random.choice(self.world.get_map().get_spawn_points())
             self.transform = self.world.get_map().get_spawn_points()[0]
@@ -333,15 +335,17 @@ with strategy.scope():
                 os.makedirs('%s/%04d' % (directory_output, self.episode))
                 time.sleep(1)
             self.pathImage = '%s/%04d' % (directory_output, self.episode)
-            self.queueImages.put(self.pathImage)
             i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
             # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
             # count_checkFileExists = 0
             while not os.path.exists('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame)):
                 # count_checkFileExists += 1
                 time.sleep(0.1)
+            self.queueImagesWritten.put(self.pathImage)
             # print(f'count_checkFileExists: {count_checkFileExists}')
-            # self.queueImages.get()
+            # self.queueImagesWritten.get()
+            # if self.done:
+            #     bFinalImageWritten = True
 
 
         def step(self, action):
@@ -917,13 +921,18 @@ if __name__ == "__main__":
                     # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))                
 
                     if done:
+                        env.done = True
                         break
 
-                while env.queueImages.qsize() > 0:
-                    pathImage = env.queueImages.get()
-                    while not os.path.exists(pathImage):
-                        # print(f'waiting for {pathImage} to exist')
-                        time.sleep(0.1)
+                # while env.queueImagesWritten.qsize() > 0:
+                # while not env.bFinalImageWritten:
+                while env.queueImagesWritten.qsize() != env.idx_tick:
+                    # pathImage = env.queueImagesWritten.get()
+                    # while not os.path.exists(pathImage):
+                    #     # print(f'waiting for {pathImage} to exist')
+                    #     time.sleep(0.1)
+                    print(f'env.queueImagesWritten.qsize(): {env.queueImagesWritten.qsize()}\tenv.idx_tick: {env.idx_tick}')
+                    time.sleep(0.1)
                 for actor in env.actor_list:
                     actor.destroy()
 
