@@ -531,6 +531,7 @@ with strategy.scope():
             # intRangeToSample = len(self.replay_memory)
             if bVerbose:
                 print(f'intRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
+                time.sleep(1)
             sampled_indices = random.sample(range(0, intRangeToSample), min(intRangeToSample, MINIBATCH_SIZE))
             if bVerbose and False:
                 print(f'sampled_indices: {sampled_indices}')
