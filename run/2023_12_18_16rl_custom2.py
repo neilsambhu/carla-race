@@ -225,6 +225,8 @@ with strategy.scope():
         action_space = action_space
         idx_tick = -1
         pathImage = ''
+        import Queue
+        queueImages = queue.Queue()
 
         def __init__(self):
             # self.client = carla.Client("localhost", 2000)
@@ -330,6 +332,7 @@ with strategy.scope():
                 os.makedirs('%s/%04d' % (directory_output, self.episode))
                 time.sleep(1)
             self.pathImage = '%s/%04d' % (directory_output, self.episode)
+            queueImages.put(self.pathImage)
             i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
             # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
             # count_checkFileExists = 0
@@ -337,6 +340,7 @@ with strategy.scope():
                 # count_checkFileExists += 1
                 time.sleep(0.1)
             # print(f'count_checkFileExists: {count_checkFileExists}')
+            queueImages.get()
 
 
         def step(self, action):
@@ -914,7 +918,8 @@ if __name__ == "__main__":
                     if done:
                         break
 
-                while not os.path.exists(env.pathImage):
+                # while not os.path.exists(env.pathImage):
+                while env.queueImages.qsize() > 0:
                     # print(f'waiting for {env.pathImage} to exist')
                     time.sleep(0.1)
                 for actor in env.actor_list:
