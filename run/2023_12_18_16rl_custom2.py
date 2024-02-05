@@ -529,7 +529,7 @@ with strategy.scope():
             # minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
             # intRangeToSample = len(self.replay_memory) - COUNT_FRAME_WINDOW + 1
             intRangeToSample = len(self.replay_memory)
-            if bVerbose:
+            if bVerbose and false:
                 print(f'len(self.replay_memory): {len(self.replay_memory)}\tintRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
                 time.sleep(10)
                 print(f'len(self.replay_memory): {len(self.replay_memory)}\tintRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
