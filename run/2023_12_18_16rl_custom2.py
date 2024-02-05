@@ -527,8 +527,8 @@ with strategy.scope():
                 return
 
             # minibatch = random.sample(self.replay_memory, MINIBATCH_SIZE)
-            intRangeToSample = len(self.replay_memory) - COUNT_FRAME_WINDOW + 1
-            # intRangeToSample = len(self.replay_memory)
+            # intRangeToSample = len(self.replay_memory) - COUNT_FRAME_WINDOW + 1
+            intRangeToSample = len(self.replay_memory)
             if bVerbose:
                 print(f'len(self.replay_memory): {len(self.replay_memory)}\tintRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
                 time.sleep(10)
