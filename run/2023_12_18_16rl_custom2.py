@@ -530,10 +530,12 @@ with strategy.scope():
             intRangeToSample = len(self.replay_memory) - COUNT_FRAME_WINDOW + 1
             # intRangeToSample = len(self.replay_memory)
             if bVerbose:
-                print(f'intRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
+                print(f'len(self.replay_memory): {len(self.replay_memory)}\tintRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
                 time.sleep(10)
-                print(f'intRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
+                print(f'len(self.replay_memory): {len(self.replay_memory)}\tintRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
             sampled_indices = random.sample(range(0, intRangeToSample), min(intRangeToSample, MINIBATCH_SIZE))
+            # sampled_indices = random.sample(range(0, intRangeToSample), MINIBATCH_SIZE)
+            # sampled_indices = random.sample(range(COUNT_FRAME_WINDOW-1, len(self.replay_memory)), min(intRangeToSample, MINIBATCH_SIZE))
             if bVerbose and False:
                 print(f'sampled_indices: {sampled_indices}')
             minibatch = []
