@@ -632,7 +632,7 @@ with strategy.scope():
             # Neil commented `with self.graph.as_default():`
             # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
             # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.01, patience=1)
-            callback = tf.keras.callbacks.EarlyStopping(monitor='accuracy', baseline=1.0)
+            # callback = tf.keras.callbacks.EarlyStopping(monitor='accuracy', baseline=1.0)
             hist = self.model.fit(
                 np.array(x),
                 np.array(y),
@@ -640,11 +640,8 @@ with strategy.scope():
                 verbose=0,
                 shuffle=False,
                 # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
-                callbacks=[callback]
+                # callbacks=[callback]
             )
-            if bVerbose:
-                print(f'hist.history: {hist.history}')
-
 
             if log_this_step:
                 self.target_update_counter += 1
@@ -659,6 +656,8 @@ with strategy.scope():
             time.sleep(0.01)
             self.saved_model.set_weights(self.model.get_weights())
             self.count_saved_models += 1
+
+            return hist.history
 
         def get_qs(self, state):
             # print(state.shape)
@@ -1006,7 +1005,9 @@ if __name__ == "__main__":
                     #     #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
                     #     count_batches_completed += 1
                     while count_batches_completed < count_batches_subgoal:
-                        agent.train()
+                        hist = agent.train()
+                        if bVerbose:
+                            print(f'hist.history: {hist.history}')
                         count_batches_completed += 1
                     agent.count_epochs_trained += 1
                 agent.replay_memory.clear()
