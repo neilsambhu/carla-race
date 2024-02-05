@@ -998,7 +998,7 @@ if __name__ == "__main__":
                 loss = None
                 accuracy = None
                 thresholdAccuracy = 0.999
-                thresholdLoss = 0.01
+                thresholdLoss = 1e-5
                 strMessage = ''
                 for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch"):
                     count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
