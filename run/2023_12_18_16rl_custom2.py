@@ -340,7 +340,7 @@ with strategy.scope():
                 # count_checkFileExists += 1
                 time.sleep(0.1)
             # print(f'count_checkFileExists: {count_checkFileExists}')
-            self.queueImages.get()
+            # self.queueImages.get()
 
 
         def step(self, action):
@@ -918,10 +918,11 @@ if __name__ == "__main__":
                     if done:
                         break
 
-                # while not os.path.exists(env.pathImage):
                 while env.queueImages.qsize() > 0:
-                    # print(f'waiting for {env.pathImage} to exist')
-                    time.sleep(0.1)
+                    pathImage = env.queueImages.get()
+                    while not os.path.exists(pathImage):
+                        # print(f'waiting for {pathImage} to exist')
+                        time.sleep(0.1)
                 for actor in env.actor_list:
                     actor.destroy()
 
