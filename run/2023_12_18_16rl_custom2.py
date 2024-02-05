@@ -631,14 +631,16 @@ with strategy.scope():
 
             # Neil commented `with self.graph.as_default():`
             # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
+            # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
+            callback = tf.keras.callbacks.EarlyStopping(monitor='asdf', patience=3)
             self.model.fit(
-                # np.array(x) / 255,
                 np.array(x),
                 np.array(y),
                 batch_size=TRAINING_BATCH_SIZE,
                 verbose=0,
                 shuffle=False,
                 # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
+                callbacks=[callback]
             )
 
 
