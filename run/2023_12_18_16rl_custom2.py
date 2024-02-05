@@ -1005,9 +1005,9 @@ if __name__ == "__main__":
                     #     #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
                     #     count_batches_completed += 1
                     while count_batches_completed < count_batches_subgoal:
-                        hist = agent.train()
+                        history = agent.train()
                         if bVerbose:
-                            print(f'hist.history: {hist.history}')
+                            print(f'history: {history}')
                         count_batches_completed += 1
                     agent.count_epochs_trained += 1
                 agent.replay_memory.clear()
