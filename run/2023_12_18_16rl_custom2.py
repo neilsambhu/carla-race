@@ -224,7 +224,7 @@ with strategy.scope():
         episode = None
         action_space = action_space
         idx_tick = -1
-        pathImage = None
+        pathImage = ''
 
         def __init__(self):
             # self.client = carla.Client("localhost", 2000)
