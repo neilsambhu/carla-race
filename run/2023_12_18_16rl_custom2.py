@@ -7,6 +7,7 @@ import numpy as np
 import cv2
 import math
 from collections import deque
+import queue
 from tensorflow.keras.applications.xception import Xception # Neil modified `from keras.applications.xception import Xception`
 from tensorflow.keras.layers import Concatenate, Dense, GlobalAveragePooling2D # Neil modified `from keras.layers import Dense, GlobalAveragePooling2D`
 from tensorflow.keras.optimizers import Adam # Neil modified `from keras.optimizers import Adam`
@@ -226,7 +227,6 @@ with strategy.scope():
         action_space = action_space
         idx_tick = -1
         pathImage = ''
-        import queue
         queueImagesWritten = queue.Queue()
 
         def __init__(self):
