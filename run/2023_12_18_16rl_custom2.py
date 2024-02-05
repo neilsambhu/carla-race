@@ -968,8 +968,7 @@ if __name__ == "__main__":
                     bTrainingComplete = True
                 
                 print(f'Finished episode {episode} of {EPISODES}')
-                print(f'count_frames_completed: {count_frames_completed}')
-                print(f'episode: {episode}\treward: {episode_reward}\treward/frames: {episode_reward/count_frames_completed}')
+                print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}\treward/frames: {episode_reward/count_frames_completed}')
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
