@@ -225,7 +225,7 @@ with strategy.scope():
         action_space = action_space
         idx_tick = -1
         pathImage = ''
-        import Queue
+        import queue
         queueImages = queue.Queue()
 
         def __init__(self):
