@@ -631,8 +631,8 @@ with strategy.scope():
 
             # Neil commented `with self.graph.as_default():`
             # self.model.fit(np.array(X)/255, np.array(y), batch_size=TRAINING_BATCH_SIZE, verbose=0, shuffle=False, callbacks=[self.tensorboard] if log_this_step else None) # Neil left tabbed 1
-            # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
-            callback = tf.keras.callbacks.EarlyStopping(monitor='asdf', patience=3)
+            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=1)
+            # callback = tf.keras.callbacks.EarlyStopping(monitor='asdf', patience=3)
             self.model.fit(
                 np.array(x),
                 np.array(y),
@@ -987,9 +987,9 @@ if __name__ == "__main__":
             # else:
             # elif len(agent.replay_memory) >= max(COUNT_FRAME_WINDOW, MINIBATCH_SIZE) and len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
             elif len(agent.replay_memory) >= MINIBATCH_SIZE and len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                epochs = 10
-            if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 100
+            if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
+                epochs = 1000
             if epochs > 0:
                 count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
