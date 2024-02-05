@@ -332,7 +332,7 @@ with strategy.scope():
                 os.makedirs('%s/%04d' % (directory_output, self.episode))
                 time.sleep(1)
             self.pathImage = '%s/%04d' % (directory_output, self.episode)
-            queueImages.put(self.pathImage)
+            self.queueImages.put(self.pathImage)
             i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
             # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
             # count_checkFileExists = 0
@@ -340,7 +340,7 @@ with strategy.scope():
                 # count_checkFileExists += 1
                 time.sleep(0.1)
             # print(f'count_checkFileExists: {count_checkFileExists}')
-            queueImages.get()
+            self.queueImages.get()
 
 
         def step(self, action):
