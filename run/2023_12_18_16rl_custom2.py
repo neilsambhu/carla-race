@@ -915,7 +915,8 @@ if __name__ == "__main__":
                         break
 
                 while not os.path.exists(env.pathImage):
-                    time.sleep(0.1)
+                    print(f'waiting for {env.pathImage} to exist')
+                    time.sleep(10)
                 for actor in env.actor_list:
                     actor.destroy()
 
