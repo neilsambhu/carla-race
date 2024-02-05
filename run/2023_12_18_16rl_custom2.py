@@ -532,6 +532,7 @@ with strategy.scope():
             if bVerbose:
                 print(f'intRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
                 time.sleep(10)
+                print(f'intRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
             sampled_indices = random.sample(range(0, intRangeToSample), min(intRangeToSample, MINIBATCH_SIZE))
             if bVerbose and False:
                 print(f'sampled_indices: {sampled_indices}')
