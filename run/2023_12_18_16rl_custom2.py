@@ -449,7 +449,7 @@ with strategy.scope():
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             # count_filters = 1 # 2/4/2024 2:47 AM: 73 seconds per epoch
             count_filters = 28
-            pool_size = (8,8) # 2/4/2024 2:57 AM: 53 seconds per epoch
+            pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
@@ -460,20 +460,20 @@ with strategy.scope():
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            # base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            # base_model = TimeDistributed(BatchNormalization())(base_model)
-            # base_model = TimeDistributed(Activation('relu'))(base_model)
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            # base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            # base_model = TimeDistributed(BatchNormalization())(base_model)
-            # base_model = TimeDistributed(Activation('relu'))(base_model)
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            # base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            # base_model = TimeDistributed(BatchNormalization())(base_model)
-            # base_model = TimeDistributed(Activation('relu'))(base_model)
+            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+            base_model = TimeDistributed(BatchNormalization())(base_model)
+            base_model = TimeDistributed(Activation('relu'))(base_model)
 
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
@@ -483,7 +483,7 @@ with strategy.scope():
 
             # Apply LSTM layer
             x = Bidirectional(LSTM(units=128, return_sequences=True))(x)
-            x = Bidirectional(LSTM(units=64, return_sequences=False))(x)
+            x = Bidirectional(LSTM(units=128, return_sequences=False))(x)
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
