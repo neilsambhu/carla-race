@@ -1018,7 +1018,7 @@ if __name__ == "__main__":
                     agent.count_epochs_trained += 1
                     if accuracy >= thresholdAccuracy:
                         strMessage += f'{epoch} of {epochs} epochs.'
-                        print(strMessage)
+                        print(f'\n{strMessage}\n')
                         break
                 agent.replay_memory.clear()
                     
