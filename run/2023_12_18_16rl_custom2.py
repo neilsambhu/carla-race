@@ -957,7 +957,7 @@ if __name__ == "__main__":
                 epochs = 1000
             if epochs > 0:
                 # count_batches_completed = previousEpisode_countBatchesTrained
-                print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
+                # print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
                 # count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                 # print(f'Count of batches trained: {agent.count_batches_trained}\tGoal: {count_batches_goal}')
                 # for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch (parent)"):
