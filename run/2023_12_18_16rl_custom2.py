@@ -144,6 +144,9 @@ else:
         # 8-node LSTM
         MINIBATCH_SIZE = COUNT_LOCATIONS//64 # 90 seconds per epoch
         # MINIBATCH_SIZE = COUNT_LOCATIONS//16 # failure
+
+        # 4 layers, no pooling
+        MINIBATCH_SIZE = 1
     elif bGPU46:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
