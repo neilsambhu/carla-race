@@ -794,8 +794,8 @@ if __name__ == "__main__":
                     [shutil.rmtree(matching_file) for matching_file in matching_files]
 
                 print(f'\nStarted episode {episode} of {EPISODES}')
-                # if bGAIVI:
-                #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
+                if bGAIVI:
+                    nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
 
                 env.collision_hist = []
                 # agent.tensorboard.step = episode
