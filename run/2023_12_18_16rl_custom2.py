@@ -547,7 +547,7 @@ with strategy.scope():
                 sequence = list_memory[index - COUNT_FRAME_WINDOW:index]
                 minibatch.append(sequence)
             if bVerbose:
-                print(f'np.asarray(minibatch).size: {np.asarray(minibatch).size}')
+                print(f'np.shape(minibatch): {np.shape(minibatch)}')
 
             # current_states = np.array([transition[0] for transition in minibatch])/255
             # current_states = np.array([transition[0] for transition in minibatch])
