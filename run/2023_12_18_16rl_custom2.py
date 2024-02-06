@@ -476,7 +476,7 @@ with strategy.scope():
             input_layer = Input(shape=input_shape)
 
             base_model = None
-            for i in range(1,4):
+            for i in range(0,4):
                 if i == 0:
                     base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
@@ -991,9 +991,9 @@ if __name__ == "__main__":
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 1000
             if epochs > 0:
-                count_batches_completed = previousEpisode_countBatchesTrained
+                # count_batches_completed = previousEpisode_countBatchesTrained
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
-                count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
+                # count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                 # print(f'Count of batches trained: {agent.count_batches_trained}\tGoal: {count_batches_goal}')
                 for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch"):
                     loss = []
@@ -1001,23 +1001,26 @@ if __name__ == "__main__":
                     thresholdAccuracy = 0.999
                     thresholdLoss = 1e-5
                     strMessage = ''
-                    count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
+                    # count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                     # for batch in tqdm(range(agent.count_batches_trained, count_batches_subgoal), ascii=True, unit="batch"):
                     #     agent.train()
                     #     # if bGAIVI:
                     #     #     print('\n')
                     #     #     nvidia_smi = subprocess.Popen('nvidia-smi', shell=True, preexec_fn=os.setsid)
                     #     count_batches_completed += 1
-                    while count_batches_completed < count_batches_subgoal:
-                        history = agent.train()
-                        loss.append(history['loss'][0])
-                        accuracy.append(history['accuracy'][0])
-                        count_batches_completed += 1
-                        # if loss < thresholdLoss:
-                        # if statistics.mean(accuracy) > thresholdAccuracy:
-                        #     # strMessage += f'Early stop at loss {loss}: {count_batches_completed} of {count_batches_subgoal} batches; '
-                        #     strMessage += f'Early stop at accuracy {accuracy}: {count_batches_completed} of {count_batches_subgoal} batches; '
-                        #     break
+                    # while count_batches_completed < count_batches_subgoal:
+                    #     history = agent.train()
+                    #     loss.append(history['loss'][0])
+                    #     accuracy.append(history['accuracy'][0])
+                    #     count_batches_completed += 1
+                    #     # if loss < thresholdLoss:
+                    #     # if statistics.mean(accuracy) > thresholdAccuracy:
+                    #     #     # strMessage += f'Early stop at loss {loss}: {count_batches_completed} of {count_batches_subgoal} batches; '
+                    #     #     strMessage += f'Early stop at accuracy {accuracy}: {count_batches_completed} of {count_batches_subgoal} batches; '
+                    #     #     break
+                    history = agent.train()
+                    loss.append(history['loss'][0])
+                    accuracy.append(history['accuracy'][0])
                     agent.count_epochs_trained += 1
                     # if loss < thresholdLoss:
                     if statistics.mean(accuracy) > thresholdAccuracy:
