@@ -482,9 +482,9 @@ with strategy.scope():
 
             for i in range(1,4):
                 base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-                # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
                 base_model = TimeDistributed(BatchNormalization())(base_model)
                 base_model = TimeDistributed(Activation('relu'))(base_model)
+            base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
 
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
