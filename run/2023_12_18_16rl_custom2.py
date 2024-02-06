@@ -147,7 +147,7 @@ else:
         # MINIBATCH_SIZE = COUNT_LOCATIONS//16 # failure
 
         # 4 layers, no pooling
-        # MINIBATCH_SIZE = 1
+        MINIBATCH_SIZE = 1
     elif bGPU46:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
