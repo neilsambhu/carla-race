@@ -412,7 +412,8 @@ with strategy.scope():
                 # else:
                 #     reward -= 10
                 return max(reward, -10)
-            reward += getRewardDistance()
+            # reward += getRewardDistance()
+            reward -= distance
 
             # Set 'done' flag to True when ticks exceed the lines in the file
             done = self.idx_tick >= len(lines)
