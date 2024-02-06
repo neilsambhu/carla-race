@@ -402,26 +402,26 @@ with strategy.scope():
                 # reward = 0
                 # reward = -1*distance**3 - distance + 1
                 # reward = -1*distance**3 - distance + 100
-                reward = 1000 - distance 
+                reward = 10 - distance 
                 # if distance < 10:
                 #     reward += 10 - distance
                 # else:
                 #     reward -= 10
-                return reward
-            # reward += getRewardDistance()
+                return max(reward, 0)
+            reward += getRewardDistance()
 
             # Set 'done' flag to True when ticks exceed the lines in the file
             done = self.idx_tick >= len(lines)
             # done = self.idx_tick >= 100
 
-            v = self.vehicle.get_velocity()
-            kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+            # v = self.vehicle.get_velocity()
+            # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
             # if kmh <= 15:
             #     reward += kmh            
             # elif kmh > 15:
             #     reward += 15
-            if kmh > 0:
-                reward += getRewardDistance()
+            # if kmh > 0:
+            #     reward += getRewardDistance()
 
             # if self.episode_start + SECONDS_PER_EPISODE < time.time():
             # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
