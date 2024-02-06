@@ -1024,7 +1024,7 @@ if __name__ == "__main__":
                     agent.count_epochs_trained += 1
                     # if loss < thresholdLoss:
                     if statistics.mean(accuracy) > thresholdAccuracy:
-                        strMessage += f'Early stop at accuracy {statistics.mean(accuracy)}. {epoch} of {epochs} epochs.'
+                        strMessage += f'Early stop at accuracy {statistics.mean(accuracy)} at {epoch} of {epochs} epochs.'
                         print(f'{strMessage}\n')
                         break
                 agent.replay_memory.clear()
