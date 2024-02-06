@@ -533,15 +533,18 @@ with strategy.scope():
                 print(f'len(self.replay_memory): {len(self.replay_memory)}\tintRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
                 time.sleep(10)
                 print(f'len(self.replay_memory): {len(self.replay_memory)}\tintRangeToSample: {intRangeToSample}\tMINIBATCH_SIZE: {MINIBATCH_SIZE}')
-            sampled_indices = random.sample(range(0, intRangeToSample), min(intRangeToSample, MINIBATCH_SIZE))
+            # sampled_indices = random.sample(range(0, intRangeToSample), min(intRangeToSample, MINIBATCH_SIZE))
             # sampled_indices = random.sample(range(0, intRangeToSample), MINIBATCH_SIZE)
             # sampled_indices = random.sample(range(COUNT_FRAME_WINDOW-1, len(self.replay_memory)), min(intRangeToSample, MINIBATCH_SIZE))
             if bVerbose and False:
                 print(f'sampled_indices: {sampled_indices}')
             minibatch = []
             # for index in sampled_indices:
-            for index in range(0,intRangeToSample):
-                sequence = list(self.replay_memory)[index:index + COUNT_FRAME_WINDOW]
+            # for index in range(0,intRangeToSample):
+            list_memory = list(self.replay_memory)
+            for index in range(COUNT_FRAME_WINDOW, intRangeToSample):
+                # sequence = list(self.replay_memory)[index:index + COUNT_FRAME_WINDOW]
+                sequence = list_memory[index - COUNT_FRAME_WINDOW:index]
                 minibatch.append(sequence)
 
             # current_states = np.array([transition[0] for transition in minibatch])/255
