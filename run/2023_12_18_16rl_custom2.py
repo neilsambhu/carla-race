@@ -827,7 +827,7 @@ if __name__ == "__main__":
                 count_action_model = 0
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
                 count_action_random = 0
-                size_action = 1*20
+                max_count_action = 1*20
                 while True:
                     if bSync and False:
                         # print(f'bSync inside episode')
@@ -840,7 +840,7 @@ if __name__ == "__main__":
                         # action = np.argmax(agent.get_qs(current_state))
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         count_action_model += 1
-                        if count_action_model > size_action:
+                        if count_action_model > max_count_action:
                             count_action_model = 0
                         # with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
                         #     lines = file.readlines()
@@ -861,7 +861,7 @@ if __name__ == "__main__":
                         #     brake_action = action % len(action_space['brake'])
                         #     if throttle_action == 0 or brake_action == 0:
                         #         bAction1Valid = True
-                        if count_action_random > size_action:
+                        if count_action_random > max_count_action:
                             action_random = np.random.randint(0, action_size)
                             count_action_random = 0
                         action = action_random
