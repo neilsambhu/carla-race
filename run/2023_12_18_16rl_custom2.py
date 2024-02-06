@@ -493,8 +493,8 @@ with strategy.scope():
 
 
             # Apply LSTM layer
-            x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
-            x = Bidirectional(LSTM(units=64, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
+            x = Bidirectional(LSTM(units=1024, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=1024, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
@@ -639,7 +639,8 @@ with strategy.scope():
                 epochs=epochs,
                 # verbose=0,
                 # verbose=1,
-                verbose='auto',
+                # verbose='auto',
+                verbose=2,
                 shuffle=False,
                 # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
                 callbacks=[callback]
@@ -661,44 +662,7 @@ with strategy.scope():
             return hist.history
 
         def get_qs(self, state):
-            # print(state.shape)
-            # print(np.array(state).shape)
-            # print(type(state))
-            # print(state)
-            # from PIL import Image
-            # im = Image.fromarray(state)
-            # im.save('img.png');import sys;sys.exit()
-            # return self.model.predict(np.array(state).reshape(-1, *state.shape)/255)[0]
-            # print(self.model.predict(np.expand_dims(state, axis=0), verbose=0));import sys;sys.exit()
-            # return self.model.predict(state, verbose=0)[0]
             return self.model.predict(np.expand_dims(state, axis=0), verbose=0)[0]
-
-        def train_in_loop(self):
-            # X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.float32)
-            X = np.random.uniform(size=(1, IM_HEIGHT, IM_WIDTH, 3)).astype(np.uint8)
-            # y = np.random.uniform(size=(1, action_size)).astype(np.float32)
-            y = np.random.uniform(size=(1, action_size)).astype(np.ushort)
-            # Neil commented `with self.graph.as_default():`
-            self.model.fit(X,y, verbose=False, batch_size=1) # Neil left tabbed 1
-
-            self.training_initialized = True
-
-            while True:
-                if self.terminate:
-                    return
-                self.train()
-                if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
-                    time.sleep(1)
-                else:
-                    if self.count_batches_trained == 0:
-                        print('Finished training first epoch.')
-                        if bGAIVI:
-                            nvidia_smi = subprocess.Popen('nvidia-smi', shell=True)
-                            nvidia_smi.wait()
-                            time.sleep(1)
-                    self.count_batches_trained += 1
-                    self.saved_model.set_weights(self.model.get_weights())
-                    self.count_saved_models += 1
 
 if __name__ == "__main__":
     FPS = 60
