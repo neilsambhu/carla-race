@@ -543,10 +543,10 @@ with strategy.scope():
             list_memory = list(self.replay_memory)
             for index in range(0, len(self.replay_memory)):
                 idx_end = index+1
-                idx_start = max(0,idx_end - COUNT_FRAME_WINDOW)
+                idx_start = max(0,index - COUNT_FRAME_WINDOW)
                 sequence = list_memory[idx_start:idx_end]
                 minibatch.append(sequence)
-            if bVerbose:
+            if bVerbose and False:
                 print(f'np.shape(minibatch): {np.shape(minibatch)}')
 
             # current_states = np.array([transition[0] for transition in minibatch])/255
