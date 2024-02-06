@@ -474,7 +474,7 @@ with strategy.scope():
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
-            
+
             base_model = None
             for i in range(1,4):
                 if i == 0:
@@ -538,7 +538,8 @@ with strategy.scope():
             if bVerbose and False:
                 print(f'sampled_indices: {sampled_indices}')
             minibatch = []
-            for index in sampled_indices:
+            # for index in sampled_indices:
+            for index in range(0,intRangeToSample):
                 sequence = list(self.replay_memory)[index:index + COUNT_FRAME_WINDOW]
                 minibatch.append(sequence)
 
@@ -636,10 +637,11 @@ with strategy.scope():
                 np.array(x),
                 np.array(y),
                 batch_size=TRAINING_BATCH_SIZE,
-                verbose=0,
+                # verbose=0,
+                verbose=1,
                 shuffle=False,
                 # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
-                # callbacks=[callback]
+                callbacks=[callback]
             )
 
             if log_this_step:
