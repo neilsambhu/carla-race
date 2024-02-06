@@ -539,12 +539,13 @@ with strategy.scope():
             if bVerbose and False:
                 print(f'sampled_indices: {sampled_indices}')
             minibatch = []
-            # for index in sampled_indices:
-            # for index in range(0,intRangeToSample):
+            size_window = min(len(self.replay_memory), COUNT_FRAME_WINDOW)
+            intRangeToSample = max(len(self.replay_memory))
             list_memory = list(self.replay_memory)
-            for index in range(COUNT_FRAME_WINDOW, intRangeToSample):
-                # sequence = list(self.replay_memory)[index:index + COUNT_FRAME_WINDOW]
-                sequence = list_memory[index - COUNT_FRAME_WINDOW:index]
+            for index in range(0, len(self.replay_memory)):
+                idx_end = index+1
+                idx_start = max(0,idx_end - COUNT_FRAME_WINDOW)
+                sequence = list_memory[idx_start:idx_end]
                 minibatch.append(sequence)
             if bVerbose:
                 print(f'np.shape(minibatch): {np.shape(minibatch)}')
