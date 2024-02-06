@@ -398,13 +398,17 @@ with strategy.scope():
             # You might want to define a threshold and reward scheme based on the distance
             # For example, if distance < threshold: reward = some_value
             # Modify the reward calculation based on your requirements
-            # reward = -1*distance**3 - distance + 1
-            # reward = -1*distance**3 - distance + 100
-            # reward = 100 - distance 
-            if distance < 10:
-                reward += 10 - distance
-            else:
-                reward -= 10
+            def getRewardDistance():
+                # reward = 0
+                # reward = -1*distance**3 - distance + 1
+                # reward = -1*distance**3 - distance + 100
+                reward = 100 - distance 
+                # if distance < 10:
+                #     reward += 10 - distance
+                # else:
+                #     reward -= 10
+                return reward
+            # reward += getRewardDistance()
 
             # Set 'done' flag to True when ticks exceed the lines in the file
             done = self.idx_tick >= len(lines)
@@ -416,6 +420,8 @@ with strategy.scope():
             #     reward += kmh            
             # elif kmh > 15:
             #     reward += 15
+            if kmh > 0:
+                reward += getRewardDistance()
 
             # if self.episode_start + SECONDS_PER_EPISODE < time.time():
             # if self.episode_start + SECONDS_PER_EPISODE < self.world.get_snapshot().timestamp.elapsed_seconds:
