@@ -730,7 +730,10 @@ def game_loop(args):
         if args.sync:
             settings = sim_world.get_settings()
             settings.synchronous_mode = True
-            settings.fixed_delta_seconds = 0.05
+            # settings.fixed_delta_seconds = 0.05 # 2/6/2024 2:26 PM: Neil commented out
+            # settings.fixed_delta_seconds = 0.50 # 2/6/2024 2:29 PM: not enough granularity
+            settings.fixed_delta_seconds = 0.01 
+            settings.fixed_delta_seconds = 0.005 
             sim_world.apply_settings(settings)
 
             traffic_manager.set_synchronous_mode(True)
@@ -749,8 +752,8 @@ def game_loop(args):
             # agent = BasicAgent(world.player, 120, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 7:56 PM: Neil added
             # agent = BasicAgent(world.player, 240, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:07 PM: Neil added # crash
             # agent = BasicAgent(world.player, 180, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:07 PM: Neil added #crash
-            # agent = BasicAgent(world.player, 150, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:10 PM: Neil added # crash
-            agent = BasicAgent(world.player, 135, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:13 PM: Neil added # crash
+            agent = BasicAgent(world.player, 150, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:10 PM: Neil added # crash at 20 FPS and 100 FPS
+            # agent = BasicAgent(world.player, 135, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:13 PM: Neil added # highest 20 FPS speed
             # agent = BasicAgent(world.player, 15) # 1/8/2024 11:19 PM: Neil added
             # 11/11/2023 7:12 PM: Neil custom call to BasicAgent: start
             # agent = BasicAgent(world.player, 30, {'target_speed'})
