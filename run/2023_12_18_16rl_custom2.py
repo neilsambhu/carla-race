@@ -402,7 +402,7 @@ with strategy.scope():
                 # reward = 0
                 # reward = -1*distance**3 - distance + 1
                 # reward = -1*distance**3 - distance + 100
-                reward = 100 - distance 
+                reward = 1000 - distance 
                 # if distance < 10:
                 #     reward += 10 - distance
                 # else:
@@ -659,7 +659,6 @@ with strategy.scope():
             if self.count_batches_trained == 0:
                 print('Finished training first batch.')
             self.count_batches_trained += 1
-            time.sleep(0.01)
             self.saved_model.set_weights(self.model.get_weights())
             self.count_saved_models += 1
 
