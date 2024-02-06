@@ -1019,11 +1019,14 @@ if __name__ == "__main__":
                         history = agent.train()
                         loss, accuracy = history['loss'][0], history['accuracy'][0]
                         count_batches_completed += 1
-                        if loss < thresholdLoss:
-                            strMessage += f'Early stop at loss {loss}: {count_batches_completed} of {count_batches_subgoal} batches; '
+                        # if loss < thresholdLoss:
+                        if accuracy > thresholdAccuracy:
+                            # strMessage += f'Early stop at loss {loss}: {count_batches_completed} of {count_batches_subgoal} batches; '
+                            strMessage += f'Early stop at accuracy {accuracy}: {count_batches_completed} of {count_batches_subgoal} batches; '
                             break
                     agent.count_epochs_trained += 1
-                    if loss < thresholdLoss:
+                    # if loss < thresholdLoss:
+                    if accuracy > thresholdAccuracy:
                         strMessage += f'{epoch} of {epochs} epochs.'
                         print(f'{strMessage}\n')
                         break
