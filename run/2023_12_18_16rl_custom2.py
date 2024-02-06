@@ -473,24 +473,15 @@ with strategy.scope():
 
             # Apply TimeDistributed to the entire base model
             base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
-            base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
+            # base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
             base_model = TimeDistributed(BatchNormalization())(base_model)
             base_model = TimeDistributed(Activation('relu'))(base_model)
 
-            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            base_model = TimeDistributed(BatchNormalization())(base_model)
-            base_model = TimeDistributed(Activation('relu'))(base_model)
-
-            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            base_model = TimeDistributed(BatchNormalization())(base_model)
-            base_model = TimeDistributed(Activation('relu'))(base_model)
-
-            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-            base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
-            base_model = TimeDistributed(BatchNormalization())(base_model)
-            base_model = TimeDistributed(Activation('relu'))(base_model)
+            for i in range(1,8):
+                base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+                # base_model = TimeDistributed(MaxPooling2D(pool_size=(2, 2)))(base_model)
+                base_model = TimeDistributed(BatchNormalization())(base_model)
+                base_model = TimeDistributed(Activation('relu'))(base_model)
 
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
