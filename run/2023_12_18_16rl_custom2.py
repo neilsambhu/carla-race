@@ -540,7 +540,6 @@ with strategy.scope():
                 print(f'sampled_indices: {sampled_indices}')
             minibatch = []
             size_window = min(len(self.replay_memory), COUNT_FRAME_WINDOW)
-            intRangeToSample = max(len(self.replay_memory))
             list_memory = list(self.replay_memory)
             for index in range(0, len(self.replay_memory)):
                 idx_end = index+1
