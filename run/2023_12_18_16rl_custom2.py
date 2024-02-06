@@ -21,6 +21,7 @@ import tensorflow.keras.backend as backend # Neil modified `import keras.backend
 from tqdm import tqdm
 import pickle
 import subprocess
+import statistics
 
 try:
     sys.path.append(glob.glob('../carla/dist/carla-*%d.%d-%s.egg' % (
@@ -146,7 +147,7 @@ else:
         # MINIBATCH_SIZE = COUNT_LOCATIONS//16 # failure
 
         # 4 layers, no pooling
-        MINIBATCH_SIZE = 1
+        # MINIBATCH_SIZE = 1
     elif bGPU46:
         MINIBATCH_SIZE = 1500 # 5 minutes per epoch
     elif bGPU47:
@@ -473,18 +474,16 @@ with strategy.scope():
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
-
-            # Apply TimeDistributed to the entire base model
-            base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
-            # base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
-            base_model = TimeDistributed(BatchNormalization())(base_model)
-            base_model = TimeDistributed(Activation('relu'))(base_model)
-
+            
+            base_model = None
             for i in range(1,4):
-                base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+                if i == 0:
+                    base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
+                else:
+                    base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+                base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
                 base_model = TimeDistributed(BatchNormalization())(base_model)
                 base_model = TimeDistributed(Activation('relu'))(base_model)
-            base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
 
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
@@ -493,8 +492,8 @@ with strategy.scope():
 
 
             # Apply LSTM layer
-            x = Bidirectional(LSTM(units=1024, return_sequences=True))(x)
-            x = Bidirectional(LSTM(units=1024, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
+            x = Bidirectional(LSTM(units=64, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=64, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
@@ -994,14 +993,13 @@ if __name__ == "__main__":
                 print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
                 count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
                 # print(f'Count of batches trained: {agent.count_batches_trained}\tGoal: {count_batches_goal}')
-                loss = None
-                accuracy = None
-                thresholdAccuracy = 0.999
-                thresholdLoss = 1e-5
-                strMessage = ''
                 for epoch in tqdm(range(1, epochs+1), ascii=True, unit="epoch"):
+                    loss = []
+                    accuracy = []
+                    thresholdAccuracy = 0.999
+                    thresholdLoss = 1e-5
+                    strMessage = ''
                     count_batches_subgoal = count_batches_completed+REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
-
                     # for batch in tqdm(range(agent.count_batches_trained, count_batches_subgoal), ascii=True, unit="batch"):
                     #     agent.train()
                     #     # if bGAIVI:
@@ -1010,17 +1008,18 @@ if __name__ == "__main__":
                     #     count_batches_completed += 1
                     while count_batches_completed < count_batches_subgoal:
                         history = agent.train()
-                        loss, accuracy = history['loss'][0], history['accuracy'][0]
+                        loss.append(history['loss'][0])
+                        accuracy.append(history['accuracy'][0])
                         count_batches_completed += 1
                         # if loss < thresholdLoss:
-                        if accuracy > thresholdAccuracy:
-                            # strMessage += f'Early stop at loss {loss}: {count_batches_completed} of {count_batches_subgoal} batches; '
-                            strMessage += f'Early stop at accuracy {accuracy}: {count_batches_completed} of {count_batches_subgoal} batches; '
-                            break
+                        # if statistics.mean(accuracy) > thresholdAccuracy:
+                        #     # strMessage += f'Early stop at loss {loss}: {count_batches_completed} of {count_batches_subgoal} batches; '
+                        #     strMessage += f'Early stop at accuracy {accuracy}: {count_batches_completed} of {count_batches_subgoal} batches; '
+                        #     break
                     agent.count_epochs_trained += 1
                     # if loss < thresholdLoss:
-                    if accuracy > thresholdAccuracy:
-                        strMessage += f'{epoch} of {epochs} epochs.'
+                    if statistics.mean(accuracy) > thresholdAccuracy:
+                        strMessage += f'Early stop at accuracy {statistics.mean(accuracy)}. {epoch} of {epochs} epochs.'
                         print(f'{strMessage}\n')
                         break
                 agent.replay_memory.clear()
