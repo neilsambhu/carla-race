@@ -638,7 +638,8 @@ with strategy.scope():
                 batch_size=TRAINING_BATCH_SIZE,
                 epochs=epochs,
                 # verbose=0,
-                verbose=1,
+                # verbose=1,
+                verbose='auto',
                 shuffle=False,
                 # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
                 callbacks=[callback]
