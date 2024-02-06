@@ -641,7 +641,7 @@ with strategy.scope():
                 verbose=1,
                 shuffle=False,
                 # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
-                callbacks=[callback]
+                # callbacks=[callback]
             )
 
             if log_this_step:
