@@ -684,8 +684,8 @@ if __name__ == "__main__":
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
-    bLoadReplayMemory = False
-    episodeToRecover = '0008'
+    bLoadReplayMemory = True
+    episodeToRecover = '0028'
     if bLoadReplayMemory:        
         with open(f'bak/{episodeToRecover}.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)
@@ -693,7 +693,7 @@ if __name__ == "__main__":
         idx_action1 = 2530+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
         epsilon = max(MIN_EPSILON, epsilon)
-    bLoadModel = False
+    bLoadModel = True
     if bLoadModel:
         agent.model = tf.keras.models.load_model(glob.glob(f'bak/{episodeToRecover}.*.model')[0])
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
@@ -798,6 +798,18 @@ if __name__ == "__main__":
                     # if False:
                         # action = np.argmax(agent.get_qs(current_state))
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
+                        def print_action:
+                            brake_throttle_index, steer_index = np.unravel_index(action, (len(action_space['brake_throttle']), len(action_space['steer'])))
+                            selected_brake_throttle = action_space['brake_throttle'][brake_throttle_index]
+                            selected_steer = action_space['steer'][steer_index]
+                            throttle_value, steer_value, brake_value = selected_brake_throttle, selected_steer, selected_brake_throttle
+                            if selected_brake_throttle < 0:
+                                throttle_value = 0.0
+                                brake_value = -1*selected_brake_throttle
+                            if selected_brake_throttle > 0:
+                                brake_value = 0.0
+                            print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+                        print_action(action)
                         count_action_model += 1
                         if count_action_model > max_count_action:
                             count_action_model = 0
