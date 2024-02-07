@@ -197,7 +197,8 @@ bGPU = True
 # Define action space
 # action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=3),
 action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=21),
-                'steer': np.linspace(-1.0, 1.0, num=3)}
+                # 'steer': np.linspace(-1.0, 1.0, num=3)}
+                'steer': np.linspace(-1.0, 1.0, num=11)}
 # print(action_space);import sys;sys.exit()
 # action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 action_size = len(action_space['brake_throttle'])*len(action_space['steer'])
@@ -628,7 +629,7 @@ with strategy.scope():
 
             log_this_step = False
 
-            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.01, verbose=1, start_from_epoch=1)
+            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=10, verbose=1, start_from_epoch=0)
             # callback = tf.keras.callbacks.EarlyStopping(monitor='accuracy', baseline=1.0)
             hist = self.model.fit(
                 np.array(x),
