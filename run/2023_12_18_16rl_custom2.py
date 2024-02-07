@@ -798,7 +798,7 @@ if __name__ == "__main__":
                     # if False:
                         # action = np.argmax(agent.get_qs(current_state))
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
-                        def print_action:
+                        def print_action(action):
                             brake_throttle_index, steer_index = np.unravel_index(action, (len(action_space['brake_throttle']), len(action_space['steer'])))
                             selected_brake_throttle = action_space['brake_throttle'][brake_throttle_index]
                             selected_steer = action_space['steer'][steer_index]
