@@ -196,9 +196,10 @@ bGPU = True
 
 # Define action space
 # action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=3),
-action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=21),
+# action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=21),
+action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=2),
                 # 'steer': np.linspace(-1.0, 1.0, num=3)}
-                'steer': np.linspace(-1.0, 1.0, num=11)}
+                'steer': np.linspace(-1.0, 1.0, num=201)}
 # print(action_space);import sys;sys.exit()
 # action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 action_size = len(action_space['brake_throttle'])*len(action_space['steer'])
@@ -476,9 +477,9 @@ with strategy.scope():
                     base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
                     base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+                base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
                 base_model = TimeDistributed(BatchNormalization())(base_model)
                 base_model = TimeDistributed(Activation('relu'))(base_model)
-            base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
 
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
@@ -487,8 +488,8 @@ with strategy.scope():
 
 
             # Apply LSTM layer
-            x = Bidirectional(LSTM(units=1024, return_sequences=True))(x)
-            x = Bidirectional(LSTM(units=1024, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
+            x = Bidirectional(LSTM(units=16, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=16, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
@@ -693,7 +694,7 @@ if __name__ == "__main__":
         idx_action1 = 2530+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
         epsilon = max(MIN_EPSILON, epsilon)
-    bLoadModel = True
+    bLoadModel = False
     if bLoadModel:
         agent.model = tf.keras.models.load_model(glob.glob(f'bak/{episodeToRecover}.*.model')[0])
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
@@ -729,12 +730,6 @@ if __name__ == "__main__":
         idx_episode_start = idx_episode_crashed
 
     env = CarEnv()
-
-    # trainer_thread = Thread(target=agent.train_in_loop, daemon=True)
-    # trainer_thread.start()
-
-    # while not agent.training_initialized:
-    #     time.sleep(0.01)
 
     bTrainingComplete = False
     previousEpisode_countBatchesTrained = agent.count_batches_trained
