@@ -842,4 +842,5 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 1/31/2024 3:03 AM: 5 GPUs across GPU43 and GPU45 have 1 hour per epoch.  
 1/31/2024 4:19 AM: trying to cache the batch size doesn't work for speedup.  
 2/6/2024 12:29 AM: TODO: make training take full dataset instead of sampling.  
-2/7/2024 3:38 AM: TODO: feed in ground-truth data
+2/7/2024 3:38 AM: TODO: feed in ground-truth data  
+2/7/2024 11:38 AM: TODO: make changes to random actions adjacent values  

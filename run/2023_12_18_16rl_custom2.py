@@ -781,7 +781,7 @@ if __name__ == "__main__":
                 count_action_model = 0
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
                 count_action_random = 0
-                max_count_action = 1*20
+                max_count_action = int(1/4*20)
                 while True:
                     if bSync and False:
                         # print(f'bSync inside episode')
