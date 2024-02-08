@@ -827,7 +827,7 @@ if __name__ == "__main__":
                         #     brake_action = action % len(action_space['brake'])
                         #     if throttle_action == 0 or brake_action == 0:
                         #         bAction1Valid = True
-                        if count_action_random > max_count_action:
+                        if count_action_random >= max_count_action:
                             action_random = np.random.randint(0, action_size)
                             count_action_random = 0
                         action = action_random
