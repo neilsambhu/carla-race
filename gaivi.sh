@@ -23,6 +23,7 @@
 ##SBATCH --mail-type=BEGIN,END,FAIL,REQUEUE # events for notifications
 ##SBATCH --mail-type=END,FAIL,REQUEUE # events for notifications
 
+#SBATCH -w GPU12
 ##SBATCH -w GPU13
 ##SBATCH -w GPU43
 ##SBATCH -w GPU45
