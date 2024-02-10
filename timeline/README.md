@@ -844,3 +844,4 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 2/6/2024 12:29 AM: TODO: make training take full dataset instead of sampling.  
 2/7/2024 3:38 AM: TODO: feed in ground-truth data  
 2/7/2024 11:38 AM: TODO: make changes to random actions adjacent values  
+2/10/2024 2:24 AM: TODO: start from larger to smaller error tolerance. Current tolerance: -1.  
