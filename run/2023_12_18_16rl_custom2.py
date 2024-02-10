@@ -799,14 +799,14 @@ if __name__ == "__main__":
                             brake_value = -1*selected_brake_throttle
                         if selected_brake_throttle > 0:
                             brake_value = 0.0
-                        print(f'source: {src}\ttick: {env.idx_tick}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+                        print(f'source: {src}\ttick: {env.idx_tick:04d}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
                     # if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
                     # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                     # if False:
                     if env.idx_tick < FRAMES_PER_EPISODE:
                         # action = np.argmax(agent.get_qs(current_state))
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
-                        print_action('model', action)
+                        # print_action('model', action)
                         # count_action_model += 1
                         # if count_action_model > max_count_action:
                         #     count_action_model = 0
@@ -836,7 +836,7 @@ if __name__ == "__main__":
                         # count_action_random += 1
                         # action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         action = np.random.randint(0, action_size)
-                        print_action('random', action)
+                        # print_action('random', action)
                         if not bSync:
                             time.sleep(1/FPS)
                     # if idx_action1 < action_size:
@@ -945,7 +945,7 @@ if __name__ == "__main__":
                 print(f'Finished episode {episode} of {EPISODES}')
                 reward_per_frame = episode_reward/count_frames_completed
                 print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\treward/frames: {reward_per_frame}')
-                if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > -1:
+                if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > -0.1:
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
                         quit()
                     FRAMES_PER_EPISODE += 1
