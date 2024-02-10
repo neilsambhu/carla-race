@@ -174,13 +174,15 @@ MIN_REWARD = -200
 # EPISODES = 100
 # EPISODES = 5
 # EPISODES = 1000
-EPISODES = 10_000
+# EPISODES = 10_000
+EPISODES = int(1e10)
 
 DISCOUNT = 0.99
 epsilon_base = 1.0
 epsilon = 1.0
 # EPSILON_DECAY = 0.95
-EPSILON_DECAY = 0.999
+# EPSILON_DECAY = 0.999
+EPSILON_DECAY = 0.5
 MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
@@ -469,6 +471,7 @@ with strategy.scope():
             # count_filters = 1 # 2/4/2024 2:47 AM: 73 seconds per epoch
             count_filters = 28
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
+            count_lstmNodes = 1024
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
@@ -490,8 +493,9 @@ with strategy.scope():
 
 
             # Apply LSTM layer
-            x = Bidirectional(LSTM(units=16, return_sequences=True))(x)
-            x = Bidirectional(LSTM(units=16, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
+
+            x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
             # x = LSTM(units=1024)(x) # 3.5 minutes per epoch
             # x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
@@ -939,6 +943,8 @@ if __name__ == "__main__":
                 reward_per_frame = episode_reward/count_frames_completed
                 print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\treward/frames: {reward_per_frame}')
                 if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > -1:
+                    if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
+                        quit()
                     FRAMES_PER_EPISODE += 1
                     epsilon = 1.0
                 # # fill agent.replay_memory
