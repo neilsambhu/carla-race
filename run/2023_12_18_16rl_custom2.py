@@ -183,8 +183,8 @@ DISCOUNT = 0.99
 epsilon_base = 1.0
 epsilon = 1.0
 # EPSILON_DECAY = 0.95
-EPSILON_DECAY = 0.999
-# EPSILON_DECAY = 0.5
+# EPSILON_DECAY = 0.999
+EPSILON_DECAY = 0.5
 MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
@@ -201,10 +201,10 @@ bGPU = True
 
 # Define action space
 # action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=3),
-action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=21),
-# action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=2),
-#                 'steer': np.linspace(-1.0, 1.0, num=3)}
-                'steer': np.linspace(-1.0, 1.0, num=21)}
+# action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=21),
+action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=2),
+                'steer': np.linspace(-1.0, 1.0, num=3)}
+                # 'steer': np.linspace(-1.0, 1.0, num=21)}
                 # 'steer': np.linspace(-1.0, 1.0, num=201)}
 # print(action_space);import sys;sys.exit()
 # action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
