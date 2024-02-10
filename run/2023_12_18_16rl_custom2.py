@@ -953,8 +953,8 @@ if __name__ == "__main__":
                     FRAMES_PER_EPISODE += 1
                     FRAMES_TO_REDO = 0
                     epsilon = 1.0
-                else:
-                    FRAMES_TO_REDO += 1
+                # else:
+                #     FRAMES_TO_REDO += 1
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
