@@ -62,8 +62,8 @@ MIN_REPLAY_MEMORY_SIZE = COUNT_LOCATIONS
 # REPLAY_MEMORY_SIZE = 5*COUNT_LOCATIONS
 # REPLAY_MEMORY_SIZE = 50_000
 # REPLAY_MEMORY_SIZE = COUNT_LOCATIONS
-COUNT_FRAME_WINDOW = 10*20
-# COUNT_FRAME_WINDOW = 5
+# COUNT_FRAME_WINDOW = 10*20
+COUNT_FRAME_WINDOW = 5
 REPLAY_MEMORY_SIZE = COUNT_LOCATIONS + COUNT_FRAME_WINDOW - 1
 MINIBATCH_SIZE = None
 if bSAMBHU24:
@@ -412,7 +412,8 @@ with strategy.scope():
 
             # Set 'done' flag to True when ticks exceed the lines in the file
             # done = self.idx_tick >= len(lines)
-            done = self.idx_tick >= 100
+            # done = self.idx_tick >= 100
+            done = self.idx_tick >= 10
 
             # v = self.vehicle.get_velocity()
             # kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
