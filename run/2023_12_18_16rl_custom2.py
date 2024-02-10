@@ -937,7 +937,7 @@ if __name__ == "__main__":
                 
                 print(f'Finished episode {episode} of {EPISODES}')
                 reward_per_frame = episode_reward/count_frames_completed
-                print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}\treward/frames: {reward_per_frame}')
+                print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\treward/frames: {reward_per_frame}')
                 if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > -1:
                     FRAMES_PER_EPISODE += 1
                     epsilon = 1.0
