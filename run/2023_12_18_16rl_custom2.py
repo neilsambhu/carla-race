@@ -789,27 +789,27 @@ if __name__ == "__main__":
                 max_count_action = 1
                 while True:
                     action = None
-                    if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
+                    def print_action(src, action):
+                        brake_throttle_index, steer_index = np.unravel_index(action, (len(action_space['brake_throttle']), len(action_space['steer'])))
+                        selected_brake_throttle = action_space['brake_throttle'][brake_throttle_index]
+                        selected_steer = action_space['steer'][steer_index]
+                        throttle_value, steer_value, brake_value = selected_brake_throttle, selected_steer, selected_brake_throttle
+                        if selected_brake_throttle < 0:
+                            throttle_value = 0.0
+                            brake_value = -1*selected_brake_throttle
+                        if selected_brake_throttle > 0:
+                            brake_value = 0.0
+                        print(f'source: {src}\taction: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+                    # if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
                     # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                     # if False:
-                    # if env.
+                    if env.idx_tick < FRAMES_PER_EPISODE:
                         # action = np.argmax(agent.get_qs(current_state))
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
-                        def print_action(action):
-                            brake_throttle_index, steer_index = np.unravel_index(action, (len(action_space['brake_throttle']), len(action_space['steer'])))
-                            selected_brake_throttle = action_space['brake_throttle'][brake_throttle_index]
-                            selected_steer = action_space['steer'][steer_index]
-                            throttle_value, steer_value, brake_value = selected_brake_throttle, selected_steer, selected_brake_throttle
-                            if selected_brake_throttle < 0:
-                                throttle_value = 0.0
-                                brake_value = -1*selected_brake_throttle
-                            if selected_brake_throttle > 0:
-                                brake_value = 0.0
-                            print(f'action: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
-                        print_action(action)
-                        count_action_model += 1
-                        if count_action_model > max_count_action:
-                            count_action_model = 0
+                        print_action('model', action)
+                        # count_action_model += 1
+                        # if count_action_model > max_count_action:
+                        #     count_action_model = 0
                         # with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
                         #     lines = file.readlines()
                         #     throttle,steer,brake = lines[idx_control].split()
@@ -829,12 +829,14 @@ if __name__ == "__main__":
                         #     brake_action = action % len(action_space['brake'])
                         #     if throttle_action == 0 or brake_action == 0:
                         #         bAction1Valid = True
-                        if count_action_random >= max_count_action:
-                            action_random = np.random.randint(0, action_size)
-                            count_action_random = 0
-                        action = action_random
-                        count_action_random += 1
+                        # if count_action_random >= max_count_action:
+                        #     action_random = np.random.randint(0, action_size)
+                        #     count_action_random = 0
+                        # action = action_random
+                        # count_action_random += 1
                         # action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
+                        action = np.random.randint(0, action_size)
+                        print_action('random', action)
                         if not bSync:
                             time.sleep(1/FPS)
                     # if idx_action1 < action_size:
