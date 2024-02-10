@@ -52,6 +52,8 @@ IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
 FRAMES_PER_EPISODE = 10
+MAX_GPS_ERROR = -0.1
+FRAMES_TO_REDO = 0
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
 # MIN_REPLAY_MEMORY_SIZE = int(1.5*SECONDS_PER_EPISODE*20) # 12/24/2023 6:37 AM: Neil commented out
@@ -803,10 +805,10 @@ if __name__ == "__main__":
                     # if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
                     # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                     # if False:
-                    if env.idx_tick < FRAMES_PER_EPISODE:
+                    if env.idx_tick < FRAMES_PER_EPISODE - FRAMES_TO_REDO:
                         # action = np.argmax(agent.get_qs(current_state))
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
-                        # print_action('model', action)
+                        print_action('model', action)
                         # count_action_model += 1
                         # if count_action_model > max_count_action:
                         #     count_action_model = 0
@@ -836,7 +838,7 @@ if __name__ == "__main__":
                         # count_action_random += 1
                         # action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         action = np.random.randint(0, action_size)
-                        # print_action('random', action)
+                        print_action('random', action)
                         if not bSync:
                             time.sleep(1/FPS)
                     # if idx_action1 < action_size:
@@ -945,11 +947,13 @@ if __name__ == "__main__":
                 print(f'Finished episode {episode} of {EPISODES}')
                 reward_per_frame = episode_reward/count_frames_completed
                 print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\treward/frames: {reward_per_frame}')
-                if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > -0.1:
+                if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > MAX_GPS_ERROR:
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
                         quit()
                     FRAMES_PER_EPISODE += 1
                     epsilon = 1.0
+                else:
+                    FRAMES_TO_REDO += 1
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
