@@ -799,7 +799,7 @@ if __name__ == "__main__":
                             brake_value = -1*selected_brake_throttle
                         if selected_brake_throttle > 0:
                             brake_value = 0.0
-                        print(f'source: {src}\taction: {action}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+                        print(f'source: {src}\ttick: {env.idx_tick}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
                     # if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
                     # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                     # if False:
