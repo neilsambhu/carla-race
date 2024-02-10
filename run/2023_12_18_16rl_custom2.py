@@ -51,6 +51,7 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
+FRAMES_PER_EPISODE = 10
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
 # MIN_REPLAY_MEMORY_SIZE = int(1.5*SECONDS_PER_EPISODE*20) # 12/24/2023 6:37 AM: Neil commented out
@@ -262,7 +263,7 @@ with strategy.scope():
         def reset(self):
             self.collision_hist = []
             self.actor_list = []
-            self.idx_tick = -1
+            self.idx_tick = -2
             self.pathImage = ''
             self.queueImagesWritten = queue.Queue()
 
@@ -941,7 +942,11 @@ if __name__ == "__main__":
                     bTrainingComplete = True
                 
                 print(f'Finished episode {episode} of {EPISODES}')
-                print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}\treward/frames: {episode_reward/count_frames_completed}')
+                reward_per_frame = episode_reward/count_frames_completed
+                print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}\treward/frames: {reward_per_frame}')
+                if reward_per_frame < 0.1:
+                    FRAMES_PER_EPISODE += 1
+                    epsilon = 1.0
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
