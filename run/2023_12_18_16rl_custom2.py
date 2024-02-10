@@ -802,7 +802,7 @@ if __name__ == "__main__":
                             brake_value = -1*selected_brake_throttle
                         if selected_brake_throttle > 0:
                             brake_value = 0.0
-                        print(f'source: {src}\ttick: {env.idx_tick:04d}\tthrottle: {throttle_value}\tsteer: {steer_value}\tbrake: {brake_value}')
+                        print(f'source: {src}\ttick: {env.idx_tick:04d}\tthrottle: {throttle_value:.2f}\tsteer: {steer_value:.2f}\tbrake: {brake_value:.2f}')
                     # if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
                     # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                     # if False:
@@ -952,10 +952,10 @@ if __name__ == "__main__":
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
                         quit()
                     FRAMES_PER_EPISODE += 1
-                    FRAMES_TO_REDO
+                    FRAMES_TO_REDO = 0
                     epsilon = 1.0
-                else:
-                    FRAMES_TO_REDO += 1
+                # else:
+                #     FRAMES_TO_REDO += 1
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
