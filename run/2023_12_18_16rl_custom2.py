@@ -273,7 +273,7 @@ with strategy.scope():
             self.transform = self.world.get_map().get_spawn_points()[0]
             self.vehicle = self.world.spawn_actor(self.model_3, self.transform)
             self.actor_list.append(self.vehicle)
-            if bSync and False:
+            if bSync:
                 # print('bSync reset: spawn actor')
                 self.world.tick()
                 self.idx_tick += 1
