@@ -805,10 +805,10 @@ if __name__ == "__main__":
                         if selected_brake_throttle > 0:
                             brake_value = 0.0
                         print(f'source: {src}\ttick: {env.idx_tick:04d}\tthrottle: {throttle_value:.2f}\tsteer: {steer_value:.2f}\tbrake: {brake_value:.2f}')
-                    # if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
+                    if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
                     # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                     # if False:
-                    if env.idx_tick < FRAMES_PER_EPISODE - FRAMES_TO_REDO:
+                    # if env.idx_tick < FRAMES_PER_EPISODE - FRAMES_TO_REDO:
                         # action = np.argmax(agent.get_qs(current_state))
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         print_action('model', action)
