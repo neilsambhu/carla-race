@@ -181,8 +181,8 @@ DISCOUNT = 0.99
 epsilon_base = 1.0
 epsilon = 1.0
 # EPSILON_DECAY = 0.95
-# EPSILON_DECAY = 0.999
-EPSILON_DECAY = 0.5
+EPSILON_DECAY = 0.999
+# EPSILON_DECAY = 0.5
 MIN_EPSILON = 0.001
 
 AGGREGATE_STATS_EVERY = 10
@@ -273,7 +273,7 @@ with strategy.scope():
             self.transform = self.world.get_map().get_spawn_points()[0]
             self.vehicle = self.world.spawn_actor(self.model_3, self.transform)
             self.actor_list.append(self.vehicle)
-            if bSync:
+            if bSync and False:
                 # print('bSync reset: spawn actor')
                 self.world.tick()
                 self.idx_tick += 1
@@ -792,6 +792,7 @@ if __name__ == "__main__":
                     if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
                     # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
                     # if False:
+                    # if env.
                         # action = np.argmax(agent.get_qs(current_state))
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         def print_action(action):
