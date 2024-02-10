@@ -969,7 +969,7 @@ if __name__ == "__main__":
             with open(f'tmp/{env.episode:04}.replay_memory', 'wb') as file:
                 pickle.dump(agent.replay_memory, file)
             epochs = None
-            print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
+            # print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
             if len(agent.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
                 epochs = 0
             # if idx_action1 < action_size:
