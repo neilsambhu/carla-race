@@ -52,7 +52,7 @@ IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
 FRAMES_PER_EPISODE = 10
-MAX_GPS_ERROR = -0.5
+MAX_GPS_ERROR = -0.1
 FRAMES_TO_REDO = 0
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
@@ -65,8 +65,8 @@ MIN_REPLAY_MEMORY_SIZE = COUNT_LOCATIONS
 # REPLAY_MEMORY_SIZE = 5*COUNT_LOCATIONS
 # REPLAY_MEMORY_SIZE = 50_000
 # REPLAY_MEMORY_SIZE = COUNT_LOCATIONS
-COUNT_FRAME_WINDOW = 10*20
-# COUNT_FRAME_WINDOW = 5
+# COUNT_FRAME_WINDOW = 10*20
+COUNT_FRAME_WINDOW = 5
 REPLAY_MEMORY_SIZE = COUNT_LOCATIONS + COUNT_FRAME_WINDOW - 1
 MINIBATCH_SIZE = None
 if bSAMBHU24:
@@ -201,9 +201,10 @@ bGPU = True
 
 # Define action space
 # action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=3),
-# action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=21),
-action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=2),
-                'steer': np.linspace(-1.0, 1.0, num=3)}
+action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=21),
+# action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=2),
+#                 'steer': np.linspace(-1.0, 1.0, num=3)}
+                'steer': np.linspace(-1.0, 1.0, num=21)}
                 # 'steer': np.linspace(-1.0, 1.0, num=201)}
 # print(action_space);import sys;sys.exit()
 # action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
@@ -951,10 +952,10 @@ if __name__ == "__main__":
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
                         quit()
                     FRAMES_PER_EPISODE += 1
-                    FRAMES_TO_REDO = 0
+                    FRAMES_TO_REDO
                     epsilon = 1.0
-                # else:
-                #     FRAMES_TO_REDO += 1
+                else:
+                    FRAMES_TO_REDO += 1
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
