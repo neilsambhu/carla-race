@@ -675,8 +675,9 @@ with strategy.scope():
 
 if __name__ == "__main__":
     FPS = 60
-    ep_rewards = [-200]
+    # ep_rewards = [-200]
     # ep_rewards = [-0.0001]
+    ep_rewards = []
 
     random.seed(1)
     np.random.seed(1)
@@ -771,6 +772,7 @@ if __name__ == "__main__":
                 # agent.tensorboard.step = episode
                 env.episode = episode
                 episode_reward = 0
+                list_rewardPerFrame = []
                 # step = 1
                 current_state = env.reset()
                 window_current_state = deque(maxlen=COUNT_FRAME_WINDOW)
@@ -898,6 +900,7 @@ if __name__ == "__main__":
                     new_state, reward, done, _ = env.step(action)            
                     count_frames_completed += 1
                     episode_reward += reward
+                    list_rewardPerFrame.append(reward)
                     agent.update_replay_memory((current_state, action, reward, new_state, done))
                     window_current_state.append(np.asarray(current_state))
                     # from PIL import Image
@@ -936,7 +939,6 @@ if __name__ == "__main__":
                     if min_reward >= MIN_REWARD:
                         agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
 
-
                 # Decay epsilon
                 if epsilon > MIN_EPSILON:
                     # epsilon *= EPSILON_DECAY
@@ -947,7 +949,7 @@ if __name__ == "__main__":
                 
                 print(f'Finished episode {episode} of {EPISODES}')
                 reward_per_frame = episode_reward/count_frames_completed
-                print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\treward/frames: {reward_per_frame}')
+                print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\trewards: {list_rewardPerFrame}')
                 if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > MAX_GPS_ERROR:
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
                         quit()
