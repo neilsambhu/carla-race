@@ -199,8 +199,8 @@ bGPU = True
 # action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=3),
 # action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=21),
 action_space = {'brake_throttle': np.linspace(-1.0, 1.0, num=2),
-                # 'steer': np.linspace(-1.0, 1.0, num=3)}
-                'steer': np.linspace(-1.0, 1.0, num=201)}
+                'steer': np.linspace(-1.0, 1.0, num=3)}
+                # 'steer': np.linspace(-1.0, 1.0, num=201)}
 # print(action_space);import sys;sys.exit()
 # action_size = len(action_space['throttle'])*len(action_space['steer'])*len(action_space['brake'])
 action_size = len(action_space['brake_throttle'])*len(action_space['steer'])
