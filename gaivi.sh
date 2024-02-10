@@ -1,6 +1,7 @@
 #!/bin/bash -l
 #All options below are recommended
-#SBATCH -p Contributors #general # run on partition general
+#SBATCH -p Contributors
+#SBATCH -p nopreempt
 
 #SBATCH --cpus-per-task=2
 ##SBATCH --cpus-per-task=8 # GPU13

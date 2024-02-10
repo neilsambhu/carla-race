@@ -51,7 +51,7 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
-FRAMES_PER_EPISODE = 10
+FRAMES_PER_EPISODE = 11
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
 # MIN_REPLAY_MEMORY_SIZE = int(1.5*SECONDS_PER_EPISODE*20) # 12/24/2023 6:37 AM: Neil commented out
@@ -784,7 +784,8 @@ if __name__ == "__main__":
                 count_action_model = 0
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
                 count_action_random = 0
-                max_count_action = int(1/4*20)
+                # max_count_action = int(1/4*20)
+                max_count_action = 1
                 while True:
                     if bSync and False:
                         # print(f'bSync inside episode')
