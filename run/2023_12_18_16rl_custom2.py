@@ -951,6 +951,7 @@ if __name__ == "__main__":
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
                         quit()
                     FRAMES_PER_EPISODE += 1
+                    FRAMES_TO_REDO = 0
                     epsilon = 1.0
                 else:
                     FRAMES_TO_REDO += 1
