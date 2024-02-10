@@ -772,9 +772,6 @@ if __name__ == "__main__":
                     window_current_state.append(np.asarray(black_image))
                 window_current_state.append(np.asarray(current_state))
 
-                if bSync and False:
-                    env.world.tick()
-                    env.idx_tick += 1
                 done = False
                 idx_control = 0
                 # for i in range(0,10):
@@ -787,10 +784,6 @@ if __name__ == "__main__":
                 # max_count_action = int(1/4*20)
                 max_count_action = 1
                 while True:
-                    if bSync and False:
-                        # print(f'bSync inside episode')
-                        env.world.tick();
-                        env.idx_tick += 1
                     action = None
                     if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
                     # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
@@ -945,7 +938,7 @@ if __name__ == "__main__":
                 print(f'Finished episode {episode} of {EPISODES}')
                 reward_per_frame = episode_reward/count_frames_completed
                 print(f'episode: {episode}\treward: {episode_reward}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}\treward/frames: {reward_per_frame}')
-                if reward_per_frame < 0.1:
+                if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > -0.1:
                     FRAMES_PER_EPISODE += 1
                     epsilon = 1.0
                 # # fill agent.replay_memory
