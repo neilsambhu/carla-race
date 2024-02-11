@@ -51,7 +51,8 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
-FRAMES_PER_EPISODE = 25 # initialize starting frame count
+INITIAL_FRAMES_PER_EPISODE = 1
+FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
 MAX_GPS_ERROR = -1
 FRAMES_TO_REDO = 0
 # REPLAY_MEMORY_SIZE = 5_000
@@ -806,16 +807,13 @@ if __name__ == "__main__":
                         if selected_brake_throttle > 0:
                             brake_value = 0.0
                         print(f'source: {src}\ttick: {env.idx_tick:04d}\tthrottle: {throttle_value:.2f}\tsteer: {steer_value:.2f}\tbrake: {brake_value:.2f}')
-                    if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
-                    # if len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                    # if False:
-                    # if env.idx_tick < FRAMES_PER_EPISODE - FRAMES_TO_REDO:
-                        # action = np.argmax(agent.get_qs(current_state))
+                    # if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
+                    if env.idx_tick < FRAMES_PER_EPISODE - (FRAMES_TO_REDO % FRAMES_PER_EPISODE):
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         print_action('model', action)
-                        count_action_model += 1
-                        if count_action_model > max_count_action:
-                            count_action_model = 0
+                        # count_action_model += 1
+                        # if count_action_model > max_count_action:
+                        #     count_action_model = 0
                         # with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
                         #     lines = file.readlines()
                         #     throttle,steer,brake = lines[idx_control].split()
@@ -828,12 +826,12 @@ if __name__ == "__main__":
                         #                 steer_index * len(action_space['brake']) + \
                         #                 brake_index
                     else:
-                        action = action_random
-                        count_action_random += 1
-                        if count_action_random >= max_count_action:
-                            action_random = np.random.randint(0, action_size)
-                            count_action_random = 0
-                        # action = np.random.randint(0, action_size)
+                        # action = action_random
+                        # count_action_random += 1
+                        # if count_action_random >= max_count_action:
+                        #     action_random = np.random.randint(0, action_size)
+                        #     count_action_random = 0
+                        action = np.random.randint(0, action_size)
                         print_action('random', action)
                         if not bSync:
                             time.sleep(1/FPS)
@@ -951,8 +949,8 @@ if __name__ == "__main__":
                     FRAMES_PER_EPISODE += 1
                     FRAMES_TO_REDO = 0
                     epsilon = 1.0
-                # else:
-                #     FRAMES_TO_REDO += 1
+                else:
+                    FRAMES_TO_REDO += 1
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
