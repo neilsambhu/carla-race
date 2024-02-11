@@ -51,9 +51,9 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
-INITIAL_FRAMES_PER_EPISODE = 27
+INITIAL_FRAMES_PER_EPISODE = 10
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
-MAX_GPS_ERROR = -1
+MAX_GPS_ERROR = -10
 FRAMES_TO_REDO = 0
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
@@ -698,7 +698,7 @@ if __name__ == "__main__":
     count_framesPerAction2 = 0
     import glob, shutil
     bLoadReplayMemory = False
-    episodeToRecover = '1019'
+    episodeToRecover = ''
     if episodeToRecover != '':
         idx_episode_start = int(episodeToRecover)+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
@@ -927,8 +927,8 @@ if __name__ == "__main__":
                     # agent.tensorboard.update_stats(reward_avg=average_reward, reward_min=min_reward, reward_max=max_reward, epsilon=epsilon)
 
                     # Save model, but only when min reward is greater or equal a set value
-                    if min_reward >= MIN_REWARD:
-                        agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
+                    # if min_reward >= MIN_REWARD:
+                    #     agent.model.save(f'models/{MODEL_NAME}__{max_reward:_>7.2f}max_{average_reward:_>7.2f}avg_{min_reward:_>7.2f}min__{int(time.time())}.model')
 
                 # Decay epsilon
                 if epsilon > MIN_EPSILON:
