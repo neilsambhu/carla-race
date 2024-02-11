@@ -51,7 +51,7 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
-INITIAL_FRAMES_PER_EPISODE = 1
+INITIAL_FRAMES_PER_EPISODE = 27
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
 MAX_GPS_ERROR = -1
 FRAMES_TO_REDO = 0
@@ -698,7 +698,7 @@ if __name__ == "__main__":
     count_framesPerAction2 = 0
     import glob, shutil
     bLoadReplayMemory = False
-    episodeToRecover = ''
+    episodeToRecover = '1019'
     if episodeToRecover != '':
         idx_episode_start = int(episodeToRecover)+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
@@ -707,7 +707,7 @@ if __name__ == "__main__":
         with open(f'bak/{episodeToRecover}.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)        
         idx_action1 = 2530+1        
-    bLoadModel = False
+    bLoadModel = True
     if bLoadModel:
         agent.model = tf.keras.models.load_model(glob.glob(f'bak/{episodeToRecover}.*.model')[0])
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
@@ -755,13 +755,13 @@ if __name__ == "__main__":
             # print(f'episode: {episode}\tcount_vehicles: {count_vehicles}')
             # if count_vehicles == 0:
             if True:
-                lookback = 2
+                lookback = 10
                 if episode > lookback:
                     matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.*.model'))
                     [shutil.rmtree(matching_file) for matching_file in matching_files]
                     matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.replay_memory'))
                     [os.remove(matching_file) for matching_file in matching_files]
-                lookback = 200
+                lookback = 1000
                 if episode > lookback:
                     matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}'))
                     [shutil.rmtree(matching_file) for matching_file in matching_files]
