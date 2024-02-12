@@ -941,7 +941,7 @@ if __name__ == "__main__":
                 print(f'Finished episode {episode} of {EPISODES}')
                 reward_per_frame = episode_reward/count_frames_completed
                 # print(f'episode: {episode}\tmin reward: {min(list_rewardPerFrame):.4f}/{MAX_GPS_ERROR}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\trewards: {list_rewardPerFrame}')
-                print(f'episode: {episode}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\tmin reward: {min(list_rewardPerFrame):.4f}/{MAX_GPS_ERROR}')
+                print(f'episode: {episode}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\tframes to redo: {FRAMES_TO_REDO}\tmin reward: {min(list_rewardPerFrame):.4f}/{MAX_GPS_ERROR}')
                 # if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > MAX_GPS_ERROR:
                 if count_frames_completed == FRAMES_PER_EPISODE and min(list_rewardPerFrame) > MAX_GPS_ERROR:
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
