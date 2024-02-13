@@ -641,7 +641,7 @@ with strategy.scope():
 
             log_this_step = False
 
-            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
+            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=10, verbose=1, start_from_epoch=0)
             # callback = tf.keras.callbacks.EarlyStopping(monitor='accuracy', baseline=1.0)
             hist = self.model.fit(
                 np.array(x),
