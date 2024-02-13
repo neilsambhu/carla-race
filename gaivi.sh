@@ -18,7 +18,7 @@
 ##SBATCH --mem=250GB # GPU45
 ##SBATCH --mem=1900GB # GPU47
 
-#SBATCH --gpus=1 # 63 GPUs available
+#SBATCH --gpus=2 # 63 GPUs available
 ##SBATCH --mail-user=nsambhu@mail.usf.edu # email for notifications
 ##SBATCH --mail-type=BEGIN,END,FAIL,REQUEUE # events for notifications
 ##SBATCH --mail-type=END,FAIL,REQUEUE # events for notifications
