@@ -699,7 +699,7 @@ if __name__ == "__main__":
     import glob, shutil
     bLoadReplayMemory = False
     episodeToRecover = ''
-    if episodeToRecover != '':
+    if episodeToRecover != '0505':
         idx_episode_start = int(episodeToRecover)+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
         epsilon = max(MIN_EPSILON, epsilon)
@@ -707,7 +707,7 @@ if __name__ == "__main__":
         with open(f'bak/{episodeToRecover}.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)        
         idx_action1 = 2530+1        
-    bLoadModel = False
+    bLoadModel = True
     if bLoadModel:
         agent.model = tf.keras.models.load_model(glob.glob(f'bak/{episodeToRecover}.*.model')[0])
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
@@ -757,9 +757,9 @@ if __name__ == "__main__":
             if True:
                 lookback = 10
                 if episode > lookback:
-                    matching_files = glob.glob(os.path.join('tmp', f'*{(episode-lookback):011d}.*.model'))
+                    matching_files = glob.glob(os.path.join('tmp', f'{(episode-lookback):011d}.*.model'))
                     [shutil.rmtree(matching_file) for matching_file in matching_files]
-                    matching_files = glob.glob(os.path.join('tmp', f'*{(episode-lookback):011d}.replay_memory'))
+                    matching_files = glob.glob(os.path.join('tmp', f'{(episode-lookback):011d}.replay_memory'))
                     [os.remove(matching_file) for matching_file in matching_files]
                 lookback = 1000
                 if episode > lookback:
@@ -959,7 +959,7 @@ if __name__ == "__main__":
                 #     agent.replay_memory.append(element)
                 #     idx_replay_memory += 1
 
-            with open(f'tmp/{env.episode:04}.replay_memory', 'wb') as file:
+            with open(f'tmp/{env.episode:011d}.replay_memory', 'wb') as file:
                 pickle.dump(agent.replay_memory, file)
             epochs = None
             # print(f'len(agent.replay_memory): {len(agent.replay_memory)}')
@@ -1016,7 +1016,7 @@ if __name__ == "__main__":
             previousEpisode_countBatchesTrained = agent.count_batches_trained
             
             # agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_batches_trained}.model')
-            agent.saved_model.save(f'tmp/{env.episode:04}.{agent.count_epochs_trained}.model')
+            agent.saved_model.save(f'tmp/{env.episode:011d}.{agent.count_epochs_trained}.model')
             # print(f'Saved model from episode {env.episode}. Count of batches trained: {agent.count_batches_trained}')
             # print(f'Saved model from episode {env.episode}. Count of epochs trained: {agent.count_epochs_trained}')
 
