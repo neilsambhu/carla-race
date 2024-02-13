@@ -53,7 +53,7 @@ IM_HEIGHT = 128
 SECONDS_PER_EPISODE = 3*60
 INITIAL_FRAMES_PER_EPISODE = 10
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
-MAX_GPS_ERROR = -10
+MAX_GPS_ERROR = -1
 FRAMES_TO_REDO = 0
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
@@ -338,14 +338,14 @@ with strategy.scope():
             self.front_camera = i3
             from PIL import Image
             i4 = Image.fromarray(i3)
-            if not os.path.exists('%s/%04d' % (directory_output, self.episode)):
-                os.makedirs('%s/%04d' % (directory_output, self.episode))
+            if not os.path.exists('%s/%011d' % (directory_output, self.episode)):
+                os.makedirs('%s/%011d' % (directory_output, self.episode))
                 time.sleep(1)
-            self.pathImage = '%s/%04d' % (directory_output, self.episode)
-            i4.save('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame))
-            # i4.save('%s/%04d/%06d.jpg' % (directory_output, self.episode, image.frame))
+            self.pathImage = '%s/%011d' % (directory_output, self.episode)
+            i4.save('%s/%011d/%06d.png' % (directory_output, self.episode, image.frame))
+            # i4.save('%s/%011d/%06d.jpg' % (directory_output, self.episode, image.frame))
             # count_checkFileExists = 0
-            while not os.path.exists('%s/%04d/%06d.png' % (directory_output, self.episode, image.frame)):
+            while not os.path.exists('%s/%011d/%06d.png' % (directory_output, self.episode, image.frame)):
                 # count_checkFileExists += 1
                 time.sleep(0.1)
             self.queueImagesWritten.put(self.pathImage)
@@ -641,7 +641,7 @@ with strategy.scope():
 
             log_this_step = False
 
-            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=100, verbose=1, start_from_epoch=0)
+            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=3, verbose=1, start_from_epoch=0)
             # callback = tf.keras.callbacks.EarlyStopping(monitor='accuracy', baseline=1.0)
             hist = self.model.fit(
                 np.array(x),
@@ -757,13 +757,13 @@ if __name__ == "__main__":
             if True:
                 lookback = 10
                 if episode > lookback:
-                    matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.*.model'))
+                    matching_files = glob.glob(os.path.join('tmp', f'*{(episode-lookback):011d}.*.model'))
                     [shutil.rmtree(matching_file) for matching_file in matching_files]
-                    matching_files = glob.glob(os.path.join('tmp', f'*{episode-lookback}.replay_memory'))
+                    matching_files = glob.glob(os.path.join('tmp', f'*{(episode-lookback):011d}.replay_memory'))
                     [os.remove(matching_file) for matching_file in matching_files]
                 lookback = 1000
                 if episode > lookback:
-                    matching_files = glob.glob(os.path.join(directory_output, f'*{episode-lookback}'))
+                    matching_files = glob.glob(os.path.join(directory_output, f'*{(episode-lookback):011d}'))
                     [shutil.rmtree(matching_file) for matching_file in matching_files]
 
                 print(f'\nStarted episode {episode} of {EPISODES}')
@@ -943,7 +943,8 @@ if __name__ == "__main__":
                 # print(f'episode: {episode}\tmin reward: {min(list_rewardPerFrame):.4f}/{MAX_GPS_ERROR}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\trewards: {list_rewardPerFrame}')
                 print(f'episode: {episode}\tframes: {count_frames_completed}/{FRAMES_PER_EPISODE}/{COUNT_LOCATIONS}\tframes to redo: {FRAMES_TO_REDO}\tmin reward: {min(list_rewardPerFrame):.4f}/{MAX_GPS_ERROR}')
                 # if count_frames_completed == FRAMES_PER_EPISODE and reward_per_frame > MAX_GPS_ERROR:
-                if count_frames_completed == FRAMES_PER_EPISODE and min(list_rewardPerFrame) > MAX_GPS_ERROR:
+                bEpisodeSuccess = count_frames_completed == FRAMES_PER_EPISODE and min(list_rewardPerFrame) > MAX_GPS_ERROR
+                if bEpisodeSuccess:
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
                         quit()
                     FRAMES_PER_EPISODE += 1
@@ -969,10 +970,10 @@ if __name__ == "__main__":
             # else:
             # elif len(agent.replay_memory) >= max(COUNT_FRAME_WINDOW, MINIBATCH_SIZE) and len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
             elif len(agent.replay_memory) >= MINIBATCH_SIZE and len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
-                epochs = 100
-            if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 1000
-            if epochs > 0:
+            if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
+                epochs = 10000
+            if epochs > 0 and bEpisodeSuccess:
                 # count_batches_completed = previousEpisode_countBatchesTrained
                 # print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
                 # count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
