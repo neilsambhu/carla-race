@@ -698,8 +698,8 @@ if __name__ == "__main__":
     count_framesPerAction2 = 0
     import glob, shutil
     bLoadReplayMemory = False
-    episodeToRecover = ''
-    if episodeToRecover != '0505':
+    episodeToRecover = '0505'
+    if episodeToRecover != '':
         idx_episode_start = int(episodeToRecover)+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
         epsilon = max(MIN_EPSILON, epsilon)
