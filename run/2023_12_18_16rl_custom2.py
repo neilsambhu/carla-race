@@ -51,7 +51,7 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
-INITIAL_FRAMES_PER_EPISODE = 28
+INITIAL_FRAMES_PER_EPISODE = 1
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
 MAX_GPS_ERROR = -1
 FRAMES_TO_REDO = 0
@@ -641,7 +641,7 @@ with strategy.scope():
 
             log_this_step = False
 
-            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=3, verbose=1, start_from_epoch=0)
+            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
             # callback = tf.keras.callbacks.EarlyStopping(monitor='accuracy', baseline=1.0)
             hist = self.model.fit(
                 np.array(x),
@@ -707,7 +707,7 @@ if __name__ == "__main__":
         with open(f'bak/{episodeToRecover}.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)        
         idx_action1 = 2530+1        
-    bLoadModel = True
+    bLoadModel = False
     if bLoadModel:
         agent.model = tf.keras.models.load_model(glob.glob(f'bak/{episodeToRecover}.*.model')[0])
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
