@@ -476,7 +476,7 @@ with strategy.scope():
             # count_filters = 1 # 2/4/2024 2:47 AM: 73 seconds per epoch
             count_filters = 28
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
-            count_lstmNodes = 1024
+            count_lstmNodes = 512
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
