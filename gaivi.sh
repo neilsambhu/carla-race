@@ -3,7 +3,7 @@
 #SBATCH -p Contributors
 ##SBATCH -p nopreempt
 
-#SBATCH --cpus-per-task=2
+#SBATCH --cpus-per-task=4
 ##SBATCH --cpus-per-task=8 # GPU13
 ##SBATCH --cpus-per-task=64 # 32 CPUs per task
 ##SBATCH --cpus-per-task=16 # GPU43
@@ -23,8 +23,9 @@
 ##SBATCH --mail-type=BEGIN,END,FAIL,REQUEUE # events for notifications
 ##SBATCH --mail-type=END,FAIL,REQUEUE # events for notifications
 
-#SBATCH -w GPU12
+##SBATCH -w GPU12
 ##SBATCH -w GPU13
+#SBATCH -w GPU42
 ##SBATCH -w GPU43
 ##SBATCH -w GPU45
 ##SBATCH -w GPU46
