@@ -51,7 +51,7 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
-INITIAL_FRAMES_PER_EPISODE = 31
+INITIAL_FRAMES_PER_EPISODE = 10
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
 MAX_GPS_ERROR = -5
 FRAMES_TO_REDO = 0
@@ -697,10 +697,13 @@ if __name__ == "__main__":
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
-    episodeToRecover = '00000000585'
     bLoadReplayMemory = False
-    bLoadModel = True
-    if episodeToRecover != '':
+    bLoadModel = False    
+    if bLoadReplayMemory or bLoadModel:
+        matching_files = glob.glob(os.path.join('tmp', '*.episodeSuccess'))
+        episodeToRecover = matching_files[-1].split('/')[1].split('.')[0]
+        matching_files = glob.glob(os.path.join('tmp', '*.framesCompleted'))
+        INITIAL_FRAMES_PER_EPISODE = int(matching_files[-1].split('/')[1].split('.')[0])+1        
         idx_episode_start = int(episodeToRecover)+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
         epsilon = max(MIN_EPSILON, epsilon)
@@ -950,7 +953,12 @@ if __name__ == "__main__":
                     FRAMES_PER_EPISODE += 1
                     FRAMES_TO_REDO = 0
                     epsilon = 1.0
+                    matching_files = glob.glob(os.path.join('tmp', '*.episodeSuccess'))
+                    [os.remove(matching_file) for matching_file in matching_files]
+                    matching_files = glob.glob(os.path.join('tmp', '*.framesCompleted'))
+                    [os.remove(matching_file) for matching_file in matching_files]
                     open(f'tmp/{episode:011d}.episodeSuccess', "w")
+                    open(f'tmp/{count_frames_completed:011d}.framesCompleted', "w")
                 else:
                     FRAMES_TO_REDO += 1
                 # # fill agent.replay_memory
