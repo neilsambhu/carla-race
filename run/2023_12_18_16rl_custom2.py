@@ -697,8 +697,9 @@ if __name__ == "__main__":
     count_framesPerAction1 = 0
     count_framesPerAction2 = 0
     import glob, shutil
+    episodeToRecover = '00000000585'
     bLoadReplayMemory = False
-    episodeToRecover = '0505'
+    bLoadModel = True
     if episodeToRecover != '':
         idx_episode_start = int(episodeToRecover)+1
         epsilon = epsilon_base*(EPSILON_DECAY**int(episodeToRecover))
@@ -707,7 +708,6 @@ if __name__ == "__main__":
         with open(f'bak/{episodeToRecover}.replay_memory', 'rb') as file:
             agent.replay_memory = pickle.load(file)        
         idx_action1 = 2530+1        
-    bLoadModel = False
     if bLoadModel:
         agent.model = tf.keras.models.load_model(glob.glob(f'bak/{episodeToRecover}.*.model')[0])
     matching_files = glob.glob(os.path.join('tmp', '*.model'))
