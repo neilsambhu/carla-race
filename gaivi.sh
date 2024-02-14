@@ -3,22 +3,22 @@
 #SBATCH -p Contributors
 ##SBATCH -p nopreempt
 
-#SBATCH --cpus-per-task=4
+##SBATCH --cpus-per-task=4
 ##SBATCH --cpus-per-task=8 # GPU13
-##SBATCH --cpus-per-task=64 # 32 CPUs per task
+##SBATCH --cpus-per-task=32 # GPU42
 ##SBATCH --cpus-per-task=16 # GPU43
 ##SBATCH --cpus-per-task=48 # GPU45
 ##SBATCH --cpus-per-task=48 # GPU46
 ##SBATCH --cpus-per-task=64 # GPU47
 
-#SBATCH --mem=32GB
+##SBATCH --mem=32GB
 ##SBATCH --mem=120GB # GPU13
-##SBATCH --mem=500GB # 100GB per task
-#SBATCH --mem=120GB # GPU45
+#SBATCH --mem=180GB # GPU42
+##SBATCH --mem=120GB # GPU45
 ##SBATCH --mem=250GB # GPU45
 ##SBATCH --mem=1900GB # GPU47
 
-#SBATCH --gpus=2 # 63 GPUs available
+#SBATCH --gpus=4# 63 GPUs available
 ##SBATCH --mail-user=nsambhu@mail.usf.edu # email for notifications
 ##SBATCH --mail-type=BEGIN,END,FAIL,REQUEUE # events for notifications
 ##SBATCH --mail-type=END,FAIL,REQUEUE # events for notifications
