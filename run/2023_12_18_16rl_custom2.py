@@ -795,8 +795,8 @@ if __name__ == "__main__":
                 count_action_model = 0
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
                 count_action_random = 0
-                max_count_action = int(1/4*20)
-                # max_count_action = 20
+                # max_count_action = int(1/4*20)
+                max_count_action = 20
                 while True:
                     action = None
                     def print_action(src, action):
