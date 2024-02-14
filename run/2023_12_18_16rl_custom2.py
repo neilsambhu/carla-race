@@ -796,7 +796,7 @@ if __name__ == "__main__":
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
                 count_action_random = 0
                 # max_count_action = int(1/4*20)
-                max_count_action = 10
+                max_count_action = 20
                 while True:
                     action = None
                     def print_action(src, action):
@@ -814,9 +814,9 @@ if __name__ == "__main__":
                     if env.idx_tick < FRAMES_PER_EPISODE - (FRAMES_TO_REDO % FRAMES_PER_EPISODE):
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         print_action('model', action)
-                        # count_action_model += 1
-                        # if count_action_model > max_count_action:
-                        #     count_action_model = 0
+                        count_action_model += 1
+                        if count_action_model > max_count_action:
+                            count_action_model = 0
                         # with open('_out_07CARLA_AP/Controls_Town04_0_335.txt', 'r') as file:
                         #     lines = file.readlines()
                         #     throttle,steer,brake = lines[idx_control].split()
@@ -829,12 +829,12 @@ if __name__ == "__main__":
                         #                 steer_index * len(action_space['brake']) + \
                         #                 brake_index
                     else:
-                        # action = action_random
-                        # count_action_random += 1
-                        # if count_action_random >= max_count_action:
-                        #     action_random = np.random.randint(0, action_size)
-                        #     count_action_random = 0
-                        action = np.random.randint(0, action_size)
+                        action = action_random
+                        count_action_random += 1
+                        if count_action_random >= max_count_action:
+                            action_random = np.random.randint(0, action_size)
+                            count_action_random = 0
+                        # action = np.random.randint(0, action_size)
                         print_action('random', action)
                         if not bSync:
                             time.sleep(1/FPS)
