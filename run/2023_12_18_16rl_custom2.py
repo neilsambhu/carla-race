@@ -950,7 +950,7 @@ if __name__ == "__main__":
                 if bEpisodeSuccess:
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
                         quit()
-                    FRAMES_PER_EPISODE += 1
+                    FRAMES_PER_EPISODE += max_count_action
                     FRAMES_TO_REDO = 0
                     epsilon = 1.0
                     matching_files = glob.glob(os.path.join('tmp', '*.episodeSuccess'))
