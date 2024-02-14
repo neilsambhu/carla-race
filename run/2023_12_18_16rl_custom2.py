@@ -982,7 +982,7 @@ if __name__ == "__main__":
                 epochs = 1000
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10000
-            if epochs > 0 and bEpisodeSuccess:
+            if epochs > 0:
                 # count_batches_completed = previousEpisode_countBatchesTrained
                 # print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
                 # count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
