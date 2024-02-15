@@ -500,9 +500,9 @@ with strategy.scope():
 
             # Apply LSTM layer
 
-            # x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True))(x)
-            # x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
-            x = LSTM(units=count_lstmNodes)(x)
+            x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
+            # x = LSTM(units=count_lstmNodes)(x)
             # x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
             # x = LSTM(units=512)(x) # 2/3/2024 11:34 PM: 100 seconds per epoch
@@ -967,7 +967,7 @@ if __name__ == "__main__":
                     open(f'tmp/{count_frames_completed:011d}.framesCompleted', "w")
                 else:
                     # FRAMES_TO_REDO += max_count_action
-                    FRAMES_TO_REDO += 10
+                    FRAMES_TO_REDO += 5
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
