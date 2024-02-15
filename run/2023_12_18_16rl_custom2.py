@@ -529,7 +529,7 @@ with strategy.scope():
             # transition = (current_state, action, reward, new_state, done)
             self.replay_memory.append(transition)
 
-        def train(self, epochs):
+        def train(self, epochs, bEpisodeSuccess):
             if len(self.replay_memory) < MIN_REPLAY_MEMORY_SIZE:
                 return
 
@@ -642,8 +642,11 @@ with strategy.scope():
 
             log_this_step = False
 
-            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
-            # callback = tf.keras.callbacks.EarlyStopping(monitor='accuracy', baseline=1.0)
+            callback = None
+            if bEpisodeSuccess:
+                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
+            else:
+                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
             hist = self.model.fit(
                 np.array(x),
                 np.array(y),
@@ -1024,7 +1027,7 @@ if __name__ == "__main__":
                 #         strMessage += f'Early stop at accuracy {statistics.mean(accuracy)} at {epoch} of {epochs} epochs.'
                 #         print(f'{strMessage}\n')
                 #         break
-                agent.train(epochs=epochs)
+                agent.train(epochs, bEpisodeSuccess)
                 agent.replay_memory.clear()
                     
             previousEpisode_countBatchesTrained = agent.count_batches_trained
