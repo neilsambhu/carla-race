@@ -51,9 +51,9 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
-INITIAL_FRAMES_PER_EPISODE = 20
+INITIAL_FRAMES_PER_EPISODE = 50
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
-MAX_GPS_ERROR = -100
+MAX_GPS_ERROR = -5
 FRAMES_TO_REDO = 0
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
@@ -183,7 +183,8 @@ EPISODES = int(1e10)
 DISCOUNT = 0.99
 epsilon_base = 1.0
 epsilon = 1.0
-EPSILON_DECAY = 0.95
+# EPSILON_DECAY = 0.95
+EPSILON_DECAY = 0.99
 # EPSILON_DECAY = 0.999
 # EPSILON_DECAY = 0.5
 # EPSILON_DECAY = 0.9
@@ -641,7 +642,7 @@ with strategy.scope():
 
             log_this_step = False
 
-            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
+            callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
             # callback = tf.keras.callbacks.EarlyStopping(monitor='accuracy', baseline=1.0)
             hist = self.model.fit(
                 np.array(x),
@@ -795,8 +796,8 @@ if __name__ == "__main__":
                 count_action_model = 0
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
                 count_action_random = 0
-                max_count_action = int(1/4*20)
-                # max_count_action = 5
+                # max_count_action = int(1/4*20)
+                max_count_action = 1
                 while True:
                     action = None
                     def print_action(src, action):
@@ -810,8 +811,8 @@ if __name__ == "__main__":
                         if selected_brake_throttle > 0:
                             brake_value = 0.0
                         print(f'source: {src}\ttick: {env.idx_tick:04d}\tthrottle: {throttle_value:.2f}\tsteer: {steer_value:.2f}\tbrake: {brake_value:.2f}')
-                    if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
-                    # if env.idx_tick < FRAMES_PER_EPISODE - (FRAMES_TO_REDO % FRAMES_PER_EPISODE):
+                    # if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
+                    if env.idx_tick < FRAMES_PER_EPISODE - (FRAMES_TO_REDO % FRAMES_PER_EPISODE):
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         print_action('model', action)
                         count_action_model += 1
@@ -982,7 +983,8 @@ if __name__ == "__main__":
                 epochs = 1000
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10000
-            if epochs > 0:
+            # if epochs > 0:
+            if epochs > 0 and bEpisodeSuccess:
                 # count_batches_completed = previousEpisode_countBatchesTrained
                 # print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
                 # count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
