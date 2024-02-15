@@ -51,7 +51,7 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
-INITIAL_FRAMES_PER_EPISODE = 1
+INITIAL_FRAMES_PER_EPISODE = 50
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
 MAX_GPS_ERROR = -2
 FRAMES_TO_REDO = 0
@@ -961,7 +961,8 @@ if __name__ == "__main__":
                     open(f'tmp/{episode:011d}.episodeSuccess', "w")
                     open(f'tmp/{count_frames_completed:011d}.framesCompleted', "w")
                 else:
-                    FRAMES_TO_REDO += max_count_action
+                    # FRAMES_TO_REDO += max_count_action
+                    FRAMES_TO_REDO += 20
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
