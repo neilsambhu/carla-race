@@ -794,10 +794,10 @@ if __name__ == "__main__":
                 done = False
                 idx_control = 0
                 count_frames_completed = 0
-                for i in range(1,COUNT_SPAWNING_FRAMES+1):
-                    env.world.tick()
-                    env.idx_tick += 1
-                    count_frames_completed += 1
+                # for i in range(1,COUNT_SPAWNING_FRAMES+1):
+                #     env.world.tick()
+                #     env.idx_tick += 1
+                #     count_frames_completed += 1
 
                 count_action_model = 0
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
@@ -818,7 +818,10 @@ if __name__ == "__main__":
                             brake_value = 0.0
                         print(f'source: {src}\ttick: {env.idx_tick:04d}\tthrottle: {throttle_value:.2f}\tsteer: {steer_value:.2f}\tbrake: {brake_value:.2f}')
                     # if (np.random.random() > epsilon and count_action_random == 0) or (count_action_model > 0):
-                    if env.idx_tick < FRAMES_PER_EPISODE - (FRAMES_TO_REDO % FRAMES_PER_EPISODE):
+                    if env.idx_tick <= COUNT_SPAWNING_FRAMES:
+                        action = 4
+                        print_action('spawn', action)
+                    elif env.idx_tick < FRAMES_PER_EPISODE - (FRAMES_TO_REDO % FRAMES_PER_EPISODE):
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         print_action('model', action)
                         count_action_model += 1
