@@ -789,10 +789,11 @@ if __name__ == "__main__":
 
                 done = False
                 idx_control = 0
+                count_frames_completed = 0
                 for i in range(0,10):
                     env.world.tick()
-                    env.idx_tick+=1
-                count_frames_completed = 0
+                    env.idx_tick += 1
+                    count_frames_completed += 1
 
                 count_action_model = 0
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
