@@ -51,7 +51,8 @@ IM_WIDTH = 128
 IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
-INITIAL_FRAMES_PER_EPISODE = 20
+COUNT_SPAWNING_FRAMES = 20
+INITIAL_FRAMES_PER_EPISODE = 30
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
 MAX_GPS_ERROR = -2
 FRAMES_TO_REDO = 0
@@ -793,7 +794,7 @@ if __name__ == "__main__":
                 done = False
                 idx_control = 0
                 count_frames_completed = 0
-                for i in range(1,INITIAL_FRAMES_PER_EPISODE):
+                for i in range(1,COUNT_SPAWNING_FRAMES+1):
                     env.world.tick()
                     env.idx_tick += 1
                     count_frames_completed += 1
