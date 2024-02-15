@@ -791,6 +791,7 @@ if __name__ == "__main__":
                 idx_control = 0
                 for i in range(0,10):
                     env.world.tick()
+                    env.idx_tick+=1
                 count_frames_completed = 0
 
                 count_action_model = 0
