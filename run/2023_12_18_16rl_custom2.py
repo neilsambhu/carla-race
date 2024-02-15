@@ -52,7 +52,7 @@ IM_HEIGHT = 128
 # SECONDS_PER_EPISODE = 10
 SECONDS_PER_EPISODE = 3*60
 COUNT_SPAWNING_FRAMES = 20
-INITIAL_FRAMES_PER_EPISODE = 30
+INITIAL_FRAMES_PER_EPISODE = 21
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
 MAX_GPS_ERROR = -2
 FRAMES_TO_REDO = 0
@@ -802,8 +802,8 @@ if __name__ == "__main__":
                 count_action_model = 0
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
                 count_action_random = 0
-                max_count_action = int(1*20)
-                # max_count_action = 1
+                # max_count_action = int(1*20)
+                max_count_action = 1
                 while True:
                     action = None
                     def print_action(src, action):
@@ -960,7 +960,7 @@ if __name__ == "__main__":
                 if bEpisodeSuccess:
                     if FRAMES_PER_EPISODE == COUNT_LOCATIONS:
                         quit()
-                    FRAMES_PER_EPISODE += 5
+                    FRAMES_PER_EPISODE += 1
                     FRAMES_TO_REDO = 0
                     epsilon = 1.0
                     matching_files = glob.glob(os.path.join('tmp', '*.episodeSuccess'))
@@ -971,7 +971,7 @@ if __name__ == "__main__":
                     open(f'tmp/{count_frames_completed:011d}.framesCompleted', "w")
                 else:
                     # FRAMES_TO_REDO += max_count_action
-                    FRAMES_TO_REDO += 5
+                    FRAMES_TO_REDO += 1
                 # # fill agent.replay_memory
                 # idx_replay_memory = 0
                 # while len(agent.replay_memory) < REPLAY_MEMORY_SIZE:
