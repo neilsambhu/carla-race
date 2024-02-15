@@ -314,7 +314,7 @@ with strategy.scope():
 
             # self.episode_start = time.time()
             self.episode_start = self.world.get_snapshot().timestamp.elapsed_seconds
-            self.vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=0.0))
+            self.vehicle.apply_control(carla.VehicleControl(throttle=1.0, brake=0.0))
 
             if bSync and False:
                 self.world.tick()
@@ -789,8 +789,8 @@ if __name__ == "__main__":
 
                 done = False
                 idx_control = 0
-                # for i in range(0,10):
-                #     env.world.tick()
+                for i in range(0,10):
+                    env.world.tick()
                 count_frames_completed = 0
 
                 count_action_model = 0
