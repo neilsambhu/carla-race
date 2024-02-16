@@ -827,7 +827,7 @@ if __name__ == "__main__":
                     if env.idx_tick <= COUNT_SPAWNING_FRAMES:
                         action = 4
                         print_action('spawn', action)
-                    elif env.idx_tick < FRAMES_PER_EPISODE - (FRAMES_TO_REDO % FRAMES_PER_EPISODE):
+                    elif env.idx_tick < FRAMES_PER_EPISODE - (FRAMES_TO_REDO % (FRAMES_PER_EPISODE-COUNT_SPAWNING_FRAMES)):
                         action = np.argmax(agent.get_qs(np.asarray(window_current_state)))                    
                         print_action('model', action)
                         count_action_model += 1
