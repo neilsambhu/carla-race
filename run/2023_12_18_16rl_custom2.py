@@ -57,7 +57,7 @@ SECONDS_PER_EPISODE = 3*60
 COUNT_SPAWNING_FRAMES = 45 
 INITIAL_FRAMES_PER_EPISODE = COUNT_SPAWNING_FRAMES+1
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
-MAX_GPS_ERROR = -
+MAX_GPS_ERROR = -1
 FRAMES_TO_REDO = 0
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
@@ -648,6 +648,7 @@ with strategy.scope():
 
             callback = None
             if bEpisodeSuccess:
+                self.model = self.create_model() # reset model before training
                 callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
             else:
                 callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
