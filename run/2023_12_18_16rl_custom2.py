@@ -661,10 +661,10 @@ with strategy.scope():
                 np.array(y),
                 batch_size=TRAINING_BATCH_SIZE,
                 epochs=epochs,
-                # verbose=0,
+                verbose=0,
                 # verbose=1,
                 # verbose='auto',
-                verbose=2,
+                # verbose=2,
                 shuffle=False,
                 # callbacks=[self.tensorboard] if log_this_step else None # 12/18/2023 7:47 PM: Neil commented out
                 callbacks=[callback]
