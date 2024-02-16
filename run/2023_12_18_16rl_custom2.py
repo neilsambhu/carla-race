@@ -651,8 +651,8 @@ with strategy.scope():
             callback = None
             if bEpisodeSuccess:
                 self.model = self.create_model() # reset model before training
-                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
-                # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
+                # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
+                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
             else:
                 callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
             hist = self.model.fit(
@@ -1000,8 +1000,8 @@ if __name__ == "__main__":
                 epochs = 1000
             if len(agent.replay_memory) == REPLAY_MEMORY_SIZE:
                 epochs = 10000
-            if epochs > 0:
-            # if epochs > 0 and bEpisodeSuccess:
+            # if epochs > 0:
+            if epochs > 0 and bEpisodeSuccess:
                 # count_batches_completed = previousEpisode_countBatchesTrained
                 # print(f'Count of epochs trained: {agent.count_epochs_trained}\tGoal: {agent.count_epochs_trained+epochs}')
                 # count_batches_goal = previousEpisode_countBatchesTrained+epochs*REPLAY_MEMORY_SIZE//MINIBATCH_SIZE
