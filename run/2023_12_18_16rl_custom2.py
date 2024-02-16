@@ -500,11 +500,9 @@ with strategy.scope():
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
             # x = Flatten()(x)
-            print(f'x.shape after flatten: {x.shape}')
-
+            # print(f'x.shape after flatten: {x.shape}')
 
             # Apply LSTM layer
-
             x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True))(x)
             x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
             # x = LSTM(units=count_lstmNodes)(x)
