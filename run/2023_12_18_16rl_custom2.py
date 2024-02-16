@@ -650,8 +650,8 @@ with strategy.scope():
             callback = None
             if bEpisodeSuccess:
                 self.model = self.create_model() # reset model before training
-                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
-                # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
+                # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
+                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
             else:
                 callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
             hist = self.model.fit(
@@ -800,10 +800,10 @@ if __name__ == "__main__":
                 done = False
                 idx_control = 0
                 count_frames_completed = 0
-                # for i in range(1,COUNT_SPAWNING_FRAMES+1):
-                #     env.world.tick()
-                #     env.idx_tick += 1
-                #     count_frames_completed += 1
+                for i in range(1,COUNT_SPAWNING_FRAMES+1):
+                    env.world.tick()
+                    env.idx_tick += 1
+                    count_frames_completed += 1
 
                 count_action_model = 0
                 action_random = np.random.randint(0, action_size) # fine to have this duplicated
