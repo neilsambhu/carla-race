@@ -58,7 +58,8 @@ SECONDS_PER_EPISODE = 3*60
 COUNT_SPAWNING_FRAMES = 44
 INITIAL_FRAMES_PER_EPISODE = COUNT_SPAWNING_FRAMES+1
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
-MAX_GPS_ERROR = -1
+BASE_REWARD = 10
+MAX_GPS_ERROR = BASE_REWARD-1
 FRAMES_TO_REDO = 0
 # REPLAY_MEMORY_SIZE = 5_000
 # MIN_REPLAY_MEMORY_SIZE = 1_000
@@ -391,7 +392,8 @@ with strategy.scope():
                 self.idx_tick += 1
 
             done = False
-            reward = 0
+            # reward = 0
+            reward = BASE_REWARD
             lines = []
             location_groundTruth = carla.Location(0.0,0.0,0.0)
             # Reading ground truth coordinates from the file
@@ -648,8 +650,8 @@ with strategy.scope():
             callback = None
             if bEpisodeSuccess:
                 self.model = self.create_model() # reset model before training
-                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
-                # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
+                # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
+                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
             else:
                 callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
             hist = self.model.fit(
