@@ -654,7 +654,8 @@ with strategy.scope():
             if bEpisodeSuccess:
                 self.model = self.create_model() # reset model before training
                 # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
-                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
+                # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
+                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=10, verbose=1, start_from_epoch=0)
             else:
                 callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
             hist = self.model.fit(
