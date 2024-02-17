@@ -485,6 +485,7 @@ with strategy.scope():
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             count_filters = 1 # 2/4/2024 2:47 AM: 73 seconds per epoch
+            kernel_size = (1,1)
             # count_filters = 28
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
             count_lstmNodes = 1024
@@ -495,9 +496,9 @@ with strategy.scope():
             base_model = None
             for i in range(0,1):
                 if i == 0:
-                    base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
+                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
-                    base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
+                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'))(base_model)
                 # base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
                 base_model = TimeDistributed(BatchNormalization())(base_model)
                 base_model = TimeDistributed(Activation('relu'))(base_model)
