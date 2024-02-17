@@ -493,7 +493,7 @@ with strategy.scope():
             input_layer = Input(shape=input_shape)
 
             base_model = None
-            for i in range(0,4):
+            for i in range(0,1):
                 if i == 0:
                     base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
@@ -505,7 +505,7 @@ with strategy.scope():
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
             # x = Flatten()(x)
-            # print(f'x.shape after flatten: {x.shape}')
+            print(f'x.shape after flatten: {x.shape}')
 
             # Apply LSTM layer
             x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True))(x)

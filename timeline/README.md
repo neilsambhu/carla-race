@@ -847,3 +847,4 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 2/10/2024 2:24 AM: TODO: start from larger to smaller error tolerance. Current tolerance: -1.  
 2/10/2024 12:54 PM: TODO: increase model size to make learning faster.  
 2/15/2024 4:45 PM: TODO: when episode is not successful, start retraining from minimum error. Never mind.  
+2/16/2024 11:30 PM: TODO: keep network at low levels.  
