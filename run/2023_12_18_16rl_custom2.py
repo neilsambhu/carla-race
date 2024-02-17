@@ -484,10 +484,10 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            # count_filters = 1
+            count_filters = 1
             # count_filters = 28 # OOM
             # count_filters = 14 # OOM
-            count_filters = 7
+            # count_filters = 7 # OOM
             kernel_size = (1,1)
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
             count_lstmNodes = 1024
