@@ -484,8 +484,8 @@ with strategy.scope():
             from tensorflow.keras.layers import Input, Conv2D, BatchNormalization, Activation, Flatten, AveragePooling2D, MaxPooling2D, TimeDistributed, LSTM, Bidirectional
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
-            # count_filters = 1 # 2/4/2024 2:47 AM: 73 seconds per epoch
-            count_filters = 28
+            count_filters = 1 # 2/4/2024 2:47 AM: 73 seconds per epoch
+            # count_filters = 28
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
             count_lstmNodes = 1024
 
@@ -498,14 +498,14 @@ with strategy.scope():
                     base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
                     base_model = TimeDistributed(Conv2D(count_filters, (3,3), padding='same'))(base_model)
-                base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
+                # base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
                 base_model = TimeDistributed(BatchNormalization())(base_model)
                 base_model = TimeDistributed(Activation('relu'))(base_model)
 
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
             # x = Flatten()(x)
-            # print(f'x.shape after flatten: {x.shape}')
+            print(f'x.shape after flatten: {x.shape}')
 
             # Apply LSTM layer
             x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True))(x)
@@ -653,9 +653,9 @@ with strategy.scope():
             callback = None
             if bEpisodeSuccess:
                 self.model = self.create_model() # reset model before training
-                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
+                # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=100, verbose=1, start_from_epoch=0)
                 # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
-                # callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=10, verbose=1, start_from_epoch=0)
+                callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=10, verbose=1, start_from_epoch=0)
             else:
                 callback = tf.keras.callbacks.EarlyStopping(monitor='loss', min_delta=0.1, patience=0, verbose=1, start_from_epoch=0)
             hist = self.model.fit(
