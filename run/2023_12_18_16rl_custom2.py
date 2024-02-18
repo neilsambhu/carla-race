@@ -504,12 +504,12 @@ with strategy.scope():
             base_model = None
             for i in range(0,count_layers):
                 if i == 0:
-                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'), name='Conv2D')(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
+                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'), name=f'Conv2D_{i}')(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
-                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'), name='Conv2D')(base_model)
+                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'), name=f'Conv2D_{i}')(base_model)
                 # base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
-                base_model = TimeDistributed(BatchNormalization(), name='BatchNormalization')(base_model)
-                base_model = TimeDistributed(Activation('relu'), name='Activation')(base_model)
+                base_model = TimeDistributed(BatchNormalization(), name=f'BatchNormalization_{i}')(base_model)
+                base_model = TimeDistributed(Activation('relu'), name=f'Activation_{i}')(base_model)
 
             x = TimeDistributed(Flatten(), name='Flatten')(base_model)
             # x = Flatten()(base_model)
@@ -517,8 +517,8 @@ with strategy.scope():
             print(f'x.shape after flatten: {x.shape}')
 
             # Apply LSTM layer
-            x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True), name='LSTM')(x)
-            x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=False), name='LSTM')(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
+            x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True))(x)
+            x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=False))(x) # 2/5/2024 11:28 AM: 111 seconds per epoch
             # x = LSTM(units=count_lstmNodes)(x)
             # x = LSTM(units=64)(x) # 2/4/2024 12:35 AM: 95 seconds per epoch
             # x = LSTM(units=128)(x) # 5 seconds per epoch
