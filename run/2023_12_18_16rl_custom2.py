@@ -508,7 +508,7 @@ with strategy.scope():
                     base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'), name=f'Conv2D_{i}')(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
                     base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'), name=f'Conv2D_{i}')(base_model)
-                # base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
+                base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
                 base_model = TimeDistributed(BatchNormalization(), name=f'BatchNormalization_{i}')(base_model)
                 base_model = TimeDistributed(Activation('relu'), name=f'Activation_{i}')(base_model)
 
