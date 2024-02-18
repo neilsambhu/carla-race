@@ -58,8 +58,8 @@ SECONDS_PER_EPISODE = 3*60
 # COUNT_SPAWNING_FRAMES = 44
 # COUNT_SPAWNING_FRAMES = 43
 COUNT_SPAWNING_FRAMES = 10
-# INITIAL_FRAMES_PER_EPISODE = COUNT_SPAWNING_FRAMES+1
-INITIAL_FRAMES_PER_EPISODE = COUNT_SPAWNING_FRAMES+100
+INITIAL_FRAMES_PER_EPISODE = COUNT_SPAWNING_FRAMES+1
+# INITIAL_FRAMES_PER_EPISODE = COUNT_SPAWNING_FRAMES+100
 FRAMES_PER_EPISODE = INITIAL_FRAMES_PER_EPISODE # initialize starting frame count
 BASE_REWARD = 1
 MAX_GPS_ERROR = BASE_REWARD-1
@@ -489,7 +489,8 @@ with strategy.scope():
             # count_filters = 14 # OOM
             # count_filters = 7 # OOM
             count_filters = 2
-            kernel_size = (1,1)
+            # kernel_size = (1,1)
+            kernel_size = (3,3)
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
             count_lstmNodes = 1024
 
