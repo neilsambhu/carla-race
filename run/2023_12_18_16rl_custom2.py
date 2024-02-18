@@ -497,7 +497,7 @@ with strategy.scope():
             # count_layers = 16
             # count_layers = 4
             count_layers = 7
-            count_lstmNodes = count_filters
+            count_lstmNodes = 1024
             # count_lstmNodes = 64
             # count_lstmNodes = 10_000
 
@@ -515,9 +515,7 @@ with strategy.scope():
                 base_model = TimeDistributed(Activation('relu'), name=f'Activation_{i}')(base_model)
 
             x = TimeDistributed(Flatten(), name='Flatten')(base_model)
-            # x = Flatten()(base_model)
-            # x = Flatten()(x)
-            print(f'x.shape after flatten: {x.shape}')
+            # print(f'x.shape after flatten: {x.shape}')
 
             # Apply LSTM layer
             x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True))(x)
@@ -542,7 +540,7 @@ with strategy.scope():
 
             model = Model(inputs=input_layer, outputs=output_layer)
             model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"])
-            print(model.summary())
+            # print(model.summary())
             return model
 
         def update_replay_memory(self, transition):
