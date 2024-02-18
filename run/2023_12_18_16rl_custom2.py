@@ -489,11 +489,12 @@ with strategy.scope():
             # count_filters = 14 # OOM
             # count_filters = 7 # OOM
             # count_filters = 2
-            count_filters = 28
+            count_filters = 128
             # kernel_size = (1,1)
             kernel_size = (3,3)
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
-            count_layers = 8
+            # count_layers = 8
+            count_layers = 16
             count_lstmNodes = 1024
             # count_lstmNodes = 64
             # count_lstmNodes = 10_000
