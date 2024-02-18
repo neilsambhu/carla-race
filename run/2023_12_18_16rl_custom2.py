@@ -488,19 +488,20 @@ with strategy.scope():
             # count_filters = 28 # OOM
             # count_filters = 14 # OOM
             # count_filters = 7 # OOM
-            count_filters = 2
+            # count_filters = 2
+            count_filters = 128
             # kernel_size = (1,1)
             kernel_size = (3,3)
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
-            # count_lstmNodes = 1024
+            count_lstmNodes = 1024
             # count_lstmNodes = 64
-            count_lstmNodes = 10_000
+            # count_lstmNodes = 10_000
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
 
             base_model = None
-            for i in range(0,1):
+            for i in range(0,4):
                 if i == 0:
                     base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
@@ -512,7 +513,7 @@ with strategy.scope():
             x = TimeDistributed(Flatten())(base_model)
             # x = Flatten()(base_model)
             # x = Flatten()(x)
-            # print(f'x.shape after flatten: {x.shape}')
+            print(f'x.shape after flatten: {x.shape}')
 
             # Apply LSTM layer
             x = Bidirectional(LSTM(units=count_lstmNodes, return_sequences=True))(x)
