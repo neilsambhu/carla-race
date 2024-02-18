@@ -492,7 +492,8 @@ with strategy.scope():
             # kernel_size = (1,1)
             kernel_size = (3,3)
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
-            count_lstmNodes = 1024
+            # count_lstmNodes = 1024
+            count_lstmNodes = 64
 
             # Define the input layer
             input_layer = Input(shape=input_shape)
