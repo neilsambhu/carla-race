@@ -499,7 +499,7 @@ with strategy.scope():
             # count_lstmNodes = 10_000
 
             # Define the input layer
-            input_layer = Input(shape=input_shape)
+            input_layer = Input(shape=input_shape, name='Input')
 
             base_model = None
             for i in range(0,count_layers):
