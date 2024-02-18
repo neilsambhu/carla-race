@@ -493,6 +493,7 @@ with strategy.scope():
             # kernel_size = (1,1)
             kernel_size = (3,3)
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
+            count_layers = 8
             count_lstmNodes = 1024
             # count_lstmNodes = 64
             # count_lstmNodes = 10_000
@@ -501,7 +502,7 @@ with strategy.scope():
             input_layer = Input(shape=input_shape)
 
             base_model = None
-            for i in range(0,4):
+            for i in range(0,count_layers):
                 if i == 0:
                     base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
@@ -538,7 +539,7 @@ with strategy.scope():
 
             model = Model(inputs=input_layer, outputs=output_layer)
             model.compile(loss="mse", optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), metrics=["accuracy"])
-            # print(model.summary())
+            print(model.summary())
             return model
 
         def update_replay_memory(self, transition):
