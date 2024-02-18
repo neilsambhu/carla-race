@@ -504,9 +504,9 @@ with strategy.scope():
             base_model = None
             for i in range(0,count_layers):
                 if i == 0:
-                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
+                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same', name='Conv2D'))(input_layer) # 2/4/2024 2:52 AM: 55 seconds per epoch
                 else:
-                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same'))(base_model)
+                    base_model = TimeDistributed(Conv2D(count_filters, kernel_size, padding='same', name='Conv2D'))(base_model)
                 # base_model = TimeDistributed(MaxPooling2D(pool_size=pool_size))(base_model)
                 base_model = TimeDistributed(BatchNormalization())(base_model)
                 base_model = TimeDistributed(Activation('relu'))(base_model)
