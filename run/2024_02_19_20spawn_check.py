@@ -16,7 +16,7 @@ def main():
     try:
         # Connect to the CARLA Simulator
         client = carla.Client('localhost', 2000)
-        client.set_timeout(20.0)
+        client.set_timeout(120.0)
 
         # Get the world object
         world = client.get_world()
@@ -36,12 +36,14 @@ def main():
         # random transform from the list of recommended spawn points of the map.
         # print(f'len(world.get_map().get_spawn_points()): {len(world.get_map().get_spawn_points())}')
         # print(f'type(world.get_map().get_spawn_points()): {type(world.get_map().get_spawn_points())}')
-        spawn_start = carla.Transform(carla.Location(x=19.7, y=244.4, z=0.0), carla.Rotation())
-        spawn_destination = carla.Transform(carla.Location(x=581.2, y=244.6, z=0.0), carla.Rotation())
+        spawn_start = carla.Transform(carla.Location(x=19.7, y=244.4, z=2.0), carla.Rotation())
+        spawn_destination = carla.Transform(carla.Location(x=581.2, y=244.6, z=2.0), carla.Rotation())
+        list_spawn = [spawn_start, spawn_destination]
+        # list_spawn = [spawn_start]
 
         # for idx_spawn_point in range(len(world.get_map().get_spawn_points())):
-        for idx_spawn_point in range(len(list(spawn_start, spawn_destination))):
-            transform = world.get_map().get_spawn_points()[idx_spawn_point]
+        for idx_spawn_point in range(len(list_spawn)):
+            transform = list_spawn[idx_spawn_point]
 
             # So let's tell the world to spawn the vehicle.
             vehicle = world.spawn_actor(vehicle_bp, transform)
