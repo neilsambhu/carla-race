@@ -175,6 +175,9 @@ class World(object):
             # spawn_point = spawn_points[3] 
             spawn_point = spawn_points[0] 
             # 11/18/2023: Neil modify spawn point: start
+            # 2/19/2024: Neil modify spawn point: start
+            spawn_point = carla.Transform(carla.Location(x=19.7, y=244.4, z=0.1), carla.Rotation())
+            # 2/19/2024: Neil modify spawn point: end
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
             self.modify_vehicle_physics(self.player)
 
@@ -746,14 +749,14 @@ def game_loop(args):
         world = World(client.get_world(), hud, args)
         controller = KeyboardControl(world)
         if args.agent == "Basic":
-            # agent = BasicAgent(world.player, 30) # 11/11/2023 7:12 PM: Neil commented out
+            agent = BasicAgent(world.player, 30) # 11/11/2023 7:12 PM: Neil commented out
             # agent = BasicAgent(world.player, 60) # 2/1/2024 7:38 PM: Neil added
             # agent = BasicAgent(world.player, 120) # 2/1/2024 7:46 PM: Neil added
             # agent = BasicAgent(world.player, 120, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 7:56 PM: Neil added
             # agent = BasicAgent(world.player, 240, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:07 PM: Neil added # crash
             # agent = BasicAgent(world.player, 180, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:07 PM: Neil added #crash
             # agent = BasicAgent(world.player, 150, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:10 PM: Neil added # crash at 20 FPS and 100 FPS
-            agent = BasicAgent(world.player, 135, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:13 PM: Neil added # highest 20 FPS speed
+            # agent = BasicAgent(world.player, 135, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:13 PM: Neil added # highest 20 FPS speed
             # agent = BasicAgent(world.player, 15) # 1/8/2024 11:19 PM: Neil added
             # 11/11/2023 7:12 PM: Neil custom call to BasicAgent: start
             # agent = BasicAgent(world.player, 30, {'target_speed'})
@@ -781,8 +784,11 @@ def game_loop(args):
         # 11/6/2023 8:21 PM: set_destination: end
         # 11/18/2023 8:18 PM: set_destination: start
         # agent.set_destination(spawn_points[16].location)
-        agent.set_destination(spawn_points[335].location)
+        # agent.set_destination(spawn_points[335].location)
         # 11/18/2023 8:18 PM: set_destination: end
+        # 2/19/2024 12:35 PM: set_destination: start
+        agent.set_destination(carla.Location(x=581.2, y=244.6, z=0.1))
+        # 2/19/2024 12:35 PM: set_destination: end
 
         clock = pygame.time.Clock()
 

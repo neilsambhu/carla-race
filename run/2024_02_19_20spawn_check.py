@@ -36,10 +36,12 @@ def main():
         # random transform from the list of recommended spawn points of the map.
         # print(f'len(world.get_map().get_spawn_points()): {len(world.get_map().get_spawn_points())}')
         # print(f'type(world.get_map().get_spawn_points()): {type(world.get_map().get_spawn_points())}')
-        spawn_start = carla.Transform(carla.Location(x=19.7, y=244.4, z=2.0), carla.Rotation())
-        spawn_destination = carla.Transform(carla.Location(x=581.2, y=244.6, z=2.0), carla.Rotation())
-        list_spawn = [spawn_start, spawn_destination]
-        # list_spawn = [spawn_start]
+        height = 0.1
+        spawn_start_left = carla.Transform(carla.Location(x=19.7, y=240.9, z=height), carla.Rotation())
+        spawn_start_center = carla.Transform(carla.Location(x=19.7, y=244.4, z=height), carla.Rotation())
+        spawn_start_right = carla.Transform(carla.Location(x=19.7, y=247.9, z=height), carla.Rotation())
+        spawn_destination = carla.Transform(carla.Location(x=581.2, y=244.6, z=height), carla.Rotation())
+        list_spawn = [spawn_start_left, spawn_start_center, spawn_start_right, spawn_destination]
 
         # for idx_spawn_point in range(len(world.get_map().get_spawn_points())):
         for idx_spawn_point in range(len(list_spawn)):

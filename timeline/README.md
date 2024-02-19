@@ -855,3 +855,5 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 2/19/2024 11:49 AM: TODO: check lane lines are straight.  
 2/19/2024 11:52 AM: Town06: start: 2/5 lane (19.7, 240.9); 3/5 lane (19.7, 244.4); 4/5 lane (19.7, 247.9)  
 2/19/2024 11:58 AM: TODO: ground-truth drive from 3/5 lane (19.7, 244.4, 0) to (581.2, 244.6, 0).  
+2/19/2024 1:52 PM: TODO: hybrid reward of minimizing distance from (1) centerline and (2) final destination. 
+Action policy is not random; base control decisions on left or right from centerline.  

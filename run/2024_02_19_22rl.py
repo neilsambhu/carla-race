@@ -7,9 +7,12 @@ def actor_list_destroy(actor_list):
 def main():
     '''Make sure CARLA Simulator 0.9.14 is running'''
     actor_list = []
+    path_AP_locations = '_out_21_CARLA_AP_Town06/Locations.txt'
 
-    if os.path.exists('_out_04drive'):
-        shutil.rmtree('_out_04drive')
+    dir_outptut = '_out_22_rl'
+    if os.path.exists(dir_outptut):
+        shutil.rmtree(dir_outptut)
+    os.makedirs(dir_outptut)        
     
     try:
         # Connect to the CARLA Simulator
