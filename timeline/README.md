@@ -849,3 +849,9 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 2/15/2024 4:45 PM: TODO: when episode is not successful, start retraining from minimum error. Never mind.  
 2/16/2024 11:30 PM: TODO: keep network at low levels.  
 2/17/2024 12:18 AM: TODO: understand (1) how to represent policy of actions and (2) how to provide generalizability.  
+2/19/2024 11:34 AM: Town06; destination is at index 64.  
+2/19/2024 11:42 AM: Town06; start at index 15.  
+2/19/2024 11:45 AM: Town06: start (-313.8, 243.7, 0); end (581.2, 244.6, 0)  
+2/19/2024 11:49 AM: TODO: check lane lines are straight.  
+2/19/2024 11:52 AM: Town06: start: 2/5 lane (19.7, 240.9); 3/5 lane (19.7, 244.4); 4/5 lane (19.7, 247.9)  
+2/19/2024 11:58 AM: TODO: ground-truth drive from 3/5 lane (19.7, 244.4, 0) to (581.2, 244.6, 0).  
