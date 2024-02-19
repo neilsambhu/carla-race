@@ -858,3 +858,7 @@ scancel -n carla.sh & scancel -n gaivi.sh & rm slurm* & git pull && sbatch gaivi
 2/19/2024 1:52 PM: TODO: hybrid reward of minimizing distance from (1) centerline and (2) final destination. 
 Action policy is not random; base control decisions on left or right from centerline.  
 2/19/2024 2:11 PM: small TODO: get current location.  
+2/19/2024 4:51 PM: ground-truth drive
+```
+python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
+```
