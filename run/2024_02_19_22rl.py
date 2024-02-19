@@ -1,4 +1,4 @@
-import carla, time, queue, shutil, os
+import carla, time, queue, shutil, os, glob
 
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
@@ -7,13 +7,17 @@ def actor_list_destroy(actor_list):
 def main():
     '''Make sure CARLA Simulator 0.9.14 is running'''
     actor_list = []
+    path_AP_controls = '_out_21_CARLA_AP_Town06/Controls.txt'
     path_AP_locations = '_out_21_CARLA_AP_Town06/Locations.txt'
 
     dir_outptut = '_out_22_rl'
     if os.path.exists(dir_outptut):
         shutil.rmtree(dir_outptut)
-    os.makedirs(dir_outptut)        
-    
+    os.makedirs(dir_outptut)
+    dir_output_frames = f'{dir_outptut}/frames/'
+    path_rl_controls = f'{dir_outptut}/Controls.txt'
+    path_rl_locations = f'{dir_outptut}/Locations.txt'
+
     try:
         # Connect to the CARLA Simulator
         client = carla.Client('localhost', 2000)
@@ -21,7 +25,7 @@ def main():
 
         # Get the world object
         world = client.get_world()
-        world = client.load_world('Town04_Opt')
+        world = client.load_world('Town06_Opt')
 
         # Set synchronous mode
         settings = world.get_settings()
@@ -35,7 +39,12 @@ def main():
 
         # Now we need to give an initial transform to the vehicle. We choose a
         # random transform from the list of recommended spawn points of the map.
-        transform = world.get_map().get_spawn_points()[3]
+        height = 0.1
+        spawn_start_left = carla.Transform(carla.Location(x=19.7, y=240.9, z=height), carla.Rotation())
+        spawn_start_center = carla.Transform(carla.Location(x=19.7, y=244.4, z=height), carla.Rotation())
+        spawn_start_right = carla.Transform(carla.Location(x=19.7, y=247.9, z=height), carla.Rotation())
+        spawn_destination = carla.Transform(carla.Location(x=581.2, y=244.6, z=height), carla.Rotation())
+        transform = spawn_start_center
 
         # So let's tell the world to spawn the vehicle.
         vehicle = world.spawn_actor(vehicle_bp, transform)
@@ -46,7 +55,6 @@ def main():
         # For that reason, we are storing all the actors we create so we can
         # destroy them afterwards.
         actor_list.append(vehicle)
-        print('created %s' % vehicle.type_id)
 
         # Let's put the vehicle to drive around.
         vehicle.set_autopilot(False)
@@ -57,39 +65,25 @@ def main():
         camera_transform = carla.Transform(carla.Location(x=1.5, z=2.4))
         camera = world.spawn_actor(camera_bp, camera_transform, attach_to=vehicle)
         actor_list.append(camera)
-        print('created %s' % camera.type_id)
 
-        # # delay for vehicle to spawn
-        # for i in range(10):
-        #     world.tick()
-        #     time.sleep(1)
-        # time.sleep(5)
-        
         # Now we register the function that will be called each time the sensor
         # receives an image. In this example we are saving the image to disk.
-        # camera.listen(lambda image: image.save_to_disk('_out/%06d.png' % image.frame, cc))
-        camera.listen(lambda image: image.save_to_disk('_out_04drive/%06d.png' % image.frame))
+        camera.listen(lambda image: image.save_to_disk(f'{dir_output_frames}/%06d.png' % image.frame))
 
         throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=0.5,0.0,0.0,False,False,False,0
-        with open('_out_control/control.txt','r') as file:
-            # time.sleep(10)
-            time.sleep(1)
-            for line in file.readlines():
+        countTick = 0
+        with open(path_AP_controls,'r') as file_AP_controls:
+            file_rl_locations = open(path_rl_locations,'w')
+            for line in file_AP_controls.readlines():
                 lineStripped = line.strip()
-                # print(lineStripped.split())
-                throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear = lineStripped.split()
-                control = carla.VehicleControl(
-                    throttle=float(throttle),
-                    steer=float(steer),
-                    brake=float(brake),
-                    hand_brake=hand_brake=='True',
-                    reverse=reverse=='True',
-                    manual_gear_shift=manual_gear_shift=='True',
-                    gear=int(gear))
+                throttle,steer,brake = lineStripped.split()
+                control = carla.VehicleControl(throttle=float(throttle),steer=float(steer),brake=float(brake))
                 vehicle.apply_control(control)
                 world.tick()
-                time.sleep(1)
-
+                countTick += 1
+            countTick -= 1
+        while len(glob.glob(os.path.join(dir_output_frames,'*'))) < countTick:
+            time.sleep(1)
     finally:
         actor_list_destroy(actor_list)
         print('done')
