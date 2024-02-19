@@ -487,11 +487,11 @@ with strategy.scope():
             from tensorflow.keras.models import Model
             input_shape = (COUNT_FRAME_WINDOW, IM_HEIGHT, IM_WIDTH, 3)
             # count_filters = 1
-            # count_filters = 28 # OOM
+            count_filters = 28 # OOM
             # count_filters = 14 # OOM
             # count_filters = 7 # OOM
             # count_filters = 2
-            count_filters = 256
+            # count_filters = 256
             # kernel_size = (1,1)
             kernel_size = (3,3)
             pool_size = (2,2) # 2/4/2024 2:57 AM: 53 seconds per epoch
