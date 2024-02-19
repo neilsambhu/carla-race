@@ -498,7 +498,8 @@ with strategy.scope():
             # count_layers = 8
             # count_layers = 16
             # count_layers = 4
-            count_layers = 7
+            # count_layers = 7
+            count_layers = 2
             count_lstmNodes = 1024
             # count_lstmNodes = 64
             # count_lstmNodes = 10_000
