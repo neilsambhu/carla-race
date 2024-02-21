@@ -147,16 +147,16 @@ def main():
             thresholdSpeed = 30
             bWithinThreshold = None
             # maxSteer = 0.05
-            maxSteer = 1
+            maxSteer = None
             unitChangeThrottle = 0.1
             unitChangeSteer = 1
             unitChangeBrake = 0.1
             v = vehicle.get_velocity()
             kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-            # if kmh < thresholdSpeed:
-            #     maxSteer = 0.001
-            # else:
-            #     maxSteer = 1
+            if kmh < thresholdSpeed:
+                maxSteer = 0.01
+            else:
+                maxSteer = 1
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
                 bWithinThreshold = True
                 throttle, steer, brake = getStandardVehicleControl()
