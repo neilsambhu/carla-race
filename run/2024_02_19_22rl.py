@@ -151,7 +151,7 @@ def main():
             v = vehicle.get_velocity()
             kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
             if kmh < thresholdSpeed:
-                maxSteer = 0.001
+                maxSteer = 0.0001
             else:
                 maxSteer = 0.1
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
@@ -177,7 +177,7 @@ def main():
                     deltaBrake = unitChangeBrake
                     brake = min(brake+deltaBrake, 1.0)
             vehicle.apply_control(carla.VehicleControl(throttle=throttle, steer=steer, brake=brake))
-            print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.1f} steer: {steer:.3f} brake: {brake:.1f}')
+            print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.1f} steer: {steer:.4f} brake: {brake:.1f}')
             world.tick()
             countTick += 1
         time.sleep(10)
