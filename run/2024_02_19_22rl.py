@@ -145,7 +145,7 @@ def main():
                     deltaBrake = unitChangeBrake
                     brake = min(brake+deltaBrake, 1.0)
             vehicle.apply_control(carla.VehicleControl(throttle=throttle, steer=steer, brake=brake))
-            print(f'Distance to destination: {getDistanceToDestination():.1f}\tdeltaY: {deltaY:.2f}\tthrottle: {throttle:.1f} steer: {steer:.1f} brake: {brake:.1f}')
+            print(f'tick: {countTick} distance to destination: {getDistanceToDestination():.1f}\tdeltaY: {deltaY:.2f}\tthrottle: {throttle:.1f} steer: {steer:.1f} brake: {brake:.1f}')
             world.tick()
             countTick += 1
         countTick -= 1
