@@ -129,27 +129,29 @@ def main():
         throttle, steer, brake = 1.0, 0.0, 0.0
         while getDistanceToDestination() > 2:
             locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
-            deltaY = locationClosestToCurrent.y - vehicle.get_location().y
+            deltaY = vehicle.get_location().y - locationClosestToCurrent.y
             thresholdDeltaY = 0.1
             bWithinThreshold = None
             unitChangeThrottle = 0.1
-            unitChangeSteer = 0.01
+            unitChangeSteer = 0.1
             unitChangeBrake = 0.1
+            maxSteer = 0.1
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
                 bWithinThreshold = True
                 throttle, steer, brake = 1.0, 0.0, 0.0
-            elif deltaY < -thresholdDeltaY:
-                bWithinThreshold = False
-                deltaSteer = -unitChangeSteer
-                steer = max(steer+deltaSteer, -0.1)
             elif deltaY > thresholdDeltaY:
                 bWithinThreshold = False
+                deltaSteer = -unitChangeSteer
+                steer = max(steer+deltaSteer, -maxSteer)
+            elif deltaY < thresholdDeltaY:
+                bWithinThreshold = False
                 deltaSteer = unitChangeSteer
-                steer = min(steer+deltaSteer, 0.1)
+                steer = min(steer+deltaSteer, maxSteer)
             if not bWithinThreshold:
                 v = vehicle.get_velocity()
                 kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-                if kmh < 30:
+                # if kmh < 30:
+                if kmh < 15:
                     # slow or not moving
                     brake = 0
                     deltaThrottle = unitChangeThrottle
