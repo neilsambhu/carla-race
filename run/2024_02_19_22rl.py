@@ -137,26 +137,28 @@ def main():
         countTick += 1
         def getDistanceToDestination():
             return location_destination.distance(vehicle.get_location())
-        throttle, steer, brake = 1.0, 0.0, 0.0
+        def getStandardVehicleControl():
+            return 0.75, 0.0, 0.0
+        throttle, steer, brake = getStandardVehicleControl()
         while getDistanceToDestination() > 2:
             locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
             deltaY = vehicle.get_location().y - locationClosestToCurrent.y
-            thresholdDeltaY = 1
-            thresholdSpeed = 1000
+            thresholdDeltaY = 0.0001
+            thresholdSpeed = 30
             bWithinThreshold = None
-            maxSteer = None
+            maxSteer = 0.01
             unitChangeThrottle = 0.1
             unitChangeSteer = 0.1
             unitChangeBrake = 0.1
             v = vehicle.get_velocity()
             kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-            if kmh < thresholdSpeed:
-                maxSteer = 0.0001
-            else:
-                maxSteer = 0.1
+            # if kmh < thresholdSpeed:
+            #     maxSteer = 0.001
+            # else:
+            #     maxSteer = 1
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
                 bWithinThreshold = True
-                throttle, steer, brake = 1.0, 0.0, 0.0
+                throttle, steer, brake = getStandardVehicleControl()
             elif deltaY > thresholdDeltaY:
                 bWithinThreshold = False
                 deltaSteer = -unitChangeSteer
@@ -165,19 +167,19 @@ def main():
                 bWithinThreshold = False
                 deltaSteer = unitChangeSteer
                 steer = min(steer+deltaSteer, maxSteer)
-            if not bWithinThreshold:
-                if kmh < thresholdSpeed:
-                    # slow or not moving
-                    brake = 0
-                    deltaThrottle = unitChangeThrottle
-                    throttle = min(throttle+deltaThrottle, 1.0)
-                else:
-                    # already moving
-                    throttle = 0.0
-                    deltaBrake = unitChangeBrake
-                    brake = min(brake+deltaBrake, 1.0)
+            # if not bWithinThreshold:
+            if kmh < thresholdSpeed:
+                # slow or not moving
+                brake = 0
+                deltaThrottle = unitChangeThrottle
+                throttle = min(throttle+deltaThrottle, 1.0)
+            else:
+                # already moving
+                throttle = 0.0
+                deltaBrake = unitChangeBrake
+                brake = min(brake+deltaBrake, 1.0)
             vehicle.apply_control(carla.VehicleControl(throttle=throttle, steer=steer, brake=brake))
-            print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.1f} steer: {steer:.4f} brake: {brake:.1f}')
+            print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.2f} steer: {steer:.4f} brake: {brake:.1f}')
             world.tick()
             countTick += 1
         time.sleep(10)
