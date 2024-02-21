@@ -115,7 +115,7 @@ def main():
         while getDistanceToDestination() > 2:
             locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
             deltaY = locationClosestToCurrent.y - vehicle.get_location().y
-            thresholdDeltaY = 1
+            thresholdDeltaY = 0.1
             bWithinThreshold = None
             unitChangeThrottle = 0.1
             unitChangeSteer = 0.1
