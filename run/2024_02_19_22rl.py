@@ -1,4 +1,4 @@
-import carla, time, queue, shutil, os, glob, math
+import carla, time, queue, shutil, os, glob, math, configparser
 
 config = configparser.ConfigParser()
 config.read('config.ini')
