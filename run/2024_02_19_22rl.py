@@ -4,7 +4,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGPU_random = config.getboolean('Settings','bGPU_random')
-bGAIVI = not bSAMBHU24
+bGAIVI = not bSAMBHU23
 
 path_AP_controls = '_out_21_CARLA_AP_Town06/Controls.txt'
 path_AP_locations = '_out_21_CARLA_AP_Town06/Locations.txt'
