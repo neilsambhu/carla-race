@@ -146,9 +146,10 @@ def main():
             thresholdDeltaY = 0.0001
             thresholdSpeed = 30
             bWithinThreshold = None
-            maxSteer = 0.1
+            # maxSteer = 0.05
+            maxSteer = 1
             unitChangeThrottle = 0.1
-            unitChangeSteer = 0.1
+            unitChangeSteer = 1
             unitChangeBrake = 0.1
             v = vehicle.get_velocity()
             kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
