@@ -4,7 +4,7 @@
 ##SBATCH -p nopreempt
 
 ##SBATCH --cpus-per-task=4
-#SBATCH --cpus-per-task=64
+#SBATCH --cpus-per-task=32
 ##SBATCH --cpus-per-task=24 # GPU1
 ##SBATCH --cpus-per-task=8 # GPU13
 ##SBATCH --cpus-per-task=32 # GPU42

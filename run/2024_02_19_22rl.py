@@ -1,9 +1,9 @@
-import carla, time, queue, shutil, os, glob, math, configparser, subprocess
+import carla, time, queue, shutil, os, glob, math, configparser, subprocess, cv2
+import numpy as np
 
 config = configparser.ConfigParser()
 config.read('config.ini')
 bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
-bGPU_random = config.getboolean('Settings','bGPU_random')
 bGAIVI = not bSAMBHU23
 
 path_AP_controls = '_out_21_CARLA_AP_Town06/Controls.txt'
@@ -14,11 +14,14 @@ if os.path.exists(dir_outptut):
     shutil.rmtree(dir_outptut)
 os.makedirs(dir_outptut)
 dir_output_frames = f'{dir_outptut}/frames/'
+os.makedirs(dir_output_frames)
 path_rl_controls = f'{dir_outptut}/Controls.txt'
 path_rl_locations = f'{dir_outptut}/Locations.txt'
 
 '''Make sure CARLA Simulator 0.9.14 is running'''
 actor_list = []
+IM_WIDTH = 80*2
+IM_HEIGHT = 60*2
 
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
@@ -98,13 +101,25 @@ def main():
         # Let's add now a "depth" camera attached to the vehicle. Note that the
         # transform we give here is now relative to the vehicle.
         camera_bp = blueprint_library.find('sensor.camera.rgb')
+        camera_bp.set_attribute("image_size_x", f"{IM_WIDTH}")
+        camera_bp.set_attribute("image_size_y", f"{IM_HEIGHT}")
+        camera_bp.set_attribute("fov", f"110")
         camera_transform = carla.Transform(carla.Location(x=1.5, z=2.4))
         camera = world.spawn_actor(camera_bp, camera_transform, attach_to=vehicle)
         actor_list.append(camera)
 
         # Now we register the function that will be called each time the sensor
         # receives an image. In this example we are saving the image to disk.
-        camera.listen(lambda image: image.save_to_disk(f'{dir_output_frames}/%06d.png' % image.frame))
+        # camera.listen(lambda image: image.save_to_disk(f'{dir_output_frames}/%06d.png' % image.frame))
+        def processImage(image):
+            i = np.array(image.raw_data)
+            # print(i.shape)
+            i2 = i.reshape((IM_HEIGHT, IM_WIDTH, 4))
+            i3 = cv2.cvtColor(i2, cv2.COLOR_BGRA2RGB)
+            from PIL import Image
+            i4 = Image.fromarray(i3)
+            i4.save(os.path.join(dir_output_frames, f'{image.frame:06d}.png'))
+        camera.listen(lambda image: processImage(image))
 
         countTick = 0
         world.tick()
@@ -118,7 +133,7 @@ def main():
             thresholdDeltaY = 0.1
             bWithinThreshold = None
             unitChangeThrottle = 0.1
-            unitChangeSteer = 0.1
+            unitChangeSteer = 0.01
             unitChangeBrake = 0.1
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
                 bWithinThreshold = True
@@ -134,7 +149,7 @@ def main():
             if not bWithinThreshold:
                 v = vehicle.get_velocity()
                 kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-                if kmh < 5:
+                if kmh < 30:
                     # slow or not moving
                     brake = 0
                     deltaThrottle = unitChangeThrottle
@@ -145,7 +160,7 @@ def main():
                     deltaBrake = unitChangeBrake
                     brake = min(brake+deltaBrake, 1.0)
             vehicle.apply_control(carla.VehicleControl(throttle=throttle, steer=steer, brake=brake))
-            print(f'tick: {countTick} distance to destination: {getDistanceToDestination():.1f}\tdeltaY: {deltaY:.2f}\tthrottle: {throttle:.1f} steer: {steer:.1f} brake: {brake:.1f}')
+            print(f'tick: {countTick} distance to destination: {getDistanceToDestination():.1f} deltaY: {deltaY:.2f} throttle: {throttle:.1f} steer: {steer:.1f} brake: {brake:.1f}')
             world.tick()
             countTick += 1
         countTick -= 1
