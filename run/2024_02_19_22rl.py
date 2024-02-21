@@ -72,13 +72,11 @@ def main():
 
         throttle,steer,brake,hand_brake,reverse,manual_gear_shift,gear=0.5,0.0,0.0,False,False,False,0
         countTick = 0
-        with open(path_AP_controls,'r') as file_AP_controls:
-            file_rl_locations = open(path_rl_locations,'w')
-            for line in file_AP_controls.readlines():
+        with open(path_rl_locations,'r') as file_rl_locations:
+            for line in file_rl_locations.readlines():
                 lineStripped = line.strip()
-                throttle,steer,brake = lineStripped.split()
-                control = carla.VehicleControl(throttle=float(throttle),steer=float(steer),brake=float(brake))
-                vehicle.apply_control(control)
+                x,y,z = lineStripped.split()
+                location = carla.Location(float(x),float(y),float(z))
                 world.tick()
                 countTick += 1
             countTick -= 1
