@@ -55,8 +55,8 @@ def main():
             carla_line = [line for line in output_lines if 'nsambhu' in line and 'carla.sh' in line and 'GPU' in line]
             gpu_info = carla_line[-1].split()[-1]  # Assuming GPU info is the last column
             print("GPU Info for carla.sh:", gpu_info)
-            self.client = carla.Client(gpu_info, 2000)
-            self.client.set_timeout(120)
+            client = carla.Client(gpu_info, 2000)
+            client.set_timeout(120)
 
         # Get the world object
         world = client.get_world()
