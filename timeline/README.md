@@ -862,3 +862,4 @@ Action policy is not random; base control decisions on left or right from center
 ```
 python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_control.py --sync --filter "vehicle.tesla.model3" --agent Basic
 ```
+2/21/2024 2:15 PM: (1) minimize lap time and (2) have vehicle drive around circular track.  
