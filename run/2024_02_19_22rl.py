@@ -10,11 +10,21 @@ path_AP_controls = '_out_21_CARLA_AP_Town06/Controls.txt'
 path_AP_locations = '_out_21_CARLA_AP_Town06/Locations.txt'
 
 dir_outptut = '_out_22_rl'
-if os.path.exists(dir_outptut):
-    shutil.rmtree(dir_outptut)
-os.makedirs(dir_outptut)
+if not os.path.exists(dir_outptut):
+    os.makedirs(dir_outptut)
 dir_output_frames = f'{dir_outptut}/frames/'
-os.makedirs(dir_output_frames)
+if not os.path.exists(dir_output_frames):
+    os.makedirs(dir_output_frames)
+
+def clean_directory(directory):
+    if not bGAIVI:
+        [os.remove(os.path.join(directory, file)) for file in os.listdir(directory) if os.path.isfile(os.path.join(directory, file))]
+        [shutil.rmtree(os.path.join(directory, dir)) for dir in os.listdir(directory) if os.path.isdir(os.path.join(directory, dir))]
+    else:
+        clean = subprocess.Popen(f'rm -rf {directory}/*', shell=True)
+        clean.wait()
+clean_directory(dir_output_frames)
+
 path_rl_controls = f'{dir_outptut}/Controls.txt'
 path_rl_locations = f'{dir_outptut}/Locations.txt'
 
@@ -135,7 +145,7 @@ def main():
             unitChangeThrottle = 0.1
             unitChangeSteer = 0.1
             unitChangeBrake = 0.1
-            maxSteer = 0.1
+            maxSteer = 0.25
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
                 bWithinThreshold = True
                 throttle, steer, brake = 1.0, 0.0, 0.0
