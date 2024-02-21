@@ -121,6 +121,7 @@ def main():
         # Now we register the function that will be called each time the sensor
         # receives an image. In this example we are saving the image to disk.
         # camera.listen(lambda image: image.save_to_disk(f'{dir_output_frames}/%06d.png' % image.frame))
+        countTick = 0
         def processImage(image):
             i = np.array(image.raw_data)
             # print(i.shape)
@@ -128,10 +129,10 @@ def main():
             i3 = cv2.cvtColor(i2, cv2.COLOR_BGRA2RGB)
             from PIL import Image
             i4 = Image.fromarray(i3)
-            i4.save(os.path.join(dir_output_frames, f'{image.frame:06d}.png'))
+            # i4.save(os.path.join(dir_output_frames, f'{image.frame:06d}.png'))
+            i4.save(os.path.join(dir_output_frames, f'{countTick:06d}.png'))
         camera.listen(lambda image: processImage(image))
 
-        countTick = 0
         world.tick()
         countTick += 1
         def getDistanceToDestination():
@@ -141,7 +142,7 @@ def main():
             locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
             deltaY = vehicle.get_location().y - locationClosestToCurrent.y
             thresholdDeltaY = 1
-            thresholdSpeed = 30
+            thresholdSpeed = 1000
             bWithinThreshold = None
             maxSteer = None
             unitChangeThrottle = 0.1
@@ -150,9 +151,9 @@ def main():
             v = vehicle.get_velocity()
             kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
             if kmh < thresholdSpeed:
-                maxSteer = 0.01
+                maxSteer = 0.001
             else:
-                maxSteer = 0.5
+                maxSteer = 0.1
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
                 bWithinThreshold = True
                 throttle, steer, brake = 1.0, 0.0, 0.0
@@ -176,11 +177,11 @@ def main():
                     deltaBrake = unitChangeBrake
                     brake = min(brake+deltaBrake, 1.0)
             vehicle.apply_control(carla.VehicleControl(throttle=throttle, steer=steer, brake=brake))
-            print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.1f} steer: {steer:.2f} brake: {brake:.1f}')
+            print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.1f} steer: {steer:.3f} brake: {brake:.1f}')
             world.tick()
             countTick += 1
-        countTick -= 1
-        while len(glob.glob(os.path.join(dir_output_frames,'*'))) < countTick:
+        time.sleep(10)
+        while not os.path.join(dir_output_frames, f'{countTick:06d}.png'):
             time.sleep(10)
     finally:
         actor_list_destroy(actor_list)
