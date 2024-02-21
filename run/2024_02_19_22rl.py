@@ -146,7 +146,7 @@ def main():
             thresholdDeltaY = 0.0001
             thresholdSpeed = 30
             bWithinThreshold = None
-            maxSteer = 0.01
+            maxSteer = 0.1
             unitChangeThrottle = 0.1
             unitChangeSteer = 0.1
             unitChangeBrake = 0.1
