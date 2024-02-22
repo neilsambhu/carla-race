@@ -61,7 +61,7 @@ def main():
         # Connect to the CARLA Simulator
         if bSAMBHU23:
             client = carla.Client('localhost', 2000)
-            client.set_timeout(20.0)
+            client.set_timeout(120.0)
         if bGAIVI:
             command_output = subprocess.run(['squeue'], capture_output=True, text=True)
             output_lines = command_output.stdout.split('\n')
@@ -140,7 +140,7 @@ def main():
         while getDistanceToDestination() > 2:
             locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
             deltaY = vehicle.get_location().y - locationClosestToCurrent.y
-            thresholdDeltaY = 0.1
+            thresholdDeltaY = 1
             thresholdSpeed = 10
             bWithinThreshold = None
             maxSteer = None
@@ -152,7 +152,7 @@ def main():
             if kmh < thresholdSpeed:
                 maxSteer = 0.1
             else:
-                maxSteer = 0.5
+                maxSteer = 0.6
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
                 bWithinThreshold = True
                 throttle, steer, brake = 1.0, 0.0, 0.0
@@ -176,7 +176,7 @@ def main():
                     deltaBrake = unitChangeBrake
                     brake = min(brake+deltaBrake, 1.0)
             vehicle.apply_control(carla.VehicleControl(throttle=throttle, steer=steer, brake=brake))
-            print(f'tick: {countTick} distance to destination: {getDistanceToDestination():.1f} deltaY: {deltaY:.2f} throttle: {throttle:.1f} steer: {steer:.1f} brake: {brake:.1f}')
+            print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.1f} steer: {steer:.2f} brake: {brake:.1f}')
             world.tick()
             countTick += 1
         countTick -= 1
