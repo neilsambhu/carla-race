@@ -150,7 +150,7 @@ def main():
             v = vehicle.get_velocity()
             kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
             if kmh < thresholdSpeed:
-                maxSteer = 0.25
+                maxSteer = 0.1
             else:
                 maxSteer = 0.5
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
