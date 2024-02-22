@@ -152,7 +152,7 @@ def main():
             if kmh < thresholdSpeed:
                 maxSteer = 0.1
             else:
-                maxSteer = 0.6
+                maxSteer = 0.5
             if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
                 bWithinThreshold = True
                 throttle, steer, brake = 1.0, 0.0, 0.0
