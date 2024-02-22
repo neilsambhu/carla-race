@@ -866,3 +866,7 @@ python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_co
 2/21/2024 3:25 PM: (1) minimize wiggling, (2) vehicle drive around circular track, 
 (3) kinematics for slip angle.  
 2/22/2024 12:42 PM: TODO: plots of (1) deltaY and (2) path taken relative to ground truth drive.  
+2/22/2024 1:49 PM: run 
+```
+python run/2024_02_19_19town.py && python run/2024_02_19_22rl.py
+```

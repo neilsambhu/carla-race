@@ -149,7 +149,7 @@ def main():
         ax1.set_ylabel('Delta Y')
         ax1.set_title('Delta Y over Time')
         # Plot setup for overlay
-        fig_overlay, ax2 = plt.subplots(figsize=(12, 12))  # Adjust the figsize as needed
+        fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
         ax2.set_aspect('equal', 'box')
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
@@ -212,9 +212,9 @@ def main():
         plt.close(fig_deltaY)
         # Save the overlay plot
         x_vehicle = [location.x for location in listLocations]
-        y_vehicle = [location.y for location in listLocations]
+        y_vehicle = [10*(location.y-location_destination.y) for location in listLocations]
         x_path = [location.x for location in listLocationsPath_CARLA_AP_Town06]
-        y_path = [location.y for location in listLocationsPath_CARLA_AP_Town06]
+        y_path = [10*(location.y-location_destination.y) for location in listLocationsPath_CARLA_AP_Town06]
         ax2.plot(x_vehicle, y_vehicle, label='Vehicle Location', marker='o', linestyle='-')
         ax2.plot(x_path, y_path, label='Path Location', marker='o', linestyle='--')
         ax2.legend()
@@ -223,8 +223,7 @@ def main():
         ax2.set_title('Vehicle Location and Path Overlay')
         # Adjust the ylim values to zoom in on the y-values
         y_range = max(y_path) - min(y_path)
-        zoom = 0.01
-        ax2.set_ylim(min(y_path) - zoom * y_range, max(y_path) + zoom * y_range)
+        # ax2.set_ylim(244.6 - 50, 244.6 + 50)
         fig_overlay.savefig(os.path.join(dir_outptut, 'overlay_plot.png'))
         plt.close(fig_overlay)
 
