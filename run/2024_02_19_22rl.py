@@ -139,7 +139,7 @@ def main():
         def getDistanceToDestination():
             return location_destination.distance(vehicle.get_location())
         def getStandardVehicleControl():
-            return 0.75, 0.0, 0.0
+            return 1.0, 0.0, 0.0
         throttle, steer, brake = getStandardVehicleControl()
         listDeltaY = []
         listLocations = []
@@ -159,8 +159,8 @@ def main():
             deltaY = vehicle.get_location().y - locationClosestToCurrent.y
             listDeltaY.append(deltaY)
             listLocations.append(vehicle.get_location())
-            thresholdDeltaYNoSteer = 0.1
-            thresholdDeltaYSteer = 2.5
+            thresholdDeltaYNoSteer = 0.5
+            thresholdDeltaYSteer = 1e-1
             speedMinimum = 10
             speedTarget = 30
             bWithinThreshold = None
@@ -170,17 +170,15 @@ def main():
             unitChangeBrake = 0.1
             v = vehicle.get_velocity()
             kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-            # if kmh < speedMinimum:
-            #     maxSteer = 0.01
-            # elif kmh < speedTarget:
-            #     maxSteer = 0.1
-            # else:
-            #     maxSteer = 1
-            if abs(deltaY) < thresholdDeltaYSteer:
-                # deltaY = -deltaY
-                maxSteer = 1e-2
+            if kmh < speedMinimum:
+                maxSteer = 0.01
             else:
-                maxSteer = 1e-1
+                maxSteer = min(abs(deltaY)/1000, 0.1)
+            # if abs(deltaY) < thresholdDeltaYSteer:
+            #     # deltaY = -deltaY
+            #     maxSteer = 1e-3
+            # else:
+            #     maxSteer = 1e-1
             if deltaY >= -thresholdDeltaYNoSteer and deltaY <= thresholdDeltaYNoSteer:
                 bWithinThreshold = True
                 throttle, steer, brake = getStandardVehicleControl()
@@ -188,20 +186,21 @@ def main():
                 bWithinThreshold = False
                 deltaSteer = -unitChangeSteer
                 steer = max(steer+deltaSteer, -maxSteer)
-            elif deltaY < thresholdDeltaYNoSteer:
+            elif deltaY < -thresholdDeltaYNoSteer:
                 bWithinThreshold = False
                 deltaSteer = unitChangeSteer
                 steer = min(steer+deltaSteer, maxSteer)
-            if kmh < speedTarget:
-                # slow or not moving
-                brake = 0
-                deltaThrottle = unitChangeThrottle
-                throttle = min(throttle+deltaThrottle, 1.0)
-            else:
-                # already moving
-                throttle = 0.0
-                deltaBrake = unitChangeBrake
-                brake = min(brake+deltaBrake, 1.0)
+            if not bWithinThreshold:
+                if kmh < speedMinimum:
+                    # slow or not moving
+                    brake = 0
+                    deltaThrottle = unitChangeThrottle
+                    throttle = min(throttle+deltaThrottle, 1.0)
+                else:
+                    # already moving
+                    throttle = 0.0
+                    deltaBrake = unitChangeBrake
+                    brake = min(brake+deltaBrake, 1.0)
             vehicle.apply_control(carla.VehicleControl(throttle=throttle, steer=steer, brake=brake))
             print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.2f} steer: {steer:.4f} brake: {brake:.1f}')
             world.tick()
@@ -211,19 +210,17 @@ def main():
         fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
         plt.close(fig_deltaY)
         # Save the overlay plot
+        stretch = 50
         x_vehicle = [location.x for location in listLocations]
-        y_vehicle = [10*(location.y-location_destination.y) for location in listLocations]
+        y_vehicle = [stretch*(location.y-location_destination.y) for location in listLocations]
         x_path = [location.x for location in listLocationsPath_CARLA_AP_Town06]
-        y_path = [10*(location.y-location_destination.y) for location in listLocationsPath_CARLA_AP_Town06]
+        y_path = [stretch*(location.y-location_destination.y) for location in listLocationsPath_CARLA_AP_Town06]
         ax2.plot(x_vehicle, y_vehicle, label='Vehicle Location', marker='o', linestyle='-')
         ax2.plot(x_path, y_path, label='Path Location', marker='o', linestyle='--')
         ax2.legend()
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
         ax2.set_title('Vehicle Location and Path Overlay')
-        # Adjust the ylim values to zoom in on the y-values
-        y_range = max(y_path) - min(y_path)
-        # ax2.set_ylim(244.6 - 50, 244.6 + 50)
         fig_overlay.savefig(os.path.join(dir_outptut, 'overlay_plot.png'))
         plt.close(fig_overlay)
 
