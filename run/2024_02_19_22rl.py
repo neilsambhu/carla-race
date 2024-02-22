@@ -162,7 +162,7 @@ def main():
             thresholdDeltaYNoSteer = 0.5
             thresholdDeltaYSteer = 1e-1
             speedMinimum = 10
-            speedTarget = 30
+            speedTarget = 15
             bWithinThreshold = None
             maxSteer = None
             unitChangeThrottle = 0.1
@@ -173,7 +173,7 @@ def main():
             if kmh < speedMinimum:
                 maxSteer = 0.01
             else:
-                maxSteer = min(abs(deltaY)/1000, 0.1)
+                maxSteer = min(abs(deltaY)/10, 0.01)
             # if abs(deltaY) < thresholdDeltaYSteer:
             #     # deltaY = -deltaY
             #     maxSteer = 1e-3
@@ -191,7 +191,7 @@ def main():
                 deltaSteer = unitChangeSteer
                 steer = min(steer+deltaSteer, maxSteer)
             if not bWithinThreshold:
-                if kmh < speedMinimum:
+                if kmh < speedTarget:
                     # slow or not moving
                     brake = 0
                     deltaThrottle = unitChangeThrottle
