@@ -1,13 +1,14 @@
 import carla, time, queue, shutil, os, glob, math, configparser, subprocess, cv2
 import numpy as np
+import matplotlib.pyplot as plt
 
 config = configparser.ConfigParser()
 config.read('config.ini')
 bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGAIVI = not bSAMBHU23
 
-path_AP_controls = '_out_21_CARLA_AP_Town06/Controls.txt'
-path_AP_locations = '_out_21_CARLA_AP_Town06/Locations.txt'
+path_AP_controls = '_out_21_CARLA_AP_Town06/ControlsStraight.txt'
+path_AP_locations = '_out_21_CARLA_AP_Town06/LocationsStraight.txt'
 
 dir_outptut = '_out_22_rl'
 if not os.path.exists(dir_outptut):
@@ -37,24 +38,24 @@ def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
     return []
 def getPath_CARLA_AP_Town06():
-    listLocationsPath = []
+    listLocationsPath_CARLA_AP_Town06 = []
     with open(path_AP_locations,'r') as file_AP_locations:
         for line in file_AP_locations.readlines():
             lineStripped = line.strip()
             x,y,z = lineStripped.split()
             locationFromPath = carla.Location(float(x),float(y),float(z))
-            listLocationsPath.append(locationFromPath)
-    return listLocationsPath
-listLocationsPath = getPath_CARLA_AP_Town06()
+            listLocationsPath_CARLA_AP_Town06.append(locationFromPath)
+    return listLocationsPath_CARLA_AP_Town06
+listLocationsPath_CARLA_AP_Town06 = getPath_CARLA_AP_Town06()
 def getLocationClosestToCurrent(currentLocation):
     distanceMinimum = None
     listDistance = []
-    for locationFromPath in listLocationsPath:
+    for locationFromPath in listLocationsPath_CARLA_AP_Town06:
         distanceFromPath = currentLocation.distance(locationFromPath)
         listDistance.append(distanceFromPath)
     distanceMinimum = min(listDistance)
     indexMinimum = listDistance.index(distanceMinimum)
-    return listLocationsPath[indexMinimum]
+    return listLocationsPath_CARLA_AP_Town06[indexMinimum]
 
 def main():
     try:
@@ -140,38 +141,57 @@ def main():
         def getStandardVehicleControl():
             return 0.75, 0.0, 0.0
         throttle, steer, brake = getStandardVehicleControl()
-        while getDistanceToDestination() > 2:
+        listDeltaY = []
+        listLocations = []
+        # Plot setup for delta Y
+        fig_deltaY, ax1 = plt.subplots(figsize=(12, 6))
+        ax1.set_xlabel('Time Steps')
+        ax1.set_ylabel('Delta Y')
+        ax1.set_title('Delta Y over Time')
+        # Plot setup for overlay
+        fig_overlay, ax2 = plt.subplots(figsize=(12, 12))  # Adjust the figsize as needed
+        ax2.set_aspect('equal', 'box')
+        ax2.set_xlabel('X')
+        ax2.set_ylabel('Y')
+        ax2.set_title('Vehicle Location and Path Overlay')
+        while getDistanceToDestination() > 10:
             locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
             deltaY = vehicle.get_location().y - locationClosestToCurrent.y
-            thresholdDeltaY = 0.0001
+            listDeltaY.append(deltaY)
+            listLocations.append(vehicle.get_location())
+            thresholdDeltaYNoSteer = 0.1
+            thresholdDeltaYSteer = 2.5
             speedMinimum = 10
             speedTarget = 30
             bWithinThreshold = None
-            # maxSteer = 0.05
             maxSteer = None
             unitChangeThrottle = 0.1
             unitChangeSteer = 1
             unitChangeBrake = 0.1
             v = vehicle.get_velocity()
             kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
-            if kmh < speedMinimum:
-                maxSteer = 0.01
-            elif kmh < speedTarget:
-                maxSteer = 0.1
+            # if kmh < speedMinimum:
+            #     maxSteer = 0.01
+            # elif kmh < speedTarget:
+            #     maxSteer = 0.1
+            # else:
+            #     maxSteer = 1
+            if abs(deltaY) < thresholdDeltaYSteer:
+                # deltaY = -deltaY
+                maxSteer = 1e-2
             else:
-                maxSteer = 1
-            if deltaY >= -thresholdDeltaY and deltaY <= thresholdDeltaY:
+                maxSteer = 1e-1
+            if deltaY >= -thresholdDeltaYNoSteer and deltaY <= thresholdDeltaYNoSteer:
                 bWithinThreshold = True
                 throttle, steer, brake = getStandardVehicleControl()
-            elif deltaY > thresholdDeltaY:
+            elif deltaY > thresholdDeltaYNoSteer:
                 bWithinThreshold = False
                 deltaSteer = -unitChangeSteer
                 steer = max(steer+deltaSteer, -maxSteer)
-            elif deltaY < thresholdDeltaY:
+            elif deltaY < thresholdDeltaYNoSteer:
                 bWithinThreshold = False
                 deltaSteer = unitChangeSteer
                 steer = min(steer+deltaSteer, maxSteer)
-            # if not bWithinThreshold:
             if kmh < speedTarget:
                 # slow or not moving
                 brake = 0
@@ -186,6 +206,28 @@ def main():
             print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.2f} steer: {steer:.4f} brake: {brake:.1f}')
             world.tick()
             countTick += 1
+        # Save the delta Y plot
+        ax1.plot(listDeltaY)
+        fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
+        plt.close(fig_deltaY)
+        # Save the overlay plot
+        x_vehicle = [location.x for location in listLocations]
+        y_vehicle = [location.y for location in listLocations]
+        x_path = [location.x for location in listLocationsPath_CARLA_AP_Town06]
+        y_path = [location.y for location in listLocationsPath_CARLA_AP_Town06]
+        ax2.plot(x_vehicle, y_vehicle, label='Vehicle Location', marker='o', linestyle='-')
+        ax2.plot(x_path, y_path, label='Path Location', marker='o', linestyle='--')
+        ax2.legend()
+        ax2.set_xlabel('X')
+        ax2.set_ylabel('Y')
+        ax2.set_title('Vehicle Location and Path Overlay')
+        # Adjust the ylim values to zoom in on the y-values
+        y_range = max(y_path) - min(y_path)
+        zoom = 0.01
+        ax2.set_ylim(min(y_path) - zoom * y_range, max(y_path) + zoom * y_range)
+        fig_overlay.savefig(os.path.join(dir_outptut, 'overlay_plot.png'))
+        plt.close(fig_overlay)
+
         time.sleep(10)
         while not os.path.join(dir_output_frames, f'{countTick:06d}.png'):
             time.sleep(10)
