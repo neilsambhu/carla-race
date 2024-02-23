@@ -871,3 +871,5 @@ python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_co
 python run/2024_02_19_19town.py && python run/2024_02_19_22rl.py
 ```
 2/22/2024 4:17 PM: TODO: model distance travelled by various actions.  
+2/22/2024 4:58 PM: TODO: (1) RL search on autonomous driving. 
+(2) Journal: ITS; look for other transactions. (3) send email.  
