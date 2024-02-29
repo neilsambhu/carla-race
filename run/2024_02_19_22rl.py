@@ -56,7 +56,38 @@ def getLocationClosestToCurrent(currentLocation):
     distanceMinimum = min(listDistance)
     indexMinimum = listDistance.index(distanceMinimum)
     return listLocationsPath_CARLA_AP_Town06[indexMinimum]
-
+def strPoint(point):
+    return f'{point:05.1f}'
+def strLocation2D(location):
+    return f'{strPoint(location.x)}, {strPoint(location.y)}'
+def strLocation3D(location):
+    return f'{strPoint(location.x)}, {strPoint(location.y)}, {strPoint(location.z)}'
+def str_kmh(kmh):
+    return f'{kmh:05.1f}'
+def VehicleSpeed1D(vehicle):
+    v = vehicle.get_velocity()
+    kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+    return kmh
+def Distance(seconds, velocity, acceleration):
+    return velocity*seconds + 0.5*acceleration*seconds**2
+def Magnitude3Dto1D(v):
+    # print(f'v: {v}')
+    return math.sqrt(v.x**2 + v.y**2 + v.z**2)
+def Location250msPrediction(fps, vehicle, vehicleControl):
+    # predict 5 frames away at 20 FPS
+    output = ''
+    output += f'current vehicle location: {strLocation2D(vehicle.get_location())} | '
+    # output += f'current velocity (1D): {VehicleSpeed1D(vehicle)} | '
+    # output += f'current velocity (1D): {Magnitude3Dto1D(vehicle.get_velocity()):.5f} | '
+    output += f'current velocity (3D): {vehicle.get_velocity()} | '
+    # output += f'current acceleration (1D): {Magnitude3Dto1D(vehicle.get_acceleration()):.5f} | '
+    output += f'current acceleration (3D): {vehicle.get_acceleration()} | '
+    # output += f'distance (3D): {Distance(0.25, vehicle.get_velocity(), vehicle.get_acceleration)} | '
+    # print(f'vehicle.get_velocity(): {vehicle.get_velocity()}\tvehicle.get_acceleration(): {vehicle.get_acceleration()}')
+    # print(f'Magnitude3Dto1D(vehicle.get_velocity()): {Magnitude3Dto1D(vehicle.get_velocity())}\tMagnitude3Dto1D(vehicle.get_acceleration()): {Magnitude3Dto1D(vehicle.get_acceleration())}')
+    distance1D = Distance(0.25, Magnitude3Dto1D(vehicle.get_velocity()), Magnitude3Dto1D(vehicle.get_acceleration()))
+    output += f'distance (1D): {distance1D:.1f} | '
+    return output
 def main():
     try:
         # Connect to the CARLA Simulator
@@ -80,6 +111,7 @@ def main():
         settings = world.get_settings()
         settings.synchronous_mode = True # Enables synchronous mode
         settings.fixed_delta_seconds = 0.05
+        # settings.fixed_delta_seconds = 0.01
         world.apply_settings(settings)
 
         # Define the blueprint of the vehicle you want to spawn
@@ -93,8 +125,8 @@ def main():
         spawn_start_center = carla.Transform(carla.Location(x=19.7, y=244.4, z=height), carla.Rotation())
         spawn_start_right = carla.Transform(carla.Location(x=19.7, y=247.9, z=height), carla.Rotation())
         location_destination = carla.Location(x=581.2, y=244.6, z=height)
-        # transform = spawn_start_center
-        transform = spawn_start_left
+        transform = spawn_start_center
+        # transform = spawn_start_left
 
         # So let's tell the world to spawn the vehicle.
         vehicle = world.spawn_actor(vehicle_bp, transform)
@@ -108,7 +140,8 @@ def main():
 
         # Let's put the vehicle to drive around.
         vehicle.set_autopilot(False)
-
+        # vehicle.set_simulate_physics(False)
+        
         # Let's add now a "depth" camera attached to the vehicle. Note that the
         # transform we give here is now relative to the vehicle.
         camera_bp = blueprint_library.find('sensor.camera.rgb')
@@ -154,8 +187,12 @@ def main():
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
         ax2.set_title('Vehicle Location and Path Overlay')
+        def printLocations(currentLocation, closestLocation):
+            return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
         while getDistanceToDestination() > 10:
             locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
+            output = f'tick: {countTick:04d} | '
+            # output += f'{printLocations(vehicle.get_location(), locationClosestToCurrent)} | '
             deltaY = vehicle.get_location().y - locationClosestToCurrent.y
             listDeltaY.append(deltaY)
             listLocations.append(vehicle.get_location())
@@ -168,8 +205,8 @@ def main():
             unitChangeThrottle = 0.1
             unitChangeSteer = 1
             unitChangeBrake = 0.1
-            v = vehicle.get_velocity()
-            kmh = int(3.6 * math.sqrt(v.x**2 + v.y**2 + v.z**2))
+            kmh = VehicleSpeed1D(vehicle)
+            # output += f'{str_kmh(kmh)} | '
             if kmh < speedMinimum:
                 maxSteer = 0.01
             else:
@@ -201,8 +238,14 @@ def main():
                     throttle = 0.0
                     deltaBrake = unitChangeBrake
                     brake = min(brake+deltaBrake, 1.0)
-            vehicle.apply_control(carla.VehicleControl(throttle=throttle, steer=steer, brake=brake))
-            print(f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | throttle: {throttle:.2f} steer: {steer:.4f} brake: {brake:.1f}')
+            # vehicleControl = carla.VehicleControl(throttle=throttle, steer=steer, brake=brake)
+            # vehicleControl = carla.VehicleControl(throttle=0.5, steer=0.0, brake=0)
+            vehicleControl = carla.VehicleControl(throttle=1, steer=0.0, brake=0)
+            output += Location250msPrediction(1/settings.fixed_delta_seconds, vehicle, vehicleControl)
+            vehicle.apply_control(vehicleControl)
+            # output += f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | '
+            # output += f'throttle: {throttle:.2f} steer: {steer:.4f} brake: {brake:.1f} | '
+            print(output)
             world.tick()
             countTick += 1
         # Save the delta Y plot

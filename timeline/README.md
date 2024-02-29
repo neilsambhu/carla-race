@@ -873,3 +873,7 @@ python run/2024_02_19_19town.py && python run/2024_02_19_22rl.py
 2/22/2024 4:17 PM: TODO: model distance travelled by various actions.  
 2/22/2024 4:58 PM: TODO: (1) RL search on autonomous driving. 
 (2) Journal: ITS; look for other transactions. (3) send email.  
+2/28/2024 2:44 PM: TODO: (1) model distance as current velocity and change in acceleration; 
+(2) compare output of distance function to printout. Work at 1/4-second evaluations.  
+2/29/2024 5:42 PM: TODO: (1) look for good range of throttle values. Good is acceleration is increasing. 
+(2) Make prediction function of distance accurate. Precondition: wait for z value to stabilize before issuing controls.  
