@@ -877,3 +877,11 @@ python run/2024_02_19_19town.py && python run/2024_02_19_22rl.py
 (2) compare output of distance function to printout. Work at 1/4-second evaluations.  
 2/29/2024 5:42 PM: TODO: (1) look for good range of throttle values. Good is acceleration is increasing. 
 (2) Make prediction function of distance accurate. Precondition: wait for z value to stabilize before issuing controls.  
+3/1/2024 11:11 AM: TODO: throttle range  
+0.10: not moving  
+0.25: (not stable) 0.8 to 0 m/s^2  
+0.50: (not stable) 3 to -0.5 m/s^2  
+0.75: (not stable) 4 to 0.2 m/s^2  
+1.00: (not stable) 7 to 2 m/s^2  
+3/1/2024 1:23 PM: TODO: compare distance function to real-world values.  
+3/1/2024 1:57 PM: distance function accurate.  

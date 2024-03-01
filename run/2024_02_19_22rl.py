@@ -62,6 +62,10 @@ def strLocation2D(location):
     return f'{strPoint(location.x)}, {strPoint(location.y)}'
 def strLocation3D(location):
     return f'{strPoint(location.x)}, {strPoint(location.y)}, {strPoint(location.z)}'
+def Point_ToString(point):
+    return f'{point:06.2f}'
+def Vector3D_ToString(vector3D):
+    return f'{Point_ToString(vector3D.x)}, {Point_ToString(vector3D.y)}, {Point_ToString(vector3D.z)}'
 def str_kmh(kmh):
     return f'{kmh:05.1f}'
 def VehicleSpeed1D(vehicle):
@@ -73,21 +77,21 @@ def Distance(seconds, velocity, acceleration):
 def Magnitude3Dto1D(v):
     # print(f'v: {v}')
     return math.sqrt(v.x**2 + v.y**2 + v.z**2)
-def Location250msPrediction(fps, vehicle, vehicleControl):
+def Location250msPrediction(fps, countTick, vehicle, vehicleControl):
     # predict 5 frames away at 20 FPS
+    deltaT = 0.25
     output = ''
-    output += f'current vehicle location: {strLocation2D(vehicle.get_location())} | '
-    # output += f'current velocity (1D): {VehicleSpeed1D(vehicle)} | '
-    # output += f'current velocity (1D): {Magnitude3Dto1D(vehicle.get_velocity()):.5f} | '
-    output += f'current velocity (3D): {vehicle.get_velocity()} | '
-    # output += f'current acceleration (1D): {Magnitude3Dto1D(vehicle.get_acceleration()):.5f} | '
-    output += f'current acceleration (3D): {vehicle.get_acceleration()} | '
-    # output += f'distance (3D): {Distance(0.25, vehicle.get_velocity(), vehicle.get_acceleration)} | '
-    # print(f'vehicle.get_velocity(): {vehicle.get_velocity()}\tvehicle.get_acceleration(): {vehicle.get_acceleration()}')
-    # print(f'Magnitude3Dto1D(vehicle.get_velocity()): {Magnitude3Dto1D(vehicle.get_velocity())}\tMagnitude3Dto1D(vehicle.get_acceleration()): {Magnitude3Dto1D(vehicle.get_acceleration())}')
-    distance1D = Distance(0.25, Magnitude3Dto1D(vehicle.get_velocity()), Magnitude3Dto1D(vehicle.get_acceleration()))
-    output += f'distance (1D): {distance1D:.1f} | '
-    return output
+    output += f'cur loc: {Vector3D_ToString(vehicle.get_location())} | '
+    output += f'cur acc: {Vector3D_ToString(vehicle.get_acceleration())} | '
+    distance = Distance(deltaT, vehicle.get_velocity(), vehicle.get_acceleration())
+    output += f'dist: {Vector3D_ToString(distance)} | '
+    locationPrediction = vehicle.get_location()+distance
+    tickPrediction = int(countTick + fps*deltaT)
+    output += f'pred loc at tick {tickPrediction:04d}: {Vector3D_ToString(locationPrediction)} | '
+    return locationPrediction, tickPrediction, output
+def Z_VelocitySmall(vehicle):
+    zVelocityThreshold = 0.01
+    return abs(vehicle.get_velocity().z)<zVelocityThreshold
 def main():
     try:
         # Connect to the CARLA Simulator
@@ -141,7 +145,7 @@ def main():
         # Let's put the vehicle to drive around.
         vehicle.set_autopilot(False)
         # vehicle.set_simulate_physics(False)
-        
+
         # Let's add now a "depth" camera attached to the vehicle. Note that the
         # transform we give here is now relative to the vehicle.
         camera_bp = blueprint_library.find('sensor.camera.rgb')
@@ -189,9 +193,15 @@ def main():
         ax2.set_title('Vehicle Location and Path Overlay')
         def printLocations(currentLocation, closestLocation):
             return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
-        while getDistanceToDestination() > 10:
-            locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
+        dictLocationPrediction = {}
+        while getDistanceToDestination() > 2:
             output = f'tick: {countTick:04d} | '
+            if not Z_VelocitySmall(vehicle):
+                print(output)
+                world.tick()
+                countTick += 1
+                continue
+            locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
             # output += f'{printLocations(vehicle.get_location(), locationClosestToCurrent)} | '
             deltaY = vehicle.get_location().y - locationClosestToCurrent.y
             listDeltaY.append(deltaY)
@@ -240,8 +250,15 @@ def main():
                     brake = min(brake+deltaBrake, 1.0)
             # vehicleControl = carla.VehicleControl(throttle=throttle, steer=steer, brake=brake)
             # vehicleControl = carla.VehicleControl(throttle=0.5, steer=0.0, brake=0)
-            vehicleControl = carla.VehicleControl(throttle=1, steer=0.0, brake=0)
-            output += Location250msPrediction(1/settings.fixed_delta_seconds, vehicle, vehicleControl)
+            # vehicleControl = carla.VehicleControl(throttle=1, steer=0.0, brake=0)
+            # vehicleControl = carla.VehicleControl(throttle=0.25, steer=0.0, brake=0)
+            vehicleControl = carla.VehicleControl(throttle=0.75, steer=0.0, brake=0)
+            locationPrediction, tickPrediction, output_temp = Location250msPrediction(1/settings.fixed_delta_seconds, countTick, vehicle, vehicleControl)
+            dictLocationPrediction[tickPrediction] = locationPrediction
+            output += output_temp
+            if countTick in dictLocationPrediction:
+                distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTick])
+                output += f'error: {Vector3D_ToString(distanceError)} | '
             vehicle.apply_control(vehicleControl)
             # output += f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | '
             # output += f'throttle: {throttle:.2f} steer: {steer:.4f} brake: {brake:.1f} | '
