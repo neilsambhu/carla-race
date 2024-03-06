@@ -176,10 +176,10 @@ class World(object):
             # spawn_point = spawn_points[0] 
             # 11/18/2023: Neil modify spawn point: start
             # 2/19/2024: Neil modify spawn point: start
-            # spawn_point = carla.Transform(carla.Location(x=19.7, y=244.4, z=0.1), carla.Rotation())
+            spawn_point = carla.Transform(carla.Location(x=19.7, y=244.4, z=0.1), carla.Rotation())
             # 2/19/2024: Neil modify spawn point: end
             # 2/22/2024: Neil modify spawn point: start
-            spawn_point = spawn_points[223] 
+            # spawn_point = spawn_points[223] 
             # 2/22/2024: Neil modify spawn point: end
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
             self.modify_vehicle_physics(self.player)
@@ -796,8 +796,12 @@ def game_loop(args):
         # agent.set_destination(carla.Location(x=581.2, y=244.6, z=0.1))
         # 2/19/2024 12:35 PM: set_destination: end
         # 2/22/2024 9:36 AM: set_destination: start
-        agent.set_destination(spawn_points[15].location)
+        # agent.set_destination(spawn_points[15].location)
         # 2/22/2024 9:36 AM: set_destination: end
+        # 3/4/2024: set_destination: start
+        agent.set_destination(carla.Location(x=664.9, y=168.2, z=0.1))
+        # 3/4/2024: set_destination: end
+
 
         clock = pygame.time.Clock()
 

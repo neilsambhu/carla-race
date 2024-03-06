@@ -7,8 +7,10 @@ config.read('config.ini')
 bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGAIVI = not bSAMBHU23
 
-path_AP_controls = '_out_21_CARLA_AP_Town06/ControlsStraight.txt'
-path_AP_locations = '_out_21_CARLA_AP_Town06/LocationsStraight.txt'
+# strPathType = 'Straight'
+strPathType = 'Curve'
+path_AP_controls = f'_out_21_CARLA_AP_Town06/Controls{strPathType}.txt'
+path_AP_locations = f'_out_21_CARLA_AP_Town06/Locations{strPathType}.txt'
 
 dir_outptut = '_out_22_rl'
 if not os.path.exists(dir_outptut):
@@ -77,14 +79,14 @@ def Distance(seconds, velocity, acceleration):
 def Magnitude3Dto1D(v):
     # print(f'v: {v}')
     return math.sqrt(v.x**2 + v.y**2 + v.z**2)
-def Location250msPrediction(fps, countTick, vehicle, vehicleControl):
+def Location250msPrediction(fps, countTick, vehicle):
     # predict 5 frames away at 20 FPS
     deltaT = 0.25
     output = ''
     output += f'cur loc: {Vector3D_ToString(vehicle.get_location())} | '
-    output += f'cur acc: {Vector3D_ToString(vehicle.get_acceleration())} | '
+    # output += f'cur acc: {Vector3D_ToString(vehicle.get_acceleration())} | '
     distance = Distance(deltaT, vehicle.get_velocity(), vehicle.get_acceleration())
-    output += f'dist: {Vector3D_ToString(distance)} | '
+    # output += f'dist: {Vector3D_ToString(distance)} | '
     locationPrediction = vehicle.get_location()+distance
     tickPrediction = int(countTick + fps*deltaT)
     output += f'pred loc at tick {tickPrediction:04d}: {Vector3D_ToString(locationPrediction)} | '
@@ -128,9 +130,11 @@ def main():
         spawn_start_left = carla.Transform(carla.Location(x=19.7, y=240.9, z=height), carla.Rotation())
         spawn_start_center = carla.Transform(carla.Location(x=19.7, y=244.4, z=height), carla.Rotation())
         spawn_start_right = carla.Transform(carla.Location(x=19.7, y=247.9, z=height), carla.Rotation())
-        location_destination = carla.Location(x=581.2, y=244.6, z=height)
-        transform = spawn_start_center
-        # transform = spawn_start_left
+        location_destination_straight = carla.Location(x=581.2, y=244.6, z=height)
+        location_destination_curve = carla.Location(x=664.9, y=168.2, z=height)
+        # transform = spawn_start_center
+        transform = spawn_start_left
+        location_destination = location_destination_curve
 
         # So let's tell the world to spawn the vehicle.
         vehicle = world.spawn_actor(vehicle_bp, transform)
@@ -176,15 +180,19 @@ def main():
         def getDistanceToDestination():
             return location_destination.distance(vehicle.get_location())
         def getStandardVehicleControl():
-            return 1.0, 0.0, 0.0
+            return 0.75, 0.0, 0.0
         throttle, steer, brake = getStandardVehicleControl()
-        listDeltaY = []
+        # listDeltaY = []
+        listDeltaTheta = []
         listLocations = []
         # Plot setup for delta Y
-        fig_deltaY, ax1 = plt.subplots(figsize=(12, 6))
+        # fig_deltaY, ax1 = plt.subplots(figsize=(12, 6))
+        fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
         ax1.set_xlabel('Time Steps')
-        ax1.set_ylabel('Delta Y')
-        ax1.set_title('Delta Y over Time')
+        # ax1.set_ylabel('Delta Y')
+        ax1.set_ylabel('Delta Theta')
+        # ax1.set_title('Delta Y over Time')
+        ax1.set_title('Delta Theta over Time')
         # Plot setup for overlay
         fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
         ax2.set_aspect('equal', 'box')
@@ -194,19 +202,11 @@ def main():
         def printLocations(currentLocation, closestLocation):
             return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
         dictLocationPrediction = {}
-        while getDistanceToDestination() > 2:
-            output = f'tick: {countTick:04d} | '
-            if not Z_VelocitySmall(vehicle):
-                print(output)
-                world.tick()
-                countTick += 1
-                continue
-            locationClosestToCurrent = getLocationClosestToCurrent(vehicle.get_location())
-            # output += f'{printLocations(vehicle.get_location(), locationClosestToCurrent)} | '
-            deltaY = vehicle.get_location().y - locationClosestToCurrent.y
+        def GetVehicleControls_legacy(throttle, steer, brake, locationPrediction, locationClosestToPredicted):
+            deltaY = locationPrediction.y - locationClosestToPredicted.y
             listDeltaY.append(deltaY)
             listLocations.append(vehicle.get_location())
-            thresholdDeltaYNoSteer = 0.5
+            thresholdDeltaYNoSteer = 0.5e-10
             thresholdDeltaYSteer = 1e-1
             speedMinimum = 10
             speedTarget = 15
@@ -248,29 +248,123 @@ def main():
                     throttle = 0.0
                     deltaBrake = unitChangeBrake
                     brake = min(brake+deltaBrake, 1.0)
-            # vehicleControl = carla.VehicleControl(throttle=throttle, steer=steer, brake=brake)
-            # vehicleControl = carla.VehicleControl(throttle=0.5, steer=0.0, brake=0)
-            # vehicleControl = carla.VehicleControl(throttle=1, steer=0.0, brake=0)
-            # vehicleControl = carla.VehicleControl(throttle=0.25, steer=0.0, brake=0)
-            vehicleControl = carla.VehicleControl(throttle=0.75, steer=0.0, brake=0)
-            locationPrediction, tickPrediction, output_temp = Location250msPrediction(1/settings.fixed_delta_seconds, countTick, vehicle, vehicleControl)
+            return throttle, steer, brake
+        def unit_vector(vector):
+            """ Returns the unit vector of the vector.  """
+            return vector / np.linalg.norm(vector)
+        def angle_between_legacy(v1, v2):
+            """ Returns the angle in radians between vectors 'v1' and 'v2'::
+
+                    >>> angle_between((1, 0, 0), (0, 1, 0))
+                    1.5707963267948966
+                    >>> angle_between((1, 0, 0), (1, 0, 0))
+                    0.0
+                    >>> angle_between((1, 0, 0), (-1, 0, 0))
+                    3.141592653589793
+            """
+            v1_u = unit_vector(v1)
+            v2_u = unit_vector(v2)
+            return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
+        def angle_between(vector1, vector2):
+            dotProduct = vector1[0]*vector2[0] + vector1[1]*vector2[1]
+            magnitude = (vector1[0]**2 + vector1[1]**2)**(1/2) * (vector2[0]**2 + vector2[1]**2)**(1/2)
+            # return np.arccos(dotProduct/magnitude)
+            import math
+            print(dotProduct/magnitude)
+            division = min(dotProduct/magnitude, 1.0)
+            return math.acos(division)
+        def GetSteeringOutput(theta):
+            return vehicle.get_location().x*math.cos(theta)
+        def GetVehicleControls(throttle, steer, brake, locationPrediction, locationClosestToPredicted):
+            # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
+            npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
+            # npLocationPrediction = np.array([locationPrediction.x, locationPrediction.y, locationPrediction.z])
+            npLocationPrediction = np.array([locationPrediction.x, locationPrediction.y])
+            # npLocationClosestToPredicted = np.array([locationPrediction.x, locationPrediction.y, locationPrediction.z])
+            npLocationClosestToPredicted = np.array([locationPrediction.x, locationPrediction.y])
+            vector_currToPred = npLocationCurrent - npLocationPrediction
+            vector_currToClosestToPredicted = npLocationCurrent - npLocationClosestToPredicted
+            deltaTheta = math.degrees(angle_between(vector_currToPred, vector_currToClosestToPredicted))
+            output = f'theta {deltaTheta:.2f} | '
+            listDeltaTheta.append(deltaTheta)
+            listLocations.append(vehicle.get_location())
+            thresholdDeltaThetaNoSteer = 0.5e-10
+            thresholdDeltaThetaSteer = 1e-1
+            speedMinimum = 10
+            speedTarget = 15
+            bWithinThreshold = None
+            maxSteer = None
+            unitChangeThrottle = 0.1
+            unitChangeSteer = 1
+            unitChangeBrake = 0.1
+            kmh = VehicleSpeed1D(vehicle)
+            # output += f'{str_kmh(kmh)} | '
+            if kmh < speedMinimum:
+                maxSteer = 0.01
+            else:
+                # maxSteer = min(abs(deltaTheta)/10, 0.01)
+                maxSteer = min(abs(deltaTheta)/10, 0.3)
+            # if abs(deltaTheta) < thresholdDeltaThetaSteer:
+            #     # deltaTheta = -deltaTheta
+            #     maxSteer = 1e-3
+            # else:
+            #     maxSteer = 1e-1
+            if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
+                bWithinThreshold = True
+                throttle, steer, brake = getStandardVehicleControl()
+            elif deltaTheta > thresholdDeltaThetaNoSteer:
+                bWithinThreshold = False
+                deltaSteer = -unitChangeSteer
+                steer = max(steer+deltaSteer, -maxSteer)
+            elif deltaTheta < -thresholdDeltaThetaNoSteer:
+                bWithinThreshold = False
+                deltaSteer = unitChangeSteer
+                steer = min(steer+deltaSteer, maxSteer)
+            if not bWithinThreshold:
+                if kmh < speedTarget:
+                    # slow or not moving
+                    brake = 0
+                    deltaThrottle = unitChangeThrottle
+                    throttle = min(throttle+deltaThrottle, 1.0)
+                else:
+                    # already moving
+                    throttle = 0.0
+                    deltaBrake = unitChangeBrake
+                    brake = min(brake+deltaBrake, 1.0)
+            return throttle, steer, brake, output
+        while getDistanceToDestination() > 2:
+            output = f'tick: {countTick:04d} | '
+            if not Z_VelocitySmall(vehicle):
+                print(output)
+                world.tick()
+                countTick += 1
+                continue
+            locationPrediction, tickPrediction, output_temp = Location250msPrediction(1/settings.fixed_delta_seconds, countTick, vehicle)
             dictLocationPrediction[tickPrediction] = locationPrediction
-            output += output_temp
+            output += output_temp            
             if countTick in dictLocationPrediction:
                 distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTick])
-                output += f'error: {Vector3D_ToString(distanceError)} | '
+                # output += f'pred err: {Vector3D_ToString(distanceError)} | '
+            locationClosestToPredicted = getLocationClosestToCurrent(locationPrediction)
+            output += f'loc closest to predicted: {Vector3D_ToString(locationClosestToPredicted)} | '
+            distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
+            output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
+            throttle, steer, brake, output_temp = GetVehicleControls(throttle, steer, brake, locationPrediction, locationClosestToPredicted)
+            output += output_temp
+            vehicleControl = carla.VehicleControl(throttle=throttle, steer=steer, brake=brake)
             vehicle.apply_control(vehicleControl)
-            # output += f'tick: {countTick} | distance to destination: {getDistanceToDestination():.1f} | deltaY: {deltaY:.2f} | '
-            # output += f'throttle: {throttle:.2f} steer: {steer:.4f} brake: {brake:.1f} | '
             print(output)
             world.tick()
             countTick += 1
         # Save the delta Y plot
-        ax1.plot(listDeltaY)
-        fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
-        plt.close(fig_deltaY)
+        # ax1.plot(listDeltaY)
+        ax1.plot(listDeltaTheta)
+        # fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
+        fig_deltaTheta.savefig(os.path.join(dir_outptut, 'deltaTheta.png'))
+        # plt.close(fig_deltaY)
+        plt.close(fig_deltaTheta)
         # Save the overlay plot
-        stretch = 50
+        stretch = 100
         x_vehicle = [location.x for location in listLocations]
         y_vehicle = [stretch*(location.y-location_destination.y) for location in listLocations]
         x_path = [location.x for location in listLocationsPath_CARLA_AP_Town06]

@@ -885,3 +885,9 @@ python run/2024_02_19_19town.py && python run/2024_02_19_22rl.py
 1.00: (not stable) 7 to 2 m/s^2  
 3/1/2024 1:23 PM: TODO: compare distance function to real-world values.  
 3/1/2024 1:57 PM: distance function accurate.  
+3/1/2024 4:03 PM: print distance between (1) predicted 1/4-second distance (Point A) and (2) closest point from ground-truth drive to Point A.  
+3/1/2024 11:51 AM: TODO: (1) manual_control.py: find destination waypoint; 
+(2a) enter coordinate from (1) in automatic_control.py; 
+(2b) create location_destination in 2024_02_19_22rl.py.  
+3/1/2024 11:50 AM: (i.e., past: done work on converting world coordinate system to vehicle coordinate system) 
+TODO: work through example of steering angle.  
