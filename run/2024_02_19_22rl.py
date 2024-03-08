@@ -81,7 +81,9 @@ def Magnitude3Dto1D(v):
     return math.sqrt(v.x**2 + v.y**2 + v.z**2)
 def Location250msPrediction(fps, countTick, vehicle):
     # predict 5 frames away at 20 FPS
+    # deltaT = 0.05
     deltaT = 0.25
+    # deltaT = 5
     output = ''
     output += f'cur loc: {Vector3D_ToString(vehicle.get_location())} | '
     # output += f'cur acc: {Vector3D_ToString(vehicle.get_acceleration())} | '
@@ -134,6 +136,7 @@ def main():
         location_destination_curve = carla.Location(x=664.9, y=168.2, z=height)
         # transform = spawn_start_center
         transform = spawn_start_left
+        # location_destination = location_destination_straight
         location_destination = location_destination_curve
 
         # So let's tell the world to spawn the vehicle.
@@ -195,7 +198,23 @@ def main():
         ax1.set_title('Delta Theta over Time')
         # Plot setup for overlay
         fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
-        ax2.set_aspect('equal', 'box')
+        # leg = ax2.legend()
+        # for line in leg.get_lines():
+        #     line.set_linewidth(1)
+        # fig_overlay, ax2 = plt.subplots(figsize=(12, 12))  # Adjust the figsize as needed
+        list_x = [location.x for location in listLocationsPath_CARLA_AP_Town06]
+        list_y = [location.y for location in listLocationsPath_CARLA_AP_Town06]
+        left = min(list_x)
+        bottom = min(list_y)
+        top = max(list_y)
+        width = max(list_x) - min(list_x)
+        height = max(list_y) - min(list_y)
+        # print(left, bottom, width, height)
+        # fig_overlay, ax2 = plt.axes([left, bottom, width, height])
+        # fig_overlay.add_axes(plt.axes([left, bottom, width, height]))
+        # ax2.set_yticks(np.arange(bottom, top, 1))
+        # ax2.set_aspect('equal', 'box')
+        ax2.set_aspect('auto', 'box')
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
         ax2.set_title('Vehicle Location and Path Overlay')
@@ -266,32 +285,60 @@ def main():
             v2_u = unit_vector(v2)
             return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
         def angle_between(vector1, vector2):
-            dotProduct = vector1[0]*vector2[0] + vector1[1]*vector2[1]
-            magnitude = (vector1[0]**2 + vector1[1]**2)**(1/2) * (vector2[0]**2 + vector2[1]**2)**(1/2)
+            dotProduct = float(vector1[0]*vector2[0] + vector1[1]*vector2[1])
+            magnitude = float((vector1[0]**2 + vector1[1]**2)**(1/2) * (vector2[0]**2 + vector2[1]**2)**(1/2))
             # return np.arccos(dotProduct/magnitude)
             import math
-            print(dotProduct/magnitude)
-            division = min(dotProduct/magnitude, 1.0)
+            # print(dotProduct/magnitude)
+            division = None
+            if magnitude == 0:
+                division = 1
+            else:
+                division = dotProduct/magnitude
+            # division = min(dotProduct/magnitude, 1.0)
             return math.acos(division)
-        def GetSteeringOutput(theta):
-            return vehicle.get_location().x*math.cos(theta)
+        def GetVehicleOutput(theta, locationClosestToPredicted):
+            # x = vehicle.get_location().x*math.cos(theta) - vehicle.get_location().y*math.sin(theta)
+            # y = vehicle.get_location().x*math.sin(theta) + vehicle.get_location().y*math.cos(theta)
+            x = locationClosestToPredicted.x*math.cos(theta) - locationClosestToPredicted.y*math.sin(theta)
+            y = locationClosestToPredicted.x*math.sin(theta) + locationClosestToPredicted.y*math.cos(theta)
+            return x, y
+        def GetTurnDirection(a, b, c):
+            output = (b.x - a.x)*(c.y - a.y) - (b.y - a.y)*(c.x - a.x)
+            if output < 0:
+                return -1
+            if output == 0:
+                return 0
+            if output > 0:
+                return 1
         def GetVehicleControls(throttle, steer, brake, locationPrediction, locationClosestToPredicted):
+            output = ''
             # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
             npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
             # npLocationPrediction = np.array([locationPrediction.x, locationPrediction.y, locationPrediction.z])
             npLocationPrediction = np.array([locationPrediction.x, locationPrediction.y])
-            # npLocationClosestToPredicted = np.array([locationPrediction.x, locationPrediction.y, locationPrediction.z])
-            npLocationClosestToPredicted = np.array([locationPrediction.x, locationPrediction.y])
-            vector_currToPred = npLocationCurrent - npLocationPrediction
-            vector_currToClosestToPredicted = npLocationCurrent - npLocationClosestToPredicted
-            deltaTheta = math.degrees(angle_between(vector_currToPred, vector_currToClosestToPredicted))
-            output = f'theta {deltaTheta:.2f} | '
+            # npLocationClosestToPredicted = np.array([locationClosestToPredicted.x, locationClosestToPredicted.y, locationClosestToPredicted.z])
+            npLocationClosestToPredicted = np.array([locationClosestToPredicted.x, locationClosestToPredicted.y])
+            # vector_currToPred = npLocationCurrent - npLocationPrediction
+            vector_currToPred = -npLocationCurrent + npLocationPrediction
+            # vector_currToClosestToPredicted = npLocationCurrent - npLocationClosestToPredicted
+            vector_currToClosestToPredicted = -npLocationCurrent + npLocationClosestToPredicted
+            # output += f'vector_currToPred: {vector_currToPred} | vector_currToClosestToPredicted: {vector_currToClosestToPredicted} | '
+            turnDirection = GetTurnDirection(vehicle.get_location(), locationPrediction, locationClosestToPredicted)
+            output += f'turnDirection: {turnDirection} | '
+            # multiply by -1 to account for left is negative and right is positive, not like unit circle
+            deltaTheta = -1*turnDirection*angle_between(vector_currToPred, vector_currToClosestToPredicted)
+            deltaTheta = math.degrees(deltaTheta)
+            output += f'theta {deltaTheta:.1f} | '
+            # output = f'theta {deltaTheta:.2f} | '
+            # x, y = GetVehicleOutput(deltaTheta, locationClosestToPredicted)
+            # # output = f'x, y: {x:.1f}, {y:.1f}'
             listDeltaTheta.append(deltaTheta)
             listLocations.append(vehicle.get_location())
             thresholdDeltaThetaNoSteer = 0.5e-10
             thresholdDeltaThetaSteer = 1e-1
             speedMinimum = 10
-            speedTarget = 15
+            speedTarget = 30
             bWithinThreshold = None
             maxSteer = None
             unitChangeThrottle = 0.1
@@ -303,7 +350,8 @@ def main():
                 maxSteer = 0.01
             else:
                 # maxSteer = min(abs(deltaTheta)/10, 0.01)
-                maxSteer = min(abs(deltaTheta)/10, 0.3)
+                # maxSteer = min(abs(deltaTheta)/10, 0.3)
+                maxSteer = min(abs(deltaTheta)/10, 1)
             # if abs(deltaTheta) < thresholdDeltaThetaSteer:
             #     # deltaTheta = -deltaTheta
             #     maxSteer = 1e-3
@@ -346,7 +394,7 @@ def main():
                 distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTick])
                 # output += f'pred err: {Vector3D_ToString(distanceError)} | '
             locationClosestToPredicted = getLocationClosestToCurrent(locationPrediction)
-            output += f'loc closest to predicted: {Vector3D_ToString(locationClosestToPredicted)} | '
+            output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
             distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
             output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
             throttle, steer, brake, output_temp = GetVehicleControls(throttle, steer, brake, locationPrediction, locationClosestToPredicted)
@@ -364,13 +412,16 @@ def main():
         # plt.close(fig_deltaY)
         plt.close(fig_deltaTheta)
         # Save the overlay plot
-        stretch = 100
+        # stretch = 100
+        stretch = 1
         x_vehicle = [location.x for location in listLocations]
-        y_vehicle = [stretch*(location.y-location_destination.y) for location in listLocations]
+        y_vehicle = [location.y for location in listLocations]
+        # y_vehicle = [stretch*(location.y-location_destination.y) for location in listLocations]
         x_path = [location.x for location in listLocationsPath_CARLA_AP_Town06]
-        y_path = [stretch*(location.y-location_destination.y) for location in listLocationsPath_CARLA_AP_Town06]
-        ax2.plot(x_vehicle, y_vehicle, label='Vehicle Location', marker='o', linestyle='-')
-        ax2.plot(x_path, y_path, label='Path Location', marker='o', linestyle='--')
+        y_path = [location.y for location in listLocationsPath_CARLA_AP_Town06]
+        # y_path = [stretch*(location.y-location_destination.y) for location in listLocationsPath_CARLA_AP_Town06]
+        ax2.plot(x_vehicle, y_vehicle, label='Vehicle Location', marker='o', linestyle='-', linewidth=0.01)
+        ax2.plot(x_path, y_path, label='Path Location', marker='o', linestyle='--', linewidth=0.01)
         ax2.legend()
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
