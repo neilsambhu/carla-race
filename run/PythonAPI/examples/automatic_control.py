@@ -723,8 +723,9 @@ def game_loop(args):
     pygame.font.init()
     world = None
     dir_outptut = '_out_21_CARLA_AP_Town06'
-    open(f'{dir_outptut}/Controls.txt','w')
-    open(f'{dir_outptut}/Locations.txt','w')
+    strPathType = 'Loop'    
+    open(f'{dir_outptut}/Controls{strPathType}.txt','w')
+    open(f'{dir_outptut}/Locations{strPathType}.txt','w')
 
     try:
         if args.seed:

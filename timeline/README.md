@@ -891,3 +891,4 @@ python run/2024_02_19_19town.py && python run/2024_02_19_22rl.py
 (2b) create location_destination in 2024_02_19_22rl.py.  
 3/1/2024 11:50 AM: (i.e., past: done work on converting world coordinate system to vehicle coordinate system) 
 TODO: work through example of steering angle.  
+3/8/2024 2:59 PM: TODO: make automatic_control accept list of waypoints.  

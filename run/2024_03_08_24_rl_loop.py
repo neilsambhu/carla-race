@@ -8,7 +8,8 @@ bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGAIVI = not bSAMBHU23
 
 # strPathType = 'Straight'
-strPathType = 'Curve'
+# strPathType = 'Curve'
+strPathType = 'Loop'
 path_AP_controls = f'_out_21_CARLA_AP_Town06/Controls{strPathType}.txt'
 path_AP_locations = f'_out_21_CARLA_AP_Town06/Locations{strPathType}.txt'
 
