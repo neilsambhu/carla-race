@@ -892,3 +892,6 @@ python run/2024_02_19_19town.py && python run/2024_02_19_22rl.py
 3/1/2024 11:50 AM: (i.e., past: done work on converting world coordinate system to vehicle coordinate system) 
 TODO: work through example of steering angle.  
 3/8/2024 2:59 PM: TODO: make automatic_control accept list of waypoints.  
+3/8/2024 3:04 PM: TODO: find 2 waypoints on diagonals of track.  
+3/8/2024 3:07 PM: TODO: use manual_control.py to find 2 waypoints on diagonal of track.  
+```
