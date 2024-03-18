@@ -62,7 +62,9 @@ from agents.navigation.behavior_agent import BehaviorAgent  # pylint: disable=im
 from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
 from agents.navigation.constant_velocity_agent import ConstantVelocityAgent  # pylint: disable=import-error
 
-
+LOCATION0 = carla.Location(x=-353.2, y=226.6, z=0.01)
+LOCATION1 = carla.Location(x=645.1, y=-3.3, z=0.01)
+bVerbose = True
 # ==============================================================================
 # -- Global functions ----------------------------------------------------------
 # ==============================================================================
@@ -176,11 +178,15 @@ class World(object):
             # spawn_point = spawn_points[0] 
             # 11/18/2023: Neil modify spawn point: start
             # 2/19/2024: Neil modify spawn point: start
-            spawn_point = carla.Transform(carla.Location(x=19.7, y=244.4, z=0.1), carla.Rotation())
+            # spawn_point = carla.Transform(carla.Location(x=19.7, y=244.4, z=0.1), carla.Rotation())
             # 2/19/2024: Neil modify spawn point: end
             # 2/22/2024: Neil modify spawn point: start
             # spawn_point = spawn_points[223] 
             # 2/22/2024: Neil modify spawn point: end
+            # 3/8/2024: Neil modify spawn point: start
+            spawn_point = carla.Transform(LOCATION0, carla.Rotation())
+            # print(f'spawn_point: {spawn_point}')
+            # 3/8/2024: Neil modify spawn point: end
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
             self.modify_vehicle_physics(self.player)
 
@@ -718,7 +724,7 @@ def game_loop(args):
     Main loop of the simulation. It handles updating all the HUD information,
     ticking the agent and, if needed, the world.
     """
-
+    print('start game_loop') if bVerbose else ''
     pygame.init()
     pygame.font.init()
     world = None
@@ -736,6 +742,7 @@ def game_loop(args):
 
         traffic_manager = client.get_trafficmanager()
         sim_world = client.get_world()
+        print('done getting world') if bVerbose else ''
 
         if args.sync:
             settings = sim_world.get_settings()
@@ -747,6 +754,8 @@ def game_loop(args):
             sim_world.apply_settings(settings)
 
             traffic_manager.set_synchronous_mode(True)
+        
+        print('sync done') if bVerbose else ''
 
         display = pygame.display.set_mode(
             (args.width, args.height),
@@ -755,6 +764,7 @@ def game_loop(args):
         hud = HUD(args.width, args.height)
         world = World(client.get_world(), hud, args)
         controller = KeyboardControl(world)
+        print('start basic_agent') if bVerbose else ''
         if args.agent == "Basic":
             agent = BasicAgent(world.player, 30) # 11/11/2023 7:12 PM: Neil commented out
             # agent = BasicAgent(world.player, 60) # 2/1/2024 7:38 PM: Neil added
@@ -785,7 +795,7 @@ def game_loop(args):
         # Set the agent destination
         spawn_points = world.map.get_spawn_points()
         destination = random.choice(spawn_points).location
-        agent.set_destination(destination) # 11/7/2023 9:53 PM: Neil commented
+        # agent.set_destination(destination) # 11/7/2023 9:53 PM: Neil commented
         # 11/6/2023 8:21 PM: set_destination: start
         # agent.set_destination(spawn_points[0].location) # 11/18/2023: Neil commented out
         # 11/6/2023 8:21 PM: set_destination: end
@@ -800,9 +810,13 @@ def game_loop(args):
         # agent.set_destination(spawn_points[15].location)
         # 2/22/2024 9:36 AM: set_destination: end
         # 3/4/2024: set_destination: start
-        agent.set_destination(carla.Location(x=664.9, y=168.2, z=0.1))
+        # agent.set_destination(carla.Location(x=664.9, y=168.2, z=0.1))
         # 3/4/2024: set_destination: end
 
+        # create deque of waypoints
+        from collections import deque
+        waypoints = deque([LOCATION1, LOCATION0])
+        print(f'waypoints: {waypoints}')
 
         clock = pygame.time.Clock()
 
@@ -822,14 +836,18 @@ def game_loop(args):
             world.render(display)
             pygame.display.flip()
 
-            if agent.done():
+            if len(waypoints) > 0:
                 if args.loop:
-                    agent.set_destination(random.choice(spawn_points).location)
+                    waypoint = waypoints.popleft()
+                    print(f'waypoint: {waypoint}')
+                    agent.set_destination(waypoint)
                     world.hud.notification("Target reached", seconds=4.0)
                     print("The target has been reached, searching for another target")
                 else:
                     print("The target has been reached, stopping the simulation")
                     break
+            else:
+                break
 
             control = agent.run_step()
             control.manual_gear_shift = False
@@ -856,7 +874,7 @@ def game_loop(args):
 
 def main():
     """Main method"""
-
+    print('start main') if bVerbose else ''
     argparser = argparse.ArgumentParser(
         description='CARLA Automatic Control Client')
     argparser.add_argument(
@@ -927,6 +945,7 @@ def main():
     print(__doc__)
 
     try:
+        print('before game_loop') if bVerbose else ''
         game_loop(args)
 
     except KeyboardInterrupt:

@@ -895,3 +895,12 @@ TODO: work through example of steering angle.
 3/8/2024 3:04 PM: TODO: find 2 waypoints on diagonals of track.  
 3/8/2024 3:07 PM: TODO: use manual_control.py to find 2 waypoints on diagonal of track.  
 ```
+python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/manual_control.py --sync --filter "vehicle.tesla.model3"
+```
+3/8/2024 3:14 PM:  
+first point: (-353.2, 226.6),  
+second point: (645.1, -3.3).  
+3/8/2024 3:20 PM: new Python script for automatic control:
+```
+python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_control_Neil.py --sync --filter "vehicle.tesla.model3" --agent Basic
+```

@@ -7,7 +7,7 @@ def main():
         # Connect to the CARLA Simulator
         # client = carla.Client('10.247.52.30', 2000)
         client = carla.Client('localhost', 2000)
-        client.set_timeout(20.0)
+        client.set_timeout(20.0) # already tuned
 
         # Get the world object
         world = client.get_world()
