@@ -912,3 +912,8 @@ python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_co
 ```
 python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_control_Neil.py --sync --filter "vehicle.tesla.model3" --agent Basic --host localhost
 ```
+3/19/2024 3:54 PM: TODO: further discretize waypoints to prevent shortcut
+navigation and allow for smooth turning around track.  
+3/19/2024 4:24 PM: TODO: look through spawn points built into CARLA API.  
+3/19/2024 5:00 PM: TODO: use manual_control.py to find waypoints manually. 
+Don't make curves waypoints.  

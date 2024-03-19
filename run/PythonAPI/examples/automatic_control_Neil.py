@@ -62,7 +62,7 @@ from agents.navigation.behavior_agent import BehaviorAgent  # pylint: disable=im
 from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
 from agents.navigation.constant_velocity_agent import ConstantVelocityAgent  # pylint: disable=import-error
 
-LOCATION0 = carla.Location(x=-353.2, y=226.6, z=0.01)
+LOCATION0 = carla.Location(x=-353.2, y=226.6, z=0.01) # correlated with index 15
 LOCATION1 = carla.Location(x=645.1, y=-3.3, z=0.01)
 bVerbose = True
 # ==============================================================================

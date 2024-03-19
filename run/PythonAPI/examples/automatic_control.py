@@ -62,6 +62,12 @@ from agents.navigation.behavior_agent import BehaviorAgent  # pylint: disable=im
 from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
 from agents.navigation.constant_velocity_agent import ConstantVelocityAgent  # pylint: disable=import-error
 
+# LOCATION0 = carla.Location(x=-353.2, y=226.6, z=0.01)
+LOCATION0 = carla.Location(x=19.7, y=244.4, z=0.01)
+listIndexPath = [15,70,64,15,119,15]
+INDEX_START = listIndexPath[0]
+LOCATION1 = carla.Location(x=645.1, y=-3.3, z=0.01)
+bVerbose = True
 
 # ==============================================================================
 # -- Global functions ----------------------------------------------------------
@@ -170,6 +176,14 @@ class World(object):
                 sys.exit(1)
             spawn_points = self.map.get_spawn_points()
             spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
+            # 3/19/2024: Neil modify spawn point: start
+            # location = carla.Location(x=-353.2, y=226.6, z=0.01)
+            # location = carla.Location(LOCATION0.x, LOCATION0.y, LOCATION0.z)
+            # spawn_point = carla.Transform(location, carla.Rotation(0,0,0))
+            # spawn_point = carla.Transform(carla.Location(x=19.7, y=244.4, z=0.1), carla.Rotation(0,0,0))
+            # spawn_point = carla.Transform(LOCATION0, carla.Rotation())
+            spawn_point = spawn_points[INDEX_START]
+            # 3/19/2024: Neil modify spawn point: end
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
             self.modify_vehicle_physics(self.player)
 
@@ -739,7 +753,9 @@ def game_loop(args):
         controller = KeyboardControl(world)
         if args.agent == "Basic":
             agent = BasicAgent(world.player, 30)
-            agent.follow_speed_limits(True)
+            # agent.follow_speed_limits(True)
+            agent.follow_speed_limits(False)
+            agent.ignore_traffic_lights(True)
         elif args.agent == "Constant":
             agent = ConstantVelocityAgent(world.player, 30)
             ground_loc = world.world.ground_projection(world.player.get_location(), 5)
@@ -753,6 +769,14 @@ def game_loop(args):
         spawn_points = world.map.get_spawn_points()
         destination = random.choice(spawn_points).location
         agent.set_destination(destination)
+
+        # create deque of waypoints
+        from collections import deque
+        waypoints = deque([LOCATION1, LOCATION0])
+        # waypoints = deque([LOCATION1, LOCATION0, LOCATION1])
+        # print(f'waypoints: {waypoints}')
+        dequeIndexWaypoints = deque(listIndexPath[1:])
+        print(f'waypoints: {dequeIndexWaypoints}')
 
         clock = pygame.time.Clock()
 
@@ -769,14 +793,27 @@ def game_loop(args):
             world.render(display)
             pygame.display.flip()
 
-            if agent.done():
-                if args.loop:
-                    agent.set_destination(random.choice(spawn_points).location)
-                    world.hud.notification("Target reached", seconds=4.0)
-                    print("The target has been reached, searching for another target")
-                else:
-                    print("The target has been reached, stopping the simulation")
-                    break
+            # if agent.done():
+            #     if args.loop:
+            #         agent.set_destination(random.choice(spawn_points).location)
+            #         world.hud.notification("Target reached", seconds=4.0)
+            #         print("The target has been reached, searching for another target")
+            #     else:
+            #         print("The target has been reached, stopping the simulation")
+            #         break
+            if agent.done() and len(waypoints) > 0:
+                # waypoint = waypoints.popleft()
+                indexWaypoint = dequeIndexWaypoints.popleft()
+                waypoint = sim_world.get_map().get_spawn_points()[indexWaypoint]
+                print(f'waypoint: {waypoint}')
+                agent.set_destination(waypoint)
+                world.hud.notification("Target reached", seconds=4.0)
+                print("The target has been reached, searching for another target")
+            elif not agent.done() and len(waypoints) > 0:
+                pass
+            else:
+                print('done with loop')
+                break
 
             control = agent.run_step()
             control.manual_gear_shift = False
