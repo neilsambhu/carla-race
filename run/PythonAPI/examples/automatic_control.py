@@ -95,7 +95,7 @@ def get_actor_blueprints(world, filter, generation):
     try:
         int_generation = int(generation)
         # Check if generation is in available generations
-        if int_generation in [1, 2]:
+        if int_generation in [1, 2, 3]:
             bps = [x for x in bps if int(x.get_attribute('generation')) == int_generation]
             return bps
         else:
@@ -145,7 +145,10 @@ class World(object):
         cam_pos_id = self.camera_manager.transform_index if self.camera_manager is not None else 0
 
         # Get a random blueprint.
-        blueprint = random.choice(get_actor_blueprints(self.world, self._actor_filter, self._actor_generation))
+        blueprint_list = get_actor_blueprints(self.world, self._actor_filter, self._actor_generation)
+        if not blueprint_list:
+            raise ValueError("Couldn't find any blueprints with the specified filters")
+        blueprint = random.choice(blueprint_list)
         blueprint.set_attribute('role_name', 'hero')
         if blueprint.has_attribute('color'):
             color = random.choice(blueprint.get_attribute('color').recommended_values)
@@ -167,20 +170,6 @@ class World(object):
                 sys.exit(1)
             spawn_points = self.map.get_spawn_points()
             spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
-            # 11/7/2023: Neil modify spawn point: start
-            # spawn_point = spawn_points[16] # 11/18/2023 8:15 PM: Neill commented out
-            # 11/7/2023: Neil modify spawn point: start
-            # 11/18/2023: Neil modify spawn point: start
-            # spawn_point = spawn_points[1] 
-            # spawn_point = spawn_points[3] 
-            # spawn_point = spawn_points[0] 
-            # 11/18/2023: Neil modify spawn point: start
-            # 2/19/2024: Neil modify spawn point: start
-            spawn_point = carla.Transform(carla.Location(x=19.7, y=244.4, z=0.1), carla.Rotation())
-            # 2/19/2024: Neil modify spawn point: end
-            # 2/22/2024: Neil modify spawn point: start
-            # spawn_point = spawn_points[223] 
-            # 2/22/2024: Neil modify spawn point: end
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
             self.modify_vehicle_physics(self.player)
 
@@ -722,10 +711,6 @@ def game_loop(args):
     pygame.init()
     pygame.font.init()
     world = None
-    dir_outptut = '_out_21_CARLA_AP_Town06'
-    strPathType = 'Loop'    
-    open(f'{dir_outptut}/Controls{strPathType}.txt','w')
-    open(f'{dir_outptut}/Locations{strPathType}.txt','w')
 
     try:
         if args.seed:
@@ -740,10 +725,7 @@ def game_loop(args):
         if args.sync:
             settings = sim_world.get_settings()
             settings.synchronous_mode = True
-            settings.fixed_delta_seconds = 0.05 # 2/6/2024 2:26 PM: Neil commented out
-            # settings.fixed_delta_seconds = 0.50 # 2/6/2024 2:29 PM: not enough granularity
-            # settings.fixed_delta_seconds = 0.01 # 2/6/2024 2:43 PM: very smooth
-            # settings.fixed_delta_seconds = 0.005 # 2/6/2024 2:49 PM: very smooth
+            settings.fixed_delta_seconds = 0.05
             sim_world.apply_settings(settings)
 
             traffic_manager.set_synchronous_mode(True)
@@ -756,23 +738,8 @@ def game_loop(args):
         world = World(client.get_world(), hud, args)
         controller = KeyboardControl(world)
         if args.agent == "Basic":
-            agent = BasicAgent(world.player, 30) # 11/11/2023 7:12 PM: Neil commented out
-            # agent = BasicAgent(world.player, 60) # 2/1/2024 7:38 PM: Neil added
-            # agent = BasicAgent(world.player, 120) # 2/1/2024 7:46 PM: Neil added
-            # agent = BasicAgent(world.player, 120, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 7:56 PM: Neil added
-            # agent = BasicAgent(world.player, 240, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:07 PM: Neil added # crash
-            # agent = BasicAgent(world.player, 180, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:07 PM: Neil added #crash
-            # agent = BasicAgent(world.player, 150, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:10 PM: Neil added # crash at 20 FPS and 100 FPS
-            # agent = BasicAgent(world.player, 135, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 8:13 PM: Neil added # highest 20 FPS speed
-            # agent = BasicAgent(world.player, 15) # 1/8/2024 11:19 PM: Neil added
-            # 11/11/2023 7:12 PM: Neil custom call to BasicAgent: start
-            # agent = BasicAgent(world.player, 30, {'target_speed'})
-            # 11/11/2023 7:12 PM: Neil custom call to BasicAgent: end
-            # agent.follow_speed_limits(True) #1/8/2024 11:28 PM: Neil commented out
-            agent.follow_speed_limits(False) #1/8/2024 11:28 PM: Neil added
-            # 11/9/2023 2:56 PM: Neil modification: start
-            agent.ignore_traffic_lights(True)
-            # 11/9/2023 2:56 PM: Neil modification: end
+            agent = BasicAgent(world.player, 30)
+            agent.follow_speed_limits(True)
         elif args.agent == "Constant":
             agent = ConstantVelocityAgent(world.player, 30)
             ground_loc = world.world.ground_projection(world.player.get_location(), 5)
@@ -785,24 +752,7 @@ def game_loop(args):
         # Set the agent destination
         spawn_points = world.map.get_spawn_points()
         destination = random.choice(spawn_points).location
-        agent.set_destination(destination) # 11/7/2023 9:53 PM: Neil commented
-        # 11/6/2023 8:21 PM: set_destination: start
-        # agent.set_destination(spawn_points[0].location) # 11/18/2023: Neil commented out
-        # 11/6/2023 8:21 PM: set_destination: end
-        # 11/18/2023 8:18 PM: set_destination: start
-        # agent.set_destination(spawn_points[16].location)
-        # agent.set_destination(spawn_points[335].location)
-        # 11/18/2023 8:18 PM: set_destination: end
-        # 2/19/2024 12:35 PM: set_destination: start
-        # agent.set_destination(carla.Location(x=581.2, y=244.6, z=0.1))
-        # 2/19/2024 12:35 PM: set_destination: end
-        # 2/22/2024 9:36 AM: set_destination: start
-        # agent.set_destination(spawn_points[15].location)
-        # 2/22/2024 9:36 AM: set_destination: end
-        # 3/4/2024: set_destination: start
-        agent.set_destination(carla.Location(x=664.9, y=168.2, z=0.1))
-        # 3/4/2024: set_destination: end
-
+        agent.set_destination(destination)
 
         clock = pygame.time.Clock()
 
@@ -810,9 +760,6 @@ def game_loop(args):
             clock.tick()
             if args.sync:
                 world.world.tick()
-                # 12/10/2023 3:46 PM: add delay: start
-                # import time;time.sleep(1)
-                # 12/10/2023 3:46 PM: add delay: end
             else:
                 world.world.wait_for_tick()
             if controller.parse_events():
@@ -934,15 +881,4 @@ def main():
 
 
 if __name__ == '__main__':
-    import time
-    start_time = time.time()
     main()
-    end_time = time.time()
-    # Calculate elapsed time
-    elapsed_time_seconds = end_time - start_time
-    # Convert seconds to hours, minutes, and seconds
-    hours = int(elapsed_time_seconds // 3600)
-    minutes = int((elapsed_time_seconds % 3600) // 60)
-    seconds = int(elapsed_time_seconds % 60)
-    # Display elapsed time in HH:MM:SS format
-    print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")

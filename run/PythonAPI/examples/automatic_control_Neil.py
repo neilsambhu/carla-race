@@ -762,7 +762,10 @@ def game_loop(args):
             pygame.HWSURFACE | pygame.DOUBLEBUF)
 
         hud = HUD(args.width, args.height)
+        print('hud done') if bVerbose else ''
+        print(f'hud: {hud}\t args: {args}')
         world = World(client.get_world(), hud, args)
+        print('world loaded') if bVerbose else ''
         controller = KeyboardControl(world)
         print('start basic_agent') if bVerbose else ''
         if args.agent == "Basic":
@@ -795,23 +798,6 @@ def game_loop(args):
         # Set the agent destination
         spawn_points = world.map.get_spawn_points()
         destination = random.choice(spawn_points).location
-        # agent.set_destination(destination) # 11/7/2023 9:53 PM: Neil commented
-        # 11/6/2023 8:21 PM: set_destination: start
-        # agent.set_destination(spawn_points[0].location) # 11/18/2023: Neil commented out
-        # 11/6/2023 8:21 PM: set_destination: end
-        # 11/18/2023 8:18 PM: set_destination: start
-        # agent.set_destination(spawn_points[16].location)
-        # agent.set_destination(spawn_points[335].location)
-        # 11/18/2023 8:18 PM: set_destination: end
-        # 2/19/2024 12:35 PM: set_destination: start
-        # agent.set_destination(carla.Location(x=581.2, y=244.6, z=0.1))
-        # 2/19/2024 12:35 PM: set_destination: end
-        # 2/22/2024 9:36 AM: set_destination: start
-        # agent.set_destination(spawn_points[15].location)
-        # 2/22/2024 9:36 AM: set_destination: end
-        # 3/4/2024: set_destination: start
-        # agent.set_destination(carla.Location(x=664.9, y=168.2, z=0.1))
-        # 3/4/2024: set_destination: end
 
         # create deque of waypoints
         from collections import deque
@@ -836,18 +822,18 @@ def game_loop(args):
             world.render(display)
             pygame.display.flip()
 
-            if len(waypoints) > 0:
-                if args.loop:
-                    waypoint = waypoints.popleft()
-                    print(f'waypoint: {waypoint}')
-                    agent.set_destination(waypoint)
-                    world.hud.notification("Target reached", seconds=4.0)
-                    print("The target has been reached, searching for another target")
-                else:
-                    print("The target has been reached, stopping the simulation")
-                    break
-            else:
-                break
+            # continue # LOOP WILL NOT EXECUTE FOLLOWING CODE
+            # if agent.done() and len(waypoints) > 0:
+            #     waypoint = waypoints.popleft()
+            #     print(f'waypoint: {waypoint}')
+            #     agent.set_destination(waypoint)
+            #     world.hud.notification("Target reached", seconds=4.0)
+            #     print("The target has been reached, searching for another target")
+            # elif not agent.done() and len(waypoints) > 0:
+            #     pass
+            # else:
+            #     print('done with loop')
+            #     break
 
             control = agent.run_step()
             control.manual_gear_shift = False

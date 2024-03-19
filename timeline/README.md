@@ -904,3 +904,11 @@ second point: (645.1, -3.3).
 ```
 python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_control_Neil.py --sync --filter "vehicle.tesla.model3" --agent Basic
 ```
+3/18/2024 2:13 PM: new 2 Python script for automatic control:
+```
+python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_control_Neil.py --sync --filter "vehicle.tesla.model3" --agent Basic --host 10.247.52.30
+```
+3/19/2024 11:35 AM: new 3 Python script for automatic control: 
+```
+python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/automatic_control_Neil.py --sync --filter "vehicle.tesla.model3" --agent Basic --host localhost
+```
