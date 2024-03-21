@@ -62,7 +62,7 @@ class VehiclePIDController():
             :param waypoint: target location encoded as a waypoint
             :return: distance (in meters) to the waypoint
         """
-        print(f'run_step waypoint: {waypoint}') if bVerbose else ''
+        print(f'run_step waypoint loc: {waypoint.transform.location}') if bVerbose else ''
 
         acceleration = self._lon_controller.run_step(target_speed)
         current_steering = self._lat_controller.run_step(waypoint)

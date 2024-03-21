@@ -1271,6 +1271,14 @@ def game_loop(args):
 
         if args.sync:
             sim_world.tick()
+            dir_outptut = '_out_21_CARLA_AP_Town06'
+            import os
+            if not os.path.exists(dir_outptut):
+                os.makedirs(dir_outptut)        
+            vehicle = sim_world.get_actors().filter('vehicle.*')[0]
+            veh_location = vehicle.get_location()
+            with open(f'{dir_outptut}/LocationsLoop.txt', 'a') as file:
+                file.write('{} {} {}\n'.format(veh_location.x,veh_location.y,veh_location.z))
         else:
             sim_world.wait_for_tick()
 

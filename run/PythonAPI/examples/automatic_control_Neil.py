@@ -209,7 +209,7 @@ class World(object):
             # 2/22/2024: Neil modify spawn point: end
             # 3/8/2024: Neil modify spawn point: start
             spawn_point = carla.Transform(LOCATION0, carla.Rotation())
-            spawn_point = carla.Transform(LOCATION1, carla.Rotation())
+            # spawn_point = carla.Transform(LOCATION1, carla.Rotation())
             # print(f'spawn_point: {spawn_point}')
             # 3/8/2024: Neil modify spawn point: end
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)

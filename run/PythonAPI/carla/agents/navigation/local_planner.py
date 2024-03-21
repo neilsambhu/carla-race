@@ -174,8 +174,8 @@ class LocalPlanner(object):
             last_waypoint = self._waypoints_queue[-1][0]
             next_waypoints = list(last_waypoint.next(self._sampling_radius))
 
-            # if bVerbose:
-            #     print(f'next_waypoints: {next_waypoints}')
+            if bVerbose:
+                print(f'next_waypoints: {next_waypoints}')
 
             if len(next_waypoints) == 0:
                 break
