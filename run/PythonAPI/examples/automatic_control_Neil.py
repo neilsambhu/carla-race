@@ -62,9 +62,33 @@ from agents.navigation.behavior_agent import BehaviorAgent  # pylint: disable=im
 from agents.navigation.basic_agent import BasicAgent  # pylint: disable=import-error
 from agents.navigation.constant_velocity_agent import ConstantVelocityAgent  # pylint: disable=import-error
 
-LOCATION0 = carla.Location(x=-353.2, y=226.6, z=0.01) # correlated with index 15
-LOCATION1 = carla.Location(x=645.1, y=-3.3, z=0.01)
-bVerbose = True
+from collections import deque
+waypoints = deque()
+HEIGHT = 0.1
+LOCATION0 = carla.Location(x=-313.8, y=243.6, z=HEIGHT)
+LOCATION1 = carla.Location(x=-19.4, y=243.6, z=HEIGHT)
+waypoints.append(LOCATION1)
+LOCATION2 = carla.Location(x=-0.8, y=243.6, z=HEIGHT)
+LOCATION3 = carla.Location(x=19.7, y=244.4, z=HEIGHT)
+delta_x = LOCATION3.x - LOCATION2.x
+delta_y = LOCATION3.y - LOCATION2.y
+count_steps = 1
+for i in range(count_steps):
+    x = LOCATION2.x + i*delta_x/count_steps
+    y = LOCATION2.y + i*delta_y/count_steps
+    waypoints.append(carla.Location(x=x, y=y, z=HEIGHT))
+# waypoints.append(carla.Location(x=1, y=243.6, z=HEIGHT))
+# waypoints.append(carla.Location(x=1.1, y=243.6, z=HEIGHT))
+# waypoints.append(carla.Location(x=1.5, y=243.6, z=HEIGHT))
+# waypoints.append(carla.Location(x=1.75, y=243.6, z=HEIGHT))
+# waypoints.append(carla.Location(x=1.8, y=243.6, z=HEIGHT))
+# waypoints.append(carla.Location(x=1.825, y=243.6, z=HEIGHT))
+# waypoints.append(carla.Location(x=1.83, y=243.6, z=HEIGHT))
+# waypoints.append(carla.Location(x=1.835, y=243.6, z=HEIGHT))
+# waypoints.append(carla.Location(x=1.836, y=244, z=HEIGHT))
+waypoints.append(carla.Location(x=19.7, y=244.4, z=HEIGHT))
+waypoints.append(carla.Location(x=664.9, y=168.2, z=HEIGHT))
+bVerbose = False
 # ==============================================================================
 # -- Global functions ----------------------------------------------------------
 # ==============================================================================
@@ -185,6 +209,7 @@ class World(object):
             # 2/22/2024: Neil modify spawn point: end
             # 3/8/2024: Neil modify spawn point: start
             spawn_point = carla.Transform(LOCATION0, carla.Rotation())
+            spawn_point = carla.Transform(LOCATION1, carla.Rotation())
             # print(f'spawn_point: {spawn_point}')
             # 3/8/2024: Neil modify spawn point: end
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
@@ -763,13 +788,13 @@ def game_loop(args):
 
         hud = HUD(args.width, args.height)
         print('hud done') if bVerbose else ''
-        print(f'hud: {hud}\t args: {args}')
+        print(f'hud: {hud}\t args: {args}') if bVerbose else ''
         world = World(client.get_world(), hud, args)
         print('world loaded') if bVerbose else ''
         controller = KeyboardControl(world)
         print('start basic_agent') if bVerbose else ''
         if args.agent == "Basic":
-            agent = BasicAgent(world.player, 30) # 11/11/2023 7:12 PM: Neil commented out
+            # agent = BasicAgent(world.player, 30) # 11/11/2023 7:12 PM: Neil commented out
             # agent = BasicAgent(world.player, 60) # 2/1/2024 7:38 PM: Neil added
             # agent = BasicAgent(world.player, 120) # 2/1/2024 7:46 PM: Neil added
             # agent = BasicAgent(world.player, 120, {'max_throttle':1.0, 'max_brake':1.0}) # 2/1/2024 7:56 PM: Neil added
@@ -781,6 +806,8 @@ def game_loop(args):
             # 11/11/2023 7:12 PM: Neil custom call to BasicAgent: start
             # agent = BasicAgent(world.player, 30, {'target_speed'})
             # 11/11/2023 7:12 PM: Neil custom call to BasicAgent: end
+            # agent = BasicAgent(world.player, 30, {'base_min_distance':.1})
+            agent = BasicAgent(world.player, 30, {'base_min_distance':.1})
             # agent.follow_speed_limits(True) #1/8/2024 11:28 PM: Neil commented out
             agent.follow_speed_limits(False) #1/8/2024 11:28 PM: Neil added
             # 11/9/2023 2:56 PM: Neil modification: start
@@ -800,9 +827,19 @@ def game_loop(args):
         destination = random.choice(spawn_points).location
 
         # create deque of waypoints
-        from collections import deque
-        waypoints = deque([LOCATION1, LOCATION0])
-        print(f'waypoints: {waypoints}')
+        # waypoints = deque([LOCATION1, LOCATION2, LOCATION3, LOCATION0])
+        # waypoints = deque([LOCATION1, 
+        #     LOCATION2, LOCATION3, 
+        #     LOCATION4, LOCATION5, LOCATION6, 
+        #     LOCATION7, 
+        #     LOCATION8,
+        #     LOCATION100, LOCATION101, LOCATION0])
+        # print(f'waypoints: {waypoints}')
+        def SetNextWaypoint():
+            waypoint = waypoints.popleft()
+            print(f'waypoint: {waypoint}')
+            agent.set_destination(waypoint)
+        SetNextWaypoint()
 
         clock = pygame.time.Clock()
 
@@ -823,17 +860,15 @@ def game_loop(args):
             pygame.display.flip()
 
             # continue # LOOP WILL NOT EXECUTE FOLLOWING CODE
-            # if agent.done() and len(waypoints) > 0:
-            #     waypoint = waypoints.popleft()
-            #     print(f'waypoint: {waypoint}')
-            #     agent.set_destination(waypoint)
-            #     world.hud.notification("Target reached", seconds=4.0)
-            #     print("The target has been reached, searching for another target")
-            # elif not agent.done() and len(waypoints) > 0:
-            #     pass
-            # else:
-            #     print('done with loop')
-            #     break
+            if agent.done() and len(waypoints) > 0:
+                world.hud.notification("Target reached", seconds=4.0)
+                # print("The target has been reached, searching for another target")
+                SetNextWaypoint()
+            elif not agent.done() and len(waypoints) > 0:
+                pass
+            else:
+                print('done with loop')
+                break
 
             control = agent.run_step()
             control.manual_gear_shift = False

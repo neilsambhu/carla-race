@@ -917,3 +917,6 @@ navigation and allow for smooth turning around track.
 3/19/2024 4:24 PM: TODO: look through spawn points built into CARLA API.  
 3/19/2024 5:00 PM: TODO: use manual_control.py to find waypoints manually. 
 Don't make curves waypoints.  
+3/20/2024 10:27 AM: TODO: (2) copy Controls.txt and Locations.txt 
+to the Loop text files; (1) check waypoints are accurate.  
+3/20/2024 11:21 AM: TODO: make car drive through intersection.  

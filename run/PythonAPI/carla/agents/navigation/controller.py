@@ -11,7 +11,7 @@ import numpy as np
 import carla
 from agents.tools.misc import get_speed
 
-bVerbose = False
+bVerbose = True
 
 class VehiclePIDController():
     """
@@ -62,6 +62,7 @@ class VehiclePIDController():
             :param waypoint: target location encoded as a waypoint
             :return: distance (in meters) to the waypoint
         """
+        print(f'run_step waypoint: {waypoint}') if bVerbose else ''
 
         acceleration = self._lon_controller.run_step(target_speed)
         current_steering = self._lat_controller.run_step(waypoint)
@@ -90,7 +91,7 @@ class VehiclePIDController():
         control.manual_gear_shift = False
         self.past_steering = steering
 
-        if bVerbose:
+        if bVerbose and False:
             print(f'control: {control}')
 
         return control
