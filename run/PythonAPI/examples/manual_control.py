@@ -143,6 +143,7 @@ try:
 except ImportError:
     raise RuntimeError('cannot import numpy, make sure numpy package is installed')
 
+bVerbose = True
 
 # ==============================================================================
 # -- Global functions ----------------------------------------------------------
@@ -278,6 +279,12 @@ class World(object):
                 sys.exit(1)
             spawn_points = self.map.get_spawn_points()
             spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
+            # 3/22/2024: spawn point: start
+            spawn_point = carla.Transform(
+                carla.Location(x=-313.8, y=243.6, z=0.1),
+                carla.Rotation()
+            )
+            # 3/22/2024: spawn point: end
             self.player = self.world.try_spawn_actor(blueprint, spawn_point)
             self.show_vehicle_telemetry = False
             self.modify_vehicle_physics(self.player)
@@ -1270,21 +1277,24 @@ def game_loop(args):
         controller = KeyboardControl(world, args.autopilot)
 
         if args.sync:
-            sim_world.tick()
-            dir_outptut = '_out_21_CARLA_AP_Town06'
-            import os
-            if not os.path.exists(dir_outptut):
-                os.makedirs(dir_outptut)        
-            vehicle = sim_world.get_actors().filter('vehicle.*')[0]
-            veh_location = vehicle.get_location()
-            with open(f'{dir_outptut}/LocationsLoop.txt', 'a') as file:
-                file.write('{} {} {}\n'.format(veh_location.x,veh_location.y,veh_location.z))
+            sim_world.tick()            
         else:
             sim_world.wait_for_tick()
 
         clock = pygame.time.Clock()
+        dir_outptut = '_out_21_CARLA_AP_Town06'
+        import os
+        if not os.path.exists(dir_outptut):
+            os.makedirs(dir_outptut)        
+        open(f'{dir_outptut}/LocationsLoop.txt', 'w')
         while True:
             if args.sync:
+                vehicle = sim_world.get_actors().filter('vehicle.*')[0]
+                # print(f'vehicle: {vehicle}') if bVerbose else ''
+                veh_location = vehicle.get_location()
+                # print(f'veh_location: {veh_location}')
+                with open(f'{dir_outptut}/LocationsLoop.txt', 'a') as file:
+                    file.write('{} {} {}\n'.format(veh_location.x,veh_location.y,veh_location.z))
                 sim_world.tick()
             clock.tick_busy_loop(60)
             if controller.parse_events(client, world, clock, args.sync):
