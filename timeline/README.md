@@ -920,3 +920,8 @@ Don't make curves waypoints.
 3/20/2024 10:27 AM: TODO: (2) copy Controls.txt and Locations.txt 
 to the Loop text files; (1) check waypoints are accurate.  
 3/20/2024 11:21 AM: TODO: make car drive through intersection.  
+3/22/2024 4:06 PM: run 
+```
+python run/2024_02_19_19town.py && python run/2024_03_21_25rl.py
+```
+3/22/2024 5:42 PM: TODO: start writing paper.  
