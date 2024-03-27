@@ -323,14 +323,17 @@ def main():
             # npLocationClosestToPredicted = np.array([locationClosestToPredicted.x, locationClosestToPredicted.y, locationClosestToPredicted.z])
             npLocationClosestToPredicted = np.array([locationClosestToPredicted.x, locationClosestToPredicted.y])
             # vector_currToPred = npLocationCurrent - npLocationPrediction
-            vector_currToPred = 0.01*(-npLocationCurrent + npLocationPrediction)
+            # vector_currToPred = 0.01*(-npLocationCurrent + npLocationPrediction)
+            vector_currToPred = -npLocationCurrent + npLocationPrediction
             # vector_currToClosestToPredicted = npLocationCurrent - npLocationClosestToPredicted
-            vector_currToClosestToPredicted = 0.01*(-npLocationCurrent + npLocationClosestToPredicted)
+            # vector_currToClosestToPredicted = 0.01*(-npLocationCurrent + npLocationClosestToPredicted)
+            vector_currToClosestToPredicted = -npLocationCurrent + npLocationClosestToPredicted
             # output += f'vector_currToPred: {vector_currToPred} | vector_currToClosestToPredicted: {vector_currToClosestToPredicted} | '
             turnDirection = GetTurnDirection(vehicle.get_location(), locationPrediction, locationClosestToPredicted)
             output += f'turnDirection: {turnDirection} | '
             # multiply by -1 to account for left is negative and right is positive, not like unit circle
             deltaTheta = 0.2*-1*turnDirection*angle_between(vector_currToPred, vector_currToClosestToPredicted)
+            # deltaTheta = -1*turnDirection*angle_between(vector_currToPred, vector_currToClosestToPredicted)
             deltaTheta = math.degrees(deltaTheta)
             output += f'theta {deltaTheta:.1f} | '
             # output = f'theta {deltaTheta:.2f} | '
@@ -346,7 +349,7 @@ def main():
             bWithinThreshold = None
             maxSteer = None
             unitChangeThrottle = 0.1
-            unitChangeSteer = 1
+            unitChangeSteer = 0.1
             unitChangeBrake = 0.1
             kmh = VehicleSpeed1D(vehicle)
             # output += f'{str_kmh(kmh)} | '
