@@ -925,3 +925,7 @@ to the Loop text files; (1) check waypoints are accurate.
 python run/2024_02_19_19town.py && python run/2024_03_21_25rl.py
 ```
 3/22/2024 5:42 PM: TODO: start writing paper.  
+3/28/2024 9:23 AM: message to Dr. Katkoori
+```
+Hi Dr. Katkoori, I hope your 
+```

@@ -332,8 +332,8 @@ def main():
             turnDirection = GetTurnDirection(vehicle.get_location(), locationPrediction, locationClosestToPredicted)
             output += f'turnDirection: {turnDirection} | '
             # multiply by -1 to account for left is negative and right is positive, not like unit circle
-            deltaTheta = 0.2*-1*turnDirection*angle_between(vector_currToPred, vector_currToClosestToPredicted)
-            # deltaTheta = -1*turnDirection*angle_between(vector_currToPred, vector_currToClosestToPredicted)
+            # deltaTheta = 0.2*-1*turnDirection*angle_between(vector_currToPred, vector_currToClosestToPredicted)
+            deltaTheta = -1*turnDirection*angle_between(vector_currToPred, vector_currToClosestToPredicted)
             deltaTheta = math.degrees(deltaTheta)
             output += f'theta {deltaTheta:.1f} | '
             # output = f'theta {deltaTheta:.2f} | '
@@ -358,7 +358,8 @@ def main():
             else:
                 # maxSteer = min(abs(deltaTheta)/10, 0.01)
                 # maxSteer = min(abs(deltaTheta)/10, 0.3)
-                maxSteer = min(abs(deltaTheta)/10, 1)
+                # maxSteer = min(abs(deltaTheta)/10, 1)
+                maxSteer = min(abs(deltaTheta)/50, 1)
             # if abs(deltaTheta) < thresholdDeltaThetaSteer:
             #     # deltaTheta = -deltaTheta
             #     maxSteer = 1e-3
@@ -427,8 +428,8 @@ def main():
         x_path = [location.x for location in listLocationsPath_CARLA_AP_Town06]
         y_path = [location.y for location in listLocationsPath_CARLA_AP_Town06]
         # y_path = [stretch*(location.y-location_destination.y) for location in listLocationsPath_CARLA_AP_Town06]
-        ax2.plot(x_vehicle, y_vehicle, label='Vehicle Location', marker='o', linestyle='-', linewidth=0.01)
-        ax2.plot(x_path, y_path, label='Path Location', marker='o', linestyle='--', linewidth=0.01)
+        ax2.plot(x_vehicle, y_vehicle, label='Vehicle Location', marker='o', linestyle='-', linewidth=0.1)
+        ax2.plot(x_path, y_path, label='Ground-Truth Path Location', marker='o', linestyle='--', linewidth=0.01)
         ax2.legend()
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
