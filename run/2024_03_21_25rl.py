@@ -196,7 +196,7 @@ def main():
         # fig_deltaY, ax1 = plt.subplots(figsize=(12, 6))
         fig_distancePredToPath, ax0 = plt.subplots(figsize=(12,6))
         ax0.set_xlabel('Time-Steps')
-        ax0.set_ylabel('Distance From (1) Predicted Location at Next Time-Step to (2) Closest Location From Path')
+        ax0.set_ylabel('Distance from Predicted Location to Path')
         ax0.set_title('Distance of Deviation From Path')
         fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
         ax1.set_xlabel('Time-Steps')

@@ -943,5 +943,4 @@ sudo apt install gparted
 Bootloader (500 MB): FAT32. EFI System Partition  
 OS (200 GB): Ext4. Mount at "/" (i.e. "root")  
 Home: Ext4. Mount at "/home"  
-~4/1/2024 2:13 PM: (1) deselect download 18.04 updates and 
-(2) select third-party drivers.~  
+4/1/2024 2:59 PM: Ubuntu 18.04 installed. [not necessary to continue copying]    
