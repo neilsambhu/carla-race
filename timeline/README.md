@@ -929,3 +929,19 @@ python run/2024_02_19_19town.py && python run/2024_03_21_25rl.py
 ```
 Hi Dr. Katkoori, I hope your 
 ```
+# CARLA Simulator: Ubuntu 18.04 install
+4/1/2024 2:08 PM: on USB boot, no modeset  
+Try Ubuntu before you install it  
+4/1/2024 2:11 PM: 
+```
+blkid
+```
+4/1/2024 2:12 PM: (for Red Hat Enterprise Linux)
+```
+sudo apt install gparted
+```
+Bootloader (500 MB): FAT32. EFI System Partition  
+OS (200 GB): Ext4. Mount at "/" (i.e. "root")  
+Home: Ext4. Mount at "/home"  
+~4/1/2024 2:13 PM: (1) deselect download 18.04 updates and 
+(2) select third-party drivers.~  

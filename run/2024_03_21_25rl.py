@@ -58,7 +58,7 @@ def getLocationClosestToCurrent(currentLocation):
         listDistance.append(distanceFromPath)
     distanceMinimum = min(listDistance)
     indexMinimum = listDistance.index(distanceMinimum)
-    return listLocationsPath_CARLA_AP_Town06[indexMinimum]
+    return distanceMinimum, listLocationsPath_CARLA_AP_Town06[indexMinimum]
 def strPoint(point):
     return f'{point:05.1f}'
 def strLocation2D(location):
@@ -189,12 +189,17 @@ def main():
             return 0.75, 0.0, 0.0
         throttle, steer, brake = getStandardVehicleControl()
         # listDeltaY = []
+        listDistancePredToPath = []
         listDeltaTheta = []
         listLocations = []
         # Plot setup for delta Y
         # fig_deltaY, ax1 = plt.subplots(figsize=(12, 6))
+        fig_distancePredToPath, ax0 = plt.subplots(figsize=(12,6))
+        ax0.set_xlabel('Time-Steps')
+        ax0.set_ylabel('Distance From (1) Predicted Location at Next Time-Step to (2) Closest Location From Path')
+        ax0.set_title('Distance of Deviation From Path')
         fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
-        ax1.set_xlabel('Time Steps')
+        ax1.set_xlabel('Time-Steps')
         # ax1.set_ylabel('Delta Y')
         ax1.set_ylabel('Delta Theta')
         # ax1.set_title('Delta Y over Time')
@@ -401,7 +406,8 @@ def main():
             if countTick in dictLocationPrediction:
                 distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTick])
                 # output += f'pred err: {Vector3D_ToString(distanceError)} | '
-            locationClosestToPredicted = getLocationClosestToCurrent(locationPrediction)
+            distanceMinimum, locationClosestToPredicted = getLocationClosestToCurrent(locationPrediction)
+            listDistancePredToPath.append(distanceMinimum)
             output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
             distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
             output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
@@ -413,6 +419,8 @@ def main():
             world.tick()
             countTick += 1
         # Save the delta Y plot
+        ax0.plot(listDistancePredToPath)
+        fig_distancePredToPath.savefig(os.path.join(dir_outptut, 'distancePredToPath.png'))
         # ax1.plot(listDeltaY)
         ax1.plot(listDeltaTheta)
         # fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
