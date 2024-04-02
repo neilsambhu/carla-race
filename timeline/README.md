@@ -944,3 +944,4 @@ Bootloader (500 MB): FAT32. EFI System Partition
 OS (200 GB): Ext4. Mount at "/" (i.e. "root")  
 Home: Ext4. Mount at "/home"  
 4/1/2024 2:59 PM: Ubuntu 18.04 installed. [not necessary to continue copying]    
+4/2/2024 9:22 AM: SAMBHU25 GPU is GTX 1650  
