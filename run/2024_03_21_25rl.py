@@ -7,19 +7,13 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGAIVI = not bSAMBHU23
+bVerbose = False
 
 # strPathType = 'Straight'
 # strPathType = 'Curve'
 strPathType = 'Loop'
 path_AP_controls = f'_out_21_CARLA_AP_Town06/Controls{strPathType}.txt'
 path_AP_locations = f'_out_21_CARLA_AP_Town06/Locations{strPathType}.txt'
-
-dir_outptut = '_out_25_rl'
-if not os.path.exists(dir_outptut):
-    os.makedirs(dir_outptut)
-dir_output_frames = f'{dir_outptut}/frames/'
-if not os.path.exists(dir_output_frames):
-    os.makedirs(dir_output_frames)
 
 def clean_directory(directory):
     if not bGAIVI:
@@ -28,10 +22,6 @@ def clean_directory(directory):
     else:
         clean = subprocess.Popen(f'rm -rf {directory}/*', shell=True)
         clean.wait()
-clean_directory(dir_output_frames)
-
-path_rl_controls = f'{dir_outptut}/Controls.txt'
-path_rl_locations = f'{dir_outptut}/Locations.txt'
 
 '''Make sure CARLA Simulator 0.9.14 is running'''
 actor_list = []
@@ -44,6 +34,17 @@ argparser.add_argument(
     help='Target speed for vehicle')
 args = argparser.parse_args()
 TARGET_SPEED = int(args.speed)
+
+dir_outptut = '_out_25_rl'
+if not os.path.exists(dir_outptut):
+    os.makedirs(dir_outptut)
+dir_output_frames = f'{dir_outptut}/{TARGET_SPEED}frames/'
+if not os.path.exists(dir_output_frames):
+    os.makedirs(dir_output_frames)
+clean_directory(dir_output_frames)
+
+path_rl_controls = f'{dir_outptut}/Controls.txt'
+path_rl_locations = f'{dir_outptut}/Locations.txt'
 
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
@@ -205,7 +206,7 @@ def main():
         fig_distancePredToPath, ax0 = plt.subplots(figsize=(12,6))
         ax0.set_xlabel('Time-Steps')
         ax0.set_ylabel('Distance from Predicted Location to Path')
-        ax0.set_title('Distance of Deviation From Path')
+        ax0.set_title(f'Distance of Deviation From Path ({TARGET_SPEED} km/h)')
         fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
         ax1.set_xlabel('Time-Steps')
         # ax1.set_ylabel('Delta Y')
@@ -327,7 +328,7 @@ def main():
                 return 0
             if output > 0:
                 return 1
-        def GetVehicleControls(throttle, steer, brake, locationPrediction, locationClosestToPredicted):
+        def GetVehicleControls(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bHitSpeedMinimum):
             output = ''
             # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
             npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
@@ -368,7 +369,10 @@ def main():
             # output += f'{str_kmh(kmh)} | '
             if kmh < speedMinimum:
                 maxSteer = 0.01
+                if bHitSpeedMinimum:
+                    raise Exception("Vehicle stopped moving.")
             else:
+                bHitSpeedMinimum = True
                 # maxSteer = min(abs(deltaTheta)/10, 0.01)
                 # maxSteer = min(abs(deltaTheta)/10, 0.3)
                 # maxSteer = min(abs(deltaTheta)/10, 1)
@@ -400,11 +404,13 @@ def main():
                     throttle = 0.0
                     deltaBrake = unitChangeBrake
                     brake = min(brake+deltaBrake, 1.0)
-            return throttle, steer, brake, output
+            return throttle, steer, brake, output, bHitSpeedMinimum
+        bHitSpeedMinimum = False
         while getDistanceToDestination() > 2 or countTick < 500:
             output = f'tick: {countTick:04d} | '
             if not Z_VelocitySmall(vehicle):
-                print(output)
+                if bVerbose:
+                    print(output)
                 world.tick()
                 countTick += 1
                 continue
@@ -419,11 +425,15 @@ def main():
             output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
             distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
             output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
-            throttle, steer, brake, output_temp = GetVehicleControls(throttle, steer, brake, locationPrediction, locationClosestToPredicted)
+            throttle, steer, brake, output_temp, bHitSpeedMinimum = GetVehicleControls(
+                throttle, steer, brake, locationPrediction, 
+                locationClosestToPredicted, bHitSpeedMinimum
+            )
             output += output_temp
             vehicleControl = carla.VehicleControl(throttle=throttle, steer=steer, brake=brake)
             vehicle.apply_control(vehicleControl)
-            print(output)
+            if bVerbose:
+                print(output)
             world.tick()
             countTick += 1
         elapsedSecondsEnd = world.get_snapshot().timestamp.elapsed_seconds
@@ -450,7 +460,7 @@ def main():
         ax2.legend()
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
-        ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
+        # ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
         fig_overlay.savefig(os.path.join(dir_outptut, f'overlay_plot{TARGET_SPEED:03d}.png'))
         plt.close(fig_overlay)
 
