@@ -1,6 +1,7 @@
 import carla, time, queue, shutil, os, glob, math, configparser, subprocess, cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import argparse
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -36,7 +37,13 @@ path_rl_locations = f'{dir_outptut}/Locations.txt'
 actor_list = []
 IM_WIDTH = 80*2
 IM_HEIGHT = 60*2
-TARGET_SPEED = 45
+argparser = argparse.ArgumentParser(description='CARLA Path Following')
+argparser.add_argument(
+    '-s', '--speed',
+    default='30',
+    help='Target speed for vehicle')
+args = argparser.parse_args()
+TARGET_SPEED = int(args.speed)
 
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]

@@ -964,3 +964,11 @@ self.world.get_snapshot().timestamp.elapsed_seconds
     # Display elapsed time in HH:MM:SS format
     print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
 ```
+4/4/2024 12:00 PM: command
+```
+python run/2024_02_19_19town.py && python run/2024_03_21_25rl.py --speed 30
+```
+4/4/2024 12:09 PM: command
+```
+python run/2024_04_04_26_parent_rl.py
+```
