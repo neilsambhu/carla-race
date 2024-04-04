@@ -4,7 +4,7 @@ town.wait()
 
 # for speed in [80, 200, 210]:
 # for speed in range(30,201,10):
-for speed in range(90,201,10):
+for speed in range(80,29,-10):
     print('--------------------------------------------------')    
     print(f'started run for target speed {speed} km/h')
     driveConstantSpeed = subprocess.Popen(['python', 'run/2024_03_21_25rl.py', '--speed', str(speed)])

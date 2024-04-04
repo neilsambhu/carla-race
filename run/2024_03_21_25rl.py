@@ -203,7 +203,10 @@ def main():
         listLocations = []
         # Plot setup for delta Y
         # fig_deltaY, ax1 = plt.subplots(figsize=(12, 6))
+        # plt.rcParams.update({'font.size': 36})
+        plt.rcParams.update({'font.size': 18})
         fig_distancePredToPath, ax0 = plt.subplots(figsize=(12,6))
+        ax0.autoscale_view('tight')
         ax0.set_xlabel('Time-Steps')
         ax0.set_ylabel('Distance from Predicted Location to Path')
         ax0.set_title(f'Distance of Deviation From Path ({TARGET_SPEED} km/h)')
