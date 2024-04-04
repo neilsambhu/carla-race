@@ -38,7 +38,7 @@ TARGET_SPEED = int(args.speed)
 dir_outptut = '_out_25_rl'
 if not os.path.exists(dir_outptut):
     os.makedirs(dir_outptut)
-dir_output_frames = f'{dir_outptut}/{TARGET_SPEED}frames/'
+dir_output_frames = f'{dir_outptut}/{TARGET_SPEED:03d}frames/'
 if not os.path.exists(dir_output_frames):
     os.makedirs(dir_output_frames)
 clean_directory(dir_output_frames)
