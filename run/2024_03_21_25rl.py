@@ -181,7 +181,7 @@ def main():
             # i4.save(os.path.join(dir_output_frames, f'{image.frame:06d}.png'))
             i4.save(os.path.join(dir_output_frames, f'{countTick:06d}.png'))
         camera.listen(lambda image: processImage(image))
-
+        elapsedSecondsStart = world.get_snapshot().timestamp.elapsed_seconds
         world.tick()
         countTick += 1
         def getDistanceToDestination():
@@ -419,13 +419,14 @@ def main():
             print(output)
             world.tick()
             countTick += 1
+        elapsedSecondsEnd = world.get_snapshot().timestamp.elapsed_seconds
         # Save the delta Y plot
         ax0.plot(listDistancePredToPath)
-        fig_distancePredToPath.savefig(os.path.join(dir_outptut, f'{TARGET_SPEED}_distancePredToPath.png'))
+        fig_distancePredToPath.savefig(os.path.join(dir_outptut, f'distancePredToPath{TARGET_SPEED:03d}.png'))
         # ax1.plot(listDeltaY)
         ax1.plot(listDeltaTheta)
         # fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
-        fig_deltaTheta.savefig(os.path.join(dir_outptut, f'{TARGET_SPEED}_deltaTheta.png'))
+        fig_deltaTheta.savefig(os.path.join(dir_outptut, f'deltaTheta{TARGET_SPEEDTARGET_SPEED:03d}.png'))
         # plt.close(fig_deltaY)
         plt.close(fig_deltaTheta)
         # Save the overlay plot
@@ -443,8 +444,24 @@ def main():
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
         ax2.set_title('Vehicle Location and Path Overlay')
-        fig_overlay.savefig(os.path.join(dir_outptut, f'{TARGET_SPEED}_overlay_plot.png'))
+        fig_overlay.savefig(os.path.join(dir_outptut, f'overlay_plot{TARGET_SPEED:03d}.png'))
         plt.close(fig_overlay)
+
+        elapsedTime = elapsedSecondsEnd - elapsedSecondsStart
+        def TimeToTextFile(seconds):
+            fileTime = os.path.join(
+                dir_outptut, 
+                f'{TARGET_SPEED:03d}_{elapsed_time_seconds:.2f}'
+            )
+            open(fileTime,'w')
+        TimeToTextFile(elapsedTime)
+        def TimeToConsole(elapsed_time_seconds):
+            hours = int(elapsed_time_seconds // 3600)
+            minutes = int((elapsed_time_seconds % 3600) // 60)
+            seconds = int(elapsed_time_seconds % 60)
+            # Display elapsed time in HH:MM:SS format
+            print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
+        TimeToConsole(elapsedTime)            
 
         time.sleep(10)
         while not os.path.join(dir_output_frames, f'{countTick:06d}.png'):
@@ -453,17 +470,6 @@ def main():
         actor_list_destroy(actor_list)
         print('done')
 
+
 if __name__ == '__main__':
-    import time
-    start_time = time.time()
     main()
-    end_time = time.time()
-    # Calculate elapsed time
-    elapsed_time_seconds = end_time - start_time
-    # Convert seconds to hours, minutes, and seconds
-    hours = int(elapsed_time_seconds // 3600)
-    minutes = int((elapsed_time_seconds % 3600) // 60)
-    seconds = int(elapsed_time_seconds % 60)
-    # Display elapsed time in HH:MM:SS format
-    print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
-    open(f'{TARGET_SPEED}_{elapsed_time_seconds}','w')
