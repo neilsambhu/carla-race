@@ -466,3 +466,4 @@ if __name__ == '__main__':
     seconds = int(elapsed_time_seconds % 60)
     # Display elapsed time in HH:MM:SS format
     print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
+    open(f'{TARGET_SPEED}_{elapsed_time_seconds}','w')
