@@ -421,11 +421,11 @@ def main():
             countTick += 1
         # Save the delta Y plot
         ax0.plot(listDistancePredToPath)
-        fig_distancePredToPath.savefig(os.path.join(dir_outptut, 'f{TARGET_SPEED}_distancePredToPath.png'))
+        fig_distancePredToPath.savefig(os.path.join(dir_outptut, f'{TARGET_SPEED}_distancePredToPath.png'))
         # ax1.plot(listDeltaY)
         ax1.plot(listDeltaTheta)
         # fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
-        fig_deltaTheta.savefig(os.path.join(dir_outptut, 'deltaTheta.png'))
+        fig_deltaTheta.savefig(os.path.join(dir_outptut, f'{TARGET_SPEED}_deltaTheta.png'))
         # plt.close(fig_deltaY)
         plt.close(fig_deltaTheta)
         # Save the overlay plot
@@ -443,7 +443,7 @@ def main():
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
         ax2.set_title('Vehicle Location and Path Overlay')
-        fig_overlay.savefig(os.path.join(dir_outptut, 'overlay_plot.png'))
+        fig_overlay.savefig(os.path.join(dir_outptut, f'{TARGET_SPEED}_overlay_plot.png'))
         plt.close(fig_overlay)
 
         time.sleep(10)
