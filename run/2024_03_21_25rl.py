@@ -36,6 +36,7 @@ path_rl_locations = f'{dir_outptut}/Locations.txt'
 actor_list = []
 IM_WIDTH = 80*2
 IM_HEIGHT = 60*2
+TARGET_SPEED = 30
 
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
@@ -350,7 +351,7 @@ def main():
             # thresholdDeltaThetaNoSteer = 5
             thresholdDeltaThetaSteer = 1e-1
             speedMinimum = 5
-            speedTarget = 30
+            speedTarget = TARGET_SPEED
             bWithinThreshold = None
             maxSteer = None
             unitChangeThrottle = 0.1
@@ -420,7 +421,7 @@ def main():
             countTick += 1
         # Save the delta Y plot
         ax0.plot(listDistancePredToPath)
-        fig_distancePredToPath.savefig(os.path.join(dir_outptut, 'distancePredToPath.png'))
+        fig_distancePredToPath.savefig(os.path.join(dir_outptut, 'f{TARGET_SPEED}_distancePredToPath.png'))
         # ax1.plot(listDeltaY)
         ax1.plot(listDeltaTheta)
         # fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
@@ -453,4 +454,15 @@ def main():
         print('done')
 
 if __name__ == '__main__':
+    import time
+    start_time = time.time()
     main()
+    end_time = time.time()
+    # Calculate elapsed time
+    elapsed_time_seconds = end_time - start_time
+    # Convert seconds to hours, minutes, and seconds
+    hours = int(elapsed_time_seconds // 3600)
+    minutes = int((elapsed_time_seconds % 3600) // 60)
+    seconds = int(elapsed_time_seconds % 60)
+    # Display elapsed time in HH:MM:SS format
+    print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
