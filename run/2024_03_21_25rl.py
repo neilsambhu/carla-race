@@ -464,6 +464,7 @@ def main():
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
         # ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
+        plt.rcParams.update({'font.size': 24})
         fig_overlay.savefig(os.path.join(dir_outptut, f'overlay_plot{TARGET_SPEED:03d}.png'))
         plt.close(fig_overlay)
 
