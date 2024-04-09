@@ -32,6 +32,10 @@ argparser.add_argument(
     '-s', '--speed',
     default='30',
     help='Target speed for vehicle')
+argparser.add_argument(
+    '-d', '--steeringDenominator',
+    default='50',
+    help='Value by which to divide the steering angle')
 args = argparser.parse_args()
 TARGET_SPEED = int(args.speed)
 
@@ -376,10 +380,7 @@ def main():
                     raise Exception("Vehicle stopped moving.")
             else:
                 bHitSpeedMinimum = True
-                # maxSteer = min(abs(deltaTheta)/10, 0.01)
-                # maxSteer = min(abs(deltaTheta)/10, 0.3)
-                # maxSteer = min(abs(deltaTheta)/10, 1)
-                maxSteer = min(abs(deltaTheta)/50, 1)
+                maxSteer = min(abs(deltaTheta)/args.steeringDenominator, 1)
             # if abs(deltaTheta) < thresholdDeltaThetaSteer:
             #     # deltaTheta = -deltaTheta
             #     maxSteer = 1e-3
