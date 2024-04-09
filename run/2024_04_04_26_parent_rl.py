@@ -13,7 +13,7 @@ for speed in range(80,201,10):
         print('--------------------------------------------------')    
         strRunLabel = f'run for (1) target speed {speed}, '+ \
             f'(2) vehicle {vehicle}'
-        print(f'started run for {strRunLabel}')
+        print(f'started {strRunLabel}')
         driveConstantSpeed = subprocess.Popen([
             'python', 'run/2024_03_21_25rl.py', 
             '--speed', str(speed),
