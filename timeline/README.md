@@ -972,3 +972,7 @@ python run/2024_02_19_19town.py && python run/2024_03_21_25rl.py --speed 30
 ```
 python run/2024_04_04_26_parent_rl.py
 ```
+4/5/2024 9:35 AM: newegg search
+```
+no water-cooled CPU; air-cooled CPU; no disk drive; minimum GPU memory of 8 GB
+```
