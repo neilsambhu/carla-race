@@ -8,7 +8,7 @@ for speed in range(30,201,10):
     print(f'START SPEED {speed}')
     for steeringDenominator in range(25,201,25):
         print('--------------------------------------------------')    
-        strRunLabel = f'run for (1) target speed {speed} and '+ 
+        strRunLabel = f'run for (1) target speed {speed} and '+ \
             f'(2) steering denominator {steeringDenominator}'
         print(f'started run for {strRunLabel}')
         driveConstantSpeed = subprocess.Popen([
