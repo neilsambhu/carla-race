@@ -12,8 +12,7 @@ for speed in range(80,201,10):
     'vehicle.ford.crown', 'vehicle.ford.ambulance']:
         print('--------------------------------------------------')    
         strRunLabel = f'run for (1) target speed {speed}, '+ \
-            f'(2) steer denominator {steeringDenominator}, and '+ \
-            f'(3) vehicle {vehicle}'
+            f'(2) vehicle {vehicle}'
         print(f'started run for {strRunLabel}')
         driveConstantSpeed = subprocess.Popen([
             'python', 'run/2024_03_21_25rl.py', 
