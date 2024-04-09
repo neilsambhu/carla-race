@@ -17,7 +17,8 @@ for speed in range(80,201,10):
         driveConstantSpeed = subprocess.Popen([
             'python', 'run/2024_03_21_25rl.py', 
             '--speed', str(speed),
-            '--steerDenominator', str(steeringDenominator)
+            # '--steerDenominator', str(steeringDenominator)
+            '--vehicle', vehicle
             ])
         # driveConstantSpeed.wait()
         output, error = driveConstantSpeed.communicate()
