@@ -976,3 +976,7 @@ python run/2024_04_04_26_parent_rl.py
 ```
 no water-cooled CPU; air-cooled CPU; no disk drive; minimum GPU memory of 8 GB
 ```
+4/10/2024 1:51 PM: command
+```
+python -u run/2024_04_04_26_parent_rl.py | tee out.txt
+```

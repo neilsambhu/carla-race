@@ -217,13 +217,13 @@ def main():
         ax0.autoscale_view('tight')
         ax0.set_xlabel('Time-Steps')
         ax0.set_ylabel('Distance from Predicted Location to Path')
-        ax0.set_title(f'Distance of Deviation From Path ({TARGET_SPEED} km/h, {int(args.steerDivisor):03d} steer divisor, {args.vehicle})')
+        ax0.set_title(f'Distance of Deviation From Path ({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
         fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
         ax1.set_xlabel('Time-Steps')
         # ax1.set_ylabel('Delta Y')
         ax1.set_ylabel('Delta Theta')
         # ax1.set_title('Delta Y over Time')
-        ax1.set_title(f'Delta Theta over Time ({TARGET_SPEED} km/h, {int(args.steerDivisor):03d} steer divisor, {args.vehicle})')
+        ax1.set_title(f'Delta Theta over Time ({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
         # Plot setup for overlay
         fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
         # leg = ax2.legend()
@@ -245,7 +245,7 @@ def main():
         ax2.set_aspect('auto', 'box')
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
-        ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h, {int(args.steerDivisor):03d} steer divisor, {args.vehicle})')
+        ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
         def printLocations(currentLocation, closestLocation):
             return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
         dictLocationPrediction = {}
