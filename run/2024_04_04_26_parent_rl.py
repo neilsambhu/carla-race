@@ -7,7 +7,7 @@ town.wait()
 # for speed in range(80,29,-10):
 for speed in range(80,201,10):
     print(f'START SPEED {speed}')
-    # for steeringDenominator in range(25,201,25):
+    # for steeringDivisor in range(25,201,25):
     for vehicle in ['vehicle.tesla.model3', 
     'vehicle.ford.crown', 'vehicle.ford.ambulance']:
         print('--------------------------------------------------')    
@@ -17,7 +17,7 @@ for speed in range(80,201,10):
         driveConstantSpeed = subprocess.Popen([
             'python', 'run/2024_03_21_25rl.py', 
             '--speed', str(speed),
-            # '--steerDenominator', str(steeringDenominator)
+            # '--steerDivisor', str(steeringDenominator)
             '--vehicle', vehicle
             ])
         # driveConstantSpeed.wait()

@@ -33,7 +33,7 @@ argparser.add_argument(
     default='30',
     help='Target speed for vehicle')
 argparser.add_argument(
-    '-d', '--steerDenominator',
+    '-d', '--steerDivisor',
     default='50',
     help='Value by which to divide the steering angle')
 argparser.add_argument(
@@ -46,7 +46,7 @@ TARGET_SPEED = int(args.speed)
 dir_outptut = '_out_25_rl'
 if not os.path.exists(dir_outptut):
     os.makedirs(dir_outptut)
-dir_output_frames = f'{dir_outptut}/{TARGET_SPEED:03d}_{int(args.steerDenominator):03d}_{args.vehicle}_frames/'
+dir_output_frames = f'{dir_outptut}/{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_frames/'
 if not os.path.exists(dir_output_frames):
     os.makedirs(dir_output_frames)
 clean_directory(dir_output_frames)
@@ -217,13 +217,13 @@ def main():
         ax0.autoscale_view('tight')
         ax0.set_xlabel('Time-Steps')
         ax0.set_ylabel('Distance from Predicted Location to Path')
-        ax0.set_title(f'Distance of Deviation From Path ({TARGET_SPEED} km/h, {int(args.steerDenominator):03d} steer denominator, {args.vehicle})')
+        ax0.set_title(f'Distance of Deviation From Path ({TARGET_SPEED} km/h, {int(args.steerDivisor):03d} steer divisor, {args.vehicle})')
         fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
         ax1.set_xlabel('Time-Steps')
         # ax1.set_ylabel('Delta Y')
         ax1.set_ylabel('Delta Theta')
         # ax1.set_title('Delta Y over Time')
-        ax1.set_title(f'Delta Theta over Time ({TARGET_SPEED} km/h, {int(args.steerDenominator):03d} steer denominator, {args.vehicle})')
+        ax1.set_title(f'Delta Theta over Time ({TARGET_SPEED} km/h, {int(args.steerDivisor):03d} steer divisor, {args.vehicle})')
         # Plot setup for overlay
         fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
         # leg = ax2.legend()
@@ -245,7 +245,7 @@ def main():
         ax2.set_aspect('auto', 'box')
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
-        ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h, {int(args.steerDenominator):03d} steer denominator, {args.vehicle})')
+        ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h, {int(args.steerDivisor):03d} steer divisor, {args.vehicle})')
         def printLocations(currentLocation, closestLocation):
             return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
         dictLocationPrediction = {}
@@ -384,7 +384,7 @@ def main():
                     raise Exception("Vehicle stopped moving.")
             else:
                 bHitSpeedMinimum = True
-                maxSteer = min(abs(deltaTheta)/int(args.steerDenominator), 1)
+                maxSteer = min(abs(deltaTheta)/int(args.steerDivisor), 1)
             # if abs(deltaTheta) < thresholdDeltaThetaSteer:
             #     # deltaTheta = -deltaTheta
             #     maxSteer = 1e-3
@@ -447,11 +447,11 @@ def main():
         elapsedSecondsEnd = world.get_snapshot().timestamp.elapsed_seconds
         # Save the delta Y plot
         ax0.plot(listDistancePredToPath)
-        fig_distancePredToPath.savefig(os.path.join(dir_outptut, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDenominator):03d}_{args.vehicle}.png'))
+        fig_distancePredToPath.savefig(os.path.join(dir_outptut, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         # ax1.plot(listDeltaY)
         ax1.plot(listDeltaTheta)
         # fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
-        fig_deltaTheta.savefig(os.path.join(dir_outptut, f'deltaTheta{TARGET_SPEED:03d}_{int(args.steerDenominator):03d}_{args.vehicle}.png'))
+        fig_deltaTheta.savefig(os.path.join(dir_outptut, f'deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         # plt.close(fig_deltaY)
         plt.close(fig_deltaTheta)
         # Save the overlay plot
@@ -470,14 +470,14 @@ def main():
         ax2.set_ylabel('Y')
         # ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
         plt.rcParams.update({'font.size': 24})
-        fig_overlay.savefig(os.path.join(dir_outptut, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDenominator):03d}_{args.vehicle}.png'))
+        fig_overlay.savefig(os.path.join(dir_outptut, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         plt.close(fig_overlay)
 
         elapsedTime = elapsedSecondsEnd - elapsedSecondsStart
         def TimeToTextFile(elapsed_time_seconds):
             fileTime = os.path.join(
                 dir_outptut, 
-                f'{TARGET_SPEED:03d}_{int(args.steerDenominator):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
+                f'{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
             )
             open(fileTime,'w')
         TimeToTextFile(elapsedTime)
