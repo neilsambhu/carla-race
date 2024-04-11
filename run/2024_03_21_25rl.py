@@ -366,8 +366,8 @@ def main():
             # # output = f'x, y: {x:.1f}, {y:.1f}'
             listDeltaTheta.append(deltaTheta)
             listLocations.append(vehicle.get_location())
-            thresholdDeltaThetaNoSteer = 0.5e-10
-            # thresholdDeltaThetaNoSteer = 5
+            # thresholdDeltaThetaNoSteer = 0.5e-10
+            thresholdDeltaThetaNoSteer = 5
             thresholdDeltaThetaSteer = 1e-1
             speedMinimum = 5
             speedTarget = TARGET_SPEED
