@@ -1,3 +1,84 @@
 START SPEED 30
 --------------------------------------------------
 started run for (1) target speed 30, (2) vehicle vehicle.tesla.model3
+Elapsed time: 00:02:05
+done
+--------------------------------------------------
+started run for (1) target speed 30, (2) vehicle vehicle.ford.crown
+done
+error during run for (1) target speed 30, (2) vehicle vehicle.ford.crown
+--------------------------------------------------
+started run for (1) target speed 30, (2) vehicle vehicle.ford.ambulance
+Elapsed time: 00:02:28
+done
+END SPEED 30
+START SPEED 40
+--------------------------------------------------
+started run for (1) target speed 40, (2) vehicle vehicle.tesla.model3
+Elapsed time: 00:02:03
+done
+--------------------------------------------------
+started run for (1) target speed 40, (2) vehicle vehicle.ford.crown
+Elapsed time: 00:01:18
+done
+--------------------------------------------------
+started run for (1) target speed 40, (2) vehicle vehicle.ford.ambulance
+Elapsed time: 00:02:12
+done
+END SPEED 40
+START SPEED 50
+--------------------------------------------------
+started run for (1) target speed 50, (2) vehicle vehicle.tesla.model3
+Elapsed time: 00:01:58
+done
+--------------------------------------------------
+started run for (1) target speed 50, (2) vehicle vehicle.ford.crown
+Elapsed time: 00:01:56
+done
+--------------------------------------------------
+started run for (1) target speed 50, (2) vehicle vehicle.ford.ambulance
+Elapsed time: 00:02:09
+done
+END SPEED 50
+START SPEED 60
+--------------------------------------------------
+started run for (1) target speed 60, (2) vehicle vehicle.tesla.model3
+Elapsed time: 00:01:55
+done
+--------------------------------------------------
+started run for (1) target speed 60, (2) vehicle vehicle.ford.crown
+Elapsed time: 00:01:57
+done
+--------------------------------------------------
+started run for (1) target speed 60, (2) vehicle vehicle.ford.ambulance
+Elapsed time: 00:02:02
+done
+END SPEED 60
+START SPEED 70
+--------------------------------------------------
+started run for (1) target speed 70, (2) vehicle vehicle.tesla.model3
+Elapsed time: 00:01:50
+done
+--------------------------------------------------
+started run for (1) target speed 70, (2) vehicle vehicle.ford.crown
+done
+error during run for (1) target speed 70, (2) vehicle vehicle.ford.crown
+--------------------------------------------------
+started run for (1) target speed 70, (2) vehicle vehicle.ford.ambulance
+Elapsed time: 00:02:00
+done
+END SPEED 70
+START SPEED 80
+--------------------------------------------------
+started run for (1) target speed 80, (2) vehicle vehicle.tesla.model3
+Elapsed time: 00:01:51
+done
+--------------------------------------------------
+started run for (1) target speed 80, (2) vehicle vehicle.ford.crown
+done
+error during run for (1) target speed 80, (2) vehicle vehicle.ford.crown
+--------------------------------------------------
+started run for (1) target speed 80, (2) vehicle vehicle.ford.ambulance
+done
+error during run for (1) target speed 80, (2) vehicle vehicle.ford.ambulance
+END SPEED 80
