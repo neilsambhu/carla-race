@@ -216,14 +216,14 @@ def main():
         fig_distancePredToPath, ax0 = plt.subplots(figsize=(12,6))
         ax0.autoscale_view('tight')
         ax0.set_xlabel('Time-Steps')
-        ax0.set_ylabel('Distance from Predicted Location to Path')
-        ax0.set_title(f'Distance of Deviation From Path ({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+        ax0.set_ylabel('Distance from Predicted \nLocation to Path')
+        ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
         fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
         ax1.set_xlabel('Time-Steps')
         # ax1.set_ylabel('Delta Y')
         ax1.set_ylabel('Delta Theta')
         # ax1.set_title('Delta Y over Time')
-        ax1.set_title(f'Delta Theta over Time ({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+        ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
         # Plot setup for overlay
         fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
         # leg = ax2.legend()

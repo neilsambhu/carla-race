@@ -10,7 +10,8 @@ for speed in [80,30]:
     print(f'START SPEED {speed}')
     # for steeringDivisor in range(25,201,25):
     for vehicle in ['vehicle.tesla.model3', 
-    'vehicle.ford.crown', 'vehicle.ford.ambulance']:
+    # 'vehicle.ford.crown', 'vehicle.ford.ambulance'
+    ]:
         print('--------------------------------------------------')    
         strRunLabel = f'run for (1) target speed {speed}, '+ \
             f'(2) vehicle {vehicle}'
