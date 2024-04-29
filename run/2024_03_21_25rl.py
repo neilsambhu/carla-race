@@ -209,6 +209,7 @@ def main():
         listDistancePredToPath = []
         listDeltaTheta = []
         listLocations = []
+        listSpeed = []
         # Plot setup for delta Y
         # fig_deltaY, ax1 = plt.subplots(figsize=(12, 6))
         # plt.rcParams.update({'font.size': 36})
@@ -245,7 +246,12 @@ def main():
         ax2.set_aspect('auto', 'box')
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
-        ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+        ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+        fig_speed, ax3 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
+        ax3.autoscale_view('tight')
+        ax3.set_xlabel('Time-Steps')
+        ax3.set_ylabel('Speed (km/h)')
+        ax3.set_title(f'Speed over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
         def printLocations(currentLocation, closestLocation):
             return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
         dictLocationPrediction = {}
@@ -377,6 +383,7 @@ def main():
             unitChangeSteer = 0.1
             unitChangeBrake = 0.1
             kmh = VehicleSpeed1D(vehicle)
+            listSpeed.append(kmh)
             # output += f'{str_kmh(kmh)} | '
             if kmh < speedMinimum:
                 maxSteer = 0.01
@@ -472,6 +479,9 @@ def main():
         plt.rcParams.update({'font.size': 24})
         fig_overlay.savefig(os.path.join(dir_outptut, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         plt.close(fig_overlay)
+        ax3.plot(listSpeed)
+        fig_speed.savefig(os.path.join(dir_outptut, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+        plt.close(fig_speed)
 
         elapsedTime = elapsedSecondsEnd - elapsedSecondsStart
         def TimeToTextFile(elapsed_time_seconds):

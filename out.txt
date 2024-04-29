@@ -4,6 +4,12 @@ started run for (1) target speed 80, (2) vehicle vehicle.tesla.model3
 Elapsed time: 00:01:58
 done
 END SPEED 80
+START SPEED 60
+--------------------------------------------------
+started run for (1) target speed 60, (2) vehicle vehicle.tesla.model3
+Elapsed time: 00:02:34
+done
+END SPEED 60
 START SPEED 30
 --------------------------------------------------
 started run for (1) target speed 30, (2) vehicle vehicle.tesla.model3
