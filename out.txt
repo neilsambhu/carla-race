@@ -1,18 +1,6 @@
-START SPEED 80
+START SPEED 90
 --------------------------------------------------
-started run for (1) target speed 80, (2) vehicle vehicle.tesla.model3
-Elapsed time: 00:01:51
+started run for (1) target speed 90, (2) vehicle vehicle.ford.crown
 done
-END SPEED 80
-START SPEED 60
---------------------------------------------------
-started run for (1) target speed 60, (2) vehicle vehicle.tesla.model3
-Elapsed time: 00:01:55
-done
-END SPEED 60
-START SPEED 30
---------------------------------------------------
-started run for (1) target speed 30, (2) vehicle vehicle.tesla.model3
-Elapsed time: 00:02:05
-done
-END SPEED 30
+error during run for (1) target speed 90, (2) vehicle vehicle.ford.crown
+END SPEED 90

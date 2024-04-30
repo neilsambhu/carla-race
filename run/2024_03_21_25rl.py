@@ -329,7 +329,8 @@ def main():
                 division = 1
             else:
                 division = dotProduct/magnitude
-            # division = min(dotProduct/magnitude, 1.0)
+            division = min(division, 1.0)
+            # print(f'division: {division}')
             return math.acos(division)
         def GetVehicleOutput(theta, locationClosestToPredicted):
             # x = vehicle.get_location().x*math.cos(theta) - vehicle.get_location().y*math.sin(theta)
@@ -372,8 +373,8 @@ def main():
             # # output = f'x, y: {x:.1f}, {y:.1f}'
             listDeltaTheta.append(deltaTheta)
             listLocations.append(vehicle.get_location())
-            # thresholdDeltaThetaNoSteer = 0.5e-10
-            thresholdDeltaThetaNoSteer = 5
+            thresholdDeltaThetaNoSteer = 0.5e-10
+            # thresholdDeltaThetaNoSteer = 5
             thresholdDeltaThetaSteer = 1e-1
             speedMinimum = 20
             speedTarget = TARGET_SPEED
