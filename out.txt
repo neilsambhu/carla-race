@@ -1,0 +1,58 @@
+Elapsed time: 00:02:04
+Error opening image: cannot identify image file '_out_27_rl/030_050_vehicle.tesla.model3_frames/002489.png'
+Error opening image: cannot identify image file '_out_27_rl/030_050_vehicle.tesla.model3_frames/002489.png'
+Image opened successfully.
+Error opening image: image file is truncated
+Error opening image: cannot identify image file '_out_27_rl/030_050_vehicle.tesla.model3_frames/002489.png'
+Image opened successfully.
+Error opening image: image file is truncated
+Error opening image: cannot identify image file '_out_27_rl/030_050_vehicle.tesla.model3_frames/002489.png'
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Error opening image: cannot identify image file '_out_27_rl/030_050_vehicle.tesla.model3_frames/002489.png'
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Error opening image: cannot identify image file '_out_27_rl/030_050_vehicle.tesla.model3_frames/002489.png'
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated
+Error opening image: cannot identify image file '_out_27_rl/030_050_vehicle.tesla.model3_frames/002489.png'
+Image opened successfully.
+Error opening image: image file is truncated
+Image opened successfully.
+Error opening image: image file is truncated

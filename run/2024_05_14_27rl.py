@@ -25,8 +25,8 @@ def clean_directory(directory):
 
 '''Make sure CARLA Simulator 0.9.14 is running'''
 actor_list = []
-IM_WIDTH = 800
-IM_HEIGHT = 600
+IM_WIDTH = 800#//3
+IM_HEIGHT = 600#//3
 argparser = argparse.ArgumentParser(description='CARLA Path Following')
 argparser.add_argument(
     '-s', '--speed',
@@ -43,7 +43,7 @@ argparser.add_argument(
 args = argparser.parse_args()
 TARGET_SPEED = int(args.speed)
 
-dir_outptut = '_out_25_rl'
+dir_outptut = '_out_27_rl'
 if not os.path.exists(dir_outptut):
     os.makedirs(dir_outptut)
 dir_output_frames = f'{dir_outptut}/{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_frames/'
@@ -187,7 +187,7 @@ def main():
         # receives an image. In this example we are saving the image to disk.
         # camera.listen(lambda image: image.save_to_disk(f'{dir_output_frames}/%06d.png' % image.frame))
         countTick = 0
-        def processImage(image):
+        def processImage(image, countTick):
             i = np.array(image.raw_data)
             # print(i.shape)
             i2 = i.reshape((IM_HEIGHT, IM_WIDTH, 4))
@@ -196,7 +196,7 @@ def main():
             i4 = Image.fromarray(i3)
             # i4.save(os.path.join(dir_output_frames, f'{image.frame:06d}.png'))
             i4.save(os.path.join(dir_output_frames, f'{countTick:06d}.png'))
-        camera.listen(lambda image: processImage(image))
+        camera.listen(lambda image: processImage(image, countTick))
         elapsedSecondsStart = world.get_snapshot().timestamp.elapsed_seconds
         world.tick()
         countTick += 1
@@ -255,53 +255,6 @@ def main():
         def printLocations(currentLocation, closestLocation):
             return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
         dictLocationPrediction = {}
-        def GetVehicleControls_legacy(throttle, steer, brake, locationPrediction, locationClosestToPredicted):
-            deltaY = locationPrediction.y - locationClosestToPredicted.y
-            listDeltaY.append(deltaY)
-            listLocations.append(vehicle.get_location())
-            thresholdDeltaYNoSteer = 0.5e-10
-            thresholdDeltaYSteer = 1e-1
-            speedMinimum = 10
-            speedTarget = 15
-            bWithinThreshold = None
-            maxSteer = None
-            unitChangeThrottle = 0.1
-            unitChangeSteer = 1
-            unitChangeBrake = 0.1
-            kmh = VehicleSpeed1D(vehicle)
-            # output += f'{str_kmh(kmh)} | '
-            if kmh < speedMinimum:
-                maxSteer = 0.01
-            else:
-                maxSteer = min(abs(deltaY)/10, 0.01)
-            # if abs(deltaY) < thresholdDeltaYSteer:
-            #     # deltaY = -deltaY
-            #     maxSteer = 1e-3
-            # else:
-            #     maxSteer = 1e-1
-            if deltaY >= -thresholdDeltaYNoSteer and deltaY <= thresholdDeltaYNoSteer:
-                bWithinThreshold = True
-                throttle, steer, brake = getStandardVehicleControl()
-            elif deltaY > thresholdDeltaYNoSteer:
-                bWithinThreshold = False
-                deltaSteer = -unitChangeSteer
-                steer = max(steer+deltaSteer, -maxSteer)
-            elif deltaY < -thresholdDeltaYNoSteer:
-                bWithinThreshold = False
-                deltaSteer = unitChangeSteer
-                steer = min(steer+deltaSteer, maxSteer)
-            if not bWithinThreshold:
-                if kmh < speedTarget:
-                    # slow or not moving
-                    brake = 0
-                    deltaThrottle = unitChangeThrottle
-                    throttle = min(throttle+deltaThrottle, 1.0)
-                else:
-                    # already moving
-                    throttle = 0.0
-                    deltaBrake = unitChangeBrake
-                    brake = min(brake+deltaBrake, 1.0)
-            return throttle, steer, brake
         def unit_vector(vector):
             """ Returns the unit vector of the vector.  """
             return vector / np.linalg.norm(vector)
@@ -422,6 +375,8 @@ def main():
                     brake = min(brake+deltaBrake, 1.0)
             return throttle, steer, brake, output, bHitSpeedMinimum
         bHitSpeedMinimum = False
+        def writeImage(countTick):
+            pathFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
         while getDistanceToDestination() > 2 or countTick < 500:
             output = f'tick: {countTick:04d} | '
             if not Z_VelocitySmall(vehicle):
@@ -501,8 +456,21 @@ def main():
         TimeToConsole(elapsedTime)            
 
         time.sleep(10)
-        while not os.path.join(dir_output_frames, f'{countTick:06d}.png'):
+        pathFinalFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
+        # while not os.path.isfile(pathFinalFrame):
+        #     time.sleep(10)
+        from PIL import Image
+        def checkImage(path):
+            try:
+                img = Image.open(path)
+                print("Image opened successfully.")
+                img.show()
+            except Exception as e:
+                print("Error opening image:", e)
+        while not checkImage(pathFinalFrame):
             time.sleep(10)
+        # time.sleep(10)
+
     finally:
         actor_list_destroy(actor_list)
         print('done')
