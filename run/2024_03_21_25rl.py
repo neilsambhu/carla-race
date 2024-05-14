@@ -25,8 +25,8 @@ def clean_directory(directory):
 
 '''Make sure CARLA Simulator 0.9.14 is running'''
 actor_list = []
-IM_WIDTH = 80*2
-IM_HEIGHT = 60*2
+IM_WIDTH = 800
+IM_HEIGHT = 600
 argparser = argparse.ArgumentParser(description='CARLA Path Following')
 argparser.add_argument(
     '-s', '--speed',
@@ -373,8 +373,8 @@ def main():
             # # output = f'x, y: {x:.1f}, {y:.1f}'
             listDeltaTheta.append(deltaTheta)
             listLocations.append(vehicle.get_location())
-            thresholdDeltaThetaNoSteer = 0.5e-10
-            # thresholdDeltaThetaNoSteer = 5
+            # thresholdDeltaThetaNoSteer = 0.5e-10
+            thresholdDeltaThetaNoSteer = 5
             thresholdDeltaThetaSteer = 1e-1
             speedMinimum = 20
             speedTarget = TARGET_SPEED
