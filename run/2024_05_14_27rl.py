@@ -377,11 +377,19 @@ def main():
         bHitSpeedMinimum = False
         def writeImage(countTick):
             pathFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
+        def saveImage():
+            image = camera.get()
+            image_data = np.frombuffer(image.raw_data, dtype=np.uint8)
+            image_data = image_data.reshape((image.height, image.width, 4))  # Assuming RGBA format
+            rgb_data = image_data[:, :, :3]  # Extract the first three channels (RGB)
+            pil_image = Image.fromarray(rgb_data)
+            pil_image.save(os.path.join(dir_output_frames, f'{countTick:06d}.png'))
         while getDistanceToDestination() > 2 or countTick < 500:
             output = f'tick: {countTick:04d} | '
             if not Z_VelocitySmall(vehicle):
                 if bVerbose:
                     print(output)
+                saveImage()
                 world.tick()
                 countTick += 1
                 continue
@@ -405,6 +413,7 @@ def main():
             vehicle.apply_control(vehicleControl)
             if bVerbose:
                 print(output)
+            saveImage()
             world.tick()
             countTick += 1
         elapsedSecondsEnd = world.get_snapshot().timestamp.elapsed_seconds
