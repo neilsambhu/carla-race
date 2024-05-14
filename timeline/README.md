@@ -980,3 +980,10 @@ no water-cooled CPU; air-cooled CPU; no disk drive; minimum GPU memory of 8 GB
 ```
 python run/2024_02_19_19town.py && python -u run/2024_04_04_26_parent_rl.py | tee out.txt
 ```
+# Reinforcement Learning
+5/14/2024 10:44 AM: (1) collect driving dtaa to represent states.  
+5/14/2024 10:49 AM: run command
+```
+python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --vehicle vehicle.tesla.model3 | tee out.txt
+```
+5/14/2024 11:18 AM: TODO: install CARLA 0.9.14 library.  
