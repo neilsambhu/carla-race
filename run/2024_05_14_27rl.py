@@ -478,30 +478,18 @@ def main():
             print(f"elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}")
         TimeToConsole(elapsedTimeCarla, 'CARLA')            
         TimeToConsole(elapsedTimeWall, 'wall')            
-        # print(f'Total ticks: {countTick}')
 
-        # time.sleep(10)
-        # pathFinalFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
-        # while not os.path.isfile(pathFinalFrame):
-        #     time.sleep(10)
-
-        # while not checkImage(pathFinalFrame):
-        #     time.sleep(10)
-        # time.sleep(10)
-
-        from tqdm import tqdm
-        lIndex = 0
-        # while image_queue.qsize()>0:
-        #     processImage(image_queue.get(),lIndex)
-        #     lIndex+=1
-        # Initialize tqdm with the total number of items in the queue
-        with tqdm(total=image_queue.qsize(),
-            desc="Writing images to disk") as pbar:
-            while not image_queue.empty():
-                image = image_queue.get()
-                processImage(image, lIndex)
-                lIndex += 1
-                pbar.update(1)
+        def WriteImagesToDisk():
+            from tqdm import tqdm
+            lIndex = 0
+            with tqdm(total=image_queue.qsize(),
+                desc="Writing images to disk") as pbar:
+                while not image_queue.empty():
+                    image = image_queue.get()
+                    processImage(image, lIndex)
+                    lIndex += 1
+                    pbar.update(1)
+        WriteImagesToDisk()
 
     finally:
         actor_list_destroy(actor_list)
