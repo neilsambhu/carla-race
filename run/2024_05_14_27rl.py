@@ -207,7 +207,10 @@ def main():
             i4.save(pathFile)
             while not checkImage(pathFile):
                 time.sleep(10)
-        camera.listen(lambda image: processImage(image, countTick))
+        # camera.listen(lambda image: processImage(image, countTick))
+        import queue
+        image_queue=queue.Queue()
+        camera.listen(image_queue.put)
         elapsedSecondsStart = world.get_snapshot().timestamp.elapsed_seconds
         world.tick()
         countTick += 1
@@ -485,6 +488,11 @@ def main():
         while not checkImage(pathFinalFrame):
             time.sleep(10)
         # time.sleep(10)
+
+        lIndex = 0
+        while len(image_queue)>0:
+            processImage(image_queue.get(),lIndex)
+            lIndex+=1
 
     finally:
         actor_list_destroy(actor_list)
