@@ -43,16 +43,17 @@ argparser.add_argument(
 args = argparser.parse_args()
 TARGET_SPEED = int(args.speed)
 
-dir_outptut = '_out_27_rl'
-if not os.path.exists(dir_outptut):
-    os.makedirs(dir_outptut)
-dir_output_frames = f'{dir_outptut}/{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_frames/'
+dir_output = '_out_27_rl'
+if not os.path.exists(dir_output):
+    os.makedirs(dir_output)
+clean_directory(dir_output)
+dir_output_frames = f'{dir_output}/{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_frames/'
 if not os.path.exists(dir_output_frames):
     os.makedirs(dir_output_frames)
 clean_directory(dir_output_frames)
 
-path_rl_controls = f'{dir_outptut}/Controls.txt'
-path_rl_locations = f'{dir_outptut}/Locations.txt'
+path_rl_controls = f'{dir_output}/Controls.txt'
+path_rl_locations = f'{dir_output}/Locations.txt'
 
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
@@ -278,7 +279,7 @@ def main():
             ax2.set_ylabel('Y')
             # ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
             plt.rcParams.update({'font.size': 24})
-            fig_overlay.savefig(os.path.join(dir_outptut, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+            fig_overlay.savefig(os.path.join(dir_output, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
             plt.close(fig_overlay)
         fig_speed, ax3 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
         ax3.autoscale_view('tight')
@@ -408,16 +409,6 @@ def main():
                     brake = min(brake+deltaBrake, 1.0)
             return throttle, steer, brake, output, bHitSpeedMinimum
         bHitSpeedMinimum = False
-        def writeImage(countTick):
-            pathFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
-        def saveImage():
-            print(type(camera.raw_data));quit()
-            image = camera.get()
-            image_data = np.frombuffer(image.raw_data, dtype=np.uint8)
-            image_data = image_data.reshape((image.height, image.width, 4))  # Assuming RGBA format
-            rgb_data = image_data[:, :, :3]  # Extract the first three channels (RGB)
-            pil_image = Image.fromarray(rgb_data)
-            pil_image.save(os.path.join(dir_output_frames, f'{countTick:06d}.png'))
         while getDistanceToDestination() > 2 or countTick < 500:
             output = f'tick: {countTick:04d} | '
             if not Z_VelocitySmall(vehicle):
@@ -448,7 +439,7 @@ def main():
             if bVerbose:
                 print(output)
             # saveImage()
-            if countTick % 100 == 0:
+            if countTick % 250 == 0:
                 savePlotOverlay()
             world.tick()
             countTick += 1
@@ -456,22 +447,22 @@ def main():
         elapsedSecondsEnd = world.get_snapshot().timestamp.elapsed_seconds
         # Save the delta Y plot
         ax0.plot(listDistancePredToPath)
-        fig_distancePredToPath.savefig(os.path.join(dir_outptut, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+        fig_distancePredToPath.savefig(os.path.join(dir_output, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         # ax1.plot(listDeltaY)
         ax1.plot(listDeltaTheta)
-        # fig_deltaY.savefig(os.path.join(dir_outptut, 'deltaY.png'))
-        fig_deltaTheta.savefig(os.path.join(dir_outptut, f'deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+        # fig_deltaY.savefig(os.path.join(dir_output, 'deltaY.png'))
+        fig_deltaTheta.savefig(os.path.join(dir_output, f'deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         # plt.close(fig_deltaY)
         plt.close(fig_deltaTheta)
         savePlotOverlay()
         ax3.plot(listSpeed)
-        fig_speed.savefig(os.path.join(dir_outptut, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+        fig_speed.savefig(os.path.join(dir_output, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         plt.close(fig_speed)
 
         elapsedTime = elapsedSecondsEnd - elapsedSecondsStart
         def TimeToTextFile(elapsed_time_seconds):
             fileTime = os.path.join(
-                dir_outptut, 
+                dir_output, 
                 f'{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
             )
             open(fileTime,'w')
@@ -481,7 +472,7 @@ def main():
             minutes = int((elapsed_time_seconds % 3600) // 60)
             seconds = int(elapsed_time_seconds % 60)
             # Display elapsed time in HH:MM:SS format
-            print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
+            print(f"CARLA elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
         TimeToConsole(elapsedTime)            
         print(f'Total ticks: {countTick}')
 
