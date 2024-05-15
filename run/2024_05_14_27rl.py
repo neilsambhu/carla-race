@@ -439,7 +439,7 @@ def main():
             if bVerbose:
                 print(output)
             # saveImage()
-            if countTick % 250 == 0:
+            if countTick % 100 == 0:
                 savePlotOverlay()
             world.tick()
             countTick += 1
