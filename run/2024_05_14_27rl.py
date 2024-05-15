@@ -187,6 +187,14 @@ def main():
         # receives an image. In this example we are saving the image to disk.
         # camera.listen(lambda image: image.save_to_disk(f'{dir_output_frames}/%06d.png' % image.frame))
         countTick = 0
+        from PIL import Image
+        def checkImage(path):
+            try:
+                img = Image.open(path)
+                print("Image opened successfully.")
+                # img.show()
+            except Exception as e:
+                print("Error opening image:", e)
         def processImage(image, countTick):
             i = np.array(image.raw_data)
             # print(i.shape)
@@ -195,7 +203,10 @@ def main():
             from PIL import Image
             i4 = Image.fromarray(i3)
             # i4.save(os.path.join(dir_output_frames, f'{image.frame:06d}.png'))
-            i4.save(os.path.join(dir_output_frames, f'{countTick:06d}.png'))
+            pathFile=os.path.join(dir_output_frames, f'{countTick:06d}.png')
+            i4.save(pathFile)
+            while not checkImage(pathFile):
+                time.sleep(10)
         camera.listen(lambda image: processImage(image, countTick))
         elapsedSecondsStart = world.get_snapshot().timestamp.elapsed_seconds
         world.tick()
@@ -378,6 +389,7 @@ def main():
         def writeImage(countTick):
             pathFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
         def saveImage():
+            print(type(camera.raw_data));quit()
             image = camera.get()
             image_data = np.frombuffer(image.raw_data, dtype=np.uint8)
             image_data = image_data.reshape((image.height, image.width, 4))  # Assuming RGBA format
@@ -389,7 +401,7 @@ def main():
             if not Z_VelocitySmall(vehicle):
                 if bVerbose:
                     print(output)
-                saveImage()
+                # saveImage()
                 world.tick()
                 countTick += 1
                 continue
@@ -413,9 +425,10 @@ def main():
             vehicle.apply_control(vehicleControl)
             if bVerbose:
                 print(output)
-            saveImage()
+            # saveImage()
             world.tick()
             countTick += 1
+            # time.sleep(0.2)
         elapsedSecondsEnd = world.get_snapshot().timestamp.elapsed_seconds
         # Save the delta Y plot
         ax0.plot(listDistancePredToPath)
@@ -468,14 +481,7 @@ def main():
         pathFinalFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
         # while not os.path.isfile(pathFinalFrame):
         #     time.sleep(10)
-        from PIL import Image
-        def checkImage(path):
-            try:
-                img = Image.open(path)
-                print("Image opened successfully.")
-                img.show()
-            except Exception as e:
-                print("Error opening image:", e)
+
         while not checkImage(pathFinalFrame):
             time.sleep(10)
         # time.sleep(10)
