@@ -205,8 +205,8 @@ def main():
             # i4.save(os.path.join(dir_output_frames, f'{image.frame:06d}.png'))
             pathFile=os.path.join(dir_output_frames, f'{countTick:06d}.png')
             i4.save(pathFile)
-            while not checkImage(pathFile):
-                time.sleep(10)
+            # while not checkImage(pathFile):
+            #     time.sleep(10)
         # camera.listen(lambda image: processImage(image, countTick))
         import queue
         image_queue=queue.Queue()
@@ -239,28 +239,47 @@ def main():
         ax1.set_ylabel('Delta Theta')
         # ax1.set_title('Delta Y over Time')
         ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
-        # Plot setup for overlay
-        fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
-        # leg = ax2.legend()
-        # for line in leg.get_lines():
-        #     line.set_linewidth(1)
-        # fig_overlay, ax2 = plt.subplots(figsize=(12, 12))  # Adjust the figsize as needed
-        list_x = [location.x for location in listLocationsPath_CARLA_AP_Town06]
-        list_y = [location.y for location in listLocationsPath_CARLA_AP_Town06]
-        left = min(list_x)
-        bottom = min(list_y)
-        top = max(list_y)
-        width = max(list_x) - min(list_x)
-        height = max(list_y) - min(list_y)
-        # print(left, bottom, width, height)
-        # fig_overlay, ax2 = plt.axes([left, bottom, width, height])
-        # fig_overlay.add_axes(plt.axes([left, bottom, width, height]))
-        # ax2.set_yticks(np.arange(bottom, top, 1))
-        # ax2.set_aspect('equal', 'box')
-        ax2.set_aspect('auto', 'box')
-        ax2.set_xlabel('X')
-        ax2.set_ylabel('Y')
-        ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+        def savePlotOverlay():
+            # Plot setup for overlay
+            # fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
+            fig_overlay, ax2 = plt.subplots(figsize=(12, 8))  # Adjust the figsize as needed
+            # leg = ax2.legend()
+            # for line in leg.get_lines():
+            #     line.set_linewidth(1)
+            # fig_overlay, ax2 = plt.subplots(figsize=(12, 12))  # Adjust the figsize as needed
+            list_x = [location.x for location in listLocationsPath_CARLA_AP_Town06]
+            list_y = [location.y for location in listLocationsPath_CARLA_AP_Town06]
+            left = min(list_x)
+            bottom = min(list_y)
+            top = max(list_y)
+            width = max(list_x) - min(list_x)
+            height = max(list_y) - min(list_y)
+            # print(left, bottom, width, height)
+            # fig_overlay, ax2 = plt.axes([left, bottom, width, height])
+            # fig_overlay.add_axes(plt.axes([left, bottom, width, height]))
+            # ax2.set_yticks(np.arange(bottom, top, 1))
+            # ax2.set_aspect('equal', 'box')
+            ax2.set_aspect('auto', 'box')
+            ax2.set_xlabel('X')
+            ax2.set_ylabel('Y')
+            ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+            # stretch = 100
+            stretch = 1
+            x_vehicle = [location.x for location in listLocations]
+            y_vehicle = [location.y for location in listLocations]
+            # y_vehicle = [stretch*(location.y-location_destination.y) for location in listLocations]
+            x_path = [location.x for location in listLocationsPath_CARLA_AP_Town06]
+            y_path = [location.y for location in listLocationsPath_CARLA_AP_Town06]
+            # y_path = [stretch*(location.y-location_destination.y) for location in listLocationsPath_CARLA_AP_Town06]
+            ax2.plot(x_path, y_path, label='0 Ground-Truth Path Location', marker='o', linestyle='--', linewidth=0.01)
+            ax2.plot(x_vehicle, y_vehicle, label='1 Vehicle Location', marker='o', linestyle='-', linewidth=0.1)
+            ax2.legend()
+            ax2.set_xlabel('X')
+            ax2.set_ylabel('Y')
+            # ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
+            plt.rcParams.update({'font.size': 24})
+            fig_overlay.savefig(os.path.join(dir_outptut, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+            plt.close(fig_overlay)
         fig_speed, ax3 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
         ax3.autoscale_view('tight')
         ax3.set_xlabel('Time-Steps')
@@ -429,6 +448,8 @@ def main():
             if bVerbose:
                 print(output)
             # saveImage()
+            if countTick % 100 == 0:
+                savePlotOverlay()
             world.tick()
             countTick += 1
             # time.sleep(0.2)
@@ -442,24 +463,7 @@ def main():
         fig_deltaTheta.savefig(os.path.join(dir_outptut, f'deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         # plt.close(fig_deltaY)
         plt.close(fig_deltaTheta)
-        # Save the overlay plot
-        # stretch = 100
-        stretch = 1
-        x_vehicle = [location.x for location in listLocations]
-        y_vehicle = [location.y for location in listLocations]
-        # y_vehicle = [stretch*(location.y-location_destination.y) for location in listLocations]
-        x_path = [location.x for location in listLocationsPath_CARLA_AP_Town06]
-        y_path = [location.y for location in listLocationsPath_CARLA_AP_Town06]
-        # y_path = [stretch*(location.y-location_destination.y) for location in listLocationsPath_CARLA_AP_Town06]
-        ax2.plot(x_vehicle, y_vehicle, label='Vehicle Location', marker='o', linestyle='-', linewidth=0.1)
-        ax2.plot(x_path, y_path, label='Ground-Truth Path Location', marker='o', linestyle='--', linewidth=0.01)
-        ax2.legend()
-        ax2.set_xlabel('X')
-        ax2.set_ylabel('Y')
-        # ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
-        plt.rcParams.update({'font.size': 24})
-        fig_overlay.savefig(os.path.join(dir_outptut, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
-        plt.close(fig_overlay)
+        savePlotOverlay()
         ax3.plot(listSpeed)
         fig_speed.savefig(os.path.join(dir_outptut, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         plt.close(fig_speed)
@@ -479,20 +483,29 @@ def main():
             # Display elapsed time in HH:MM:SS format
             print(f"Elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
         TimeToConsole(elapsedTime)            
+        print(f'Total ticks: {countTick}')
 
-        time.sleep(10)
-        pathFinalFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
+        # time.sleep(10)
+        # pathFinalFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
         # while not os.path.isfile(pathFinalFrame):
         #     time.sleep(10)
 
-        while not checkImage(pathFinalFrame):
-            time.sleep(10)
+        # while not checkImage(pathFinalFrame):
+        #     time.sleep(10)
         # time.sleep(10)
 
+        from tqdm import tqdm
         lIndex = 0
-        while len(image_queue)>0:
-            processImage(image_queue.get(),lIndex)
-            lIndex+=1
+        # while image_queue.qsize()>0:
+        #     processImage(image_queue.get(),lIndex)
+        #     lIndex+=1
+        # Initialize tqdm with the total number of items in the queue
+        with tqdm(total=image_queue.qsize()) as pbar:
+            while not image_queue.empty():
+                image = image_queue.get()
+                processImage(image, lIndex)
+                lIndex += 1
+                pbar.update(1)
 
     finally:
         actor_list_destroy(actor_list)
