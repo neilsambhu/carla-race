@@ -212,7 +212,8 @@ def main():
         import queue
         image_queue=queue.Queue()
         camera.listen(image_queue.put)
-        elapsedSecondsStart = world.get_snapshot().timestamp.elapsed_seconds
+        elapsedSecondsStartCarla = world.get_snapshot().timestamp.elapsed_seconds
+        elapsedSecondsStartWall = time.time()
         world.tick()
         countTick += 1
         def getDistanceToDestination():
@@ -444,7 +445,7 @@ def main():
             world.tick()
             countTick += 1
             # time.sleep(0.2)
-        elapsedSecondsEnd = world.get_snapshot().timestamp.elapsed_seconds
+        elapsedSecondsEndCarla = world.get_snapshot().timestamp.elapsed_seconds
         # Save the delta Y plot
         ax0.plot(listDistancePredToPath)
         fig_distancePredToPath.savefig(os.path.join(dir_output, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
@@ -459,7 +460,7 @@ def main():
         fig_speed.savefig(os.path.join(dir_output, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         plt.close(fig_speed)
 
-        elapsedTime = elapsedSecondsEnd - elapsedSecondsStart
+        elapsedTimeCarla = elapsedSecondsEndCarla - elapsedSecondsStart
         def TimeToTextFile(elapsed_time_seconds):
             fileTime = os.path.join(
                 dir_output, 
@@ -467,13 +468,14 @@ def main():
             )
             open(fileTime,'w')
         TimeToTextFile(elapsedTime)
-        def TimeToConsole(elapsed_time_seconds):
+        def TimeToConsole(elapsed_time_seconds,label):
             hours = int(elapsed_time_seconds // 3600)
             minutes = int((elapsed_time_seconds % 3600) // 60)
             seconds = int(elapsed_time_seconds % 60)
             # Display elapsed time in HH:MM:SS format
-            print(f"CARLA elapsed time: {hours:02}:{minutes:02}:{seconds:02}")
-        TimeToConsole(elapsedTime)            
+            print(f"elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}")
+        TimeToConsole(elapsedTimeCarla, 'CARLA')            
+        TimeToConsole(elapsedTimeWall, 'wall')            
         print(f'Total ticks: {countTick}')
 
         # time.sleep(10)
