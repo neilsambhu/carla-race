@@ -469,7 +469,7 @@ def main():
                 f'{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
             )
             open(fileTime,'w')
-        TimeToTextFile(elapsedTime)
+        TimeToTextFile(elapsedTimeCarla)
         def TimeToConsole(elapsed_time_seconds,label):
             hours = int(elapsed_time_seconds // 3600)
             minutes = int((elapsed_time_seconds % 3600) // 60)
@@ -478,7 +478,7 @@ def main():
             print(f"elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}")
         TimeToConsole(elapsedTimeCarla, 'CARLA')            
         TimeToConsole(elapsedTimeWall, 'wall')            
-        print(f'Total ticks: {countTick}')
+        # print(f'Total ticks: {countTick}')
 
         # time.sleep(10)
         # pathFinalFrame=os.path.join(dir_output_frames, f'{countTick:06d}.png')
@@ -495,7 +495,8 @@ def main():
         #     processImage(image_queue.get(),lIndex)
         #     lIndex+=1
         # Initialize tqdm with the total number of items in the queue
-        with tqdm(total=image_queue.qsize()) as pbar:
+        with tqdm(total=image_queue.qsize(),
+            desc="Writing images to disk") as pbar:
             while not image_queue.empty():
                 image = image_queue.get()
                 processImage(image, lIndex)
