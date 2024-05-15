@@ -446,6 +446,7 @@ def main():
             countTick += 1
             # time.sleep(0.2)
         elapsedSecondsEndCarla = world.get_snapshot().timestamp.elapsed_seconds
+        elapsedSecondsEndWall = time.time()
         # Save the delta Y plot
         ax0.plot(listDistancePredToPath)
         fig_distancePredToPath.savefig(os.path.join(dir_output, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
@@ -460,7 +461,8 @@ def main():
         fig_speed.savefig(os.path.join(dir_output, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
         plt.close(fig_speed)
 
-        elapsedTimeCarla = elapsedSecondsEndCarla - elapsedSecondsStart
+        elapsedTimeCarla = elapsedSecondsEndCarla - elapsedSecondsStartCarla
+        elapsedTimeWall=elapsedSecondsEndWall-elapsedSecondsStartWall
         def TimeToTextFile(elapsed_time_seconds):
             fileTime = os.path.join(
                 dir_output, 
