@@ -273,8 +273,8 @@ def main():
             x_path = [location.x for location in listLocationsPath_CARLA_AP_Town06]
             y_path = [location.y for location in listLocationsPath_CARLA_AP_Town06]
             # y_path = [stretch*(location.y-location_destination.y) for location in listLocationsPath_CARLA_AP_Town06]
-            ax2.plot(x_path, y_path, label='0 Ground-Truth Path Location', marker='o', linestyle='--', linewidth=0.01)
-            ax2.plot(x_vehicle, y_vehicle, label='1 Vehicle Location', marker='o', linestyle='-', linewidth=0.1)
+            ax2.plot(x_path, y_path, label='Ground-Truth Path Location', marker='o', linestyle='--', linewidth=0.01)
+            ax2.plot(x_vehicle, y_vehicle, label='Vehicle Location', marker='o', linestyle='-', linewidth=0.1)
             ax2.legend()
             ax2.set_xlabel('X')
             ax2.set_ylabel('Y')
@@ -474,8 +474,9 @@ def main():
             hours = int(elapsed_time_seconds // 3600)
             minutes = int((elapsed_time_seconds % 3600) // 60)
             seconds = int(elapsed_time_seconds % 60)
+            fractionalSeconds = str(float(elapsed_time_seconds % 1))[2:3]
             # Display elapsed time in HH:MM:SS format
-            print(f"elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}")
+            print(f"elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}.{fractionalSeconds}")
         TimeToConsole(elapsedTimeCarla, 'CARLA')            
         TimeToConsole(elapsedTimeWall, 'wall')            
 

@@ -1,4 +1,2 @@
-elapsed time (CARLA): 00:02:04
-elapsed time (wall): 00:01:03
-Total ticks: 2489
-done
+elapsed time (CARLA): 00:02:04.450
+elapsed time (wall): 00:01:05.466
