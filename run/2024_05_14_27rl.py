@@ -410,8 +410,20 @@ def main():
                     brake = min(brake+deltaBrake, 1.0)
             return throttle, steer, brake, output, bHitSpeedMinimum
         def WriteVehicleStateToDisk(vehicle):
-            print(vehicle.get_velocity(), vehicle.get_acceleration())
-            pass
+            sVelocity='velocity (x,y,z): '
+            sVelocity+='{:05.1f}, {:05.1f}, {:05.1f}'.format(
+                vehicle.get_velocity().x,
+                vehicle.get_velocity().y,
+                vehicle.get_velocity().z,
+                )
+            sAcceleration='acceleration (x,y,z): '
+            sAcceleration+='{:05.1f}, {:05.1f}, {:05.1f}'.format(
+                vehicle.get_acceleration().x,
+                vehicle.get_acceleration().y,
+                vehicle.get_acceleration().z,
+                )
+            sOutput = f'{sVelocity}\t{sAcceleration}'
+            print(sOutput)
         bHitSpeedMinimum = False
         while getDistanceToDestination() > 2 or countTick < 500:
             output = f'tick: {countTick:04d} | '
