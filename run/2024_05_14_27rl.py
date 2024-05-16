@@ -409,6 +409,9 @@ def main():
                     deltaBrake = unitChangeBrake
                     brake = min(brake+deltaBrake, 1.0)
             return throttle, steer, brake, output, bHitSpeedMinimum
+        def WriteVehicleStateToDisk(vehicle):
+            print(vehicle.get_velocity(), vehicle.get_acceleration())
+            pass
         bHitSpeedMinimum = False
         while getDistanceToDestination() > 2 or countTick < 500:
             output = f'tick: {countTick:04d} | '
@@ -442,6 +445,7 @@ def main():
             # saveImage()
             if countTick % 100 == 0:
                 savePlotOverlay()
+            WriteVehicleStateToDisk(vehicle)
             world.tick()
             countTick += 1
             # time.sleep(0.2)

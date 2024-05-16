@@ -988,4 +988,9 @@ python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --vehicle ve
 ```
 5/14/2024 11:18 AM: TODO: install CARLA 0.9.14 library.  
 5/14/2024 2:11 PM: TODO: get camera.listen to write images to hard disk.  
-5/14/2024 2:13 PM: TODO: write image to hard disk before world.tick()
+5/14/2024 2:13 PM: TODO: write image to hard disk before world.tick()  
+5/16/2024 11:56 PM: TODO: collect state data of vehicle along drive.  
+5/16/2024 12:35 PM: general: test bed application message to Dr. Katkoori  
+```
+I am collecting data for the vehicle velocity along a drive. My concern is the 3D velocity is in the world coordinate system. My assumption is there will need to be a transformation from the world coordinate system to the vehicle coordinate system.
+```
