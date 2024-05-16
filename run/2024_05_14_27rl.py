@@ -25,8 +25,8 @@ def clean_directory(directory):
 
 '''Make sure CARLA Simulator 0.9.14 is running'''
 actor_list = []
-IM_WIDTH = 800#//3
-IM_HEIGHT = 600#//3
+IM_WIDTH = 800
+IM_HEIGHT = 600
 argparser = argparse.ArgumentParser(description='CARLA Path Following')
 argparser.add_argument(
     '-s', '--speed',
