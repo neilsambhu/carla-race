@@ -994,3 +994,4 @@ python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --vehicle ve
 ```
 I am collecting data for the vehicle velocity along a drive. My concern is the 3D velocity is in the world coordinate system. My assumption is there will need to be a transformation from the world coordinate system to the vehicle coordinate system.
 ```
+5/17/2024 3:35 PM: TODO: how to record state-transition-state pairs. What is the similarity threshold to use the triginometry algorithm when there is not a close enough state?  

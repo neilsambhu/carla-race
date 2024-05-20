@@ -25,8 +25,8 @@ def clean_directory(directory):
 
 '''Make sure CARLA Simulator 0.9.14 is running'''
 actor_list = []
-IM_WIDTH = 800
-IM_HEIGHT = 600
+IM_WIDTH = 800//4
+IM_HEIGHT = 600//4
 argparser = argparse.ArgumentParser(description='CARLA Path Following')
 argparser.add_argument(
     '-s', '--speed',
@@ -326,7 +326,7 @@ def main():
                     return 0
                 if output > 0:
                     return 1
-            def GetVehicleControls(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bHitSpeedMinimum):
+            def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bHitSpeedMinimum):
                 output = ''
                 # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
                 npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
@@ -401,6 +401,22 @@ def main():
                         deltaBrake = unitChangeBrake
                         brake = min(brake+deltaBrake, 1.0)
                 return throttle, steer, brake, output, bHitSpeedMinimum
+            import networkx as nx
+            from datetime import datetime, timedelta
+            import time
+            from scipy.spatial import KDTree
+            import numpy as np
+            G = nx.DiGraph()
+            def GetVehicleControlsGraph(locationCurrent, bHitSpeedMinimum):
+                bLookupSuccess = False
+                speedMinimum = 20
+                kmh = VehicleSpeed1D(vehicle)
+                if kmh < speedMinimum:
+                    if bHitSpeedMinimum:
+                        raise Exception("Vehicle stopped moving.")
+                else:
+                    bHitSpeedMinimum = True
+                return bLookupSuccess, bHitSpeedMinimum
             def WriteVehicleStateToDisk(vehicle):
                 sVelocity='velocity (x,y,z): '
                 sVelocity+='{:05.1f}, {:05.1f}, {:05.1f}'.format(
@@ -422,7 +438,6 @@ def main():
                 if not Z_VelocitySmall(vehicle):
                     if bVerbose:
                         print(output)
-                    # saveImage()
                     world.tick()
                     countTick += 1
                     continue
@@ -437,7 +452,13 @@ def main():
                 output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
                 distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
                 output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
-                throttle, steer, brake, output_temp, bHitSpeedMinimum = GetVehicleControls(
+                # lookup graph
+                bLookupSuccess, tempBHitSpeedMinimum = GetVehicleControlsGraph(
+                    vehicle.get_location(), bHitSpeedMinimum)
+                if bLookupSuccess:
+                    bHitSpeedMinimum = tempBHitSpeedMinimum
+                # if graph lookup fails, use cross product
+                throttle, steer, brake, output_temp, bHitSpeedMinimum = GetVehicleControlsCrossProduct(
                     throttle, steer, brake, locationPrediction, 
                     locationClosestToPredicted, bHitSpeedMinimum
                 )
@@ -446,10 +467,8 @@ def main():
                 vehicle.apply_control(vehicleControl)
                 if bVerbose:
                     print(output)
-                # saveImage()
                 if countTick % 100 == 0:
                     savePlotOverlay()
-                # WriteVehicleStateToDisk(vehicle)
                 world.tick()
                 countTick += 1
                 # time.sleep(0.2)
@@ -469,6 +488,7 @@ def main():
             fig_speed.savefig(os.path.join(dir_output, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
             plt.close(fig_speed)
 
+            countTick=0
             elapsedTimeCarla = elapsedSecondsEndCarla - elapsedSecondsStartCarla
             elapsedTimeWall=elapsedSecondsEndWall-elapsedSecondsStartWall
             def TimeToTextFile(elapsed_time_seconds):
@@ -485,12 +505,12 @@ def main():
                 fractionalSeconds = str(float(elapsed_time_seconds % 1))[2:3]
                 # Display elapsed time in HH:MM:SS format
                 print(f"lap {lLapCount:02d} elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}.{fractionalSeconds}")
+            print('--------------------------------------------------')
+            TimeToConsole(elapsedTimeWall, 'wall')
             TimeToConsole(elapsedTimeCarla, 'CARLA')            
-            TimeToConsole(elapsedTimeWall, 'wall')  
-            print('--------------------')
             timePrevLapSeconds = timeCurrentLapSeconds
             timeCurrentLapSeconds = elapsedTimeCarla
-            print(abs(timeCurrentLapSeconds-timePrevLapSeconds))
+            print(f'prev time: {timePrevLapSeconds:.1f}\tcurr time: {timeCurrentLapSeconds:.1f}')
 
         def WriteImagesToDisk():
             from tqdm import tqdm
