@@ -407,6 +407,28 @@ def main():
             from scipy.spatial import KDTree
             import numpy as np
             G = nx.DiGraph()
+            node_locations = []
+            node_ids = []
+            # POTENTIAL method FOR BUGS
+            def get_vehicle_state():
+                print(vehicle.get_location(),vehicle.get_control())
+                state = {
+                    'location': (vehicle.get_location().x, 
+                        vehicle.get_location().y, 
+                        vehicle.get_location().z, 
+                        ),  # (x, y, z) coordinates
+                    'control': {
+                        'throttle': 0.5,
+                        'steer': 0.0,
+                        'brake': 0.0
+                    }
+                }
+                print(state)
+                return state
+            get_vehicle_state();quit()
+            start_time = datetime.now()
+            current_time = start_time
+            time_step = timedelta(seconds=0.25)
             def GetVehicleControlsGraph(locationCurrent, bHitSpeedMinimum):
                 bLookupSuccess = False
                 speedMinimum = 20
