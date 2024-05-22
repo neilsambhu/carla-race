@@ -465,7 +465,7 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 0.1
+                distanceThreshold = 1
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
                 speedMinimum = 20
@@ -515,25 +515,25 @@ def main():
                 output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
                 distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
                 output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
-                # lookup graph
-                bLookupSuccess, closestNodeIdx, \
-                    bMetSpeedMinimum = GetVehicleControlsGraph(
-                    vehicle.get_location(), bMetSpeedMinimum)
-                if bLookupSuccess:
-                    if bVerbose or True:
-                        strOut=f'closestNodeIdx: {closestNodeIdx}, '
-                        strOut+=f'node_locations: {node_locations}, '
-                        strOut+=f'node_controls: {node_controls}'
-                        print(strOut)
-                    (throttle, steer, brake) = node_controls[closestNodeIdx]
-                else:
-                    # if graph lookup fails, use cross product
-                    throttle, steer, brake, output_temp, \
-                    bMetSpeedMinimum = GetVehicleControlsCrossProduct(
-                        throttle, steer, brake, locationPrediction, 
-                        locationClosestToPredicted, bMetSpeedMinimum
-                    )
-                    output += output_temp
+                # if graph lookup fails, use cross product
+                throttle, steer, brake, output_temp, \
+                bMetSpeedMinimum = GetVehicleControlsCrossProduct(
+                    throttle, steer, brake, locationPrediction, 
+                    locationClosestToPredicted, bMetSpeedMinimum
+                )
+                output += output_temp
+                if lLapCount > 1:
+                    # lookup graph
+                    bLookupSuccess, closestNodeIdx, \
+                        bMetSpeedMinimum = GetVehicleControlsGraph(
+                        vehicle.get_location(), bMetSpeedMinimum)
+                    if bLookupSuccess:
+                        if bVerbose or True:
+                            strOut=f'closestNodeIdx: {closestNodeIdx}, '
+                            strOut+=f'node_locations: {node_locations}, '
+                            strOut+=f'node_controls: {node_controls}'
+                            print(strOut)
+                        (throttle, steer, brake) = node_controls[closestNodeIdx]
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)
