@@ -115,6 +115,18 @@ def Location250msPrediction(fps, countTickLap, vehicle):
 def Z_VelocitySmall(vehicle):
     zVelocityThreshold = 0.01
     return abs(vehicle.get_velocity().z)<zVelocityThreshold
+import queue
+image_queue=queue.Queue()
+def WriteImagesToDisk():
+    from tqdm import tqdm
+    lIndex = 0
+    with tqdm(total=image_queue.qsize(),
+        desc="Writing images to disk") as pbar:
+        while not image_queue.empty():
+            image = image_queue.get()
+            processImage(image, lIndex)
+            lIndex += 1
+            pbar.update(1)
 def main():
     try:
         # Connect to the CARLA Simulator
@@ -213,8 +225,6 @@ def main():
             # while not checkImage(pathFile):
             #     time.sleep(10)
         # camera.listen(lambda image: processImage(image, countTickLap))
-        import queue
-        image_queue=queue.Queue()
         camera.listen(image_queue.put)
         while abs(timeCurrentLapSeconds-timePrevLapSeconds)>1:
             lLapCount+=1
@@ -458,6 +468,7 @@ def main():
                     )
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
+                listLocations.append(vehicle.get_location())
                 distanceThreshold = 1
                 bLookupSuccess = False
                 closestNode = None
@@ -510,10 +521,9 @@ def main():
                 output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
                 # lookup graph
                 bLookupSuccess, closestNode, \
-                    tempbMetSpeedMinimum = GetVehicleControlsGraph(
+                    bMetSpeedMinimum = GetVehicleControlsGraph(
                     vehicle.get_location(), bMetSpeedMinimum)
                 if bLookupSuccess:
-                    bMetSpeedMinimum = tempBMetSpeedMinimum
                     print(f'closestNode: {closestNode}')
                     # throttle, steer, brake = closestNode
                 else:
@@ -574,20 +584,9 @@ def main():
             timeCurrentLapSeconds = elapsedTimeCarla
             print(f'prev time: {timePrevLapSeconds:.1f}\tcurr time: {timeCurrentLapSeconds:.1f}')
 
-        def WriteImagesToDisk():
-            from tqdm import tqdm
-            lIndex = 0
-            with tqdm(total=image_queue.qsize(),
-                desc="Writing images to disk") as pbar:
-                while not image_queue.empty():
-                    image = image_queue.get()
-                    processImage(image, lIndex)
-                    lIndex += 1
-                    pbar.update(1)
-        WriteImagesToDisk()
-
     finally:
         actor_list_destroy(actor_list)
+        WriteImagesToDisk()
         print('done')
 
 
