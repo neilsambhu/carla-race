@@ -1,13 +1,36 @@
 --------------------------------------------------
-lap 01 elapsed time (wall): 00:00:55.6
+lap 01 elapsed time (wall): 00:00:55.8
 lap 01 elapsed time (CARLA): 00:02:00.6
 prev time: 1000000000.0	curr time: 120.6
 --------------------------------------------------
-lap 02 elapsed time (wall): 00:00:56.1
+lap 02 elapsed time (wall): 00:00:56.3
 lap 02 elapsed time (CARLA): 00:02:04.3
 prev time: 120.6	curr time: 124.3
 --------------------------------------------------
-lap 03 elapsed time (wall): 00:00:56.6
+lap 03 elapsed time (wall): 00:00:55.7
 lap 03 elapsed time (CARLA): 00:02:04.9
 prev time: 124.3	curr time: 124.9
-done
+--------------------------------------------------
+lap 04 elapsed time (wall): 00:00:55.4
+lap 04 elapsed time (CARLA): 00:02:04.3
+prev time: 124.9	curr time: 124.4
+--------------------------------------------------
+lap 05 elapsed time (wall): 00:00:58.2
+lap 05 elapsed time (CARLA): 00:02:06.0
+prev time: 124.4	curr time: 126.1
+--------------------------------------------------
+lap 06 elapsed time (wall): 00:00:58.4
+lap 06 elapsed time (CARLA): 00:02:03.2
+prev time: 126.1	curr time: 123.2
+--------------------------------------------------
+lap 07 elapsed time (wall): 00:00:56.0
+lap 07 elapsed time (CARLA): 00:02:02.5
+prev time: 123.2	curr time: 122.5
+--------------------------------------------------
+lap 08 elapsed time (wall): 00:00:56.0
+lap 08 elapsed time (CARLA): 00:02:01.9
+prev time: 122.5	curr time: 121.9
+--------------------------------------------------
+lap 09 elapsed time (wall): 00:00:58.1
+lap 09 elapsed time (CARLA): 00:02:04.8
+prev time: 121.9	curr time: 124.8
