@@ -98,7 +98,7 @@ def Distance(seconds, velocity, acceleration):
 def Magnitude3Dto1D(v):
     # print(f'v: {v}')
     return math.sqrt(v.x**2 + v.y**2 + v.z**2)
-def Location250msPrediction(fps, countTick, vehicle):
+def Location250msPrediction(fps, countTickLap, vehicle):
     # predict 5 frames away at 20 FPS
     # deltaT = 0.05
     deltaT = 0.25
@@ -109,7 +109,7 @@ def Location250msPrediction(fps, countTick, vehicle):
     distance = Distance(deltaT, vehicle.get_velocity(), vehicle.get_acceleration())
     # output += f'dist: {Vector3D_ToString(distance)} | '
     locationPrediction = vehicle.get_location()+distance
-    tickPrediction = int(countTick + fps*deltaT)
+    tickPrediction = int(countTickLap + fps*deltaT)
     output += f'pred loc at tick {tickPrediction:04d}: {Vector3D_ToString(locationPrediction)} | '
     return locationPrediction, tickPrediction, output
 def Z_VelocitySmall(vehicle):
@@ -187,7 +187,8 @@ def main():
         # Now we register the function that will be called each time the sensor
         # receives an image. In this example we are saving the image to disk.
         # camera.listen(lambda image: image.save_to_disk(f'{dir_output_frames}/%06d.png' % image.frame))
-        countTick = 0
+        countTickLap = 0
+        countTickGlobal = 0
         lLapCount = 0
         timePrevLapSeconds = float(1e10)
         timeCurrentLapSeconds = float(1e9)
@@ -199,7 +200,7 @@ def main():
                 # img.show()
             except Exception as e:
                 print("Error opening image:", e)
-        def processImage(image, countTick):
+        def processImage(image, countTickLap):
             i = np.array(image.raw_data)
             # print(i.shape)
             i2 = i.reshape((IM_HEIGHT, IM_WIDTH, 4))
@@ -207,11 +208,11 @@ def main():
             from PIL import Image
             i4 = Image.fromarray(i3)
             # i4.save(os.path.join(dir_output_frames, f'{image.frame:06d}.png'))
-            pathFile=os.path.join(dir_output_frames, f'{countTick:06d}.png')
+            pathFile=os.path.join(dir_output_frames, f'{countTickLap:06d}.png')
             i4.save(pathFile)
             # while not checkImage(pathFile):
             #     time.sleep(10)
-        # camera.listen(lambda image: processImage(image, countTick))
+        # camera.listen(lambda image: processImage(image, countTickLap))
         import queue
         image_queue=queue.Queue()
         camera.listen(image_queue.put)
@@ -220,7 +221,8 @@ def main():
             elapsedSecondsStartCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsStartWall = time.time()
             world.tick()
-            countTick += 1
+            countTickLap += 1
+            countTickGlobal += 1
             def getDistanceToDestination():
                 return location_destination.distance(vehicle.get_location())
             def getStandardVehicleControl():
@@ -326,7 +328,7 @@ def main():
                     return 0
                 if output > 0:
                     return 1
-            def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bHitSpeedMinimum):
+            def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bMetSpeedMinimum):
                 output = ''
                 # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
                 npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
@@ -368,10 +370,10 @@ def main():
                 # output += f'{str_kmh(kmh)} | '
                 if kmh < speedMinimum:
                     maxSteer = 0.01
-                    if bHitSpeedMinimum:
+                    if bMetSpeedMinimum:
                         raise Exception("Vehicle stopped moving.")
                 else:
-                    bHitSpeedMinimum = True
+                    bMetSpeedMinimum = True
                     maxSteer = min(abs(deltaTheta)/int(args.steerDivisor), 1)
                 # if abs(deltaTheta) < thresholdDeltaThetaSteer:
                 #     # deltaTheta = -deltaTheta
@@ -400,74 +402,105 @@ def main():
                         throttle = 0.0
                         deltaBrake = unitChangeBrake
                         brake = min(brake+deltaBrake, 1.0)
-                return throttle, steer, brake, output, bHitSpeedMinimum
+                return throttle, steer, brake, output, bMetSpeedMinimum
             import networkx as nx
             from datetime import datetime, timedelta
-            import time
             from scipy.spatial import KDTree
             import numpy as np
             G = nx.DiGraph()
             node_locations = []
+            node_controls = []
             node_ids = []
             # POTENTIAL method FOR BUGS
             def get_vehicle_state():
-                print(vehicle.get_location(),vehicle.get_control())
                 state = {
                     'location': (vehicle.get_location().x, 
                         vehicle.get_location().y, 
                         vehicle.get_location().z, 
                         ),  # (x, y, z) coordinates
                     'control': {
-                        'throttle': 0.5,
-                        'steer': 0.0,
-                        'brake': 0.0
+                        'throttle': vehicle.get_control().throttle,
+                        'steer': vehicle.get_control().steer,
+                        'brake': vehicle.get_control().brake
                     }
                 }
-                print(state)
                 return state
-            get_vehicle_state();quit()
-            start_time = datetime.now()
-            current_time = start_time
-            time_step = timedelta(seconds=0.25)
-            def GetVehicleControlsGraph(locationCurrent, bHitSpeedMinimum):
+            def SetVehicleControlsGraph():
+                vehicle_state = get_vehicle_state()
+                location = vehicle_state['location']
+                control = vehicle_state['control']
+
+                G.add_node(countTickGlobal,
+                    # location=(vehicle.get_location().x,
+                    #     vehicle.get_location().y,
+                    #     vehicle.get_location().z
+                    #     ),
+                    # control={
+                    #     vehicle.get_control().throttle,
+                    #     vehicle.get_control().steer,
+                    #     vehicle.get_control().brake
+                    #     }
+                    location=location, control=control
+                    )
+                node_ids.append(countTickGlobal)
+                node_locations.append(
+                    (
+                        vehicle.get_location().x,
+                        vehicle.get_location().y,
+                        vehicle.get_location().z
+                    )
+                )
+                node_controls.append(
+                    (
+                        vehicle.get_control().throttle,
+                        vehicle.get_control().steer,
+                        vehicle.get_control().brake
+                    )
+                )
+            def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
+                distanceThreshold = 1
                 bLookupSuccess = False
+                closestNode = None
                 speedMinimum = 20
                 kmh = VehicleSpeed1D(vehicle)
                 if kmh < speedMinimum:
-                    if bHitSpeedMinimum:
+                    if bMetSpeedMinimum:
                         raise Exception("Vehicle stopped moving.")
                 else:
-                    bHitSpeedMinimum = True
-                return bLookupSuccess, bHitSpeedMinimum
-            def WriteVehicleStateToDisk(vehicle):
-                sVelocity='velocity (x,y,z): '
-                sVelocity+='{:05.1f}, {:05.1f}, {:05.1f}'.format(
-                    vehicle.get_velocity().x,
-                    vehicle.get_velocity().y,
-                    vehicle.get_velocity().z,
-                    )
-                sAcceleration='acceleration (x,y,z): '
-                sAcceleration+='{:05.1f}, {:05.1f}, {:05.1f}'.format(
-                    vehicle.get_acceleration().x,
-                    vehicle.get_acceleration().y,
-                    vehicle.get_acceleration().z,
-                    )
-                sOutput = f'{sVelocity}\t{sAcceleration}'
-                print(sOutput)
-            bHitSpeedMinimum = False
-            while getDistanceToDestination() > 2 or countTick < 500:
-                output = f'tick: {countTick:04d} | '
+                    bMetSpeedMinimum = True
+                if len(node_locations) > 0:
+                    node_locations_tree = np.array(node_locations)
+                    kd_tree = KDTree(node_locations_tree)
+                    dist, idx = kd_tree.query(
+                        (
+                            locationCurrent.x,
+                            locationCurrent.y,
+                            locationCurrent.z
+                        ), 
+                        distance_upper_bound=distanceThreshold)
+                    if idx == len(node_locations):  # No valid neighbors found
+                        bLookupSuccess=False
+                    else:
+                        closestNode = node_ids[idx]
+                    # print(f'idx: {idx}, closestNode: {closestNode}')
+                    # print(node_locations[idx])
+                    # print(node_controls[idx])
+                return bLookupSuccess, closestNode, bMetSpeedMinimum
+            bMetSpeedMinimum = False
+            while getDistanceToDestination() > 2 or countTickLap < 500:
+                output = f'tick: {countTickLap:04d} | '
                 if not Z_VelocitySmall(vehicle):
                     if bVerbose:
                         print(output)
                     world.tick()
-                    countTick += 1
+                    countTickLap += 1
+                    countTickGlobal += 1
                     continue
-                locationPrediction, tickPrediction, output_temp = Location250msPrediction(1/settings.fixed_delta_seconds, countTick, vehicle)
+                locationPrediction, tickPrediction, output_temp = Location250msPrediction(1/settings.fixed_delta_seconds, countTickLap, vehicle)
                 dictLocationPrediction[tickPrediction] = locationPrediction
                 output += output_temp            
-                if countTick in dictLocationPrediction:
-                    distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTick])
+                if countTickLap in dictLocationPrediction:
+                    distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTickLap])
                     # output += f'pred err: {Vector3D_ToString(distanceError)} | '
                 distanceMinimum, locationClosestToPredicted = getLocationClosestToCurrent(locationPrediction)
                 listDistancePredToPath.append(distanceMinimum)
@@ -475,24 +508,30 @@ def main():
                 distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
                 output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
                 # lookup graph
-                bLookupSuccess, tempBHitSpeedMinimum = GetVehicleControlsGraph(
-                    vehicle.get_location(), bHitSpeedMinimum)
+                bLookupSuccess, closestNode, \
+                    tempbMetSpeedMinimum = GetVehicleControlsGraph(
+                    vehicle.get_location(), bMetSpeedMinimum)
                 if bLookupSuccess:
-                    bHitSpeedMinimum = tempBHitSpeedMinimum
-                # if graph lookup fails, use cross product
-                throttle, steer, brake, output_temp, bHitSpeedMinimum = GetVehicleControlsCrossProduct(
-                    throttle, steer, brake, locationPrediction, 
-                    locationClosestToPredicted, bHitSpeedMinimum
-                )
-                output += output_temp
+                    bMetSpeedMinimum = tempBMetSpeedMinimum
+                    # print()
+                    # throttle, steer, brake = closestNode
+                else:
+                    # if graph lookup fails, use cross product
+                    throttle, steer, brake, output_temp, bMetSpeedMinimum = GetVehicleControlsCrossProduct(
+                        throttle, steer, brake, locationPrediction, 
+                        locationClosestToPredicted, bMetSpeedMinimum
+                    )
+                    output += output_temp
                 vehicleControl = carla.VehicleControl(throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)
+                # write locations to graph
+                SetVehicleControlsGraph()
                 if bVerbose:
                     print(output)
-                if countTick % 100 == 0:
+                if countTickLap % 100 == 0:
                     savePlotOverlay()
                 world.tick()
-                countTick += 1
+                countTickLap += 1
                 # time.sleep(0.2)
             elapsedSecondsEndCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsEndWall = time.time()
@@ -510,7 +549,7 @@ def main():
             fig_speed.savefig(os.path.join(dir_output, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
             plt.close(fig_speed)
 
-            countTick=0
+            countTickLap=0
             elapsedTimeCarla = elapsedSecondsEndCarla - elapsedSecondsStartCarla
             elapsedTimeWall=elapsedSecondsEndWall-elapsedSecondsStartWall
             def TimeToTextFile(elapsed_time_seconds):
