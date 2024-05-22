@@ -481,6 +481,7 @@ def main():
                     if idx == len(node_locations):  # No valid neighbors found
                         bLookupSuccess=False
                     else:
+                        bLookupSuccess=True
                         closestNode = node_ids[idx]
                     # print(f'idx: {idx}, closestNode: {closestNode}')
                     # print(node_locations[idx])
@@ -513,7 +514,7 @@ def main():
                     vehicle.get_location(), bMetSpeedMinimum)
                 if bLookupSuccess:
                     bMetSpeedMinimum = tempBMetSpeedMinimum
-                    # print()
+                    print(f'closestNode: {closestNode}')
                     # throttle, steer, brake = closestNode
                 else:
                     # if graph lookup fails, use cross product
