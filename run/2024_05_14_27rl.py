@@ -40,6 +40,10 @@ argparser.add_argument(
     '-v', '--vehicle',
     default='vehicle.tesla.model3',
     help='Blueprint ID')
+argparser.add_argument(
+    '-w', '--writeImages',
+    default='True',
+    help='Write images to disk')
 args = argparser.parse_args()
 TARGET_SPEED = int(args.speed)
 
@@ -213,8 +217,8 @@ def main():
         lLapCount = 0
         timePrevLapSeconds = float(1e10)
         timeCurrentLapSeconds = float(1e9)
-
-        camera.listen(image_queue.put)
+        if args.writeImages == 'True':
+            camera.listen(image_queue.put)
         while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
             lLapCount+=1
             elapsedSecondsStartCarla = world.get_snapshot().timestamp.elapsed_seconds
