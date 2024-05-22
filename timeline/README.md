@@ -998,3 +998,5 @@ I am collecting data for the vehicle velocity along a drive. My concern is the 3
 5/21/2024 4:07 PM: I have set the node in the graph.  
 5/21/2024 4:31 PM: TODO: set control signal in graph.  
 5/21/2024 4:31 PM: message to Dr. Katkoori about states in graph. I will assume 1/4 second latency is ok. TODO: set control signal after computing cross product.  
+5/22/2024 5:04 PM: TODO: why are laps after first not using
+historical graph?  

@@ -128,15 +128,18 @@ def processImage(image, countTickLap):
     i4 = Image.fromarray(i3)
     pathFile=os.path.join(dir_output_frames, f'{countTickLap:06d}.png')
     i4.save(pathFile)
-import queue
-image_queue=queue.Queue()
+# import queue
+# image_queue=queue.Queue()
+from collections import deque
+image_queue=deque(maxlen=3000)
+# lock = threading.Lock()
 def WriteImagesToDisk():
     from tqdm import tqdm
     lIndex = 0
-    with tqdm(total=image_queue.qsize(),
+    with tqdm(total=len(image_queue),
         desc="Writing images to disk") as pbar:
-        while not image_queue.empty():
-            image = image_queue.get()
+        while image_queue:
+            image = image_queue.popleft()
             processImage(image, lIndex)
             lIndex += 1
             pbar.update(1)
@@ -218,7 +221,7 @@ def main():
         timePrevLapSeconds = float(1e10)
         timeCurrentLapSeconds = float(1e9)
         if args.writeImages == 'True':
-            camera.listen(image_queue.put)
+            camera.listen(image_queue.append)
         while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
             lLapCount+=1
             elapsedSecondsStartCarla = world.get_snapshot().timestamp.elapsed_seconds
@@ -517,7 +520,7 @@ def main():
                     bMetSpeedMinimum = GetVehicleControlsGraph(
                     vehicle.get_location(), bMetSpeedMinimum)
                 if bLookupSuccess:
-                    if bVerbose:
+                    if bVerbose or True:
                         strOut=f'closestNodeIdx: {closestNodeIdx}, '
                         strOut+=f'node_locations: {node_locations}, '
                         strOut+=f'node_controls: {node_controls}'
