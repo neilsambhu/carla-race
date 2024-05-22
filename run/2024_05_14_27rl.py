@@ -25,8 +25,8 @@ def clean_directory(directory):
 
 '''Make sure CARLA Simulator 0.9.14 is running'''
 actor_list = []
-IM_WIDTH = 800//4
-IM_HEIGHT = 600//4
+IM_WIDTH = 800//2
+IM_HEIGHT = 600//2
 argparser = argparse.ArgumentParser(description='CARLA Path Following')
 argparser.add_argument(
     '-s', '--speed',
@@ -115,6 +115,15 @@ def Location250msPrediction(fps, countTickLap, vehicle):
 def Z_VelocitySmall(vehicle):
     zVelocityThreshold = 0.01
     return abs(vehicle.get_velocity().z)<zVelocityThreshold
+def processImage(image, countTickLap):
+    i = np.array(image.raw_data)
+    # print(i.shape)
+    i2 = i.reshape((IM_HEIGHT, IM_WIDTH, 4))
+    i3 = cv2.cvtColor(i2, cv2.COLOR_BGRA2RGB)
+    from PIL import Image
+    i4 = Image.fromarray(i3)
+    pathFile=os.path.join(dir_output_frames, f'{countTickLap:06d}.png')
+    i4.save(pathFile)
 import queue
 image_queue=queue.Queue()
 def WriteImagesToDisk():
@@ -204,29 +213,9 @@ def main():
         lLapCount = 0
         timePrevLapSeconds = float(1e10)
         timeCurrentLapSeconds = float(1e9)
-        from PIL import Image
-        def checkImage(path):
-            try:
-                img = Image.open(path)
-                print("Image opened successfully.")
-                # img.show()
-            except Exception as e:
-                print("Error opening image:", e)
-        def processImage(image, countTickLap):
-            i = np.array(image.raw_data)
-            # print(i.shape)
-            i2 = i.reshape((IM_HEIGHT, IM_WIDTH, 4))
-            i3 = cv2.cvtColor(i2, cv2.COLOR_BGRA2RGB)
-            from PIL import Image
-            i4 = Image.fromarray(i3)
-            # i4.save(os.path.join(dir_output_frames, f'{image.frame:06d}.png'))
-            pathFile=os.path.join(dir_output_frames, f'{countTickLap:06d}.png')
-            i4.save(pathFile)
-            # while not checkImage(pathFile):
-            #     time.sleep(10)
-        # camera.listen(lambda image: processImage(image, countTickLap))
+
         camera.listen(image_queue.put)
-        while abs(timeCurrentLapSeconds-timePrevLapSeconds)>1:
+        while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
             lLapCount+=1
             elapsedSecondsStartCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsStartWall = time.time()
@@ -469,9 +458,9 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 1
+                distanceThreshold = 0.1
                 bLookupSuccess = False
-                closestNode = None
+                closestNodeIdx = len(node_locations)
                 speedMinimum = 20
                 kmh = VehicleSpeed1D(vehicle)
                 if kmh < speedMinimum:
@@ -493,11 +482,11 @@ def main():
                         bLookupSuccess=False
                     else:
                         bLookupSuccess=True
-                        closestNode = node_ids[idx]
+                        closestNodeIdx = idx
                     # print(f'idx: {idx}, closestNode: {closestNode}')
                     # print(node_locations[idx])
                     # print(node_controls[idx])
-                return bLookupSuccess, closestNode, bMetSpeedMinimum
+                return bLookupSuccess, closestNodeIdx, bMetSpeedMinimum
             bMetSpeedMinimum = False
             while getDistanceToDestination() > 2 or countTickLap < 500:
                 output = f'tick: {countTickLap:04d} | '
@@ -520,20 +509,26 @@ def main():
                 distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
                 output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
                 # lookup graph
-                bLookupSuccess, closestNode, \
+                bLookupSuccess, closestNodeIdx, \
                     bMetSpeedMinimum = GetVehicleControlsGraph(
                     vehicle.get_location(), bMetSpeedMinimum)
                 if bLookupSuccess:
-                    print(f'closestNode: {closestNode}')
-                    # throttle, steer, brake = closestNode
+                    if bVerbose:
+                        strOut=f'closestNodeIdx: {closestNodeIdx}, '
+                        strOut+=f'node_locations: {node_locations}, '
+                        strOut+=f'node_controls: {node_controls}'
+                        print(strOut)
+                    (throttle, steer, brake) = node_controls[closestNodeIdx]
                 else:
                     # if graph lookup fails, use cross product
-                    throttle, steer, brake, output_temp, bMetSpeedMinimum = GetVehicleControlsCrossProduct(
+                    throttle, steer, brake, output_temp, \
+                    bMetSpeedMinimum = GetVehicleControlsCrossProduct(
                         throttle, steer, brake, locationPrediction, 
                         locationClosestToPredicted, bMetSpeedMinimum
                     )
                     output += output_temp
-                vehicleControl = carla.VehicleControl(throttle=throttle, steer=steer, brake=brake)
+                vehicleControl = carla.VehicleControl(
+                    throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)
                 # write locations to graph
                 SetVehicleControlsGraph()
