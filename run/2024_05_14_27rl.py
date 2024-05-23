@@ -465,7 +465,7 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 0.25
+                distanceThreshold = 1.25
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
                 speedMinimum = 20
@@ -515,6 +515,7 @@ def main():
                 output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
                 distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
                 output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
+                output = f'{countTickGlobal} {countTickLap}'
                 # if graph lookup fails, use cross product
                 throttle, steer, brake, output_temp, \
                 bMetSpeedMinimum = GetVehicleControlsCrossProduct(
@@ -530,10 +531,28 @@ def main():
                     if bLookupSuccess:
                         if bVerbose or True:
                             strOut=f'closestNodeIdx: {closestNodeIdx}, '
-                            # strOut+=f'node_locations: {node_locations}, '
-                            # strOut+=f'node_controls: {node_controls}'
-                            print(strOut)
+                            strOut+=f'node_locations[closestNodeIdx]: {node_locations[closestNodeIdx]}, '
+                            strOut+=f'node_controls[closestNodeIdx]: {node_controls[closestNodeIdx]}'
+                            strOut='history {} {} vel:{:.2f},{:.2f},{:.2f}, curr loc:{:.2f},{:.2f},{:.2f}, mat loc:{:.2f},{:.2f},{:.2f}, curr cont:{:.2f},{:.2f},{:.2f}, mat cont:{:.2f},{:.2f},{:.2f}'.format(
+                                countTickGlobal, countTickLap, 
+                                vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
+                                vehicle.get_location().x,vehicle.get_location().y,vehicle.get_location().z,
+                                node_locations[closestNodeIdx][0],node_locations[closestNodeIdx][1],node_locations[closestNodeIdx][2],
+                                vehicle.get_control().throttle, vehicle.get_control().steer, vehicle.get_control().brake,
+                                node_controls[closestNodeIdx][0], node_controls[closestNodeIdx][1], node_controls[closestNodeIdx][2]
+                            )
+                            # print(strOut)
                         (throttle, steer, brake) = node_controls[closestNodeIdx]
+                    else:
+                        output='analytical {} {} vel:{:.2f},{:.2f},{:.2f}, curr loc:{:.2f},{:.2f},{:.2f}, mat loc:{:.2f},{:.2f},{:.2f}, curr cont:{:.2f},{:.2f},{:.2f}, mat cont:{:.2f},{:.2f},{:.2f}'.format(
+                            countTickGlobal, countTickLap, 
+                            vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
+                            vehicle.get_location().x,vehicle.get_location().y,vehicle.get_location().z,
+                            node_locations[closestNodeIdx][0],node_locations[closestNodeIdx][1],node_locations[closestNodeIdx][2],
+                            vehicle.get_control().throttle, vehicle.get_control().steer, vehicle.get_control().brake,
+                            node_controls[closestNodeIdx][0], node_controls[closestNodeIdx][1], node_controls[closestNodeIdx][2]
+                        )
+                print(output)
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)
@@ -546,6 +565,7 @@ def main():
                     savePlotOverlay()
                 world.tick()
                 countTickLap += 1
+                countTickGlobal += 1
                 # time.sleep(0.2)
             elapsedSecondsEndCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsEndWall = time.time()

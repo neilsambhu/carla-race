@@ -1009,3 +1009,9 @@ distance threshold 0.5.
 Read from graph on third and subsequent laps. Car crashes at 1.0 
 distance threshold on 3rd lap.  
 5/22/2024 8:59 PM: car crashes at distance threshold 0.5.  
+5/23/2024 1:22 PM: (re: try distance threshold between 0.25 and 
+0.5) car crashed in 58th lap of trigonometry steering control.  
+5/23/2024 3:17 PM: 
+Katkoori: every tick, print entire table. 
+Which row (i.e., loc, control) matched?
+print: tick, velocity, matched
