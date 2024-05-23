@@ -1000,3 +1000,8 @@ I am collecting data for the vehicle velocity along a drive. My concern is the 3
 5/21/2024 4:31 PM: message to Dr. Katkoori about states in graph. I will assume 1/4 second latency is ok. TODO: set control signal after computing cross product.  
 5/22/2024 5:04 PM: TODO: why are laps after first not using
 historical graph?  
+5/22/2024 7:28 PM: car crashes at start of second lap when 
+distance threshold is 1.0. At distance threshold 0.1, there is no 
+successful graph lookup on the second lap.  
+5/22/2024 7:33 PM: car crashes at start of second lap at 
+distance threshold 0.5. 

@@ -465,7 +465,7 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 0.1
+                distanceThreshold = 1
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
                 speedMinimum = 20
@@ -522,7 +522,7 @@ def main():
                     locationClosestToPredicted, bMetSpeedMinimum
                 )
                 output += output_temp
-                if lLapCount > 1:
+                if lLapCount > 2:
                     # lookup graph
                     bLookupSuccess, closestNodeIdx, \
                         bMetSpeedMinimum = GetVehicleControlsGraph(
@@ -537,8 +537,9 @@ def main():
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)
-                # write locations to graph
-                SetVehicleControlsGraph()
+                if lLapCount > 1:
+                    # write locations to graph
+                    SetVehicleControlsGraph()
                 if bVerbose:
                     print(output)
                 if countTickLap % 100 == 0:
