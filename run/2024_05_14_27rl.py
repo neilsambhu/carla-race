@@ -523,6 +523,7 @@ def main():
                     locationClosestToPredicted, bMetSpeedMinimum
                 )
                 output += output_temp
+                strTick = ''
                 if lLapCount > 2:
                     # lookup graph
                     bLookupSuccess, closestNodeIdx, \
@@ -533,7 +534,7 @@ def main():
                             strOut=f'closestNodeIdx: {closestNodeIdx}, '
                             strOut+=f'node_locations[closestNodeIdx]: {node_locations[closestNodeIdx]}, '
                             strOut+=f'node_controls[closestNodeIdx]: {node_controls[closestNodeIdx]}'
-                            strOut='history {} {} vel:{:.2f},{:.2f},{:.2f}, curr loc:{:.2f},{:.2f},{:.2f}, mat loc:{:.2f},{:.2f},{:.2f}, curr cont:{:.2f},{:.2f},{:.2f}, mat cont:{:.2f},{:.2f},{:.2f}'.format(
+                            strTick='history {} {} vel:{:.2f},{:.2f},{:.2f}, curr loc:{:.2f},{:.2f},{:.2f}, mat loc:{:.2f},{:.2f},{:.2f}, curr cont:{:.2f},{:.2f},{:.2f}, mat cont:{:.2f},{:.2f},{:.2f}'.format(
                                 countTickGlobal, countTickLap, 
                                 vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
                                 vehicle.get_location().x,vehicle.get_location().y,vehicle.get_location().z,
@@ -544,15 +545,14 @@ def main():
                             # print(strOut)
                         (throttle, steer, brake) = node_controls[closestNodeIdx]
                     else:
-                        output='analytical {} {} vel:{:.2f},{:.2f},{:.2f}, curr loc:{:.2f},{:.2f},{:.2f}, mat loc:{:.2f},{:.2f},{:.2f}, curr cont:{:.2f},{:.2f},{:.2f}, mat cont:{:.2f},{:.2f},{:.2f}'.format(
+                        strTick='analytical {} {} vel:{:.2f},{:.2f},{:.2f}, curr loc:{:.2f},{:.2f},{:.2f}, curr cont:{:.2f},{:.2f},{:.2f}, comp cont:{:.2f},{:.2f},{:.2f}'.format(
                             countTickGlobal, countTickLap, 
                             vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
                             vehicle.get_location().x,vehicle.get_location().y,vehicle.get_location().z,
-                            node_locations[closestNodeIdx][0],node_locations[closestNodeIdx][1],node_locations[closestNodeIdx][2],
                             vehicle.get_control().throttle, vehicle.get_control().steer, vehicle.get_control().brake,
-                            node_controls[closestNodeIdx][0], node_controls[closestNodeIdx][1], node_controls[closestNodeIdx][2]
+                            throttle, steer, brake
                         )
-                print(output)
+                print('a',strTick)
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)
