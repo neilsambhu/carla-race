@@ -1004,4 +1004,8 @@ historical graph?
 distance threshold is 1.0. At distance threshold 0.1, there is no 
 successful graph lookup on the second lap.  
 5/22/2024 7:33 PM: car crashes at start of second lap at 
-distance threshold 0.5. 
+distance threshold 0.5.  
+5/22/2024 8:57 PM: write to graph on second and subsequent laps. 
+Read from graph on third and subsequent laps. Car crashes at 1.0 
+distance threshold on 3rd lap.  
+5/22/2024 8:59 PM: car crashes at distance threshold 0.5.  
