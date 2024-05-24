@@ -59,6 +59,9 @@ clean_directory(dir_output_frames)
 path_rl_controls = f'{dir_output}/Controls.txt'
 path_rl_locations = f'{dir_output}/Locations.txt'
 
+fileTick = open('tick.txt', 'w')
+fileTick.close()
+
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
     return []
@@ -224,6 +227,11 @@ def main():
             camera.listen(image_queue.append)
         while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
             lLapCount+=1
+            # if lLapCount > 3:
+            #     quit()
+            fileTick = open('tick.txt', 'a')
+            fileTick.write(f'Start lap {lLapCount}\n')
+            fileTick.close()
             elapsedSecondsStartCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsStartWall = time.time()
             world.tick()
@@ -523,7 +531,13 @@ def main():
                     locationClosestToPredicted, bMetSpeedMinimum
                 )
                 output += output_temp
-                strTick = ''
+                strTick='analytical {:06d} {:06d} vel:{:07.2f},{:07.2f},{:07.2f}, curr loc:{:07.2f},{:07.2f},{:07.2f}, curr cont:{:07.2f},{:07.2f},{:07.2f}, comp cont:{:07.2f},{:07.2f},{:07.2f}\n'.format(
+                            countTickGlobal, countTickLap, 
+                            vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
+                            vehicle.get_location().x,vehicle.get_location().y,vehicle.get_location().z,
+                            vehicle.get_control().throttle, vehicle.get_control().steer, vehicle.get_control().brake,
+                            throttle, steer, brake
+                        )
                 if lLapCount > 2:
                     # lookup graph
                     bLookupSuccess, closestNodeIdx, \
@@ -534,7 +548,8 @@ def main():
                             strOut=f'closestNodeIdx: {closestNodeIdx}, '
                             strOut+=f'node_locations[closestNodeIdx]: {node_locations[closestNodeIdx]}, '
                             strOut+=f'node_controls[closestNodeIdx]: {node_controls[closestNodeIdx]}'
-                            strTick='history {} {} vel:{:.2f},{:.2f},{:.2f}, curr loc:{:.2f},{:.2f},{:.2f}, mat loc:{:.2f},{:.2f},{:.2f}, curr cont:{:.2f},{:.2f},{:.2f}, mat cont:{:.2f},{:.2f},{:.2f}'.format(
+                            strTick='history'
+                            strTick='history    {:06d} {:06d} vel:{:07.2f},{:07.2f},{:07.2f}, curr loc:{:07.2f},{:07.2f},{:07.2f}, mat loc:{:07.2f},{:07.2f},{:07.2f}, curr cont:{:07.2f},{:07.2f},{:07.2f}, mat cont:{:07.2f},{:07.2f},{:07.2f}\n'.format(
                                 countTickGlobal, countTickLap, 
                                 vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
                                 vehicle.get_location().x,vehicle.get_location().y,vehicle.get_location().z,
@@ -543,16 +558,17 @@ def main():
                                 node_controls[closestNodeIdx][0], node_controls[closestNodeIdx][1], node_controls[closestNodeIdx][2]
                             )
                             # print(strOut)
-                        (throttle, steer, brake) = node_controls[closestNodeIdx]
-                    else:
-                        strTick='analytical {} {} vel:{:.2f},{:.2f},{:.2f}, curr loc:{:.2f},{:.2f},{:.2f}, curr cont:{:.2f},{:.2f},{:.2f}, comp cont:{:.2f},{:.2f},{:.2f}'.format(
-                            countTickGlobal, countTickLap, 
-                            vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
-                            vehicle.get_location().x,vehicle.get_location().y,vehicle.get_location().z,
-                            vehicle.get_control().throttle, vehicle.get_control().steer, vehicle.get_control().brake,
-                            throttle, steer, brake
-                        )
-                print('a',strTick)
+                            # print(strTick)
+                            
+                        # throttle = node_controls[closestNodeIdx][0]
+                        # steer = node_controls[closestNodeIdx][1]
+                        # brake = node_controls[closestNodeIdx][2]
+                    fileTick = open('tick.txt', 'a')
+                    fileTick.write(strTick)
+                    fileTick.close()
+                # fileTick = open('tick.txt', 'a')
+                # fileTick.write(str(countTickLap)+'\n')
+                # fileTick.close()
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)

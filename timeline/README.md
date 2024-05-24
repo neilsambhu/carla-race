@@ -1014,4 +1014,6 @@ distance threshold on 3rd lap.
 5/23/2024 3:17 PM: 
 Katkoori: every tick, print entire table. 
 Which row (i.e., loc, control) matched?
-print: tick, velocity, matched
+print: tick, velocity, matched  
+Katkoori:  
+5/23/2024 9:02 PM: TODO: don't set historical vehicle controls.  
