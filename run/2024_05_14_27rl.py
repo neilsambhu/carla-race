@@ -119,6 +119,12 @@ def Location250msPrediction(fps, countTickLap, vehicle):
     tickPrediction = int(countTickLap + fps*deltaT)
     output += f'pred loc at tick {tickPrediction:04d}: {Vector3D_ToString(locationPrediction)} | '
     return locationPrediction, tickPrediction, output
+def Location500msPrediction(fps, vehicle):
+    # predict 10 frames away at 20 FPS
+    deltaT = 0.500
+    distance = Distance(deltaT, vehicle.get_velocity(), vehicle.get_acceleration())
+    locationPrediction = vehicle.get_location()+distance
+    return locationPrediction
 def Z_VelocitySmall(vehicle):
     zVelocityThreshold = 0.01
     return abs(vehicle.get_velocity().z)<zVelocityThreshold
@@ -342,7 +348,8 @@ def main():
                     return 0
                 if output > 0:
                     return 1
-            def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bMetSpeedMinimum):
+            def GetVehicleControlsCrossProduct(throttle, steer, brake, 
+                locationPrediction, locationClosestToPredicted, bMetSpeedMinimum):
                 output = ''
                 # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
                 npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
@@ -513,6 +520,7 @@ def main():
                     countTickGlobal += 1
                     continue
                 locationPrediction, tickPrediction, output_temp = Location250msPrediction(1/settings.fixed_delta_seconds, countTickLap, vehicle)
+                locationPredictionTwoSteps = Location500msPrediction(1/settings.fixed_delta_seconds, vehicle)
                 dictLocationPrediction[tickPrediction] = locationPrediction
                 output += output_temp            
                 if countTickLap in dictLocationPrediction:

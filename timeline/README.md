@@ -1017,3 +1017,9 @@ Which row (i.e., loc, control) matched?
 print: tick, velocity, matched  
 Katkoori:  
 5/23/2024 9:02 PM: TODO: don't set historical vehicle controls.  
+5/23/2024 9:06 PM: Problem: vehicle crashes (i.e., known).  
+5/23/2024 9:07 PM: Problem: vehicle crashes after using historical control 
+signals.
+5/23/2024 10:18 PM: TODO: set vehicle controls for 2 steps 
+ahead to graph. Small step: get control signal for location 
+prediction 2 steps ahead.  
