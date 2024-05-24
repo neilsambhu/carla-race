@@ -58,9 +58,13 @@ clean_directory(dir_output_frames)
 
 path_rl_controls = f'{dir_output}/Controls.txt'
 path_rl_locations = f'{dir_output}/Locations.txt'
+pathTick = f'{dir_output}/tick.txt'
+pathLap = f'{dir_output}/lap.txt'
 
-fileTick = open('tick.txt', 'w')
+fileTick = open(pathTick, 'w')
 fileTick.close()
+fileLap = open(pathLap, 'w')
+fileLap.close()
 
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
@@ -232,10 +236,11 @@ def main():
         if args.writeImages == 'True':
             camera.listen(image_queue.append)
         while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
+            countAnalytical, countHistory = 0, 0
             lLapCount+=1
-            if lLapCount > 3:
+            if lLapCount > 200:
                 quit()
-            fileTick = open('tick.txt', 'a')
+            fileTick = open(pathTick, 'a')
             fileTick.write(f'Start lap {lLapCount}\n')
             fileTick.close()
             elapsedSecondsStartCarla = world.get_snapshot().timestamp.elapsed_seconds
@@ -348,8 +353,7 @@ def main():
                     return 0
                 if output > 0:
                     return 1
-            def GetVehicleControlsCrossProduct(throttle, steer, brake, 
-                locationPrediction, locationClosestToPredicted, bMetSpeedMinimum):
+            def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bMetSpeedMinimum):
                 output = ''
                 # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
                 npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
@@ -480,7 +484,7 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 0.4
+                distanceThreshold = 0.1
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
                 speedMinimum = 20
@@ -538,6 +542,7 @@ def main():
                     throttle, steer, brake, locationPrediction, 
                     locationClosestToPredicted, bMetSpeedMinimum
                 )
+                countAnalytical+=1
                 output += output_temp
                 strTick='analytical {:06d} {:06d} vel:{:07.2f},{:07.2f},{:07.2f}, curr loc:{:07.2f},{:07.2f},{:07.2f}, curr cont:{:07.2f},{:07.2f},{:07.2f}, comp cont:{:07.2f},{:07.2f},{:07.2f}\n'.format(
                             countTickGlobal, countTickLap, 
@@ -566,17 +571,15 @@ def main():
                                 node_controls[closestNodeIdx][0], node_controls[closestNodeIdx][1], node_controls[closestNodeIdx][2]
                             )
                             # print(strOut)
-                            # print(strTick)
-                            
+                            # print(strTick)                            
                         throttle = node_controls[closestNodeIdx][0]
                         steer = node_controls[closestNodeIdx][1]
                         brake = node_controls[closestNodeIdx][2]
-                    fileTick = open('tick.txt', 'a')
+                        countAnalytical-=1
+                        countHistory+=1
+                    fileTick = open(pathTick, 'a')
                     fileTick.write(strTick)
                     fileTick.close()
-                # fileTick = open('tick.txt', 'a')
-                # fileTick.write(str(countTickLap)+'\n')
-                # fileTick.close()
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)
@@ -593,6 +596,9 @@ def main():
                 # time.sleep(0.2)
             elapsedSecondsEndCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsEndWall = time.time()
+            fileLap = open(pathLap, 'a')
+            fileLap.write(f'Lap {lLapCount}: {countAnalytical:06d} analytical / {countHistory:06d} history / {countAnalytical+countHistory:06d} total\n')
+            fileLap.close()
             # Save the delta Y plot
             ax0.plot(listDistancePredToPath)
             fig_distancePredToPath.savefig(os.path.join(dir_output, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))

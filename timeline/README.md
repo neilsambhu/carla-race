@@ -1024,3 +1024,13 @@ signals.
 ahead to graph. Small step: get control signal for location 
 prediction 2 steps ahead.  
 5/23/2024 10:56 PM: TODO: try distance threshold between 0.25 and 0.5.  
+5/23/2024 11:01 PM: crash at distance threshold 0.4.  
+5/23/2024 11:05 PM: no crash at distance threshold 0.3.  
+5/23/2024 11:11 PM: no crash at distance threshold 0.35. try distance threshold 0.37.  
+5/24/2024 4:17 PM: TODO: try distance threshold 0.37. 
+5/24/2024 4:19 PM: TODO: (1) if crash, distance threshold is 0.35. 
+(2) if no crash, remove limit on number of laps. 
+5/24/2024 4:22 PM: No crash at distance threshold 0.37. Crash at lap 5. 
+TODO: give percentage analytical/historical for each lap.  
+5/24/2024 4:26 PM: Assertion: analytical algorithm will crash on 58th lap. 
+TODO: set distance threshold to 0.1
