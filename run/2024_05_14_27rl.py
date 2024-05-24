@@ -241,7 +241,7 @@ def main():
             if lLapCount > 200:
                 quit()
             fileTick = open(pathTick, 'a')
-            fileTick.write(f'Start lap {lLapCount}\n')
+            fileTick.write(f'Start lap {lLapCount:03d}\n')
             fileTick.close()
             elapsedSecondsStartCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsStartWall = time.time()
@@ -597,7 +597,7 @@ def main():
             elapsedSecondsEndCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsEndWall = time.time()
             fileLap = open(pathLap, 'a')
-            fileLap.write(f'Lap {lLapCount}: {countAnalytical:06d} analytical / {countHistory:06d} history / {countAnalytical+countHistory:06d} total\n')
+            fileLap.write(f'Lap {lLapCount:03d}: {countAnalytical:06d} analytical / {countHistory:06d} history / {countAnalytical+countHistory:06d} total\n')
             fileLap.close()
             # Save the delta Y plot
             ax0.plot(listDistancePredToPath)
@@ -629,7 +629,7 @@ def main():
                 seconds = int(elapsed_time_seconds % 60)
                 fractionalSeconds = str(float(elapsed_time_seconds % 1))[2:3]
                 # Display elapsed time in HH:MM:SS format
-                print(f"lap {lLapCount:02d} elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}.{fractionalSeconds}")
+                print(f"lap {lLapCount:03d} elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}.{fractionalSeconds}")
             print('--------------------------------------------------')
             TimeToConsole(elapsedTimeWall, 'wall')
             TimeToConsole(elapsedTimeCarla, 'CARLA')            

@@ -1033,4 +1033,4 @@ prediction 2 steps ahead.
 5/24/2024 4:22 PM: No crash at distance threshold 0.37. Crash at lap 5. 
 TODO: give percentage analytical/historical for each lap.  
 5/24/2024 4:26 PM: Assertion: analytical algorithm will crash on 58th lap. 
-TODO: set distance threshold to 0.1
+TODO: set distance threshold to 0.1  
