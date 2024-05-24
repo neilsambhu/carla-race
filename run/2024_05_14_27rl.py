@@ -233,8 +233,8 @@ def main():
             camera.listen(image_queue.append)
         while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
             lLapCount+=1
-            # if lLapCount > 3:
-            #     quit()
+            if lLapCount > 3:
+                quit()
             fileTick = open('tick.txt', 'a')
             fileTick.write(f'Start lap {lLapCount}\n')
             fileTick.close()
@@ -480,7 +480,7 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 1.25
+                distanceThreshold = 0.4
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
                 speedMinimum = 20
@@ -568,9 +568,9 @@ def main():
                             # print(strOut)
                             # print(strTick)
                             
-                        # throttle = node_controls[closestNodeIdx][0]
-                        # steer = node_controls[closestNodeIdx][1]
-                        # brake = node_controls[closestNodeIdx][2]
+                        throttle = node_controls[closestNodeIdx][0]
+                        steer = node_controls[closestNodeIdx][1]
+                        brake = node_controls[closestNodeIdx][2]
                     fileTick = open('tick.txt', 'a')
                     fileTick.write(strTick)
                     fileTick.close()

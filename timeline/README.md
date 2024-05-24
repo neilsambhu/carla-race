@@ -1023,3 +1023,4 @@ signals.
 5/23/2024 10:18 PM: TODO: set vehicle controls for 2 steps 
 ahead to graph. Small step: get control signal for location 
 prediction 2 steps ahead.  
+5/23/2024 10:56 PM: TODO: try distance threshold between 0.25 and 0.5.  
