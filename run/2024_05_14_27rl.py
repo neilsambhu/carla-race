@@ -354,6 +354,7 @@ def main():
                     return 0
                 if output > 0:
                     return 1
+            countTicksNotMoving=0
             def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bMetSpeedMinimum):
                 output = ''
                 # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
@@ -396,10 +397,12 @@ def main():
                 # output += f'{str_kmh(kmh)} | '
                 if kmh < speedMinimum:
                     maxSteer = 0.01
-                    if bMetSpeedMinimum:
+                    countTicksNotMoving+=1
+                    if bMetSpeedMinimum and countTicksNotMoving>2*20:
                         raise Exception("Vehicle stopped moving.")
                 else:
                     bMetSpeedMinimum = True
+                    countTicksNotMoving=0
                     maxSteer = min(abs(deltaTheta)/int(args.steerDivisor), 1)
                 # if abs(deltaTheta) < thresholdDeltaThetaSteer:
                 #     # deltaTheta = -deltaTheta
@@ -488,13 +491,16 @@ def main():
                 distanceThreshold = 0.2
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
-                speedMinimum = 20
+                speedMinimum = 1e-5
                 kmh = VehicleSpeed1D(vehicle)
                 if kmh < speedMinimum:
-                    if bMetSpeedMinimum:
+                    maxSteer = 0.01
+                    countTicksNotMoving+=1
+                    if bMetSpeedMinimum and countTicksNotMoving>2*20:
                         raise Exception("Vehicle stopped moving.")
                 else:
                     bMetSpeedMinimum = True
+                    countTicksNotMoving=0
                 if len(node_locations) > 0:
                     node_locations_tree = np.array(node_locations)
                     kd_tree = KDTree(node_locations_tree)
