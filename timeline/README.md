@@ -1034,3 +1034,5 @@ prediction 2 steps ahead.
 TODO: give percentage analytical/historical for each lap.  
 5/24/2024 4:26 PM: Assertion: analytical algorithm will crash on 58th lap. 
 TODO: set distance threshold to 0.1  
+5/24/2024 11:41 PM: vehicle crash threshold is too large. 
+False positive on 99th lap. 
