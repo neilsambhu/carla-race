@@ -384,7 +384,7 @@ def main():
                 # thresholdDeltaThetaNoSteer = 0.5e-10
                 thresholdDeltaThetaNoSteer = 5
                 thresholdDeltaThetaSteer = 1e-1
-                speedMinimum = 1e-3
+                speedMinimum = 1e-5
                 speedTarget = TARGET_SPEED
                 bWithinThreshold = None
                 maxSteer = None
