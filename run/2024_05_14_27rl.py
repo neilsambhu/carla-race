@@ -235,11 +235,12 @@ def main():
         timeCurrentLapSeconds = float(1e9)
         if args.writeImages == 'True':
             camera.listen(image_queue.append)
-        while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
+        # while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
+        while lLapCount <= 200:
             countAnalytical, countHistory = 0, 0
             lLapCount+=1
-            if lLapCount > 200:
-                quit()
+            # if lLapCount > 200:
+            #     quit()
             fileTick = open(pathTick, 'a')
             fileTick.write(f'Start lap {lLapCount:03d}\n')
             fileTick.close()

@@ -1036,3 +1036,4 @@ TODO: give percentage analytical/historical for each lap.
 TODO: set distance threshold to 0.1  
 5/24/2024 11:41 PM: vehicle crash threshold is too large. 
 False positive on 99th lap. 
+5/252024 12:48 PM: stop at 12th lap because times are the same.  
