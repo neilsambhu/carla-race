@@ -356,6 +356,7 @@ def main():
                     return 1
             countTicksNotMoving=0
             def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bMetSpeedMinimum):
+                global countTicksNotMoving
                 output = ''
                 # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
                 npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
@@ -487,6 +488,7 @@ def main():
                     )
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
+                global countTicksNotMoving
                 listLocations.append(vehicle.get_location())
                 distanceThreshold = 0.2
                 bLookupSuccess = False
