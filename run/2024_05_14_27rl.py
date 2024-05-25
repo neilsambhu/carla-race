@@ -354,9 +354,7 @@ def main():
                     return 0
                 if output > 0:
                     return 1
-            countTicksNotMoving=0
-            def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bMetSpeedMinimum):
-                global countTicksNotMoving
+            def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bMetSpeedMinimum, countTicksNotMoving):
                 output = ''
                 # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
                 npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
@@ -432,7 +430,8 @@ def main():
                         throttle = 0.0
                         deltaBrake = unitChangeBrake
                         brake = min(brake+deltaBrake, 1.0)
-                return throttle, steer, brake, output, bMetSpeedMinimum
+                return throttle, steer, brake, output, bMetSpeedMinimum, \
+                    countTicksNotMoving
             import networkx as nx
             from datetime import datetime, timedelta
             from scipy.spatial import KDTree
@@ -487,8 +486,7 @@ def main():
                         vehicle.get_control().brake
                     )
                 )
-            def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum):
-                global countTicksNotMoving
+            def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum, countTicksNotMoving):
                 listLocations.append(vehicle.get_location())
                 distanceThreshold = 0.2
                 bLookupSuccess = False
@@ -521,8 +519,10 @@ def main():
                     # print(f'idx: {idx}, closestNode: {closestNode}')
                     # print(node_locations[idx])
                     # print(node_controls[idx])
-                return bLookupSuccess, closestNodeIdx, bMetSpeedMinimum
+                return bLookupSuccess, closestNodeIdx, bMetSpeedMinimum, \
+                    countTicksNotMoving
             bMetSpeedMinimum = False
+            countTicksNotMoving=0
             while getDistanceToDestination() > 2 or countTickLap < 500:
                 output = f'tick: {countTickLap:04d} | '
                 if not Z_VelocitySmall(vehicle):
@@ -547,10 +547,12 @@ def main():
                 output = f'{countTickGlobal} {countTickLap}'
                 # if graph lookup fails, use cross product
                 throttle, steer, brake, output_temp, \
-                bMetSpeedMinimum = GetVehicleControlsCrossProduct(
-                    throttle, steer, brake, locationPrediction, 
-                    locationClosestToPredicted, bMetSpeedMinimum
-                )
+                    bMetSpeedMinimum, countTicksNotMoving = \
+                    GetVehicleControlsCrossProduct(
+                        throttle, steer, brake, locationPrediction, 
+                        locationClosestToPredicted, bMetSpeedMinimum, 
+                        countTicksNotMoving
+                    )
                 countAnalytical+=1
                 output += output_temp
                 strTick='analytical {:06d} {:06d} vel:{:07.2f},{:07.2f},{:07.2f}, curr loc:{:07.2f},{:07.2f},{:07.2f}, curr cont:{:07.2f},{:07.2f},{:07.2f}, comp cont:{:07.2f},{:07.2f},{:07.2f}\n'.format(
@@ -563,8 +565,11 @@ def main():
                 if lLapCount > 2:
                     # lookup graph
                     bLookupSuccess, closestNodeIdx, \
-                        bMetSpeedMinimum = GetVehicleControlsGraph(
-                        vehicle.get_location(), bMetSpeedMinimum)
+                        bMetSpeedMinimum, countTicksNotMoving = \
+                        GetVehicleControlsGraph(
+                            vehicle.get_location(), bMetSpeedMinimum,
+                            countTicksNotMoving
+                        )
                     if bLookupSuccess:
                         if bVerbose or True:
                             strOut=f'closestNodeIdx: {closestNodeIdx}, '
