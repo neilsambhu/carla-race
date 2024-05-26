@@ -233,10 +233,12 @@ def main():
         lLapCount = 0
         timePrevLapSeconds = float(1e10)
         timeCurrentLapSeconds = float(1e9)
+        countAnalytical, countHistory = 1, 1
         if args.writeImages == 'True':
             camera.listen(image_queue.append)
         # while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
-        while lLapCount <= 200:
+        # while lLapCount <= 200:
+        while countAnalytical>0:
             countAnalytical, countHistory = 0, 0
             lLapCount+=1
             # if lLapCount > 200:
@@ -488,7 +490,7 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum, countTicksNotMoving):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 0.3
+                distanceThreshold = 0.2
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
                 speedMinimum = 1e-5
