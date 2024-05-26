@@ -638,7 +638,7 @@ def main():
                     f'{lLapCount:02d}_{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
                 )
                 open(fileTime,'w')
-            TimeToTextFile(elapsedTimeCarla)
+            # TimeToTextFile(elapsedTimeCarla)
             def TimeToConsole(elapsed_time_seconds,label):
                 hours = int(elapsed_time_seconds // 3600)
                 minutes = int((elapsed_time_seconds % 3600) // 60)
