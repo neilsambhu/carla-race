@@ -488,7 +488,7 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum, countTicksNotMoving):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 0.2
+                distanceThreshold = 0.3
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
                 speedMinimum = 1e-5

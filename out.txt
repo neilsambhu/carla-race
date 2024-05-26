@@ -1,0 +1,732 @@
+--------------------------------------------------
+lap 001 elapsed time (wall): 00:01:05.4
+lap 001 elapsed time (CARLA): 00:02:04.4
+prev time: 1000000000.0	curr time: 124.5
+--------------------------------------------------
+lap 002 elapsed time (wall): 00:00:54.3
+lap 002 elapsed time (CARLA): 00:01:59.4
+prev time: 124.5	curr time: 119.5
+--------------------------------------------------
+lap 003 elapsed time (wall): 00:00:58.2
+lap 003 elapsed time (CARLA): 00:02:07.6
+prev time: 119.5	curr time: 127.7
+--------------------------------------------------
+lap 004 elapsed time (wall): 00:00:55.6
+lap 004 elapsed time (CARLA): 00:02:01.9
+prev time: 127.7	curr time: 121.9
+--------------------------------------------------
+lap 005 elapsed time (wall): 00:00:55.3
+lap 005 elapsed time (CARLA): 00:02:00.2
+prev time: 121.9	curr time: 120.2
+--------------------------------------------------
+lap 006 elapsed time (wall): 00:00:58.1
+lap 006 elapsed time (CARLA): 00:02:07.4
+prev time: 120.2	curr time: 127.5
+--------------------------------------------------
+lap 007 elapsed time (wall): 00:00:56.7
+lap 007 elapsed time (CARLA): 00:02:04.4
+prev time: 127.5	curr time: 124.5
+--------------------------------------------------
+lap 008 elapsed time (wall): 00:00:58.0
+lap 008 elapsed time (CARLA): 00:02:07.2
+prev time: 124.5	curr time: 127.3
+--------------------------------------------------
+lap 009 elapsed time (wall): 00:00:58.9
+lap 009 elapsed time (CARLA): 00:02:08.6
+prev time: 127.3	curr time: 128.7
+--------------------------------------------------
+lap 010 elapsed time (wall): 00:00:56.0
+lap 010 elapsed time (CARLA): 00:02:02.4
+prev time: 128.7	curr time: 122.4
+--------------------------------------------------
+lap 011 elapsed time (wall): 00:00:54.9
+lap 011 elapsed time (CARLA): 00:01:59.3
+prev time: 122.4	curr time: 119.4
+--------------------------------------------------
+lap 012 elapsed time (wall): 00:00:56.4
+lap 012 elapsed time (CARLA): 00:02:02.8
+prev time: 119.4	curr time: 122.8
+--------------------------------------------------
+lap 013 elapsed time (wall): 00:00:56.5
+lap 013 elapsed time (CARLA): 00:02:03.7
+prev time: 122.8	curr time: 123.7
+--------------------------------------------------
+lap 014 elapsed time (wall): 00:00:59.1
+lap 014 elapsed time (CARLA): 00:02:09.5
+prev time: 123.7	curr time: 129.6
+--------------------------------------------------
+lap 015 elapsed time (wall): 00:00:58.3
+lap 015 elapsed time (CARLA): 00:02:06.9
+prev time: 129.6	curr time: 126.9
+--------------------------------------------------
+lap 016 elapsed time (wall): 00:00:57.7
+lap 016 elapsed time (CARLA): 00:02:06.0
+prev time: 126.9	curr time: 126.1
+--------------------------------------------------
+lap 017 elapsed time (wall): 00:00:56.3
+lap 017 elapsed time (CARLA): 00:02:03.1
+prev time: 126.1	curr time: 123.1
+--------------------------------------------------
+lap 018 elapsed time (wall): 00:00:59.9
+lap 018 elapsed time (CARLA): 00:02:10.9
+prev time: 123.1	curr time: 130.9
+--------------------------------------------------
+lap 019 elapsed time (wall): 00:00:57.4
+lap 019 elapsed time (CARLA): 00:02:02.8
+prev time: 130.9	curr time: 122.0
+--------------------------------------------------
+lap 020 elapsed time (wall): 00:00:58.0
+lap 020 elapsed time (CARLA): 00:02:06.3
+prev time: 122.0	curr time: 126.4
+--------------------------------------------------
+lap 021 elapsed time (wall): 00:00:54.3
+lap 021 elapsed time (CARLA): 00:01:58.3
+prev time: 126.4	curr time: 118.4
+--------------------------------------------------
+lap 022 elapsed time (wall): 00:00:54.8
+lap 022 elapsed time (CARLA): 00:01:59.8
+prev time: 118.4	curr time: 119.8
+--------------------------------------------------
+lap 023 elapsed time (wall): 00:00:55.4
+lap 023 elapsed time (CARLA): 00:02:00.9
+prev time: 119.8	curr time: 121.0
+--------------------------------------------------
+lap 024 elapsed time (wall): 00:00:57.1
+lap 024 elapsed time (CARLA): 00:02:03.4
+prev time: 121.0	curr time: 123.4
+--------------------------------------------------
+lap 025 elapsed time (wall): 00:00:59.0
+lap 025 elapsed time (CARLA): 00:02:08.3
+prev time: 123.4	curr time: 128.4
+--------------------------------------------------
+lap 026 elapsed time (wall): 00:00:56.6
+lap 026 elapsed time (CARLA): 00:02:02.9
+prev time: 128.4	curr time: 123.0
+--------------------------------------------------
+lap 027 elapsed time (wall): 00:00:58.1
+lap 027 elapsed time (CARLA): 00:02:06.3
+prev time: 123.0	curr time: 126.3
+--------------------------------------------------
+lap 028 elapsed time (wall): 00:00:57.7
+lap 028 elapsed time (CARLA): 00:02:05.6
+prev time: 126.3	curr time: 125.7
+--------------------------------------------------
+lap 029 elapsed time (wall): 00:00:56.4
+lap 029 elapsed time (CARLA): 00:02:03.9
+prev time: 125.7	curr time: 123.9
+--------------------------------------------------
+lap 030 elapsed time (wall): 00:00:59.1
+lap 030 elapsed time (CARLA): 00:02:09.2
+prev time: 123.9	curr time: 129.2
+--------------------------------------------------
+lap 031 elapsed time (wall): 00:00:56.7
+lap 031 elapsed time (CARLA): 00:02:03.5
+prev time: 129.2	curr time: 123.6
+--------------------------------------------------
+lap 032 elapsed time (wall): 00:00:56.0
+lap 032 elapsed time (CARLA): 00:02:01.3
+prev time: 123.6	curr time: 121.3
+--------------------------------------------------
+lap 033 elapsed time (wall): 00:00:58.0
+lap 033 elapsed time (CARLA): 00:02:06.0
+prev time: 121.3	curr time: 126.1
+--------------------------------------------------
+lap 034 elapsed time (wall): 00:00:52.3
+lap 034 elapsed time (CARLA): 00:01:54.2
+prev time: 126.1	curr time: 114.3
+--------------------------------------------------
+lap 035 elapsed time (wall): 00:00:55.3
+lap 035 elapsed time (CARLA): 00:02:00.4
+prev time: 114.3	curr time: 120.5
+--------------------------------------------------
+lap 036 elapsed time (wall): 00:00:56.3
+lap 036 elapsed time (CARLA): 00:02:03.5
+prev time: 120.5	curr time: 123.6
+--------------------------------------------------
+lap 037 elapsed time (wall): 00:00:53.7
+lap 037 elapsed time (CARLA): 00:01:57.2
+prev time: 123.6	curr time: 117.3
+--------------------------------------------------
+lap 038 elapsed time (wall): 00:00:57.7
+lap 038 elapsed time (CARLA): 00:02:06.3
+prev time: 117.3	curr time: 126.4
+--------------------------------------------------
+lap 039 elapsed time (wall): 00:00:57.3
+lap 039 elapsed time (CARLA): 00:02:05.5
+prev time: 126.4	curr time: 125.6
+--------------------------------------------------
+lap 040 elapsed time (wall): 00:00:53.9
+lap 040 elapsed time (CARLA): 00:01:58.3
+prev time: 125.6	curr time: 118.3
+--------------------------------------------------
+lap 041 elapsed time (wall): 00:00:54.0
+lap 041 elapsed time (CARLA): 00:01:59.4
+prev time: 118.3	curr time: 119.4
+--------------------------------------------------
+lap 042 elapsed time (wall): 00:00:58.7
+lap 042 elapsed time (CARLA): 00:02:09.3
+prev time: 119.4	curr time: 129.4
+--------------------------------------------------
+lap 043 elapsed time (wall): 00:00:55.0
+lap 043 elapsed time (CARLA): 00:02:00.2
+prev time: 129.4	curr time: 120.2
+--------------------------------------------------
+lap 044 elapsed time (wall): 00:00:55.8
+lap 044 elapsed time (CARLA): 00:02:01.8
+prev time: 120.2	curr time: 121.8
+--------------------------------------------------
+lap 045 elapsed time (wall): 00:01:00.0
+lap 045 elapsed time (CARLA): 00:02:08.8
+prev time: 121.8	curr time: 128.8
+--------------------------------------------------
+lap 046 elapsed time (wall): 00:00:59.7
+lap 046 elapsed time (CARLA): 00:02:07.8
+prev time: 128.8	curr time: 127.0
+--------------------------------------------------
+lap 047 elapsed time (wall): 00:00:58.7
+lap 047 elapsed time (CARLA): 00:02:09.4
+prev time: 127.0	curr time: 129.5
+--------------------------------------------------
+lap 048 elapsed time (wall): 00:00:58.3
+lap 048 elapsed time (CARLA): 00:02:08.8
+prev time: 129.5	curr time: 128.8
+--------------------------------------------------
+lap 049 elapsed time (wall): 00:00:55.9
+lap 049 elapsed time (CARLA): 00:02:02.6
+prev time: 128.8	curr time: 122.7
+--------------------------------------------------
+lap 050 elapsed time (wall): 00:00:59.0
+lap 050 elapsed time (CARLA): 00:02:09.9
+prev time: 122.7	curr time: 129.9
+--------------------------------------------------
+lap 051 elapsed time (wall): 00:00:56.8
+lap 051 elapsed time (CARLA): 00:02:04.8
+prev time: 129.9	curr time: 124.8
+--------------------------------------------------
+lap 052 elapsed time (wall): 00:00:57.2
+lap 052 elapsed time (CARLA): 00:02:05.3
+prev time: 124.8	curr time: 125.4
+--------------------------------------------------
+lap 053 elapsed time (wall): 00:00:56.4
+lap 053 elapsed time (CARLA): 00:02:04.0
+prev time: 125.4	curr time: 124.1
+--------------------------------------------------
+lap 054 elapsed time (wall): 00:00:57.1
+lap 054 elapsed time (CARLA): 00:02:05.6
+prev time: 124.1	curr time: 125.7
+--------------------------------------------------
+lap 055 elapsed time (wall): 00:00:55.1
+lap 055 elapsed time (CARLA): 00:02:00.3
+prev time: 125.7	curr time: 120.3
+--------------------------------------------------
+lap 056 elapsed time (wall): 00:00:56.7
+lap 056 elapsed time (CARLA): 00:02:04.8
+prev time: 120.3	curr time: 124.9
+--------------------------------------------------
+lap 057 elapsed time (wall): 00:00:58.5
+lap 057 elapsed time (CARLA): 00:02:08.2
+prev time: 124.9	curr time: 128.2
+--------------------------------------------------
+lap 058 elapsed time (wall): 00:00:56.1
+lap 058 elapsed time (CARLA): 00:02:03.9
+prev time: 128.2	curr time: 123.9
+--------------------------------------------------
+lap 059 elapsed time (wall): 00:00:53.2
+lap 059 elapsed time (CARLA): 00:01:56.7
+prev time: 123.9	curr time: 116.7
+--------------------------------------------------
+lap 060 elapsed time (wall): 00:00:56.8
+lap 060 elapsed time (CARLA): 00:02:05.6
+prev time: 116.7	curr time: 125.6
+--------------------------------------------------
+lap 061 elapsed time (wall): 00:00:58.3
+lap 061 elapsed time (CARLA): 00:02:08.4
+prev time: 125.6	curr time: 128.4
+--------------------------------------------------
+lap 062 elapsed time (wall): 00:00:57.6
+lap 062 elapsed time (CARLA): 00:02:06.1
+prev time: 128.4	curr time: 126.1
+--------------------------------------------------
+lap 063 elapsed time (wall): 00:00:58.4
+lap 063 elapsed time (CARLA): 00:02:08.5
+prev time: 126.1	curr time: 128.5
+--------------------------------------------------
+lap 064 elapsed time (wall): 00:00:56.3
+lap 064 elapsed time (CARLA): 00:02:03.8
+prev time: 128.5	curr time: 123.9
+--------------------------------------------------
+lap 065 elapsed time (wall): 00:00:57.1
+lap 065 elapsed time (CARLA): 00:02:05.3
+prev time: 123.9	curr time: 125.3
+--------------------------------------------------
+lap 066 elapsed time (wall): 00:00:57.3
+lap 066 elapsed time (CARLA): 00:02:05.6
+prev time: 125.3	curr time: 125.6
+--------------------------------------------------
+lap 067 elapsed time (wall): 00:00:56.4
+lap 067 elapsed time (CARLA): 00:02:03.7
+prev time: 125.6	curr time: 123.7
+--------------------------------------------------
+lap 068 elapsed time (wall): 00:00:57.2
+lap 068 elapsed time (CARLA): 00:02:05.9
+prev time: 123.7	curr time: 126.0
+--------------------------------------------------
+lap 069 elapsed time (wall): 00:00:55.1
+lap 069 elapsed time (CARLA): 00:02:00.4
+prev time: 126.0	curr time: 120.5
+--------------------------------------------------
+lap 070 elapsed time (wall): 00:00:56.0
+lap 070 elapsed time (CARLA): 00:02:02.7
+prev time: 120.5	curr time: 122.8
+--------------------------------------------------
+lap 071 elapsed time (wall): 00:00:58.3
+lap 071 elapsed time (CARLA): 00:02:08.4
+prev time: 122.8	curr time: 128.4
+--------------------------------------------------
+lap 072 elapsed time (wall): 00:00:58.3
+lap 072 elapsed time (CARLA): 00:02:08.7
+prev time: 128.4	curr time: 128.8
+--------------------------------------------------
+lap 073 elapsed time (wall): 00:00:58.6
+lap 073 elapsed time (CARLA): 00:02:09.3
+prev time: 128.8	curr time: 129.3
+--------------------------------------------------
+lap 074 elapsed time (wall): 00:00:56.6
+lap 074 elapsed time (CARLA): 00:02:04.8
+prev time: 129.3	curr time: 124.9
+--------------------------------------------------
+lap 075 elapsed time (wall): 00:00:55.3
+lap 075 elapsed time (CARLA): 00:02:01.3
+prev time: 124.9	curr time: 121.4
+--------------------------------------------------
+lap 076 elapsed time (wall): 00:00:58.0
+lap 076 elapsed time (CARLA): 00:02:06.8
+prev time: 121.4	curr time: 126.9
+--------------------------------------------------
+lap 077 elapsed time (wall): 00:00:57.5
+lap 077 elapsed time (CARLA): 00:02:06.4
+prev time: 126.9	curr time: 126.5
+--------------------------------------------------
+lap 078 elapsed time (wall): 00:00:59.4
+lap 078 elapsed time (CARLA): 00:02:10.2
+prev time: 126.5	curr time: 130.3
+--------------------------------------------------
+lap 079 elapsed time (wall): 00:00:58.4
+lap 079 elapsed time (CARLA): 00:02:08.6
+prev time: 130.3	curr time: 128.6
+--------------------------------------------------
+lap 080 elapsed time (wall): 00:00:56.2
+lap 080 elapsed time (CARLA): 00:02:04.0
+prev time: 128.6	curr time: 124.1
+--------------------------------------------------
+lap 081 elapsed time (wall): 00:00:55.5
+lap 081 elapsed time (CARLA): 00:02:01.8
+prev time: 124.1	curr time: 121.8
+--------------------------------------------------
+lap 082 elapsed time (wall): 00:00:55.5
+lap 082 elapsed time (CARLA): 00:02:01.5
+prev time: 121.8	curr time: 121.6
+--------------------------------------------------
+lap 083 elapsed time (wall): 00:00:55.4
+lap 083 elapsed time (CARLA): 00:02:01.6
+prev time: 121.6	curr time: 121.6
+--------------------------------------------------
+lap 084 elapsed time (wall): 00:00:57.7
+lap 084 elapsed time (CARLA): 00:02:06.7
+prev time: 121.6	curr time: 126.8
+--------------------------------------------------
+lap 085 elapsed time (wall): 00:00:58.2
+lap 085 elapsed time (CARLA): 00:02:07.7
+prev time: 126.8	curr time: 127.8
+--------------------------------------------------
+lap 086 elapsed time (wall): 00:00:58.2
+lap 086 elapsed time (CARLA): 00:02:08.1
+prev time: 127.8	curr time: 128.1
+--------------------------------------------------
+lap 087 elapsed time (wall): 00:00:55.6
+lap 087 elapsed time (CARLA): 00:02:01.7
+prev time: 128.1	curr time: 121.7
+--------------------------------------------------
+lap 088 elapsed time (wall): 00:00:53.7
+lap 088 elapsed time (CARLA): 00:01:59.0
+prev time: 121.7	curr time: 119.1
+--------------------------------------------------
+lap 089 elapsed time (wall): 00:00:57.4
+lap 089 elapsed time (CARLA): 00:02:06.0
+prev time: 119.1	curr time: 126.1
+--------------------------------------------------
+lap 090 elapsed time (wall): 00:00:57.3
+lap 090 elapsed time (CARLA): 00:02:05.1
+prev time: 126.1	curr time: 125.2
+--------------------------------------------------
+lap 091 elapsed time (wall): 00:00:55.0
+lap 091 elapsed time (CARLA): 00:02:00.1
+prev time: 125.2	curr time: 120.2
+--------------------------------------------------
+lap 092 elapsed time (wall): 00:00:57.7
+lap 092 elapsed time (CARLA): 00:02:06.7
+prev time: 120.2	curr time: 126.7
+--------------------------------------------------
+lap 093 elapsed time (wall): 00:00:57.6
+lap 093 elapsed time (CARLA): 00:02:07.1
+prev time: 126.7	curr time: 127.1
+--------------------------------------------------
+lap 094 elapsed time (wall): 00:00:56.0
+lap 094 elapsed time (CARLA): 00:02:03.1
+prev time: 127.1	curr time: 123.2
+--------------------------------------------------
+lap 095 elapsed time (wall): 00:00:55.8
+lap 095 elapsed time (CARLA): 00:02:03.4
+prev time: 123.2	curr time: 123.4
+--------------------------------------------------
+lap 096 elapsed time (wall): 00:00:55.0
+lap 096 elapsed time (CARLA): 00:02:00.1
+prev time: 123.4	curr time: 120.1
+--------------------------------------------------
+lap 097 elapsed time (wall): 00:00:56.6
+lap 097 elapsed time (CARLA): 00:02:03.9
+prev time: 120.1	curr time: 124.0
+--------------------------------------------------
+lap 098 elapsed time (wall): 00:00:54.6
+lap 098 elapsed time (CARLA): 00:02:00.7
+prev time: 124.0	curr time: 120.0
+--------------------------------------------------
+lap 099 elapsed time (wall): 00:00:55.1
+lap 099 elapsed time (CARLA): 00:02:00.3
+prev time: 120.0	curr time: 120.3
+--------------------------------------------------
+lap 100 elapsed time (wall): 00:00:56.0
+lap 100 elapsed time (CARLA): 00:02:03.6
+prev time: 120.3	curr time: 123.7
+--------------------------------------------------
+lap 101 elapsed time (wall): 00:00:55.8
+lap 101 elapsed time (CARLA): 00:02:01.3
+prev time: 123.7	curr time: 121.4
+--------------------------------------------------
+lap 102 elapsed time (wall): 00:00:51.9
+lap 102 elapsed time (CARLA): 00:01:53.7
+prev time: 121.4	curr time: 113.8
+--------------------------------------------------
+lap 103 elapsed time (wall): 00:00:54.1
+lap 103 elapsed time (CARLA): 00:01:59.3
+prev time: 113.8	curr time: 119.4
+--------------------------------------------------
+lap 104 elapsed time (wall): 00:00:55.6
+lap 104 elapsed time (CARLA): 00:02:02.0
+prev time: 119.4	curr time: 122.1
+--------------------------------------------------
+lap 105 elapsed time (wall): 00:00:57.7
+lap 105 elapsed time (CARLA): 00:02:07.3
+prev time: 122.1	curr time: 127.3
+--------------------------------------------------
+lap 106 elapsed time (wall): 00:00:55.8
+lap 106 elapsed time (CARLA): 00:02:01.7
+prev time: 127.3	curr time: 121.8
+--------------------------------------------------
+lap 107 elapsed time (wall): 00:00:55.5
+lap 107 elapsed time (CARLA): 00:02:02.5
+prev time: 121.8	curr time: 122.5
+--------------------------------------------------
+lap 108 elapsed time (wall): 00:00:55.9
+lap 108 elapsed time (CARLA): 00:02:03.5
+prev time: 122.5	curr time: 123.6
+--------------------------------------------------
+lap 109 elapsed time (wall): 00:00:55.7
+lap 109 elapsed time (CARLA): 00:02:02.4
+prev time: 123.6	curr time: 122.4
+--------------------------------------------------
+lap 110 elapsed time (wall): 00:00:55.9
+lap 110 elapsed time (CARLA): 00:02:02.6
+prev time: 122.4	curr time: 122.7
+--------------------------------------------------
+lap 111 elapsed time (wall): 00:00:55.2
+lap 111 elapsed time (CARLA): 00:02:00.8
+prev time: 122.7	curr time: 120.9
+--------------------------------------------------
+lap 112 elapsed time (wall): 00:00:56.7
+lap 112 elapsed time (CARLA): 00:02:04.4
+prev time: 120.9	curr time: 124.4
+--------------------------------------------------
+lap 113 elapsed time (wall): 00:00:55.2
+lap 113 elapsed time (CARLA): 00:02:00.6
+prev time: 124.4	curr time: 120.7
+--------------------------------------------------
+lap 114 elapsed time (wall): 00:00:58.6
+lap 114 elapsed time (CARLA): 00:02:09.1
+prev time: 120.7	curr time: 129.1
+--------------------------------------------------
+lap 115 elapsed time (wall): 00:00:55.0
+lap 115 elapsed time (CARLA): 00:02:00.8
+prev time: 129.1	curr time: 120.8
+--------------------------------------------------
+lap 116 elapsed time (wall): 00:00:56.1
+lap 116 elapsed time (CARLA): 00:02:03.5
+prev time: 120.8	curr time: 123.6
+--------------------------------------------------
+lap 117 elapsed time (wall): 00:00:55.6
+lap 117 elapsed time (CARLA): 00:02:01.3
+prev time: 123.6	curr time: 121.3
+--------------------------------------------------
+lap 118 elapsed time (wall): 00:00:56.1
+lap 118 elapsed time (CARLA): 00:02:04.2
+prev time: 121.3	curr time: 124.2
+--------------------------------------------------
+lap 119 elapsed time (wall): 00:00:56.4
+lap 119 elapsed time (CARLA): 00:02:03.6
+prev time: 124.2	curr time: 123.6
+--------------------------------------------------
+lap 120 elapsed time (wall): 00:00:56.8
+lap 120 elapsed time (CARLA): 00:02:04.6
+prev time: 123.6	curr time: 124.7
+--------------------------------------------------
+lap 121 elapsed time (wall): 00:00:56.5
+lap 121 elapsed time (CARLA): 00:02:03.5
+prev time: 124.7	curr time: 123.5
+--------------------------------------------------
+lap 122 elapsed time (wall): 00:00:53.8
+lap 122 elapsed time (CARLA): 00:01:57.5
+prev time: 123.5	curr time: 117.6
+--------------------------------------------------
+lap 123 elapsed time (wall): 00:00:54.3
+lap 123 elapsed time (CARLA): 00:01:59.0
+prev time: 117.6	curr time: 119.1
+--------------------------------------------------
+lap 124 elapsed time (wall): 00:00:58.5
+lap 124 elapsed time (CARLA): 00:02:09.5
+prev time: 119.1	curr time: 129.5
+--------------------------------------------------
+lap 125 elapsed time (wall): 00:00:55.9
+lap 125 elapsed time (CARLA): 00:02:03.8
+prev time: 129.5	curr time: 123.9
+--------------------------------------------------
+lap 126 elapsed time (wall): 00:00:56.0
+lap 126 elapsed time (CARLA): 00:02:03.8
+prev time: 123.9	curr time: 123.0
+--------------------------------------------------
+lap 127 elapsed time (wall): 00:00:56.2
+lap 127 elapsed time (CARLA): 00:02:03.4
+prev time: 123.0	curr time: 123.5
+--------------------------------------------------
+lap 128 elapsed time (wall): 00:00:56.2
+lap 128 elapsed time (CARLA): 00:02:03.3
+prev time: 123.5	curr time: 123.3
+--------------------------------------------------
+lap 129 elapsed time (wall): 00:00:56.1
+lap 129 elapsed time (CARLA): 00:02:03.4
+prev time: 123.3	curr time: 123.5
+--------------------------------------------------
+lap 130 elapsed time (wall): 00:00:57.3
+lap 130 elapsed time (CARLA): 00:02:07.3
+prev time: 123.5	curr time: 127.3
+--------------------------------------------------
+lap 131 elapsed time (wall): 00:00:56.0
+lap 131 elapsed time (CARLA): 00:02:02.6
+prev time: 127.3	curr time: 122.6
+--------------------------------------------------
+lap 132 elapsed time (wall): 00:00:58.5
+lap 132 elapsed time (CARLA): 00:02:08.5
+prev time: 122.6	curr time: 128.5
+--------------------------------------------------
+lap 133 elapsed time (wall): 00:00:57.7
+lap 133 elapsed time (CARLA): 00:02:06.8
+prev time: 128.5	curr time: 126.0
+--------------------------------------------------
+lap 134 elapsed time (wall): 00:00:58.5
+lap 134 elapsed time (CARLA): 00:02:08.1
+prev time: 126.0	curr time: 128.1
+--------------------------------------------------
+lap 135 elapsed time (wall): 00:00:56.0
+lap 135 elapsed time (CARLA): 00:02:04.2
+prev time: 128.1	curr time: 124.2
+--------------------------------------------------
+lap 136 elapsed time (wall): 00:00:57.5
+lap 136 elapsed time (CARLA): 00:02:06.1
+prev time: 124.2	curr time: 126.1
+--------------------------------------------------
+lap 137 elapsed time (wall): 00:00:57.6
+lap 137 elapsed time (CARLA): 00:02:05.9
+prev time: 126.1	curr time: 126.0
+--------------------------------------------------
+lap 138 elapsed time (wall): 00:00:58.0
+lap 138 elapsed time (CARLA): 00:02:07.2
+prev time: 126.0	curr time: 127.3
+--------------------------------------------------
+lap 139 elapsed time (wall): 00:00:55.2
+lap 139 elapsed time (CARLA): 00:02:00.8
+prev time: 127.3	curr time: 120.8
+--------------------------------------------------
+lap 140 elapsed time (wall): 00:00:57.0
+lap 140 elapsed time (CARLA): 00:02:06.7
+prev time: 120.8	curr time: 126.7
+--------------------------------------------------
+lap 141 elapsed time (wall): 00:00:57.3
+lap 141 elapsed time (CARLA): 00:02:05.6
+prev time: 126.7	curr time: 125.7
+--------------------------------------------------
+lap 142 elapsed time (wall): 00:00:58.4
+lap 142 elapsed time (CARLA): 00:02:08.2
+prev time: 125.7	curr time: 128.2
+--------------------------------------------------
+lap 143 elapsed time (wall): 00:00:54.0
+lap 143 elapsed time (CARLA): 00:01:58.8
+prev time: 128.2	curr time: 118.9
+--------------------------------------------------
+lap 144 elapsed time (wall): 00:00:56.8
+lap 144 elapsed time (CARLA): 00:02:05.5
+prev time: 118.9	curr time: 125.6
+--------------------------------------------------
+lap 145 elapsed time (wall): 00:00:56.7
+lap 145 elapsed time (CARLA): 00:02:04.5
+prev time: 125.6	curr time: 124.5
+--------------------------------------------------
+lap 146 elapsed time (wall): 00:00:59.3
+lap 146 elapsed time (CARLA): 00:02:10.1
+prev time: 124.5	curr time: 130.2
+--------------------------------------------------
+lap 147 elapsed time (wall): 00:00:57.3
+lap 147 elapsed time (CARLA): 00:02:05.4
+prev time: 130.2	curr time: 125.4
+--------------------------------------------------
+lap 148 elapsed time (wall): 00:00:55.9
+lap 148 elapsed time (CARLA): 00:02:03.4
+prev time: 125.4	curr time: 123.5
+--------------------------------------------------
+lap 149 elapsed time (wall): 00:00:58.0
+lap 149 elapsed time (CARLA): 00:02:07.4
+prev time: 123.5	curr time: 127.4
+--------------------------------------------------
+lap 150 elapsed time (wall): 00:00:56.4
+lap 150 elapsed time (CARLA): 00:02:03.5
+prev time: 127.4	curr time: 123.6
+--------------------------------------------------
+lap 151 elapsed time (wall): 00:00:57.4
+lap 151 elapsed time (CARLA): 00:02:05.8
+prev time: 123.6	curr time: 125.8
+--------------------------------------------------
+lap 152 elapsed time (wall): 00:00:55.6
+lap 152 elapsed time (CARLA): 00:02:02.8
+prev time: 125.8	curr time: 122.0
+--------------------------------------------------
+lap 153 elapsed time (wall): 00:00:54.8
+lap 153 elapsed time (CARLA): 00:02:00.3
+prev time: 122.0	curr time: 120.4
+--------------------------------------------------
+lap 154 elapsed time (wall): 00:00:56.5
+lap 154 elapsed time (CARLA): 00:02:03.4
+prev time: 120.4	curr time: 123.5
+--------------------------------------------------
+lap 155 elapsed time (wall): 00:00:55.7
+lap 155 elapsed time (CARLA): 00:02:03.4
+prev time: 123.5	curr time: 123.5
+--------------------------------------------------
+lap 156 elapsed time (wall): 00:00:58.4
+lap 156 elapsed time (CARLA): 00:02:08.4
+prev time: 123.5	curr time: 128.5
+--------------------------------------------------
+lap 157 elapsed time (wall): 00:00:55.7
+lap 157 elapsed time (CARLA): 00:02:00.9
+prev time: 128.5	curr time: 121.0
+--------------------------------------------------
+lap 158 elapsed time (wall): 00:00:55.1
+lap 158 elapsed time (CARLA): 00:02:01.0
+prev time: 121.0	curr time: 121.1
+--------------------------------------------------
+lap 159 elapsed time (wall): 00:00:54.7
+lap 159 elapsed time (CARLA): 00:01:59.9
+prev time: 121.1	curr time: 120.0
+--------------------------------------------------
+lap 160 elapsed time (wall): 00:00:57.9
+lap 160 elapsed time (CARLA): 00:02:06.2
+prev time: 120.0	curr time: 126.3
+--------------------------------------------------
+lap 161 elapsed time (wall): 00:00:57.3
+lap 161 elapsed time (CARLA): 00:02:06.8
+prev time: 126.3	curr time: 126.0
+--------------------------------------------------
+lap 162 elapsed time (wall): 00:00:57.8
+lap 162 elapsed time (CARLA): 00:02:06.3
+prev time: 126.0	curr time: 126.3
+--------------------------------------------------
+lap 163 elapsed time (wall): 00:00:53.9
+lap 163 elapsed time (CARLA): 00:01:58.8
+prev time: 126.3	curr time: 118.8
+--------------------------------------------------
+lap 164 elapsed time (wall): 00:00:55.0
+lap 164 elapsed time (CARLA): 00:02:01.1
+prev time: 118.8	curr time: 121.1
+--------------------------------------------------
+lap 165 elapsed time (wall): 00:00:56.7
+lap 165 elapsed time (CARLA): 00:02:04.4
+prev time: 121.1	curr time: 124.5
+--------------------------------------------------
+lap 166 elapsed time (wall): 00:00:55.8
+lap 166 elapsed time (CARLA): 00:02:01.4
+prev time: 124.5	curr time: 121.4
+--------------------------------------------------
+lap 167 elapsed time (wall): 00:00:55.9
+lap 167 elapsed time (CARLA): 00:02:03.5
+prev time: 121.4	curr time: 123.5
+--------------------------------------------------
+lap 168 elapsed time (wall): 00:00:56.6
+lap 168 elapsed time (CARLA): 00:02:04.4
+prev time: 123.5	curr time: 124.5
+--------------------------------------------------
+lap 169 elapsed time (wall): 00:00:58.2
+lap 169 elapsed time (CARLA): 00:02:07.6
+prev time: 124.5	curr time: 127.6
+--------------------------------------------------
+lap 170 elapsed time (wall): 00:00:57.7
+lap 170 elapsed time (CARLA): 00:02:07.1
+prev time: 127.6	curr time: 127.1
+--------------------------------------------------
+lap 171 elapsed time (wall): 00:00:58.8
+lap 171 elapsed time (CARLA): 00:02:09.2
+prev time: 127.1	curr time: 129.3
+--------------------------------------------------
+lap 172 elapsed time (wall): 00:00:56.4
+lap 172 elapsed time (CARLA): 00:02:03.6
+prev time: 129.3	curr time: 123.6
+--------------------------------------------------
+lap 173 elapsed time (wall): 00:00:56.2
+lap 173 elapsed time (CARLA): 00:02:04.3
+prev time: 123.6	curr time: 124.3
+--------------------------------------------------
+lap 174 elapsed time (wall): 00:00:55.9
+lap 174 elapsed time (CARLA): 00:02:02.4
+prev time: 124.3	curr time: 122.5
+--------------------------------------------------
+lap 175 elapsed time (wall): 00:00:54.1
+lap 175 elapsed time (CARLA): 00:01:59.7
+prev time: 122.5	curr time: 119.0
+--------------------------------------------------
+lap 176 elapsed time (wall): 00:00:53.7
+lap 176 elapsed time (CARLA): 00:01:58.2
+prev time: 119.0	curr time: 118.2
+--------------------------------------------------
+lap 177 elapsed time (wall): 00:00:56.5
+lap 177 elapsed time (CARLA): 00:02:03.6
+prev time: 118.2	curr time: 123.6
+--------------------------------------------------
+lap 178 elapsed time (wall): 00:00:57.8
+lap 178 elapsed time (CARLA): 00:02:07.9
+prev time: 123.6	curr time: 128.0
+--------------------------------------------------
+lap 179 elapsed time (wall): 00:00:56.3
+lap 179 elapsed time (CARLA): 00:02:03.4
+prev time: 128.0	curr time: 123.4
+--------------------------------------------------
+lap 180 elapsed time (wall): 00:00:55.3
+lap 180 elapsed time (CARLA): 00:02:00.8
+prev time: 123.4	curr time: 120.9
+--------------------------------------------------
+lap 181 elapsed time (wall): 00:00:57.3
+lap 181 elapsed time (CARLA): 00:02:06.6
+prev time: 120.9	curr time: 126.6
+--------------------------------------------------
+lap 182 elapsed time (wall): 00:01:01.6
+lap 182 elapsed time (CARLA): 00:02:07.1
+prev time: 126.6	curr time: 127.2
+--------------------------------------------------
+lap 183 elapsed time (wall): 00:01:05.2
+lap 183 elapsed time (CARLA): 00:02:03.7
+prev time: 127.2	curr time: 123.7
