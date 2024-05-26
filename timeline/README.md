@@ -1040,3 +1040,5 @@ False positive on 99th lap.
 5/25/2024 11:18 PM: at distance threshold 0.3, car stops moving at 
 52nd lap. TODO: (1) distance threshold 0.2; (2) stopping condition 
 is history threshold.  
+5/26/2024 11:04 PM: no history lookup for distance threshold 0.2 
+through 686 laps. There is no report for what happened at the 687th lap.  

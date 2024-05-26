@@ -635,7 +635,7 @@ def main():
             def TimeToTextFile(elapsed_time_seconds):
                 fileTime = os.path.join(
                     dir_output, 
-                    f'{lLapCount:02d}_{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
+                    f'{lLapCount:03d}_{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
                 )
                 open(fileTime,'w')
             # TimeToTextFile(elapsedTimeCarla)
