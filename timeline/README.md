@@ -1043,3 +1043,6 @@ is history threshold.
 5/26/2024 11:04 PM: no history lookup for distance threshold 0.2 
 through 686 laps. There is no report for what happened at the 687th lap. 
 Presumably the simulator crashed.  
+5/27/2024 12:28 PM: not history lookup for distance threshold 0.2 
+through 906 laps. Code now includes 0.5 distance threshold and 10% 
+use of valid history.  
