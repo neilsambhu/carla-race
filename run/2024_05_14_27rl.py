@@ -8,6 +8,7 @@ config.read('config.ini')
 bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGAIVI = not bSAMBHU23
 bVerbose = False
+bPlot = False
 
 # strPathType = 'Straight'
 # strPathType = 'Curve'
@@ -272,18 +273,19 @@ def main():
             # Plot setup for delta Y
             # fig_deltaY, ax1 = plt.subplots(figsize=(12, 6))
             # plt.rcParams.update({'font.size': 36})
-            plt.rcParams.update({'font.size': 18})
-            fig_distancePredToPath, ax0 = plt.subplots(figsize=(12,6))
-            ax0.autoscale_view('tight')
-            ax0.set_xlabel('Time-Steps')
-            ax0.set_ylabel('Distance from Predicted \nLocation to Path')
-            ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
-            fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
-            ax1.set_xlabel('Time-Steps')
-            # ax1.set_ylabel('Delta Y')
-            ax1.set_ylabel('Delta Theta')
-            # ax1.set_title('Delta Y over Time')
-            ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+            if bPlot:
+                plt.rcParams.update({'font.size': 18})
+                fig_distancePredToPath, ax0 = plt.subplots(figsize=(12,6))
+                ax0.autoscale_view('tight')
+                ax0.set_xlabel('Time-Steps')
+                ax0.set_ylabel('Distance from Predicted \nLocation to Path')
+                ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+                fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
+                ax1.set_xlabel('Time-Steps')
+                # ax1.set_ylabel('Delta Y')
+                ax1.set_ylabel('Delta Theta')
+                # ax1.set_title('Delta Y over Time')
+                ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
             def savePlotOverlay():
                 # Plot setup for overlay
                 # fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
@@ -325,11 +327,12 @@ def main():
                 plt.rcParams.update({'font.size': 24})
                 fig_overlay.savefig(os.path.join(dir_output, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
                 plt.close(fig_overlay)
-            fig_speed, ax3 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
-            ax3.autoscale_view('tight')
-            ax3.set_xlabel('Time-Steps')
-            ax3.set_ylabel('Speed (km/h)')
-            ax3.set_title(f'Speed over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+            if bPlot:
+                fig_speed, ax3 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
+                ax3.autoscale_view('tight')
+                ax3.set_xlabel('Time-Steps')
+                ax3.set_ylabel('Speed (km/h)')
+                ax3.set_title(f'Speed over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
             def printLocations(currentLocation, closestLocation):
                 return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
             dictLocationPrediction = {}
@@ -618,19 +621,20 @@ def main():
             fileLap = open(pathLap, 'a')
             fileLap.write(f'Lap {lLapCount:03d}: {len(node_ids):09d} nodes | {countAnalytical:06d} analytical / {countHistory:06d} history / {countAnalytical+countHistory:06d} total\n')
             fileLap.close()
-            # Save the delta Y plot
-            ax0.plot(listDistancePredToPath)
-            fig_distancePredToPath.savefig(os.path.join(dir_output, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
-            # ax1.plot(listDeltaY)
-            ax1.plot(listDeltaTheta)
-            # fig_deltaY.savefig(os.path.join(dir_output, 'deltaY.png'))
-            fig_deltaTheta.savefig(os.path.join(dir_output, f'deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
-            # plt.close(fig_deltaY)
-            plt.close(fig_deltaTheta)
-            savePlotOverlay()
-            ax3.plot(listSpeed)
-            fig_speed.savefig(os.path.join(dir_output, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
-            plt.close(fig_speed)
+            if bPlot:
+                # Save the delta Y plot
+                ax0.plot(listDistancePredToPath)
+                fig_distancePredToPath.savefig(os.path.join(dir_output, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                # ax1.plot(listDeltaY)
+                ax1.plot(listDeltaTheta)
+                # fig_deltaY.savefig(os.path.join(dir_output, 'deltaY.png'))
+                fig_deltaTheta.savefig(os.path.join(dir_output, f'deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                # plt.close(fig_deltaY)
+                plt.close(fig_deltaTheta)
+                savePlotOverlay()
+                ax3.plot(listSpeed)
+                fig_speed.savefig(os.path.join(dir_output, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                plt.close(fig_speed)
 
             countTickLap=0
             elapsedTimeCarla = elapsedSecondsEndCarla - elapsedSecondsStartCarla
