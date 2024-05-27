@@ -238,6 +238,14 @@ def main():
             camera.listen(image_queue.append)
         # while abs(timeCurrentLapSeconds-timePrevLapSeconds)>0.1:
         # while lLapCount <= 200:
+        import networkx as nx
+        from datetime import datetime, timedelta
+        from scipy.spatial import KDTree
+        import numpy as np
+        G = nx.DiGraph()
+        node_locations = []
+        node_controls = []
+        node_ids = []
         while countAnalytical>0:
             countAnalytical, countHistory = 0, 0
             lLapCount+=1
@@ -434,14 +442,7 @@ def main():
                         brake = min(brake+deltaBrake, 1.0)
                 return throttle, steer, brake, output, bMetSpeedMinimum, \
                     countTicksNotMoving
-            import networkx as nx
-            from datetime import datetime, timedelta
-            from scipy.spatial import KDTree
-            import numpy as np
-            G = nx.DiGraph()
-            node_locations = []
-            node_controls = []
-            node_ids = []
+
             # POTENTIAL method FOR BUGS
             def get_vehicle_state():
                 state = {
@@ -461,18 +462,18 @@ def main():
                 location = vehicle_state['location']
                 control = vehicle_state['control']
 
-                G.add_node(countTickGlobal,
-                    # location=(vehicle.get_location().x,
-                    #     vehicle.get_location().y,
-                    #     vehicle.get_location().z
-                    #     ),
-                    # control={
-                    #     vehicle.get_control().throttle,
-                    #     vehicle.get_control().steer,
-                    #     vehicle.get_control().brake
-                    #     }
-                    location=location, control=control
-                    )
+                # G.add_node(countTickGlobal,
+                #     # location=(vehicle.get_location().x,
+                #     #     vehicle.get_location().y,
+                #     #     vehicle.get_location().z
+                #     #     ),
+                #     # control={
+                #     #     vehicle.get_control().throttle,
+                #     #     vehicle.get_control().steer,
+                #     #     vehicle.get_control().brake
+                #     #     }
+                #     location=location, control=control
+                #     )
                 node_ids.append(countTickGlobal)
                 node_locations.append(
                     (
@@ -573,7 +574,8 @@ def main():
                             countTicksNotMoving
                         )
                     import random
-                    if bLookupSuccess and random.random()<0.1:
+                    # if bLookupSuccess and random.random()<0.1:
+                    if bLookupSuccess:
                         if bVerbose or True:
                             strOut=f'closestNodeIdx: {closestNodeIdx}, '
                             strOut+=f'node_locations[closestNodeIdx]: {node_locations[closestNodeIdx]}, '
