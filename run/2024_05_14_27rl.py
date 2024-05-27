@@ -490,7 +490,7 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum, countTicksNotMoving):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 0.2
+                distanceThreshold = 0.5
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
                 speedMinimum = 1e-5
@@ -572,7 +572,8 @@ def main():
                             vehicle.get_location(), bMetSpeedMinimum,
                             countTicksNotMoving
                         )
-                    if bLookupSuccess:
+                    import random
+                    if bLookupSuccess and random.random()<0.1:
                         if bVerbose or True:
                             strOut=f'closestNodeIdx: {closestNodeIdx}, '
                             strOut+=f'node_locations[closestNodeIdx]: {node_locations[closestNodeIdx]}, '
@@ -613,7 +614,7 @@ def main():
             elapsedSecondsEndCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsEndWall = time.time()
             fileLap = open(pathLap, 'a')
-            fileLap.write(f'Lap {lLapCount:03d}: {countAnalytical:06d} analytical / {countHistory:06d} history / {countAnalytical+countHistory:06d} total\n')
+            fileLap.write(f'Lap {lLapCount:03d}: {len(node_ids):09d} nodes | {countAnalytical:06d} analytical / {countHistory:06d} history / {countAnalytical+countHistory:06d} total\n')
             fileLap.close()
             # Save the delta Y plot
             ax0.plot(listDistancePredToPath)
