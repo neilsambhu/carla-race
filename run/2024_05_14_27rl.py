@@ -144,7 +144,7 @@ def processImage(image, countTickLap):
 # import queue
 # image_queue=queue.Queue()
 from collections import deque
-image_queue=deque(maxlen=20*10)
+image_queue=deque(maxlen=20*150)
 # lock = threading.Lock()
 def WriteImagesToDisk():
     from tqdm import tqdm
@@ -491,7 +491,7 @@ def main():
                 )
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum, countTicksNotMoving):
                 listLocations.append(vehicle.get_location())
-                distanceThreshold = 0.5
+                distanceThreshold = 0.3
                 bLookupSuccess = False
                 closestNodeIdx = len(node_locations)
                 speedMinimum = 1e-5
