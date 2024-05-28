@@ -9,6 +9,8 @@ bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGAIVI = not bSAMBHU23
 bVerbose = False
 bPlot = False
+bSaveHistoryToDisk = True
+bLoadHistoryFromDisk = True
 
 # strPathType = 'Straight'
 # strPathType = 'Curve'
@@ -56,6 +58,9 @@ dir_output_frames = f'{dir_output}/{TARGET_SPEED:03d}_{int(args.steerDivisor):03
 if not os.path.exists(dir_output_frames):
     os.makedirs(dir_output_frames)
 clean_directory(dir_output_frames)
+dir_backup = '_bak_27_rl'
+if not bLoadHistoryFromDisk:
+    clean_directory(dir_backup)
 
 path_rl_controls = f'{dir_output}/Controls.txt'
 path_rl_locations = f'{dir_output}/Locations.txt'
@@ -247,13 +252,23 @@ def main():
         node_locations = []
         node_controls = []
         node_ids = []
+        if bLoadHistoryFromDisk:
+            def ReadObjectFromDisk(strFile):
+                import pickle
+                with open(os.path.join(dir_backup,
+                    strFile),'rb') as file:
+                    return pickle.load(file)
+            node_ids = ReadObjectFromDisk('ids.pkl')
+            node_locations = ReadObjectFromDisk('locations.pkl')
+            node_controls = ReadObjectFromDisk('controls.pkl')
+            lLapCount = ReadObjectFromDisk('lap_count.pkl')
         while countAnalytical>0:
             countAnalytical, countHistory = 0, 0
             lLapCount+=1
             # if lLapCount > 200:
             #     quit()
             fileTick = open(pathTick, 'a')
-            fileTick.write(f'Start lap {lLapCount:03d}\n')
+            fileTick.write(f'Start lap {lLapCount:04d}\n')
             fileTick.close()
             elapsedSecondsStartCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsStartWall = time.time()
@@ -460,6 +475,11 @@ def main():
                     }
                 }
                 return state
+            def SaveObjectToDisk(object, strFile):
+                import pickle
+                with open(os.path.join(dir_backup,
+                    strFile), 'wb') as file:
+                    pickle.dump(object, file)
             def SetVehicleControlsGraph():
                 vehicle_state = get_vehicle_state()
                 location = vehicle_state['location']
@@ -492,6 +512,11 @@ def main():
                         vehicle.get_control().brake
                     )
                 )
+                SaveObjectToDisk(node_ids,'ids.pkl')
+                SaveObjectToDisk(node_locations,'locations.pkl')
+                SaveObjectToDisk(node_controls,'controls.pkl')
+                SaveObjectToDisk(lLapCount, 'lap_count.pkl')
+
             def GetVehicleControlsGraph(locationCurrent, bMetSpeedMinimum, countTicksNotMoving):
                 listLocations.append(vehicle.get_location())
                 distanceThreshold = 0.01
@@ -619,7 +644,7 @@ def main():
             elapsedSecondsEndCarla = world.get_snapshot().timestamp.elapsed_seconds
             elapsedSecondsEndWall = time.time()
             fileLap = open(pathLap, 'a')
-            fileLap.write(f'Lap {lLapCount:03d}: {len(node_ids):09d} nodes | {countAnalytical:06d} analytical / {countHistory:06d} history / {countAnalytical+countHistory:06d} total\n')
+            fileLap.write(f'Lap {lLapCount:04d}: {len(node_ids):09d} nodes | {countAnalytical:06d} analytical / {countHistory:06d} history / {countAnalytical+countHistory:06d} total\n')
             fileLap.close()
             if bPlot:
                 # Save the delta Y plot
@@ -642,7 +667,7 @@ def main():
             def TimeToTextFile(elapsed_time_seconds):
                 fileTime = os.path.join(
                     dir_output, 
-                    f'{lLapCount:03d}_{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
+                    f'{lLapCount:04d}_{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
                 )
                 open(fileTime,'w')
             # TimeToTextFile(elapsedTimeCarla)
@@ -652,7 +677,7 @@ def main():
                 seconds = int(elapsed_time_seconds % 60)
                 fractionalSeconds = str(float(elapsed_time_seconds % 1))[2:3]
                 # Display elapsed time in HH:MM:SS format
-                print(f"lap {lLapCount:03d} elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}.{fractionalSeconds}")
+                print(f"lap {lLapCount:04d} elapsed time ({label}): {hours:02}:{minutes:02}:{seconds:02}.{fractionalSeconds}")
             print('--------------------------------------------------')
             TimeToConsole(elapsedTimeWall, 'wall')
             TimeToConsole(elapsedTimeCarla, 'CARLA')            
