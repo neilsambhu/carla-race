@@ -67,9 +67,12 @@ path_rl_locations = f'{dir_output}/Locations.txt'
 pathTick = f'{dir_output}/tick.txt'
 pathLap = f'{dir_output}/lap.txt'
 
-fileTick = open(pathTick, 'w')
+strFileOption='w'
+if bLoadHistoryFromDisk:
+    strFileOption='a'
+fileTick = open(pathTick, strFileOption)
 fileTick.close()
-fileLap = open(pathLap, 'w')
+fileLap = open(pathLap, strFileOption)
 fileLap.close()
 
 def actor_list_destroy(actor_list):
@@ -246,9 +249,10 @@ def main():
         # while lLapCount <= 200:
         import networkx as nx
         from datetime import datetime, timedelta
-        from scipy.spatial import KDTree
+        # from scipy.spatial import KDTree
+        from sklearn.neighbors import KDTree
         import numpy as np
-        G = nx.DiGraph()
+        # G = nx.DiGraph()
         node_locations = []
         node_controls = []
         node_ids = []
@@ -535,13 +539,22 @@ def main():
                 if len(node_locations) > 0:
                     node_locations_tree = np.array(node_locations)
                     kd_tree = KDTree(node_locations_tree)
-                    dist, idx = kd_tree.query(
-                        (
+                    # dist, idx = kd_tree.query(
+                    #     (
+                    #         locationCurrent.x,
+                    #         locationCurrent.y,
+                    #         locationCurrent.z
+                    #     ), 
+                    #     distance_upper_bound=distanceThreshold)
+                    indices = kd_tree.query_radius(
+                        np.array([
                             locationCurrent.x,
                             locationCurrent.y,
                             locationCurrent.z
-                        ), 
-                        distance_upper_bound=distanceThreshold)
+                        ]), 
+                        r=distanceThreshold
+                        )
+                    idx=indices[0]
                     if idx == len(node_locations):  # No valid neighbors found
                         bLookupSuccess=False
                     else:
