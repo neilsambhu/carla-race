@@ -1,0 +1,4 @@
+--------------------------------------------------
+lap 0001 elapsed time (wall): 00:00:17.7
+lap 0001 elapsed time (CARLA): 00:00:36.9
+prev time: 1000000000.0	curr time: 37.0

@@ -1050,3 +1050,16 @@ use of valid history.
 ```
 python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --speed 40 --vehicle vehicle.tesla.model3 | tee out.txt
 ```
+5/30/2024 4:06 PM: 80 km/h
+```
+python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --speed 80 --vehicle vehicle.tesla.model3 | tee out.txt
+```
+5/30/2024 4:10 PM: car turns around sometimes. Fastest lap is 
+106 seconds.  
+5/30/2024 4:12 PM: TODO: standard vehicle control as full throttle.  
+5/30/2024 4:13 PM: vehicle crashes. Try 60 km/h.  
+5/30/2024 4:16 PM: vehicle crashes. Try 40 km/h.  
+5/30/2024 4:18 PM: vehicle crashes. Try 20 km/h.  
+5/30/2024 4:19 PM: vehicle crashes. Try 5 km/h.  
+5/30/2024 4:20 PM: vehicle crashes. Try 90% throttle.  
+5/30/2024 4:22 PM: vehicle drives in circle. Try 30 km/h.  
