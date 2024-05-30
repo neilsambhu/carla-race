@@ -284,7 +284,8 @@ def main():
             def getStandardVehicleControl():
                 # return 0.75, 0.0, 0.0
                 # return 1.00, 0.0, 0.0
-                return 0.9, 0.0, 0.0
+                # return 0.9, 0.0, 0.0
+                return 0.8, 0.0, 0.0
             throttle, steer, brake = getStandardVehicleControl()
             # listDeltaY = []
             listDistancePredToPath = []
