@@ -1065,3 +1065,5 @@ python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --speed 80 -
 5/30/2024 4:22 PM: vehicle drives in circle. Try 30 km/h.  
 5/30/2024 4:25 PM: vehicle does not drive smoothly. Try 80% throttle.  
 5/30/2024 4:28 PM: 120.8 seconds. Try 70 km/h.  
+5/30/2024 5:27 PM: 100.9 seconds. Crash at lap 11. Try 50 km/h.  
+5/30/2024 5:27 PM: 107.6 seconds.  

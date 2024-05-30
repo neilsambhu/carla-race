@@ -1,0 +1,32 @@
+--------------------------------------------------
+lap 0001 elapsed time (wall): 00:00:52.9
+lap 0001 elapsed time (CARLA): 00:01:54.6
+prev time: 1000000000.0	curr time: 114.0
+--------------------------------------------------
+lap 0002 elapsed time (wall): 00:00:51.0
+lap 0002 elapsed time (CARLA): 00:01:47.5
+prev time: 114.0	curr time: 107.6
+--------------------------------------------------
+lap 0003 elapsed time (wall): 00:00:49.8
+lap 0003 elapsed time (CARLA): 00:01:50.1
+prev time: 107.6	curr time: 110.1
+--------------------------------------------------
+lap 0004 elapsed time (wall): 00:00:37.0
+lap 0004 elapsed time (CARLA): 00:01:23.0
+prev time: 110.1	curr time: 83.1
+--------------------------------------------------
+lap 0005 elapsed time (wall): 00:00:48.9
+lap 0005 elapsed time (CARLA): 00:01:51.7
+prev time: 83.1	curr time: 111.8
+--------------------------------------------------
+lap 0006 elapsed time (wall): 00:00:46.1
+lap 0006 elapsed time (CARLA): 00:01:46.1
+prev time: 111.8	curr time: 106.2
+--------------------------------------------------
+lap 0007 elapsed time (wall): 00:00:49.5
+lap 0007 elapsed time (CARLA): 00:01:53.2
+prev time: 106.2	curr time: 113.2
+--------------------------------------------------
+lap 0008 elapsed time (wall): 00:00:53.8
+lap 0008 elapsed time (CARLA): 00:01:54.6
+prev time: 113.2	curr time: 114.7
