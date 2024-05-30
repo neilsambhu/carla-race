@@ -546,20 +546,23 @@ def main():
                     #         locationCurrent.z
                     #     ), 
                     #     distance_upper_bound=distanceThreshold)
-                    indices = kd_tree.query_radius(
+                    # idx=indices[0]
+                    dist, idx = kd_tree.query(
                         np.array([
                             locationCurrent.x,
                             locationCurrent.y,
                             locationCurrent.z
-                        ]), 
-                        r=distanceThreshold
+                        ]).reshape(1,-1), 
+                        k=1
                         )
-                    idx=indices[0]
-                    if idx == len(node_locations):  # No valid neighbors found
+                    # print(f'indices: {indices}\tidx: {idx}')
+                    # if idx == len(node_locations):  # No valid neighbors found
+                    if dist > distanceThreshold:
                         bLookupSuccess=False
                     else:
                         bLookupSuccess=True
-                        closestNodeIdx = idx
+                        closestNodeIdx = idx[0][0]
+                    # closestNode=node_locations[closestNodeIdx]
                     # print(f'idx: {idx}, closestNode: {closestNode}')
                     # print(node_locations[idx])
                     # print(node_controls[idx])
