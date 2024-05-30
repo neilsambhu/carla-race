@@ -8,9 +8,9 @@ config.read('config.ini')
 bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGAIVI = not bSAMBHU23
 bVerbose = False
-bPlot = False
-bSaveHistoryToDisk = True
-bLoadHistoryFromDisk = True
+bPlot = True
+bSaveHistoryToDisk = False
+bLoadHistoryFromDisk = bSaveHistoryToDisk
 
 # strPathType = 'Straight'
 # strPathType = 'Curve'
@@ -609,40 +609,40 @@ def main():
                             vehicle.get_control().throttle, vehicle.get_control().steer, vehicle.get_control().brake,
                             throttle, steer, brake
                         )
-                if lLapCount > 2:
-                    # lookup graph
-                    bLookupSuccess, closestNodeIdx, \
-                        bMetSpeedMinimum, countTicksNotMoving = \
-                        GetVehicleControlsGraph(
-                            vehicle.get_location(), bMetSpeedMinimum,
-                            countTicksNotMoving
-                        )
-                    import random
-                    # if bLookupSuccess and random.random()<0.1:
-                    if bLookupSuccess:
-                        if bVerbose or True:
-                            strOut=f'closestNodeIdx: {closestNodeIdx}, '
-                            strOut+=f'node_locations[closestNodeIdx]: {node_locations[closestNodeIdx]}, '
-                            strOut+=f'node_controls[closestNodeIdx]: {node_controls[closestNodeIdx]}'
-                            strTick='history'
-                            strTick='history    {:06d} {:06d} vel:{:07.2f},{:07.2f},{:07.2f}, curr loc:{:07.2f},{:07.2f},{:07.2f}, mat loc:{:07.2f},{:07.2f},{:07.2f}, curr cont:{:07.2f},{:07.2f},{:07.2f}, mat cont:{:07.2f},{:07.2f},{:07.2f}\n'.format(
-                                countTickGlobal, countTickLap, 
-                                vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
-                                vehicle.get_location().x,vehicle.get_location().y,vehicle.get_location().z,
-                                node_locations[closestNodeIdx][0],node_locations[closestNodeIdx][1],node_locations[closestNodeIdx][2],
-                                vehicle.get_control().throttle, vehicle.get_control().steer, vehicle.get_control().brake,
-                                node_controls[closestNodeIdx][0], node_controls[closestNodeIdx][1], node_controls[closestNodeIdx][2]
-                            )
-                            # print(strOut)
-                            # print(strTick)                            
-                        throttle = node_controls[closestNodeIdx][0]
-                        steer = node_controls[closestNodeIdx][1]
-                        brake = node_controls[closestNodeIdx][2]
-                        countAnalytical-=1
-                        countHistory+=1
-                    fileTick = open(pathTick, 'a')
-                    fileTick.write(strTick)
-                    fileTick.close()
+                # if lLapCount > 2:
+                #     # lookup graph
+                #     bLookupSuccess, closestNodeIdx, \
+                #         bMetSpeedMinimum, countTicksNotMoving = \
+                #         GetVehicleControlsGraph(
+                #             vehicle.get_location(), bMetSpeedMinimum,
+                #             countTicksNotMoving
+                #         )
+                #     import random
+                #     # if bLookupSuccess and random.random()<0.1:
+                #     if bLookupSuccess:
+                #         if bVerbose or True:
+                #             strOut=f'closestNodeIdx: {closestNodeIdx}, '
+                #             strOut+=f'node_locations[closestNodeIdx]: {node_locations[closestNodeIdx]}, '
+                #             strOut+=f'node_controls[closestNodeIdx]: {node_controls[closestNodeIdx]}'
+                #             strTick='history'
+                #             strTick='history    {:06d} {:06d} vel:{:07.2f},{:07.2f},{:07.2f}, curr loc:{:07.2f},{:07.2f},{:07.2f}, mat loc:{:07.2f},{:07.2f},{:07.2f}, curr cont:{:07.2f},{:07.2f},{:07.2f}, mat cont:{:07.2f},{:07.2f},{:07.2f}\n'.format(
+                #                 countTickGlobal, countTickLap, 
+                #                 vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
+                #                 vehicle.get_location().x,vehicle.get_location().y,vehicle.get_location().z,
+                #                 node_locations[closestNodeIdx][0],node_locations[closestNodeIdx][1],node_locations[closestNodeIdx][2],
+                #                 vehicle.get_control().throttle, vehicle.get_control().steer, vehicle.get_control().brake,
+                #                 node_controls[closestNodeIdx][0], node_controls[closestNodeIdx][1], node_controls[closestNodeIdx][2]
+                #             )
+                #             # print(strOut)
+                #             # print(strTick)                            
+                #         throttle = node_controls[closestNodeIdx][0]
+                #         steer = node_controls[closestNodeIdx][1]
+                #         brake = node_controls[closestNodeIdx][2]
+                #         countAnalytical-=1
+                #         countHistory+=1
+                #     fileTick = open(pathTick, 'a')
+                #     fileTick.write(strTick)
+                #     fileTick.close()
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)

@@ -1,4 +1,5 @@
 *.pyc
+_bak_27_rl/*
 _out_14rl_custom/*
 _out_16rl_custom2/*
 _out_20spawn_check/*

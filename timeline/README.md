@@ -1046,3 +1046,7 @@ Presumably the simulator crashed.
 5/27/2024 12:28 PM: not history lookup for distance threshold 0.2 
 through 906 laps. Code now includes 0.5 distance threshold and 10% 
 use of valid history.  
+5/30/2024 3:46 PM: run command
+```
+python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --speed 40 --vehicle vehicle.tesla.model3 | tee out.txt
+```
