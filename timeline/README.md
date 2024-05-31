@@ -1097,3 +1097,5 @@ valid. How to make sure lap goes through 3(?) waypoints in order.
 5/31/2024 12:57 PM: TODO: validate lap drives through 3 points in order.  
 5/31/2024 1:13 PM: currently running fastest lap with best-lap-time 
 validation.  
+5/31/2024 1:17 PM: car drives in circle on lap 2.  
+5/31/2024 2:36 PM: 102.9 seconds on 9 of 43 laps. Try 60 km/h.  

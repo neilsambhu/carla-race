@@ -244,6 +244,7 @@ def main():
         countTickLap = 0
         countTickGlobal = 0
         lLapCount = 0
+        lLapCountBest = 0
         timePrevLapSeconds = float(1e10)
         timeCurrentLapSeconds = float(1e9)
         timeBestSeconds = float(1e8)
@@ -724,8 +725,9 @@ def main():
             timeCurrentLapSeconds = elapsedTimeCarla
             if bValidLap and timeCurrentLapSeconds < timeBestSeconds:
                 timeBestSeconds = timeCurrentLapSeconds
+                lLapCountBest = lLapCount
             # print(f'prev time: {timePrevLapSeconds:.1f}\tcurr time: {timeCurrentLapSeconds:.1f}')
-            print(f'curr time: {timeCurrentLapSeconds:.1f}\tbest time: {timeBestSeconds:.1f}')
+            print(f'curr time: {timeCurrentLapSeconds:.1f}\tbest time (lap {lLapCountBest:04d}): {timeBestSeconds:.1f}')
 
     finally:
         actor_list_destroy(actor_list)
