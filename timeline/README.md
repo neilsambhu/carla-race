@@ -1092,3 +1092,5 @@ two-part throttle) of (1) target speed 60 km/h and (2) 80% throttle.
 5/30/2024 11:32 PM: re-run 50 km/h, 85% throttle experiment. Plots are 
 for each lap. Objective: validate best lap time after 16 laps (70.1 
 seconds) exists without driving around track backwards.  
+5/30/2024 11:58 PM: fastest lap of 70.1 seconds from lap 11 is not 
+valid. How to make sure lap goes through 3(?) waypoints in order.  
