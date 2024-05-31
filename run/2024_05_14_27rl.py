@@ -427,8 +427,8 @@ def main():
                 bWithinThreshold = None
                 maxSteer = None
                 unitChangeThrottle = 0.1
-                # unitChangeSteer = 0.1
-                unitChangeSteer = 1
+                unitChangeSteer = 0.1
+                # unitChangeSteer = 1
                 # unitChangeBrake = 0.1
                 unitChangeBrake = 1
                 kmh = VehicleSpeed1D(vehicle)
