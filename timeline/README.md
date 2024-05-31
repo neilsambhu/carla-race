@@ -1067,3 +1067,5 @@ python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --speed 80 -
 5/30/2024 4:28 PM: 120.8 seconds. Try 70 km/h.  
 5/30/2024 5:27 PM: 100.9 seconds. Crash at lap 11. Try 50 km/h.  
 5/30/2024 5:27 PM: 107.6 seconds.  
+5/30/2024 7:27 PM: 104.6 seconds. Potentially 83.1 seconds. Try 60 km/h.  
+5/30/2024 7:27 PM: 97.5 seconds. Try 85% throttle.  
