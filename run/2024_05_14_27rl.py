@@ -443,11 +443,14 @@ def main():
                     bMetSpeedMinimum = True
                     countTicksNotMoving=0
                     maxSteer = min(abs(deltaTheta)/int(args.steerDivisor), 1)
-                # if abs(deltaTheta) < thresholdDeltaThetaSteer:
-                #     # deltaTheta = -deltaTheta
-                #     maxSteer = 1e-3
-                # else:
-                #     maxSteer = 1e-1
+                # steering correction small
+                if abs(deltaTheta) < thresholdDeltaThetaSteer:
+                    # deltaTheta = -deltaTheta
+                    # maxSteer = 1e-3
+                    pass
+                else:
+                    # maxSteer = 1e-1
+                    unitChangeSteer = 1.0
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True
                     throttle, steer, brake = getStandardVehicleControl()

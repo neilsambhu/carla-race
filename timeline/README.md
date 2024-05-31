@@ -1078,3 +1078,14 @@ python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --speed 80 -
 When going straight, I need less steering than when driving through 
 a turn. Try unitSteer 0.1.  
 5/30/2024 8:56 PM: vehicle drives in circle. Try 50 km/h.  
+5/30/2024 11:33 PM: unitThrottle is 1.0 when steering correction is 
+greater than 5 degrees.  
+5/30/2024 11:09 PM: best time after 8 laps: 104.4 seconds.  
+```
+current target speed: 50 km/h ; best config target speed: 60 km/h  
+current throttle: 85% throttle; best config throttle: 80% throttle  
+```
+5/30/2024 11:15 PM: TODO: replicate best config (with addition of 
+two-part throttle) of (1) target speed 60 km/h and (2) 80% throttle.  
+5/30/2024 11:19 PM: TODO: best time after 16 laps: 70.1 seconds.  
+5/30/2024 11:22 PM: TODO: increase target speed from 50 to 60 km/h.  
