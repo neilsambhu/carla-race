@@ -244,6 +244,7 @@ def main():
         lLapCount = 0
         timePrevLapSeconds = float(1e10)
         timeCurrentLapSeconds = float(1e9)
+        timeBestSeconds = float(1e8)
         countAnalytical, countHistory = 1, 1
         if args.writeImages == 'True':
             camera.listen(image_queue.append)
@@ -427,7 +428,8 @@ def main():
                 maxSteer = None
                 unitChangeThrottle = 0.1
                 unitChangeSteer = 0.1
-                unitChangeBrake = 0.1
+                # unitChangeBrake = 0.1
+                unitChangeBrake = 1
                 kmh = VehicleSpeed1D(vehicle)
                 listSpeed.append(kmh)
                 # output += f'{str_kmh(kmh)} | '
@@ -704,7 +706,10 @@ def main():
             TimeToConsole(elapsedTimeCarla, 'CARLA')            
             timePrevLapSeconds = timeCurrentLapSeconds
             timeCurrentLapSeconds = elapsedTimeCarla
-            print(f'prev time: {timePrevLapSeconds:.1f}\tcurr time: {timeCurrentLapSeconds:.1f}')
+            if timeCurrentLapSeconds < timeBestSeconds:
+                timeBestSeconds = timeCurrentLapSeconds
+            # print(f'prev time: {timePrevLapSeconds:.1f}\tcurr time: {timeCurrentLapSeconds:.1f}')
+            print(f'curr time: {timeCurrentLapSeconds:.1f}\tbest time: {timeBestSeconds:.1f}')
 
     finally:
         actor_list_destroy(actor_list)
