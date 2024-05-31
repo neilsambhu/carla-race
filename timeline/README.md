@@ -1087,5 +1087,8 @@ current throttle: 85% throttle; best config throttle: 80% throttle
 ```
 5/30/2024 11:15 PM: TODO: replicate best config (with addition of 
 two-part throttle) of (1) target speed 60 km/h and (2) 80% throttle.  
-5/30/2024 11:19 PM: TODO: best time after 16 laps: 70.1 seconds.  
+5/30/2024 11:19 PM: best time after 16 laps: 70.1 seconds.  
 5/30/2024 11:22 PM: TODO: increase target speed from 50 to 60 km/h.  
+5/30/2024 11:32 PM: re-run 50 km/h, 85% throttle experiment. Plots are 
+for each lap. Objective: validate best lap time after 16 laps (70.1 
+seconds) exists without driving around track backwards.  

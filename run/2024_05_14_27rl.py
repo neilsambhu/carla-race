@@ -350,7 +350,7 @@ def main():
                 ax2.set_ylabel('Y')
                 # ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
                 # plt.rcParams.update({'font.size': 24})
-                fig_overlay.savefig(os.path.join(dir_output, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                fig_overlay.savefig(os.path.join(dir_output, f'{lLapCount:04d}_overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
                 plt.close(fig_overlay)
             if bPlot:
                 fig_speed, ax3 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
@@ -676,16 +676,16 @@ def main():
             if bPlot:
                 # Save the delta Y plot
                 ax0.plot(listDistancePredToPath)
-                fig_distancePredToPath.savefig(os.path.join(dir_output, f'distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                fig_distancePredToPath.savefig(os.path.join(dir_output, f'{lLapCount:04d}_distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
                 # ax1.plot(listDeltaY)
                 ax1.plot(listDeltaTheta)
                 # fig_deltaY.savefig(os.path.join(dir_output, 'deltaY.png'))
-                fig_deltaTheta.savefig(os.path.join(dir_output, f'deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                fig_deltaTheta.savefig(os.path.join(dir_output, f'{lLapCount:04d}_deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
                 # plt.close(fig_deltaY)
                 plt.close(fig_deltaTheta)
                 savePlotOverlay()
                 ax3.plot(listSpeed)
-                fig_speed.savefig(os.path.join(dir_output, f'speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                fig_speed.savefig(os.path.join(dir_output, f'{lLapCount:04d}_speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
                 plt.close(fig_speed)
 
             countTickLap=0

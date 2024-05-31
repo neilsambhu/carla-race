@@ -1,84 +1,20 @@
 --------------------------------------------------
-lap 0001 elapsed time (wall): 00:00:51.4
+lap 0001 elapsed time (wall): 00:00:58.8
 lap 0001 elapsed time (CARLA): 00:01:51.3
 curr time: 111.4	best time: 111.4
 --------------------------------------------------
-lap 0002 elapsed time (wall): 00:01:07.1
+lap 0002 elapsed time (wall): 00:01:21.0
 lap 0002 elapsed time (CARLA): 00:02:29.6
 curr time: 149.6	best time: 111.4
 --------------------------------------------------
-lap 0003 elapsed time (wall): 00:00:47.6
+lap 0003 elapsed time (wall): 00:00:54.9
 lap 0003 elapsed time (CARLA): 00:01:44.3
 curr time: 104.4	best time: 104.4
 --------------------------------------------------
-lap 0004 elapsed time (wall): 00:00:51.5
+lap 0004 elapsed time (wall): 00:01:02.3
 lap 0004 elapsed time (CARLA): 00:01:54.2
 curr time: 114.3	best time: 104.4
 --------------------------------------------------
-lap 0005 elapsed time (wall): 00:00:57.1
+lap 0005 elapsed time (wall): 00:00:59.6
 lap 0005 elapsed time (CARLA): 00:01:50.2
 curr time: 110.3	best time: 104.4
---------------------------------------------------
-lap 0006 elapsed time (wall): 00:00:47.8
-lap 0006 elapsed time (CARLA): 00:01:48.6
-curr time: 108.6	best time: 104.4
---------------------------------------------------
-lap 0007 elapsed time (wall): 00:00:50.0
-lap 0007 elapsed time (CARLA): 00:01:47.6
-curr time: 107.7	best time: 104.4
---------------------------------------------------
-lap 0008 elapsed time (wall): 00:00:55.4
-lap 0008 elapsed time (CARLA): 00:01:50.0
-curr time: 110.1	best time: 104.4
---------------------------------------------------
-lap 0009 elapsed time (wall): 00:00:55.4
-lap 0009 elapsed time (CARLA): 00:01:42.9
-curr time: 102.9	best time: 102.9
---------------------------------------------------
-lap 0010 elapsed time (wall): 00:01:01.6
-lap 0010 elapsed time (CARLA): 00:01:46.6
-curr time: 106.7	best time: 102.9
---------------------------------------------------
-lap 0011 elapsed time (wall): 00:00:42.3
-lap 0011 elapsed time (CARLA): 00:01:10.1
-curr time: 70.1	best time: 70.1
---------------------------------------------------
-lap 0012 elapsed time (wall): 00:01:13.0
-lap 0012 elapsed time (CARLA): 00:01:49.2
-curr time: 109.2	best time: 70.1
---------------------------------------------------
-lap 0013 elapsed time (wall): 00:01:20.7
-lap 0013 elapsed time (CARLA): 00:01:52.2
-curr time: 112.2	best time: 70.1
---------------------------------------------------
-lap 0014 elapsed time (wall): 00:01:18.7
-lap 0014 elapsed time (CARLA): 00:01:45.1
-curr time: 105.2	best time: 70.1
---------------------------------------------------
-lap 0015 elapsed time (wall): 00:00:53.5
-lap 0015 elapsed time (CARLA): 00:01:12.2
-curr time: 72.3	best time: 70.1
---------------------------------------------------
-lap 0016 elapsed time (wall): 00:01:24.6
-lap 0016 elapsed time (CARLA): 00:01:45.8
-curr time: 105.8	best time: 70.1
---------------------------------------------------
-lap 0017 elapsed time (wall): 00:01:30.8
-lap 0017 elapsed time (CARLA): 00:01:47.9
-curr time: 108.0	best time: 70.1
---------------------------------------------------
-lap 0018 elapsed time (wall): 00:01:43.2
-lap 0018 elapsed time (CARLA): 00:01:55.7
-curr time: 115.7	best time: 70.1
---------------------------------------------------
-lap 0019 elapsed time (wall): 00:01:47.9
-lap 0019 elapsed time (CARLA): 00:01:47.1
-curr time: 107.2	best time: 70.1
---------------------------------------------------
-lap 0020 elapsed time (wall): 00:01:55.0
-lap 0020 elapsed time (CARLA): 00:01:50.7
-curr time: 110.8	best time: 70.1
---------------------------------------------------
-lap 0021 elapsed time (wall): 00:02:00.5
-lap 0021 elapsed time (CARLA): 00:01:53.1
-curr time: 113.1	best time: 70.1
