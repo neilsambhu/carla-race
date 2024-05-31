@@ -157,13 +157,15 @@ image_queue=deque(maxlen=20*150)
 # lock = threading.Lock()
 def WriteImagesToDisk():
     from tqdm import tqdm
-    lIndex = 0
-    with tqdm(total=len(image_queue),
+    reversed_images = list(image_queue)[::-1]
+    lIndex = len(reversed_images)-1
+    with tqdm(total=len(reversed_images),
         desc="Writing images to disk") as pbar:
-        while image_queue:
-            image = image_queue.popleft()
+        # while image_queue:
+        for image in reversed_images:
+            # image = image_queue.popleft()
             processImage(image, lIndex)
-            lIndex += 1
+            lIndex -= 1
             pbar.update(1)
 def main():
     try:
@@ -309,6 +311,7 @@ def main():
                 ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
             def savePlotOverlay():
                 # Plot setup for overlay
+                plt.rcParams.update({'font.size': 24})
                 # fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
                 fig_overlay, ax2 = plt.subplots(figsize=(12, 8))  # Adjust the figsize as needed
                 # leg = ax2.legend()
@@ -345,7 +348,7 @@ def main():
                 ax2.set_xlabel('X')
                 ax2.set_ylabel('Y')
                 # ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
-                plt.rcParams.update({'font.size': 24})
+                # plt.rcParams.update({'font.size': 24})
                 fig_overlay.savefig(os.path.join(dir_output, f'overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
                 plt.close(fig_overlay)
             if bPlot:

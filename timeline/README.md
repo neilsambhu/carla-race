@@ -1069,3 +1069,5 @@ python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --speed 80 -
 5/30/2024 5:27 PM: 107.6 seconds.  
 5/30/2024 7:27 PM: 104.6 seconds. Potentially 83.1 seconds. Try 60 km/h.  
 5/30/2024 7:27 PM: 97.5 seconds. Try 85% throttle.  
+5/30/2024 8:17 PM: crash at lap 4. Try 50 km/h.  
+5/30/2024 8:24 PM: potential TODO: change unitThrottle to 1.0.  
