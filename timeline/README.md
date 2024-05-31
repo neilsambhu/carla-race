@@ -1072,3 +1072,5 @@ python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py --speed 80 -
 5/30/2024 8:17 PM: crash at lap 4. Try 50 km/h.  
 5/30/2024 8:24 PM: potential TODO: change unitThrottle to 1.0.  
 5/30/2024 8:32 PM: vehicle drives reverse direction. unitThrotle 1.0.  
+5/30/2024 8:34 PM: unitSteer 1.0.  
+5/30/2024 8:37 PM: drive reverses direction. Try 30 km/h.  
