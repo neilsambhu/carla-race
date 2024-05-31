@@ -456,7 +456,9 @@ def main():
                     pass
                 else:
                     # maxSteer = 1e-1
-                    unitChangeSteer = 1.0
+                    # unitChangeSteer = 1.0
+                    unitChangeSteer = 0.5
+                    speedTarget = 30
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True
                     throttle, steer, brake = getStandardVehicleControl()
@@ -726,6 +728,7 @@ def main():
             if bValidLap and timeCurrentLapSeconds < timeBestSeconds:
                 timeBestSeconds = timeCurrentLapSeconds
                 lLapCountBest = lLapCount
+                x=5
             # print(f'prev time: {timePrevLapSeconds:.1f}\tcurr time: {timeCurrentLapSeconds:.1f}')
             print(f'curr time: {timeCurrentLapSeconds:.1f}\tbest time (lap {lLapCountBest:04d}): {timeBestSeconds:.1f}')
 

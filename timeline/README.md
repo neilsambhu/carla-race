@@ -1099,3 +1099,14 @@ valid. How to make sure lap goes through 3(?) waypoints in order.
 validation.  
 5/31/2024 1:17 PM: car drives in circle on lap 2.  
 5/31/2024 2:36 PM: 102.9 seconds on 9 of 43 laps. Try 60 km/h.  
+5/31/2024 2:56 PM: 103.2 seconds on 6 of 17 laps. Try 40 km/h.  
+5/31/2024 3:39 PM: need fast enough target speed to keep car from 
+driving in a circle. Try 70 km/h.  
+5/31/2024 3:52 PM: crash on lap 11. Car steering correction is too much 
+in turns. Change unitChangeSteer from 1.0 to 0.5 for large steering 
+correction.  
+5/31/2024 4:00 PM: potential TODO: increase prediction from 1/4 
+second.  
+5/31/2024 4:09 PM: two types of steering correction: 
+straightaway and turn. Straightaway can have 80 km/h target speed. 
+Turns need 30 km/h target speed.  
