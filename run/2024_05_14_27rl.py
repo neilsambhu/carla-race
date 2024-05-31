@@ -211,6 +211,8 @@ def main():
         location_destination_curve = carla.Location(x=664.9, y=168.2, z=height)
         transform = spawn_point
         location_destination = spawn_point.location
+        locationCheckpoint1 = carla.Location(x=658.5670166015625, y=199.1639862060547, z=height)
+        locationCheckpoint2 = carla.Location(x=512.0729370117188, y=-16.398527145385742, z=height)
 
         # So let's tell the world to spawn the vehicle.
         vehicle = world.spawn_actor(vehicle_bp, transform)
@@ -270,6 +272,9 @@ def main():
             node_controls = ReadObjectFromDisk('controls.pkl')
             lLapCount = ReadObjectFromDisk('lap_count.pkl')
         while countAnalytical>0:
+            bValidLap = False
+            bReachedCheckpoint1 = False
+            bReachedCheckpoint2 = False
             countAnalytical, countHistory = 0, 0
             lLapCount+=1
             # if lLapCount > 200:
@@ -582,6 +587,13 @@ def main():
             bMetSpeedMinimum = False
             countTicksNotMoving=0
             while getDistanceToDestination() > 2 or countTickLap < 500:
+                def ReachedLocation(locationTarget):
+                    return locationTarget.distance(vehicle.get_location()) < 2
+                if ReachedLocation(locationCheckpoint1):
+                    bReachedCheckpoint1=True
+                if bReachedCheckpoint1 and ReachedLocation(locationCheckpoint2):
+                    bReachedCheckpoint2=True
+                bValidLap = bReachedCheckpoint1 and bReachedCheckpoint2
                 output = f'tick: {countTickLap:04d} | '
                 if not Z_VelocitySmall(vehicle):
                     if bVerbose:
@@ -710,7 +722,7 @@ def main():
             TimeToConsole(elapsedTimeCarla, 'CARLA')            
             timePrevLapSeconds = timeCurrentLapSeconds
             timeCurrentLapSeconds = elapsedTimeCarla
-            if timeCurrentLapSeconds < timeBestSeconds:
+            if bValidLap and timeCurrentLapSeconds < timeBestSeconds:
                 timeBestSeconds = timeCurrentLapSeconds
             # print(f'prev time: {timePrevLapSeconds:.1f}\tcurr time: {timeCurrentLapSeconds:.1f}')
             print(f'curr time: {timeCurrentLapSeconds:.1f}\tbest time: {timeBestSeconds:.1f}')

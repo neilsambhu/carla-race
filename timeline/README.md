@@ -1094,3 +1094,6 @@ for each lap. Objective: validate best lap time after 16 laps (70.1
 seconds) exists without driving around track backwards.  
 5/30/2024 11:58 PM: fastest lap of 70.1 seconds from lap 11 is not 
 valid. How to make sure lap goes through 3(?) waypoints in order.  
+5/31/2024 12:57 PM: TODO: validate lap drives through 3 points in order.  
+5/31/2024 1:13 PM: currently running fastest lap with best-lap-time 
+validation.  
