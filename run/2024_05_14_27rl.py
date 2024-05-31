@@ -296,8 +296,10 @@ def main():
                 return location_destination.distance(vehicle.get_location())
             def getStandardVehicleControl():
                 # return 0.75, 0.0, 0.0
+                # return 0.85, 0.0, 0.0
+                # return 1, 0.0, 0.0
+                return 0.9, 0.0, 0.0
                 # return 0.8, 0.0, 0.0
-                return 0.85, 0.0, 0.0
             throttle, steer, brake = getStandardVehicleControl()
             # listDeltaY = []
             listDistancePredToPath = []
@@ -457,11 +459,13 @@ def main():
                 if abs(deltaTheta) < thresholdDeltaThetaSteer:
                     # deltaTheta = -deltaTheta
                     # maxSteer = 1e-3
+                    # unitChangeSteer = 0.2
                     speedTarget=int(args.speedStraight)
                 else:
                     # maxSteer = 1e-1
                     # unitChangeSteer = 1.0
                     # unitChangeSteer = 0.5
+                    unitChangeSteer = 0.2
                     speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True

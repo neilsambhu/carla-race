@@ -1129,3 +1129,11 @@ Try 80 km/h for speedStraight.
 5/31/2024 6:02 PM: 105.2 seconds on 4 of 21 laps. Crash. 
 Try 50 km/h for speedTurn.  
 5/31/2024 6:02 PM: crash. Try 30 km/h for speedTurn.  
+5/31/2024 6:51 PM: 117.5 seconds on 3 of 3 laps. Try 100% throttle.  
+5/31/2024 6:53 PM: Crash. Try 60 km/h speedStraight.  
+5/31/2024 6:53 PM: Crash. Try 90% throttle.  
+```
+I'm having trouble getting a stable configuration (i.e., no crash) and lap time under 120 seconds. 
+```
+5/31/2024 6:58 PM: Crash in turn. Try 40 km/h speed straight.  
+5/31/2024 7:01 PM: Crash in turn. Try unitChangeSteer 0.2.  
