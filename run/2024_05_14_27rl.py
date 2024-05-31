@@ -32,9 +32,13 @@ IM_WIDTH = 800//2
 IM_HEIGHT = 600//2
 argparser = argparse.ArgumentParser(description='CARLA Path Following')
 argparser.add_argument(
-    '-s', '--speed',
+    '-s', '--speedStraight',
+    default='70',
+    help='Target speed for vehicle traveling straight')
+argparser.add_argument(
+    '-t', '--speedTurn',
     default='30',
-    help='Target speed for vehicle')
+    help='Target speed for vehicle turning')
 argparser.add_argument(
     '-d', '--steerDivisor',
     default='50',
@@ -48,7 +52,7 @@ argparser.add_argument(
     default='True',
     help='Write images to disk')
 args = argparser.parse_args()
-TARGET_SPEED = int(args.speed)
+# TARGET_SPEED = int(args.speed)
 
 dir_output = '_out_27_rl'
 if not os.path.exists(dir_output):
@@ -453,12 +457,12 @@ def main():
                 if abs(deltaTheta) < thresholdDeltaThetaSteer:
                     # deltaTheta = -deltaTheta
                     # maxSteer = 1e-3
-                    pass
+                    speedTarget=int(args.speedStraight)
                 else:
                     # maxSteer = 1e-1
                     # unitChangeSteer = 1.0
                     unitChangeSteer = 0.5
-                    speedTarget = 30
+                    speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True
                     throttle, steer, brake = getStandardVehicleControl()

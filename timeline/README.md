@@ -1110,3 +1110,9 @@ second.
 5/31/2024 4:09 PM: two types of steering correction: 
 straightaway and turn. Straightaway can have 80 km/h target speed. 
 Turns need 30 km/h target speed.  
+5/31/2024 4:18 PM: new speed parameters.  
+```
+python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py \
+--speedStraight 80 --speedTurn 30 --vehicle vehicle.tesla.model3 \
+| tee out.txt
+```
