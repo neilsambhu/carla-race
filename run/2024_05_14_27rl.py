@@ -52,7 +52,7 @@ argparser.add_argument(
     default='True',
     help='Write images to disk')
 args = argparser.parse_args()
-# TARGET_SPEED = int(args.speed)
+TARGET_SPEED = int(args.speedStraight)
 
 dir_output = '_out_27_rl'
 if not os.path.exists(dir_output):
@@ -461,7 +461,7 @@ def main():
                 else:
                     # maxSteer = 1e-1
                     # unitChangeSteer = 1.0
-                    unitChangeSteer = 0.5
+                    # unitChangeSteer = 0.5
                     speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True

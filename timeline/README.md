@@ -1116,3 +1116,16 @@ python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py \
 --speedStraight 80 --speedTurn 30 --vehicle vehicle.tesla.model3 \
 | tee out.txt
 ```
+5/31/2024 4:18 PM: 116.4 seconds on 4 of 4 laps. 
+80 km/h is too fast in straights. Try 70 km/h.  
+5/31/2024 4:33 PM: 116.4 seconds on 4 of 4 laps. Crash.  
+5/31/2024 4:36 PM: unitChangeSteer 0.5 to 0.1 for turns.  
+5/31/2024 4:41 PM: 117.5 seconds on 3 of 3 laps. 
+Car drives in circles.  
+5/31/2024 4:44 PM: TODO: try 60 km/h for speedTurn.  
+5/31/2024 4:55 PM: 105.2 seconds on 4 of 13 laps. 
+Try 80 km/h for speedStraight.  
+5/31/2024 4:55 PM: potential TODO: increase throttle from 85%.  
+5/31/2024 6:02 PM: 105.2 seconds on 4 of 21 laps. Crash. 
+Try 50 km/h for speedTurn.  
+5/31/2024 6:02 PM: crash. Try 30 km/h for speedTurn.  
