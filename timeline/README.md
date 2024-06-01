@@ -1137,3 +1137,11 @@ I'm having trouble getting a stable configuration (i.e., no crash) and lap time 
 ```
 5/31/2024 6:58 PM: Crash in turn. Try 40 km/h speed straight.  
 5/31/2024 7:01 PM: Crash in turn. Try unitChangeSteer 0.2.  
+5/31/2024 7:09 PM: 177 seconds on 1 of 3 laps. Try locationPrediction 
+1 second in the future.  
+5/31/2024 10:46 PM: 102 seconds on 15 of 36 laps. 
+Try 2 seconds in the future.  
+5/31/2024 10:54 PM: prevent car from making a u-turn. 
+Temporary solution: respawn vehicle at each lap. Vehicle will not 
+have full speed at start of next lap.  
+Try 0.5 seconds in the future.  

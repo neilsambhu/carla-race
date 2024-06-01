@@ -142,6 +142,10 @@ def Location500msPrediction(fps, vehicle):
     distance = Distance(deltaT, vehicle.get_velocity(), vehicle.get_acceleration())
     locationPrediction = vehicle.get_location()+distance
     return locationPrediction
+def LocationPrediction(fps, vehicle, deltaT=0.250):
+    distance = Distance(deltaT, vehicle.get_velocity(), vehicle.get_acceleration())
+    locationPrediction = vehicle.get_location()+distance
+    return locationPrediction
 def Z_VelocitySmall(vehicle):
     zVelocityThreshold = 0.01
     return abs(vehicle.get_velocity().z)<zVelocityThreshold
@@ -207,8 +211,9 @@ def main():
         spawn_start_left = carla.Transform(carla.Location(x=19.7, y=240.9, z=height), carla.Rotation())
         spawn_start_center = carla.Transform(carla.Location(x=19.7, y=244.4, z=height), carla.Rotation())
         spawn_start_right = carla.Transform(carla.Location(x=19.7, y=247.9, z=height), carla.Rotation())
+        locationStart = carla.Location(x=-313.8, y=243.6, z=0.1)
         spawn_point = carla.Transform(
-                carla.Location(x=-313.8, y=243.6, z=0.1),
+                locationStart,
                 carla.Rotation()
             )
         location_destination_straight = carla.Location(x=581.2, y=244.6, z=height)
@@ -613,13 +618,19 @@ def main():
                     countTickLap += 1
                     countTickGlobal += 1
                     continue
-                locationPrediction, tickPrediction, output_temp = Location250msPrediction(1/settings.fixed_delta_seconds, countTickLap, vehicle)
-                locationPredictionTwoSteps = Location500msPrediction(1/settings.fixed_delta_seconds, vehicle)
-                dictLocationPrediction[tickPrediction] = locationPrediction
-                output += output_temp            
-                if countTickLap in dictLocationPrediction:
-                    distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTickLap])
-                    # output += f'pred err: {Vector3D_ToString(distanceError)} | '
+                # locationPrediction, tickPrediction, output_temp = Location250msPrediction(1/settings.fixed_delta_seconds, countTickLap, vehicle)
+                # locationPredictionTwoSteps = Location500msPrediction(1/settings.fixed_delta_seconds, vehicle)
+                # # dictLocationPrediction[tickPrediction] = locationPrediction
+                # output += output_temp            
+                # if countTickLap in dictLocationPrediction:
+                #     distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTickLap])
+                #     # output += f'pred err: {Vector3D_ToString(distanceError)} | '
+                locationPrediction = LocationPrediction(
+                    1/settings.fixed_delta_seconds, vehicle, 
+                    # 1.0
+                    # 2.0
+                    0.5
+                    )
                 distanceMinimum, locationClosestToPredicted = getLocationClosestToCurrent(locationPrediction)
                 listDistancePredToPath.append(distanceMinimum)
                 output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
@@ -739,6 +750,10 @@ def main():
                 x=5
             # print(f'prev time: {timePrevLapSeconds:.1f}\tcurr time: {timeCurrentLapSeconds:.1f}')
             print(f'curr time: {timeCurrentLapSeconds:.1f}\tbest time (lap {lLapCountBest:04d}): {timeBestSeconds:.1f}')
+            def RespawnVehicle():
+                vehicle.set_transform(transform)
+            if not bValidLap:
+                RespawnVehicle()
 
     finally:
         actor_list_destroy(actor_list)
