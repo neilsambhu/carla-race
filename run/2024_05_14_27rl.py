@@ -632,7 +632,7 @@ def main():
                     1/settings.fixed_delta_seconds, vehicle, 
                     1.0
                     # 2.0
-                    # 0.5
+                    # 1.7
                     # 5
                     )
                 distanceMinimum, locationClosestToPredicted = getLocationClosestToCurrent(locationPrediction)

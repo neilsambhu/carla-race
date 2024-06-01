@@ -1167,4 +1167,25 @@ speedTurn.
 6/1/2024 1:36 AM: car u-turns through first turn. Try 5 seconds 
 into future.  
 6/1/2024 1:36 AM: car turns too early. Try 1 second into the future.  
-
+6/1/2024 1:45 AM: car u-turns through first turn. 30 km/h 
+speedStraight.  
+6/1/2024 1:49 AM: car oversteers. Try 2 seconds into the future.  
+6/1/2024 1:49 AM: car turns too early. Try 1.5 seconds into the future.  
+6/1/2024 1:49 AM: car oversteers. Reduce unitChangeSteer to 0.1.  
+6/1/2024 1:49 AM: car oversteers. Reduce unitChangeSteer to 0.01.  
+6/1/2024 1:49 AM: car oversteers less. Reduce unitChangeSteer to 
+0.001.  
+6/1/2024 1:49 AM: car oversteers less. Try 2 seconds into the future.  
+6/1/2024 2:02 AM: car understeers. Increase unitChangeSteer to 0.01.  
+6/1/2024 2:5 AM: car understeers. Increase unitChangeSteer to 0.1.  
+6/1/2024 2:06 AM: car turns too early. Try 1.5 seconds into the future.  
+6/1/2024 2:10 AM: car oversteers. Limit max steering.  
+6/1/2024 2:10 AM: car oversteers. Try 1.7 seconds into the future.  
+6/1/2024 2:17 AM: car understeers. Increase max steering to 0.5.  
+6/1/2024 2:22 AM: changing maxSteer too early didn't do anything. 
+Car understeers. Increase unitChangeSteer to 0.2 in turns.  
+6/1/2024 10:58 AM: Try 1/4 second into the future.  
+6/1/2024 11:02 AM: Too much steering correction. 
+Try 5 seconds into the future.  
+6/1/2024 11:04 AM: Car turns too early. Try 1 second into the future.  
+6/1/2024 12:05 PM: TODO: segment track to be able to brake early.  
