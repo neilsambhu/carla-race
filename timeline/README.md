@@ -1145,3 +1145,12 @@ Try 2 seconds in the future.
 Temporary solution: respawn vehicle at each lap. Vehicle will not 
 have full speed at start of next lap.  
 Try 0.5 seconds in the future.  
+6/1/2024 1:08 AM: try 5 seconds in the future.  
+6/1/2024 1:09 AM: back to 1 second in the future.  
+6/1/2024 1:11 AM: TODO: straightaways, far distance prediction. 
+turns, close distance prediction. Solution, find derivative of 
+path.  
+6/1/2024 1:14 AM: crash in turns. Try 20 km/h speedTurn.  
+6/1/2024 1:17 AM: too slow in turns. Back to 30 km/h. Try 
+unitChangeSteer 1.0 for large steering correction.  
+6/1/2024 1:19 AM: crash. Try unitChangeSteer 0.5.  

@@ -212,9 +212,11 @@ def main():
         spawn_start_center = carla.Transform(carla.Location(x=19.7, y=244.4, z=height), carla.Rotation())
         spawn_start_right = carla.Transform(carla.Location(x=19.7, y=247.9, z=height), carla.Rotation())
         locationStart = carla.Location(x=-313.8, y=243.6, z=0.1)
+        rotation = carla.Rotation(pitch=0, yaw=0, roll=0)
         spawn_point = carla.Transform(
                 locationStart,
-                carla.Rotation()
+                # carla.Rotation()
+                rotation
             )
         location_destination_straight = carla.Location(x=581.2, y=244.6, z=height)
         location_destination_curve = carla.Location(x=664.9, y=168.2, z=height)
@@ -469,8 +471,8 @@ def main():
                 else:
                     # maxSteer = 1e-1
                     # unitChangeSteer = 1.0
-                    # unitChangeSteer = 0.5
-                    unitChangeSteer = 0.2
+                    unitChangeSteer = 0.5
+                    # unitChangeSteer = 0.2
                     speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True
@@ -604,7 +606,7 @@ def main():
             countTicksNotMoving=0
             while getDistanceToDestination() > 2 or countTickLap < 500:
                 def ReachedLocation(locationTarget):
-                    return locationTarget.distance(vehicle.get_location()) < 2
+                    return locationTarget.distance(vehicle.get_location()) < 5
                 if ReachedLocation(locationCheckpoint1):
                     bReachedCheckpoint1=True
                 if bReachedCheckpoint1 and ReachedLocation(locationCheckpoint2):
@@ -627,9 +629,10 @@ def main():
                 #     # output += f'pred err: {Vector3D_ToString(distanceError)} | '
                 locationPrediction = LocationPrediction(
                     1/settings.fixed_delta_seconds, vehicle, 
-                    # 1.0
+                    1.0
                     # 2.0
-                    0.5
+                    # 0.5
+                    # 5
                     )
                 distanceMinimum, locationClosestToPredicted = getLocationClosestToCurrent(locationPrediction)
                 listDistancePredToPath.append(distanceMinimum)
