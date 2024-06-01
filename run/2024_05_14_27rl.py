@@ -304,8 +304,8 @@ def main():
             def getStandardVehicleControl():
                 # return 0.75, 0.0, 0.0
                 # return 0.85, 0.0, 0.0
-                # return 1, 0.0, 0.0
-                return 0.9, 0.0, 0.0
+                return 1, 0.0, 0.0
+                # return 0.9, 0.0, 0.0
                 # return 0.8, 0.0, 0.0
             throttle, steer, brake = getStandardVehicleControl()
             # listDeltaY = []
@@ -469,10 +469,11 @@ def main():
                     # unitChangeSteer = 0.2
                     speedTarget=int(args.speedStraight)
                 else:
-                    # maxSteer = 1e-1
+                    unitChangeThrottle = 1.0
                     # unitChangeSteer = 1.0
-                    unitChangeSteer = 0.5
-                    # unitChangeSteer = 0.2
+                    # unitChangeSteer = 0.5
+                    unitChangeSteer = 0.2
+                    # unitChangeSteer = 0.3
                     speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True

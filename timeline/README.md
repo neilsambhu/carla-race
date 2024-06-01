@@ -1154,3 +1154,17 @@ path.
 6/1/2024 1:17 AM: too slow in turns. Back to 30 km/h. Try 
 unitChangeSteer 1.0 for large steering correction.  
 6/1/2024 1:19 AM: crash. Try unitChangeSteer 0.5.  
+6/1/2024 1:22 AM: 84.5 seconds in first lap.  
+6/1/2024 1:23 AM: car u-turns on second lap. 
+Target speed needs to increase. Try 80 km/h speedStraight.  
+6/1/2024 1:25 AM: car u-turns on second lap. Try 50 km/h speedTurn.  
+6/1/2024 1:26 AM: car needs to accelerate out of turn. Try 
+unitChangeThrottle 1.0 for large steering correction.  
+6/1/2024 1:30 AM: car u-turns. Try unitChangeSteer 0.3.  
+6/1/2024 1:30 AM: TODO: get 100% throttle to work.  
+6/1/2024 1:36 AM: car u-turns through first turn. Try 50 km/h 
+speedTurn.  
+6/1/2024 1:36 AM: car u-turns through first turn. Try 5 seconds 
+into future.  
+6/1/2024 1:36 AM: car turns too early. Try 1 second into the future.  
+
