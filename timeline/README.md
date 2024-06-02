@@ -1189,3 +1189,8 @@ Car understeers. Increase unitChangeSteer to 0.2 in turns.
 Try 5 seconds into the future.  
 6/1/2024 11:04 AM: Car turns too early. Try 1 second into the future.  
 6/1/2024 12:05 PM: TODO: segment track to be able to brake early.  
+6/1/2024 11:00 PM: TODO: modify closest point method. 
+Return closest point before turn. Compute angles between adjacent 
+points; return point before turn. At start of turn, car will aim for 
+midpoints within turn. After turn, car will aim for start of next 
+turn.  
