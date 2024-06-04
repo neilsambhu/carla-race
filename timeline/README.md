@@ -1194,3 +1194,10 @@ Return closest point before turn. Compute angles between adjacent
 points; return point before turn. At start of turn, car will aim for 
 midpoints within turn. After turn, car will aim for start of next 
 turn.  
+6/3/2024 2:41 PM: 1.7 seconds into the future, car turns too early. 
+Try 1.5 seconds into the future.  
+6/3/2024 2:50 PM: 1.5 seconds into the future, car oversteers. 
+6/3/2024 3:04 PM: TODO: invalidate old points on path to prevent 
+loop back to previously run section of track.  
+6/3/2024 3:30 PM: I'm having a lot of trouble getting the car go 
+through the first turn fast.  

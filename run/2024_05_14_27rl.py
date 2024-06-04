@@ -92,15 +92,17 @@ def getPath_CARLA_AP_Town06():
             listLocationsPath_CARLA_AP_Town06.append(locationFromPath)
     return listLocationsPath_CARLA_AP_Town06
 listLocationsPath_CARLA_AP_Town06 = getPath_CARLA_AP_Town06()
-def getLocationClosestToCurrent(currentLocation):
+def getLocationClosestToCurrent(currentLocation, indexPrevClosestLocation):
     distanceMinimum = None
     listDistance = []
-    for locationFromPath in listLocationsPath_CARLA_AP_Town06:
+    for locationFromPath in \
+        listLocationsPath_CARLA_AP_Town06[indexPrevClosestLocation:]:
         distanceFromPath = currentLocation.distance(locationFromPath)
         listDistance.append(distanceFromPath)
     distanceMinimum = min(listDistance)
     indexMinimum = listDistance.index(distanceMinimum)
-    return distanceMinimum, listLocationsPath_CARLA_AP_Town06[indexMinimum]
+    return indexMinimum, distanceMinimum, 
+        listLocationsPath_CARLA_AP_Town06[indexMinimum]
 def strPoint(point):
     return f'{point:05.1f}'
 def strLocation2D(location):
@@ -448,8 +450,8 @@ def main():
                 unitChangeThrottle = 0.1
                 unitChangeSteer = 0.1
                 # unitChangeSteer = 1
-                # unitChangeBrake = 0.1
-                unitChangeBrake = 1
+                unitChangeBrake = 0.1
+                # unitChangeBrake = 1
                 kmh = VehicleSpeed1D(vehicle)
                 listSpeed.append(kmh)
                 # output += f'{str_kmh(kmh)} | '
@@ -469,6 +471,7 @@ def main():
                     # unitChangeSteer = 0.2
                     speedTarget=int(args.speedStraight)
                 else:
+                    maxSteer=0.25
                     unitChangeThrottle = 1.0
                     # unitChangeSteer = 1.0
                     # unitChangeSteer = 0.5
@@ -605,6 +608,7 @@ def main():
                     countTicksNotMoving
             bMetSpeedMinimum = False
             countTicksNotMoving=0
+            indexPrevClosestLocation=0
             while getDistanceToDestination() > 2 or countTickLap < 500:
                 def ReachedLocation(locationTarget):
                     return locationTarget.distance(vehicle.get_location()) < 5
@@ -633,9 +637,15 @@ def main():
                     1.0
                     # 2.0
                     # 1.7
+                    # 1.5
                     # 5
                     )
-                distanceMinimum, locationClosestToPredicted = getLocationClosestToCurrent(locationPrediction)
+                indexPrevClosestLocation, distanceMinimum, \
+                    locationClosestToPredicted = \
+                    getLocationClosestToCurrent(
+                        locationPrediction, 
+                        indexPrevClosestLocation
+                    )
                 listDistancePredToPath.append(distanceMinimum)
                 output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
                 distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
