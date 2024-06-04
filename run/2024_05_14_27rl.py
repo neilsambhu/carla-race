@@ -101,7 +101,7 @@ def getLocationClosestToCurrent(currentLocation, indexPrevClosestLocation):
         listDistance.append(distanceFromPath)
     distanceMinimum = min(listDistance)
     indexMinimum = listDistance.index(distanceMinimum)
-    return indexMinimum, distanceMinimum, 
+    return indexMinimum, distanceMinimum, \
         listLocationsPath_CARLA_AP_Town06[indexMinimum]
 def strPoint(point):
     return f'{point:05.1f}'
