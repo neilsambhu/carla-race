@@ -92,7 +92,8 @@ def getPath_CARLA_AP_Town06():
             listLocationsPath_CARLA_AP_Town06.append(locationFromPath)
     return listLocationsPath_CARLA_AP_Town06
 listLocationsPath_CARLA_AP_Town06 = getPath_CARLA_AP_Town06()
-def getLocationClosestToCurrent(currentLocation, indexPrevClosestLocation):
+def getLocationClosestToCurrent(currentLocation, \
+    indexPrevClosestLocation):
     distanceMinimum = None
     listDistance = []
     for locationFromPath in \
@@ -100,7 +101,8 @@ def getLocationClosestToCurrent(currentLocation, indexPrevClosestLocation):
         distanceFromPath = currentLocation.distance(locationFromPath)
         listDistance.append(distanceFromPath)
     distanceMinimum = min(listDistance)
-    indexMinimum = listDistance.index(distanceMinimum)
+    indexMinimum = indexPrevClosestLocation + \
+        listDistance.index(distanceMinimum)
     return indexMinimum, distanceMinimum, \
         listLocationsPath_CARLA_AP_Town06[indexMinimum]
 def strPoint(point):
@@ -634,7 +636,7 @@ def main():
                 #     # output += f'pred err: {Vector3D_ToString(distanceError)} | '
                 locationPrediction = LocationPrediction(
                     1/settings.fixed_delta_seconds, vehicle, 
-                    1.0
+                    # 1.0
                     # 2.0
                     # 1.7
                     # 1.5
