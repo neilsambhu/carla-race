@@ -1201,3 +1201,16 @@ Try 1.5 seconds into the future.
 loop back to previously run section of track.  
 6/3/2024 3:30 PM: I'm having a lot of trouble getting the car go 
 through the first turn fast.  
+6/4/2024 1:34 PM: Problem is car oversteers when using the 
+analytical algorithm.  
+6/8/2024 1:12 PM: TODO: print (to text file) 3-pair angles of 
+adjacent points.  
+Key: tick of first point.  
+Value: angle among points.  
+6/8/2024 1:20 PM: TODO: analyze track path independent of vehicle 
+driving in simulation.  
+6/8/2024 2:01 PM: TODO: understand large-scale use of knowing 
+when to brake before turn.
+6/8/2024 2:16 PM: (1) lookahead 2 gives max angle of about 3; 
+(2) lookahead 20 gives more max angle of 3.14; 
+(3) lookahead 60 gives more max angle of 3.  

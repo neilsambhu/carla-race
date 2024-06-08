@@ -68,12 +68,15 @@ if not bLoadHistoryFromDisk:
 
 path_rl_controls = f'{dir_output}/Controls.txt'
 path_rl_locations = f'{dir_output}/Locations.txt'
+pathLocations = f'{dir_output}/locations.txt'
 pathTick = f'{dir_output}/tick.txt'
 pathLap = f'{dir_output}/lap.txt'
 
 strFileOption='w'
 if bLoadHistoryFromDisk:
     strFileOption='a'
+fileLocations = open(pathLocations, strFileOption)
+fileLocations.close()
 fileTick = open(pathTick, strFileOption)
 fileTick.close()
 fileLap = open(pathLap, strFileOption)
@@ -399,8 +402,38 @@ def main():
                 else:
                     division = dotProduct/magnitude
                 division = min(division, 1.0)
+                division = max(division, -1.0)
                 # print(f'division: {division}')
                 return math.acos(division)
+            # TODO: output angle between triad of points to text file. 
+            def AnalyzeAnglesOnPath():
+                fileLocations=open(pathLocations, 'a')
+                # lLookahead=2
+                lLookahead=20*3
+                for idxLocation, location in enumerate(
+                    listLocationsPath_CARLA_AP_Town06[:-lLookahead]
+                    ):
+                    def GetLocation(idxLocation, offset=0):
+                        return np.array([
+                            listLocationsPath_CARLA_AP_Town06[
+                                idxLocation+offset
+                            ].x,
+                            listLocationsPath_CARLA_AP_Town06[
+                                idxLocation+offset
+                            ].y
+                        ])
+                    npLocation1 = GetLocation(idxLocation,0)
+                    npLocation2 = GetLocation(idxLocation,lLookahead//2)
+                    npLocation3 = GetLocation(idxLocation,lLookahead)
+                    v1=npLocation1-npLocation2
+                    v2=-npLocation2+npLocation3
+                    fAngle = angle_between(v1,v2)
+                    sLine=f'loc index: {idxLocation:04d}\t'
+                    sLine+=f'angle through {idxLocation+2:04d}: '
+                    sLine+=f'{fAngle:5.2f}'
+                    fileLocations.write(sLine+'\n')
+                fileLocations.close()
+            AnalyzeAnglesOnPath()
             def GetVehicleOutput(theta, locationClosestToPredicted):
                 # x = vehicle.get_location().x*math.cos(theta) - vehicle.get_location().y*math.sin(theta)
                 # y = vehicle.get_location().x*math.sin(theta) + vehicle.get_location().y*math.cos(theta)
@@ -450,8 +483,8 @@ def main():
                 bWithinThreshold = None
                 maxSteer = None
                 unitChangeThrottle = 0.1
-                unitChangeSteer = 0.1
-                # unitChangeSteer = 1
+                # unitChangeSteer = 0.1
+                unitChangeSteer = 1e-5
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
                 kmh = VehicleSpeed1D(vehicle)
@@ -465,7 +498,11 @@ def main():
                 else:
                     bMetSpeedMinimum = True
                     countTicksNotMoving=0
-                    maxSteer = min(abs(deltaTheta)/int(args.steerDivisor), 1)
+                    maxSteer = min(abs(deltaTheta)/\
+                        int(args.steerDivisor), 1)
+                if kmh > speedTarget:
+                    # maxSteer = 1e-5
+                    unitChangeSteer=1e-5
                 # steering correction small
                 if abs(deltaTheta) < thresholdDeltaThetaSteer:
                     # deltaTheta = -deltaTheta
@@ -477,8 +514,9 @@ def main():
                     unitChangeThrottle = 1.0
                     # unitChangeSteer = 1.0
                     # unitChangeSteer = 0.5
-                    unitChangeSteer = 0.2
+                    # unitChangeSteer = 0.2
                     # unitChangeSteer = 0.3
+                    unitChangeSteer = 10*unitChangeSteer
                     speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True
@@ -640,7 +678,7 @@ def main():
                     # 2.0
                     # 1.7
                     # 1.5
-                    # 5
+                    5
                     )
                 indexPrevClosestLocation, distanceMinimum, \
                     locationClosestToPredicted = \
