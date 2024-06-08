@@ -409,7 +409,7 @@ def main():
             def AnalyzeAnglesOnPath():
                 fileLocations=open(pathLocations, 'a')
                 # lLookahead=2
-                lLookahead=20*3
+                lLookahead=20*5
                 for idxLocation, location in enumerate(
                     listLocationsPath_CARLA_AP_Town06[:-lLookahead]
                     ):
