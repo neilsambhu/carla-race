@@ -1214,3 +1214,7 @@ when to brake before turn.
 6/8/2024 2:16 PM: (1) lookahead 2 gives max angle of about 3; 
 (2) lookahead 20 gives more max angle of 3.14; 
 (3) lookahead 60 gives more max angle of 3.  
+The angle between points is often about 3.  
+6/8/2024 2:38 PM: When I'm no longer going straight, I'm turning. 
+There can be a countdown to turning. TODO: what is the sequence of 
+events before braking (i.e., before a turn)? 

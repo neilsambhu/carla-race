@@ -408,8 +408,8 @@ def main():
             # TODO: output angle between triad of points to text file. 
             def AnalyzeAnglesOnPath():
                 fileLocations=open(pathLocations, 'a')
-                # lLookahead=2
-                lLookahead=20*5
+                lLookahead=2
+                lLookahead=20*1
                 for idxLocation, location in enumerate(
                     listLocationsPath_CARLA_AP_Town06[:-lLookahead]
                     ):
@@ -428,9 +428,10 @@ def main():
                     v1=npLocation1-npLocation2
                     v2=-npLocation2+npLocation3
                     fAngle = angle_between(v1,v2)
+                    fAngle = math.degrees(fAngle)
                     sLine=f'loc index: {idxLocation:04d}\t'
-                    sLine+=f'angle through {idxLocation+2:04d}: '
-                    sLine+=f'{fAngle:5.2f}'
+                    sLine+=f'angle through {idxLocation+lLookahead:04d}: '
+                    sLine+=f'{fAngle:5.1f}'
                     fileLocations.write(sLine+'\n')
                 fileLocations.close()
             AnalyzeAnglesOnPath()
