@@ -7,7 +7,8 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGAIVI = not bSAMBHU23
-bVerbose = False
+# bVerbose = False
+bVerbose = True
 bPlot = True
 bSaveHistoryToDisk = False
 bLoadHistoryFromDisk = bSaveHistoryToDisk
@@ -406,9 +407,10 @@ def main():
                 # print(f'division: {division}')
                 return math.acos(division)
             # TODO: output angle between triad of points to text file. 
+            listAnglesOfTriplets=[]
             def AnalyzeAnglesOnPath():
                 fileLocations=open(pathLocations, 'a')
-                lLookahead=2
+                # lLookahead=2
                 lLookahead=20*1
                 for idxLocation, location in enumerate(
                     listLocationsPath_CARLA_AP_Town06[:-lLookahead]
@@ -429,12 +431,26 @@ def main():
                     v2=-npLocation2+npLocation3
                     fAngle = angle_between(v1,v2)
                     fAngle = math.degrees(fAngle)
+                    listAnglesOfTriplets.append(fAngle)
                     sLine=f'loc index: {idxLocation:04d}\t'
                     sLine+=f'angle through {idxLocation+lLookahead:04d}: '
                     sLine+=f'{fAngle:5.1f}'
                     fileLocations.write(sLine+'\n')
                 fileLocations.close()
             AnalyzeAnglesOnPath()
+            # print(
+            #     len(listLocationsPath_CARLA_AP_Town06),
+            #     len(listAnglesOfTriplets),
+            # );quit()
+            def GetLocationOfStartOfNextTurn(currentLocation):
+                for locationFromPath, angleFromPath in zip(
+                    listLocationsPath_CARLA_AP_Town06, 
+                    listAnglesOfTriplets
+                ):
+                    if angleFromPath/90 > 2.0:
+                    # if 2 < angleFromPath/90:
+                        return locationFromPath
+                return None
             def GetVehicleOutput(theta, locationClosestToPredicted):
                 # x = vehicle.get_location().x*math.cos(theta) - vehicle.get_location().y*math.sin(theta)
                 # y = vehicle.get_location().x*math.sin(theta) + vehicle.get_location().y*math.cos(theta)
@@ -673,14 +689,21 @@ def main():
                 # if countTickLap in dictLocationPrediction:
                 #     distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTickLap])
                 #     # output += f'pred err: {Vector3D_ToString(distanceError)} | '
-                locationPrediction = LocationPrediction(
-                    1/settings.fixed_delta_seconds, vehicle, 
-                    # 1.0
-                    # 2.0
-                    # 1.7
-                    # 1.5
-                    5
-                    )
+                # locationPrediction = LocationPrediction(
+                #     1/settings.fixed_delta_seconds, vehicle, 
+                #     # 1.0
+                #     # 2.0
+                #     # 1.7
+                #     # 1.5
+                #     5
+                #     )
+                # 6/10/2024 12:53 AM: major code change: start
+                locationPrediction = GetLocationOfStartOfNextTurn(
+                    vehicle.get_location())
+                if bVerbose:
+                    print(f'locationPrediction: {locationPrediction}');
+                    quit()
+                # 6/10/2024 12:53 AM: major code change: end
                 indexPrevClosestLocation, distanceMinimum, \
                     locationClosestToPredicted = \
                     getLocationClosestToCurrent(

@@ -1217,4 +1217,11 @@ when to brake before turn.
 The angle between points is often about 3.  
 6/8/2024 2:38 PM: When I'm no longer going straight, I'm turning. 
 There can be a countdown to turning. TODO: what is the sequence of 
-events before braking (i.e., before a turn)? 
+events before braking (i.e., before a turn)?  
+6/9/2024 1:42 PM: Changing scope: how do I think of the closest 
+point before the turn?  
+6/9/2024 1:48 PM: TODO: get mapping of location to angle.  
+6/10/2024 12:27 AM: approach rotated from previous TODO. 
+TODO: (old) print closest location with angle greater than 2 degrees 
+from direction of travel.  
+#(optional) TODO: print drive  
