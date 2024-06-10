@@ -1225,3 +1225,5 @@ point before the turn?
 TODO: (old) print closest location with angle greater than 2 degrees 
 from direction of travel.  
 #(optional) TODO: print drive  
+6/10/2024 1:02 AM: TODO: (instinct) print input to 
+GetLocationOfStartOfNextTurn().  
