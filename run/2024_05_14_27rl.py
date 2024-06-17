@@ -7,8 +7,8 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
 bGAIVI = not bSAMBHU23
-# bVerbose = False
-bVerbose = True
+bVerbose = False
+# bVerbose = True
 bPlot = True
 bSaveHistoryToDisk = False
 bLoadHistoryFromDisk = bSaveHistoryToDisk
@@ -116,7 +116,7 @@ def strLocation2D(location):
 def strLocation3D(location):
     return f'{strPoint(location.x)}, {strPoint(location.y)}, {strPoint(location.z)}'
 def Point_ToString(point):
-    return f'{point:06.2f}'
+    return f'{point:07.2f}'
 def Vector3D_ToString(vector3D):
     return f'{Point_ToString(vector3D.x)}, {Point_ToString(vector3D.y)}, {Point_ToString(vector3D.z)}'
 def str_kmh(kmh):
@@ -443,14 +443,41 @@ def main():
             #     len(listAnglesOfTriplets),
             # );quit()
             def GetLocationOfStartOfNextTurn(currentLocation):
-                for locationFromPath, angleFromPath in zip(
-                    listLocationsPath_CARLA_AP_Town06, 
-                    listAnglesOfTriplets
-                ):
-                    if angleFromPath/90 > 2.0:
-                    # if 2 < angleFromPath/90:
-                        return locationFromPath
-                return None
+                if bVerbose and False:
+                    print(f'currentLocation: {currentLocation}')
+                idxLocation=None
+                locationOutput=None
+                bFoundCloseLocation=False
+                bFoundTurnStart=False
+                idxStartTurnSearch=2*31
+                listLocationsGroundTruth=\
+                    listLocationsPath_CARLA_AP_Town06[
+                        idxStartTurnSearch:len(listAnglesOfTriplets)]
+                listAngles=\
+                    listAnglesOfTriplets[idxStartTurnSearch:]
+                for idx, (locationFromPath, angleFromPath) in \
+                    enumerate(zip(
+                        # likely TODO: double lists to check 
+                        # first corner, 
+                        # behind starting line.
+                        listLocationsGroundTruth,
+                        listAngles
+                )):
+                    if currentLocation.distance(
+                        locationFromPath)<10:
+                        bFoundCloseLocation=True
+                    if bFoundCloseLocation:
+                        if angleFromPath > 90:
+                            angleFromPath = 180-angleFromPath
+                        condition=angleFromPath%90
+                        if bVerbose:
+                            print(f'{idx:04d} condition: {condition}')
+                        if condition > 5.0:
+                        # if 2 < angleFromPath/90:
+                            idxLocation=idxStartTurnSearch+idx
+                            locationOutput=locationFromPath
+                            break
+                return idxLocation, locationOutput
             def GetVehicleOutput(theta, locationClosestToPredicted):
                 # x = vehicle.get_location().x*math.cos(theta) - vehicle.get_location().y*math.sin(theta)
                 # y = vehicle.get_location().x*math.sin(theta) + vehicle.get_location().y*math.cos(theta)
@@ -501,7 +528,7 @@ def main():
                 maxSteer = None
                 unitChangeThrottle = 0.1
                 # unitChangeSteer = 0.1
-                unitChangeSteer = 1e-5
+                unitChangeSteer = 0.1
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
                 kmh = VehicleSpeed1D(vehicle)
@@ -698,11 +725,18 @@ def main():
                 #     5
                 #     )
                 # 6/10/2024 12:53 AM: major code change: start
-                locationPrediction = GetLocationOfStartOfNextTurn(
+                idxLocation, locationPrediction = GetLocationOfStartOfNextTurn(
                     vehicle.get_location())
                 if bVerbose:
-                    print(f'locationPrediction: {locationPrediction}');
-                    quit()
+                    sOut=''
+                    sOut+=f'curr loc '
+                    sOut+=f'({countTickLap:04d}): '
+                    sOut+=f'{Vector3D_ToString(vehicle.get_location())}\t'
+                    sOut+=f'locationPrediction '
+                    sOut+=f'({idxLocation:04d}): '
+                    sOut+=f'{Vector3D_ToString(locationPrediction)}'
+                    print(sOut);
+                    # quit()
                 # 6/10/2024 12:53 AM: major code change: end
                 indexPrevClosestLocation, distanceMinimum, \
                     locationClosestToPredicted = \

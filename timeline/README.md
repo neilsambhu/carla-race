@@ -1227,3 +1227,8 @@ from direction of travel.
 #(optional) TODO: print drive  
 6/10/2024 1:02 AM: TODO: (instinct) print input to 
 GetLocationOfStartOfNextTurn().  
+6/10/2024 2:09 PM: How to find the location of the start of the 
+next turn when the current location is within a turn?  
+6/10/2024 3:29 PM: Potential solution: use index variable to navigate 
+through lists.  
+6/17/2024 3:18 PM: TODO: find braking distance before turn.  
