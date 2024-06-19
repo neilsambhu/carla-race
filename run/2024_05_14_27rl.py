@@ -473,7 +473,6 @@ def main():
                         if bVerbose:
                             print(f'{idx:04d} condition: {condition}')
                         if condition > 5.0:
-                        # if 2 < angleFromPath/90:
                             idxLocation=idxStartTurnSearch+idx
                             locationOutput=locationFromPath
                             break
