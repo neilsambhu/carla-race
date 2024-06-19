@@ -756,7 +756,9 @@ def main():
                 # if distanceToTurn>150:
                 # if distanceToTurn>250:
                 # if distanceToTurn>275:
-                if distanceToTurn>290:
+                # if distanceToTurn>290:
+                # if distanceToTurn>280:
+                if distanceToTurn>1e6:
                     locationPrediction=locationTurn
                 else:
                     locationPrediction=locationShortPrediction
