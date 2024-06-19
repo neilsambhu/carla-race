@@ -519,8 +519,8 @@ def main():
                 # # output = f'x, y: {x:.1f}, {y:.1f}'
                 listDeltaTheta.append(deltaTheta)
                 listLocations.append(vehicle.get_location())
-                # thresholdDeltaThetaNoSteer = 0.5e-10
-                thresholdDeltaThetaNoSteer = 5
+                thresholdDeltaThetaNoSteer = 0.5e-10
+                # thresholdDeltaThetaNoSteer = 5
                 thresholdDeltaThetaSteer = 1e-1
                 speedMinimum = 1e-5
                 speedTarget = TARGET_SPEED
@@ -716,28 +716,52 @@ def main():
                 # if countTickLap in dictLocationPrediction:
                 #     distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTickLap])
                 #     # output += f'pred err: {Vector3D_ToString(distanceError)} | '
-                # locationPrediction = LocationPrediction(
-                #     1/settings.fixed_delta_seconds, vehicle, 
-                #     # 1.0
-                #     # 2.0
-                #     # 1.7
-                #     # 1.5
-                #     5
-                #     )
+                locationShortPrediction = LocationPrediction(
+                    1/settings.fixed_delta_seconds, vehicle, 
+                    # 1.0
+                    # 2.0
+                    # 1.7
+                    # 1.5
+                    0.250
+                    # 0.100
+                    # 0.050
+                    )
                 # 6/10/2024 12:53 AM: major code change: start
-                idxLocation, locationPrediction = GetLocationOfStartOfNextTurn(
+                idxLocation, locationTurn = GetLocationOfStartOfNextTurn(
                     vehicle.get_location())
-                if bVerbose:
+                if bVerbose and False:
                     sOut=''
                     sOut+=f'curr loc '
                     sOut+=f'({countTickLap:04d}): '
                     sOut+=f'{Vector3D_ToString(vehicle.get_location())}\t'
-                    sOut+=f'locationPrediction '
+                    sOut+=f'locationTurn '
                     sOut+=f'({idxLocation:04d}): '
-                    sOut+=f'{Vector3D_ToString(locationPrediction)}'
+                    sOut+=f'{Vector3D_ToString(locationTurn)}'
                     print(sOut);
                     # quit()
                 # 6/10/2024 12:53 AM: major code change: end
+                distanceToTurn = vehicle.get_location().distance(locationTurn)
+                if True or bVerbose:
+                    sOut=''
+                    sOut+=''
+                    sOut+=f'tick: {countTickLap:04d}\t'
+                    sOut+=f'distance to turn: {distanceToTurn:.2f}'
+                    print(sOut);
+                # 6/19/2024 3:51 PM: TODO: determine whether to use
+                # (1) closest location on path or 
+                # (2) closest location of start of turn
+                # for determining steering control. TODO: start
+                locationPrediction=None
+                # if distanceToTurn>300:
+                # if distanceToTurn>50:
+                # if distanceToTurn>150:
+                # if distanceToTurn>250:
+                # if distanceToTurn>275:
+                if distanceToTurn>290:
+                    locationPrediction=locationTurn
+                else:
+                    locationPrediction=locationShortPrediction
+                # 6/19/2024 3:51 PM: TODO: end
                 indexPrevClosestLocation, distanceMinimum, \
                     locationClosestToPredicted = \
                     getLocationClosestToCurrent(
