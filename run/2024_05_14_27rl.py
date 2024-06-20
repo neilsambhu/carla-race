@@ -523,6 +523,7 @@ def main():
                 thresholdDeltaThetaSteer = 1e-1
                 speedMinimum = 1e-5
                 speedTarget = TARGET_SPEED
+                speedHigh = 80
                 bWithinThreshold = None
                 maxSteer = None
                 unitChangeThrottle = 0.1
@@ -533,7 +534,13 @@ def main():
                 kmh = VehicleSpeed1D(vehicle)
                 listSpeed.append(kmh)
                 # output += f'{str_kmh(kmh)} | '
-                if kmh < speedMinimum:
+                # SPEED
+                if kmh > speedHigh: # 80 km/h
+                    def GetBrake():
+                        return 0.00, 0.00, 1.00
+                    throttle, steer, brake = GetBrake()
+                    maxSteer=0
+                elif kmh < speedMinimum: # 30 km/h
                     maxSteer = 0.01
                     countTicksNotMoving+=1
                     if bMetSpeedMinimum and countTicksNotMoving>2*20:
@@ -757,8 +764,8 @@ def main():
                 # if distanceToTurn>250:
                 # if distanceToTurn>275:
                 # if distanceToTurn>290:
-                # if distanceToTurn>280:
-                if distanceToTurn>1e6:
+                if distanceToTurn>280:
+                # if distanceToTurn>1e6:
                     locationPrediction=locationTurn
                 else:
                     locationPrediction=locationShortPrediction

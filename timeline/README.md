@@ -1232,3 +1232,6 @@ next turn when the current location is within a turn?
 6/10/2024 3:29 PM: Potential solution: use index variable to navigate 
 through lists.  
 6/17/2024 3:18 PM: TODO: find braking distance before turn.  
+6/20/2024 2:13 PM: The current problem is the car travels at high speed and does 
+not know how to travel through the turn.  The car turns. The car needs to brake.  
+6/20/2024 2:34 PM: Problem is car turns too early.  
