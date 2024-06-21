@@ -1232,6 +1232,19 @@ next turn when the current location is within a turn?
 6/10/2024 3:29 PM: Potential solution: use index variable to navigate 
 through lists.  
 6/17/2024 3:18 PM: TODO: find braking distance before turn.  
-6/20/2024 2:13 PM: The current problem is the car travels at high speed and does 
-not know how to travel through the turn.  The car turns. The car needs to brake.  
+6/20/2024 2:13 PM: The current problem is the car travels at high 
+speed and does not know how to travel through the turn. 
+The car turns. The car needs to brake.  
 6/20/2024 2:34 PM: Problem is car turns too early.  
+6/20/2024 3:58 PM: Problems: 
+(1) too much steering correction too often ->  
+(2) hit light pole after second turn. 
+6/21/2024 12:34 PM: 
+     General: This work is an improvement from previous work on the 
+adaptive fast-drive method.  
+     abstract -> state of the art: (1) adaptive fast-drive method. 
+State of the art from (1) changed to full throttle before turns. 
+Results: success through one of four turns. 
+6/21/2024 12:39 PM: Previous abstract (i.e., TODO: rewrite)  
+# Tag: improvement of adaptive fast-drive method.  
+Autonomizing racecars enables benchmarking the capabilities of vehicle performance. Simulation enables low-cost testing of self-driving car algorithms. This work establishes a baseline for vehicle performance in CARLA Simulator 0.9.15: navigating the outer loop of Town06. Future work will include additional maps (e.g., Nürburgring). The algorithm stems from a manual, ground-truth drive around the track. This work is an improvement from previous work on the adaptive fast-drive method.  The adaptive fast-drive method applies three-quarters throttle when the steering correction is less than or equal to five degrees. This work applies full throttle for the straightaway leading up to a turn. Results are as follows: the car drives through two of 4 turns successfully. The exit of the turn needs parameter tuning. Code will be available in the following repository: https://github.com/neilsambhu/carla-race/tree/2024.06.IAVVC. 

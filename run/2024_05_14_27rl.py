@@ -759,12 +759,12 @@ def main():
                 # for determining steering control. TODO: start
                 locationPrediction=None
                 # if distanceToTurn>300:
-                # if distanceToTurn>50:
-                # if distanceToTurn>150:
+                # if distanceToTurn>50: # 2 hit tree
+                if distanceToTurn>150: # 3
                 # if distanceToTurn>250:
-                # if distanceToTurn>275:
+                # if distanceToTurn>275: # 1brake too early
                 # if distanceToTurn>290:
-                if distanceToTurn>280:
+                # if distanceToTurn>280: # 0steer too early
                 # if distanceToTurn>1e6:
                     locationPrediction=locationTurn
                 else:
