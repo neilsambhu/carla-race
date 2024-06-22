@@ -758,7 +758,7 @@ def main():
                 # (2) closest location of start of turn
                 # for determining steering control. TODO: start
                 locationPrediction=None
-                # if distanceToTurn>300:
+                # if distanceToTurn>300: # 1.1
                 # if distanceToTurn>50: # 2 hit tree
                 # if distanceToTurn>150: # 3
                 # if distanceToTurn>250:
