@@ -518,8 +518,8 @@ def main():
                 # # output = f'x, y: {x:.1f}, {y:.1f}'
                 listDeltaTheta.append(deltaTheta)
                 listLocations.append(vehicle.get_location())
-                thresholdDeltaThetaNoSteer = 0.5e-10
-                # thresholdDeltaThetaNoSteer = 5
+                # thresholdDeltaThetaNoSteer = 0.5e-10
+                thresholdDeltaThetaNoSteer = 5
                 thresholdDeltaThetaSteer = 1e-1
                 speedMinimum = 1e-5
                 speedTarget = TARGET_SPEED
@@ -760,9 +760,9 @@ def main():
                 locationPrediction=None
                 # if distanceToTurn>300:
                 # if distanceToTurn>50: # 2 hit tree
-                if distanceToTurn>150: # 3
+                # if distanceToTurn>150: # 3
                 # if distanceToTurn>250:
-                # if distanceToTurn>275: # 1brake too early
+                if distanceToTurn>275: # 1brake too early
                 # if distanceToTurn>290:
                 # if distanceToTurn>280: # 0steer too early
                 # if distanceToTurn>1e6:
