@@ -518,8 +518,8 @@ def main():
                 # # output = f'x, y: {x:.1f}, {y:.1f}'
                 listDeltaTheta.append(deltaTheta)
                 listLocations.append(vehicle.get_location())
-                thresholdDeltaThetaNoSteer = 0.5e-10
-                # thresholdDeltaThetaNoSteer = 5
+                # thresholdDeltaThetaNoSteer = 0.5e-10
+                thresholdDeltaThetaNoSteer = 5
                 thresholdDeltaThetaSteer = 1e-1
                 speedMinimum = 1e-5
                 speedTarget = TARGET_SPEED
@@ -566,7 +566,7 @@ def main():
                     # unitChangeSteer = 0.5
                     # unitChangeSteer = 0.2
                     # unitChangeSteer = 0.3
-                    unitChangeSteer = 10*unitChangeSteer
+                    # unitChangeSteer = 10*unitChangeSteer
                     speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True
@@ -753,6 +753,23 @@ def main():
                     sOut+=f'tick: {countTickLap:04d}\t'
                     sOut+=f'distance to turn: {distanceToTurn:.2f}'
                     print(sOut);
+                # 6/23/2024 7:17 PM: TODO: determine if current
+                # trajectory will line up with locationTurn: start
+                bAlignedToTurnEntry=False;
+                fSpeedVehicle=None
+                v=vehicle.get_velocity()
+                fSpeedVehicle=float(math.sqrt(v.x**2 + v.y**2 + v.z**2))
+                fSecondsToStartOfTurn=distanceToTurn/fSpeedVehicle
+                locationExtrapolatedToDistanceToStartOfTurn=\
+                    LocationPrediction(
+                        1/settings.fixed_delta_seconds, 
+                        vehicle, fSecondsToStartOfTurn
+                    )
+                distanceExtrapolated=\
+                    locationTurn.distance(
+                        locationExtrapolatedToDistanceToStartOfTurn)
+                print(f'distanceExtrapolated: {distanceExtrapolated:.2f}')
+                # 6/23/2024 7:17 PM: TODO: end
                 # 6/19/2024 3:51 PM: TODO: determine whether to use
                 # (1) closest location on path or 
                 # (2) closest location of start of turn
@@ -760,7 +777,9 @@ def main():
                 locationPrediction=None
                 # if distanceToTurn>300: # 1.1
                 # if distanceToTurn>50: # 2 hit tree
-                if distanceToTurn>150: # 3
+                # if distanceToTurn>150: # 3
+                if distanceToTurn>150 and \
+                    distanceExtrapolated<10: # 4
                 # if distanceToTurn>250:
                 # if distanceToTurn>275: # 1brake too early
                 # if distanceToTurn>290:
