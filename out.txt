@@ -1,1463 +1,3289 @@
 tick: 0011	distance to turn: 928.96
-distanceExtrapolated: 497100896.00
 tick: 0012	distance to turn: 928.96
-distanceExtrapolated: 778090944.00
 tick: 0013	distance to turn: 928.96
-distanceExtrapolated: 1217776768.00
 tick: 0014	distance to turn: 928.96
-distanceExtrapolated: 40866746368.00
 tick: 0015	distance to turn: 928.96
-distanceExtrapolated: 2318748672.00
 tick: 0016	distance to turn: 928.96
-distanceExtrapolated: 81359256.00
 tick: 0017	distance to turn: 928.96
-distanceExtrapolated: 1406288512.00
 tick: 0018	distance to turn: 928.96
-distanceExtrapolated: 2699155968.00
 tick: 0019	distance to turn: 928.96
-distanceExtrapolated: 4414683648.00
 tick: 0020	distance to turn: 928.95
-distanceExtrapolated: 22688574.00
 tick: 0021	distance to turn: 928.91
-distanceExtrapolated: 4783128.50
 tick: 0022	distance to turn: 928.82
-distanceExtrapolated: 1566675.62
 tick: 0023	distance to turn: 928.71
-distanceExtrapolated: 778230.88
 tick: 0024	distance to turn: 928.57
-distanceExtrapolated: 453231.66
 tick: 0025	distance to turn: 928.41
-distanceExtrapolated: 309689.47
 tick: 0026	distance to turn: 928.22
-distanceExtrapolated: 230421.34
 tick: 0027	distance to turn: 928.02
-distanceExtrapolated: 182234.34
 tick: 0028	distance to turn: 927.80
-distanceExtrapolated: 149913.02
 tick: 0029	distance to turn: 927.57
-distanceExtrapolated: 126662.55
 tick: 0030	distance to turn: 927.31
-distanceExtrapolated: 109291.09
 tick: 0031	distance to turn: 927.04
-distanceExtrapolated: 82497.49
 tick: 0032	distance to turn: 926.77
-distanceExtrapolated: 17087.03
 tick: 0033	distance to turn: 926.48
-distanceExtrapolated: 54900.88
 tick: 0034	distance to turn: 926.19
-distanceExtrapolated: 54849.06
 tick: 0035	distance to turn: 925.88
-distanceExtrapolated: 68624.95
 tick: 0036	distance to turn: 925.55
-distanceExtrapolated: 59070.83
 tick: 0037	distance to turn: 925.21
-distanceExtrapolated: 65478.75
 tick: 0038	distance to turn: 924.85
-distanceExtrapolated: 54636.60
 tick: 0039	distance to turn: 924.47
-distanceExtrapolated: 57215.07
 tick: 0040	distance to turn: 924.07
-distanceExtrapolated: 45895.34
 tick: 0041	distance to turn: 923.65
-distanceExtrapolated: 47374.06
 tick: 0042	distance to turn: 923.21
-distanceExtrapolated: 39284.75
 tick: 0043	distance to turn: 922.76
-distanceExtrapolated: 40746.06
 tick: 0044	distance to turn: 922.28
-distanceExtrapolated: 35744.07
 tick: 0045	distance to turn: 921.78
-distanceExtrapolated: 32391.54
 tick: 0046	distance to turn: 921.27
-distanceExtrapolated: 28335.68
 tick: 0047	distance to turn: 920.73
-distanceExtrapolated: 25737.64
 tick: 0048	distance to turn: 920.18
-distanceExtrapolated: 23502.05
 tick: 0049	distance to turn: 919.62
-distanceExtrapolated: 21727.42
 tick: 0050	distance to turn: 919.03
-distanceExtrapolated: 20220.90
 tick: 0051	distance to turn: 918.43
-distanceExtrapolated: 18925.11
 tick: 0052	distance to turn: 917.82
-distanceExtrapolated: 17785.61
 tick: 0053	distance to turn: 917.18
-distanceExtrapolated: 16769.53
 tick: 0054	distance to turn: 916.53
-distanceExtrapolated: 15852.86
 tick: 0055	distance to turn: 915.87
-distanceExtrapolated: 15018.45
 tick: 0056	distance to turn: 915.18
-distanceExtrapolated: 14253.80
 tick: 0057	distance to turn: 914.49
-distanceExtrapolated: 13549.29
 tick: 0058	distance to turn: 913.77
-distanceExtrapolated: 12897.50
 tick: 0059	distance to turn: 913.04
-distanceExtrapolated: 12292.26
 tick: 0060	distance to turn: 912.29
-distanceExtrapolated: 11728.76
 tick: 0061	distance to turn: 911.53
-distanceExtrapolated: 11202.92
 tick: 0062	distance to turn: 910.75
-distanceExtrapolated: 10710.99
 tick: 0063	distance to turn: 909.96
-distanceExtrapolated: 10250.08
 tick: 0064	distance to turn: 909.15
-distanceExtrapolated: 9817.46
 tick: 0065	distance to turn: 908.32
-distanceExtrapolated: 9410.88
 tick: 0066	distance to turn: 907.48
-distanceExtrapolated: 9028.03
 tick: 0067	distance to turn: 906.62
-distanceExtrapolated: 8667.29
 tick: 0068	distance to turn: 905.75
-distanceExtrapolated: 8326.72
 tick: 0069	distance to turn: 904.86
-distanceExtrapolated: 8005.14
 tick: 0070	distance to turn: 903.96
-distanceExtrapolated: 7700.85
 tick: 0071	distance to turn: 903.04
-distanceExtrapolated: 7412.81
 tick: 0072	distance to turn: 902.10
-distanceExtrapolated: 7139.80
 tick: 0073	distance to turn: 901.15
-distanceExtrapolated: 6880.84
 tick: 0074	distance to turn: 900.18
-distanceExtrapolated: 6634.97
 tick: 0075	distance to turn: 899.20
-distanceExtrapolated: 6401.38
 tick: 0076	distance to turn: 898.21
-distanceExtrapolated: 6179.12
 tick: 0077	distance to turn: 897.19
-distanceExtrapolated: 5967.49
 tick: 0078	distance to turn: 896.16
-distanceExtrapolated: 5765.98
 tick: 0079	distance to turn: 895.12
-distanceExtrapolated: 5573.78
 tick: 0080	distance to turn: 894.06
-distanceExtrapolated: 5390.46
 tick: 0081	distance to turn: 892.99
-distanceExtrapolated: 5215.42
 tick: 0082	distance to turn: 891.90
-distanceExtrapolated: 5048.27
 tick: 0083	distance to turn: 890.79
-distanceExtrapolated: 4888.32
 tick: 0084	distance to turn: 889.67
-distanceExtrapolated: 4735.38
 tick: 0085	distance to turn: 888.54
-distanceExtrapolated: 4588.99
 tick: 0086	distance to turn: 887.39
-distanceExtrapolated: 4448.65
 tick: 0087	distance to turn: 886.22
-distanceExtrapolated: 4314.26
 tick: 0088	distance to turn: 885.04
-distanceExtrapolated: 3816.73
 tick: 0089	distance to turn: 883.85
-distanceExtrapolated: 1892.49
 tick: 0090	distance to turn: 882.66
-distanceExtrapolated: 1043.86
 tick: 0091	distance to turn: 881.48
-distanceExtrapolated: 3400.73
 tick: 0092	distance to turn: 880.32
-distanceExtrapolated: 4920.99
 tick: 0093	distance to turn: 879.17
-distanceExtrapolated: 6056.11
 tick: 0094	distance to turn: 878.04
-distanceExtrapolated: 6967.66
 tick: 0095	distance to turn: 876.94
-distanceExtrapolated: 8712.33
 tick: 0096	distance to turn: 875.86
-distanceExtrapolated: 7975.91
 tick: 0097	distance to turn: 874.81
-distanceExtrapolated: 8536.55
-tick: 0098	distance to turn: 873.78
-distanceExtrapolated: 11939.10
-tick: 0099	distance to turn: 872.76
-distanceExtrapolated: 7770.51
-tick: 0100	distance to turn: 871.77
-distanceExtrapolated: 6607.32
-tick: 0101	distance to turn: 870.79
-distanceExtrapolated: 5516.10
-tick: 0102	distance to turn: 869.82
-distanceExtrapolated: 3926.65
-tick: 0103	distance to turn: 868.85
-distanceExtrapolated: 3081.71
-tick: 0104	distance to turn: 867.88
-distanceExtrapolated: 3184.40
-tick: 0105	distance to turn: 866.90
-distanceExtrapolated: 3609.66
-tick: 0106	distance to turn: 865.91
-distanceExtrapolated: 4016.44
-tick: 0107	distance to turn: 864.91
-distanceExtrapolated: 4316.98
-tick: 0108	distance to turn: 863.90
-distanceExtrapolated: 4509.39
-tick: 0109	distance to turn: 862.88
-distanceExtrapolated: 5404.21
-tick: 0110	distance to turn: 861.85
-distanceExtrapolated: 3119.49
-tick: 0111	distance to turn: 860.81
-distanceExtrapolated: 4707.99
-tick: 0112	distance to turn: 859.77
-distanceExtrapolated: 1031.52
-tick: 0113	distance to turn: 858.72
-distanceExtrapolated: 5025.03
-tick: 0114	distance to turn: 857.68
-distanceExtrapolated: 9467.85
-tick: 0115	distance to turn: 856.65
-distanceExtrapolated: 4377.40
-tick: 0116	distance to turn: 855.63
-distanceExtrapolated: 7746.14
-tick: 0117	distance to turn: 854.62
-distanceExtrapolated: 5554.40
-tick: 0118	distance to turn: 853.62
-distanceExtrapolated: 5653.31
-tick: 0119	distance to turn: 852.63
-distanceExtrapolated: 4901.25
-tick: 0120	distance to turn: 851.65
-distanceExtrapolated: 3663.77
-tick: 0121	distance to turn: 850.67
-distanceExtrapolated: 3096.91
-tick: 0122	distance to turn: 849.68
-distanceExtrapolated: 3227.43
-tick: 0123	distance to turn: 848.69
-distanceExtrapolated: 3575.64
-tick: 0124	distance to turn: 847.69
-distanceExtrapolated: 3899.71
-tick: 0125	distance to turn: 846.67
-distanceExtrapolated: 4135.23
-tick: 0126	distance to turn: 845.65
-distanceExtrapolated: 4281.52
-tick: 0127	distance to turn: 844.61
-distanceExtrapolated: 4354.47
-tick: 0128	distance to turn: 843.55
-distanceExtrapolated: 4371.61
-tick: 0129	distance to turn: 842.49
-distanceExtrapolated: 5157.29
-tick: 0130	distance to turn: 841.41
-distanceExtrapolated: 2943.43
-tick: 0131	distance to turn: 840.33
-distanceExtrapolated: 4375.74
-tick: 0132	distance to turn: 839.24
-distanceExtrapolated: 1065.78
-tick: 0133	distance to turn: 838.15
-distanceExtrapolated: 4603.54
-tick: 0134	distance to turn: 837.06
-distanceExtrapolated: 1669.95
-tick: 0135	distance to turn: 835.98
-distanceExtrapolated: 5631.96
-tick: 0136	distance to turn: 834.91
-distanceExtrapolated: 3513.46
-tick: 0137	distance to turn: 833.85
-distanceExtrapolated: 6871.54
-tick: 0138	distance to turn: 832.80
-distanceExtrapolated: 4825.07
-tick: 0139	distance to turn: 831.77
-distanceExtrapolated: 4698.52
-tick: 0140	distance to turn: 830.74
-distanceExtrapolated: 3853.85
-tick: 0141	distance to turn: 829.72
-distanceExtrapolated: 2575.18
-tick: 0142	distance to turn: 828.71
-distanceExtrapolated: 2089.22
-tick: 0143	distance to turn: 827.69
-distanceExtrapolated: 2426.39
-tick: 0144	distance to turn: 826.66
-distanceExtrapolated: 2903.37
-tick: 0145	distance to turn: 825.62
-distanceExtrapolated: 3286.97
-tick: 0146	distance to turn: 824.58
-distanceExtrapolated: 3551.59
-tick: 0147	distance to turn: 823.52
-distanceExtrapolated: 3716.15
-tick: 0148	distance to turn: 822.44
-distanceExtrapolated: 3804.39
-tick: 0149	distance to turn: 821.36
-distanceExtrapolated: 3836.67
-tick: 0150	distance to turn: 820.26
-distanceExtrapolated: 3828.92
-tick: 0151	distance to turn: 819.15
-distanceExtrapolated: 3792.78
-tick: 0152	distance to turn: 818.02
-distanceExtrapolated: 4464.75
-tick: 0153	distance to turn: 816.88
-distanceExtrapolated: 2526.18
-tick: 0154	distance to turn: 815.74
-distanceExtrapolated: 1794.56
-tick: 0155	distance to turn: 814.59
-distanceExtrapolated: 512.82
-tick: 0156	distance to turn: 813.44
-distanceExtrapolated: 2451.51
-tick: 0157	distance to turn: 812.31
-distanceExtrapolated: 4126.70
-tick: 0158	distance to turn: 811.20
-distanceExtrapolated: 5230.55
-tick: 0159	distance to turn: 810.11
-distanceExtrapolated: 7209.32
-tick: 0160	distance to turn: 809.04
-distanceExtrapolated: 10061.94
-tick: 0161	distance to turn: 808.00
-distanceExtrapolated: 7357.53
-tick: 0162	distance to turn: 806.98
-distanceExtrapolated: 8200.26
-tick: 0163	distance to turn: 805.98
-distanceExtrapolated: 6337.40
-tick: 0164	distance to turn: 804.99
-distanceExtrapolated: 8970.66
-tick: 0165	distance to turn: 804.02
-distanceExtrapolated: 6612.35
-tick: 0166	distance to turn: 803.07
-distanceExtrapolated: 6090.06
-tick: 0167	distance to turn: 802.13
-distanceExtrapolated: 4863.91
-tick: 0168	distance to turn: 801.20
-distanceExtrapolated: 3203.87
-tick: 0169	distance to turn: 800.27
-distanceExtrapolated: 2461.20
-tick: 0170	distance to turn: 799.33
-distanceExtrapolated: 2761.05
-tick: 0171	distance to turn: 798.39
-distanceExtrapolated: 3288.47
-tick: 0172	distance to turn: 797.44
-distanceExtrapolated: 3718.29
-tick: 0173	distance to turn: 796.48
-distanceExtrapolated: 4819.67
-tick: 0174	distance to turn: 795.51
-distanceExtrapolated: 2718.20
-tick: 0175	distance to turn: 794.53
-distanceExtrapolated: 4368.59
-tick: 0176	distance to turn: 793.55
-distanceExtrapolated: 859.39
-tick: 0177	distance to turn: 792.57
-distanceExtrapolated: 4690.70
-tick: 0178	distance to turn: 791.59
-distanceExtrapolated: 8957.82
-tick: 0179	distance to turn: 790.62
-distanceExtrapolated: 3914.78
-tick: 0180	distance to turn: 789.66
-distanceExtrapolated: 7075.23
-tick: 0181	distance to turn: 788.71
-distanceExtrapolated: 4920.24
-tick: 0182	distance to turn: 787.78
-distanceExtrapolated: 4931.00
-tick: 0183	distance to turn: 786.85
-distanceExtrapolated: 4111.81
-tick: 0184	distance to turn: 785.93
-distanceExtrapolated: 2905.80
-tick: 0185	distance to turn: 785.01
-distanceExtrapolated: 2592.33
-tick: 0186	distance to turn: 784.08
-distanceExtrapolated: 2974.19
-tick: 0187	distance to turn: 783.14
-distanceExtrapolated: 3439.39
-tick: 0188	distance to turn: 782.20
-distanceExtrapolated: 3797.88
-tick: 0189	distance to turn: 781.24
-distanceExtrapolated: 4032.08
-tick: 0190	distance to turn: 780.27
-distanceExtrapolated: 4163.85
-tick: 0191	distance to turn: 779.29
-distanceExtrapolated: 4218.94
-tick: 0192	distance to turn: 778.29
-distanceExtrapolated: 4218.95
-tick: 0193	distance to turn: 777.28
-distanceExtrapolated: 4180.71
-tick: 0194	distance to turn: 776.26
-distanceExtrapolated: 4116.28
-tick: 0195	distance to turn: 775.22
-distanceExtrapolated: 4034.71
-tick: 0196	distance to turn: 774.16
-distanceExtrapolated: 3942.09
-tick: 0197	distance to turn: 773.10
-distanceExtrapolated: 3843.03
-tick: 0198	distance to turn: 772.01
-distanceExtrapolated: 4439.43
-tick: 0199	distance to turn: 770.92
-distanceExtrapolated: 2547.46
-tick: 0200	distance to turn: 769.81
-distanceExtrapolated: 3669.42
-tick: 0201	distance to turn: 768.71
-distanceExtrapolated: 973.49
-tick: 0202	distance to turn: 767.60
-distanceExtrapolated: 3786.86
-tick: 0203	distance to turn: 766.49
-distanceExtrapolated: 1394.55
-tick: 0204	distance to turn: 765.39
-distanceExtrapolated: 4610.44
-tick: 0205	distance to turn: 764.29
-distanceExtrapolated: 2896.57
-tick: 0206	distance to turn: 763.21
-distanceExtrapolated: 3068.01
-tick: 0207	distance to turn: 762.14
-distanceExtrapolated: 2625.32
-tick: 0208	distance to turn: 761.07
-distanceExtrapolated: 1843.04
-tick: 0209	distance to turn: 760.00
-distanceExtrapolated: 1626.74
-tick: 0210	distance to turn: 758.92
-distanceExtrapolated: 1902.44
-tick: 0211	distance to turn: 757.84
-distanceExtrapolated: 2240.83
-tick: 0212	distance to turn: 756.75
-distanceExtrapolated: 2510.58
-tick: 0213	distance to turn: 755.65
-distanceExtrapolated: 2698.35
-tick: 0214	distance to turn: 754.54
-distanceExtrapolated: 2816.79
-tick: 0215	distance to turn: 753.41
-distanceExtrapolated: 2881.64
-tick: 0216	distance to turn: 752.27
-distanceExtrapolated: 2906.56
-tick: 0217	distance to turn: 751.12
-distanceExtrapolated: 2902.66
-tick: 0218	distance to turn: 749.95
-distanceExtrapolated: 2877.97
-tick: 0219	distance to turn: 748.77
-distanceExtrapolated: 2838.76
-tick: 0220	distance to turn: 747.58
-distanceExtrapolated: 2789.53
-tick: 0221	distance to turn: 746.37
-distanceExtrapolated: 2733.58
-tick: 0222	distance to turn: 745.14
-distanceExtrapolated: 2432.18
-tick: 0223	distance to turn: 743.91
-distanceExtrapolated: 1183.59
-tick: 0224	distance to turn: 742.68
-distanceExtrapolated: 743.93
-tick: 0225	distance to turn: 741.45
-distanceExtrapolated: 2290.54
-tick: 0226	distance to turn: 740.24
-distanceExtrapolated: 3294.01
-tick: 0227	distance to turn: 739.05
-distanceExtrapolated: 4044.43
-tick: 0228	distance to turn: 737.89
-distanceExtrapolated: 4647.08
-tick: 0229	distance to turn: 736.75
-distanceExtrapolated: 5152.73
-tick: 0230	distance to turn: 735.63
-distanceExtrapolated: 5593.13
-tick: 0231	distance to turn: 734.53
-distanceExtrapolated: 6621.95
-tick: 0232	distance to turn: 733.47
-distanceExtrapolated: 8641.31
-tick: 0233	distance to turn: 732.43
-distanceExtrapolated: 10494.86
-tick: 0234	distance to turn: 731.43
-distanceExtrapolated: 11597.98
-tick: 0235	distance to turn: 730.45
-distanceExtrapolated: 12941.00
-tick: 0236	distance to turn: 729.51
-distanceExtrapolated: 9232.04
-tick: 0237	distance to turn: 728.59
-distanceExtrapolated: 7714.19
-tick: 0238	distance to turn: 727.68
-distanceExtrapolated: 7558.45
-tick: 0239	distance to turn: 726.79
-distanceExtrapolated: 6813.39
-tick: 0240	distance to turn: 725.91
-distanceExtrapolated: 5869.30
-tick: 0241	distance to turn: 725.02
-distanceExtrapolated: 1172.85
-tick: 0242	distance to turn: 724.13
-distanceExtrapolated: 4273.54
-tick: 0243	distance to turn: 723.25
-distanceExtrapolated: 2078.78
-tick: 0244	distance to turn: 722.37
-distanceExtrapolated: 3586.67
-tick: 0245	distance to turn: 721.50
-distanceExtrapolated: 8955.40
-tick: 0246	distance to turn: 720.64
-distanceExtrapolated: 12269.38
-tick: 0247	distance to turn: 719.80
-distanceExtrapolated: 6226.40
-tick: 0248	distance to turn: 718.96
-distanceExtrapolated: 8308.67
-tick: 0249	distance to turn: 718.15
-distanceExtrapolated: 13612.51
-tick: 0250	distance to turn: 717.34
-distanceExtrapolated: 7465.90
-tick: 0251	distance to turn: 716.55
-distanceExtrapolated: 10381.61
-tick: 0252	distance to turn: 715.78
-distanceExtrapolated: 6830.51
-tick: 0253	distance to turn: 715.01
-distanceExtrapolated: 6203.72
-tick: 0254	distance to turn: 714.26
-distanceExtrapolated: 4657.97
-tick: 0255	distance to turn: 713.51
-distanceExtrapolated: 2961.19
-tick: 0256	distance to turn: 712.75
-distanceExtrapolated: 3000.24
-tick: 0257	distance to turn: 711.99
-distanceExtrapolated: 3816.35
-tick: 0258	distance to turn: 711.22
-distanceExtrapolated: 4493.18
-tick: 0259	distance to turn: 710.44
-distanceExtrapolated: 4921.92
-tick: 0260	distance to turn: 709.65
-distanceExtrapolated: 5151.61
-tick: 0261	distance to turn: 708.84
-distanceExtrapolated: 5240.88
-tick: 0262	distance to turn: 708.02
-distanceExtrapolated: 5235.84
-tick: 0263	distance to turn: 707.18
-distanceExtrapolated: 6093.84
-tick: 0264	distance to turn: 706.34
-distanceExtrapolated: 3578.66
-tick: 0265	distance to turn: 705.48
-distanceExtrapolated: 4857.51
-tick: 0266	distance to turn: 704.62
-distanceExtrapolated: 8154.42
-tick: 0267	distance to turn: 703.77
-distanceExtrapolated: 1920.99
-tick: 0268	distance to turn: 702.92
-distanceExtrapolated: 5589.11
-tick: 0269	distance to turn: 702.08
-distanceExtrapolated: 3390.56
-tick: 0270	distance to turn: 701.24
-distanceExtrapolated: 3466.35
-tick: 0271	distance to turn: 700.42
-distanceExtrapolated: 2663.74
-tick: 0272	distance to turn: 699.59
-distanceExtrapolated: 6142.68
-tick: 0273	distance to turn: 698.77
-distanceExtrapolated: 1111.25
-tick: 0274	distance to turn: 697.95
-distanceExtrapolated: 1143.72
-tick: 0275	distance to turn: 697.13
-distanceExtrapolated: 2137.91
-tick: 0276	distance to turn: 696.30
-distanceExtrapolated: 3013.48
-tick: 0277	distance to turn: 695.46
-distanceExtrapolated: 3581.55
-tick: 0278	distance to turn: 694.60
-distanceExtrapolated: 3924.23
-tick: 0279	distance to turn: 693.74
-distanceExtrapolated: 4110.52
-tick: 0280	distance to turn: 692.86
-distanceExtrapolated: 4189.91
-tick: 0281	distance to turn: 691.97
-distanceExtrapolated: 4197.28
-tick: 0282	distance to turn: 691.07
-distanceExtrapolated: 4156.72
-tick: 0283	distance to turn: 690.14
-distanceExtrapolated: 4084.86
-tick: 0284	distance to turn: 689.21
-distanceExtrapolated: 3993.24
-tick: 0285	distance to turn: 688.26
-distanceExtrapolated: 3889.70
-tick: 0286	distance to turn: 687.29
-distanceExtrapolated: 3779.56
-tick: 0287	distance to turn: 686.32
-distanceExtrapolated: 4321.59
-tick: 0288	distance to turn: 685.32
-distanceExtrapolated: 2513.41
-tick: 0289	distance to turn: 684.32
-distanceExtrapolated: 3489.34
-tick: 0290	distance to turn: 683.32
-distanceExtrapolated: 958.45
-tick: 0291	distance to turn: 682.31
-distanceExtrapolated: 3457.94
-tick: 0292	distance to turn: 681.30
-distanceExtrapolated: 1031.63
-tick: 0293	distance to turn: 680.30
-distanceExtrapolated: 1348.88
-tick: 0294	distance to turn: 679.30
-distanceExtrapolated: 1172.89
-tick: 0295	distance to turn: 678.30
-distanceExtrapolated: 1217.21
-tick: 0296	distance to turn: 677.30
-distanceExtrapolated: 1654.54
-tick: 0297	distance to turn: 676.28
-distanceExtrapolated: 2038.45
-tick: 0298	distance to turn: 675.26
-distanceExtrapolated: 2309.93
-tick: 0299	distance to turn: 674.23
-distanceExtrapolated: 2486.00
-tick: 0300	distance to turn: 673.18
-distanceExtrapolated: 2589.91
-tick: 0301	distance to turn: 672.12
-distanceExtrapolated: 2641.41
-tick: 0302	distance to turn: 671.05
-distanceExtrapolated: 2655.43
-tick: 0303	distance to turn: 669.96
-distanceExtrapolated: 2643.00
-tick: 0304	distance to turn: 668.86
-distanceExtrapolated: 2612.11
-tick: 0305	distance to turn: 667.75
-distanceExtrapolated: 2568.72
-tick: 0306	distance to turn: 666.62
-distanceExtrapolated: 2517.02
-tick: 0307	distance to turn: 665.47
-distanceExtrapolated: 2459.97
-tick: 0308	distance to turn: 664.31
-distanceExtrapolated: 2399.81
-tick: 0309	distance to turn: 663.14
-distanceExtrapolated: 2338.04
-tick: 0310	distance to turn: 661.95
-distanceExtrapolated: 2275.81
-tick: 0311	distance to turn: 660.74
-distanceExtrapolated: 2213.80
-tick: 0312	distance to turn: 659.53
-distanceExtrapolated: 2152.61
-tick: 0313	distance to turn: 658.29
-distanceExtrapolated: 2092.59
-tick: 0314	distance to turn: 657.04
-distanceExtrapolated: 2034.01
-tick: 0315	distance to turn: 655.78
-distanceExtrapolated: 1976.94
-tick: 0316	distance to turn: 654.50
-distanceExtrapolated: 1921.52
-tick: 0317	distance to turn: 653.21
-distanceExtrapolated: 1867.75
-tick: 0318	distance to turn: 651.90
-distanceExtrapolated: 1815.69
-tick: 0319	distance to turn: 650.58
-distanceExtrapolated: 1765.31
-tick: 0320	distance to turn: 649.24
-distanceExtrapolated: 1716.58
-tick: 0321	distance to turn: 647.89
-distanceExtrapolated: 1669.47
-tick: 0322	distance to turn: 646.53
-distanceExtrapolated: 1623.93
-tick: 0323	distance to turn: 645.15
-distanceExtrapolated: 1579.87
-tick: 0324	distance to turn: 643.75
-distanceExtrapolated: 1537.34
-tick: 0325	distance to turn: 642.34
-distanceExtrapolated: 1496.18
-tick: 0326	distance to turn: 640.92
-distanceExtrapolated: 1331.45
-tick: 0327	distance to turn: 639.48
-distanceExtrapolated: 652.31
-tick: 0328	distance to turn: 638.05
-distanceExtrapolated: 222.49
-tick: 0329	distance to turn: 636.62
-distanceExtrapolated: 713.31
-tick: 0330	distance to turn: 635.20
-distanceExtrapolated: 1409.17
-tick: 0331	distance to turn: 633.80
-distanceExtrapolated: 1991.61
-tick: 0332	distance to turn: 632.42
-distanceExtrapolated: 2449.14
-tick: 0333	distance to turn: 631.07
-distanceExtrapolated: 2770.24
-tick: 0334	distance to turn: 629.74
-distanceExtrapolated: 3042.96
-tick: 0335	distance to turn: 628.44
-distanceExtrapolated: 3282.82
-tick: 0336	distance to turn: 627.16
-distanceExtrapolated: 3499.90
-tick: 0337	distance to turn: 625.92
-distanceExtrapolated: 3701.29
-tick: 0338	distance to turn: 624.70
-distanceExtrapolated: 3891.99
-tick: 0339	distance to turn: 623.52
-distanceExtrapolated: 4075.85
-tick: 0340	distance to turn: 622.36
-distanceExtrapolated: 4255.76
-tick: 0341	distance to turn: 621.23
-distanceExtrapolated: 4434.12
-tick: 0342	distance to turn: 620.13
-distanceExtrapolated: 5025.38
-tick: 0343	distance to turn: 619.06
-distanceExtrapolated: 6333.29
-tick: 0344	distance to turn: 618.02
-distanceExtrapolated: 7582.35
-tick: 0345	distance to turn: 617.01
-distanceExtrapolated: 5455.79
-tick: 0346	distance to turn: 616.02
-distanceExtrapolated: 5785.16
-tick: 0347	distance to turn: 615.06
-distanceExtrapolated: 4575.36
-tick: 0348	distance to turn: 614.12
-distanceExtrapolated: 4402.71
-tick: 0349	distance to turn: 613.19
-distanceExtrapolated: 6115.34
-tick: 0350	distance to turn: 612.28
-distanceExtrapolated: 3811.92
-tick: 0351	distance to turn: 611.38
-distanceExtrapolated: 3358.45
-tick: 0352	distance to turn: 610.49
-distanceExtrapolated: 2585.86
-tick: 0353	distance to turn: 609.60
-distanceExtrapolated: 1171.63
-tick: 0354	distance to turn: 608.72
-distanceExtrapolated: 1620.46
-tick: 0355	distance to turn: 607.83
-distanceExtrapolated: 1933.37
-tick: 0356	distance to turn: 606.95
-distanceExtrapolated: 5172.00
-tick: 0357	distance to turn: 606.07
-distanceExtrapolated: 1797.72
-tick: 0358	distance to turn: 605.20
-distanceExtrapolated: 3941.73
-tick: 0359	distance to turn: 604.34
-distanceExtrapolated: 7417.00
-tick: 0360	distance to turn: 603.49
-distanceExtrapolated: 3802.43
-tick: 0361	distance to turn: 602.65
-distanceExtrapolated: 5703.86
-tick: 0362	distance to turn: 601.83
-distanceExtrapolated: 3881.17
-tick: 0363	distance to turn: 601.02
-distanceExtrapolated: 6414.46
-tick: 0364	distance to turn: 600.22
-distanceExtrapolated: 9501.69
-tick: 0365	distance to turn: 599.44
-distanceExtrapolated: 4878.64
-tick: 0366	distance to turn: 598.68
-distanceExtrapolated: 3736.24
-tick: 0367	distance to turn: 597.92
-distanceExtrapolated: 2868.94
-tick: 0368	distance to turn: 597.16
-distanceExtrapolated: 1851.02
-tick: 0369	distance to turn: 596.40
-distanceExtrapolated: 2015.84
-tick: 0370	distance to turn: 595.64
-distanceExtrapolated: 2622.91
-tick: 0371	distance to turn: 594.87
-distanceExtrapolated: 3100.55
-tick: 0372	distance to turn: 594.08
-distanceExtrapolated: 3400.38
-tick: 0373	distance to turn: 593.28
-distanceExtrapolated: 3561.03
-tick: 0374	distance to turn: 592.47
-distanceExtrapolated: 3623.82
-tick: 0375	distance to turn: 591.65
-distanceExtrapolated: 3620.91
-tick: 0376	distance to turn: 590.81
-distanceExtrapolated: 4208.56
-tick: 0377	distance to turn: 589.96
-distanceExtrapolated: 2473.61
-tick: 0378	distance to turn: 589.10
-distanceExtrapolated: 3356.56
-tick: 0379	distance to turn: 588.24
-distanceExtrapolated: 980.18
-tick: 0380	distance to turn: 587.37
-distanceExtrapolated: 3181.25
-tick: 0381	distance to turn: 586.51
-distanceExtrapolated: 6036.27
-tick: 0382	distance to turn: 585.65
-distanceExtrapolated: 2225.64
-tick: 0383	distance to turn: 584.80
-distanceExtrapolated: 1884.60
-tick: 0384	distance to turn: 583.96
-distanceExtrapolated: 4549.52
-tick: 0385	distance to turn: 583.13
-distanceExtrapolated: 2131.16
-tick: 0386	distance to turn: 582.30
-distanceExtrapolated: 1956.22
-tick: 0387	distance to turn: 581.48
-distanceExtrapolated: 1347.99
-tick: 0388	distance to turn: 580.66
-distanceExtrapolated: 1225.74
-tick: 0389	distance to turn: 579.83
-distanceExtrapolated: 1791.30
-tick: 0390	distance to turn: 579.00
-distanceExtrapolated: 2271.65
-tick: 0391	distance to turn: 578.15
-distanceExtrapolated: 2587.20
-tick: 0392	distance to turn: 577.29
-distanceExtrapolated: 2772.95
-tick: 0393	distance to turn: 576.42
-distanceExtrapolated: 2866.72
-tick: 0394	distance to turn: 575.54
-distanceExtrapolated: 2897.51
-tick: 0395	distance to turn: 574.64
-distanceExtrapolated: 2885.93
-tick: 0396	distance to turn: 573.73
-distanceExtrapolated: 2846.51
-tick: 0397	distance to turn: 572.80
-distanceExtrapolated: 2789.11
-tick: 0398	distance to turn: 571.86
-distanceExtrapolated: 2720.63
-tick: 0399	distance to turn: 570.91
-distanceExtrapolated: 2645.62
-tick: 0400	distance to turn: 569.93
-distanceExtrapolated: 2567.33
-tick: 0401	distance to turn: 568.95
-distanceExtrapolated: 2928.97
-tick: 0402	distance to turn: 567.95
-distanceExtrapolated: 1704.17
-tick: 0403	distance to turn: 566.94
-distanceExtrapolated: 2362.33
-tick: 0404	distance to turn: 565.93
-distanceExtrapolated: 647.47
-tick: 0405	distance to turn: 564.92
-distanceExtrapolated: 610.05
-tick: 0406	distance to turn: 563.90
-distanceExtrapolated: 2451.13
-tick: 0407	distance to turn: 562.88
-distanceExtrapolated: 558.16
-tick: 0408	distance to turn: 561.85
-distanceExtrapolated: 694.83
-tick: 0409	distance to turn: 560.83
-distanceExtrapolated: 1043.22
-tick: 0410	distance to turn: 559.79
-distanceExtrapolated: 1320.22
-tick: 0411	distance to turn: 558.75
-distanceExtrapolated: 1502.31
-tick: 0412	distance to turn: 557.69
-distanceExtrapolated: 1617.92
-tick: 0413	distance to turn: 556.63
-distanceExtrapolated: 1686.42
-tick: 0414	distance to turn: 555.55
-distanceExtrapolated: 1721.33
-tick: 0415	distance to turn: 554.45
-distanceExtrapolated: 1732.04
-tick: 0416	distance to turn: 553.35
-distanceExtrapolated: 1725.49
-tick: 0417	distance to turn: 552.23
-distanceExtrapolated: 1706.77
-tick: 0418	distance to turn: 551.09
-distanceExtrapolated: 1679.53
-tick: 0419	distance to turn: 549.94
-distanceExtrapolated: 1646.55
-tick: 0420	distance to turn: 548.78
-distanceExtrapolated: 1609.80
-tick: 0421	distance to turn: 547.60
-distanceExtrapolated: 1570.76
-tick: 0422	distance to turn: 546.41
-distanceExtrapolated: 1530.47
-tick: 0423	distance to turn: 545.20
-distanceExtrapolated: 1489.67
-tick: 0424	distance to turn: 543.98
-distanceExtrapolated: 1448.92
-tick: 0425	distance to turn: 542.74
-distanceExtrapolated: 1408.58
-tick: 0426	distance to turn: 541.49
-distanceExtrapolated: 1368.95
-tick: 0427	distance to turn: 540.22
-distanceExtrapolated: 1330.16
-tick: 0428	distance to turn: 538.94
-distanceExtrapolated: 1292.34
-tick: 0429	distance to turn: 537.64
-distanceExtrapolated: 1255.55
-tick: 0430	distance to turn: 536.33
-distanceExtrapolated: 1219.89
-tick: 0431	distance to turn: 535.00
-distanceExtrapolated: 1185.27
-tick: 0432	distance to turn: 533.66
-distanceExtrapolated: 1151.76
-tick: 0433	distance to turn: 532.31
-distanceExtrapolated: 1119.34
-tick: 0434	distance to turn: 530.94
-distanceExtrapolated: 1087.96
-tick: 0435	distance to turn: 529.55
-distanceExtrapolated: 1057.58
-tick: 0436	distance to turn: 528.15
-distanceExtrapolated: 1028.23
-tick: 0437	distance to turn: 526.74
-distanceExtrapolated: 999.86
-tick: 0438	distance to turn: 525.31
-distanceExtrapolated: 972.39
-tick: 0439	distance to turn: 523.87
-distanceExtrapolated: 945.85
-tick: 0440	distance to turn: 522.41
-distanceExtrapolated: 920.16
-tick: 0441	distance to turn: 520.94
-distanceExtrapolated: 895.28
-tick: 0442	distance to turn: 519.45
-distanceExtrapolated: 871.23
-tick: 0443	distance to turn: 517.95
-distanceExtrapolated: 775.55
-tick: 0444	distance to turn: 516.44
-distanceExtrapolated: 377.62
-tick: 0445	distance to turn: 514.93
-distanceExtrapolated: 254.64
-tick: 0446	distance to turn: 513.43
-distanceExtrapolated: 771.98
-tick: 0447	distance to turn: 511.95
-distanceExtrapolated: 1115.31
-tick: 0448	distance to turn: 510.49
-distanceExtrapolated: 1372.66
-tick: 0449	distance to turn: 509.05
-distanceExtrapolated: 1578.73
-tick: 0450	distance to turn: 507.64
-distanceExtrapolated: 1750.63
-tick: 0451	distance to turn: 506.25
-distanceExtrapolated: 1899.20
-tick: 0452	distance to turn: 504.90
-distanceExtrapolated: 2031.57
-tick: 0453	distance to turn: 503.57
-distanceExtrapolated: 2152.62
-tick: 0454	distance to turn: 502.27
-distanceExtrapolated: 2265.80
-tick: 0455	distance to turn: 501.01
-distanceExtrapolated: 2373.67
-tick: 0456	distance to turn: 499.77
-distanceExtrapolated: 2478.14
-tick: 0457	distance to turn: 498.56
-distanceExtrapolated: 2580.64
-tick: 0458	distance to turn: 497.38
-distanceExtrapolated: 2682.50
-tick: 0459	distance to turn: 496.23
-distanceExtrapolated: 2784.75
-tick: 0460	distance to turn: 495.11
-distanceExtrapolated: 2888.19
-tick: 0461	distance to turn: 494.02
-distanceExtrapolated: 3259.26
-tick: 0462	distance to turn: 492.96
-distanceExtrapolated: 4095.23
-tick: 0463	distance to turn: 491.93
-distanceExtrapolated: 4895.14
-tick: 0464	distance to turn: 490.93
-distanceExtrapolated: 5373.71
-tick: 0465	distance to turn: 489.96
-distanceExtrapolated: 3826.85
-tick: 0466	distance to turn: 489.02
-distanceExtrapolated: 4264.62
-tick: 0467	distance to turn: 488.10
-distanceExtrapolated: 3371.46
-tick: 0468	distance to turn: 487.20
-distanceExtrapolated: 3313.71
-tick: 0469	distance to turn: 486.32
-distanceExtrapolated: 2930.80
-tick: 0470	distance to turn: 485.44
-distanceExtrapolated: 986.68
-tick: 0471	distance to turn: 484.57
-distanceExtrapolated: 2068.67
-tick: 0472	distance to turn: 483.71
-distanceExtrapolated: 792.86
-tick: 0473	distance to turn: 482.85
-distanceExtrapolated: 3123.99
-tick: 0474	distance to turn: 482.00
-distanceExtrapolated: 4763.28
-tick: 0475	distance to turn: 481.16
-distanceExtrapolated: 2187.03
-tick: 0476	distance to turn: 480.34
-distanceExtrapolated: 3118.41
-tick: 0477	distance to turn: 479.52
-distanceExtrapolated: 5619.02
-tick: 0478	distance to turn: 478.72
-distanceExtrapolated: 7079.13
-tick: 0479	distance to turn: 477.94
-distanceExtrapolated: 3677.12
-tick: 0480	distance to turn: 477.17
-distanceExtrapolated: 2613.74
-tick: 0481	distance to turn: 476.41
-distanceExtrapolated: 4721.16
-tick: 0482	distance to turn: 475.66
-distanceExtrapolated: 2427.49
-tick: 0483	distance to turn: 474.91
-distanceExtrapolated: 2083.74
-tick: 0484	distance to turn: 474.18
-distanceExtrapolated: 1464.89
-tick: 0485	distance to turn: 473.44
-distanceExtrapolated: 1229.65
-tick: 0486	distance to turn: 472.69
-distanceExtrapolated: 1593.26
-tick: 0487	distance to turn: 471.94
-distanceExtrapolated: 1952.13
-tick: 0488	distance to turn: 471.18
-distanceExtrapolated: 2188.73
-tick: 0489	distance to turn: 470.40
-distanceExtrapolated: 2320.48
-tick: 0490	distance to turn: 469.61
-distanceExtrapolated: 2377.45
-tick: 0491	distance to turn: 468.81
-distanceExtrapolated: 2815.44
-tick: 0492	distance to turn: 468.00
-distanceExtrapolated: 1657.02
-tick: 0493	distance to turn: 467.18
-distanceExtrapolated: 2254.43
-tick: 0494	distance to turn: 466.35
-distanceExtrapolated: 670.25
-tick: 0495	distance to turn: 465.52
-distanceExtrapolated: 2119.88
-tick: 0496	distance to turn: 464.69
-distanceExtrapolated: 363.88
-tick: 0497	distance to turn: 463.87
-distanceExtrapolated: 2410.40
-tick: 0498	distance to turn: 463.05
-distanceExtrapolated: 1244.87
-tick: 0499	distance to turn: 462.24
-distanceExtrapolated: 2872.45
-tick: 0500	distance to turn: 461.44
-distanceExtrapolated: 1800.28
-tick: 0501	distance to turn: 460.66
-distanceExtrapolated: 3218.30
-tick: 0502	distance to turn: 459.88
-distanceExtrapolated: 2090.16
-tick: 0503	distance to turn: 459.12
-distanceExtrapolated: 3459.19
-tick: 0504	distance to turn: 458.36
-distanceExtrapolated: 2255.42
-tick: 0505	distance to turn: 457.62
-distanceExtrapolated: 1925.33
-tick: 0506	distance to turn: 456.89
-distanceExtrapolated: 1183.15
-tick: 0507	distance to turn: 456.16
-distanceExtrapolated: 479.79
-tick: 0508	distance to turn: 455.43
-distanceExtrapolated: 1078.04
-tick: 0509	distance to turn: 454.69
-distanceExtrapolated: 1611.63
-tick: 0510	distance to turn: 453.93
-distanceExtrapolated: 1941.22
-tick: 0511	distance to turn: 453.17
-distanceExtrapolated: 2127.36
-tick: 0512	distance to turn: 452.40
-distanceExtrapolated: 2218.31
-tick: 0513	distance to turn: 451.61
-distanceExtrapolated: 2247.13
-tick: 0514	distance to turn: 450.80
-distanceExtrapolated: 2235.96
-tick: 0515	distance to turn: 449.99
-distanceExtrapolated: 2199.49
-tick: 0516	distance to turn: 449.15
-distanceExtrapolated: 2147.45
-tick: 0517	distance to turn: 448.30
-distanceExtrapolated: 2443.07
-tick: 0518	distance to turn: 447.45
-distanceExtrapolated: 1441.45
-tick: 0519	distance to turn: 446.58
-distanceExtrapolated: 1916.13
-tick: 0520	distance to turn: 445.70
-distanceExtrapolated: 572.45
-tick: 0521	distance to turn: 444.83
-distanceExtrapolated: 1797.90
-tick: 0522	distance to turn: 443.95
-distanceExtrapolated: 355.06
-tick: 0523	distance to turn: 443.08
-distanceExtrapolated: 502.23
-tick: 0524	distance to turn: 442.21
-distanceExtrapolated: 407.58
-tick: 0525	distance to turn: 441.33
-distanceExtrapolated: 630.92
-tick: 0526	distance to turn: 440.45
-distanceExtrapolated: 963.95
-tick: 0527	distance to turn: 439.56
-distanceExtrapolated: 1194.91
-tick: 0528	distance to turn: 438.66
-distanceExtrapolated: 1339.91
-tick: 0529	distance to turn: 437.75
-distanceExtrapolated: 1423.44
-tick: 0530	distance to turn: 436.83
-distanceExtrapolated: 1464.44
-tick: 0531	distance to turn: 435.89
-distanceExtrapolated: 1476.38
-tick: 0532	distance to turn: 434.94
-distanceExtrapolated: 1468.68
-tick: 0533	distance to turn: 433.97
-distanceExtrapolated: 1447.96
-tick: 0534	distance to turn: 432.99
-distanceExtrapolated: 1418.73
-tick: 0535	distance to turn: 431.99
-distanceExtrapolated: 1384.17
-tick: 0536	distance to turn: 430.98
-distanceExtrapolated: 1346.46
-tick: 0537	distance to turn: 429.96
-distanceExtrapolated: 1307.08
-tick: 0538	distance to turn: 428.92
-distanceExtrapolated: 1267.05
-tick: 0539	distance to turn: 427.86
-distanceExtrapolated: 1227.10
-tick: 0540	distance to turn: 426.79
-distanceExtrapolated: 1187.70
-tick: 0541	distance to turn: 425.70
-distanceExtrapolated: 1149.10
-tick: 0542	distance to turn: 424.60
-distanceExtrapolated: 1111.55
-tick: 0543	distance to turn: 423.48
-distanceExtrapolated: 1075.15
-tick: 0544	distance to turn: 422.35
-distanceExtrapolated: 1039.96
-tick: 0545	distance to turn: 421.21
-distanceExtrapolated: 1006.00
-tick: 0546	distance to turn: 420.04
-distanceExtrapolated: 973.27
-tick: 0547	distance to turn: 418.87
-distanceExtrapolated: 941.75
-tick: 0548	distance to turn: 417.67
-distanceExtrapolated: 911.43
-tick: 0549	distance to turn: 416.47
-distanceExtrapolated: 882.25
-tick: 0550	distance to turn: 415.24
-distanceExtrapolated: 854.19
-tick: 0551	distance to turn: 414.01
-distanceExtrapolated: 827.18
-tick: 0552	distance to turn: 412.76
-distanceExtrapolated: 801.20
-tick: 0553	distance to turn: 411.49
-distanceExtrapolated: 776.20
-tick: 0554	distance to turn: 410.21
-distanceExtrapolated: 752.14
-tick: 0555	distance to turn: 408.91
-distanceExtrapolated: 728.96
-tick: 0556	distance to turn: 407.60
-distanceExtrapolated: 706.66
-tick: 0557	distance to turn: 406.27
-distanceExtrapolated: 685.15
-tick: 0558	distance to turn: 404.93
-distanceExtrapolated: 664.42
-tick: 0559	distance to turn: 403.58
-distanceExtrapolated: 644.45
-tick: 0560	distance to turn: 402.21
-distanceExtrapolated: 625.18
-tick: 0561	distance to turn: 400.82
-distanceExtrapolated: 606.59
-tick: 0562	distance to turn: 399.43
-distanceExtrapolated: 588.66
-tick: 0563	distance to turn: 398.01
-distanceExtrapolated: 571.33
-tick: 0564	distance to turn: 396.58
-distanceExtrapolated: 554.61
-tick: 0565	distance to turn: 395.14
-distanceExtrapolated: 538.45
-tick: 0566	distance to turn: 393.68
-distanceExtrapolated: 522.84
-tick: 0567	distance to turn: 392.21
-distanceExtrapolated: 507.75
-tick: 0568	distance to turn: 390.73
-distanceExtrapolated: 493.15
-tick: 0569	distance to turn: 389.23
-distanceExtrapolated: 479.03
-tick: 0570	distance to turn: 387.71
-distanceExtrapolated: 465.38
-tick: 0571	distance to turn: 386.18
-distanceExtrapolated: 452.16
-tick: 0572	distance to turn: 384.64
-distanceExtrapolated: 439.36
-tick: 0573	distance to turn: 383.08
-distanceExtrapolated: 426.96
-tick: 0574	distance to turn: 381.51
-distanceExtrapolated: 414.97
-tick: 0575	distance to turn: 379.93
-distanceExtrapolated: 403.34
-tick: 0576	distance to turn: 378.33
-distanceExtrapolated: 392.07
-tick: 0577	distance to turn: 376.71
-distanceExtrapolated: 381.15
-tick: 0578	distance to turn: 375.09
-distanceExtrapolated: 370.55
-tick: 0579	distance to turn: 373.44
-distanceExtrapolated: 360.28
-tick: 0580	distance to turn: 371.79
-distanceExtrapolated: 350.32
-tick: 0581	distance to turn: 370.12
-distanceExtrapolated: 340.55
-tick: 0582	distance to turn: 368.43
-distanceExtrapolated: 330.30
-tick: 0583	distance to turn: 366.74
-distanceExtrapolated: 319.55
-tick: 0584	distance to turn: 365.02
-distanceExtrapolated: 308.59
-tick: 0585	distance to turn: 363.30
-distanceExtrapolated: 297.59
-tick: 0586	distance to turn: 361.56
-distanceExtrapolated: 286.69
-tick: 0587	distance to turn: 359.81
-distanceExtrapolated: 276.00
-tick: 0588	distance to turn: 358.05
-distanceExtrapolated: 265.58
-tick: 0589	distance to turn: 356.27
-distanceExtrapolated: 255.45
-tick: 0590	distance to turn: 354.48
-distanceExtrapolated: 245.68
-tick: 0591	distance to turn: 352.68
-distanceExtrapolated: 236.47
-tick: 0592	distance to turn: 350.86
-distanceExtrapolated: 227.89
-tick: 0593	distance to turn: 349.03
-distanceExtrapolated: 219.84
-tick: 0594	distance to turn: 347.19
-distanceExtrapolated: 212.26
-tick: 0595	distance to turn: 345.34
-distanceExtrapolated: 205.08
-tick: 0596	distance to turn: 343.48
-distanceExtrapolated: 198.24
-tick: 0597	distance to turn: 341.61
-distanceExtrapolated: 191.74
-tick: 0598	distance to turn: 339.72
-distanceExtrapolated: 185.51
-tick: 0599	distance to turn: 337.82
-distanceExtrapolated: 179.55
-tick: 0600	distance to turn: 335.91
-distanceExtrapolated: 173.82
-tick: 0601	distance to turn: 333.99
-distanceExtrapolated: 168.31
-tick: 0602	distance to turn: 332.06
-distanceExtrapolated: 163.00
-tick: 0603	distance to turn: 330.12
-distanceExtrapolated: 157.89
-tick: 0604	distance to turn: 328.17
-distanceExtrapolated: 152.95
-tick: 0605	distance to turn: 326.20
-distanceExtrapolated: 148.18
-tick: 0606	distance to turn: 324.23
-distanceExtrapolated: 143.57
-tick: 0607	distance to turn: 322.24
-distanceExtrapolated: 139.11
-tick: 0608	distance to turn: 320.25
-distanceExtrapolated: 134.80
-tick: 0609	distance to turn: 318.24
-distanceExtrapolated: 130.62
-tick: 0610	distance to turn: 316.22
-distanceExtrapolated: 126.59
-tick: 0611	distance to turn: 314.20
-distanceExtrapolated: 122.73
-tick: 0612	distance to turn: 312.16
-distanceExtrapolated: 119.02
-tick: 0613	distance to turn: 310.11
-distanceExtrapolated: 115.46
-tick: 0614	distance to turn: 308.06
-distanceExtrapolated: 112.02
-tick: 0615	distance to turn: 305.99
-distanceExtrapolated: 108.70
-tick: 0616	distance to turn: 303.91
-distanceExtrapolated: 105.49
-tick: 0617	distance to turn: 301.82
-distanceExtrapolated: 102.39
-tick: 0618	distance to turn: 299.73
-distanceExtrapolated: 99.38
-tick: 0619	distance to turn: 297.62
-distanceExtrapolated: 96.46
-tick: 0620	distance to turn: 295.51
-distanceExtrapolated: 93.63
-tick: 0621	distance to turn: 293.38
-distanceExtrapolated: 90.88
-tick: 0622	distance to turn: 291.24
-distanceExtrapolated: 88.21
-tick: 0623	distance to turn: 289.10
-distanceExtrapolated: 85.61
-tick: 0624	distance to turn: 286.95
-distanceExtrapolated: 83.09
-tick: 0625	distance to turn: 284.78
-distanceExtrapolated: 80.63
-tick: 0626	distance to turn: 282.61
-distanceExtrapolated: 78.25
-tick: 0627	distance to turn: 280.43
-distanceExtrapolated: 75.92
-tick: 0628	distance to turn: 278.24
-distanceExtrapolated: 73.66
-tick: 0629	distance to turn: 276.03
-distanceExtrapolated: 71.47
-tick: 0630	distance to turn: 273.83
-distanceExtrapolated: 69.33
-tick: 0631	distance to turn: 271.61
-distanceExtrapolated: 67.25
-tick: 0632	distance to turn: 269.38
-distanceExtrapolated: 65.22
-tick: 0633	distance to turn: 267.14
-distanceExtrapolated: 63.24
-tick: 0634	distance to turn: 264.90
-distanceExtrapolated: 61.33
-tick: 0635	distance to turn: 262.64
-distanceExtrapolated: 59.45
-tick: 0636	distance to turn: 260.38
-distanceExtrapolated: 57.63
-tick: 0637	distance to turn: 258.11
-distanceExtrapolated: 55.86
-tick: 0638	distance to turn: 255.83
-distanceExtrapolated: 54.13
-tick: 0639	distance to turn: 253.54
-distanceExtrapolated: 52.45
-tick: 0640	distance to turn: 251.24
-distanceExtrapolated: 50.82
-tick: 0641	distance to turn: 248.94
-distanceExtrapolated: 49.22
-tick: 0642	distance to turn: 246.62
-distanceExtrapolated: 47.67
-tick: 0643	distance to turn: 244.30
-distanceExtrapolated: 46.16
-tick: 0644	distance to turn: 241.97
-distanceExtrapolated: 44.69
-tick: 0645	distance to turn: 239.63
-distanceExtrapolated: 43.26
-tick: 0646	distance to turn: 237.28
-distanceExtrapolated: 41.87
-tick: 0647	distance to turn: 234.93
-distanceExtrapolated: 40.51
-tick: 0648	distance to turn: 232.56
-distanceExtrapolated: 39.19
-tick: 0649	distance to turn: 230.19
-distanceExtrapolated: 37.91
-tick: 0650	distance to turn: 227.81
-distanceExtrapolated: 36.66
-tick: 0651	distance to turn: 225.42
-distanceExtrapolated: 35.44
-tick: 0652	distance to turn: 223.03
-distanceExtrapolated: 34.26
-tick: 0653	distance to turn: 220.62
-distanceExtrapolated: 33.10
-tick: 0654	distance to turn: 218.21
-distanceExtrapolated: 31.98
-tick: 0655	distance to turn: 215.79
-distanceExtrapolated: 30.89
-tick: 0656	distance to turn: 213.37
-distanceExtrapolated: 29.83
-tick: 0657	distance to turn: 210.93
-distanceExtrapolated: 28.80
-tick: 0658	distance to turn: 208.49
-distanceExtrapolated: 27.79
-tick: 0659	distance to turn: 206.04
-distanceExtrapolated: 26.82
-tick: 0660	distance to turn: 203.58
-distanceExtrapolated: 25.86
-tick: 0661	distance to turn: 201.12
-distanceExtrapolated: 24.94
-tick: 0662	distance to turn: 198.64
-distanceExtrapolated: 24.04
-tick: 0663	distance to turn: 196.16
-distanceExtrapolated: 23.17
-tick: 0664	distance to turn: 193.68
-distanceExtrapolated: 22.32
-tick: 0665	distance to turn: 191.18
-distanceExtrapolated: 21.50
-tick: 0666	distance to turn: 188.68
-distanceExtrapolated: 20.70
-tick: 0667	distance to turn: 186.17
-distanceExtrapolated: 19.93
-tick: 0668	distance to turn: 183.65
-distanceExtrapolated: 19.19
-tick: 0669	distance to turn: 181.13
-distanceExtrapolated: 18.47
-tick: 0670	distance to turn: 178.60
-distanceExtrapolated: 17.78
-tick: 0671	distance to turn: 176.06
-distanceExtrapolated: 17.11
-tick: 0672	distance to turn: 173.52
-distanceExtrapolated: 16.46
-tick: 0673	distance to turn: 170.97
-distanceExtrapolated: 15.83
-tick: 0674	distance to turn: 168.41
-distanceExtrapolated: 15.22
-tick: 0675	distance to turn: 165.84
-distanceExtrapolated: 14.63
-tick: 0676	distance to turn: 163.27
-distanceExtrapolated: 14.06
-tick: 0677	distance to turn: 160.69
-distanceExtrapolated: 13.50
-tick: 0678	distance to turn: 158.10
-distanceExtrapolated: 12.96
-tick: 0679	distance to turn: 155.51
-distanceExtrapolated: 12.43
-tick: 0680	distance to turn: 152.91
-distanceExtrapolated: 11.92
-tick: 0681	distance to turn: 150.30
-distanceExtrapolated: 11.43
-tick: 0682	distance to turn: 147.69
-distanceExtrapolated: 10.95
-tick: 0683	distance to turn: 145.07
-distanceExtrapolated: 10.48
-tick: 0684	distance to turn: 142.44
-distanceExtrapolated: 10.03
-tick: 0685	distance to turn: 139.80
-distanceExtrapolated: 9.59
-tick: 0686	distance to turn: 137.16
-distanceExtrapolated: 9.17
-tick: 0687	distance to turn: 134.52
-distanceExtrapolated: 8.76
-tick: 0688	distance to turn: 131.86
-distanceExtrapolated: 8.36
-tick: 0689	distance to turn: 129.20
-distanceExtrapolated: 7.98
-tick: 0690	distance to turn: 126.53
-distanceExtrapolated: 7.61
-tick: 0691	distance to turn: 123.86
-distanceExtrapolated: 7.25
-tick: 0692	distance to turn: 121.18
-distanceExtrapolated: 6.90
-tick: 0693	distance to turn: 118.49
-distanceExtrapolated: 6.56
-tick: 0694	distance to turn: 115.80
-distanceExtrapolated: 6.24
-tick: 0695	distance to turn: 113.10
-distanceExtrapolated: 5.93
-tick: 0696	distance to turn: 110.39
-distanceExtrapolated: 5.63
-tick: 0697	distance to turn: 107.68
-distanceExtrapolated: 5.35
-tick: 0698	distance to turn: 104.96
-distanceExtrapolated: 5.07
-tick: 0699	distance to turn: 102.24
-distanceExtrapolated: 4.81
-tick: 0700	distance to turn: 99.50
-distanceExtrapolated: 4.55
-tick: 0701	distance to turn: 96.76
-distanceExtrapolated: 4.31
-tick: 0702	distance to turn: 94.02
-distanceExtrapolated: 4.08
-tick: 0703	distance to turn: 91.27
-distanceExtrapolated: 3.87
-tick: 0704	distance to turn: 88.51
-distanceExtrapolated: 3.66
-tick: 0705	distance to turn: 85.75
-distanceExtrapolated: 3.47
-tick: 0706	distance to turn: 82.98
-distanceExtrapolated: 3.28
-tick: 0707	distance to turn: 80.20
-distanceExtrapolated: 3.11
-tick: 0708	distance to turn: 77.42
-distanceExtrapolated: 2.95
-tick: 0709	distance to turn: 74.63
-distanceExtrapolated: 2.80
-tick: 0710	distance to turn: 71.84
-distanceExtrapolated: 2.66
-tick: 0711	distance to turn: 69.04
-distanceExtrapolated: 2.53
-tick: 0712	distance to turn: 66.23
-distanceExtrapolated: 2.42
-tick: 0713	distance to turn: 63.42
-distanceExtrapolated: 2.31
-tick: 0714	distance to turn: 60.60
-distanceExtrapolated: 2.22
-tick: 0715	distance to turn: 57.78
-distanceExtrapolated: 2.13
-tick: 0716	distance to turn: 54.95
-distanceExtrapolated: 2.06
-tick: 0717	distance to turn: 52.11
-distanceExtrapolated: 1.99
-tick: 0718	distance to turn: 49.27
-distanceExtrapolated: 1.94
-tick: 0719	distance to turn: 46.42
-distanceExtrapolated: 1.89
-tick: 0720	distance to turn: 43.57
-distanceExtrapolated: 1.85
-tick: 0721	distance to turn: 40.71
-distanceExtrapolated: 1.81
-tick: 0722	distance to turn: 37.85
-distanceExtrapolated: 1.79
-tick: 0723	distance to turn: 34.98
-distanceExtrapolated: 1.77
-tick: 0724	distance to turn: 32.10
-distanceExtrapolated: 1.75
-tick: 0725	distance to turn: 29.22
-distanceExtrapolated: 1.74
-tick: 0726	distance to turn: 26.34
-distanceExtrapolated: 1.73
-tick: 0727	distance to turn: 23.45
-distanceExtrapolated: 1.72
-tick: 0728	distance to turn: 20.56
-distanceExtrapolated: 1.71
-tick: 0729	distance to turn: 17.66
-distanceExtrapolated: 1.71
-tick: 0730	distance to turn: 14.76
-distanceExtrapolated: 1.71
-tick: 0731	distance to turn: 11.87
-distanceExtrapolated: 1.70
-tick: 0732	distance to turn: 9.01
-distanceExtrapolated: 1.70
-tick: 0733	distance to turn: 6.19
-distanceExtrapolated: 1.71
-tick: 0734	distance to turn: 3.53
-distanceExtrapolated: 1.75
-tick: 0735	distance to turn: 1.72
-distanceExtrapolated: 2.24
-tick: 0736	distance to turn: 3.07
-distanceExtrapolated: 5.86
-tick: 0737	distance to turn: 5.59
-distanceExtrapolated: 10.98
-tick: 0738	distance to turn: 8.24
-distanceExtrapolated: 16.23
-tick: 0739	distance to turn: 9.30
-distanceExtrapolated: 18.28
-tick: 0740	distance to turn: 9.65
-distanceExtrapolated: 18.92
-tick: 0741	distance to turn: 9.44
-distanceExtrapolated: 18.44
-done
+tick: 0098	distance to turn: 873.79
+tick: 0099	distance to turn: 872.79
+tick: 0100	distance to turn: 871.81
+tick: 0101	distance to turn: 870.86
+tick: 0102	distance to turn: 869.94
+tick: 0103	distance to turn: 869.04
+tick: 0104	distance to turn: 868.17
+tick: 0105	distance to turn: 867.32
+tick: 0106	distance to turn: 866.50
+tick: 0107	distance to turn: 865.70
+tick: 0108	distance to turn: 864.93
+tick: 0109	distance to turn: 864.19
+tick: 0110	distance to turn: 863.46
+tick: 0111	distance to turn: 862.75
+tick: 0112	distance to turn: 862.06
+tick: 0113	distance to turn: 861.37
+tick: 0114	distance to turn: 860.68
+tick: 0115	distance to turn: 860.00
+tick: 0116	distance to turn: 859.30
+tick: 0117	distance to turn: 858.60
+tick: 0118	distance to turn: 857.88
+tick: 0119	distance to turn: 857.15
+tick: 0120	distance to turn: 856.41
+tick: 0121	distance to turn: 855.67
+tick: 0122	distance to turn: 854.91
+tick: 0123	distance to turn: 854.17
+tick: 0124	distance to turn: 853.42
+tick: 0125	distance to turn: 852.68
+tick: 0126	distance to turn: 851.95
+tick: 0127	distance to turn: 851.23
+tick: 0128	distance to turn: 850.52
+tick: 0129	distance to turn: 849.83
+tick: 0130	distance to turn: 849.14
+tick: 0131	distance to turn: 848.46
+tick: 0132	distance to turn: 847.79
+tick: 0133	distance to turn: 847.13
+tick: 0134	distance to turn: 846.47
+tick: 0135	distance to turn: 845.81
+tick: 0136	distance to turn: 845.13
+tick: 0137	distance to turn: 844.45
+tick: 0138	distance to turn: 843.75
+tick: 0139	distance to turn: 843.04
+tick: 0140	distance to turn: 842.32
+tick: 0141	distance to turn: 841.58
+tick: 0142	distance to turn: 840.83
+tick: 0143	distance to turn: 840.06
+tick: 0144	distance to turn: 839.28
+tick: 0145	distance to turn: 838.48
+tick: 0146	distance to turn: 837.66
+tick: 0147	distance to turn: 836.83
+tick: 0148	distance to turn: 835.99
+tick: 0149	distance to turn: 835.12
+tick: 0150	distance to turn: 834.25
+tick: 0151	distance to turn: 833.35
+tick: 0152	distance to turn: 832.45
+tick: 0153	distance to turn: 831.52
+tick: 0154	distance to turn: 830.59
+tick: 0155	distance to turn: 829.65
+tick: 0156	distance to turn: 828.72
+tick: 0157	distance to turn: 827.79
+tick: 0158	distance to turn: 826.89
+tick: 0159	distance to turn: 826.00
+tick: 0160	distance to turn: 825.12
+tick: 0161	distance to turn: 824.27
+tick: 0162	distance to turn: 823.44
+tick: 0163	distance to turn: 822.64
+tick: 0164	distance to turn: 821.86
+tick: 0165	distance to turn: 821.09
+tick: 0166	distance to turn: 820.35
+tick: 0167	distance to turn: 819.62
+tick: 0168	distance to turn: 818.90
+tick: 0169	distance to turn: 818.20
+tick: 0170	distance to turn: 817.50
+tick: 0171	distance to turn: 816.81
+tick: 0172	distance to turn: 816.13
+tick: 0173	distance to turn: 815.44
+tick: 0174	distance to turn: 814.75
+tick: 0175	distance to turn: 814.05
+tick: 0176	distance to turn: 813.33
+tick: 0177	distance to turn: 812.61
+tick: 0178	distance to turn: 811.88
+tick: 0179	distance to turn: 811.15
+tick: 0180	distance to turn: 810.41
+tick: 0181	distance to turn: 809.68
+tick: 0182	distance to turn: 808.95
+tick: 0183	distance to turn: 808.23
+tick: 0184	distance to turn: 807.52
+tick: 0185	distance to turn: 806.82
+tick: 0186	distance to turn: 806.13
+tick: 0187	distance to turn: 805.45
+tick: 0188	distance to turn: 804.78
+tick: 0189	distance to turn: 804.12
+tick: 0190	distance to turn: 803.46
+tick: 0191	distance to turn: 802.81
+tick: 0192	distance to turn: 802.15
+tick: 0193	distance to turn: 801.48
+tick: 0194	distance to turn: 800.80
+tick: 0195	distance to turn: 800.11
+tick: 0196	distance to turn: 799.41
+tick: 0197	distance to turn: 798.69
+tick: 0198	distance to turn: 797.96
+tick: 0199	distance to turn: 797.21
+tick: 0200	distance to turn: 796.45
+tick: 0201	distance to turn: 795.67
+tick: 0202	distance to turn: 794.88
+tick: 0203	distance to turn: 794.07
+tick: 0204	distance to turn: 793.24
+tick: 0205	distance to turn: 792.41
+tick: 0206	distance to turn: 791.56
+tick: 0207	distance to turn: 790.71
+tick: 0208	distance to turn: 789.86
+tick: 0209	distance to turn: 789.01
+tick: 0210	distance to turn: 788.16
+tick: 0211	distance to turn: 787.32
+tick: 0212	distance to turn: 786.50
+tick: 0213	distance to turn: 785.68
+tick: 0214	distance to turn: 784.87
+tick: 0215	distance to turn: 784.07
+tick: 0216	distance to turn: 783.28
+tick: 0217	distance to turn: 782.49
+tick: 0218	distance to turn: 781.70
+tick: 0219	distance to turn: 780.91
+tick: 0220	distance to turn: 780.11
+tick: 0221	distance to turn: 779.29
+tick: 0222	distance to turn: 778.47
+tick: 0223	distance to turn: 777.63
+tick: 0224	distance to turn: 776.78
+tick: 0225	distance to turn: 775.91
+tick: 0226	distance to turn: 775.03
+tick: 0227	distance to turn: 774.14
+tick: 0228	distance to turn: 773.23
+tick: 0229	distance to turn: 772.30
+tick: 0230	distance to turn: 771.36
+tick: 0231	distance to turn: 770.41
+tick: 0232	distance to turn: 769.43
+tick: 0233	distance to turn: 768.45
+tick: 0234	distance to turn: 767.45
+tick: 0235	distance to turn: 766.43
+tick: 0236	distance to turn: 765.40
+tick: 0237	distance to turn: 764.35
+tick: 0238	distance to turn: 763.29
+tick: 0239	distance to turn: 762.21
+tick: 0240	distance to turn: 761.14
+tick: 0241	distance to turn: 760.07
+tick: 0242	distance to turn: 759.01
+tick: 0243	distance to turn: 757.96
+tick: 0244	distance to turn: 756.94
+tick: 0245	distance to turn: 755.93
+tick: 0246	distance to turn: 754.95
+tick: 0247	distance to turn: 753.99
+tick: 0248	distance to turn: 753.05
+tick: 0249	distance to turn: 752.14
+tick: 0250	distance to turn: 751.26
+tick: 0251	distance to turn: 750.39
+tick: 0252	distance to turn: 749.55
+tick: 0253	distance to turn: 748.74
+tick: 0254	distance to turn: 747.95
+tick: 0255	distance to turn: 747.19
+tick: 0256	distance to turn: 746.45
+tick: 0257	distance to turn: 745.73
+tick: 0258	distance to turn: 745.02
+tick: 0259	distance to turn: 744.34
+tick: 0260	distance to turn: 743.68
+tick: 0261	distance to turn: 743.04
+tick: 0262	distance to turn: 742.41
+tick: 0263	distance to turn: 741.80
+tick: 0264	distance to turn: 741.19
+tick: 0265	distance to turn: 740.60
+tick: 0266	distance to turn: 740.01
+tick: 0267	distance to turn: 739.43
+tick: 0268	distance to turn: 738.86
+tick: 0269	distance to turn: 738.31
+tick: 0270	distance to turn: 737.76
+tick: 0271	distance to turn: 737.23
+tick: 0272	distance to turn: 736.71
+tick: 0273	distance to turn: 736.20
+tick: 0274	distance to turn: 735.70
+tick: 0275	distance to turn: 735.22
+tick: 0276	distance to turn: 734.74
+tick: 0277	distance to turn: 734.27
+tick: 0278	distance to turn: 733.81
+tick: 0279	distance to turn: 733.35
+tick: 0280	distance to turn: 732.89
+tick: 0281	distance to turn: 732.43
+tick: 0282	distance to turn: 731.96
+tick: 0283	distance to turn: 731.48
+tick: 0284	distance to turn: 730.98
+tick: 0285	distance to turn: 730.47
+tick: 0286	distance to turn: 729.94
+tick: 0287	distance to turn: 729.39
+tick: 0288	distance to turn: 728.84
+tick: 0289	distance to turn: 728.28
+tick: 0290	distance to turn: 727.71
+tick: 0291	distance to turn: 727.14
+tick: 0292	distance to turn: 726.58
+tick: 0293	distance to turn: 726.02
+tick: 0294	distance to turn: 725.46
+tick: 0295	distance to turn: 724.91
+tick: 0296	distance to turn: 724.37
+tick: 0297	distance to turn: 723.83
+tick: 0298	distance to turn: 723.31
+tick: 0299	distance to turn: 722.79
+tick: 0300	distance to turn: 722.28
+tick: 0301	distance to turn: 721.77
+tick: 0302	distance to turn: 721.26
+tick: 0303	distance to turn: 720.73
+tick: 0304	distance to turn: 720.20
+tick: 0305	distance to turn: 719.65
+tick: 0306	distance to turn: 719.08
+tick: 0307	distance to turn: 718.50
+tick: 0308	distance to turn: 717.90
+tick: 0309	distance to turn: 717.28
+tick: 0310	distance to turn: 716.65
+tick: 0311	distance to turn: 716.01
+tick: 0312	distance to turn: 715.34
+tick: 0313	distance to turn: 714.67
+tick: 0314	distance to turn: 713.97
+tick: 0315	distance to turn: 713.27
+tick: 0316	distance to turn: 712.55
+tick: 0317	distance to turn: 711.83
+tick: 0318	distance to turn: 711.10
+tick: 0319	distance to turn: 710.38
+tick: 0320	distance to turn: 709.65
+tick: 0321	distance to turn: 708.93
+tick: 0322	distance to turn: 708.21
+tick: 0323	distance to turn: 707.49
+tick: 0324	distance to turn: 706.78
+tick: 0325	distance to turn: 706.05
+tick: 0326	distance to turn: 705.32
+tick: 0327	distance to turn: 704.58
+tick: 0328	distance to turn: 703.82
+tick: 0329	distance to turn: 703.06
+tick: 0330	distance to turn: 702.27
+tick: 0331	distance to turn: 701.48
+tick: 0332	distance to turn: 700.67
+tick: 0333	distance to turn: 699.84
+tick: 0334	distance to turn: 699.00
+tick: 0335	distance to turn: 698.14
+tick: 0336	distance to turn: 697.27
+tick: 0337	distance to turn: 696.38
+tick: 0338	distance to turn: 695.48
+tick: 0339	distance to turn: 694.56
+tick: 0340	distance to turn: 693.63
+tick: 0341	distance to turn: 692.68
+tick: 0342	distance to turn: 691.71
+tick: 0343	distance to turn: 690.73
+tick: 0344	distance to turn: 689.74
+tick: 0345	distance to turn: 688.73
+tick: 0346	distance to turn: 687.70
+tick: 0347	distance to turn: 686.66
+tick: 0348	distance to turn: 685.60
+tick: 0349	distance to turn: 684.53
+tick: 0350	distance to turn: 683.44
+tick: 0351	distance to turn: 682.35
+tick: 0352	distance to turn: 681.25
+tick: 0353	distance to turn: 680.16
+tick: 0354	distance to turn: 679.08
+tick: 0355	distance to turn: 678.01
+tick: 0356	distance to turn: 676.96
+tick: 0357	distance to turn: 675.93
+tick: 0358	distance to turn: 674.92
+tick: 0359	distance to turn: 673.93
+tick: 0360	distance to turn: 672.96
+tick: 0361	distance to turn: 672.02
+tick: 0362	distance to turn: 671.11
+tick: 0363	distance to turn: 670.22
+tick: 0364	distance to turn: 669.35
+tick: 0365	distance to turn: 668.51
+tick: 0366	distance to turn: 667.69
+tick: 0367	distance to turn: 666.90
+tick: 0368	distance to turn: 666.13
+tick: 0369	distance to turn: 665.39
+tick: 0370	distance to turn: 664.68
+tick: 0371	distance to turn: 663.98
+tick: 0372	distance to turn: 663.29
+tick: 0373	distance to turn: 662.62
+tick: 0374	distance to turn: 661.95
+tick: 0375	distance to turn: 661.29
+tick: 0376	distance to turn: 660.63
+tick: 0377	distance to turn: 659.96
+tick: 0378	distance to turn: 659.28
+tick: 0379	distance to turn: 658.60
+tick: 0380	distance to turn: 657.92
+tick: 0381	distance to turn: 657.24
+tick: 0382	distance to turn: 656.56
+tick: 0383	distance to turn: 655.90
+tick: 0384	distance to turn: 655.25
+tick: 0385	distance to turn: 654.61
+tick: 0386	distance to turn: 653.98
+tick: 0387	distance to turn: 653.35
+tick: 0388	distance to turn: 652.74
+tick: 0389	distance to turn: 652.12
+tick: 0390	distance to turn: 651.51
+tick: 0391	distance to turn: 650.90
+tick: 0392	distance to turn: 650.28
+tick: 0393	distance to turn: 649.65
+tick: 0394	distance to turn: 649.01
+tick: 0395	distance to turn: 648.36
+tick: 0396	distance to turn: 647.69
+tick: 0397	distance to turn: 647.00
+tick: 0398	distance to turn: 646.30
+tick: 0399	distance to turn: 645.59
+tick: 0400	distance to turn: 644.86
+tick: 0401	distance to turn: 644.12
+tick: 0402	distance to turn: 643.36
+tick: 0403	distance to turn: 642.58
+tick: 0404	distance to turn: 641.80
+tick: 0405	distance to turn: 641.01
+tick: 0406	distance to turn: 640.20
+tick: 0407	distance to turn: 639.39
+tick: 0408	distance to turn: 638.57
+tick: 0409	distance to turn: 637.74
+tick: 0410	distance to turn: 636.91
+tick: 0411	distance to turn: 636.06
+tick: 0412	distance to turn: 635.21
+tick: 0413	distance to turn: 634.34
+tick: 0414	distance to turn: 633.46
+tick: 0415	distance to turn: 632.56
+tick: 0416	distance to turn: 631.66
+tick: 0417	distance to turn: 630.73
+tick: 0418	distance to turn: 629.79
+tick: 0419	distance to turn: 628.84
+tick: 0420	distance to turn: 627.87
+tick: 0421	distance to turn: 626.89
+tick: 0422	distance to turn: 625.89
+tick: 0423	distance to turn: 624.87
+tick: 0424	distance to turn: 623.84
+tick: 0425	distance to turn: 622.80
+tick: 0426	distance to turn: 621.74
+tick: 0427	distance to turn: 620.66
+tick: 0428	distance to turn: 619.57
+tick: 0429	distance to turn: 618.47
+tick: 0430	distance to turn: 617.34
+tick: 0431	distance to turn: 616.21
+tick: 0432	distance to turn: 615.06
+tick: 0433	distance to turn: 613.89
+tick: 0434	distance to turn: 612.71
+tick: 0435	distance to turn: 611.51
+tick: 0436	distance to turn: 610.30
+tick: 0437	distance to turn: 609.08
+tick: 0438	distance to turn: 607.84
+tick: 0439	distance to turn: 606.58
+tick: 0440	distance to turn: 605.31
+tick: 0441	distance to turn: 604.02
+tick: 0442	distance to turn: 602.72
+tick: 0443	distance to turn: 601.41
+tick: 0444	distance to turn: 600.08
+tick: 0445	distance to turn: 598.73
+tick: 0446	distance to turn: 597.37
+tick: 0447	distance to turn: 596.00
+tick: 0448	distance to turn: 594.61
+tick: 0449	distance to turn: 593.21
+tick: 0450	distance to turn: 591.79
+tick: 0451	distance to turn: 590.36
+tick: 0452	distance to turn: 588.91
+tick: 0453	distance to turn: 587.45
+tick: 0454	distance to turn: 585.97
+tick: 0455	distance to turn: 584.48
+tick: 0456	distance to turn: 582.98
+tick: 0457	distance to turn: 581.46
+tick: 0458	distance to turn: 579.93
+tick: 0459	distance to turn: 578.38
+tick: 0460	distance to turn: 576.82
+tick: 0461	distance to turn: 575.25
+tick: 0462	distance to turn: 573.66
+tick: 0463	distance to turn: 572.05
+tick: 0464	distance to turn: 570.43
+tick: 0465	distance to turn: 568.81
+tick: 0466	distance to turn: 567.17
+tick: 0467	distance to turn: 565.53
+tick: 0468	distance to turn: 563.88
+tick: 0469	distance to turn: 562.23
+tick: 0470	distance to turn: 560.60
+tick: 0471	distance to turn: 558.97
+tick: 0472	distance to turn: 557.37
+tick: 0473	distance to turn: 555.79
+tick: 0474	distance to turn: 554.24
+tick: 0475	distance to turn: 552.71
+tick: 0476	distance to turn: 551.22
+tick: 0477	distance to turn: 549.75
+tick: 0478	distance to turn: 548.32
+tick: 0479	distance to turn: 546.92
+tick: 0480	distance to turn: 545.54
+tick: 0481	distance to turn: 544.20
+tick: 0482	distance to turn: 542.89
+tick: 0483	distance to turn: 541.62
+tick: 0484	distance to turn: 540.37
+tick: 0485	distance to turn: 539.15
+tick: 0486	distance to turn: 537.97
+tick: 0487	distance to turn: 536.81
+tick: 0488	distance to turn: 535.68
+tick: 0489	distance to turn: 534.59
+tick: 0490	distance to turn: 533.52
+tick: 0491	distance to turn: 532.48
+tick: 0492	distance to turn: 531.46
+tick: 0493	distance to turn: 530.48
+tick: 0494	distance to turn: 529.52
+tick: 0495	distance to turn: 528.59
+tick: 0496	distance to turn: 527.68
+tick: 0497	distance to turn: 526.80
+tick: 0498	distance to turn: 525.94
+tick: 0499	distance to turn: 525.11
+tick: 0500	distance to turn: 524.31
+tick: 0501	distance to turn: 523.53
+tick: 0502	distance to turn: 522.78
+tick: 0503	distance to turn: 522.06
+tick: 0504	distance to turn: 521.37
+tick: 0505	distance to turn: 520.69
+tick: 0506	distance to turn: 520.03
+tick: 0507	distance to turn: 519.38
+tick: 0508	distance to turn: 518.73
+tick: 0509	distance to turn: 518.10
+tick: 0510	distance to turn: 517.46
+tick: 0511	distance to turn: 516.83
+tick: 0512	distance to turn: 516.21
+tick: 0513	distance to turn: 515.59
+tick: 0514	distance to turn: 514.98
+tick: 0515	distance to turn: 514.38
+tick: 0516	distance to turn: 513.79
+tick: 0517	distance to turn: 513.21
+tick: 0518	distance to turn: 512.64
+tick: 0519	distance to turn: 512.08
+tick: 0520	distance to turn: 511.54
+tick: 0521	distance to turn: 511.00
+tick: 0522	distance to turn: 510.48
+tick: 0523	distance to turn: 509.97
+tick: 0524	distance to turn: 509.46
+tick: 0525	distance to turn: 508.96
+tick: 0526	distance to turn: 508.46
+tick: 0527	distance to turn: 507.97
+tick: 0528	distance to turn: 507.49
+tick: 0529	distance to turn: 507.02
+tick: 0530	distance to turn: 506.56
+tick: 0531	distance to turn: 506.10
+tick: 0532	distance to turn: 505.66
+tick: 0533	distance to turn: 505.22
+tick: 0534	distance to turn: 504.79
+tick: 0535	distance to turn: 504.37
+tick: 0536	distance to turn: 503.96
+tick: 0537	distance to turn: 503.55
+tick: 0538	distance to turn: 503.15
+tick: 0539	distance to turn: 502.75
+tick: 0540	distance to turn: 502.35
+tick: 0541	distance to turn: 501.95
+tick: 0542	distance to turn: 501.55
+tick: 0543	distance to turn: 501.13
+tick: 0544	distance to turn: 500.69
+tick: 0545	distance to turn: 500.25
+tick: 0546	distance to turn: 499.79
+tick: 0547	distance to turn: 499.33
+tick: 0548	distance to turn: 498.87
+tick: 0549	distance to turn: 498.41
+tick: 0550	distance to turn: 497.95
+tick: 0551	distance to turn: 497.49
+tick: 0552	distance to turn: 497.02
+tick: 0553	distance to turn: 496.54
+tick: 0554	distance to turn: 496.05
+tick: 0555	distance to turn: 495.54
+tick: 0556	distance to turn: 495.02
+tick: 0557	distance to turn: 494.49
+tick: 0558	distance to turn: 493.95
+tick: 0559	distance to turn: 493.41
+tick: 0560	distance to turn: 492.86
+tick: 0561	distance to turn: 492.32
+tick: 0562	distance to turn: 491.78
+tick: 0563	distance to turn: 491.25
+tick: 0564	distance to turn: 490.72
+tick: 0565	distance to turn: 490.19
+tick: 0566	distance to turn: 489.68
+tick: 0567	distance to turn: 489.17
+tick: 0568	distance to turn: 488.67
+tick: 0569	distance to turn: 488.16
+tick: 0570	distance to turn: 487.65
+tick: 0571	distance to turn: 487.14
+tick: 0572	distance to turn: 486.62
+tick: 0573	distance to turn: 486.09
+tick: 0574	distance to turn: 485.55
+tick: 0575	distance to turn: 484.99
+tick: 0576	distance to turn: 484.41
+tick: 0577	distance to turn: 483.82
+tick: 0578	distance to turn: 483.22
+tick: 0579	distance to turn: 482.60
+tick: 0580	distance to turn: 481.96
+tick: 0581	distance to turn: 481.31
+tick: 0582	distance to turn: 480.64
+tick: 0583	distance to turn: 479.95
+tick: 0584	distance to turn: 479.25
+tick: 0585	distance to turn: 478.53
+tick: 0586	distance to turn: 477.80
+tick: 0587	distance to turn: 477.05
+tick: 0588	distance to turn: 476.28
+tick: 0589	distance to turn: 475.50
+tick: 0590	distance to turn: 474.70
+tick: 0591	distance to turn: 473.89
+tick: 0592	distance to turn: 473.06
+tick: 0593	distance to turn: 472.22
+tick: 0594	distance to turn: 471.36
+tick: 0595	distance to turn: 470.48
+tick: 0596	distance to turn: 469.59
+tick: 0597	distance to turn: 468.68
+tick: 0598	distance to turn: 467.76
+tick: 0599	distance to turn: 466.82
+tick: 0600	distance to turn: 465.87
+tick: 0601	distance to turn: 464.90
+tick: 0602	distance to turn: 463.91
+tick: 0603	distance to turn: 462.91
+tick: 0604	distance to turn: 461.90
+tick: 0605	distance to turn: 460.86
+tick: 0606	distance to turn: 459.82
+tick: 0607	distance to turn: 458.76
+tick: 0608	distance to turn: 457.68
+tick: 0609	distance to turn: 456.60
+tick: 0610	distance to turn: 455.51
+tick: 0611	distance to turn: 454.43
+tick: 0612	distance to turn: 453.36
+tick: 0613	distance to turn: 452.30
+tick: 0614	distance to turn: 451.26
+tick: 0615	distance to turn: 450.24
+tick: 0616	distance to turn: 449.23
+tick: 0617	distance to turn: 448.26
+tick: 0618	distance to turn: 447.30
+tick: 0619	distance to turn: 446.37
+tick: 0620	distance to turn: 445.47
+tick: 0621	distance to turn: 444.58
+tick: 0622	distance to turn: 443.73
+tick: 0623	distance to turn: 442.90
+tick: 0624	distance to turn: 442.09
+tick: 0625	distance to turn: 441.31
+tick: 0626	distance to turn: 440.54
+tick: 0627	distance to turn: 439.80
+tick: 0628	distance to turn: 439.06
+tick: 0629	distance to turn: 438.35
+tick: 0630	distance to turn: 437.64
+tick: 0631	distance to turn: 436.94
+tick: 0632	distance to turn: 436.24
+tick: 0633	distance to turn: 435.54
+tick: 0634	distance to turn: 434.84
+tick: 0635	distance to turn: 434.12
+tick: 0636	distance to turn: 433.39
+tick: 0637	distance to turn: 432.65
+tick: 0638	distance to turn: 431.90
+tick: 0639	distance to turn: 431.13
+tick: 0640	distance to turn: 430.35
+tick: 0641	distance to turn: 429.56
+tick: 0642	distance to turn: 428.76
+tick: 0643	distance to turn: 427.97
+tick: 0644	distance to turn: 427.19
+tick: 0645	distance to turn: 426.41
+tick: 0646	distance to turn: 425.64
+tick: 0647	distance to turn: 424.88
+tick: 0648	distance to turn: 424.13
+tick: 0649	distance to turn: 423.39
+tick: 0650	distance to turn: 422.65
+tick: 0651	distance to turn: 421.91
+tick: 0652	distance to turn: 421.15
+tick: 0653	distance to turn: 420.39
+tick: 0654	distance to turn: 419.62
+tick: 0655	distance to turn: 418.83
+tick: 0656	distance to turn: 418.03
+tick: 0657	distance to turn: 417.22
+tick: 0658	distance to turn: 416.39
+tick: 0659	distance to turn: 415.54
+tick: 0660	distance to turn: 414.69
+tick: 0661	distance to turn: 413.81
+tick: 0662	distance to turn: 412.92
+tick: 0663	distance to turn: 412.02
+tick: 0664	distance to turn: 411.10
+tick: 0665	distance to turn: 410.16
+tick: 0666	distance to turn: 409.21
+tick: 0667	distance to turn: 408.24
+tick: 0668	distance to turn: 407.26
+tick: 0669	distance to turn: 406.27
+tick: 0670	distance to turn: 405.27
+tick: 0671	distance to turn: 404.28
+tick: 0672	distance to turn: 403.30
+tick: 0673	distance to turn: 402.34
+tick: 0674	distance to turn: 401.39
+tick: 0675	distance to turn: 400.46
+tick: 0676	distance to turn: 399.56
+tick: 0677	distance to turn: 398.67
+tick: 0678	distance to turn: 397.81
+tick: 0679	distance to turn: 396.98
+tick: 0680	distance to turn: 396.16
+tick: 0681	distance to turn: 395.37
+tick: 0682	distance to turn: 394.61
+tick: 0683	distance to turn: 393.87
+tick: 0684	distance to turn: 393.15
+tick: 0685	distance to turn: 392.45
+tick: 0686	distance to turn: 391.76
+tick: 0687	distance to turn: 391.09
+tick: 0688	distance to turn: 390.43
+tick: 0689	distance to turn: 389.76
+tick: 0690	distance to turn: 389.10
+tick: 0691	distance to turn: 388.43
+tick: 0692	distance to turn: 387.75
+tick: 0693	distance to turn: 387.07
+tick: 0694	distance to turn: 386.38
+tick: 0695	distance to turn: 385.69
+tick: 0696	distance to turn: 385.02
+tick: 0697	distance to turn: 384.34
+tick: 0698	distance to turn: 383.68
+tick: 0699	distance to turn: 383.03
+tick: 0700	distance to turn: 382.39
+tick: 0701	distance to turn: 381.76
+tick: 0702	distance to turn: 381.14
+tick: 0703	distance to turn: 380.53
+tick: 0704	distance to turn: 379.93
+tick: 0705	distance to turn: 379.33
+tick: 0706	distance to turn: 378.74
+tick: 0707	distance to turn: 378.16
+tick: 0708	distance to turn: 377.57
+tick: 0709	distance to turn: 376.96
+tick: 0710	distance to turn: 376.35
+tick: 0711	distance to turn: 375.73
+tick: 0712	distance to turn: 375.09
+tick: 0713	distance to turn: 374.43
+tick: 0714	distance to turn: 373.76
+tick: 0715	distance to turn: 373.07
+tick: 0716	distance to turn: 372.37
+tick: 0717	distance to turn: 371.66
+tick: 0718	distance to turn: 370.92
+tick: 0719	distance to turn: 370.18
+tick: 0720	distance to turn: 369.41
+tick: 0721	distance to turn: 368.63
+tick: 0722	distance to turn: 367.84
+tick: 0723	distance to turn: 367.04
+tick: 0724	distance to turn: 366.24
+tick: 0725	distance to turn: 365.43
+tick: 0726	distance to turn: 364.61
+tick: 0727	distance to turn: 363.79
+tick: 0728	distance to turn: 362.97
+tick: 0729	distance to turn: 362.14
+tick: 0730	distance to turn: 361.31
+tick: 0731	distance to turn: 360.46
+tick: 0732	distance to turn: 359.60
+tick: 0733	distance to turn: 358.73
+tick: 0734	distance to turn: 357.84
+tick: 0735	distance to turn: 356.94
+tick: 0736	distance to turn: 356.03
+tick: 0737	distance to turn: 355.10
+tick: 0738	distance to turn: 354.15
+tick: 0739	distance to turn: 353.19
+tick: 0740	distance to turn: 352.22
+tick: 0741	distance to turn: 351.23
+tick: 0742	distance to turn: 350.22
+tick: 0743	distance to turn: 349.20
+tick: 0744	distance to turn: 348.17
+tick: 0745	distance to turn: 347.12
+tick: 0746	distance to turn: 346.05
+tick: 0747	distance to turn: 344.97
+tick: 0748	distance to turn: 343.87
+tick: 0749	distance to turn: 342.76
+tick: 0750	distance to turn: 341.63
+tick: 0751	distance to turn: 340.49
+tick: 0752	distance to turn: 339.33
+tick: 0753	distance to turn: 338.16
+tick: 0754	distance to turn: 336.97
+tick: 0755	distance to turn: 335.77
+tick: 0756	distance to turn: 334.55
+tick: 0757	distance to turn: 333.32
+tick: 0758	distance to turn: 332.08
+tick: 0759	distance to turn: 330.81
+tick: 0760	distance to turn: 329.54
+tick: 0761	distance to turn: 328.25
+tick: 0762	distance to turn: 326.94
+tick: 0763	distance to turn: 325.62
+tick: 0764	distance to turn: 324.28
+tick: 0765	distance to turn: 322.93
+tick: 0766	distance to turn: 321.57
+tick: 0767	distance to turn: 320.19
+tick: 0768	distance to turn: 318.79
+tick: 0769	distance to turn: 317.38
+tick: 0770	distance to turn: 315.96
+tick: 0771	distance to turn: 314.52
+tick: 0772	distance to turn: 313.07
+tick: 0773	distance to turn: 311.60
+tick: 0774	distance to turn: 310.12
+tick: 0775	distance to turn: 308.63
+tick: 0776	distance to turn: 307.12
+tick: 0777	distance to turn: 305.59
+tick: 0778	distance to turn: 304.06
+tick: 0779	distance to turn: 302.50
+tick: 0780	distance to turn: 300.94
+tick: 0781	distance to turn: 299.38
+tick: 0782	distance to turn: 297.83
+tick: 0783	distance to turn: 296.30
+tick: 0784	distance to turn: 294.78
+tick: 0785	distance to turn: 293.29
+tick: 0786	distance to turn: 291.83
+tick: 0787	distance to turn: 290.39
+tick: 0788	distance to turn: 288.99
+tick: 0789	distance to turn: 287.61
+tick: 0790	distance to turn: 286.27
+tick: 0791	distance to turn: 284.95
+tick: 0792	distance to turn: 283.66
+tick: 0793	distance to turn: 282.41
+tick: 0794	distance to turn: 281.18
+tick: 0795	distance to turn: 279.99
+tick: 0796	distance to turn: 278.82
+tick: 0797	distance to turn: 277.69
+tick: 0798	distance to turn: 276.58
+tick: 0799	distance to turn: 275.50
+tick: 0800	distance to turn: 274.45
+tick: 0801	distance to turn: 273.43
+tick: 0802	distance to turn: 272.44
+tick: 0803	distance to turn: 271.47
+tick: 0804	distance to turn: 270.53
+tick: 0805	distance to turn: 269.61
+tick: 0806	distance to turn: 268.73
+tick: 0807	distance to turn: 267.86
+tick: 0808	distance to turn: 267.02
+tick: 0809	distance to turn: 266.21
+tick: 0810	distance to turn: 265.42
+tick: 0811	distance to turn: 264.66
+tick: 0812	distance to turn: 263.92
+tick: 0813	distance to turn: 263.21
+tick: 0814	distance to turn: 262.53
+tick: 0815	distance to turn: 261.87
+tick: 0816	distance to turn: 261.22
+tick: 0817	distance to turn: 260.59
+tick: 0818	distance to turn: 259.97
+tick: 0819	distance to turn: 259.36
+tick: 0820	distance to turn: 258.77
+tick: 0821	distance to turn: 258.18
+tick: 0822	distance to turn: 257.60
+tick: 0823	distance to turn: 257.02
+tick: 0824	distance to turn: 256.46
+tick: 0825	distance to turn: 255.90
+tick: 0826	distance to turn: 255.35
+tick: 0827	distance to turn: 254.82
+tick: 0828	distance to turn: 254.30
+tick: 0829	distance to turn: 253.79
+tick: 0830	distance to turn: 253.29
+tick: 0831	distance to turn: 252.80
+tick: 0832	distance to turn: 252.33
+tick: 0833	distance to turn: 251.86
+tick: 0834	distance to turn: 251.40
+tick: 0835	distance to turn: 250.95
+tick: 0836	distance to turn: 250.50
+tick: 0837	distance to turn: 250.05
+tick: 0838	distance to turn: 249.62
+tick: 0839	distance to turn: 249.18
+tick: 0840	distance to turn: 248.75
+tick: 0841	distance to turn: 248.33
+tick: 0842	distance to turn: 247.90
+tick: 0843	distance to turn: 247.47
+tick: 0844	distance to turn: 247.03
+tick: 0845	distance to turn: 246.57
+tick: 0846	distance to turn: 246.11
+tick: 0847	distance to turn: 245.64
+tick: 0848	distance to turn: 245.16
+tick: 0849	distance to turn: 244.67
+tick: 0850	distance to turn: 244.19
+tick: 0851	distance to turn: 243.70
+tick: 0852	distance to turn: 243.22
+tick: 0853	distance to turn: 242.74
+tick: 0854	distance to turn: 242.26
+tick: 0855	distance to turn: 241.79
+tick: 0856	distance to turn: 241.33
+tick: 0857	distance to turn: 240.88
+tick: 0858	distance to turn: 240.43
+tick: 0859	distance to turn: 239.99
+tick: 0860	distance to turn: 239.55
+tick: 0861	distance to turn: 239.12
+tick: 0862	distance to turn: 238.69
+tick: 0863	distance to turn: 238.26
+tick: 0864	distance to turn: 237.84
+tick: 0865	distance to turn: 237.42
+tick: 0866	distance to turn: 236.99
+tick: 0867	distance to turn: 236.55
+tick: 0868	distance to turn: 236.10
+tick: 0869	distance to turn: 235.64
+tick: 0870	distance to turn: 235.16
+tick: 0871	distance to turn: 234.66
+tick: 0872	distance to turn: 234.14
+tick: 0873	distance to turn: 233.61
+tick: 0874	distance to turn: 233.06
+tick: 0875	distance to turn: 232.50
+tick: 0876	distance to turn: 231.93
+tick: 0877	distance to turn: 231.35
+tick: 0878	distance to turn: 230.76
+tick: 0879	distance to turn: 230.15
+tick: 0880	distance to turn: 229.54
+tick: 0881	distance to turn: 228.91
+tick: 0882	distance to turn: 228.28
+tick: 0883	distance to turn: 227.64
+tick: 0884	distance to turn: 226.98
+tick: 0885	distance to turn: 226.32
+tick: 0886	distance to turn: 225.65
+tick: 0887	distance to turn: 224.97
+tick: 0888	distance to turn: 224.27
+tick: 0889	distance to turn: 223.56
+tick: 0890	distance to turn: 222.83
+tick: 0891	distance to turn: 222.09
+tick: 0892	distance to turn: 221.34
+tick: 0893	distance to turn: 220.57
+tick: 0894	distance to turn: 219.78
+tick: 0895	distance to turn: 218.98
+tick: 0896	distance to turn: 218.16
+tick: 0897	distance to turn: 217.33
+tick: 0898	distance to turn: 216.48
+tick: 0899	distance to turn: 215.61
+tick: 0900	distance to turn: 214.73
+tick: 0901	distance to turn: 213.83
+tick: 0902	distance to turn: 212.92
+tick: 0903	distance to turn: 212.00
+tick: 0904	distance to turn: 211.05
+tick: 0905	distance to turn: 210.09
+tick: 0906	distance to turn: 209.12
+tick: 0907	distance to turn: 208.13
+tick: 0908	distance to turn: 207.13
+tick: 0909	distance to turn: 206.11
+tick: 0910	distance to turn: 205.07
+tick: 0911	distance to turn: 204.02
+tick: 0912	distance to turn: 202.95
+tick: 0913	distance to turn: 201.87
+tick: 0914	distance to turn: 200.78
+tick: 0915	distance to turn: 199.66
+tick: 0916	distance to turn: 198.54
+tick: 0917	distance to turn: 197.40
+tick: 0918	distance to turn: 196.24
+tick: 0919	distance to turn: 195.07
+tick: 0920	distance to turn: 193.88
+tick: 0921	distance to turn: 192.68
+tick: 0922	distance to turn: 191.46
+tick: 0923	distance to turn: 190.23
+tick: 0924	distance to turn: 188.98
+tick: 0925	distance to turn: 187.72
+tick: 0926	distance to turn: 186.44
+tick: 0927	distance to turn: 185.15
+tick: 0928	distance to turn: 183.84
+tick: 0929	distance to turn: 182.52
+tick: 0930	distance to turn: 181.19
+tick: 0931	distance to turn: 179.84
+tick: 0932	distance to turn: 178.47
+tick: 0933	distance to turn: 177.09
+tick: 0934	distance to turn: 175.70
+tick: 0935	distance to turn: 174.29
+tick: 0936	distance to turn: 172.88
+tick: 0937	distance to turn: 171.46
+tick: 0938	distance to turn: 170.03
+tick: 0939	distance to turn: 168.61
+tick: 0940	distance to turn: 167.19
+tick: 0941	distance to turn: 165.80
+tick: 0942	distance to turn: 164.43
+tick: 0943	distance to turn: 163.08
+tick: 0944	distance to turn: 161.76
+tick: 0945	distance to turn: 160.46
+tick: 0946	distance to turn: 159.19
+tick: 0947	distance to turn: 157.95
+tick: 0948	distance to turn: 156.74
+tick: 0949	distance to turn: 155.56
+tick: 0950	distance to turn: 154.41
+tick: 0951	distance to turn: 153.29
+tick: 0952	distance to turn: 152.19
+tick: 0953	distance to turn: 151.12
+tick: 0954	distance to turn: 150.08
+tick: 0955	distance to turn: 149.07
+tick: 0956	distance to turn: 148.09
+tick: 0957	distance to turn: 147.13
+tick: 0958	distance to turn: 146.20
+tick: 0959	distance to turn: 145.29
+tick: 0960	distance to turn: 144.41
+tick: 0961	distance to turn: 143.56
+tick: 0962	distance to turn: 142.73
+tick: 0963	distance to turn: 141.92
+tick: 0964	distance to turn: 141.14
+tick: 0965	distance to turn: 140.39
+tick: 0966	distance to turn: 139.66
+tick: 0967	distance to turn: 138.94
+tick: 0968	distance to turn: 138.25
+tick: 0969	distance to turn: 137.58
+tick: 0970	distance to turn: 136.93
+tick: 0971	distance to turn: 136.29
+tick: 0972	distance to turn: 135.67
+tick: 0973	distance to turn: 135.06
+tick: 0974	distance to turn: 134.45
+tick: 0975	distance to turn: 133.86
+tick: 0976	distance to turn: 133.28
+tick: 0977	distance to turn: 132.71
+tick: 0978	distance to turn: 132.15
+tick: 0979	distance to turn: 131.60
+tick: 0980	distance to turn: 131.07
+tick: 0981	distance to turn: 130.54
+tick: 0982	distance to turn: 130.03
+tick: 0983	distance to turn: 129.53
+tick: 0984	distance to turn: 129.03
+tick: 0985	distance to turn: 128.54
+tick: 0986	distance to turn: 128.05
+tick: 0987	distance to turn: 127.57
+tick: 0988	distance to turn: 127.10
+tick: 0989	distance to turn: 126.63
+tick: 0990	distance to turn: 126.15
+tick: 0991	distance to turn: 125.68
+tick: 0992	distance to turn: 125.19
+tick: 0993	distance to turn: 124.69
+tick: 0994	distance to turn: 124.18
+tick: 0995	distance to turn: 123.64
+tick: 0996	distance to turn: 123.10
+tick: 0997	distance to turn: 122.53
+tick: 0998	distance to turn: 121.95
+tick: 0999	distance to turn: 121.36
+tick: 1000	distance to turn: 120.76
+tick: 1001	distance to turn: 120.15
+tick: 1002	distance to turn: 119.53
+tick: 1003	distance to turn: 118.91
+tick: 1004	distance to turn: 118.30
+tick: 1005	distance to turn: 117.69
+tick: 1006	distance to turn: 117.09
+tick: 1007	distance to turn: 116.49
+tick: 1008	distance to turn: 115.89
+tick: 1009	distance to turn: 115.30
+tick: 1010	distance to turn: 114.71
+tick: 1011	distance to turn: 114.14
+tick: 1012	distance to turn: 113.56
+tick: 1013	distance to turn: 112.98
+tick: 1014	distance to turn: 112.40
+tick: 1015	distance to turn: 111.81
+tick: 1016	distance to turn: 111.21
+tick: 1017	distance to turn: 110.59
+tick: 1018	distance to turn: 109.96
+tick: 1019	distance to turn: 109.31
+tick: 1020	distance to turn: 108.65
+tick: 1021	distance to turn: 107.97
+tick: 1022	distance to turn: 107.28
+tick: 1023	distance to turn: 106.57
+tick: 1024	distance to turn: 105.85
+tick: 1025	distance to turn: 105.11
+tick: 1026	distance to turn: 104.35
+tick: 1027	distance to turn: 103.58
+tick: 1028	distance to turn: 102.79
+tick: 1029	distance to turn: 101.99
+tick: 1030	distance to turn: 101.17
+tick: 1031	distance to turn: 100.34
+tick: 1032	distance to turn: 99.49
+tick: 1033	distance to turn: 98.62
+tick: 1034	distance to turn: 97.74
+tick: 1035	distance to turn: 96.85
+tick: 1036	distance to turn: 95.96
+tick: 1037	distance to turn: 95.07
+tick: 1038	distance to turn: 94.19
+tick: 1039	distance to turn: 93.32
+tick: 1040	distance to turn: 92.47
+tick: 1041	distance to turn: 91.63
+tick: 1042	distance to turn: 90.82
+tick: 1043	distance to turn: 90.03
+tick: 1044	distance to turn: 89.26
+tick: 1045	distance to turn: 88.51
+tick: 1046	distance to turn: 87.77
+tick: 1047	distance to turn: 87.03
+tick: 1048	distance to turn: 86.29
+tick: 1049	distance to turn: 85.55
+tick: 1050	distance to turn: 84.79
+tick: 1051	distance to turn: 84.03
+tick: 1052	distance to turn: 83.25
+tick: 1053	distance to turn: 82.46
+tick: 1054	distance to turn: 81.66
+tick: 1055	distance to turn: 80.85
+tick: 1056	distance to turn: 80.04
+tick: 1057	distance to turn: 79.22
+tick: 1058	distance to turn: 78.40
+tick: 1059	distance to turn: 77.59
+tick: 1060	distance to turn: 76.79
+tick: 1061	distance to turn: 75.99
+tick: 1062	distance to turn: 75.20
+tick: 1063	distance to turn: 74.42
+tick: 1064	distance to turn: 73.66
+tick: 1065	distance to turn: 72.90
+tick: 1066	distance to turn: 72.16
+tick: 1067	distance to turn: 71.43
+tick: 1068	distance to turn: 70.71
+tick: 1069	distance to turn: 69.99
+tick: 1070	distance to turn: 69.26
+tick: 1071	distance to turn: 68.53
+tick: 1072	distance to turn: 67.78
+tick: 1073	distance to turn: 67.03
+tick: 1074	distance to turn: 66.26
+tick: 1075	distance to turn: 65.48
+tick: 1076	distance to turn: 64.68
+tick: 1077	distance to turn: 63.87
+tick: 1078	distance to turn: 63.05
+tick: 1079	distance to turn: 62.21
+tick: 1080	distance to turn: 61.35
+tick: 1081	distance to turn: 60.48
+tick: 1082	distance to turn: 59.59
+tick: 1083	distance to turn: 58.70
+tick: 1084	distance to turn: 57.80
+tick: 1085	distance to turn: 56.90
+tick: 1086	distance to turn: 56.02
+tick: 1087	distance to turn: 55.15
+tick: 1088	distance to turn: 54.29
+tick: 1089	distance to turn: 53.46
+tick: 1090	distance to turn: 52.64
+tick: 1091	distance to turn: 51.85
+tick: 1092	distance to turn: 51.08
+tick: 1093	distance to turn: 50.34
+tick: 1094	distance to turn: 49.62
+tick: 1095	distance to turn: 48.92
+tick: 1096	distance to turn: 48.23
+tick: 1097	distance to turn: 47.55
+tick: 1098	distance to turn: 46.88
+tick: 1099	distance to turn: 46.21
+tick: 1100	distance to turn: 45.55
+tick: 1101	distance to turn: 44.87
+tick: 1102	distance to turn: 44.19
+tick: 1103	distance to turn: 43.50
+tick: 1104	distance to turn: 42.81
+tick: 1105	distance to turn: 42.11
+tick: 1106	distance to turn: 41.41
+tick: 1107	distance to turn: 40.72
+tick: 1108	distance to turn: 40.04
+tick: 1109	distance to turn: 39.36
+tick: 1110	distance to turn: 38.70
+tick: 1111	distance to turn: 38.05
+tick: 1112	distance to turn: 37.40
+tick: 1113	distance to turn: 36.76
+tick: 1114	distance to turn: 36.12
+tick: 1115	distance to turn: 35.48
+tick: 1116	distance to turn: 34.82
+tick: 1117	distance to turn: 34.16
+tick: 1118	distance to turn: 33.48
+tick: 1119	distance to turn: 32.79
+tick: 1120	distance to turn: 32.09
+tick: 1121	distance to turn: 31.37
+tick: 1122	distance to turn: 30.63
+tick: 1123	distance to turn: 29.88
+tick: 1124	distance to turn: 29.12
+tick: 1125	distance to turn: 28.34
+tick: 1126	distance to turn: 27.54
+tick: 1127	distance to turn: 26.73
+tick: 1128	distance to turn: 25.90
+tick: 1129	distance to turn: 25.06
+tick: 1130	distance to turn: 24.20
+tick: 1131	distance to turn: 23.33
+tick: 1132	distance to turn: 22.44
+tick: 1133	distance to turn: 21.53
+tick: 1134	distance to turn: 20.61
+tick: 1135	distance to turn: 19.67
+tick: 1136	distance to turn: 18.72
+tick: 1137	distance to turn: 17.75
+tick: 1138	distance to turn: 16.77
+tick: 1139	distance to turn: 15.77
+tick: 1140	distance to turn: 14.76
+tick: 1141	distance to turn: 13.73
+tick: 1142	distance to turn: 12.68
+tick: 1143	distance to turn: 11.62
+tick: 1144	distance to turn: 10.55
+tick: 1145	distance to turn: 9.46
+tick: 1146	distance to turn: 8.35
+tick: 1147	distance to turn: 7.23
+tick: 1148	distance to turn: 6.09
+tick: 1149	distance to turn: 4.94
+tick: 1150	distance to turn: 3.78
+tick: 1151	distance to turn: 2.60
+tick: 1152	distance to turn: 1.42
+tick: 1153	distance to turn: 0.34
+tick: 1154	distance to turn: 1.06
+tick: 1155	distance to turn: 2.24
+tick: 1156	distance to turn: 3.41
+tick: 1157	distance to turn: 4.57
+tick: 1158	distance to turn: 5.71
+tick: 1159	distance to turn: 6.83
+tick: 1160	distance to turn: 7.92
+tick: 1161	distance to turn: 8.99
+tick: 1162	distance to turn: 9.20
+tick: 1163	distance to turn: 9.40
+tick: 1164	distance to turn: 9.58
+tick: 1165	distance to turn: 9.76
+tick: 1166	distance to turn: 9.93
+tick: 1167	distance to turn: 9.35
+tick: 1168	distance to turn: 9.51
+tick: 1169	distance to turn: 9.66
+tick: 1170	distance to turn: 9.80
+tick: 1171	distance to turn: 9.93
+tick: 1172	distance to turn: 9.40
+tick: 1173	distance to turn: 9.52
+tick: 1174	distance to turn: 9.62
+tick: 1175	distance to turn: 9.71
+tick: 1176	distance to turn: 9.78
+tick: 1177	distance to turn: 9.84
+tick: 1178	distance to turn: 9.87
+tick: 1179	distance to turn: 5.94
+tick: 1180	distance to turn: 6.13
+tick: 1181	distance to turn: 6.34
+tick: 1182	distance to turn: 6.55
+tick: 1183	distance to turn: 6.77
+tick: 1184	distance to turn: 6.99
+tick: 1185	distance to turn: 7.20
+tick: 1186	distance to turn: 7.41
+tick: 1187	distance to turn: 7.61
+tick: 1188	distance to turn: 7.81
+tick: 1189	distance to turn: 8.01
+tick: 1190	distance to turn: 8.20
+tick: 1191	distance to turn: 8.39
+tick: 1192	distance to turn: 8.57
+tick: 1193	distance to turn: 8.76
+tick: 1194	distance to turn: 8.95
+tick: 1195	distance to turn: 9.14
+tick: 1196	distance to turn: 9.35
+tick: 1197	distance to turn: 9.56
+tick: 1198	distance to turn: 9.78
+tick: 1199	distance to turn: 9.62
+tick: 1200	distance to turn: 9.85
+tick: 1201	distance to turn: 9.69
+tick: 1202	distance to turn: 9.92
+tick: 1203	distance to turn: 9.75
+tick: 1204	distance to turn: 9.97
+tick: 1205	distance to turn: 9.79
+tick: 1206	distance to turn: 10.00
+tick: 1207	distance to turn: 9.80
+tick: 1208	distance to turn: 9.99
+tick: 1209	distance to turn: 9.79
+tick: 1210	distance to turn: 9.98
+tick: 1211	distance to turn: 9.77
+tick: 1212	distance to turn: 9.96
+tick: 1213	distance to turn: 7.61
+tick: 1214	distance to turn: 7.82
+tick: 1215	distance to turn: 8.06
+tick: 1216	distance to turn: 8.32
+tick: 1217	distance to turn: 8.63
+tick: 1218	distance to turn: 8.96
+tick: 1219	distance to turn: 9.31
+tick: 1220	distance to turn: 9.67
+tick: 1221	distance to turn: 9.71
+tick: 1222	distance to turn: 9.75
+tick: 1223	distance to turn: 9.81
+tick: 1224	distance to turn: 9.87
+tick: 1225	distance to turn: 9.93
+tick: 1226	distance to turn: 9.99
+tick: 1227	distance to turn: 9.78
+tick: 1228	distance to turn: 9.87
+tick: 1229	distance to turn: 9.97
+tick: 1230	distance to turn: 7.17
+tick: 1231	distance to turn: 7.56
+tick: 1232	distance to turn: 7.97
+tick: 1233	distance to turn: 8.39
+tick: 1234	distance to turn: 8.83
+tick: 1235	distance to turn: 9.26
+tick: 1236	distance to turn: 9.69
+tick: 1237	distance to turn: 9.88
+tick: 1238	distance to turn: 9.85
+tick: 1239	distance to turn: 1.69
+tick: 1240	distance to turn: 2.04
+tick: 1241	distance to turn: 2.41
+tick: 1242	distance to turn: 2.78
+tick: 1243	distance to turn: 3.17
+tick: 1244	distance to turn: 3.56
+tick: 1245	distance to turn: 3.97
+tick: 1246	distance to turn: 4.39
+tick: 1247	distance to turn: 4.82
+tick: 1248	distance to turn: 5.26
+tick: 1249	distance to turn: 5.69
+tick: 1250	distance to turn: 6.12
+tick: 1251	distance to turn: 6.54
+tick: 1252	distance to turn: 6.95
+tick: 1253	distance to turn: 7.35
+tick: 1254	distance to turn: 7.74
+tick: 1255	distance to turn: 8.14
+tick: 1256	distance to turn: 8.53
+tick: 1257	distance to turn: 8.93
+tick: 1258	distance to turn: 9.35
+tick: 1259	distance to turn: 9.78
+tick: 1260	distance to turn: 9.99
+tick: 1261	distance to turn: 5.53
+tick: 1262	distance to turn: 5.99
+tick: 1263	distance to turn: 6.45
+tick: 1264	distance to turn: 6.92
+tick: 1265	distance to turn: 7.41
+tick: 1266	distance to turn: 7.91
+tick: 1267	distance to turn: 8.42
+tick: 1268	distance to turn: 8.96
+tick: 1269	distance to turn: 9.50
+tick: 1270	distance to turn: 9.96
+tick: 1271	distance to turn: 51.84
+tick: 1272	distance to turn: 51.25
+tick: 1273	distance to turn: 50.65
+tick: 1274	distance to turn: 50.05
+tick: 1275	distance to turn: 49.45
+tick: 1276	distance to turn: 48.85
+tick: 1277	distance to turn: 48.26
+tick: 1278	distance to turn: 47.67
+tick: 1279	distance to turn: 47.09
+tick: 1280	distance to turn: 46.52
+tick: 1281	distance to turn: 45.95
+tick: 1282	distance to turn: 45.40
+tick: 1283	distance to turn: 44.86
+tick: 1284	distance to turn: 44.32
+tick: 1285	distance to turn: 43.79
+tick: 1286	distance to turn: 43.26
+tick: 1287	distance to turn: 42.72
+tick: 1288	distance to turn: 42.18
+tick: 1289	distance to turn: 41.62
+tick: 1290	distance to turn: 41.05
+tick: 1291	distance to turn: 40.46
+tick: 1292	distance to turn: 39.87
+tick: 1293	distance to turn: 39.26
+tick: 1294	distance to turn: 38.65
+tick: 1295	distance to turn: 38.03
+tick: 1296	distance to turn: 37.42
+tick: 1297	distance to turn: 36.80
+tick: 1298	distance to turn: 36.19
+tick: 1299	distance to turn: 35.58
+tick: 1300	distance to turn: 34.98
+tick: 1301	distance to turn: 34.40
+tick: 1302	distance to turn: 33.82
+tick: 1303	distance to turn: 33.25
+tick: 1304	distance to turn: 32.68
+tick: 1305	distance to turn: 32.13
+tick: 1306	distance to turn: 31.58
+tick: 1307	distance to turn: 31.04
+tick: 1308	distance to turn: 30.50
+tick: 1309	distance to turn: 29.95
+tick: 1310	distance to turn: 29.40
+tick: 1311	distance to turn: 28.83
+tick: 1312	distance to turn: 28.25
+tick: 1313	distance to turn: 27.65
+tick: 1314	distance to turn: 27.04
+tick: 1315	distance to turn: 26.42
+tick: 1316	distance to turn: 25.77
+tick: 1317	distance to turn: 25.12
+tick: 1318	distance to turn: 24.44
+tick: 1319	distance to turn: 23.75
+tick: 1320	distance to turn: 23.05
+tick: 1321	distance to turn: 22.33
+tick: 1322	distance to turn: 21.59
+tick: 1323	distance to turn: 20.84
+tick: 1324	distance to turn: 20.07
+tick: 1325	distance to turn: 19.28
+tick: 1326	distance to turn: 18.48
+tick: 1327	distance to turn: 17.67
+tick: 1328	distance to turn: 16.84
+tick: 1329	distance to turn: 16.00
+tick: 1330	distance to turn: 15.14
+tick: 1331	distance to turn: 14.29
+tick: 1332	distance to turn: 13.44
+tick: 1333	distance to turn: 12.59
+tick: 1334	distance to turn: 11.76
+tick: 1335	distance to turn: 10.94
+tick: 1336	distance to turn: 10.15
+tick: 1337	distance to turn: 9.37
+tick: 1338	distance to turn: 8.61
+tick: 1339	distance to turn: 7.86
+tick: 1340	distance to turn: 7.12
+tick: 1341	distance to turn: 6.39
+tick: 1342	distance to turn: 5.68
+tick: 1343	distance to turn: 4.98
+tick: 1344	distance to turn: 4.27
+tick: 1345	distance to turn: 3.56
+tick: 1346	distance to turn: 2.85
+tick: 1347	distance to turn: 2.13
+tick: 1348	distance to turn: 1.39
+tick: 1349	distance to turn: 0.65
+tick: 1350	distance to turn: 0.19
+tick: 1351	distance to turn: 0.91
+tick: 1352	distance to turn: 1.69
+tick: 1353	distance to turn: 2.47
+tick: 1354	distance to turn: 3.26
+tick: 1355	distance to turn: 4.06
+tick: 1356	distance to turn: 4.86
+tick: 1357	distance to turn: 5.68
+tick: 1358	distance to turn: 6.50
+tick: 1359	distance to turn: 7.33
+tick: 1360	distance to turn: 8.17
+tick: 1361	distance to turn: 9.00
+tick: 1362	distance to turn: 9.82
+tick: 1363	distance to turn: 9.92
+tick: 1364	distance to turn: 9.97
+tick: 1365	distance to turn: 9.98
+tick: 1366	distance to turn: 9.98
+tick: 1367	distance to turn: 9.98
+tick: 1368	distance to turn: 99.80
+tick: 1369	distance to turn: 99.07
+tick: 1370	distance to turn: 98.35
+tick: 1371	distance to turn: 97.64
+tick: 1372	distance to turn: 96.94
+tick: 1373	distance to turn: 96.24
+tick: 1374	distance to turn: 95.54
+tick: 1375	distance to turn: 94.83
+tick: 1376	distance to turn: 94.11
+tick: 1377	distance to turn: 93.38
+tick: 1378	distance to turn: 92.63
+tick: 1379	distance to turn: 91.88
+tick: 1380	distance to turn: 91.10
+tick: 1381	distance to turn: 90.32
+tick: 1382	distance to turn: 89.51
+tick: 1383	distance to turn: 88.70
+tick: 1384	distance to turn: 87.88
+tick: 1385	distance to turn: 87.05
+tick: 1386	distance to turn: 86.22
+tick: 1387	distance to turn: 85.39
+tick: 1388	distance to turn: 84.56
+tick: 1389	distance to turn: 83.74
+tick: 1390	distance to turn: 82.92
+tick: 1391	distance to turn: 82.12
+tick: 1392	distance to turn: 81.31
+tick: 1393	distance to turn: 80.50
+tick: 1394	distance to turn: 79.68
+tick: 1395	distance to turn: 78.85
+tick: 1396	distance to turn: 78.01
+tick: 1397	distance to turn: 77.16
+tick: 1398	distance to turn: 76.29
+tick: 1399	distance to turn: 75.41
+tick: 1400	distance to turn: 74.51
+tick: 1401	distance to turn: 73.60
+tick: 1402	distance to turn: 72.68
+tick: 1403	distance to turn: 71.74
+tick: 1404	distance to turn: 70.78
+tick: 1405	distance to turn: 69.81
+tick: 1406	distance to turn: 68.83
+tick: 1407	distance to turn: 67.83
+tick: 1408	distance to turn: 66.81
+tick: 1409	distance to turn: 65.78
+tick: 1410	distance to turn: 64.74
+tick: 1411	distance to turn: 63.67
+tick: 1412	distance to turn: 62.60
+tick: 1413	distance to turn: 61.51
+tick: 1414	distance to turn: 60.40
+tick: 1415	distance to turn: 59.28
+tick: 1416	distance to turn: 58.14
+tick: 1417	distance to turn: 56.99
+tick: 1418	distance to turn: 55.82
+tick: 1419	distance to turn: 54.64
+tick: 1420	distance to turn: 53.44
+tick: 1421	distance to turn: 52.23
+tick: 1422	distance to turn: 51.00
+tick: 1423	distance to turn: 49.76
+tick: 1424	distance to turn: 48.50
+tick: 1425	distance to turn: 47.23
+tick: 1426	distance to turn: 45.94
+tick: 1427	distance to turn: 44.64
+tick: 1428	distance to turn: 43.33
+tick: 1429	distance to turn: 42.02
+tick: 1430	distance to turn: 40.72
+tick: 1431	distance to turn: 39.43
+tick: 1432	distance to turn: 38.17
+tick: 1433	distance to turn: 36.92
+tick: 1434	distance to turn: 35.71
+tick: 1435	distance to turn: 34.51
+tick: 1436	distance to turn: 33.35
+tick: 1437	distance to turn: 32.21
+tick: 1438	distance to turn: 31.10
+tick: 1439	distance to turn: 30.01
+tick: 1440	distance to turn: 28.96
+tick: 1441	distance to turn: 27.93
+tick: 1442	distance to turn: 26.93
+tick: 1443	distance to turn: 25.95
+tick: 1444	distance to turn: 25.01
+tick: 1445	distance to turn: 24.08
+tick: 1457	distance to turn: 14.97
+tick: 1458	distance to turn: 14.36
+tick: 1473	distance to turn: 9.21
+tick: 1474	distance to turn: 9.21
+tick: 1475	distance to turn: 9.21
+tick: 1476	distance to turn: 9.20
+tick: 1477	distance to turn: 9.19
+tick: 1478	distance to turn: 9.16
+tick: 1479	distance to turn: 9.11
+tick: 1480	distance to turn: 9.05
+tick: 1481	distance to turn: 8.98
+tick: 1482	distance to turn: 8.89
+tick: 1483	distance to turn: 8.78
+tick: 1484	distance to turn: 8.65
+tick: 1485	distance to turn: 8.51
+tick: 1486	distance to turn: 8.35
+tick: 1487	distance to turn: 8.17
+tick: 1488	distance to turn: 7.97
+tick: 1489	distance to turn: 7.76
+tick: 1490	distance to turn: 7.53
+tick: 1491	distance to turn: 7.28
+tick: 1492	distance to turn: 7.01
+tick: 1493	distance to turn: 6.74
+tick: 1494	distance to turn: 6.46
+tick: 1495	distance to turn: 6.17
+tick: 1496	distance to turn: 5.87
+tick: 1497	distance to turn: 5.55
+tick: 1498	distance to turn: 5.21
+tick: 1499	distance to turn: 4.86
+tick: 1500	distance to turn: 4.49
+tick: 1501	distance to turn: 4.10
+tick: 1502	distance to turn: 3.69
+tick: 1503	distance to turn: 3.27
+tick: 1504	distance to turn: 2.83
+tick: 1505	distance to turn: 2.38
+tick: 1506	distance to turn: 1.93
+tick: 1507	distance to turn: 1.48
+tick: 1508	distance to turn: 1.05
+tick: 1509	distance to turn: 0.65
+tick: 1510	distance to turn: 0.41
+tick: 1511	distance to turn: 0.56
+tick: 1512	distance to turn: 0.92
+tick: 1513	distance to turn: 1.31
+tick: 1514	distance to turn: 1.72
+tick: 1515	distance to turn: 2.12
+tick: 1516	distance to turn: 2.52
+tick: 1517	distance to turn: 2.92
+tick: 1518	distance to turn: 3.33
+tick: 1519	distance to turn: 3.73
+tick: 1520	distance to turn: 4.15
+tick: 1521	distance to turn: 4.58
+tick: 1522	distance to turn: 5.02
+tick: 1523	distance to turn: 5.48
+tick: 1524	distance to turn: 5.95
+tick: 1525	distance to turn: 6.44
+tick: 1526	distance to turn: 6.93
+tick: 1527	distance to turn: 7.42
+tick: 1528	distance to turn: 7.92
+tick: 1529	distance to turn: 8.42
+tick: 1530	distance to turn: 8.91
+tick: 1531	distance to turn: 9.40
+tick: 1532	distance to turn: 9.90
+tick: 1533	distance to turn: 9.66
+tick: 1534	distance to turn: 9.42
+tick: 1535	distance to turn: 9.93
+tick: 1536	distance to turn: 9.70
+tick: 1537	distance to turn: 9.47
+tick: 1538	distance to turn: 9.25
+tick: 1539	distance to turn: 9.82
+tick: 1540	distance to turn: 9.63
+tick: 1541	distance to turn: 9.45
+tick: 1542	distance to turn: 0.98
+tick: 1543	distance to turn: 0.44
+tick: 1544	distance to turn: 0.33
+tick: 1545	distance to turn: 0.84
+tick: 1546	distance to turn: 1.40
+tick: 1547	distance to turn: 1.96
+tick: 1548	distance to turn: 2.51
+tick: 1549	distance to turn: 3.05
+tick: 1550	distance to turn: 3.59
+tick: 1551	distance to turn: 4.12
+tick: 1552	distance to turn: 4.64
+tick: 1553	distance to turn: 5.15
+tick: 1554	distance to turn: 5.66
+tick: 1555	distance to turn: 6.15
+tick: 1556	distance to turn: 6.64
+tick: 1557	distance to turn: 7.11
+tick: 1558	distance to turn: 7.58
+tick: 1559	distance to turn: 8.04
+tick: 1560	distance to turn: 8.48
+tick: 1561	distance to turn: 8.92
+tick: 1562	distance to turn: 9.35
+tick: 1563	distance to turn: 9.78
+tick: 1564	distance to turn: 9.66
+tick: 1565	distance to turn: 9.54
+tick: 1566	distance to turn: 9.94
+tick: 1567	distance to turn: 9.83
+tick: 1568	distance to turn: 9.71
+tick: 1569	distance to turn: 9.61
+tick: 1570	distance to turn: 9.52
+tick: 1571	distance to turn: 9.93
+tick: 1572	distance to turn: 9.87
+tick: 1573	distance to turn: 9.84
+tick: 1574	distance to turn: 0.72
+tick: 1575	distance to turn: 0.28
+tick: 1576	distance to turn: 0.30
+tick: 1577	distance to turn: 0.78
+tick: 1578	distance to turn: 1.30
+tick: 1579	distance to turn: 1.83
+tick: 1580	distance to turn: 2.38
+tick: 1581	distance to turn: 2.93
+tick: 1582	distance to turn: 3.49
+tick: 1583	distance to turn: 4.05
+tick: 1584	distance to turn: 4.60
+tick: 1585	distance to turn: 5.15
+tick: 1586	distance to turn: 5.69
+tick: 1587	distance to turn: 6.21
+tick: 1588	distance to turn: 6.72
+tick: 1589	distance to turn: 7.23
+tick: 1590	distance to turn: 7.72
+tick: 1591	distance to turn: 8.20
+tick: 1592	distance to turn: 8.67
+tick: 1593	distance to turn: 9.13
+tick: 1594	distance to turn: 9.58
+tick: 1595	distance to turn: 9.78
+tick: 1596	distance to turn: 9.99
+tick: 1597	distance to turn: 9.97
+tick: 1598	distance to turn: 9.97
+tick: 1599	distance to turn: 7.86
+tick: 1600	distance to turn: 8.27
+tick: 1601	distance to turn: 8.67
+tick: 1602	distance to turn: 9.08
+tick: 1603	distance to turn: 9.49
+tick: 1604	distance to turn: 9.91
+tick: 1605	distance to turn: 9.86
+tick: 1606	distance to turn: 9.86
+tick: 1607	distance to turn: 8.55
+tick: 1608	distance to turn: 9.03
+tick: 1609	distance to turn: 9.52
+tick: 1610	distance to turn: 9.92
+tick: 1611	distance to turn: 1.64
+tick: 1612	distance to turn: 2.18
+tick: 1613	distance to turn: 2.74
+tick: 1614	distance to turn: 3.30
+tick: 1615	distance to turn: 3.89
+tick: 1616	distance to turn: 4.49
+tick: 1617	distance to turn: 5.10
+tick: 1618	distance to turn: 5.73
+tick: 1619	distance to turn: 6.37
+tick: 1620	distance to turn: 7.01
+tick: 1621	distance to turn: 7.64
+tick: 1622	distance to turn: 8.26
+tick: 1623	distance to turn: 8.86
+tick: 1624	distance to turn: 9.44
+tick: 1625	distance to turn: 9.76
+tick: 1626	distance to turn: 9.80
+tick: 1627	distance to turn: 9.81
+tick: 1628	distance to turn: 9.81
+tick: 1629	distance to turn: 7.54
+tick: 1630	distance to turn: 8.00
+tick: 1631	distance to turn: 8.44
+tick: 1632	distance to turn: 8.87
+tick: 1633	distance to turn: 9.28
+tick: 1634	distance to turn: 9.68
+tick: 1635	distance to turn: 9.87
+tick: 1636	distance to turn: 9.86
+tick: 1637	distance to turn: 9.87
+tick: 1638	distance to turn: 9.90
+tick: 1639	distance to turn: 9.95
+tick: 1640	distance to turn: 9.86
+tick: 1641	distance to turn: 9.97
+tick: 1642	distance to turn: 9.95
+tick: 1643	distance to turn: 9.54
+tick: 1644	distance to turn: 9.99
+tick: 1645	distance to turn: 9.89
+tick: 1646	distance to turn: 5.98
+tick: 1647	distance to turn: 5.55
+tick: 1648	distance to turn: 5.11
+tick: 1649	distance to turn: 4.69
+tick: 1650	distance to turn: 4.27
+tick: 1651	distance to turn: 3.86
+tick: 1652	distance to turn: 3.45
+tick: 1653	distance to turn: 3.05
+tick: 1654	distance to turn: 2.65
+tick: 1655	distance to turn: 2.25
+tick: 1656	distance to turn: 1.84
+tick: 1657	distance to turn: 1.42
+tick: 1658	distance to turn: 0.98
+tick: 1659	distance to turn: 0.54
+tick: 1660	distance to turn: 0.19
+tick: 1661	distance to turn: 0.49
+tick: 1662	distance to turn: 0.98
+tick: 1663	distance to turn: 1.51
+tick: 1664	distance to turn: 2.05
+tick: 1665	distance to turn: 2.60
+tick: 1666	distance to turn: 3.17
+tick: 1667	distance to turn: 3.75
+tick: 1668	distance to turn: 4.33
+tick: 1669	distance to turn: 4.91
+tick: 1670	distance to turn: 5.48
+tick: 1671	distance to turn: 6.05
+tick: 1672	distance to turn: 6.61
+tick: 1673	distance to turn: 7.16
+tick: 1674	distance to turn: 7.69
+tick: 1675	distance to turn: 8.20
+tick: 1676	distance to turn: 8.70
+tick: 1677	distance to turn: 9.18
+tick: 1678	distance to turn: 9.64
+tick: 1679	distance to turn: 9.68
+tick: 1680	distance to turn: 9.69
+tick: 1681	distance to turn: 9.69
+tick: 1682	distance to turn: 9.66
+tick: 1683	distance to turn: 9.61
+tick: 1684	distance to turn: 9.55
+tick: 1685	distance to turn: 9.95
+tick: 1686	distance to turn: 9.88
+tick: 1687	distance to turn: 9.80
+tick: 1688	distance to turn: 9.73
+tick: 1689	distance to turn: 9.67
+tick: 1690	distance to turn: 9.63
+tick: 1691	distance to turn: 9.61
+tick: 1692	distance to turn: 866.98
+tick: 1693	distance to turn: 866.52
+tick: 1694	distance to turn: 866.04
+tick: 1695	distance to turn: 865.55
+tick: 1696	distance to turn: 865.04
+tick: 1697	distance to turn: 864.50
+tick: 1698	distance to turn: 863.96
+tick: 1699	distance to turn: 863.39
+tick: 1700	distance to turn: 862.81
+tick: 1701	distance to turn: 862.21
+tick: 1702	distance to turn: 861.59
+tick: 1703	distance to turn: 860.96
+tick: 1704	distance to turn: 860.31
+tick: 1705	distance to turn: 859.66
+tick: 1706	distance to turn: 858.99
+tick: 1707	distance to turn: 858.31
+tick: 1708	distance to turn: 857.61
+tick: 1709	distance to turn: 856.91
+tick: 1710	distance to turn: 856.18
+tick: 1711	distance to turn: 855.44
+tick: 1712	distance to turn: 854.69
+tick: 1713	distance to turn: 853.92
+tick: 1714	distance to turn: 853.13
+tick: 1715	distance to turn: 852.33
+tick: 1716	distance to turn: 851.51
+tick: 1717	distance to turn: 850.68
+tick: 1718	distance to turn: 849.83
+tick: 1719	distance to turn: 848.96
+tick: 1720	distance to turn: 848.08
+tick: 1721	distance to turn: 847.19
+tick: 1722	distance to turn: 846.27
+tick: 1723	distance to turn: 845.35
+tick: 1724	distance to turn: 844.40
+tick: 1725	distance to turn: 843.45
+tick: 1726	distance to turn: 842.47
+tick: 1727	distance to turn: 841.48
+tick: 1728	distance to turn: 840.48
+tick: 1729	distance to turn: 839.46
+tick: 1730	distance to turn: 838.42
+tick: 1731	distance to turn: 837.37
+tick: 1732	distance to turn: 836.31
+tick: 1733	distance to turn: 835.23
+tick: 1734	distance to turn: 834.13
+tick: 1735	distance to turn: 833.02
+tick: 1736	distance to turn: 831.89
+tick: 1737	distance to turn: 830.75
+tick: 1738	distance to turn: 829.59
+tick: 1739	distance to turn: 828.42
+tick: 1740	distance to turn: 827.23
+tick: 1741	distance to turn: 826.03
+tick: 1742	distance to turn: 824.82
+tick: 1743	distance to turn: 823.58
+tick: 1744	distance to turn: 822.34
+tick: 1745	distance to turn: 821.08
+tick: 1746	distance to turn: 819.80
+tick: 1747	distance to turn: 818.51
+tick: 1748	distance to turn: 817.20
+tick: 1749	distance to turn: 815.88
+tick: 1750	distance to turn: 814.55
+tick: 1751	distance to turn: 813.20
+tick: 1752	distance to turn: 811.83
+tick: 1753	distance to turn: 810.45
+tick: 1754	distance to turn: 809.06
+tick: 1755	distance to turn: 807.65
+tick: 1756	distance to turn: 806.23
+tick: 1757	distance to turn: 804.79
+tick: 1758	distance to turn: 803.34
+tick: 1759	distance to turn: 801.87
+tick: 1760	distance to turn: 800.39
+tick: 1761	distance to turn: 798.89
+tick: 1762	distance to turn: 797.39
+tick: 1763	distance to turn: 795.86
+tick: 1764	distance to turn: 794.32
+tick: 1765	distance to turn: 792.77
+tick: 1766	distance to turn: 791.21
+tick: 1767	distance to turn: 789.63
+tick: 1768	distance to turn: 788.03
+tick: 1769	distance to turn: 786.42
+tick: 1770	distance to turn: 784.80
+tick: 1771	distance to turn: 783.16
+tick: 1772	distance to turn: 781.51
+tick: 1773	distance to turn: 779.85
+tick: 1774	distance to turn: 778.17
+tick: 1775	distance to turn: 776.48
+tick: 1776	distance to turn: 774.77
+tick: 1777	distance to turn: 773.05
+tick: 1778	distance to turn: 771.32
+tick: 1779	distance to turn: 769.57
+tick: 1780	distance to turn: 767.81
+tick: 1781	distance to turn: 766.04
+tick: 1782	distance to turn: 764.25
+tick: 1783	distance to turn: 762.45
+tick: 1784	distance to turn: 760.64
+tick: 1785	distance to turn: 758.82
+tick: 1786	distance to turn: 756.99
+tick: 1787	distance to turn: 755.14
+tick: 1788	distance to turn: 753.28
+tick: 1789	distance to turn: 751.41
+tick: 1790	distance to turn: 749.53
+tick: 1791	distance to turn: 747.64
+tick: 1792	distance to turn: 745.73
+tick: 1793	distance to turn: 743.82
+tick: 1794	distance to turn: 741.89
+tick: 1795	distance to turn: 739.96
+tick: 1796	distance to turn: 738.01
+tick: 1797	distance to turn: 736.05
+tick: 1798	distance to turn: 734.08
+tick: 1799	distance to turn: 732.10
+tick: 1800	distance to turn: 730.11
+tick: 1801	distance to turn: 728.10
+tick: 1802	distance to turn: 726.09
+tick: 1803	distance to turn: 724.07
+tick: 1804	distance to turn: 722.04
+tick: 1805	distance to turn: 719.99
+tick: 1806	distance to turn: 717.94
+tick: 1807	distance to turn: 715.88
+tick: 1808	distance to turn: 713.81
+tick: 1809	distance to turn: 711.72
+tick: 1810	distance to turn: 709.63
+tick: 1811	distance to turn: 707.53
+tick: 1812	distance to turn: 705.44
+tick: 1813	distance to turn: 703.36
+tick: 1814	distance to turn: 701.30
+tick: 1815	distance to turn: 699.27
+tick: 1816	distance to turn: 697.26
+tick: 1817	distance to turn: 695.28
+tick: 1818	distance to turn: 693.34
+tick: 1819	distance to turn: 691.42
+tick: 1820	distance to turn: 689.55
+tick: 1821	distance to turn: 687.70
+tick: 1822	distance to turn: 685.90
+tick: 1823	distance to turn: 684.12
+tick: 1824	distance to turn: 682.39
+tick: 1825	distance to turn: 680.69
+tick: 1826	distance to turn: 679.02
+tick: 1827	distance to turn: 677.40
+tick: 1828	distance to turn: 675.80
+tick: 1829	distance to turn: 674.25
+tick: 1830	distance to turn: 672.72
+tick: 1831	distance to turn: 671.24
+tick: 1832	distance to turn: 669.78
+tick: 1833	distance to turn: 668.36
+tick: 1834	distance to turn: 666.98
+tick: 1835	distance to turn: 665.63
+tick: 1836	distance to turn: 664.31
+tick: 1837	distance to turn: 663.02
+tick: 1838	distance to turn: 661.76
+tick: 1839	distance to turn: 660.54
+tick: 1840	distance to turn: 659.34
+tick: 1841	distance to turn: 658.18
+tick: 1842	distance to turn: 657.05
+tick: 1843	distance to turn: 655.94
+tick: 1844	distance to turn: 654.87
+tick: 1845	distance to turn: 653.82
+tick: 1846	distance to turn: 652.80
+tick: 1847	distance to turn: 651.81
+tick: 1848	distance to turn: 650.84
+tick: 1849	distance to turn: 649.90
+tick: 1850	distance to turn: 648.99
+tick: 1851	distance to turn: 648.11
+tick: 1852	distance to turn: 647.25
+tick: 1853	distance to turn: 646.41
+tick: 1854	distance to turn: 645.60
+tick: 1855	distance to turn: 644.81
+tick: 1856	distance to turn: 644.05
+tick: 1857	distance to turn: 643.32
+tick: 1858	distance to turn: 642.61
+tick: 1859	distance to turn: 641.93
+tick: 1860	distance to turn: 641.28
+tick: 1861	distance to turn: 640.66
+tick: 1862	distance to turn: 640.07
+tick: 1863	distance to turn: 639.51
+tick: 1864	distance to turn: 638.98
+tick: 1865	distance to turn: 638.48
+tick: 1866	distance to turn: 638.01
+tick: 1867	distance to turn: 637.57
+tick: 1868	distance to turn: 637.14
+tick: 1869	distance to turn: 636.72
+tick: 1870	distance to turn: 636.33
+tick: 1871	distance to turn: 635.94
+tick: 1872	distance to turn: 635.55
+tick: 1873	distance to turn: 635.16
+tick: 1874	distance to turn: 634.79
+tick: 1875	distance to turn: 634.41
+tick: 1876	distance to turn: 634.04
+tick: 1877	distance to turn: 633.68
+tick: 1878	distance to turn: 633.31
+tick: 1879	distance to turn: 632.95
+tick: 1880	distance to turn: 632.57
+tick: 1881	distance to turn: 632.19
+tick: 1882	distance to turn: 631.79
+tick: 1883	distance to turn: 631.38
+tick: 1884	distance to turn: 630.95
+tick: 1885	distance to turn: 630.51
+tick: 1886	distance to turn: 630.06
+tick: 1887	distance to turn: 629.62
+tick: 1888	distance to turn: 629.18
+tick: 1889	distance to turn: 628.75
+tick: 1890	distance to turn: 628.33
+tick: 1891	distance to turn: 627.93
+tick: 1892	distance to turn: 627.53
+tick: 1893	distance to turn: 627.15
+tick: 1894	distance to turn: 626.76
+tick: 1895	distance to turn: 626.37
+tick: 1896	distance to turn: 625.97
+tick: 1897	distance to turn: 625.57
+tick: 1898	distance to turn: 625.15
+tick: 1899	distance to turn: 624.72
+tick: 1900	distance to turn: 624.26
+tick: 1901	distance to turn: 623.80
+tick: 1902	distance to turn: 623.32
+tick: 1903	distance to turn: 622.84
+tick: 1904	distance to turn: 622.36
+tick: 1905	distance to turn: 621.88
+tick: 1906	distance to turn: 621.40
+tick: 1907	distance to turn: 620.93
+tick: 1908	distance to turn: 620.46
+tick: 1909	distance to turn: 620.01
+tick: 1910	distance to turn: 619.56
+tick: 1911	distance to turn: 619.13
+tick: 1912	distance to turn: 618.70
+tick: 1913	distance to turn: 618.29
+tick: 1914	distance to turn: 617.88
+tick: 1915	distance to turn: 617.48
+tick: 1916	distance to turn: 617.09
+tick: 1917	distance to turn: 616.70
+tick: 1918	distance to turn: 616.30
+tick: 1919	distance to turn: 615.90
+tick: 1920	distance to turn: 615.49
+tick: 1921	distance to turn: 615.06
+tick: 1922	distance to turn: 614.61
+tick: 1923	distance to turn: 614.15
+tick: 1924	distance to turn: 613.68
+tick: 1925	distance to turn: 613.18
+tick: 1926	distance to turn: 612.67
+tick: 1927	distance to turn: 612.16
+tick: 1928	distance to turn: 611.64
+tick: 1929	distance to turn: 611.13
+tick: 1930	distance to turn: 610.61
+tick: 1931	distance to turn: 610.10
+tick: 1932	distance to turn: 609.60
+tick: 1933	distance to turn: 609.10
+tick: 1934	distance to turn: 608.62
+tick: 1935	distance to turn: 608.13
+tick: 1936	distance to turn: 607.65
+tick: 1937	distance to turn: 607.18
+tick: 1938	distance to turn: 606.70
+tick: 1939	distance to turn: 606.23
+tick: 1940	distance to turn: 605.74
+tick: 1941	distance to turn: 605.25
+tick: 1942	distance to turn: 604.74
+tick: 1943	distance to turn: 604.21
+tick: 1944	distance to turn: 603.67
+tick: 1945	distance to turn: 603.11
+tick: 1946	distance to turn: 602.54
+tick: 1947	distance to turn: 601.95
+tick: 1948	distance to turn: 601.34
+tick: 1949	distance to turn: 600.71
+tick: 1950	distance to turn: 600.07
+tick: 1951	distance to turn: 599.42
+tick: 1952	distance to turn: 598.75
+tick: 1953	distance to turn: 598.07
+tick: 1954	distance to turn: 597.39
+tick: 1955	distance to turn: 596.70
+tick: 1956	distance to turn: 596.00
+tick: 1957	distance to turn: 595.30
+tick: 1958	distance to turn: 594.58
+tick: 1959	distance to turn: 593.85
+tick: 1960	distance to turn: 593.11
+tick: 1961	distance to turn: 592.35
+tick: 1962	distance to turn: 591.59
+tick: 1963	distance to turn: 590.81
+tick: 1964	distance to turn: 590.02
+tick: 1965	distance to turn: 589.22
+tick: 1966	distance to turn: 588.41
+tick: 1967	distance to turn: 587.58
+tick: 1968	distance to turn: 586.74
+tick: 1969	distance to turn: 585.88
+tick: 1970	distance to turn: 585.01
+tick: 1971	distance to turn: 584.13
+tick: 1972	distance to turn: 583.22
+tick: 1973	distance to turn: 582.31
+tick: 1974	distance to turn: 581.38
+tick: 1975	distance to turn: 580.43
+tick: 1976	distance to turn: 579.46
+tick: 1977	distance to turn: 578.49
+tick: 1978	distance to turn: 577.49
+tick: 1979	distance to turn: 576.48
+tick: 1980	distance to turn: 575.46
+tick: 1981	distance to turn: 574.42
+tick: 1982	distance to turn: 573.36
+tick: 1983	distance to turn: 572.29
+tick: 1984	distance to turn: 571.21
+tick: 1985	distance to turn: 570.11
+tick: 1986	distance to turn: 568.99
+tick: 1987	distance to turn: 567.86
+tick: 1988	distance to turn: 566.71
+tick: 1989	distance to turn: 565.55
+tick: 1990	distance to turn: 564.37
+tick: 1991	distance to turn: 563.18
+tick: 1992	distance to turn: 561.98
+tick: 1993	distance to turn: 560.75
+tick: 1994	distance to turn: 559.52
+tick: 1995	distance to turn: 558.27
+tick: 1996	distance to turn: 557.00
+tick: 1997	distance to turn: 555.72
+tick: 1998	distance to turn: 554.42
+tick: 1999	distance to turn: 553.11
+tick: 2000	distance to turn: 551.79
+tick: 2001	distance to turn: 550.45
+tick: 2002	distance to turn: 549.09
+tick: 2003	distance to turn: 547.72
+tick: 2004	distance to turn: 546.34
+tick: 2005	distance to turn: 544.94
+tick: 2006	distance to turn: 543.53
+tick: 2007	distance to turn: 542.10
+tick: 2008	distance to turn: 540.66
+tick: 2009	distance to turn: 539.20
+tick: 2010	distance to turn: 537.73
+tick: 2011	distance to turn: 536.24
+tick: 2012	distance to turn: 534.74
+tick: 2013	distance to turn: 533.23
+tick: 2014	distance to turn: 531.70
+tick: 2015	distance to turn: 530.16
+tick: 2016	distance to turn: 528.60
+tick: 2017	distance to turn: 527.03
+tick: 2018	distance to turn: 525.45
+tick: 2019	distance to turn: 523.85
+tick: 2020	distance to turn: 522.23
+tick: 2021	distance to turn: 520.61
+tick: 2022	distance to turn: 518.96
+tick: 2023	distance to turn: 517.31
+tick: 2024	distance to turn: 515.65
+tick: 2025	distance to turn: 513.98
+tick: 2026	distance to turn: 512.33
+tick: 2027	distance to turn: 510.69
+tick: 2028	distance to turn: 509.08
+tick: 2029	distance to turn: 507.49
+tick: 2030	distance to turn: 505.92
+tick: 2031	distance to turn: 504.39
+tick: 2032	distance to turn: 502.88
+tick: 2033	distance to turn: 501.41
+tick: 2034	distance to turn: 499.97
+tick: 2035	distance to turn: 498.55
+tick: 2036	distance to turn: 497.17
+tick: 2037	distance to turn: 495.83
+tick: 2038	distance to turn: 494.51
+tick: 2039	distance to turn: 493.22
+tick: 2040	distance to turn: 491.97
+tick: 2041	distance to turn: 490.74
+tick: 2042	distance to turn: 489.55
+tick: 2043	distance to turn: 488.39
+tick: 2044	distance to turn: 487.25
+tick: 2045	distance to turn: 486.15
+tick: 2046	distance to turn: 485.07
+tick: 2047	distance to turn: 484.03
+tick: 2048	distance to turn: 483.01
+tick: 2049	distance to turn: 482.01
+tick: 2050	distance to turn: 481.05
+tick: 2051	distance to turn: 480.11
+tick: 2052	distance to turn: 479.20
+tick: 2053	distance to turn: 478.31
+tick: 2054	distance to turn: 477.45
+tick: 2055	distance to turn: 476.61
+tick: 2056	distance to turn: 475.80
+tick: 2057	distance to turn: 475.01
+tick: 2058	distance to turn: 474.25
+tick: 2059	distance to turn: 473.52
+tick: 2060	distance to turn: 472.82
+tick: 2061	distance to turn: 472.14
+tick: 2062	distance to turn: 471.47
+tick: 2063	distance to turn: 470.82
+tick: 2064	distance to turn: 470.18
+tick: 2065	distance to turn: 469.55
+tick: 2066	distance to turn: 468.93
+tick: 2067	distance to turn: 468.30
+tick: 2068	distance to turn: 467.67
+tick: 2069	distance to turn: 467.03
+tick: 2070	distance to turn: 466.39
+tick: 2071	distance to turn: 465.76
+tick: 2072	distance to turn: 465.13
+tick: 2073	distance to turn: 464.51
+tick: 2074	distance to turn: 463.90
+tick: 2075	distance to turn: 463.30
+tick: 2076	distance to turn: 462.71
+tick: 2077	distance to turn: 462.14
+tick: 2078	distance to turn: 461.57
+tick: 2079	distance to turn: 461.01
+tick: 2080	distance to turn: 460.47
+tick: 2081	distance to turn: 459.93
+tick: 2082	distance to turn: 459.40
+tick: 2083	distance to turn: 458.87
+tick: 2084	distance to turn: 458.33
+tick: 2085	distance to turn: 457.79
+tick: 2086	distance to turn: 457.25
+tick: 2087	distance to turn: 456.69
+tick: 2088	distance to turn: 456.13
+tick: 2089	distance to turn: 455.55
+tick: 2090	distance to turn: 454.95
+tick: 2091	distance to turn: 454.34
+tick: 2092	distance to turn: 453.72
+tick: 2093	distance to turn: 453.08
+tick: 2094	distance to turn: 452.45
+tick: 2095	distance to turn: 451.80
+tick: 2096	distance to turn: 451.16
+tick: 2097	distance to turn: 450.52
+tick: 2098	distance to turn: 449.88
+tick: 2099	distance to turn: 449.25
+tick: 2100	distance to turn: 448.63
+tick: 2101	distance to turn: 448.01
+tick: 2102	distance to turn: 447.40
+tick: 2103	distance to turn: 446.80
+tick: 2104	distance to turn: 446.20
+tick: 2105	distance to turn: 445.60
+tick: 2106	distance to turn: 445.00
+tick: 2107	distance to turn: 444.39
+tick: 2108	distance to turn: 443.78
+tick: 2109	distance to turn: 443.14
+tick: 2110	distance to turn: 442.50
+tick: 2111	distance to turn: 441.84
+tick: 2112	distance to turn: 441.17
+tick: 2113	distance to turn: 440.48
+tick: 2114	distance to turn: 439.77
+tick: 2115	distance to turn: 439.05
+tick: 2116	distance to turn: 438.31
+tick: 2117	distance to turn: 437.56
+tick: 2118	distance to turn: 436.79
+tick: 2119	distance to turn: 436.01
+tick: 2120	distance to turn: 435.21
+tick: 2121	distance to turn: 434.40
+tick: 2122	distance to turn: 433.57
+tick: 2123	distance to turn: 432.72
+tick: 2124	distance to turn: 431.86
+tick: 2125	distance to turn: 430.98
+tick: 2126	distance to turn: 430.09
+tick: 2127	distance to turn: 429.18
+tick: 2128	distance to turn: 428.25
+tick: 2129	distance to turn: 427.31
+tick: 2130	distance to turn: 426.36
+tick: 2131	distance to turn: 425.38
+tick: 2132	distance to turn: 424.40
+tick: 2133	distance to turn: 423.39
+tick: 2134	distance to turn: 422.38
+tick: 2135	distance to turn: 421.34
+tick: 2136	distance to turn: 420.30
+tick: 2137	distance to turn: 419.23
+tick: 2138	distance to turn: 418.15
+tick: 2139	distance to turn: 417.06
+tick: 2140	distance to turn: 415.95
+tick: 2141	distance to turn: 414.83
+tick: 2142	distance to turn: 413.69
+tick: 2143	distance to turn: 412.53
+tick: 2144	distance to turn: 411.36
+tick: 2145	distance to turn: 410.18
+tick: 2146	distance to turn: 408.98
+tick: 2147	distance to turn: 407.78
+tick: 2148	distance to turn: 406.57
+tick: 2149	distance to turn: 405.36
+tick: 2150	distance to turn: 404.15
+tick: 2151	distance to turn: 402.96
+tick: 2152	distance to turn: 401.79
+tick: 2153	distance to turn: 400.63
+tick: 2154	distance to turn: 399.50
+tick: 2155	distance to turn: 398.39
+tick: 2156	distance to turn: 397.31
+tick: 2157	distance to turn: 396.25
+tick: 2158	distance to turn: 395.22
+tick: 2159	distance to turn: 394.22
+tick: 2160	distance to turn: 393.24
+tick: 2161	distance to turn: 392.29
+tick: 2162	distance to turn: 391.36
+tick: 2163	distance to turn: 390.46
+tick: 2164	distance to turn: 389.59
+tick: 2165	distance to turn: 388.74
+tick: 2166	distance to turn: 387.91
+tick: 2167	distance to turn: 387.11
+tick: 2168	distance to turn: 386.34
+tick: 2169	distance to turn: 385.59
+tick: 2170	distance to turn: 384.86
+tick: 2171	distance to turn: 384.15
+tick: 2172	distance to turn: 383.46
+tick: 2173	distance to turn: 382.78
+tick: 2174	distance to turn: 382.10
+tick: 2175	distance to turn: 381.44
+tick: 2176	distance to turn: 380.77
+tick: 2177	distance to turn: 380.09
+tick: 2178	distance to turn: 379.40
+tick: 2179	distance to turn: 378.71
+tick: 2180	distance to turn: 378.02
+tick: 2181	distance to turn: 377.33
+tick: 2182	distance to turn: 376.64
+tick: 2183	distance to turn: 375.96
+tick: 2184	distance to turn: 375.29
+tick: 2185	distance to turn: 374.63
+tick: 2186	distance to turn: 373.98
+tick: 2187	distance to turn: 373.35
+tick: 2188	distance to turn: 372.72
+tick: 2189	distance to turn: 372.10
+tick: 2190	distance to turn: 371.49
+tick: 2191	distance to turn: 370.89
+tick: 2192	distance to turn: 370.31
+tick: 2193	distance to turn: 369.74
+tick: 2194	distance to turn: 369.17
+tick: 2195	distance to turn: 368.61
+tick: 2196	distance to turn: 368.05
+tick: 2197	distance to turn: 367.49
+tick: 2198	distance to turn: 366.92
+tick: 2199	distance to turn: 366.34
+tick: 2200	distance to turn: 365.74
+tick: 2201	distance to turn: 365.13
+tick: 2202	distance to turn: 364.51
+tick: 2203	distance to turn: 363.87
+tick: 2204	distance to turn: 363.24
+tick: 2205	distance to turn: 362.60
+tick: 2206	distance to turn: 361.95
+tick: 2207	distance to turn: 361.31
+tick: 2208	distance to turn: 360.68
+tick: 2209	distance to turn: 360.05
+tick: 2210	distance to turn: 359.43
+tick: 2211	distance to turn: 358.82
+tick: 2212	distance to turn: 358.21
+tick: 2213	distance to turn: 357.62
+tick: 2214	distance to turn: 357.03
+tick: 2215	distance to turn: 356.45
+tick: 2216	distance to turn: 355.88
+tick: 2217	distance to turn: 355.31
+tick: 2218	distance to turn: 354.73
+tick: 2219	distance to turn: 354.15
+tick: 2220	distance to turn: 353.55
+tick: 2221	distance to turn: 352.94
+tick: 2222	distance to turn: 352.31
+tick: 2223	distance to turn: 351.67
+tick: 2224	distance to turn: 351.01
+tick: 2225	distance to turn: 350.34
+tick: 2226	distance to turn: 349.66
+tick: 2227	distance to turn: 348.95
+tick: 2228	distance to turn: 348.23
+tick: 2229	distance to turn: 347.50
+tick: 2230	distance to turn: 346.75
+tick: 2231	distance to turn: 345.98
+tick: 2232	distance to turn: 345.20
+tick: 2233	distance to turn: 344.40
+tick: 2234	distance to turn: 343.59
+tick: 2235	distance to turn: 342.76
+tick: 2236	distance to turn: 341.91
+tick: 2237	distance to turn: 341.05
+tick: 2238	distance to turn: 340.18
+tick: 2239	distance to turn: 339.29
+tick: 2240	distance to turn: 338.39
+tick: 2241	distance to turn: 337.49
+tick: 2242	distance to turn: 336.59
+tick: 2243	distance to turn: 335.70
+tick: 2244	distance to turn: 334.82
+tick: 2245	distance to turn: 333.96
+tick: 2246	distance to turn: 333.11
+tick: 2247	distance to turn: 332.29
+tick: 2248	distance to turn: 331.48
+tick: 2249	distance to turn: 330.70
+tick: 2250	distance to turn: 329.94
+tick: 2251	distance to turn: 329.19
+tick: 2252	distance to turn: 328.45
+tick: 2253	distance to turn: 327.73
+tick: 2254	distance to turn: 327.02
+tick: 2255	distance to turn: 326.31
+tick: 2256	distance to turn: 325.61
+tick: 2257	distance to turn: 324.91
+tick: 2258	distance to turn: 324.19
+tick: 2259	distance to turn: 323.47
+tick: 2260	distance to turn: 322.74
+tick: 2261	distance to turn: 321.99
+tick: 2262	distance to turn: 321.23
+tick: 2263	distance to turn: 320.45
+tick: 2264	distance to turn: 319.67
+tick: 2265	distance to turn: 318.86
+tick: 2266	distance to turn: 318.04
+tick: 2267	distance to turn: 317.21
+tick: 2268	distance to turn: 316.37
+tick: 2269	distance to turn: 315.52
+tick: 2270	distance to turn: 314.67
+tick: 2271	distance to turn: 313.83
+tick: 2272	distance to turn: 312.99
+tick: 2273	distance to turn: 312.16
+tick: 2274	distance to turn: 311.35
+tick: 2275	distance to turn: 310.54
+tick: 2276	distance to turn: 309.75
+tick: 2277	distance to turn: 308.96
+tick: 2278	distance to turn: 308.18
+tick: 2279	distance to turn: 307.39
+tick: 2280	distance to turn: 306.60
+tick: 2281	distance to turn: 305.80
+tick: 2282	distance to turn: 305.00
+tick: 2283	distance to turn: 304.18
+tick: 2284	distance to turn: 303.35
+tick: 2285	distance to turn: 302.51
+tick: 2286	distance to turn: 301.65
+tick: 2287	distance to turn: 300.78
+tick: 2288	distance to turn: 299.89
+tick: 2289	distance to turn: 298.99
+tick: 2290	distance to turn: 298.08
+tick: 2291	distance to turn: 297.16
+tick: 2292	distance to turn: 296.25
+tick: 2293	distance to turn: 295.36
+tick: 2294	distance to turn: 294.47
+tick: 2295	distance to turn: 293.60
+tick: 2296	distance to turn: 292.75
+tick: 2297	distance to turn: 291.93
+tick: 2298	distance to turn: 291.12
+tick: 2299	distance to turn: 290.34
+tick: 2300	distance to turn: 289.58
+tick: 2301	distance to turn: 288.85
+tick: 2302	distance to turn: 288.15
+tick: 2303	distance to turn: 287.46
+tick: 2304	distance to turn: 286.78
+tick: 2305	distance to turn: 286.11
+tick: 2306	distance to turn: 285.43
+tick: 2307	distance to turn: 284.75
+tick: 2308	distance to turn: 284.06
+tick: 2309	distance to turn: 283.37
+tick: 2310	distance to turn: 282.67
+tick: 2311	distance to turn: 281.98
+tick: 2312	distance to turn: 281.29
+tick: 2313	distance to turn: 280.62
+tick: 2314	distance to turn: 279.95
+tick: 2315	distance to turn: 279.29
+tick: 2316	distance to turn: 278.64
+tick: 2317	distance to turn: 278.00
+tick: 2318	distance to turn: 277.37
+tick: 2319	distance to turn: 276.76
+tick: 2320	distance to turn: 276.15
+tick: 2321	distance to turn: 275.55
+tick: 2322	distance to turn: 274.95
+tick: 2323	distance to turn: 274.35
+tick: 2324	distance to turn: 273.74
+tick: 2325	distance to turn: 273.11
+tick: 2326	distance to turn: 272.48
+tick: 2327	distance to turn: 271.83
+tick: 2328	distance to turn: 271.16
+tick: 2329	distance to turn: 270.48
+tick: 2330	distance to turn: 269.79
+tick: 2331	distance to turn: 269.07
+tick: 2332	distance to turn: 268.35
+tick: 2333	distance to turn: 267.61
+tick: 2334	distance to turn: 266.85
+tick: 2335	distance to turn: 266.09
+tick: 2336	distance to turn: 265.32
+tick: 2337	distance to turn: 264.53
+tick: 2338	distance to turn: 263.74
+tick: 2339	distance to turn: 262.95
+tick: 2340	distance to turn: 262.15
+tick: 2341	distance to turn: 261.35
+tick: 2342	distance to turn: 260.54
+tick: 2343	distance to turn: 259.73
+tick: 2344	distance to turn: 258.92
+tick: 2345	distance to turn: 258.10
+tick: 2346	distance to turn: 257.26
+tick: 2347	distance to turn: 256.42
+tick: 2348	distance to turn: 255.56
+tick: 2349	distance to turn: 254.69
+tick: 2350	distance to turn: 253.80
+tick: 2351	distance to turn: 252.90
+tick: 2352	distance to turn: 251.99
+tick: 2353	distance to turn: 251.06
+tick: 2354	distance to turn: 250.11
+tick: 2355	distance to turn: 249.15
+tick: 2356	distance to turn: 248.17
+tick: 2357	distance to turn: 247.18
+tick: 2358	distance to turn: 246.18
+tick: 2359	distance to turn: 245.15
+tick: 2360	distance to turn: 244.12
+tick: 2361	distance to turn: 243.06
+tick: 2362	distance to turn: 242.00
+tick: 2363	distance to turn: 240.91
+tick: 2364	distance to turn: 239.81
+tick: 2365	distance to turn: 238.70
+tick: 2366	distance to turn: 237.57
+tick: 2367	distance to turn: 236.43
+tick: 2368	distance to turn: 235.27
+tick: 2369	distance to turn: 234.10
+tick: 2370	distance to turn: 232.91
+tick: 2371	distance to turn: 231.70
+tick: 2372	distance to turn: 230.49
+tick: 2373	distance to turn: 229.27
+tick: 2374	distance to turn: 228.04
+tick: 2375	distance to turn: 226.82
+tick: 2376	distance to turn: 225.62
+tick: 2377	distance to turn: 224.43
+tick: 2378	distance to turn: 223.26
+tick: 2379	distance to turn: 222.12
+tick: 2380	distance to turn: 221.00
+tick: 2381	distance to turn: 219.91
+tick: 2382	distance to turn: 218.84
+tick: 2383	distance to turn: 217.80
+tick: 2384	distance to turn: 216.79
+tick: 2385	distance to turn: 215.80
+tick: 2386	distance to turn: 214.84
+tick: 2387	distance to turn: 213.90
+tick: 2388	distance to turn: 212.99
+tick: 2389	distance to turn: 212.11
+tick: 2390	distance to turn: 211.25
+tick: 2391	distance to turn: 210.42
+tick: 2392	distance to turn: 209.60
+tick: 2393	distance to turn: 208.82
+tick: 2394	distance to turn: 208.06
+tick: 2395	distance to turn: 207.33
+tick: 2396	distance to turn: 206.61
+tick: 2397	distance to turn: 205.91
+tick: 2398	distance to turn: 205.24
+tick: 2399	distance to turn: 204.58
+tick: 2400	distance to turn: 203.94
+tick: 2401	distance to turn: 203.30
+tick: 2402	distance to turn: 202.67
+tick: 2403	distance to turn: 202.03
+tick: 2404	distance to turn: 201.39
+tick: 2405	distance to turn: 200.74
+tick: 2406	distance to turn: 200.09
+tick: 2407	distance to turn: 199.44
+tick: 2408	distance to turn: 198.80
+tick: 2409	distance to turn: 198.17
+tick: 2410	distance to turn: 197.54
+tick: 2411	distance to turn: 196.93
+tick: 2412	distance to turn: 196.32
+tick: 2413	distance to turn: 195.74
+tick: 2414	distance to turn: 195.17
+tick: 2415	distance to turn: 194.62
+tick: 2416	distance to turn: 194.08
+tick: 2417	distance to turn: 193.55
+tick: 2418	distance to turn: 193.03
+tick: 2419	distance to turn: 192.51
+tick: 2420	distance to turn: 191.98
+tick: 2421	distance to turn: 191.45
+tick: 2422	distance to turn: 190.91
+tick: 2423	distance to turn: 190.36
+tick: 2424	distance to turn: 189.81
+tick: 2425	distance to turn: 189.25
+tick: 2426	distance to turn: 188.69
+tick: 2427	distance to turn: 188.14
+tick: 2428	distance to turn: 187.59
+tick: 2429	distance to turn: 187.04
+tick: 2430	distance to turn: 186.51
+tick: 2431	distance to turn: 185.98
+tick: 2432	distance to turn: 185.46
+tick: 2433	distance to turn: 184.95
+tick: 2434	distance to turn: 184.44
+tick: 2435	distance to turn: 183.94
+tick: 2436	distance to turn: 183.44
+tick: 2437	distance to turn: 182.96
+tick: 2438	distance to turn: 182.48
+tick: 2439	distance to turn: 182.01
+tick: 2440	distance to turn: 181.55
+tick: 2441	distance to turn: 181.10
+tick: 2442	distance to turn: 180.65
+tick: 2443	distance to turn: 180.21
+tick: 2444	distance to turn: 179.76
+tick: 2445	distance to turn: 179.32
+tick: 2446	distance to turn: 178.87
+tick: 2447	distance to turn: 178.42
+tick: 2448	distance to turn: 177.97
+tick: 2449	distance to turn: 177.53
+tick: 2450	distance to turn: 177.09
+tick: 2451	distance to turn: 176.66
+tick: 2452	distance to turn: 176.24
+tick: 2453	distance to turn: 175.84
+tick: 2454	distance to turn: 175.43
+tick: 2455	distance to turn: 175.04
+tick: 2456	distance to turn: 174.64
+tick: 2457	distance to turn: 174.24
+tick: 2458	distance to turn: 173.83
+tick: 2459	distance to turn: 173.41
+tick: 2460	distance to turn: 172.97
+tick: 2461	distance to turn: 172.52
+tick: 2462	distance to turn: 172.05
+tick: 2463	distance to turn: 171.57
+tick: 2464	distance to turn: 171.08
+tick: 2465	distance to turn: 170.58
+tick: 2466	distance to turn: 170.08
+tick: 2467	distance to turn: 169.57
+tick: 2468	distance to turn: 169.06
+tick: 2469	distance to turn: 168.56
+tick: 2470	distance to turn: 168.06
+tick: 2471	distance to turn: 167.57
+tick: 2472	distance to turn: 167.08
+tick: 2473	distance to turn: 166.61
+tick: 2474	distance to turn: 166.13
+tick: 2475	distance to turn: 165.66
+tick: 2476	distance to turn: 165.18
+tick: 2477	distance to turn: 164.69
+tick: 2478	distance to turn: 164.19
+tick: 2479	distance to turn: 163.67
+tick: 2480	distance to turn: 163.14
+tick: 2481	distance to turn: 162.59
+tick: 2482	distance to turn: 162.03
+tick: 2483	distance to turn: 161.45
+tick: 2484	distance to turn: 160.85
+tick: 2485	distance to turn: 160.23
+tick: 2486	distance to turn: 159.60
+tick: 2487	distance to turn: 158.96
+tick: 2488	distance to turn: 158.29
+tick: 2489	distance to turn: 157.61
+tick: 2490	distance to turn: 156.92
+tick: 2491	distance to turn: 156.21
+tick: 2492	distance to turn: 155.48
+tick: 2493	distance to turn: 154.74
+tick: 2494	distance to turn: 153.98
+tick: 2495	distance to turn: 153.22
+tick: 2496	distance to turn: 152.44
+tick: 2497	distance to turn: 151.65
+tick: 2498	distance to turn: 150.85
+tick: 2499	distance to turn: 150.04
+tick: 2500	distance to turn: 149.23
+tick: 2501	distance to turn: 148.40
+tick: 2502	distance to turn: 147.55
+tick: 2503	distance to turn: 146.70
+tick: 2504	distance to turn: 145.84
+tick: 2505	distance to turn: 144.97
+tick: 2506	distance to turn: 144.09
+tick: 2507	distance to turn: 143.19
+tick: 2508	distance to turn: 142.28
+tick: 2509	distance to turn: 141.36
+tick: 2510	distance to turn: 140.43
+tick: 2511	distance to turn: 139.47
+tick: 2512	distance to turn: 138.51
+tick: 2513	distance to turn: 137.53
+tick: 2514	distance to turn: 136.53
+tick: 2515	distance to turn: 135.52
+tick: 2516	distance to turn: 134.49
+tick: 2517	distance to turn: 133.45
+tick: 2518	distance to turn: 132.39
+tick: 2519	distance to turn: 131.32
+tick: 2520	distance to turn: 130.23
+tick: 2521	distance to turn: 129.13
+tick: 2522	distance to turn: 128.01
+tick: 2523	distance to turn: 126.88
+tick: 2524	distance to turn: 125.73
+tick: 2525	distance to turn: 124.57
+tick: 2526	distance to turn: 123.39
+tick: 2527	distance to turn: 122.20
+tick: 2528	distance to turn: 120.99
+tick: 2529	distance to turn: 119.78
+tick: 2530	distance to turn: 118.57
+tick: 2531	distance to turn: 117.36
+tick: 2532	distance to turn: 116.16
+tick: 2533	distance to turn: 114.99
+tick: 2534	distance to turn: 113.83
+tick: 2535	distance to turn: 112.70
+tick: 2536	distance to turn: 111.59
+tick: 2537	distance to turn: 110.51
+tick: 2538	distance to turn: 109.45
+tick: 2539	distance to turn: 108.42
+tick: 2540	distance to turn: 107.42
+tick: 2541	distance to turn: 106.44
+tick: 2542	distance to turn: 105.49
+tick: 2543	distance to turn: 104.56
+tick: 2544	distance to turn: 103.66
+tick: 2545	distance to turn: 102.79
+tick: 2546	distance to turn: 101.93
+tick: 2547	distance to turn: 101.11
+tick: 2548	distance to turn: 100.31
+tick: 2549	distance to turn: 99.53
+tick: 2550	distance to turn: 98.79
+tick: 2551	distance to turn: 98.07
+tick: 2552	distance to turn: 97.38
+tick: 2553	distance to turn: 96.71
+tick: 2554	distance to turn: 96.08
+tick: 2555	distance to turn: 95.47
+tick: 2556	distance to turn: 94.88
+tick: 2557	distance to turn: 94.31
+tick: 2558	distance to turn: 93.76
+tick: 2559	distance to turn: 93.23
+tick: 2560	distance to turn: 92.72
+tick: 2561	distance to turn: 92.23
+tick: 2562	distance to turn: 91.75
+tick: 2563	distance to turn: 91.29
+tick: 2564	distance to turn: 90.85
+tick: 2565	distance to turn: 90.42
+tick: 2566	distance to turn: 90.00
+tick: 2567	distance to turn: 89.61
+tick: 2568	distance to turn: 89.23
+tick: 2569	distance to turn: 88.85
+tick: 2570	distance to turn: 88.47
+tick: 2571	distance to turn: 88.09
+tick: 2572	distance to turn: 87.70
+tick: 2573	distance to turn: 87.31
+tick: 2574	distance to turn: 86.90
+tick: 2575	distance to turn: 86.47
+tick: 2576	distance to turn: 86.04
+tick: 2577	distance to turn: 85.59
+tick: 2578	distance to turn: 85.13
+tick: 2579	distance to turn: 84.67
+tick: 2580	distance to turn: 84.21
+tick: 2581	distance to turn: 83.75
+tick: 2582	distance to turn: 83.29
+tick: 2583	distance to turn: 82.84
+tick: 2584	distance to turn: 82.38
+tick: 2585	distance to turn: 81.93
+tick: 2586	distance to turn: 81.49
+tick: 2587	distance to turn: 81.04
+tick: 2588	distance to turn: 80.61
+tick: 2589	distance to turn: 80.18
+tick: 2590	distance to turn: 79.77
+tick: 2591	distance to turn: 79.37
+tick: 2592	distance to turn: 78.97
+tick: 2593	distance to turn: 78.58
+tick: 2594	distance to turn: 78.18
+tick: 2595	distance to turn: 77.79
+tick: 2596	distance to turn: 77.38
+tick: 2597	distance to turn: 76.97
+tick: 2598	distance to turn: 76.54
+tick: 2599	distance to turn: 76.09
+tick: 2600	distance to turn: 75.63
+tick: 2601	distance to turn: 75.17
+tick: 2602	distance to turn: 74.69
+tick: 2603	distance to turn: 74.22
+tick: 2604	distance to turn: 73.76
+tick: 2605	distance to turn: 73.30
+tick: 2606	distance to turn: 72.84
+tick: 2607	distance to turn: 72.39
+tick: 2608	distance to turn: 71.93
+tick: 2609	distance to turn: 71.47
+tick: 2610	distance to turn: 71.00
+tick: 2611	distance to turn: 70.52
+tick: 2612	distance to turn: 70.03
+tick: 2613	distance to turn: 69.51
+tick: 2614	distance to turn: 68.98
+tick: 2615	distance to turn: 68.44
+tick: 2616	distance to turn: 67.88
+tick: 2617	distance to turn: 67.30
+tick: 2618	distance to turn: 66.72
+tick: 2619	distance to turn: 66.12
+tick: 2620	distance to turn: 65.52
+tick: 2621	distance to turn: 64.90
+tick: 2622	distance to turn: 64.27
+tick: 2623	distance to turn: 63.63
+tick: 2624	distance to turn: 62.98
+tick: 2625	distance to turn: 62.31
+tick: 2626	distance to turn: 61.64
+tick: 2627	distance to turn: 60.96
+tick: 2628	distance to turn: 60.26
+tick: 2629	distance to turn: 59.56
+tick: 2630	distance to turn: 58.84
+tick: 2631	distance to turn: 58.11
+tick: 2632	distance to turn: 57.37
+tick: 2633	distance to turn: 56.62
+tick: 2634	distance to turn: 55.85
+tick: 2635	distance to turn: 55.07
+tick: 2636	distance to turn: 54.27
+tick: 2637	distance to turn: 53.46
+tick: 2638	distance to turn: 52.63
+tick: 2639	distance to turn: 51.79
+tick: 2640	distance to turn: 50.93
+tick: 2641	distance to turn: 50.06
+tick: 2642	distance to turn: 49.17
+tick: 2643	distance to turn: 48.26
+tick: 2644	distance to turn: 47.34
+tick: 2645	distance to turn: 46.41
+tick: 2646	distance to turn: 45.45
+tick: 2647	distance to turn: 44.49
+tick: 2648	distance to turn: 43.50
+tick: 2649	distance to turn: 42.51
+tick: 2650	distance to turn: 41.49
+tick: 2651	distance to turn: 40.47
+tick: 2652	distance to turn: 39.42
+tick: 2653	distance to turn: 38.36
+tick: 2654	distance to turn: 37.29
+tick: 2655	distance to turn: 36.20
+tick: 2656	distance to turn: 35.09
+tick: 2657	distance to turn: 33.97
+tick: 2658	distance to turn: 32.84
+tick: 2659	distance to turn: 31.69
+tick: 2660	distance to turn: 30.52
+tick: 2661	distance to turn: 29.34
+tick: 2662	distance to turn: 28.15
+tick: 2663	distance to turn: 26.94
+tick: 2664	distance to turn: 25.71
+tick: 2665	distance to turn: 24.47
+tick: 2666	distance to turn: 23.22
+tick: 2667	distance to turn: 21.95
+tick: 2668	distance to turn: 20.67
+tick: 2669	distance to turn: 19.38
+tick: 2670	distance to turn: 18.08
+tick: 2671	distance to turn: 16.78
+tick: 2672	distance to turn: 15.47
+tick: 2673	distance to turn: 14.16
+tick: 2674	distance to turn: 12.86
+tick: 2675	distance to turn: 11.57
+tick: 2676	distance to turn: 10.31
+tick: 2677	distance to turn: 9.07
+tick: 2678	distance to turn: 7.85
+tick: 2679	distance to turn: 6.66
+tick: 2680	distance to turn: 5.50
+tick: 2681	distance to turn: 4.38
+tick: 2682	distance to turn: 3.29
+tick: 2683	distance to turn: 2.24
+tick: 2684	distance to turn: 1.31
+tick: 2685	distance to turn: 0.79
+tick: 2686	distance to turn: 1.27
+tick: 2687	distance to turn: 2.12
+tick: 2688	distance to turn: 3.03
+tick: 2689	distance to turn: 3.93
+tick: 2690	distance to turn: 4.82
+tick: 2691	distance to turn: 5.68
+tick: 2692	distance to turn: 6.52
+tick: 2693	distance to turn: 7.34
+tick: 2694	distance to turn: 8.14
+tick: 2695	distance to turn: 8.90
+tick: 2696	distance to turn: 9.64
+tick: 2697	distance to turn: 8.34
+tick: 2698	distance to turn: 9.03
+tick: 2699	distance to turn: 9.71
+tick: 2700	distance to turn: 8.40
+tick: 2701	distance to turn: 9.05
+tick: 2702	distance to turn: 9.71
+tick: 2703	distance to turn: 8.43
+tick: 2704	distance to turn: 9.10
+tick: 2705	distance to turn: 9.77
+tick: 2706	distance to turn: 8.56
+tick: 2707	distance to turn: 9.24
+tick: 2708	distance to turn: 9.93
+tick: 2709	distance to turn: 8.74
+tick: 2710	distance to turn: 9.41
+tick: 2711	distance to turn: 8.24
+tick: 2712	distance to turn: 8.89
+tick: 2713	distance to turn: 9.52
+tick: 2714	distance to turn: 8.35
+tick: 2715	distance to turn: 8.96
+tick: 2716	distance to turn: 9.56
+tick: 2717	distance to turn: 8.39
+tick: 2718	distance to turn: 8.97
+tick: 2719	distance to turn: 9.54
+tick: 2720	distance to turn: 8.37
+tick: 2721	distance to turn: 8.93
+tick: 2722	distance to turn: 9.48
+tick: 2723	distance to turn: 8.35
+tick: 2724	distance to turn: 8.90
+tick: 2725	distance to turn: 9.46
+tick: 2726	distance to turn: 8.38
+tick: 2727	distance to turn: 8.96
+tick: 2728	distance to turn: 9.56
+tick: 2729	distance to turn: 8.53
+tick: 2730	distance to turn: 9.14
+tick: 2731	distance to turn: 9.75
+tick: 2732	distance to turn: 8.77
+tick: 2733	distance to turn: 9.38
+tick: 2734	distance to turn: 9.98
+tick: 2735	distance to turn: 9.02
+tick: 2736	distance to turn: 9.61
+tick: 2737	distance to turn: 8.65
+tick: 2738	distance to turn: 9.22
+tick: 2739	distance to turn: 9.78
+tick: 2740	distance to turn: 8.82
+tick: 2741	distance to turn: 9.36
+tick: 2742	distance to turn: 9.88
+tick: 2743	distance to turn: 8.93
+tick: 2744	distance to turn: 9.43
+tick: 2745	distance to turn: 9.93
+tick: 2746	distance to turn: 8.98
+tick: 2747	distance to turn: 9.45
+tick: 2748	distance to turn: 9.91
+tick: 2749	distance to turn: 8.96
+tick: 2750	distance to turn: 9.41
+tick: 2751	distance to turn: 9.85
+tick: 2752	distance to turn: 8.90
+tick: 2753	distance to turn: 9.32
+tick: 2754	distance to turn: 9.73
+tick: 2755	distance to turn: 8.80
+tick: 2756	distance to turn: 9.20
+tick: 2757	distance to turn: 9.60
+tick: 2758	distance to turn: 8.70
+tick: 2759	distance to turn: 9.11
+tick: 2760	distance to turn: 9.54
+tick: 2761	distance to turn: 9.98
+tick: 2762	distance to turn: 9.15
+tick: 2763	distance to turn: 9.61
+tick: 2764	distance to turn: 8.83
+tick: 2765	distance to turn: 9.29
+tick: 2766	distance to turn: 9.76
+tick: 2767	distance to turn: 9.00
+tick: 2768	distance to turn: 9.45
+tick: 2769	distance to turn: 9.90
+tick: 2770	distance to turn: 9.14
+tick: 2771	distance to turn: 9.58
+tick: 2772	distance to turn: 8.83
+tick: 2773	distance to turn: 9.25
+tick: 2774	distance to turn: 9.66
+tick: 2775	distance to turn: 8.93
+tick: 2776	distance to turn: 9.33
+tick: 2777	distance to turn: 9.73
+tick: 2778	distance to turn: 42.42
+tick: 2779	distance to turn: 42.01
+tick: 2780	distance to turn: 41.60
+tick: 2781	distance to turn: 41.18
+tick: 2782	distance to turn: 40.74
+tick: 2783	distance to turn: 40.28
+tick: 2784	distance to turn: 39.81
+tick: 2785	distance to turn: 39.32
+tick: 2786	distance to turn: 38.81
+tick: 2787	distance to turn: 38.28
+tick: 2788	distance to turn: 37.74
+tick: 2789	distance to turn: 37.17
+tick: 2790	distance to turn: 36.59
+tick: 2791	distance to turn: 36.00
+tick: 2792	distance to turn: 35.38
+tick: 2793	distance to turn: 34.75
+tick: 2794	distance to turn: 34.11
+tick: 2795	distance to turn: 33.45
+tick: 2796	distance to turn: 32.77
+tick: 2797	distance to turn: 32.08
+tick: 2798	distance to turn: 31.37
+tick: 2799	distance to turn: 30.64
+tick: 2800	distance to turn: 29.90
+tick: 2801	distance to turn: 29.14
+tick: 2802	distance to turn: 28.36
+tick: 2803	distance to turn: 27.57
+tick: 2804	distance to turn: 26.77
+tick: 2805	distance to turn: 25.95
+tick: 2806	distance to turn: 25.11
+tick: 2807	distance to turn: 24.26
+tick: 2808	distance to turn: 23.39
+tick: 2809	distance to turn: 22.50
+tick: 2810	distance to turn: 21.60
+tick: 2811	distance to turn: 20.69
+tick: 2812	distance to turn: 19.76
+tick: 2813	distance to turn: 18.81
+tick: 2814	distance to turn: 17.85
+tick: 2815	distance to turn: 16.87
+tick: 2816	distance to turn: 15.88
+tick: 2817	distance to turn: 14.87
+tick: 2818	distance to turn: 13.84
+tick: 2819	distance to turn: 12.80
+tick: 2820	distance to turn: 11.75
+tick: 2821	distance to turn: 10.68
+tick: 2822	distance to turn: 9.59
+tick: 2823	distance to turn: 8.49
+tick: 2824	distance to turn: 7.38
+tick: 2825	distance to turn: 6.25
+tick: 2826	distance to turn: 5.11
+tick: 2827	distance to turn: 3.95
+tick: 2828	distance to turn: 2.78
+tick: 2829	distance to turn: 1.61
+tick: 2830	distance to turn: 0.53
+tick: 2831	distance to turn: 0.94
+tick: 2832	distance to turn: 2.11
+tick: 2833	distance to turn: 3.31
+tick: 2834	distance to turn: 4.49
+tick: 2835	distance to turn: 5.66
+tick: 2836	distance to turn: 6.81
+tick: 2837	distance to turn: 7.93
+tick: 2838	distance to turn: 9.04
+tick: 2839	distance to turn: 9.35
+tick: 2840	distance to turn: 9.64
+tick: 2841	distance to turn: 9.89
+tick: 2842	distance to turn: 9.34
+tick: 2843	distance to turn: 9.54
+tick: 2844	distance to turn: 9.72
+tick: 2845	distance to turn: 9.88
+tick: 2846	distance to turn: 9.31
+tick: 2847	distance to turn: 9.46
+tick: 2848	distance to turn: 9.60
+tick: 2849	distance to turn: 9.73
+tick: 2850	distance to turn: 9.86
+tick: 2851	distance to turn: 9.96
+tick: 2852	distance to turn: 9.44
+tick: 2853	distance to turn: 9.54
+tick: 2854	distance to turn: 5.67
+tick: 2855	distance to turn: 6.13
+tick: 2856	distance to turn: 6.58
+tick: 2857	distance to turn: 7.02
+tick: 2858	distance to turn: 7.45
+tick: 2859	distance to turn: 7.87
+tick: 2860	distance to turn: 8.27
+tick: 2861	distance to turn: 8.65
+tick: 2862	distance to turn: 9.01
+tick: 2863	distance to turn: 9.35
+tick: 2864	distance to turn: 9.67
+tick: 2865	distance to turn: 9.98
+tick: 2866	distance to turn: 9.85
+tick: 2867	distance to turn: 9.71
+tick: 2868	distance to turn: 9.96
+tick: 2869	distance to turn: 9.79
+tick: 2870	distance to turn: 9.61
+tick: 2871	distance to turn: 9.83
+tick: 2872	distance to turn: 9.64
+tick: 2873	distance to turn: 9.87
+tick: 2874	distance to turn: 9.68
+tick: 2875	distance to turn: 9.91
+tick: 2876	distance to turn: 9.74
+tick: 2877	distance to turn: 9.98
+tick: 2878	distance to turn: 9.81
+tick: 2879	distance to turn: 9.64
+tick: 2880	distance to turn: 9.87
+tick: 2881	distance to turn: 9.70
+tick: 2882	distance to turn: 9.91
+tick: 2883	distance to turn: 9.73
+tick: 2884	distance to turn: 9.93
+tick: 2885	distance to turn: 9.74
+tick: 2886	distance to turn: 9.94
+tick: 2887	distance to turn: 9.76
+tick: 2888	distance to turn: 9.96
+tick: 2889	distance to turn: 143.79
+tick: 2890	distance to turn: 143.47
+tick: 2891	distance to turn: 143.12
+tick: 2892	distance to turn: 142.76
+tick: 2893	distance to turn: 142.39
+tick: 2894	distance to turn: 141.99
+tick: 2895	distance to turn: 141.59
+tick: 2896	distance to turn: 141.18
+tick: 2897	distance to turn: 140.77
+tick: 2898	distance to turn: 140.36
+tick: 2899	distance to turn: 139.95
+tick: 2900	distance to turn: 139.55
+tick: 2901	distance to turn: 139.16
+tick: 2902	distance to turn: 138.77
+tick: 2903	distance to turn: 138.39
+tick: 2904	distance to turn: 138.02
+tick: 2905	distance to turn: 137.65
+tick: 2906	distance to turn: 137.28
+tick: 2907	distance to turn: 136.90
+tick: 2908	distance to turn: 136.52
+tick: 2909	distance to turn: 136.12
+tick: 2910	distance to turn: 135.71
+tick: 2911	distance to turn: 135.29
+tick: 2912	distance to turn: 134.85
+tick: 2913	distance to turn: 134.41
+tick: 2914	distance to turn: 133.97
+tick: 2915	distance to turn: 133.54
+tick: 2916	distance to turn: 133.12
+tick: 2917	distance to turn: 132.71
+tick: 2918	distance to turn: 132.32
+tick: 2919	distance to turn: 131.93
+tick: 2920	distance to turn: 131.55
+tick: 2921	distance to turn: 131.18
+tick: 2922	distance to turn: 130.81
+tick: 2923	distance to turn: 130.44
+tick: 2924	distance to turn: 130.06
+tick: 2925	distance to turn: 129.68
+tick: 2926	distance to turn: 129.29
+tick: 2927	distance to turn: 128.90
+tick: 2928	distance to turn: 128.52
+tick: 2929	distance to turn: 128.13
+tick: 2930	distance to turn: 127.75
+tick: 2931	distance to turn: 127.37
+tick: 2932	distance to turn: 126.98
+tick: 2933	distance to turn: 126.59
+tick: 2934	distance to turn: 126.20
+tick: 2935	distance to turn: 125.80
+tick: 2936	distance to turn: 125.41
+tick: 2937	distance to turn: 125.02
+tick: 2938	distance to turn: 124.63
+tick: 2939	distance to turn: 124.26
+tick: 2940	distance to turn: 123.88
+tick: 2941	distance to turn: 123.51
+tick: 2942	distance to turn: 123.13
+tick: 2943	distance to turn: 122.75
+tick: 2944	distance to turn: 122.36
+tick: 2945	distance to turn: 121.96
+tick: 2946	distance to turn: 121.54
+tick: 2947	distance to turn: 121.11
+tick: 2948	distance to turn: 120.66
+tick: 2949	distance to turn: 120.22
+tick: 2950	distance to turn: 119.77
+tick: 2951	distance to turn: 119.33
+tick: 2952	distance to turn: 118.89
+tick: 2953	distance to turn: 118.46
+tick: 2954	distance to turn: 118.03
+tick: 2955	distance to turn: 117.61
+tick: 2956	distance to turn: 117.19
+tick: 2957	distance to turn: 116.78
+tick: 2958	distance to turn: 116.36
+tick: 2959	distance to turn: 115.94
+tick: 2960	distance to turn: 115.52
+tick: 2961	distance to turn: 115.08
+tick: 2962	distance to turn: 114.64
+tick: 2963	distance to turn: 114.20
+tick: 2964	distance to turn: 113.75
+tick: 2965	distance to turn: 113.30
+tick: 2966	distance to turn: 112.86
+tick: 2967	distance to turn: 112.43
+tick: 2968	distance to turn: 112.00
+tick: 2969	distance to turn: 111.58
+tick: 2970	distance to turn: 111.16
+tick: 2971	distance to turn: 110.76
+tick: 2972	distance to turn: 110.35
+tick: 2973	distance to turn: 109.95
+tick: 2974	distance to turn: 109.54
+tick: 2975	distance to turn: 109.13
+tick: 2976	distance to turn: 108.70
+tick: 2977	distance to turn: 108.26
+tick: 2978	distance to turn: 107.81
+tick: 2979	distance to turn: 107.33
+tick: 2980	distance to turn: 106.84
+tick: 2981	distance to turn: 106.33
+tick: 2982	distance to turn: 105.80
+tick: 2983	distance to turn: 105.26
+tick: 2984	distance to turn: 104.70
+tick: 2985	distance to turn: 104.12
+tick: 2986	distance to turn: 103.52
+tick: 2987	distance to turn: 102.92
+tick: 2988	distance to turn: 102.31
+tick: 2989	distance to turn: 101.70
+tick: 2990	distance to turn: 101.08
+tick: 2991	distance to turn: 100.47
+tick: 2992	distance to turn: 99.86
+tick: 2993	distance to turn: 99.25
+tick: 2994	distance to turn: 98.66
+tick: 2995	distance to turn: 98.07
+tick: 2996	distance to turn: 97.49
+tick: 2997	distance to turn: 96.92
+tick: 2998	distance to turn: 96.35
+tick: 2999	distance to turn: 95.80
+tick: 3000	distance to turn: 95.25
+tick: 3001	distance to turn: 94.72
+tick: 3002	distance to turn: 94.18
+tick: 3003	distance to turn: 93.65
+tick: 3004	distance to turn: 93.11
+tick: 3005	distance to turn: 92.56
+tick: 3006	distance to turn: 92.01
+tick: 3007	distance to turn: 91.43
+tick: 3008	distance to turn: 90.84
+tick: 3009	distance to turn: 90.24
+tick: 3010	distance to turn: 89.62
+tick: 3011	distance to turn: 88.99
+tick: 3012	distance to turn: 88.34
+tick: 3013	distance to turn: 87.67
+tick: 3014	distance to turn: 86.98
+tick: 3015	distance to turn: 86.29
+tick: 3016	distance to turn: 85.57
+tick: 3017	distance to turn: 84.84
+tick: 3018	distance to turn: 84.09
+tick: 3019	distance to turn: 83.33
+tick: 3020	distance to turn: 82.55
+tick: 3021	distance to turn: 81.76
+tick: 3022	distance to turn: 80.95
+tick: 3023	distance to turn: 80.12
+tick: 3024	distance to turn: 79.28
+tick: 3025	distance to turn: 78.43
+tick: 3026	distance to turn: 77.56
+tick: 3027	distance to turn: 76.70
+tick: 3028	distance to turn: 75.83
+tick: 3029	distance to turn: 74.97
+tick: 3030	distance to turn: 74.13
+tick: 3031	distance to turn: 73.30
+tick: 3032	distance to turn: 72.49
+tick: 3033	distance to turn: 71.69
+tick: 3034	distance to turn: 70.91
+tick: 3035	distance to turn: 70.14
+tick: 3036	distance to turn: 69.38
+tick: 3037	distance to turn: 68.62
+tick: 3038	distance to turn: 67.85
+tick: 3039	distance to turn: 67.08
+tick: 3040	distance to turn: 66.30
+tick: 3041	distance to turn: 65.51
+tick: 3042	distance to turn: 64.71
+tick: 3043	distance to turn: 63.89
+tick: 3044	distance to turn: 63.06
+tick: 3045	distance to turn: 62.22
+tick: 3046	distance to turn: 61.36
+tick: 3047	distance to turn: 60.48
+tick: 3048	distance to turn: 59.59
+tick: 3049	distance to turn: 58.69
+tick: 3050	distance to turn: 57.77
+tick: 3051	distance to turn: 56.83
+tick: 3052	distance to turn: 55.88
+tick: 3053	distance to turn: 54.91
+tick: 3054	distance to turn: 53.93
+tick: 3055	distance to turn: 52.93
+tick: 3056	distance to turn: 51.92
+tick: 3057	distance to turn: 50.89
+tick: 3058	distance to turn: 49.85
+tick: 3059	distance to turn: 48.79
+tick: 3060	distance to turn: 47.72
+tick: 3061	distance to turn: 46.63
+tick: 3062	distance to turn: 45.52
+tick: 3063	distance to turn: 44.40
+tick: 3064	distance to turn: 43.27
+tick: 3065	distance to turn: 42.12
+tick: 3066	distance to turn: 40.96
+tick: 3067	distance to turn: 39.78
+tick: 3068	distance to turn: 38.58
+tick: 3069	distance to turn: 37.38
+tick: 3070	distance to turn: 36.16
+tick: 3071	distance to turn: 34.94
+tick: 3072	distance to turn: 33.73
+tick: 3073	distance to turn: 32.54
+tick: 3074	distance to turn: 31.36
+tick: 3075	distance to turn: 30.21
+tick: 3076	distance to turn: 29.08
+tick: 3077	distance to turn: 27.98
+tick: 3078	distance to turn: 26.91
+tick: 3079	distance to turn: 25.86
+tick: 3080	distance to turn: 24.83
+tick: 3081	distance to turn: 23.83
+tick: 3082	distance to turn: 22.86
+tick: 3083	distance to turn: 21.92
+tick: 3084	distance to turn: 21.00
+tick: 3085	distance to turn: 20.11
+tick: 3086	distance to turn: 19.24
+tick: 3087	distance to turn: 18.40
+tick: 3088	distance to turn: 17.58
+tick: 3089	distance to turn: 16.79
+tick: 3090	distance to turn: 16.02
+tick: 3091	distance to turn: 15.28
+tick: 3092	distance to turn: 14.56
+tick: 3093	distance to turn: 13.86
+tick: 3094	distance to turn: 13.18
+tick: 3095	distance to turn: 12.52
+tick: 3096	distance to turn: 11.87
+tick: 3097	distance to turn: 11.22
+tick: 3098	distance to turn: 10.58
+tick: 3099	distance to turn: 9.93
+tick: 3100	distance to turn: 9.28
+tick: 3101	distance to turn: 8.62
+tick: 3102	distance to turn: 7.94
+tick: 3103	distance to turn: 7.26
+tick: 3104	distance to turn: 6.57
+tick: 3105	distance to turn: 5.88
+tick: 3106	distance to turn: 5.19
+tick: 3107	distance to turn: 4.50
+tick: 3108	distance to turn: 3.82
+tick: 3109	distance to turn: 3.16
+tick: 3110	distance to turn: 2.50
+tick: 3111	distance to turn: 1.85
+tick: 3112	distance to turn: 1.23
+tick: 3113	distance to turn: 0.65
+tick: 3114	distance to turn: 0.38
+tick: 3115	distance to turn: 0.80
+tick: 3116	distance to turn: 1.37
+tick: 3117	distance to turn: 1.96
+tick: 3118	distance to turn: 2.57
+tick: 3119	distance to turn: 3.19
+tick: 3120	distance to turn: 3.82
+tick: 3121	distance to turn: 4.47
+tick: 3122	distance to turn: 5.13
+tick: 3123	distance to turn: 5.80
+tick: 3124	distance to turn: 6.47
+tick: 3125	distance to turn: 7.13
+tick: 3126	distance to turn: 7.78
+tick: 3127	distance to turn: 8.41
+tick: 3128	distance to turn: 9.04
+tick: 3129	distance to turn: 9.65
+tick: 3130	distance to turn: 9.78
+tick: 3131	distance to turn: 9.90
+tick: 3132	distance to turn: 9.58
+tick: 3133	distance to turn: 9.71
+tick: 3134	distance to turn: 9.83
+tick: 3135	distance to turn: 9.94
+tick: 3136	distance to turn: 9.65
+tick: 3137	distance to turn: 9.77
+tick: 3138	distance to turn: 9.89
+tick: 3139	distance to turn: 6.11
+tick: 3140	distance to turn: 6.60
+tick: 3141	distance to turn: 7.07
+tick: 3142	distance to turn: 7.54
+tick: 3143	distance to turn: 8.00
+tick: 3144	distance to turn: 8.46
+tick: 3145	distance to turn: 8.92
+tick: 3146	distance to turn: 9.38
+tick: 3147	distance to turn: 9.85
+tick: 3148	distance to turn: 9.78
+tick: 3149	distance to turn: 9.75
+tick: 3150	distance to turn: 9.77
+tick: 3151	distance to turn: 0.83
+tick: 3152	distance to turn: 1.37
+tick: 3153	distance to turn: 1.93
+tick: 3154	distance to turn: 2.49
+tick: 3155	distance to turn: 3.06
+tick: 3156	distance to turn: 3.63
+tick: 3157	distance to turn: 4.19
+tick: 3158	distance to turn: 4.75
+tick: 3159	distance to turn: 5.30
+tick: 3160	distance to turn: 5.83
+tick: 3161	distance to turn: 6.36
+tick: 3162	distance to turn: 6.87
+tick: 3163	distance to turn: 7.37
+tick: 3164	distance to turn: 7.87
+tick: 3165	distance to turn: 8.35
+tick: 3166	distance to turn: 8.83
+tick: 3167	distance to turn: 9.29
+tick: 3168	distance to turn: 9.76
+tick: 3169	distance to turn: 9.98
+tick: 3170	distance to turn: 6.92
+tick: 3171	distance to turn: 7.37
+tick: 3172	distance to turn: 7.83
+tick: 3173	distance to turn: 8.30
+tick: 3174	distance to turn: 8.77
+tick: 3175	distance to turn: 9.27
+tick: 3176	distance to turn: 9.78
+tick: 3177	distance to turn: 9.02
+tick: 3178	distance to turn: 9.56
+tick: 3179	distance to turn: 9.94
+tick: 3180	distance to turn: 9.90
+tick: 3181	distance to turn: 4.62
+tick: 3182	distance to turn: 5.23
+tick: 3183	distance to turn: 5.86
+tick: 3184	distance to turn: 6.50
+tick: 3185	distance to turn: 7.15
+tick: 3186	distance to turn: 7.81
+tick: 3187	distance to turn: 8.47
+tick: 3188	distance to turn: 9.11
+tick: 3189	distance to turn: 9.75
+tick: 3190	distance to turn: 9.96
+tick: 3191	distance to turn: 9.90
+tick: 3192	distance to turn: 7.05
+tick: 3193	distance to turn: 7.64
+tick: 3194	distance to turn: 8.22
+tick: 3195	distance to turn: 8.79
+tick: 3196	distance to turn: 9.34
+tick: 3197	distance to turn: 9.89
+tick: 3198	distance to turn: 9.80
+tick: 3199	distance to turn: 9.68
+tick: 3200	distance to turn: 9.87
+tick: 3201	distance to turn: 9.75
+tick: 3202	distance to turn: 9.94
+tick: 3203	distance to turn: 2.29
+tick: 3204	distance to turn: 1.80
+tick: 3205	distance to turn: 1.30
+tick: 3206	distance to turn: 0.80
+tick: 3207	distance to turn: 0.31
+tick: 3208	distance to turn: 0.27
+tick: 3209	distance to turn: 0.79
+tick: 3210	distance to turn: 1.34
+tick: 3211	distance to turn: 1.90
+tick: 3212	distance to turn: 2.48
+tick: 3213	distance to turn: 3.07
+tick: 3214	distance to turn: 3.66
+tick: 3215	distance to turn: 4.26
+tick: 3216	distance to turn: 4.86
+tick: 3217	distance to turn: 5.45
+tick: 3218	distance to turn: 6.04
+tick: 3219	distance to turn: 6.62
+tick: 3220	distance to turn: 7.19
+tick: 3221	distance to turn: 7.76
+tick: 3222	distance to turn: 8.31
+tick: 3223	distance to turn: 8.86
+tick: 3224	distance to turn: 9.40
+tick: 3225	distance to turn: 938.64
+tick: 3226	distance to turn: 938.14
+tick: 3227	distance to turn: 937.64
+tick: 3228	distance to turn: 937.15
+tick: 3229	distance to turn: 936.67
+tick: 3230	distance to turn: 936.19
+tick: 3231	distance to turn: 935.72
+tick: 3232	distance to turn: 935.26
+tick: 3233	distance to turn: 934.81
+tick: 3234	distance to turn: 934.36
+tick: 3235	distance to turn: 933.92
+tick: 3236	distance to turn: 933.48
+tick: 3237	distance to turn: 933.06
+tick: 3238	distance to turn: 932.63
+tick: 3239	distance to turn: 932.22
+tick: 3240	distance to turn: 931.81
+tick: 3241	distance to turn: 931.41
+tick: 3242	distance to turn: 931.01
+--------------------------------------------------
+lap 0001 elapsed time (wall): 00:01:17.0
+lap 0001 elapsed time (CARLA): 00:02:42.1
+curr time: 162.2	best time (lap 0001): 162.2
+tick: 0001	distance to turn: 930.21
+tick: 0002	distance to turn: 929.80
+tick: 0003	distance to turn: 929.38
+tick: 0004	distance to turn: 928.94
+tick: 0005	distance to turn: 928.49
+tick: 0006	distance to turn: 928.02
+tick: 0007	distance to turn: 927.53
+tick: 0008	distance to turn: 927.02
+tick: 0009	distance to turn: 926.50
+tick: 0010	distance to turn: 925.96
+tick: 0011	distance to turn: 925.42
+tick: 0012	distance to turn: 924.88
+tick: 0013	distance to turn: 924.36
+tick: 0014	distance to turn: 923.84
+tick: 0015	distance to turn: 923.35
+tick: 0016	distance to turn: 922.86
+tick: 0017	distance to turn: 922.40
+tick: 0018	distance to turn: 921.96
+tick: 0019	distance to turn: 921.53
+tick: 0020	distance to turn: 921.13
+tick: 0021	distance to turn: 920.75
+tick: 0022	distance to turn: 920.38
+tick: 0023	distance to turn: 920.03
+tick: 0024	distance to turn: 919.68
+tick: 0025	distance to turn: 919.34
+tick: 0026	distance to turn: 919.00
+tick: 0027	distance to turn: 918.65
+tick: 0028	distance to turn: 918.31
+tick: 0029	distance to turn: 917.96
+tick: 0030	distance to turn: 917.61
+tick: 0031	distance to turn: 917.27
+tick: 0032	distance to turn: 916.94
+tick: 0033	distance to turn: 916.63
+tick: 0034	distance to turn: 916.33
+tick: 0035	distance to turn: 916.05
+tick: 0036	distance to turn: 915.79
+tick: 0053	distance to turn: 913.24
+tick: 0064	distance to turn: 913.19
+tick: 0065	distance to turn: 913.19
+tick: 0066	distance to turn: 913.19
+tick: 0067	distance to turn: 913.19
+tick: 0068	distance to turn: 913.19
+tick: 0069	distance to turn: 913.19
+tick: 0070	distance to turn: 913.19
+tick: 0071	distance to turn: 913.19
+tick: 0072	distance to turn: 913.19
+tick: 0073	distance to turn: 913.19
+tick: 0074	distance to turn: 913.19
+tick: 0075	distance to turn: 913.19
+tick: 0076	distance to turn: 913.19
+tick: 0077	distance to turn: 913.19
+tick: 0078	distance to turn: 913.19
+tick: 0079	distance to turn: 913.19
+tick: 0080	distance to turn: 913.19
+tick: 0081	distance to turn: 913.19
+tick: 0082	distance to turn: 913.19
+tick: 0083	distance to turn: 913.19
+tick: 0084	distance to turn: 913.19
+tick: 0085	distance to turn: 913.19
+tick: 0086	distance to turn: 913.19
+tick: 0087	distance to turn: 913.19
+tick: 0088	distance to turn: 913.19
+tick: 0089	distance to turn: 913.19
+tick: 0090	distance to turn: 913.19
+tick: 0091	distance to turn: 913.19
+tick: 0092	distance to turn: 913.19
+tick: 0093	distance to turn: 913.19
+tick: 0094	distance to turn: 913.19
+tick: 0095	distance to turn: 913.18
+tick: 0096	distance to turn: 913.18
+tick: 0097	distance to turn: 913.18
+tick: 0098	distance to turn: 913.18
+tick: 0099	distance to turn: 913.18
+tick: 0100	distance to turn: 913.18
+tick: 0101	distance to turn: 913.18
+tick: 0102	distance to turn: 913.18
+tick: 0103	distance to turn: 913.18
+tick: 0104	distance to turn: 913.18

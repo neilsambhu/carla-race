@@ -536,6 +536,7 @@ def main():
                 # output += f'{str_kmh(kmh)} | '
                 # SPEED
                 if kmh > speedHigh: # 80 km/h
+                    # print('braking')
                     def GetBrake():
                         return 0.00, 0.00, 1.00
                     throttle, steer, brake = GetBrake()
@@ -768,7 +769,7 @@ def main():
                 distanceExtrapolated=\
                     locationTurn.distance(
                         locationExtrapolatedToDistanceToStartOfTurn)
-                print(f'distanceExtrapolated: {distanceExtrapolated:.2f}')
+                # print(f'distanceExtrapolated: {distanceExtrapolated:.2f}')
                 # 6/23/2024 7:17 PM: TODO: end
                 # 6/19/2024 3:51 PM: TODO: determine whether to use
                 # (1) closest location on path or 
@@ -778,8 +779,11 @@ def main():
                 # if distanceToTurn>300: # 1.1
                 # if distanceToTurn>50: # 2 hit tree
                 # if distanceToTurn>150: # 3
-                if distanceToTurn>150 and \
-                    distanceExtrapolated<10: # 4
+                # if distanceToTurn>150 and distanceExtrapolated<10: # 4
+                # if distanceToTurn>200 and distanceExtrapolated<10: # 5
+                # if distanceToTurn>300 and distanceExtrapolated<10: # 6
+                # if distanceToTurn>400 and distanceExtrapolated<10: # 7
+                if distanceToTurn>800 and distanceExtrapolated<10: # 8
                 # if distanceToTurn>250:
                 # if distanceToTurn>275: # 1brake too early
                 # if distanceToTurn>290:
