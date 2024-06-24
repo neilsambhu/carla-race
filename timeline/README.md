@@ -1265,3 +1265,15 @@ Autonomizing racecars enables benchmarking the capabilities of vehicle performan
 word count: 206 of 200 minimum  
 6/23/2024 7:50 PM: TODO: how to make car aim for locationTurn as early 
 as possible?  
+# steering correction
+6/24/2024 10:34 AM: Open problem: I need to prevent the car from 
+overcorrecting itself often before reaching a turn.  
+6/24/2024 10:39 AM: 
+Good morning, Dr. Katkoori. I submitted the IAVVC abstract last night. 
+I will need to update the abstract before publication. I am at a 
+halfway solution to a faster steering control. I need to tune the 
+steering corrections.  
+6/24/2024 10:51 AM: potential solution: modify steering control 
+based on whether 
+(1) steering correction along straightaway or 
+(2) turning in a turn.  
