@@ -183,6 +183,17 @@ def WriteImagesToDisk():
             processImage(image, lIndex)
             lIndex -= 1
             pbar.update(1)
+def calculate_braking_distance(v0_kmh, vf_kmh, deceleration_g=1.0):
+    # Convert speeds from km/h to m/s
+    v0 = v0_kmh / 3.6
+    vf = vf_kmh / 3.6
+
+    # Deceleration in m/s^2
+    a = -deceleration_g * 9.81  # 1g deceleration
+
+    # Calculate braking distance
+    d = (vf**2 - v0**2) / (2 * a)
+    return d            
 def main():
     try:
         # Connect to the CARLA Simulator
@@ -226,6 +237,8 @@ def main():
                 # carla.Rotation()
                 rotation
             )
+        # spawn_point=spawn_start_left
+
         location_destination_straight = carla.Location(x=581.2, y=244.6, z=height)
         location_destination_curve = carla.Location(x=664.9, y=168.2, z=height)
         transform = spawn_point
@@ -395,7 +408,7 @@ def main():
                 dotProduct = float(vector1[0]*vector2[0] + vector1[1]*vector2[1])
                 magnitude = float((vector1[0]**2 + vector1[1]**2)**(1/2) * (vector2[0]**2 + vector2[1]**2)**(1/2))
                 # return np.arccos(dotProduct/magnitude)
-                import math
+                # import math
                 # print(dotProduct/magnitude)
                 division = None
                 if magnitude == 0:
@@ -477,6 +490,27 @@ def main():
                             locationOutput=locationFromPath
                             break
                 return idxLocation, locationOutput
+            def GetApproximatelyMappedAngle(currentLocation):
+                idxStartTurnSearch=2*31
+                listLocationsGroundTruth=\
+                    listLocationsPath_CARLA_AP_Town06[
+                        idxStartTurnSearch:len(listAnglesOfTriplets)]
+                listAngles=\
+                    listAnglesOfTriplets[idxStartTurnSearch:]
+                for idx, (locationFromPath, angleFromPath) in \
+                    enumerate(zip(
+                        # likely TODO: double lists to check 
+                        # first corner, 
+                        # behind starting line.
+                        listLocationsGroundTruth,
+                        listAngles
+                )):
+                    # IMPROVEMENT: find closest location
+                    if currentLocation.distance(
+                        locationFromPath)<10:
+                        return angleFromPath
+                return None
+                    
             def GetVehicleOutput(theta, locationClosestToPredicted):
                 # x = vehicle.get_location().x*math.cos(theta) - vehicle.get_location().y*math.sin(theta)
                 # y = vehicle.get_location().x*math.sin(theta) + vehicle.get_location().y*math.cos(theta)
@@ -491,7 +525,10 @@ def main():
                     return 0
                 if output > 0:
                     return 1
-            def GetVehicleControlsCrossProduct(throttle, steer, brake, locationPrediction, locationClosestToPredicted, bMetSpeedMinimum, countTicksNotMoving):
+            def GetVehicleControlsCrossProduct(
+                throttle, steer, brake, locationPrediction, 
+                locationClosestToPredicted, bMetSpeedMinimum, 
+                countTicksNotMoving, angleFromPath):
                 output = ''
                 # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
                 npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
@@ -518,8 +555,8 @@ def main():
                 # # output = f'x, y: {x:.1f}, {y:.1f}'
                 listDeltaTheta.append(deltaTheta)
                 listLocations.append(vehicle.get_location())
-                # thresholdDeltaThetaNoSteer = 0.5e-10
-                thresholdDeltaThetaNoSteer = 5
+                thresholdDeltaThetaNoSteer = 0.5e-10
+                # thresholdDeltaThetaNoSteer = 5
                 thresholdDeltaThetaSteer = 1e-1
                 speedMinimum = 1e-5
                 speedTarget = TARGET_SPEED
@@ -531,18 +568,27 @@ def main():
                 unitChangeSteer = 0.1
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
+                if angleFromPath<5:
+                    # unitChangeSteer=1e-4
+                    maxSteer=0.1
+                    throttle, steer, brake = getStandardVehicleControl()
+                    speedTarget=int(args.speedStraight)
+                else:
+                    maxSteer = min(abs(deltaTheta)/\
+                        int(args.steerDivisor), 1)
                 kmh = VehicleSpeed1D(vehicle)
                 listSpeed.append(kmh)
                 # output += f'{str_kmh(kmh)} | '
                 # SPEED
-                if kmh > speedHigh: # 80 km/h
-                    # print('braking')
-                    def GetBrake():
-                        return 0.00, 0.00, 1.00
-                    throttle, steer, brake = GetBrake()
-                    maxSteer=0
-                elif kmh < speedMinimum: # 30 km/h
-                    maxSteer = 0.01
+                # if kmh > speedHigh: # 80 km/h
+                #     # print('braking')
+                #     def GetBrake():
+                #         return 0.00, 0.00, 1.00
+                #     # throttle, steer, brake = GetBrake()
+                #     # maxSteer=0
+                # el
+                if kmh < speedMinimum: # 30 km/h
+                    # maxSteer = 0.01
                     countTicksNotMoving+=1
                     if bMetSpeedMinimum and countTicksNotMoving>2*20:
                         raise Exception("Vehicle stopped moving.")
@@ -561,13 +607,13 @@ def main():
                     # unitChangeSteer = 0.2
                     speedTarget=int(args.speedStraight)
                 else:
-                    maxSteer=0.25
+                    # maxSteer=0.25
                     unitChangeThrottle = 1.0
                     # unitChangeSteer = 1.0
                     # unitChangeSteer = 0.5
                     # unitChangeSteer = 0.2
                     # unitChangeSteer = 0.3
-                    # unitChangeSteer = 10*unitChangeSteer
+                    unitChangeSteer = 10*unitChangeSteer
                     speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True
@@ -581,6 +627,7 @@ def main():
                     deltaSteer = unitChangeSteer
                     steer = min(steer+deltaSteer, maxSteer)
                 if not bWithinThreshold:
+                # if not bWithinThreshold and angleFromPath>=5:
                     if kmh < speedTarget:
                         # slow or not moving
                         brake = 0
@@ -748,8 +795,9 @@ def main():
                     print(sOut);
                     # quit()
                 # 6/10/2024 12:53 AM: major code change: end
-                distanceToTurn = vehicle.get_location().distance(locationTurn)
-                if True or bVerbose:
+                distanceToTurn = vehicle.get_location().distance(
+                    locationTurn)
+                if False or bVerbose:
                     sOut=''
                     sOut+=''
                     sOut+=f'tick: {countTickLap:04d}\t'
@@ -770,8 +818,14 @@ def main():
                 distanceExtrapolated=\
                     locationTurn.distance(
                         locationExtrapolatedToDistanceToStartOfTurn)
+                # distanceExtrapolated/=2
                 # print(f'distanceExtrapolated: {distanceExtrapolated:.2f}')
                 # 6/23/2024 7:17 PM: TODO: end
+                angleFromPath=GetApproximatelyMappedAngle(
+                    vehicle.get_location())
+                if angleFromPath > 90:
+                    angleFromPath = 180-angleFromPath
+                angleFromPath=angleFromPath%90
                 # 6/19/2024 3:51 PM: TODO: determine whether to use
                 # (1) closest location on path or 
                 # (2) closest location of start of turn
@@ -784,13 +838,18 @@ def main():
                 # if distanceToTurn>200 and distanceExtrapolated<10: # 5
                 # if distanceToTurn>300 and distanceExtrapolated<10: # 6
                 # if distanceToTurn>400 and distanceExtrapolated<10: # 7
-                if distanceToTurn>800 and distanceExtrapolated<10: # 8
+                # if distanceToTurn>1200 and 
+                # how close is the aim to the start of the turn
+                if distanceExtrapolated<10\
+                    and angleFromPath<5: # in straightaway
                 # if distanceToTurn>250:
                 # if distanceToTurn>275: # 1brake too early
                 # if distanceToTurn>290:
                 # if distanceToTurn>280: # 0steer too early
                 # if distanceToTurn>1e6:
-                    locationPrediction=locationTurn
+                    # locationPrediction=locationTurn
+                    locationPrediction=\
+                        locationExtrapolatedToDistanceToStartOfTurn
                 else:
                     locationPrediction=locationShortPrediction
                 # 6/19/2024 3:51 PM: TODO: end
@@ -811,7 +870,7 @@ def main():
                     GetVehicleControlsCrossProduct(
                         throttle, steer, brake, locationPrediction, 
                         locationClosestToPredicted, bMetSpeedMinimum, 
-                        countTicksNotMoving
+                        countTicksNotMoving, angleFromPath
                     )
                 countAnalytical+=1
                 output += output_temp
@@ -822,6 +881,15 @@ def main():
                             vehicle.get_control().throttle, vehicle.get_control().steer, vehicle.get_control().brake,
                             throttle, steer, brake
                         )
+                distanceToBrake=calculate_braking_distance(
+                    VehicleSpeed1D(vehicle),30)
+                print(f'distanceToTurn: {distanceToTurn:.1f}\tdistanceToBrake: {distanceToBrake:.1f}')
+                if distanceToTurn<distanceToBrake:
+                    def GetBrake():
+                        return 0.00, 0.00, 1.00
+                    # throttle, steer, brake = GetBrake() 
+                    throttle, _, brake = GetBrake() 
+
                 # if lLapCount > 2:
                 #     # lookup graph
                 #     bLookupSuccess, closestNodeIdx, \

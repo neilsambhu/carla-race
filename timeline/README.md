@@ -1277,3 +1277,10 @@ steering corrections.
 based on whether 
 (1) steering correction along straightaway or 
 (2) turning in a turn.  
+6/26/2024 11:55 AM: TODO: the car needs a window to aim before the 
+turn.  
+6/26/2024 1:55 PM: TODO: get CARLA G-force.  
+6/26/2024 2:49 PM: Potential study: delay from steering input to 
+outer surface of tire moving.  
+6/28/2024 1:37 PM: TODO: compute braking distance for (1) current 
+speed to (2) 30 km/h at start of turn.  
