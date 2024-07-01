@@ -1284,3 +1284,10 @@ turn.
 outer surface of tire moving.  
 6/28/2024 1:37 PM: TODO: compute braking distance for (1) current 
 speed to (2) 30 km/h at start of turn.  
+6/28/2024 4:15 PM: speedStraight 100 km/h: 114.6 seconds (lap 2).  
+6/28/2024 4:53 PM: TODO: why does car turn early before turn at speedStraight 200 km/h and 110 km/h?  
+Mon 7/01/2024 9:40 AM: TODO: replicate results  
+Mon 7/01/2024 9:54 AM: Summary: results are not the same because 
+the speed is down from 200 to 110.  
+Mon 7/01/2024 10:03 AM: TODO: replicate results at 200 km/h.  
+Mon 7/01/2024 10:08 AM: reboot computer at CARLA PID 8380  

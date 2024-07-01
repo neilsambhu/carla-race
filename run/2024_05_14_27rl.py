@@ -576,17 +576,11 @@ def main():
                 else:
                     maxSteer = min(abs(deltaTheta)/\
                         int(args.steerDivisor), 1)
+                    speedTarget = int(args.speedTurn)
                 kmh = VehicleSpeed1D(vehicle)
                 listSpeed.append(kmh)
                 # output += f'{str_kmh(kmh)} | '
-                # SPEED
-                # if kmh > speedHigh: # 80 km/h
-                #     # print('braking')
-                #     def GetBrake():
-                #         return 0.00, 0.00, 1.00
-                #     # throttle, steer, brake = GetBrake()
-                #     # maxSteer=0
-                # el
+                # SPEED                
                 if kmh < speedMinimum: # 30 km/h
                     # maxSteer = 0.01
                     countTicksNotMoving+=1
@@ -597,24 +591,30 @@ def main():
                     countTicksNotMoving=0
                     maxSteer = min(abs(deltaTheta)/\
                         int(args.steerDivisor), 1)
+                if kmh > speedHigh: # 80 km/h
+                    # print('braking')
+                    def GetBrake():
+                        return 0.00, 0.00, 1.00
+                    # throttle, steer, brake = GetBrake()
+                    maxSteer=1e-3
                 if kmh > speedTarget:
                     # maxSteer = 1e-5
                     unitChangeSteer=1e-5
-                # steering correction small
-                if abs(deltaTheta) < thresholdDeltaThetaSteer:
-                    # deltaTheta = -deltaTheta
-                    # maxSteer = 1e-3
-                    # unitChangeSteer = 0.2
-                    speedTarget=int(args.speedStraight)
-                else:
-                    # maxSteer=0.25
-                    unitChangeThrottle = 1.0
-                    # unitChangeSteer = 1.0
-                    # unitChangeSteer = 0.5
-                    # unitChangeSteer = 0.2
-                    # unitChangeSteer = 0.3
-                    unitChangeSteer = 10*unitChangeSteer
-                    speedTarget = int(args.speedTurn)
+                # # steering correction small
+                # if abs(deltaTheta) < thresholdDeltaThetaSteer:
+                #     # deltaTheta = -deltaTheta
+                #     # maxSteer = 1e-3
+                #     # unitChangeSteer = 0.2
+                #     speedTarget=int(args.speedStraight)
+                # else:
+                #     # maxSteer=0.25
+                #     unitChangeThrottle = 1.0
+                #     # unitChangeSteer = 1.0
+                #     # unitChangeSteer = 0.5
+                #     # unitChangeSteer = 0.2
+                #     # unitChangeSteer = 0.3
+                #     unitChangeSteer = 10*unitChangeSteer
+                #     speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True
                     throttle, steer, brake = getStandardVehicleControl()
@@ -883,7 +883,7 @@ def main():
                         )
                 distanceToBrake=calculate_braking_distance(
                     VehicleSpeed1D(vehicle),30)
-                print(f'distanceToTurn: {distanceToTurn:.1f}\tdistanceToBrake: {distanceToBrake:.1f}')
+                # print(f'distanceToTurn: {distanceToTurn:.1f}\tdistanceToBrake: {distanceToBrake:.1f}')
                 if distanceToTurn<distanceToBrake:
                     def GetBrake():
                         return 0.00, 0.00, 1.00
