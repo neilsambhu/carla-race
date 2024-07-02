@@ -1291,3 +1291,14 @@ Mon 7/01/2024 9:54 AM: Summary: results are not the same because
 the speed is down from 200 to 110.  
 Mon 7/01/2024 10:03 AM: TODO: replicate results at 200 km/h.  
 Mon 7/01/2024 10:08 AM: reboot computer at CARLA PID 8380  
+Mon 07/01/2024 10:21 AM: new speed parameters.  
+```
+python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py \
+--speedStraight 200 --speedTurn 30 --vehicle vehicle.tesla.model3 \
+| tee out.txt
+```
+Mon 07/01/2024 10:25 AM: comment: car turns too early and shallow 
+into the first turn.  
+Mon 07/01/2024 1:10 PM: what is difference between accelerometer 
+and gyroscope?  
+Mon 07/01/2024 4:40 PM: Katkoori: diagram track; distance to crash. 

@@ -45,6 +45,10 @@ argparser.add_argument(
     default='50',
     help='Value by which to divide the steering angle')
 argparser.add_argument(
+    '-i', '--steerDivisorStraight',
+    default='100',
+    help='Value by which to divide the steering angle')
+argparser.add_argument(
     '-v', '--vehicle',
     default='vehicle.tesla.model3',
     help='Blueprint ID')
@@ -570,7 +574,9 @@ def main():
                 # unitChangeBrake = 1
                 if angleFromPath<5:
                     # unitChangeSteer=1e-4
-                    maxSteer=0.1
+                    # maxSteer=0.1
+                    maxSteer = min(abs(deltaTheta)/\
+                        int(args.steerDivisorStraight), 1)
                     throttle, steer, brake = getStandardVehicleControl()
                     speedTarget=int(args.speedStraight)
                 else:
@@ -882,7 +888,8 @@ def main():
                             throttle, steer, brake
                         )
                 distanceToBrake=calculate_braking_distance(
-                    VehicleSpeed1D(vehicle),30)
+                    VehicleSpeed1D(vehicle),30,
+                    deceleration_g=0.5)
                 # print(f'distanceToTurn: {distanceToTurn:.1f}\tdistanceToBrake: {distanceToBrake:.1f}')
                 if distanceToTurn<distanceToBrake:
                     def GetBrake():
