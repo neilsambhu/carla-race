@@ -100,6 +100,7 @@ def getPath_CARLA_AP_Town06():
             listLocationsPath_CARLA_AP_Town06.append(locationFromPath)
     return listLocationsPath_CARLA_AP_Town06
 listLocationsPath_CARLA_AP_Town06 = getPath_CARLA_AP_Town06()
+listRoadBoundaries=[]
 def getLocationClosestToCurrent(currentLocation, \
     indexPrevClosestLocation):
     distanceMinimum = None
@@ -216,6 +217,12 @@ def main():
         # Get the world object
         world = client.get_world()
         world = client.load_world('Town06_Opt')
+        def getRoadBoundaries():
+            carlaMap=world.get_map()
+            for location in listLocationsPath_CARLA_AP_Town06:
+                waypoint=carlaMap.get_waypoint(location)
+                print(waypoint.id)
+        listRoadBoundaries=getRoadBoundaries();quit()
 
         # Set synchronous mode
         settings = world.get_settings()

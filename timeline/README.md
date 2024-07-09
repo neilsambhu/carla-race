@@ -1315,3 +1315,5 @@ Tue 07/09/2024 12:31 PM: clean path data.
 Tue 07/09/2024 12:39 PM: I know why the data are not clean: I'm 
 getting the lane boundaries, so crossing over a lane causes the data 
 error.  
+Tue 07/09/2024 3:12 PM: I have the list of waypoints from 
+locations.  
