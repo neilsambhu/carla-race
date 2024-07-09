@@ -50,6 +50,9 @@ def get_road_boundaries(locations, lane_width=3.5, smoothing_window=5):
         road_boundaries.append((left_boundary, right_boundary))
 
     return road_boundaries
+def getRoadBoundaries(locations):
+    for location in locations:
+        print(location)
 
 def plot_map_boundaries(road_boundaries):
     left_x = [left.x for left, _ in road_boundaries]
@@ -86,9 +89,11 @@ def main():
     locations = listLocationsPath_CARLA_AP_Town06  # This should be a list of carla.Location objects
 
     # Convert the list of locations into road boundaries
-    road_boundaries = get_road_boundaries(locations)
-    road_boundaries=road_boundaries[3376//4*2+325:-1325]
-    print(len(road_boundaries))
+    # road_boundaries = get_road_boundaries(locations)
+    # road_boundaries=road_boundaries[3376//4*2+325:-1325]
+    # print(len(road_boundaries))
+    listRoadBoundaries=None
+    getRoadBoundaries(locations);quit()
 
     # Print the road boundaries in CARLA coordinates on one line
     for left, right in road_boundaries:

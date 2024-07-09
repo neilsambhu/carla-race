@@ -1301,4 +1301,17 @@ Mon 07/01/2024 10:25 AM: comment: car turns too early and shallow
 into the first turn.  
 Mon 07/01/2024 1:10 PM: what is difference between accelerometer 
 and gyroscope?  
-Mon 07/01/2024 4:40 PM: Katkoori: diagram track; distance to crash. 
+Mon 07/01/2024 4:40 PM: Katkoori: diagram track; distance to crash.  
+Fri 07/05/2024 3:02 PM: TODO: preprocess data.  
+Mon 07/08/2024 11:54 AM: TODO: calculate if short-term vehicle 
+trajectory will be in bounds of track.  
+Mon 07/08/2024 12:55 PM: original TODO: preprocess data to remove 
+inconsistency with left and right sides of track.  
+Mon 07/08/2024 4:31 PM: Hi Dr. Katkoori. I figured I'd brainstorm 
+my ideas to you. Essentially, I need to find out how to determine 
+if the car is inside or outside the track.  
+I can still clean the current data. 
+Tue 07/09/2024 12:31 PM: clean path data.  
+Tue 07/09/2024 12:39 PM: I know why the data are not clean: I'm 
+getting the lane boundaries, so crossing over a lane causes the data 
+error.  
