@@ -89,15 +89,23 @@ def main():
     locations = listLocationsPath_CARLA_AP_Town06  # This should be a list of carla.Location objects
 
     # Convert the list of locations into road boundaries
-    # road_boundaries = get_road_boundaries(locations)
-    # road_boundaries=road_boundaries[3376//4*2+325:-1325]
-    # print(len(road_boundaries))
-    listRoadBoundaries=None
-    getRoadBoundaries(locations);quit()
+    road_boundaries = get_road_boundaries(locations)
+    road_boundaries=road_boundaries[3376//4*2+325:-1325]
+    locations=locations[3376//4*2+325:-1325]
+    print(len(road_boundaries))
+    # listRoadBoundaries=None
+    # getRoadBoundaries(locations);quit()
 
     # Print the road boundaries in CARLA coordinates on one line
-    for left, right in road_boundaries:
-        print(f'L Bound: x={left.x:06.1f}, y={left.y:06.1f}, z={left.z:06.1f} | R Bound: x={right.x:06.1f}, y={right.y:06.1f}, z={right.z:06.1f}')
+    # for left, right in road_boundaries:
+    for location,(left,right) in zip(locations,road_boundaries):
+        sOut=''
+        sOut+=f'{location} | '
+        sOut+=f'L Bound: x={left.x:06.1f}'
+        sOut+=f', y={left.y:06.1f}, z={left.z:06.1f} | '
+        sOut+=f'R Bound: x={right.x:06.1f}, '
+        sOut+=f'y={right.y:06.1f}, z={right.z:06.1f}'
+        print(sOut)
 
     # Plot and save the road boundaries
     plot_map_boundaries(road_boundaries)

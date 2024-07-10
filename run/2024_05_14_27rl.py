@@ -18,6 +18,7 @@ bLoadHistoryFromDisk = bSaveHistoryToDisk
 strPathType = 'Loop'
 path_AP_controls = f'_out_21_CARLA_AP_Town06/Controls{strPathType}.txt'
 path_AP_locations = f'_out_21_CARLA_AP_Town06/Locations{strPathType}.txt'
+path_AP_locations = f'_to_27_CARLA_AP_Town06/LocationsLoopInner.txt'
 
 def clean_directory(directory):
     if not bGAIVI:
@@ -221,8 +222,8 @@ def main():
             carlaMap=world.get_map()
             for location in listLocationsPath_CARLA_AP_Town06:
                 waypoint=carlaMap.get_waypoint(location)
-                print(waypoint.id)
-        listRoadBoundaries=getRoadBoundaries();quit()
+                print(waypoint.lane_width)
+        # listRoadBoundaries=getRoadBoundaries();quit()
 
         # Set synchronous mode
         settings = world.get_settings()
@@ -573,23 +574,24 @@ def main():
                 speedTarget = TARGET_SPEED
                 speedHigh = 80
                 bWithinThreshold = None
-                maxSteer = None
+                maxSteer = 0.1
                 unitChangeThrottle = 0.1
                 # unitChangeSteer = 0.1
                 unitChangeSteer = 0.1
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
-                if angleFromPath<5:
-                    # unitChangeSteer=1e-4
-                    # maxSteer=0.1
-                    maxSteer = min(abs(deltaTheta)/\
-                        int(args.steerDivisorStraight), 1)
-                    throttle, steer, brake = getStandardVehicleControl()
-                    speedTarget=int(args.speedStraight)
-                else:
-                    maxSteer = min(abs(deltaTheta)/\
-                        int(args.steerDivisor), 1)
-                    speedTarget = int(args.speedTurn)
+                # if angleFromPath<5:
+                # # if deltaTheta<5:
+                #     # unitChangeSteer=1e-4
+                #     # maxSteer=0.1
+                #     maxSteer = min(abs(deltaTheta)/\
+                #         int(args.steerDivisorStraight), 1)
+                #     throttle, steer, brake = getStandardVehicleControl()
+                #     speedTarget=int(args.speedStraight)
+                # else:
+                #     maxSteer = min(abs(deltaTheta)/\
+                #         int(args.steerDivisor), 1)
+                #     speedTarget = int(args.speedTurn)
                 kmh = VehicleSpeed1D(vehicle)
                 listSpeed.append(kmh)
                 # output += f'{str_kmh(kmh)} | '

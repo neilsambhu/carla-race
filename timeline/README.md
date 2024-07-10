@@ -1317,3 +1317,11 @@ getting the lane boundaries, so crossing over a lane causes the data
 error.  
 Tue 07/09/2024 3:12 PM: I have the list of waypoints from 
 locations.  
+Wed 07/10/2024 1:37 PM: Current road boundaries: ground-truth 
+locations.  
+Wed 07/10/2024 1:46 PM: TODO: get math of boundaries from current 
+location.  
+Wed 07/10/2024 1:54 PM: manual control params
+```
+python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/manual_control.py --sync --filter "vehicle.tesla.model3"
+```

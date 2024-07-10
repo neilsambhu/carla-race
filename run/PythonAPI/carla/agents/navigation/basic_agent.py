@@ -56,6 +56,7 @@ class BasicAgent(object):
 
         # Base parameters
         self._ignore_traffic_lights = False
+        # self._ignore_traffic_lights = True
         self._ignore_stop_signs = False
         self._ignore_vehicles = False
         self._use_bbs_detection = False

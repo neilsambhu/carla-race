@@ -281,7 +281,8 @@ class World(object):
             spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
             # 3/22/2024: spawn point: start
             spawn_point = carla.Transform(
-                carla.Location(x=-313.8, y=243.6, z=0.1),
+                # carla.Location(x=-313.8, y=243.6, z=0.1), # 2nd from left
+                carla.Location(x=-313.8, y=243.6-3.5, z=0.1), # leftmost
                 carla.Rotation()
             )
             # 3/22/2024: spawn point: end
@@ -1282,18 +1283,19 @@ def game_loop(args):
             sim_world.wait_for_tick()
 
         clock = pygame.time.Clock()
-        dir_outptut = '_out_21_CARLA_AP_Town06'
+        dir_outptut = '_to_27_CARLA_AP_Town06'
+        strFile = 'LocationsLoopInner.txt'
         import os
         if not os.path.exists(dir_outptut):
             os.makedirs(dir_outptut)        
-        open(f'{dir_outptut}/LocationsLoop.txt', 'w')
+        open(f'{dir_outptut}/{strFile}', 'w')
         while True:
             if args.sync:
                 vehicle = sim_world.get_actors().filter('vehicle.*')[0]
                 # print(f'vehicle: {vehicle}') if bVerbose else ''
                 veh_location = vehicle.get_location()
                 # print(f'veh_location: {veh_location}')
-                with open(f'{dir_outptut}/LocationsLoop.txt', 'a') as file:
+                with open(f'{dir_outptut}/{strFile}', 'a') as file:
                     file.write('{} {} {}\n'.format(veh_location.x,veh_location.y,veh_location.z))
                 sim_world.tick()
             clock.tick_busy_loop(60)
