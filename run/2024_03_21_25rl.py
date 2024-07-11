@@ -212,21 +212,22 @@ def main():
         listSpeed = []
         # Plot setup for delta Y
         # fig_deltaY, ax1 = plt.subplots(figsize=(12, 6))
-        # plt.rcParams.update({'font.size': 36})
-        plt.rcParams.update({'font.size': 18})
-        fig_distancePredToPath, ax0 = plt.subplots(figsize=(12,6))
+        plt.rcParams.update({'font.size': 24})
+        # plt.rcParams.update({'font.size': 18})
+        figsize=(12,8)
+        fig_distancePredToPath, ax0 = plt.subplots(figsize=figsize)
         ax0.autoscale_view('tight')
         ax0.set_xlabel('Time-Steps')
         ax0.set_ylabel('Distance from Predicted \nLocation to Path')
         ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
-        fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
+        fig_deltaTheta, ax1 = plt.subplots(figsize=figsize)
         ax1.set_xlabel('Time-Steps')
         # ax1.set_ylabel('Delta Y')
         ax1.set_ylabel('Delta Theta')
         # ax1.set_title('Delta Y over Time')
         ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
         # Plot setup for overlay
-        fig_overlay, ax2 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
+        fig_overlay, ax2 = plt.subplots(figsize=figsize)  # Adjust the figsize as needed
         # leg = ax2.legend()
         # for line in leg.get_lines():
         #     line.set_linewidth(1)
@@ -247,7 +248,7 @@ def main():
         ax2.set_xlabel('X')
         ax2.set_ylabel('Y')
         ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
-        fig_speed, ax3 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
+        fig_speed, ax3 = plt.subplots(figsize=figsize)  # Adjust the figsize as needed
         ax3.autoscale_view('tight')
         ax3.set_xlabel('Time-Steps')
         ax3.set_ylabel('Speed (km/h)')

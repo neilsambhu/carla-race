@@ -6,13 +6,13 @@ town.wait()
 # for speed in range(30,201,10):
 # for speed in range(80,29,-10):
 # for speed in range(30,90,10):
-# for speed in [80,60,30]:
-for speed in [90]:
+for speed in [80,60,30]:
+# for speed in [90]:
     print(f'START SPEED {speed}')
     # for steeringDivisor in range(25,201,25):
     for vehicle in [
-    # 'vehicle.tesla.model3', 
-    'vehicle.ford.crown', 
+    'vehicle.tesla.model3', 
+    # 'vehicle.ford.crown', 
     # 'vehicle.ford.ambulance'
     ]:
         print('--------------------------------------------------')    
