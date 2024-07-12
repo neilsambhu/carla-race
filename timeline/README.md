@@ -1327,3 +1327,14 @@ python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/manual_contr
 ```
 Fri 07/12/2024 2:12 PM: TODO: use transform's location (i.e., point) and 
 rotation (i.e., point) to determine bounds of road (i.e., point).  
+Fri 07/12/2024 2:39 PM: I'm not able to validate the ground-truth drive 
+of the inner loop using the steering control.  
+Fri 07/12/2024 2:39 PM: I'm not able to validate the ground-truth drive  
+Fri 07/12/2024 4:04 PM: The [...]
+Fri 07/12/2024 4:12 PM: The ground-truth inner path looks good; 
+the car did not successfully drive to follow the inner path.  
+TODO: get outer path.  
+Fri 07/12/2024 4:25 PM: TODO: get car to drive through first 
+intersection, handing off from autopilot.  
+Fri 07/12/2024 4:26 PM: work item: yaw: inner edge of road  
+Fri 07/12/2024 4:44 PM: problem: curb before turn 3.  

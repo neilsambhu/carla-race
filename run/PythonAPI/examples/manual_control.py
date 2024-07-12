@@ -280,9 +280,11 @@ class World(object):
             spawn_points = self.map.get_spawn_points()
             spawn_point = random.choice(spawn_points) if spawn_points else carla.Transform()
             # 3/22/2024: spawn point: start
+            offset=2
             spawn_point = carla.Transform(
                 # carla.Location(x=-313.8, y=243.6, z=0.1), # 2nd from left
-                carla.Location(x=-313.8, y=243.6-3.5, z=0.1), # leftmost
+                carla.Location(x=-313.8, y=243.6+(offset*3.5), \
+                    z=0.1), # variable
                 carla.Rotation()
             )
             # 3/22/2024: spawn point: end
@@ -1284,7 +1286,8 @@ def game_loop(args):
 
         clock = pygame.time.Clock()
         dir_outptut = '_to_27_CARLA_AP_Town06'
-        strFile = 'LocationsLoopInner.txt'
+        # strFile = 'LocationsLoopInner.txt'
+        strFile = 'LocationsLoopOuter.txt'
         import os
         if not os.path.exists(dir_outptut):
             os.makedirs(dir_outptut)        

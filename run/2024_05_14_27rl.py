@@ -218,12 +218,14 @@ def main():
         # Get the world object
         world = client.get_world()
         world = client.load_world('Town06_Opt')
+        listWaypoints=[]
         def getRoadBoundaries():
             carlaMap=world.get_map()
             for location in listLocationsPath_CARLA_AP_Town06:
                 waypoint=carlaMap.get_waypoint(location)
+                listWaypoints.append(waypoint)
                 print(waypoint.transform)
-        listRoadBoundaries=getRoadBoundaries();quit()
+        # listRoadBoundaries=getRoadBoundaries();#quit()
 
         # Set synchronous mode
         settings = world.get_settings()
@@ -570,28 +572,29 @@ def main():
                 thresholdDeltaThetaNoSteer = 0.5e-10
                 # thresholdDeltaThetaNoSteer = 5
                 thresholdDeltaThetaSteer = 1e-1
-                speedMinimum = 1e-5
+                # speedMinimum = 1e-5
+                speedMinimum = 30
                 speedTarget = TARGET_SPEED
                 speedHigh = 80
                 bWithinThreshold = None
-                maxSteer = 0.1
+                maxSteer = 0
                 unitChangeThrottle = 0.1
                 # unitChangeSteer = 0.1
                 unitChangeSteer = 0.1
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
                 # if angleFromPath<5:
-                # # if deltaTheta<5:
-                #     # unitChangeSteer=1e-4
-                #     # maxSteer=0.1
-                #     maxSteer = min(abs(deltaTheta)/\
-                #         int(args.steerDivisorStraight), 1)
-                #     throttle, steer, brake = getStandardVehicleControl()
-                #     speedTarget=int(args.speedStraight)
-                # else:
-                #     maxSteer = min(abs(deltaTheta)/\
-                #         int(args.steerDivisor), 1)
-                #     speedTarget = int(args.speedTurn)
+                if deltaTheta<5:
+                    # unitChangeSteer=1e-4
+                    # maxSteer=0.1
+                    maxSteer = min(abs(deltaTheta)/\
+                        int(args.steerDivisorStraight), 1)
+                    throttle, steer, brake = getStandardVehicleControl()
+                    speedTarget=int(args.speedStraight)
+                else:
+                    maxSteer = min(abs(deltaTheta)/\
+                        int(args.steerDivisor), 1)
+                    speedTarget = int(args.speedTurn)
                 kmh = VehicleSpeed1D(vehicle)
                 listSpeed.append(kmh)
                 # output += f'{str_kmh(kmh)} | '
@@ -615,21 +618,21 @@ def main():
                 if kmh > speedTarget:
                     # maxSteer = 1e-5
                     unitChangeSteer=1e-5
-                # # steering correction small
-                # if abs(deltaTheta) < thresholdDeltaThetaSteer:
-                #     # deltaTheta = -deltaTheta
-                #     # maxSteer = 1e-3
-                #     # unitChangeSteer = 0.2
-                #     speedTarget=int(args.speedStraight)
-                # else:
-                #     # maxSteer=0.25
-                #     unitChangeThrottle = 1.0
-                #     # unitChangeSteer = 1.0
-                #     # unitChangeSteer = 0.5
-                #     # unitChangeSteer = 0.2
-                #     # unitChangeSteer = 0.3
-                #     unitChangeSteer = 10*unitChangeSteer
-                #     speedTarget = int(args.speedTurn)
+                # steering correction small
+                if abs(deltaTheta) < thresholdDeltaThetaSteer:
+                    # deltaTheta = -deltaTheta
+                    # maxSteer = 1e-3
+                    # unitChangeSteer = 0.2
+                    speedTarget=int(args.speedStraight)
+                else:
+                    # maxSteer=0.25
+                    unitChangeThrottle = 1.0
+                    # unitChangeSteer = 1.0
+                    # unitChangeSteer = 0.5
+                    # unitChangeSteer = 0.2
+                    # unitChangeSteer = 0.3
+                    # unitChangeSteer = 10*unitChangeSteer
+                    speedTarget = int(args.speedTurn)
                 if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                     bWithinThreshold = True
                     throttle, steer, brake = getStandardVehicleControl()
@@ -856,7 +859,7 @@ def main():
                 # if distanceToTurn>1200 and 
                 # how close is the aim to the start of the turn
                 if distanceExtrapolated<10\
-                    and angleFromPath<5: # in straightaway
+                    and angleFromPath<5 and False: # in straightaway
                 # if distanceToTurn>250:
                 # if distanceToTurn>275: # 1brake too early
                 # if distanceToTurn>290:
