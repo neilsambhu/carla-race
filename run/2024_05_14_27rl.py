@@ -222,8 +222,8 @@ def main():
             carlaMap=world.get_map()
             for location in listLocationsPath_CARLA_AP_Town06:
                 waypoint=carlaMap.get_waypoint(location)
-                print(waypoint.lane_width)
-        # listRoadBoundaries=getRoadBoundaries();quit()
+                print(waypoint.transform)
+        listRoadBoundaries=getRoadBoundaries();quit()
 
         # Set synchronous mode
         settings = world.get_settings()

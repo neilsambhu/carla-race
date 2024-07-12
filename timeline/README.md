@@ -1310,7 +1310,7 @@ inconsistency with left and right sides of track.
 Mon 07/08/2024 4:31 PM: Hi Dr. Katkoori. I figured I'd brainstorm 
 my ideas to you. Essentially, I need to find out how to determine 
 if the car is inside or outside the track.  
-I can still clean the current data. 
+I can still clean the current data.  
 Tue 07/09/2024 12:31 PM: clean path data.  
 Tue 07/09/2024 12:39 PM: I know why the data are not clean: I'm 
 getting the lane boundaries, so crossing over a lane causes the data 
@@ -1325,3 +1325,5 @@ Wed 07/10/2024 1:54 PM: manual control params
 ```
 python run/2024_02_19_19town.py && python -u run/PythonAPI/examples/manual_control.py --sync --filter "vehicle.tesla.model3"
 ```
+Fri 07/12/2024 2:12 PM: TODO: use transform's location (i.e., point) and 
+rotation (i.e., point) to determine bounds of road (i.e., point).  
