@@ -18,7 +18,8 @@ bLoadHistoryFromDisk = bSaveHistoryToDisk
 strPathType = 'Loop'
 path_AP_controls = f'_out_21_CARLA_AP_Town06/Controls{strPathType}.txt'
 path_AP_locations = f'_out_21_CARLA_AP_Town06/Locations{strPathType}.txt'
-path_AP_locations = f'_to_27_CARLA_AP_Town06/LocationsLoopInner.txt'
+pathOuter = f'_to_27_CARLA_AP_Town06/LocationsLoopOuter.txt'
+pathInner = f'_to_27_CARLA_AP_Town06/LocationsLoopInner.txt'
 
 def clean_directory(directory):
     if not bGAIVI:
@@ -91,17 +92,19 @@ fileLap.close()
 def actor_list_destroy(actor_list):
     [x.destroy() for x in actor_list]
     return []
-def getPath_CARLA_AP_Town06():
+def getPath_CARLA_AP_Town06(pathLocations):
     listLocationsPath_CARLA_AP_Town06 = []
-    with open(path_AP_locations,'r') as file_AP_locations:
+    with open(pathLocations,'r') as file_AP_locations:
         for line in file_AP_locations.readlines():
             lineStripped = line.strip()
             x,y,z = lineStripped.split()
             locationFromPath = carla.Location(float(x),float(y),float(z))
             listLocationsPath_CARLA_AP_Town06.append(locationFromPath)
     return listLocationsPath_CARLA_AP_Town06
-listLocationsPath_CARLA_AP_Town06 = getPath_CARLA_AP_Town06()
-listRoadBoundaries=[]
+listLocationsPath_CARLA_AP_Town06 = getPath_CARLA_AP_Town06(
+    path_AP_locations)
+listLocationsOuter=getPath_CARLA_AP_Town06(pathOuter)
+listLocationsInner=getPath_CARLA_AP_Town06(pathInner)
 def getLocationClosestToCurrent(currentLocation, \
     indexPrevClosestLocation):
     distanceMinimum = None
@@ -115,6 +118,19 @@ def getLocationClosestToCurrent(currentLocation, \
         listDistance.index(distanceMinimum)
     return indexMinimum, distanceMinimum, \
         listLocationsPath_CARLA_AP_Town06[indexMinimum]
+def getTwoLocationsClosestToCurrent(listLocations, \
+    currentLocation, indexPrevClosestLocation):
+    distanceMinimum = None
+    listDistance = []
+    for locationFromPath in \
+        listLocations[indexPrevClosestLocation:]:
+        distanceFromPath = currentLocation.distance(locationFromPath)
+        listDistance.append(distanceFromPath)
+    distanceMinimum = min(listDistance)
+    indexMinimum = indexPrevClosestLocation + \
+        listDistance.index(distanceMinimum)
+    locations=listLocations[indexMinimum-1:indexMinimum+1]
+    return indexMinimum, distanceMinimum, locations
 def strPoint(point):
     return f'{point:05.1f}'
 def strLocation2D(location):
@@ -557,7 +573,10 @@ def main():
                 # vector_currToClosestToPredicted = 0.01*(-npLocationCurrent + npLocationClosestToPredicted)
                 vector_currToClosestToPredicted = -npLocationCurrent + npLocationClosestToPredicted
                 # output += f'vector_currToPred: {vector_currToPred} | vector_currToClosestToPredicted: {vector_currToClosestToPredicted} | '
-                turnDirection = GetTurnDirection(vehicle.get_location(), locationPrediction, locationClosestToPredicted)
+                turnDirection = GetTurnDirection(
+                    vehicle.get_location(), #origin
+                    locationPrediction, #x1
+                    locationClosestToPredicted) #x2
                 output += f'turnDirection: {turnDirection} | '
                 # multiply by -1 to account for left is negative and right is positive, not like unit circle
                 # deltaTheta = 0.2*-1*turnDirection*angle_between(vector_currToPred, vector_currToClosestToPredicted)
@@ -572,8 +591,8 @@ def main():
                 thresholdDeltaThetaNoSteer = 0.5e-10
                 # thresholdDeltaThetaNoSteer = 5
                 thresholdDeltaThetaSteer = 1e-1
-                # speedMinimum = 1e-5
-                speedMinimum = 30
+                speedMinimum = 1e-5
+                # speedMinimum = 30
                 speedTarget = TARGET_SPEED
                 speedHigh = 80
                 bWithinThreshold = None
@@ -765,6 +784,8 @@ def main():
             bMetSpeedMinimum = False
             countTicksNotMoving=0
             indexPrevClosestLocation=0
+            indexOuterPrevClosestLocation=0
+            indexInnerPrevClosestLocation=0
             while getDistanceToDestination() > 2 or countTickLap < 500:
                 def ReachedLocation(locationTarget):
                     return locationTarget.distance(vehicle.get_location()) < 5
@@ -877,6 +898,17 @@ def main():
                         locationPrediction, 
                         indexPrevClosestLocation
                     )
+                # outer locations: start
+                indexOuterPrevClosestLocation, \
+                    distanceOuterMinimum, \
+                    locationsOuterClosestToPredicted = \
+                    getTwoLocationsClosestToCurrent(
+                        listLocationsOuter,
+                        locationPrediction, 
+                        indexOuterPrevClosestLocation
+                        )
+                # bOuter=Get
+                # outer locations: end
                 listDistancePredToPath.append(distanceMinimum)
                 output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
                 distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)

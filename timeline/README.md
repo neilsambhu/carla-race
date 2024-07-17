@@ -1338,3 +1338,13 @@ Fri 07/12/2024 4:25 PM: TODO: get car to drive through first
 intersection, handing off from autopilot.  
 Fri 07/12/2024 4:26 PM: work item: yaw: inner edge of road  
 Fri 07/12/2024 4:44 PM: problem: curb before turn 3.  
+Fri 07/12/2024 9:44 PM: there are locations for  both inner and outer 
+loops of track.  
+Mon 07/15/2024 5:03 PM: TODO: (1) retrieve 2 closest points from 
+track mapping. Compute (1) vehicle location cross (2) 2 closest 
+points from mapped points. Venn diagram between the two track 
+mappings.  
+Mon 07/15/2024 5:07 PM: TODO: draw figure.  
+Wed 07/17/2024 1:49 PM: TODO: Where to put call to closest outer 
+location in vehicle control?  
+Wed 07/17/2024 3:02 PM: TODO: use GetTurnDirection  
