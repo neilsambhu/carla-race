@@ -547,6 +547,7 @@ def main():
                 x = locationClosestToPredicted.x*math.cos(theta) - locationClosestToPredicted.y*math.sin(theta)
                 y = locationClosestToPredicted.x*math.sin(theta) + locationClosestToPredicted.y*math.cos(theta)
                 return x, y
+            # https://stackoverflow.com/a/3461533
             def GetTurnDirection(a, b, c):
                 output = (b.x - a.x)*(c.y - a.y) - (b.y - a.y)*(c.x - a.x)
                 if output < 0:
@@ -558,7 +559,7 @@ def main():
             def GetVehicleControlsCrossProduct(
                 throttle, steer, brake, locationPrediction, 
                 locationClosestToPredicted, bMetSpeedMinimum, 
-                countTicksNotMoving, angleFromPath):
+                countTicksNotMoving, angleFromPath, bOuter, bInner):
                 output = ''
                 # npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y, vehicle.get_location().z])
                 npLocationCurrent = np.array([vehicle.get_location().x, vehicle.get_location().y])
@@ -594,7 +595,7 @@ def main():
                 speedMinimum = 1e-5
                 # speedMinimum = 30
                 speedTarget = TARGET_SPEED
-                speedHigh = 80
+                speedHigh = 70
                 bWithinThreshold = None
                 maxSteer = 0
                 unitChangeThrottle = 0.1
@@ -602,8 +603,8 @@ def main():
                 unitChangeSteer = 0.1
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
-                # if angleFromPath<5:
-                if deltaTheta<5:
+                if angleFromPath<5:
+                # if deltaTheta<5:
                     # unitChangeSteer=1e-4
                     # maxSteer=0.1
                     maxSteer = min(abs(deltaTheta)/\
@@ -634,9 +635,9 @@ def main():
                         return 0.00, 0.00, 1.00
                     # throttle, steer, brake = GetBrake()
                     maxSteer=1e-3
-                if kmh > speedTarget:
-                    # maxSteer = 1e-5
-                    unitChangeSteer=1e-5
+                # if kmh > speedTarget:
+                #     # maxSteer = 1e-5
+                #     unitChangeSteer=1e-5
                 # steering correction small
                 if abs(deltaTheta) < thresholdDeltaThetaSteer:
                     # deltaTheta = -deltaTheta
@@ -652,18 +653,29 @@ def main():
                     # unitChangeSteer = 0.3
                     # unitChangeSteer = 10*unitChangeSteer
                     speedTarget = int(args.speedTurn)
-                if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
-                    bWithinThreshold = True
+                # if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
+                #     bWithinThreshold = True
+                #     throttle, steer, brake = getStandardVehicleControl()
+                # elif deltaTheta > thresholdDeltaThetaNoSteer:
+                #     bWithinThreshold = False
+                #     deltaSteer = -unitChangeSteer
+                #     steer = max(steer+deltaSteer, -maxSteer)
+                # elif deltaTheta < -thresholdDeltaThetaNoSteer:
+                #     bWithinThreshold = False
+                #     deltaSteer = unitChangeSteer
+                #     steer = min(steer+deltaSteer, maxSteer)
+                if bOuter==1 and bInner==1:
+                    bWithinThreshold=True
                     throttle, steer, brake = getStandardVehicleControl()
-                elif deltaTheta > thresholdDeltaThetaNoSteer:
+                if bOuter==-1 and bInner==1:
                     bWithinThreshold = False
                     deltaSteer = -unitChangeSteer
                     steer = max(steer+deltaSteer, -maxSteer)
-                elif deltaTheta < -thresholdDeltaThetaNoSteer:
+                if bOuter==1 and bInner==-1:
                     bWithinThreshold = False
                     deltaSteer = unitChangeSteer
                     steer = min(steer+deltaSteer, maxSteer)
-                if not bWithinThreshold:
+                if not bWithinThreshold or True:
                 # if not bWithinThreshold and angleFromPath>=5:
                     if kmh < speedTarget:
                         # slow or not moving
@@ -816,9 +828,10 @@ def main():
                     # 1.7
                     # 1.5
                     # 0.250
-                    0.500
+                    # 0.500 #prev
                     # 0.100
                     # 0.050
+                    # 10
                     )
                 # 6/10/2024 12:53 AM: major code change: start
                 idxLocation, locationTurn = GetLocationOfStartOfNextTurn(
@@ -907,8 +920,33 @@ def main():
                         locationPrediction, 
                         indexOuterPrevClosestLocation
                         )
-                # bOuter=Get
+                bOuter=GetTurnDirection(
+                    locationPrediction-locationPrediction,
+                    locationsOuterClosestToPredicted[1]-locationPrediction,
+                    locationsOuterClosestToPredicted[0]-locationPrediction,
+                    )
+                # bOuter is 1 when car is within track
+                # print(f'')
                 # outer locations: end
+                # inner locations: start
+                indexInnerPrevClosestLocation, \
+                    distanceInnerMinimum, \
+                    locationsInnerClosestToPredicted = \
+                    getTwoLocationsClosestToCurrent(
+                        listLocationsInner,
+                        locationPrediction, 
+                        indexInnerPrevClosestLocation
+                        )
+                bInner=None
+                if len(locationsInnerClosestToPredicted)==2:
+                    bInner=GetTurnDirection(
+                        locationPrediction-locationPrediction,
+                        locationsOuterClosestToPredicted[1]-locationPrediction,
+                        locationsOuterClosestToPredicted[0]-locationPrediction,
+                        )
+                # bInner is 1 when car is within track
+                print(f'bOuter: {bOuter:02d} bInner: {bInner:02d}')
+                # inner locations: end
                 listDistancePredToPath.append(distanceMinimum)
                 output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
                 distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
@@ -920,7 +958,8 @@ def main():
                     GetVehicleControlsCrossProduct(
                         throttle, steer, brake, locationPrediction, 
                         locationClosestToPredicted, bMetSpeedMinimum, 
-                        countTicksNotMoving, angleFromPath
+                        countTicksNotMoving, angleFromPath,
+                        bOuter, bInner
                     )
                 countAnalytical+=1
                 output += output_temp
@@ -933,7 +972,7 @@ def main():
                         )
                 distanceToBrake=calculate_braking_distance(
                     VehicleSpeed1D(vehicle),30,
-                    deceleration_g=0.5)
+                    deceleration_g=1)
                 # print(f'distanceToTurn: {distanceToTurn:.1f}\tdistanceToBrake: {distanceToBrake:.1f}')
                 if distanceToTurn<distanceToBrake:
                     def GetBrake():
