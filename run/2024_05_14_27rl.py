@@ -43,12 +43,12 @@ argparser.add_argument(
     default='30',
     help='Target speed for vehicle turning')
 argparser.add_argument(
-    '-d', '--steerDivisor',
-    default='50',
+    '-d', '--steerDivisorTurn',
+    default='25',
     help='Value by which to divide the steering angle')
 argparser.add_argument(
-    '-i', '--steerDivisorStraight',
-    default='100',
+    '-i', '--steerDivisorStraight',#Straight
+    default='51',
     help='Value by which to divide the steering angle')
 argparser.add_argument(
     '-v', '--vehicle',
@@ -65,7 +65,7 @@ dir_output = '_out_27_rl'
 if not os.path.exists(dir_output):
     os.makedirs(dir_output)
 clean_directory(dir_output)
-dir_output_frames = f'{dir_output}/{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_frames/'
+dir_output_frames = f'{dir_output}/{TARGET_SPEED:03d}_{int(args.steerDivisorStraight):03d}_{args.vehicle}_frames/'
 if not os.path.exists(dir_output_frames):
     os.makedirs(dir_output_frames)
 clean_directory(dir_output_frames)
@@ -105,6 +105,9 @@ listLocationsPath_CARLA_AP_Town06 = getPath_CARLA_AP_Town06(
     path_AP_locations)
 listLocationsOuter=getPath_CARLA_AP_Town06(pathOuter)
 listLocationsInner=getPath_CARLA_AP_Town06(pathInner)
+listLocationsPath_CARLA_AP_Town06+=listLocationsPath_CARLA_AP_Town06
+listLocationsOuter+=listLocationsOuter
+listLocationsInner+=listLocationsInner
 def getLocationClosestToCurrent(currentLocation, \
     indexPrevClosestLocation=0):
     distanceMinimum = None
@@ -376,13 +379,13 @@ def main():
                 ax0.autoscale_view('tight')
                 ax0.set_xlabel('Time-Steps')
                 ax0.set_ylabel('Distance from Predicted \nLocation to Path')
-                ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+                ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisorStraight} steer divisor, {args.vehicle})')
                 fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
                 ax1.set_xlabel('Time-Steps')
                 # ax1.set_ylabel('Delta Y')
                 ax1.set_ylabel('Delta Theta')
                 # ax1.set_title('Delta Y over Time')
-                ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+                ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisorStraight} steer divisor, {args.vehicle})')
             def savePlotOverlay():
                 # Plot setup for overlay
                 plt.rcParams.update({'font.size': 24})
@@ -407,7 +410,7 @@ def main():
                 ax2.set_aspect('auto', 'box')
                 ax2.set_xlabel('X')
                 ax2.set_ylabel('Y')
-                ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+                ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisorStraight} steer divisor, {args.vehicle})')
                 # stretch = 100
                 stretch = 1
                 x_vehicle = [location.x for location in listLocations]
@@ -423,14 +426,14 @@ def main():
                 ax2.set_ylabel('Y')
                 # ax2.set_title(f'Vehicle Location and Path Overlay ({TARGET_SPEED} km/h)')
                 # plt.rcParams.update({'font.size': 24})
-                fig_overlay.savefig(os.path.join(dir_output, f'{lLapCount:04d}_overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                fig_overlay.savefig(os.path.join(dir_output, f'{lLapCount:04d}_overlay_plot{TARGET_SPEED:03d}_{int(args.steerDivisorStraight):03d}_{args.vehicle}.png'))
                 plt.close(fig_overlay)
             if bPlot:
                 fig_speed, ax3 = plt.subplots(figsize=(12, 6))  # Adjust the figsize as needed
                 ax3.autoscale_view('tight')
                 ax3.set_xlabel('Time-Steps')
                 ax3.set_ylabel('Speed (km/h)')
-                ax3.set_title(f'Speed over Time \n({TARGET_SPEED} km/h, {args.steerDivisor} steer divisor, {args.vehicle})')
+                ax3.set_title(f'Speed over Time \n({TARGET_SPEED} km/h, {args.steerDivisorStraight} steer divisor, {args.vehicle})')
             def printLocations(currentLocation, closestLocation):
                 return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
             dictLocationPrediction = {}
@@ -607,12 +610,12 @@ def main():
                 speedMinimum = 1e-5
                 # speedMinimum = 30
                 speedTarget = TARGET_SPEED
-                speedHigh = 70
+                speedHigh = 80
                 bWithinThreshold = None
                 maxSteer = 0
                 unitChangeThrottle = 0.1
                 # unitChangeSteer = 0.1
-                unitChangeSteer = 0.1
+                unitChangeSteer = 0.3
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
                 if angleFromPath<5:
@@ -625,7 +628,7 @@ def main():
                     speedTarget=int(args.speedStraight)
                 else:
                     maxSteer = min(abs(deltaTheta)/\
-                        int(args.steerDivisor), 1)
+                        int(args.steerDivisorTurn), 1)
                     speedTarget = int(args.speedTurn)
                 kmh = VehicleSpeed1D(vehicle)
                 listSpeed.append(kmh)
@@ -639,8 +642,8 @@ def main():
                 else:
                     bMetSpeedMinimum = True
                     countTicksNotMoving=0
-                    maxSteer = min(abs(deltaTheta)/\
-                        int(args.steerDivisor), 1)
+                    # maxSteer = min(abs(deltaTheta)/\
+                    #     int(args.steerDivisor), 1)
                 if kmh > speedHigh: # 80 km/h
                     # print('braking')
                     def GetBrake():
@@ -678,7 +681,8 @@ def main():
                 #     steer = min(steer+deltaSteer, maxSteer)
                 if bOuter==1 and bInner==1:
                     bWithinThreshold=True
-                    throttle, steer, brake = getStandardVehicleControl()
+                    throttle, steer, brake = \
+                        getStandardVehicleControl()
                 if bOuter==-1 and bInner==1:
                     bWithinThreshold = False
                     deltaSteer = -unitChangeSteer
@@ -687,7 +691,7 @@ def main():
                     bWithinThreshold = False
                     deltaSteer = unitChangeSteer
                     steer = min(steer+deltaSteer, maxSteer)
-                if not bWithinThreshold or True:
+                if not bWithinThreshold:
                 # if not bWithinThreshold and angleFromPath>=5:
                     if kmh < speedTarget:
                         # slow or not moving
@@ -699,8 +703,8 @@ def main():
                         throttle = 0.0
                         deltaBrake = unitChangeBrake
                         brake = min(brake+deltaBrake, 1.0)
-                return throttle, steer, brake, output, bMetSpeedMinimum, \
-                    countTicksNotMoving
+                return throttle, steer, brake, output, \
+                    bMetSpeedMinimum, countTicksNotMoving
 
             # POTENTIAL method FOR BUGS
             def get_vehicle_state():
@@ -810,9 +814,9 @@ def main():
             indexPrevClosestLocation=0
             indexOuterPrevClosestLocation=0
             indexInnerPrevClosestLocation=0
-            while getDistanceToDestination() > 2 or countTickLap < 500:
+            while getDistanceToDestination() > 10 or countTickLap < 500:
                 def ReachedLocation(locationTarget):
-                    return locationTarget.distance(vehicle.get_location()) < 5
+                    return locationTarget.distance(vehicle.get_location())<10
                 if ReachedLocation(locationCheckpoint1):
                     bReachedCheckpoint1=True
                 if bReachedCheckpoint1 and ReachedLocation(locationCheckpoint2):
@@ -836,11 +840,11 @@ def main():
                 locationShortPrediction = LocationPrediction(
                     1/settings.fixed_delta_seconds, vehicle, 
                     # 1.0
-                    # 2.0
+                    2.0
                     # 1.7
                     # 1.5
                     # 0.250
-                    0.500 #prev
+                    # 0.500 #prev
                     # 0.100
                     # 0.050
                     # 10
@@ -905,7 +909,7 @@ def main():
                 # if distanceToTurn>1200 and 
                 # how close is the aim to the start of the turn
                 if distanceExtrapolated<10\
-                    and angleFromPath<5 and False: # in straightaway
+                    and angleFromPath<5: # in straightaway
                 # if distanceToTurn>250:
                 # if distanceToTurn>275: # 1brake too early
                 # if distanceToTurn>290:
@@ -963,8 +967,8 @@ def main():
                         locationsInnerClosestToPredicted[0]-origin,
                         )
                 # bInner is 1 when car is within track
-                if not bInner is None:
-                    print(f'bOuter: {bOuter:02d} bInner: {bInner:02d}')
+                # if not bInner is None:
+                #     print(f'bOuter: {bOuter:02d} bInner: {bInner:02d}')
                 # inner locations: end
                 listDistancePredToPath.append(distanceMinimum)
                 output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
@@ -990,7 +994,7 @@ def main():
                             throttle, steer, brake
                         )
                 distanceToBrake=calculate_braking_distance(
-                    VehicleSpeed1D(vehicle),30,
+                    VehicleSpeed1D(vehicle),int(args.speedTurn),
                     deceleration_g=1)
                 # print(f'distanceToTurn: {distanceToTurn:.1f}\tdistanceToBrake: {distanceToBrake:.1f}')
                 if distanceToTurn<distanceToBrake:
@@ -1055,16 +1059,16 @@ def main():
             if bPlot:
                 # Save the delta Y plot
                 ax0.plot(listDistancePredToPath)
-                fig_distancePredToPath.savefig(os.path.join(dir_output, f'{lLapCount:04d}_distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                fig_distancePredToPath.savefig(os.path.join(dir_output, f'{lLapCount:04d}_distancePredToPath{TARGET_SPEED:03d}_{int(args.steerDivisorStraight):03d}_{args.vehicle}.png'))
                 # ax1.plot(listDeltaY)
                 ax1.plot(listDeltaTheta)
                 # fig_deltaY.savefig(os.path.join(dir_output, 'deltaY.png'))
-                fig_deltaTheta.savefig(os.path.join(dir_output, f'{lLapCount:04d}_deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                fig_deltaTheta.savefig(os.path.join(dir_output, f'{lLapCount:04d}_deltaTheta{TARGET_SPEED:03d}_{int(args.steerDivisorStraight):03d}_{args.vehicle}.png'))
                 # plt.close(fig_deltaY)
                 plt.close(fig_deltaTheta)
                 savePlotOverlay()
                 ax3.plot(listSpeed)
-                fig_speed.savefig(os.path.join(dir_output, f'{lLapCount:04d}_speed{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}.png'))
+                fig_speed.savefig(os.path.join(dir_output, f'{lLapCount:04d}_speed{TARGET_SPEED:03d}_{int(args.steerDivisorStraight):03d}_{args.vehicle}.png'))
                 plt.close(fig_speed)
 
             countTickLap=0
@@ -1073,7 +1077,7 @@ def main():
             def TimeToTextFile(elapsed_time_seconds):
                 fileTime = os.path.join(
                     dir_output, 
-                    f'{lLapCount:04d}_{TARGET_SPEED:03d}_{int(args.steerDivisor):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
+                    f'{lLapCount:04d}_{TARGET_SPEED:03d}_{int(args.steerDivisorStraight):03d}_{args.vehicle}_{elapsed_time_seconds:.2f}'
                 )
                 open(fileTime,'w')
             # TimeToTextFile(elapsedTimeCarla)
