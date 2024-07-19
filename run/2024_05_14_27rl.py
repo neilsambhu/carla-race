@@ -106,7 +106,7 @@ listLocationsPath_CARLA_AP_Town06 = getPath_CARLA_AP_Town06(
 listLocationsOuter=getPath_CARLA_AP_Town06(pathOuter)
 listLocationsInner=getPath_CARLA_AP_Town06(pathInner)
 def getLocationClosestToCurrent(currentLocation, \
-    indexPrevClosestLocation):
+    indexPrevClosestLocation=0):
     distanceMinimum = None
     listDistance = []
     for locationFromPath in \
@@ -119,7 +119,7 @@ def getLocationClosestToCurrent(currentLocation, \
     return indexMinimum, distanceMinimum, \
         listLocationsPath_CARLA_AP_Town06[indexMinimum]
 def getTwoLocationsClosestToCurrent(listLocations, \
-    currentLocation, indexPrevClosestLocation=0):
+    currentLocation, indexPrevClosestLocation):
     distanceMinimum = None
     listDistance = []
     for locationFromPath in \
@@ -530,25 +530,28 @@ def main():
                         break
                 return idxLocation, locationOutput
             def GetApproximatelyMappedAngle(currentLocation):
-                idxStartTurnSearch=2*31
-                listLocationsGroundTruth=\
-                    listLocationsPath_CARLA_AP_Town06[
-                        idxStartTurnSearch:len(listAnglesOfTriplets)]
-                listAngles=\
-                    listAnglesOfTriplets[idxStartTurnSearch:]
-                for idx, (locationFromPath, angleFromPath) in \
-                    enumerate(zip(
-                        # likely TODO: double lists to check 
-                        # first corner, 
-                        # behind starting line.
-                        listLocationsGroundTruth,
-                        listAngles
-                )):
-                    # IMPROVEMENT: find closest location
-                    if currentLocation.distance(
-                        locationFromPath)<10:
-                        return angleFromPath
-                return None
+                # idxStartTurnSearch=2*31
+                # listLocationsGroundTruth=\
+                #     listLocationsPath_CARLA_AP_Town06[
+                #         idxStartTurnSearch:len(listAnglesOfTriplets)]
+                # listAngles=\
+                #     listAnglesOfTriplets[idxStartTurnSearch:]
+                # for idx, (locationFromPath, angleFromPath) in \
+                #     enumerate(zip(
+                #         # likely TODO: double lists to check 
+                #         # first corner, 
+                #         # behind starting line.
+                #         listLocationsGroundTruth,
+                #         listAngles
+                # )):
+                #     # IMPROVEMENT: find closest location
+                #     if currentLocation.distance(
+                #         locationFromPath)<10:
+                #         return angleFromPath
+                # return None
+                indexPrevClosestLocation, _, _ = \
+                    getLocationClosestToCurrent(currentLocation)
+                return listAnglesOfTriplets[indexPrevClosestLocation]
                     
             def GetVehicleOutput(theta, locationClosestToPredicted):
                 # x = vehicle.get_location().x*math.cos(theta) - vehicle.get_location().y*math.sin(theta)
@@ -837,7 +840,7 @@ def main():
                     # 1.7
                     # 1.5
                     # 0.250
-                    # 0.500 #prev
+                    0.500 #prev
                     # 0.100
                     # 0.050
                     # 10
