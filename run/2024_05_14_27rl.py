@@ -119,7 +119,7 @@ def getLocationClosestToCurrent(currentLocation, \
     return indexMinimum, distanceMinimum, \
         listLocationsPath_CARLA_AP_Town06[indexMinimum]
 def getTwoLocationsClosestToCurrent(listLocations, \
-    currentLocation, indexPrevClosestLocation):
+    currentLocation, indexPrevClosestLocation=0):
     distanceMinimum = None
     listDistance = []
     for locationFromPath in \
@@ -129,7 +129,10 @@ def getTwoLocationsClosestToCurrent(listLocations, \
     distanceMinimum = min(listDistance)
     indexMinimum = indexPrevClosestLocation + \
         listDistance.index(distanceMinimum)
-    locations=listLocations[indexMinimum-1:indexMinimum+1]
+    idxStart = indexMinimum-100
+    if idxStart<0:
+        idxStart=0
+    locations=listLocations[idxStart:indexMinimum+1]
     return indexMinimum, distanceMinimum, locations
 def strPoint(point):
     return f'{point:05.1f}'
@@ -492,12 +495,16 @@ def main():
                 locationOutput=None
                 bFoundCloseLocation=False
                 bFoundTurnStart=False
-                idxStartTurnSearch=2*31
+                indexPrevClosestLocation, distanceMinimum, \
+                    locationClosestToPredicted = \
+                    getLocationClosestToCurrent(currentLocation)
+                idxStartTurnSearch=indexPrevClosestLocation
                 listLocationsGroundTruth=\
                     listLocationsPath_CARLA_AP_Town06[
                         idxStartTurnSearch:len(listAnglesOfTriplets)]
                 listAngles=\
                     listAnglesOfTriplets[idxStartTurnSearch:]
+                
                 for idx, (locationFromPath, angleFromPath) in \
                     enumerate(zip(
                         # likely TODO: double lists to check 
@@ -506,19 +513,21 @@ def main():
                         listLocationsGroundTruth,
                         listAngles
                 )):
-                    if currentLocation.distance(
-                        locationFromPath)<10:
-                        bFoundCloseLocation=True
-                    if bFoundCloseLocation:
-                        if angleFromPath > 90:
-                            angleFromPath = 180-angleFromPath
-                        condition=angleFromPath%90
-                        if bVerbose:
-                            print(f'{idx:04d} condition: {condition}')
-                        if condition > 5.0:
-                            idxLocation=idxStartTurnSearch+idx
-                            locationOutput=locationFromPath
-                            break
+                    # if \
+                    #     # currentLocation.distance(
+                    #     # locationFromPath)<10:
+                    #     idx==indexPrevClosestLocation:
+                    #     bFoundCloseLocation=True
+                    # if bFoundCloseLocation:
+                    if angleFromPath > 90:
+                        angleFromPath = 180-angleFromPath
+                    condition=angleFromPath%90
+                    if bVerbose:
+                        print(f'{idx:04d} condition: {condition}')
+                    if condition > 5.0:
+                        idxLocation=idxStartTurnSearch+idx
+                        locationOutput=locationFromPath
+                        break
                 return idxLocation, locationOutput
             def GetApproximatelyMappedAngle(currentLocation):
                 idxStartTurnSearch=2*31
@@ -920,10 +929,11 @@ def main():
                         locationPrediction, 
                         indexOuterPrevClosestLocation
                         )
-                bOuter=GetTurnDirection(
-                    locationPrediction-locationPrediction,
-                    locationsOuterClosestToPredicted[1]-locationPrediction,
-                    locationsOuterClosestToPredicted[0]-locationPrediction,
+                origin=locationsOuterClosestToPredicted[-1]
+                bOuter=-1*GetTurnDirection(
+                    locationsOuterClosestToPredicted[-1]-origin,
+                    locationPrediction-origin,
+                    locationsOuterClosestToPredicted[0]-origin,
                     )
                 # bOuter is 1 when car is within track
                 # print(f'')
@@ -937,15 +947,21 @@ def main():
                         locationPrediction, 
                         indexInnerPrevClosestLocation
                         )
+                indexOuterPrevClosestLocation=0
+                indexInnerPrevClosestLocation=0
+                # idxLast=len(locationsInnerClosestToPredicted)-1
+                # print(len(locationsInnerClosestToPredicted))
                 bInner=None
-                if len(locationsInnerClosestToPredicted)==2:
+                if len(locationsInnerClosestToPredicted)>0:
+                    origin=locationsInnerClosestToPredicted[-1]
                     bInner=GetTurnDirection(
-                        locationPrediction-locationPrediction,
-                        locationsOuterClosestToPredicted[1]-locationPrediction,
-                        locationsOuterClosestToPredicted[0]-locationPrediction,
+                        locationsInnerClosestToPredicted[-1]-origin,
+                        locationPrediction-origin,
+                        locationsInnerClosestToPredicted[0]-origin,
                         )
                 # bInner is 1 when car is within track
-                print(f'bOuter: {bOuter:02d} bInner: {bInner:02d}')
+                if not bInner is None:
+                    print(f'bOuter: {bOuter:02d} bInner: {bInner:02d}')
                 # inner locations: end
                 listDistancePredToPath.append(distanceMinimum)
                 output += f'loc closest to pred: {Vector3D_ToString(locationClosestToPredicted)} | '
