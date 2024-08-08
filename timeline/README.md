@@ -1352,3 +1352,14 @@ Fri 07/19/2024 02:31 PM: animations
 ```
 gsettings set org.gnome.desktop.interface enable-animations false
 ```
+Thu 08/08/2024 03:25 PM: Problem domain: car turns around.  
+Thu 08/08/2024 03:38 PM: potential solution: divide turn into start 
+and end to seperate the tuning of the steering divisor.  
+Thu 08/08/2024 03:40 PM: base problem domain: 
+(1) steer divisor turn 50: steer too early at beginning of turn 
+and 
+(2) steer divisor turn 60: steer too late exiting turn.  
+Thu 08/08/2024 03:53 PM: macroscopic solution: map track into 
+(1) start of turn (i.e., immediate target: outside bound of turn); 
+(2) turn exit (i.e., with respect to ground-truth drive 
+(i.e., after apex)).  

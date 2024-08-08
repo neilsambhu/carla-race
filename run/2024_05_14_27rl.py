@@ -44,11 +44,11 @@ argparser.add_argument(
     help='Target speed for vehicle turning')
 argparser.add_argument(
     '-d', '--steerDivisorTurn',
-    default='250',
+    default='200',
     help='Value by which to divide the steering angle')
 argparser.add_argument(
     '-i', '--steerDivisorStraight',#Straight
-    default='200',#TODO: increase from 51 to 100
+    default='50',#TODO: increase from 51 to 100
     help='Value by which to divide the steering angle')
 argparser.add_argument(
     '-v', '--vehicle',
@@ -379,13 +379,13 @@ def main():
                 ax0.autoscale_view('tight')
                 ax0.set_xlabel('Time-Steps')
                 ax0.set_ylabel('Distance from Predicted \nLocation to Path')
-                ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} steer divisor, {args.vehicle})')
+                ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} sd turn, {args.steerDivisorStraight} sd straight, {args.vehicle})')
                 fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
                 ax1.set_xlabel('Time-Steps')
                 # ax1.set_ylabel('Delta Y')
                 ax1.set_ylabel('Delta Theta')
                 # ax1.set_title('Delta Y over Time')
-                ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} steer divisor, {args.vehicle})')
+                ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} sd turn, {args.steerDivisorStraight} sd straight, {args.vehicle})')
             def savePlotOverlay():
                 # Plot setup for overlay
                 plt.rcParams.update({'font.size': 24})
@@ -410,7 +410,7 @@ def main():
                 ax2.set_aspect('auto', 'box')
                 ax2.set_xlabel('X')
                 ax2.set_ylabel('Y')
-                ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} steer divisor, {args.vehicle})')
+                ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} sd turn, {args.steerDivisorStraight} sd straight, {args.vehicle})')
                 # stretch = 100
                 stretch = 1
                 x_vehicle = [location.x for location in listLocations]
@@ -433,7 +433,7 @@ def main():
                 ax3.autoscale_view('tight')
                 ax3.set_xlabel('Time-Steps')
                 ax3.set_ylabel('Speed (km/h)')
-                ax3.set_title(f'Speed over Time \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} steer divisor, {args.vehicle})')
+                ax3.set_title(f'Speed over Time \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} sd turn, {args.steerDivisorStraight} sd straight, {args.vehicle})')
             def printLocations(currentLocation, closestLocation):
                 return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
             dictLocationPrediction = {}
@@ -618,8 +618,8 @@ def main():
                 unitChangeSteer = 0.5
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
-                # if angleFromPath<5:
-                if deltaTheta<5:
+                if angleFromPath<5:
+                # if deltaTheta<5:
                     # unitChangeSteer=1e-4
                     # maxSteer=0.1
                     maxSteer = min(abs(deltaTheta)/\
