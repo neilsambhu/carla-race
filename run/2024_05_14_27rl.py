@@ -5,8 +5,8 @@ import argparse
 
 config = configparser.ConfigParser()
 config.read('config.ini')
-bSAMBHU23 = config.getboolean('Settings','bSAMBHU23')
-bGAIVI = not bSAMBHU23
+bSAMBHU25 = config.getboolean('Settings','bSAMBHU25')
+bGAIVI = not bSAMBHU25
 bVerbose = False
 # bVerbose = True
 bPlot = True
@@ -36,19 +36,19 @@ IM_HEIGHT = 600//2
 argparser = argparse.ArgumentParser(description='CARLA Path Following')
 argparser.add_argument(
     '-s', '--speedStraight',
-    default='70',
+    default='110',
     help='Target speed for vehicle traveling straight')
 argparser.add_argument(
     '-t', '--speedTurn',
-    default='30',
+    default='80',
     help='Target speed for vehicle turning')
 argparser.add_argument(
     '-d', '--steerDivisorTurn',
-    default='25',
+    default='250',
     help='Value by which to divide the steering angle')
 argparser.add_argument(
     '-i', '--steerDivisorStraight',#Straight
-    default='51',
+    default='200',#TODO: increase from 51 to 100
     help='Value by which to divide the steering angle')
 argparser.add_argument(
     '-v', '--vehicle',
@@ -225,9 +225,9 @@ def calculate_braking_distance(v0_kmh, vf_kmh, deceleration_g=1.0):
 def main():
     try:
         # Connect to the CARLA Simulator
-        if bSAMBHU23:
+        if bSAMBHU25:
             client = carla.Client('localhost', 2000)
-            client.set_timeout(120.0)
+            client.set_timeout(5)
         if bGAIVI:
             command_output = subprocess.run(['squeue'], capture_output=True, text=True)
             output_lines = command_output.stdout.split('\n')
@@ -379,13 +379,13 @@ def main():
                 ax0.autoscale_view('tight')
                 ax0.set_xlabel('Time-Steps')
                 ax0.set_ylabel('Distance from Predicted \nLocation to Path')
-                ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisorStraight} steer divisor, {args.vehicle})')
+                ax0.set_title(f'Distance of Deviation From Path \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} steer divisor, {args.vehicle})')
                 fig_deltaTheta, ax1 = plt.subplots(figsize=(12, 6))
                 ax1.set_xlabel('Time-Steps')
                 # ax1.set_ylabel('Delta Y')
                 ax1.set_ylabel('Delta Theta')
                 # ax1.set_title('Delta Y over Time')
-                ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisorStraight} steer divisor, {args.vehicle})')
+                ax1.set_title(f'Delta Theta over Time \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} steer divisor, {args.vehicle})')
             def savePlotOverlay():
                 # Plot setup for overlay
                 plt.rcParams.update({'font.size': 24})
@@ -410,7 +410,7 @@ def main():
                 ax2.set_aspect('auto', 'box')
                 ax2.set_xlabel('X')
                 ax2.set_ylabel('Y')
-                ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisorStraight} steer divisor, {args.vehicle})')
+                ax2.set_title(f'Vehicle Location and Path Overlay \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} steer divisor, {args.vehicle})')
                 # stretch = 100
                 stretch = 1
                 x_vehicle = [location.x for location in listLocations]
@@ -433,7 +433,7 @@ def main():
                 ax3.autoscale_view('tight')
                 ax3.set_xlabel('Time-Steps')
                 ax3.set_ylabel('Speed (km/h)')
-                ax3.set_title(f'Speed over Time \n({TARGET_SPEED} km/h, {args.steerDivisorStraight} steer divisor, {args.vehicle})')
+                ax3.set_title(f'Speed over Time \n({TARGET_SPEED} km/h, {args.steerDivisorTurn} steer divisor, {args.vehicle})')
             def printLocations(currentLocation, closestLocation):
                 return f'current location: {strLocation2D(currentLocation)} | closest location from path: {strLocation2D(closestLocation)}'
             dictLocationPrediction = {}
@@ -615,11 +615,11 @@ def main():
                 maxSteer = 0
                 unitChangeThrottle = 0.1
                 # unitChangeSteer = 0.1
-                unitChangeSteer = 0.3
+                unitChangeSteer = 0.5
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
-                if angleFromPath<5:
-                # if deltaTheta<5:
+                # if angleFromPath<5:
+                if deltaTheta<5:
                     # unitChangeSteer=1e-4
                     # maxSteer=0.1
                     maxSteer = min(abs(deltaTheta)/\
@@ -816,7 +816,7 @@ def main():
             indexInnerPrevClosestLocation=0
             while getDistanceToDestination() > 10 or countTickLap < 500:
                 def ReachedLocation(locationTarget):
-                    return locationTarget.distance(vehicle.get_location())<10
+                    return locationTarget.distance(vehicle.get_location())<15
                 if ReachedLocation(locationCheckpoint1):
                     bReachedCheckpoint1=True
                 if bReachedCheckpoint1 and ReachedLocation(locationCheckpoint2):
@@ -837,17 +837,28 @@ def main():
                 # if countTickLap in dictLocationPrediction:
                 #     distanceError = abs(vehicle.get_location()-dictLocationPrediction[countTickLap])
                 #     # output += f'pred err: {Vector3D_ToString(distanceError)} | '
+                # kmh = VehicleSpeed1D(vehicle)
+                angleFromPath=GetApproximatelyMappedAngle(
+                    vehicle.get_location())
+                if angleFromPath > 90:
+                    angleFromPath = 180-angleFromPath
+                angleFromPath=angleFromPath%90
                 locationShortPrediction = LocationPrediction(
                     1/settings.fixed_delta_seconds, vehicle, 
+                    max(0.250,5*angleFromPath)
                     # 1.0
-                    2.0
+                    # 2.0
+                    # 5
+                    # 10 #turn too early
+                    # kmh/10 #doesn't turn
+                    # kmh #spin around spawn
+                    # max(5,kmh) #turns left into wall
                     # 1.7
                     # 1.5
                     # 0.250
                     # 0.500 #prev
                     # 0.100
                     # 0.050
-                    # 10
                     )
                 # 6/10/2024 12:53 AM: major code change: start
                 idxLocation, locationTurn = GetLocationOfStartOfNextTurn(
@@ -889,11 +900,6 @@ def main():
                 # distanceExtrapolated/=2
                 # print(f'distanceExtrapolated: {distanceExtrapolated:.2f}')
                 # 6/23/2024 7:17 PM: TODO: end
-                angleFromPath=GetApproximatelyMappedAngle(
-                    vehicle.get_location())
-                if angleFromPath > 90:
-                    angleFromPath = 180-angleFromPath
-                angleFromPath=angleFromPath%90
                 # 6/19/2024 3:51 PM: TODO: determine whether to use
                 # (1) closest location on path or 
                 # (2) closest location of start of turn
@@ -1045,7 +1051,7 @@ def main():
                     SetVehicleControlsGraph()
                 if bVerbose:
                     print(output)
-                if countTickLap % 100 == 0:
+                if countTickLap % 10 == 0:
                     savePlotOverlay()
                 world.tick()
                 countTickLap += 1

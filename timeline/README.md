@@ -1348,3 +1348,7 @@ Mon 07/15/2024 5:07 PM: TODO: draw figure.
 Wed 07/17/2024 1:49 PM: TODO: Where to put call to closest outer 
 location in vehicle control?  
 Wed 07/17/2024 3:02 PM: TODO: use GetTurnDirection  
+Fri 07/19/2024 02:31 PM: animations
+```
+gsettings set org.gnome.desktop.interface enable-animations false
+```
