@@ -40,7 +40,7 @@ argparser.add_argument(
     help='Target speed for vehicle traveling straight')
 argparser.add_argument(
     '-t', '--speedTurn',
-    default='80',
+    default='82.5',
     help='Target speed for vehicle turning')
 argparser.add_argument(
     '-d', '--steerDivisorTurn',
@@ -629,7 +629,7 @@ def main():
                 else:
                     maxSteer = min(abs(deltaTheta)/\
                         int(args.steerDivisorTurn), 1)
-                    speedTarget = int(args.speedTurn)
+                    speedTarget = float(args.speedTurn)
                 kmh = VehicleSpeed1D(vehicle)
                 listSpeed.append(kmh)
                 # output += f'{str_kmh(kmh)} | '
@@ -667,7 +667,7 @@ def main():
                     # unitChangeSteer = 0.2
                     # unitChangeSteer = 0.3
                     # unitChangeSteer = 10*unitChangeSteer
-                    speedTarget = int(args.speedTurn)
+                    speedTarget = float(args.speedTurn)
                 # if deltaTheta >= -thresholdDeltaThetaNoSteer and deltaTheta <= thresholdDeltaThetaNoSteer:
                 #     bWithinThreshold = True
                 #     throttle, steer, brake = getStandardVehicleControl()
@@ -845,7 +845,8 @@ def main():
                 angleFromPath=angleFromPath%90
                 locationShortPrediction = LocationPrediction(
                     1/settings.fixed_delta_seconds, vehicle, 
-                    max(0.250,5*angleFromPath)
+                    # max(0.250,5*angleFromPath)
+                    max(0.250,10*angleFromPath)
                     # 1.0
                     # 2.0
                     # 5
@@ -1000,7 +1001,7 @@ def main():
                             throttle, steer, brake
                         )
                 distanceToBrake=calculate_braking_distance(
-                    VehicleSpeed1D(vehicle),int(args.speedTurn),
+                    VehicleSpeed1D(vehicle),float(args.speedTurn),
                     deceleration_g=1)
                 # print(f'distanceToTurn: {distanceToTurn:.1f}\tdistanceToBrake: {distanceToBrake:.1f}')
                 if distanceToTurn<distanceToBrake:

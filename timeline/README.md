@@ -1363,3 +1363,11 @@ Thu 08/08/2024 03:53 PM: macroscopic solution: map track into
 (1) start of turn (i.e., immediate target: outside bound of turn); 
 (2) turn exit (i.e., with respect to ground-truth drive 
 (i.e., after apex)).  
+Fri 08/10/2024 03:42 PM: letter to to Dr. Katkoori:
+```
+Hi Dr. Katkoori, I'm writing to you to organize my thoughts. 
+I'm trying to understand how to fine tune the steering of the 
+car into the turn. For a 50 steer divisor, the car will turn into 
+the wall. For a 60 steer divisor, the car steers too late exiting 
+the turn. I will try asteer divisor of 55.  
+```
