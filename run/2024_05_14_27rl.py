@@ -40,11 +40,13 @@ argparser.add_argument(
     help='Target speed for vehicle traveling straight')
 argparser.add_argument(
     '-t', '--speedTurn',
-    default='82.5',
+    default='80',
     help='Target speed for vehicle turning')
 argparser.add_argument(
     '-d', '--steerDivisorTurn',
     default='200',
+    # default='50',
+    # default='50',
     help='Value by which to divide the steering angle')
 argparser.add_argument(
     '-i', '--steerDivisorStraight',#Straight
@@ -618,8 +620,8 @@ def main():
                 unitChangeSteer = 0.5
                 unitChangeBrake = 0.1
                 # unitChangeBrake = 1
-                if angleFromPath<5:
-                # if deltaTheta<5:
+                # if angleFromPath<5:
+                if deltaTheta<5:
                     # unitChangeSteer=1e-4
                     # maxSteer=0.1
                     maxSteer = min(abs(deltaTheta)/\
@@ -846,7 +848,12 @@ def main():
                 locationShortPrediction = LocationPrediction(
                     1/settings.fixed_delta_seconds, vehicle, 
                     # max(0.250,5*angleFromPath)
-                    max(0.250,10*angleFromPath)
+                    # max(0.250,10*angleFromPath) #reason: turns into 
+                        # curbs
+                    # max(0.250,20*angleFromPath) #better(?)
+                        # crashes earlier
+                    max(0.250,40*angleFromPath) #what is going on?
+
                     # 1.0
                     # 2.0
                     # 5

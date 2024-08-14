@@ -1371,3 +1371,7 @@ car into the turn. For a 50 steer divisor, the car will turn into
 the wall. For a 60 steer divisor, the car steers too late exiting 
 the turn. I will try asteer divisor of 55.  
 ```
+Wednesday, 08/14/2024 03:26 PM: TODO: reason not to continue 
+parameter tuning.  
+Wednesday, 08/14/2024 03:29 PM: comma.ai hacker: lock steering 
+(probably).  
