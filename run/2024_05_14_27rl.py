@@ -662,7 +662,9 @@ def main():
                     # unitChangeSteer = 0.2
                     speedTarget=int(args.speedStraight)
                 else:
-                    # maxSteer=0.25
+                    # maxSteer=0.1
+                    # maxSteer=0.05
+                    maxSteer=0.3
                     unitChangeThrottle = 1.0
                     # unitChangeSteer = 1.0
                     # unitChangeSteer = 0.5
@@ -851,8 +853,11 @@ def main():
                     # max(0.250,10*angleFromPath) #reason: turns into 
                         # curbs
                     # max(0.250,20*angleFromPath) #better(?)
-                        # crashes earlier
-                    max(0.250,40*angleFromPath) #what is going on?
+                        # crashes earlier (past fence)
+                    # max(0.250,40*angleFromPath) #what is going on?
+                        # goes through curb
+                    max(0.250,80*angleFromPath) #how are we close...
+                        # to parallel? (obvious)
 
                     # 1.0
                     # 2.0

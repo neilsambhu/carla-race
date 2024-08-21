@@ -1375,3 +1375,27 @@ Wednesday, 08/14/2024 03:26 PM: TODO: reason not to continue
 parameter tuning.  
 Wednesday, 08/14/2024 03:29 PM: comma.ai hacker: lock steering 
 (probably).  
+Wednesday, 08/14/2024 05:00 PM: to Dr. Katkoori:
+```
+I have an interesting idea from the (1) reinforcement learning and 
+(2) vehicle coordinate system: (3) reward function from the 
+anticipated distance traveled. I sourced (3) from "estimate distance 
+of current trajectory"; I'm thinking the trajectory can be curved. 
+     There is a mapping from vehicle control signals to movements of 
+     the vehicle. More steering input is necessary and for shorter 
+     durations at high speed. TODO: limit steering.
+```
+Tuesday, 08/20/2024 3:23 PM: TODO list: (most OCD to least OCD) 
+I can do the whole list at once.  
+1) RESET clock on computer to be accurate.  
+2) diagram problem -> sign of intoxication instead of being 
+able to talk about this (reason: "be a square"). These are notes 
+to myself to practice talking about.  
+f(g(x)): reset formatting.  
+3) continue reading about electronic stability control, traction 
+control system, and slip ratio. Bookmark: "slip ratio" for continued 
+reading.  
+Wednesday, 08/21/2024 4:47 PM: Problem: parameter tuning is at the 
+end. TODO: practice driving around Town06. Formalized, I need to map 
+the (1) locations to (2) new locations from (0) vehicle control 
+signals.  
