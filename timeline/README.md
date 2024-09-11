@@ -1399,3 +1399,7 @@ Wednesday, 08/21/2024 4:47 PM: Problem: parameter tuning is at the
 end. TODO: practice driving around Town06. Formalized, I need to map 
 the (1) locations to (2) new locations from (0) vehicle control 
 signals.  
+
+Thursday, September 5, 2024 4:47 pm: Katkoori: 
+(1) literature search RL-based driving; 
+(2) pseudocode.  
