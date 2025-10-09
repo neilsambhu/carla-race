@@ -1403,3 +1403,10 @@ signals.
 Thursday, September 5, 2024 4:47 pm: Katkoori: 
 (1) literature search RL-based driving; 
 (2) pseudocode.  
+
+# Restart after summer 2025
+Thursday, 10/9/2025: command to run RL:
+```
+python run/2024_02_19_19town.py && \
+python -u run/2024_05_14_27rl.py
+```
