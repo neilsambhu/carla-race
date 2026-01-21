@@ -44,8 +44,8 @@ argparser.add_argument(
     help='Target speed for vehicle turning')
 argparser.add_argument(
     '-d', '--steerDivisorTurn',
-    default='200',
-    # default='50',
+    # default='200',
+    default='50',
     # default='50',
     help='Value by which to divide the steering angle')
 argparser.add_argument(

@@ -1410,3 +1410,9 @@ Thursday, 10/9/2025: command to run RL:
 python run/2024_02_19_19town.py && \
 python -u run/2024_05_14_27rl.py
 ```
+Thursday, 10/9/2025 7:28 PM: added parameters
+```
+python run/2024_02_19_19town.py && python -u run/2024_05_14_27rl.py \
+--speedStraight 200 --speedTurn 30 --vehicle vehicle.tesla.model3 \
+| tee out.txt
+```
