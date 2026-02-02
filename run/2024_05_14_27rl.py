@@ -15,7 +15,8 @@ bLoadHistoryFromDisk = bSaveHistoryToDisk
 
 # strPathType = 'Straight'
 # strPathType = 'Curve'
-strPathType = 'Loop'
+# strPathType = 'Loop'
+strPathType = 'LoopCenter'
 path_AP_controls = f'_out_21_CARLA_AP_Town06/Controls{strPathType}.txt'
 path_AP_locations = f'_out_21_CARLA_AP_Town06/Locations{strPathType}.txt'
 pathOuter = f'_to_27_CARLA_AP_Town06/LocationsLoopOuter.txt'
