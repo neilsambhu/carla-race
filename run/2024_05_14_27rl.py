@@ -269,7 +269,9 @@ def main():
         spawn_start_left = carla.Transform(carla.Location(x=19.7, y=240.9, z=height), carla.Rotation())
         spawn_start_center = carla.Transform(carla.Location(x=19.7, y=244.4, z=height), carla.Rotation())
         spawn_start_right = carla.Transform(carla.Location(x=19.7, y=247.9, z=height), carla.Rotation())
-        locationStart = carla.Location(x=-313.8, y=243.6, z=0.1)
+        # locationStart = carla.Location(x=-313.8, y=243.6, z=0.1)
+        offset=0.5
+        locationStart = carla.Location(x=-313.8, y=243.6+(offset*3.5), z=0.1)
         rotation = carla.Rotation(pitch=0, yaw=0, roll=0)
         spawn_point = carla.Transform(
                 locationStart,
