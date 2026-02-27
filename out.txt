@@ -1,1 +1,2 @@
+location: Location(x=-313.799957, y=245.349991, z=0.002715)
 done

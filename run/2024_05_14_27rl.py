@@ -1006,8 +1006,8 @@ def main():
                 #         countTicksNotMoving, angleFromPath,
                 #         bOuter, bInner
                 #     )
-                countAnalytical+=1
-                output += output_temp
+                # countAnalytical+=1
+                # output += output_temp
                 strTick='analytical {:06d} {:06d} vel:{:07.2f},{:07.2f},{:07.2f}, curr loc:{:07.2f},{:07.2f},{:07.2f}, curr cont:{:07.2f},{:07.2f},{:07.2f}, comp cont:{:07.2f},{:07.2f},{:07.2f}\n'.format(
                             countTickGlobal, countTickLap, 
                             vehicle.get_velocity().x,vehicle.get_velocity().y,vehicle.get_velocity().z,
@@ -1061,12 +1061,20 @@ def main():
                 #     fileTick.close()
 
                 # vehicle uses predicted location closest to centerline
-                listControls = [(1.0)]
-                listThrottles = [1.0, 0.0, ]
+                listThrottles = [0.0, 1.0]
                 listSteers = [-1.0, 0.0, 1.0]
                 listBrakes = [0.0, 1.0]
+                listControls = []
+                # generate vehicle control combinations
+                for itemThrottle in listThrottles:
+                    for itemSteer in listSteers:
+                        for itemBrake in listBrakes:
+                            if itemThrottle==0 or itemBrake==0:
+                                listControls.append((itemThrottle,itemSteer,itemBrake))
+                # print(f'listControls: {listControls}');quit()
                 listLocationPrediction = []
-
+                for itemControl in listControls:
+                    print(f'location: {vehicle.get_location()}');quit()
 
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
