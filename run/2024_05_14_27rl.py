@@ -1074,7 +1074,10 @@ def main():
                 # print(f'listControls: {listControls}');quit()
                 listLocationPrediction = []
                 for itemControl in listControls:
-                    print(f'location: {vehicle.get_location()}');quit()
+                    # print(f'location: {vehicle.get_location()}');quit()
+                    locationCurrent = vehicle.get_location()
+                    locationPrediction = None
+                    locationDelta = carla.Location(0,0,0)
 
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
