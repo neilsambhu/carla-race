@@ -997,15 +997,15 @@ def main():
                 distancePredictionAndPath = locationPrediction.distance(locationClosestToPredicted)
                 output += f'pred->path dist: {distancePredictionAndPath:.2f} | '
                 output = f'{countTickGlobal} {countTickLap}'
-                # if graph lookup fails, use cross product
-                throttle, steer, brake, output_temp, \
-                    bMetSpeedMinimum, countTicksNotMoving = \
-                    GetVehicleControlsCrossProduct(
-                        throttle, steer, brake, locationPrediction, 
-                        locationClosestToPredicted, bMetSpeedMinimum, 
-                        countTicksNotMoving, angleFromPath,
-                        bOuter, bInner
-                    )
+                # # if graph lookup fails, use cross product
+                # throttle, steer, brake, output_temp, \
+                #     bMetSpeedMinimum, countTicksNotMoving = \
+                #     GetVehicleControlsCrossProduct(
+                #         throttle, steer, brake, locationPrediction, 
+                #         locationClosestToPredicted, bMetSpeedMinimum, 
+                #         countTicksNotMoving, angleFromPath,
+                #         bOuter, bInner
+                #     )
                 countAnalytical+=1
                 output += output_temp
                 strTick='analytical {:06d} {:06d} vel:{:07.2f},{:07.2f},{:07.2f}, curr loc:{:07.2f},{:07.2f},{:07.2f}, curr cont:{:07.2f},{:07.2f},{:07.2f}, comp cont:{:07.2f},{:07.2f},{:07.2f}\n'.format(
@@ -1059,6 +1059,15 @@ def main():
                 #     fileTick = open(pathTick, 'a')
                 #     fileTick.write(strTick)
                 #     fileTick.close()
+
+                # vehicle uses predicted location closest to centerline
+                listControls = [(1.0)]
+                listThrottles = [1.0, 0.0, ]
+                listSteers = [-1.0, 0.0, 1.0]
+                listBrakes = [0.0, 1.0]
+                listLocationPrediction = []
+
+
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)
