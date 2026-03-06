@@ -1078,7 +1078,18 @@ def main():
                     locationCurrent = vehicle.get_location()
                     locationPrediction = None
                     locationDelta = carla.Location(0,0,0)
+                # print(f'vel: {vehicle.get_velocity()}\tacc: {vehicle.get_acceleration()}')
+                v = vehicle.get_velocity()
+                a = vehicle.get_acceleration()
+                t = 0.5
+                locationDelta=1/2*a*t**2+v*t
+                # print(f'locationDelta: {locationDelta}')
+                locationPrediction=vehicle.get_location()+locationDelta
+                # print(f'locationPrediction: {locationPrediction}')
 
+                throttle=1
+                steer=0
+                brake=0
                 vehicleControl = carla.VehicleControl(
                     throttle=throttle, steer=steer, brake=brake)
                 vehicle.apply_control(vehicleControl)
