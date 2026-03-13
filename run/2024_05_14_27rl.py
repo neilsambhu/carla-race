@@ -1086,7 +1086,10 @@ def main():
                 # print(f'locationDelta: {locationDelta}')
                 locationPrediction=vehicle.get_location()+locationDelta
                 # print(f'locationPrediction: {locationPrediction}')
-
+                # TODO: function; pass v and a and t. pass throttle, steer, and brake. 
+                # try different values and find best set of values I need to apply
+                def GetCurrentPredictedLocation(velocity, acceleration, time, throttle, steer, brake):
+                    pass
                 throttle=1
                 steer=0
                 brake=0
