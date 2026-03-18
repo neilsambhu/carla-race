@@ -1072,8 +1072,22 @@ def main():
                             if itemThrottle==0 or itemBrake==0:
                                 listControls.append((itemThrottle,itemSteer,itemBrake))
                 # print(f'listControls: {listControls}');quit()
+                # TODO: function; pass v and a and t. pass throttle, steer, and brake. 
+                # try different values and find best set of values I need to apply
+                def GetCurrentPredictedLocation(velocity, acceleration, time, throttle, steer, brake):
+                    pass
                 listLocationPrediction = []
+                control = vehicle.get_control()
+                throttle = control.throttle
+                steer = control.steer
+                brake = control.brake
                 for itemControl in listControls:
+                    itemThrottle = itemControl[0]
+                    itemSteer = itemControl[1]
+                    itemBrake = itemControl[2]
+                    deltaThrottle = itemThrottle-throttle
+                    deltaSteer = itemSteer-steer
+                    deltaBrake = itemBrake-brake
                     # print(f'location: {vehicle.get_location()}');quit()
                     locationCurrent = vehicle.get_location()
                     locationPrediction = None
@@ -1086,10 +1100,7 @@ def main():
                 # print(f'locationDelta: {locationDelta}')
                 locationPrediction=vehicle.get_location()+locationDelta
                 # print(f'locationPrediction: {locationPrediction}')
-                # TODO: function; pass v and a and t. pass throttle, steer, and brake. 
-                # try different values and find best set of values I need to apply
-                def GetCurrentPredictedLocation(velocity, acceleration, time, throttle, steer, brake):
-                    pass
+
                 throttle=1
                 steer=0
                 brake=0
