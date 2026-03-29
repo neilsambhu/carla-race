@@ -1098,6 +1098,10 @@ def main():
                     fCoefficient=None
                     if deltaThrottle==0 and deltaSteer==0 and deltaBrake==0:
                         fCoefficient=1
+                    elif deltaThrottle>0:
+                        fCoefficient=2
+                    elif deltaBrake>0:
+                        fCoefficient=0.5
                     locationPrediction=vehicle.get_location()+fCoefficient*locationDelta
                     # print(f'locationPrediction: {locationPrediction}')
                     listLocationPrediction.append(locationPrediction)
