@@ -1088,18 +1088,19 @@ def main():
                     deltaThrottle = itemThrottle-throttle
                     deltaSteer = itemSteer-steer
                     deltaBrake = itemBrake-brake
-                    # print(f'location: {vehicle.get_location()}');quit()
-                    locationCurrent = vehicle.get_location()
-                    locationPrediction = None
-                    locationDelta = carla.Location(0,0,0)
-                # print(f'vel: {vehicle.get_velocity()}\tacc: {vehicle.get_acceleration()}')
-                v = vehicle.get_velocity()
-                a = vehicle.get_acceleration()
-                t = 0.5
-                locationDelta=1/2*a*t**2+v*t
-                # print(f'locationDelta: {locationDelta}')
-                locationPrediction=vehicle.get_location()+locationDelta
-                # print(f'locationPrediction: {locationPrediction}')
+                    
+                    # print(f'vel: {vehicle.get_velocity()}\tacc: {vehicle.get_acceleration()}')
+                    v = vehicle.get_velocity()
+                    a = vehicle.get_acceleration()
+                    t = 0.5
+                    locationDelta=1/2*a*t**2+v*t
+                    # print(f'locationDelta: {locationDelta}')
+                    fCoefficient=None
+                    if deltaThrottle==0 and deltaSteer==0 and deltaBrake==0:
+                        fCoefficient=1
+                    locationPrediction=vehicle.get_location()+fCoefficient*locationDelta
+                    # print(f'locationPrediction: {locationPrediction}')
+                    listLocationPrediction.append(locationPrediction)
 
                 throttle=1
                 steer=0
